@@ -1045,3 +1045,5 @@ hr { border: 0; border-top: var(--border-w, 1px) solid var(--line); margin: var(
 /* "nativo" revierte .btn con all: revert; restaurar el botón de menú del panel */
 [data-theme="nativo"] .admin-burger { display: none; }
 @media (max-width: 900px) { [data-theme="nativo"] .admin-burger { display: inline-block; } }
+/* Metro: los mosaicos de colores son solo para el sitio público; en el panel las tarjetas quedan neutras */
+[data-theme="metro"] .admin-content .card, [data-theme="metro"] .modal .card { --tile: var(--surface) !important; }
