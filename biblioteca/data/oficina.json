@@ -7,7 +7,7 @@
   "demo": "../oficina/index.html",
   "theme": "aurora",
   "layout": "clasica",
-  "generatedAt": "2026-10-30T23:37:59.423Z",
+  "generatedAt": "2026-10-30T23:45:40.719Z",
   "viewport": {
     "width": 1440,
     "height": 900
@@ -78,7 +78,7 @@
       "login": null,
       "kind": "modal",
       "from": "Botón \"Perfil\" de una tarjeta del directorio",
-      "description": "Ficha con cargo, área, estado de hoy, correo, anexo, teléfono, puesto, jefatura, equipo a cargo y habilidades.",
+      "description": "Ficha con cargo, área, estado de hoy, contacto, jefatura, equipo a cargo, habilidades y un mini plano con la ubicación de su puesto.",
       "actions": [
         "Ver cómo contactarla",
         "Saber dónde se sienta y si vino hoy",
