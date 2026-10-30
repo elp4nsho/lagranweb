@@ -1,0 +1,1227 @@
+{
+  "app": "hotel",
+  "dir": "hotel",
+  "name": "Hotel Bahía Lumen",
+  "kind": "Hotel boutique con motor de reservas y PMS",
+  "description": "Hotel boutique en Valparaíso con sitio público y motor de reservas directo, gestión de la reserva y check-in online, portal del huésped, app de limpieza y un PMS con recepción, calendario, housekeeping, tarifas, channel manager y reportes.",
+  "demo": "../hotel/index.html",
+  "theme": "luxury",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:44:58.021Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Lo que ve cualquier visitante: hotel, habitaciones, reserva directa y gestión de su reserva."
+    },
+    {
+      "id": "huesped",
+      "label": "Huésped",
+      "desc": "Portal del huésped con cuenta: estadías y Club Lumen."
+    },
+    {
+      "id": "recepcion",
+      "label": "Recepción",
+      "desc": "Front desk: llegadas, salidas, folios, calendario, reservas y huéspedes."
+    },
+    {
+      "id": "housekeeping",
+      "label": "Housekeeping",
+      "desc": "Limpieza de habitaciones: app móvil de camareras y tablero por estado."
+    },
+    {
+      "id": "revenue",
+      "label": "Revenue manager",
+      "desc": "Indicadores, tarifas y temporadas, canales de venta, habitaciones y reportes."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Contenido del sitio, configuración, usuarios y bitácora."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de inicio con buscador de disponibilidad, habitaciones destacadas, spa, restaurante y ofertas. Los textos y el aviso superior se editan desde el panel.",
+      "actions": [
+        "Elegir fechas, adultos, niños y código promocional",
+        "Ver disponibilidad y pasar al motor de reservas",
+        "Conocer las habitaciones con precio desde",
+        "Ir al spa, al restaurante o a las ofertas"
+      ],
+      "img": "img/hotel/portada.webp",
+      "thumb": "img/hotel/portada-thumb.webp",
+      "mobile": "img/hotel/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "habitaciones",
+      "title": "Habitaciones",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/habitaciones",
+      "capturedUrl": "index.html#/habitaciones",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Los 5 tipos de habitación con superficie, camas, capacidad y precio desde por noche, con buscador de fechas y personas.",
+      "actions": [
+        "Buscar disponibilidad por fechas y personas",
+        "Comparar superficie, camas y capacidad",
+        "Ver el detalle de cada habitación",
+        "Reservar directo"
+      ],
+      "img": "img/hotel/habitaciones.webp",
+      "thumb": "img/hotel/habitaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "habitacion",
+      "title": "Ficha de habitación",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/habitacion/superior",
+      "capturedUrl": "index.html#/habitacion/superior",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ficha con galería ilustrada, descripción, amenidades y la tarifa de los próximos días según temporada y fin de semana.",
+      "actions": [
+        "Recorrer la galería",
+        "Revisar amenidades y capacidad",
+        "Ver el precio por noche de los próximos días",
+        "Reservar esta habitación"
+      ],
+      "img": "img/hotel/habitacion.webp",
+      "thumb": "img/hotel/habitacion-thumb.webp",
+      "mobile": "img/hotel/habitacion-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reservar-fechas",
+      "title": "Reserva: fechas",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/reservar",
+      "capturedUrl": "index.html#/reservar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Primer paso del motor de reservas: calendario de dos meses con precio desde por noche, adultos, niños y código promocional.",
+      "actions": [
+        "Elegir llegada y salida en el calendario",
+        "Ver el precio desde de cada día",
+        "Indicar adultos y niños",
+        "Aplicar un código promocional"
+      ],
+      "img": "img/hotel/reservar-fechas.webp",
+      "thumb": "img/hotel/reservar-fechas-thumb.webp",
+      "mobile": "img/hotel/reservar-fechas-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reservar-habitacion",
+      "title": "Reserva: habitación",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/reservar",
+      "capturedUrl": "index.html#/reservar?paso=2",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Tipos disponibles para las fechas elegidas con el total de la estadía, descuento aplicado y cupos restantes. Los agotados aparecen deshabilitados.",
+      "actions": [
+        "Comparar el total por tipo de habitación",
+        "Ver cuántas quedan disponibles",
+        "Elegir la habitación"
+      ],
+      "img": "img/hotel/reservar-habitacion.webp",
+      "thumb": "img/hotel/reservar-habitacion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reservar-extras",
+      "title": "Reserva: extras",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/reservar",
+      "capturedUrl": "index.html#/reservar?paso=3",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Servicios adicionales para sumar a la estadía (desayuno, circuito spa, traslados, etc.), con cantidad y resumen de precio al lado.",
+      "actions": [
+        "Agregar o quitar extras",
+        "Ajustar cantidades",
+        "Ver cómo cambia el total"
+      ],
+      "img": "img/hotel/reservar-extras.webp",
+      "thumb": "img/hotel/reservar-extras-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reservar-datos",
+      "title": "Reserva: datos del huésped",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/reservar",
+      "capturedUrl": "index.html#/reservar?paso=4",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Datos del huésped principal, hora estimada de llegada, solicitudes especiales y aceptación de la política de cancelación. Con cuenta de huésped se completa solo.",
+      "actions": [
+        "Ingresar nombre, correo, teléfono, país y documento",
+        "Indicar la hora de llegada",
+        "Dejar solicitudes especiales",
+        "Aceptar la política de cancelación"
+      ],
+      "img": "img/hotel/reservar-datos.webp",
+      "thumb": "img/hotel/reservar-datos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reservar-pago",
+      "title": "Reserva: pago",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/reservar",
+      "capturedUrl": "index.html#/reservar?paso=5",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Pago simulado con tarjeta: total o abono inicial, con vista previa de la tarjeta y resumen de la estadía.",
+      "actions": [
+        "Elegir pagar el total o un abono",
+        "Ingresar los datos de la tarjeta",
+        "Revisar el resumen antes de confirmar",
+        "Pagar y confirmar"
+      ],
+      "img": "img/hotel/reservar-pago.webp",
+      "thumb": "img/hotel/reservar-pago-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reservar-confirmada",
+      "title": "Reserva confirmada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/reservar?paso=6",
+      "capturedUrl": "index.html#/reservar?paso=6",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Confirmación con el código de reserva, habitación, fechas, total y plazo de cancelación gratuita. La reserva aparece al instante en el PMS.",
+      "actions": [
+        "Ver el código y el detalle de la reserva",
+        "Saber hasta cuándo puede cancelar gratis",
+        "Ir a gestionar la reserva",
+        "Hacer otra reserva"
+      ],
+      "img": "img/hotel/reservar-confirmada.webp",
+      "thumb": "img/hotel/reservar-confirmada-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mi-reserva",
+      "title": "Gestionar mi reserva",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/mi-reserva",
+      "capturedUrl": "index.html#/mi-reserva",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Búsqueda de una reserva con su código y el correo usado al reservar.",
+      "actions": [
+        "Buscar la reserva con código y correo",
+        "Ver el detalle y el folio",
+        "Hacer el check-in online",
+        "Cambiar fechas o cancelar según la política"
+      ],
+      "img": "img/hotel/mi-reserva.webp",
+      "thumb": "img/hotel/mi-reserva-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mi-reserva-detalle",
+      "title": "Detalle de mi reserva",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/mi-reserva?code=BL-DEMO1&email=emma%40correo.de&tab=detalle",
+      "capturedUrl": "index.html#/mi-reserva?code=BL-DEMO1&email=emma%40correo.de&tab=detalle",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Panel de la reserva con habitación, fechas, personas y el folio con cargos y pagos.",
+      "actions": [
+        "Revisar el folio con cargos y pagos",
+        "Ver el saldo pendiente",
+        "Pasar al check-in online, cambio de fechas o cancelación"
+      ],
+      "img": "img/hotel/mi-reserva-detalle.webp",
+      "thumb": "img/hotel/mi-reserva-detalle-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mi-reserva-checkin",
+      "title": "Check-in online",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/mi-reserva?code=BL-DEMO1&email=emma%40correo.de&tab=checkin",
+      "capturedUrl": "index.html#/mi-reserva?code=BL-DEMO1&email=emma%40correo.de&tab=checkin",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Pre-registro antes de llegar: documento, hora de llegada y aceptación de normas. Recepción lo ve marcado en la tarjeta de llegada.",
+      "actions": [
+        "Completar documento y datos de contacto",
+        "Indicar la hora estimada de llegada",
+        "Aceptar las normas del hotel",
+        "Enviar el check-in"
+      ],
+      "img": "img/hotel/mi-reserva-checkin.webp",
+      "thumb": "img/hotel/mi-reserva-checkin-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mi-reserva-fechas",
+      "title": "Cambiar fechas",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/mi-reserva?code=BL-DEMO1&email=emma%40correo.de&tab=modificar",
+      "capturedUrl": "index.html#/mi-reserva?code=BL-DEMO1&email=emma%40correo.de&tab=modificar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Cambio de fechas con calendario: revisa la disponibilidad y muestra la diferencia de precio antes de aplicar.",
+      "actions": [
+        "Elegir nuevas fechas",
+        "Ver si hay disponibilidad",
+        "Revisar la diferencia de precio",
+        "Aplicar el cambio"
+      ],
+      "img": "img/hotel/mi-reserva-fechas.webp",
+      "thumb": "img/hotel/mi-reserva-fechas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mi-reserva-cancelar",
+      "title": "Cancelar reserva",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/mi-reserva?code=BL-DEMO1&email=emma%40correo.de&tab=cancelar",
+      "capturedUrl": "index.html#/mi-reserva?code=BL-DEMO1&email=emma%40correo.de&tab=cancelar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Cancelación según la política del hotel: indica si es gratuita o cuántas noches se cobran de penalidad.",
+      "actions": [
+        "Ver si la cancelación es gratuita",
+        "Conocer la penalidad si corresponde",
+        "Cancelar la reserva"
+      ],
+      "img": "img/hotel/mi-reserva-cancelar.webp",
+      "thumb": "img/hotel/mi-reserva-cancelar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "spa",
+      "title": "Spa",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/spa",
+      "capturedUrl": "index.html#/spa",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página del spa con horario, instalaciones y tratamientos con duración y precio. Todo se edita desde el panel.",
+      "actions": [
+        "Conocer las instalaciones y el horario",
+        "Ver los tratamientos con duración y precio",
+        "Solicitar la reserva de un tratamiento"
+      ],
+      "img": "img/hotel/spa.webp",
+      "thumb": "img/hotel/spa-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "spa-solicitud",
+      "title": "Solicitud de spa o restaurante",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/spa",
+      "capturedUrl": "index.html#/spa",
+      "login": null,
+      "kind": "modal",
+      "from": "Botón \"Reservar\" de un tratamiento o \"Reservar mesa\" del restaurante",
+      "description": "Formulario para pedir hora en el spa o mesa en el restaurante. La solicitud llega a la pestaña \"Solicitudes\" de recepción.",
+      "actions": [
+        "Elegir fecha y hora",
+        "Indicar personas",
+        "Dejar nombre, contacto y número de reserva si es huésped",
+        "Enviar la solicitud"
+      ],
+      "img": "img/hotel/spa-solicitud.webp",
+      "thumb": "img/hotel/spa-solicitud-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "restaurante",
+      "title": "Restaurante",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/restaurante",
+      "capturedUrl": "index.html#/restaurante",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página del restaurante con horario y carta por secciones (entradas, fondos y postres) con precios.",
+      "actions": [
+        "Ver la carta con precios",
+        "Revisar el horario",
+        "Solicitar una mesa"
+      ],
+      "img": "img/hotel/restaurante.webp",
+      "thumb": "img/hotel/restaurante-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ofertas",
+      "title": "Ofertas",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/ofertas",
+      "capturedUrl": "index.html#/ofertas",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Beneficios de reservar directo con códigos de descuento vigentes y sus condiciones (mínimo de noches, anticipación).",
+      "actions": [
+        "Ver los descuentos y sus condiciones",
+        "Usar un código directo en el motor de reservas",
+        "Revisar lo que siempre incluye la reserva directa"
+      ],
+      "img": "img/hotel/ofertas.webp",
+      "thumb": "img/hotel/ofertas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso común para huéspedes (portal) y equipo (PMS), con registro de cuenta de huésped y cuentas de prueba de un clic.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic como administrador, recepción, housekeeping, revenue o huésped",
+        "Crear una cuenta de huésped"
+      ],
+      "img": "img/hotel/login.webp",
+      "thumb": "img/hotel/login-thumb.webp",
+      "mobile": "img/hotel/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal",
+      "title": "Portal del huésped",
+      "section": "huesped",
+      "roles": null,
+      "url": "index.html#/portal",
+      "capturedUrl": "index.html#/portal",
+      "login": {
+        "id": "u-guest",
+        "name": "Emma Schmidt",
+        "role": "Huésped",
+        "email": "emma@correo.de",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuenta del huésped con sus datos, próximas y pasadas estadías y su nivel en el programa Club Lumen.",
+      "actions": [
+        "Ver próximas y pasadas estadías",
+        "Abrir una estadía para su detalle, check-in o cambios",
+        "Revisar su nivel y beneficios Club Lumen",
+        "Reservar con sus datos ya completos"
+      ],
+      "img": "img/hotel/portal.webp",
+      "thumb": "img/hotel/portal-thumb.webp",
+      "mobile": "img/hotel/portal-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-llegadas",
+      "title": "Recepción: llegadas",
+      "section": "recepcion",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/recepcion",
+      "capturedUrl": "admin.html#/recepcion",
+      "login": {
+        "id": "u-rec",
+        "name": "Felipe Navarro",
+        "role": "Recepción",
+        "email": "recepcion@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Front desk del día con pestañas de llegadas, salidas, huéspedes en casa y solicitudes. Cada llegada permite elegir habitación libre y hacer el check-in.",
+      "actions": [
+        "Asignar habitación y hacer check-in",
+        "Ver quién completó el check-in online",
+        "Hacer check-out y revisar saldos",
+        "Atender solicitudes de spa y restaurante",
+        "Registrar un walk-in"
+      ],
+      "img": "img/hotel/recepcion-llegadas.webp",
+      "thumb": "img/hotel/recepcion-llegadas-thumb.webp",
+      "mobile": "img/hotel/recepcion-llegadas-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-folio",
+      "title": "Folio de la estadía",
+      "section": "recepcion",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/recepcion/encasa",
+      "capturedUrl": "admin.html#/recepcion/encasa",
+      "login": {
+        "id": "u-rec",
+        "name": "Felipe Navarro",
+        "role": "Recepción",
+        "email": "recepcion@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Folio\" en salidas, huéspedes en casa o una reserva",
+      "description": "Cuenta de la estadía con alojamiento, extras y consumos, pagos registrados y saldo, con emisión de boleta.",
+      "actions": [
+        "Agregar cargos (minibar, restaurante, lavandería)",
+        "Registrar pagos",
+        "Ver el saldo pendiente",
+        "Emitir la boleta electrónica (demo)"
+      ],
+      "img": "img/hotel/recepcion-folio.webp",
+      "thumb": "img/hotel/recepcion-folio-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-walkin",
+      "title": "Nueva reserva / walk-in",
+      "section": "recepcion",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/recepcion",
+      "capturedUrl": "admin.html#/recepcion",
+      "login": {
+        "id": "u-rec",
+        "name": "Felipe Navarro",
+        "role": "Recepción",
+        "email": "recepcion@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Walk-in\" de Recepción o \"Nueva reserva\"",
+      "description": "Alta de reserva interna con huésped, tipo y habitación, fechas, personas, canal, extras y estado, con el total calculado.",
+      "actions": [
+        "Elegir o crear el huésped",
+        "Asignar tipo, habitación y fechas",
+        "Indicar canal y extras",
+        "Ver el total y guardar"
+      ],
+      "img": "img/hotel/recepcion-walkin.webp",
+      "thumb": "img/hotel/recepcion-walkin-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-calendario",
+      "title": "Calendario",
+      "section": "recepcion",
+      "roles": [
+        "Administrador",
+        "Recepción",
+        "Revenue manager"
+      ],
+      "url": "admin.html#/calendario",
+      "capturedUrl": "admin.html#/calendario",
+      "login": {
+        "id": "u-rec",
+        "name": "Felipe Navarro",
+        "role": "Recepción",
+        "email": "recepcion@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Grilla de habitaciones por día con las reservas como barras de color según su estado. Un clic en una barra abre la reserva; en una celda vacía crea una nueva.",
+      "actions": [
+        "Ver 7, 14 o 21 días",
+        "Moverse entre semanas o volver a hoy",
+        "Abrir una reserva desde su barra",
+        "Crear una reserva en una celda libre"
+      ],
+      "img": "img/hotel/recepcion-calendario.webp",
+      "thumb": "img/hotel/recepcion-calendario-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-reservas",
+      "title": "Reservas",
+      "section": "recepcion",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/reservas",
+      "capturedUrl": "admin.html#/reservas",
+      "login": {
+        "id": "u-rec",
+        "name": "Felipe Navarro",
+        "role": "Recepción",
+        "email": "recepcion@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todas las reservas de todos los canales con huésped, fechas, tipo, habitación, canal, total y estado.",
+      "actions": [
+        "Filtrar por estado, canal, tipo y periodo",
+        "Buscar por código o huésped",
+        "Abrir el detalle de una reserva",
+        "Crear una reserva",
+        "Exportar a CSV"
+      ],
+      "img": "img/hotel/recepcion-reservas.webp",
+      "thumb": "img/hotel/recepcion-reservas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-reserva",
+      "title": "Detalle de reserva",
+      "section": "recepcion",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/reservas",
+      "capturedUrl": "admin.html#/reservas",
+      "login": {
+        "id": "u-rec",
+        "name": "Felipe Navarro",
+        "role": "Recepción",
+        "email": "recepcion@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Clic en una reserva de la tabla o del calendario",
+      "description": "Ficha de la reserva con huésped, habitación, fechas, extras, saldo y el flujo de estados.",
+      "actions": [
+        "Cambiar el estado (check-in, check-out, no-show, cancelada)",
+        "Editar la reserva",
+        "Abrir el folio",
+        "Eliminar la reserva"
+      ],
+      "img": "img/hotel/recepcion-reserva.webp",
+      "thumb": "img/hotel/recepcion-reserva-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-huespedes",
+      "title": "Huéspedes",
+      "section": "recepcion",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/huespedes",
+      "capturedUrl": "admin.html#/huespedes",
+      "login": {
+        "id": "u-rec",
+        "name": "Felipe Navarro",
+        "role": "Recepción",
+        "email": "recepcion@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "CRM de huéspedes con país, estadías, gasto total y próxima o última visita, con marca VIP.",
+      "actions": [
+        "Filtrar por país o VIP",
+        "Buscar un huésped",
+        "Abrir su ficha",
+        "Crear o editar huéspedes",
+        "Exportar a CSV"
+      ],
+      "img": "img/hotel/recepcion-huespedes.webp",
+      "thumb": "img/hotel/recepcion-huespedes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-huesped",
+      "title": "Ficha del huésped",
+      "section": "recepcion",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/huespedes",
+      "capturedUrl": "admin.html#/huespedes",
+      "login": {
+        "id": "u-rec",
+        "name": "Felipe Navarro",
+        "role": "Recepción",
+        "email": "recepcion@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Clic en un huésped de la tabla",
+      "description": "Ficha con datos de contacto, preferencias, etiquetas, gasto total e historial de estadías.",
+      "actions": [
+        "Revisar preferencias y etiquetas",
+        "Ver el historial de estadías y abrir cualquiera",
+        "Marcar como VIP",
+        "Editar los datos"
+      ],
+      "img": "img/hotel/recepcion-huesped.webp",
+      "thumb": "img/hotel/recepcion-huesped-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "limpieza-app",
+      "title": "App de limpieza",
+      "section": "housekeeping",
+      "roles": [
+        "Administrador",
+        "Recepción",
+        "Housekeeping"
+      ],
+      "url": "limpieza.html",
+      "capturedUrl": "limpieza.html",
+      "login": {
+        "id": "u-hk",
+        "name": "Marisol Vidal",
+        "role": "Housekeeping",
+        "email": "limpieza@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "App móvil para camareras con sus habitaciones asignadas, el estado de cada una y si está ocupada o libre.",
+      "actions": [
+        "Ver solo sus habitaciones o todas",
+        "Marcar una habitación como limpia",
+        "Reportar un problema de mantención",
+        "Seguir el avance del turno"
+      ],
+      "img": "img/hotel/limpieza-app.webp",
+      "thumb": "img/hotel/limpieza-app-thumb.webp",
+      "mobile": "img/hotel/limpieza-app-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "limpieza-problema",
+      "title": "Reportar problema",
+      "section": "housekeeping",
+      "roles": [
+        "Administrador",
+        "Recepción",
+        "Housekeeping"
+      ],
+      "url": "limpieza.html",
+      "capturedUrl": "limpieza.html",
+      "login": {
+        "id": "u-hk",
+        "name": "Marisol Vidal",
+        "role": "Housekeeping",
+        "email": "limpieza@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Reportar\" de una habitación",
+      "description": "Reporte de un desperfecto en la habitación. Queda como nota visible en el tablero de housekeeping.",
+      "actions": [
+        "Elegir el tipo de problema",
+        "Describirlo",
+        "Enviar el reporte"
+      ],
+      "img": "img/hotel/limpieza-problema.webp",
+      "thumb": "img/hotel/limpieza-problema-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "housekeeping-tablero",
+      "title": "Tablero de housekeeping",
+      "section": "housekeeping",
+      "roles": [
+        "Administrador",
+        "Recepción",
+        "Housekeeping"
+      ],
+      "url": "admin.html#/housekeeping",
+      "capturedUrl": "admin.html#/housekeeping",
+      "login": {
+        "id": "u-hk",
+        "name": "Marisol Vidal",
+        "role": "Housekeeping",
+        "email": "limpieza@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Habitaciones en columnas por estado (sucia, limpia, inspeccionada, fuera de servicio) con filtro por piso, camarera asignada y notas.",
+      "actions": [
+        "Cambiar el estado de limpieza",
+        "Asignar camarera",
+        "Dejar notas por habitación",
+        "Marcar fuera de servicio con motivo",
+        "Filtrar por piso"
+      ],
+      "img": "img/hotel/housekeeping-tablero.webp",
+      "thumb": "img/hotel/housekeeping-tablero-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "revenue-dashboard",
+      "title": "Dashboard",
+      "section": "revenue",
+      "roles": [
+        "Administrador",
+        "Recepción",
+        "Revenue manager"
+      ],
+      "url": "admin.html#/dashboard",
+      "capturedUrl": "admin.html#/dashboard",
+      "login": {
+        "id": "u-rev",
+        "name": "Andrés Lagos",
+        "role": "Revenue manager",
+        "email": "revenue@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Indicadores hoteleros de hoy y de 30 días (ocupación, ADR, RevPAR) con llegadas y salidas del día, huéspedes en casa, ocupación de 30 días y pronóstico de 14 días.",
+      "actions": [
+        "Ver ocupación, ADR y RevPAR",
+        "Comparar con los 30 días previos",
+        "Revisar llegadas y salidas de hoy",
+        "Ver el estado de limpieza",
+        "Anticipar la ocupación de las próximas 2 semanas"
+      ],
+      "img": "img/hotel/revenue-dashboard.webp",
+      "thumb": "img/hotel/revenue-dashboard-thumb.webp",
+      "mobile": "img/hotel/revenue-dashboard-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "revenue-tarifas",
+      "title": "Tarifas y temporadas",
+      "section": "revenue",
+      "roles": [
+        "Administrador",
+        "Revenue manager"
+      ],
+      "url": "admin.html#/tarifas",
+      "capturedUrl": "admin.html#/tarifas",
+      "login": {
+        "id": "u-rev",
+        "name": "Andrés Lagos",
+        "role": "Revenue manager",
+        "email": "revenue@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tarifa base por tipo, recargo de fin de semana, temporadas con multiplicador y un calendario de precios de 21 días. Los cambios actualizan el sitio y el motor de reservas.",
+      "actions": [
+        "Editar la tarifa base de cada tipo",
+        "Ajustar el recargo de viernes y sábado",
+        "Crear, editar o desactivar temporadas",
+        "Revisar el precio resultante por día"
+      ],
+      "img": "img/hotel/revenue-tarifas.webp",
+      "thumb": "img/hotel/revenue-tarifas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "revenue-temporada",
+      "title": "Temporada",
+      "section": "revenue",
+      "roles": [
+        "Administrador",
+        "Revenue manager"
+      ],
+      "url": "admin.html#/tarifas",
+      "capturedUrl": "admin.html#/tarifas",
+      "login": {
+        "id": "u-rev",
+        "name": "Andrés Lagos",
+        "role": "Revenue manager",
+        "email": "revenue@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Temporada\" o \"Editar\" en Tarifas",
+      "description": "Definición de una temporada con nombre, fechas de inicio y término y multiplicador sobre la tarifa base.",
+      "actions": [
+        "Nombrar la temporada",
+        "Definir el rango de fechas",
+        "Fijar el multiplicador",
+        "Activarla o desactivarla"
+      ],
+      "img": "img/hotel/revenue-temporada.webp",
+      "thumb": "img/hotel/revenue-temporada-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "revenue-canales",
+      "title": "Channel manager",
+      "section": "revenue",
+      "roles": [
+        "Administrador",
+        "Revenue manager"
+      ],
+      "url": "admin.html#/canales",
+      "capturedUrl": "admin.html#/canales",
+      "login": {
+        "id": "u-rev",
+        "name": "Andrés Lagos",
+        "role": "Revenue manager",
+        "email": "revenue@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Canales de venta simulados (sitio directo, agencias en línea, teléfono y corporativo) con comisión, markup, cupos por tipo, reservas de 90 días y última sincronización.",
+      "actions": [
+        "Ver la proporción de reservas directas y comisiones pagadas",
+        "Activar o pausar canales",
+        "Editar comisión, markup y cupos",
+        "Sincronizar un canal o todos"
+      ],
+      "img": "img/hotel/revenue-canales.webp",
+      "thumb": "img/hotel/revenue-canales-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "revenue-habitaciones",
+      "title": "Habitaciones",
+      "section": "revenue",
+      "roles": [
+        "Administrador",
+        "Revenue manager"
+      ],
+      "url": "admin.html#/habitaciones",
+      "capturedUrl": "admin.html#/habitaciones",
+      "login": {
+        "id": "u-rev",
+        "name": "Andrés Lagos",
+        "role": "Revenue manager",
+        "email": "revenue@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tipos de habitación (descripción, superficie, capacidad, tarifa base y visibilidad en el sitio) y habitaciones físicas con número y piso.",
+      "actions": [
+        "Crear y editar tipos de habitación",
+        "Ocultar un tipo del sitio",
+        "Administrar las habitaciones físicas",
+        "Exportar a CSV"
+      ],
+      "img": "img/hotel/revenue-habitaciones.webp",
+      "thumb": "img/hotel/revenue-habitaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "revenue-reportes",
+      "title": "Reportes",
+      "section": "revenue",
+      "roles": [
+        "Administrador",
+        "Revenue manager"
+      ],
+      "url": "admin.html#/reportes",
+      "capturedUrl": "admin.html#/reportes",
+      "login": {
+        "id": "u-rev",
+        "name": "Andrés Lagos",
+        "role": "Revenue manager",
+        "email": "revenue@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Estadía promedio, anticipación, tasa de cancelación y no-shows, con ocupación por mes, ingresos por tipo y reservas por canal.",
+      "actions": [
+        "Ver ocupación mensual",
+        "Comparar ingresos por tipo de habitación",
+        "Analizar reservas por canal",
+        "Exportar a CSV"
+      ],
+      "img": "img/hotel/revenue-reportes.webp",
+      "thumb": "img/hotel/revenue-reportes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-contenido",
+      "title": "Contenido del sitio",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/contenido",
+      "capturedUrl": "admin.html#/contenido",
+      "login": {
+        "id": "u-admin",
+        "name": "Isabel Undurraga",
+        "role": "Administrador",
+        "email": "admin@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "CMS del sitio en pestañas: textos de portada, spa y restaurante, ofertas con código, extras, tratamientos y carta. Lo publicado aparece de inmediato en el sitio.",
+      "actions": [
+        "Editar los textos de cada página y el aviso superior",
+        "Crear ofertas con código y condiciones",
+        "Administrar extras y tratamientos del spa",
+        "Editar la carta del restaurante"
+      ],
+      "img": "img/hotel/admin-contenido.webp",
+      "thumb": "img/hotel/admin-contenido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-config",
+      "title": "Configuración",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/config",
+      "capturedUrl": "admin.html#/config",
+      "login": {
+        "id": "u-admin",
+        "name": "Isabel Undurraga",
+        "role": "Administrador",
+        "email": "admin@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos del hotel y políticas que usa el motor de reservas: horarios de check-in y check-out, días de cancelación gratuita, penalidad y abono mínimo.",
+      "actions": [
+        "Editar nombre, dirección, teléfono y correo",
+        "Definir horarios de check-in y check-out",
+        "Ajustar la política de cancelación y la penalidad",
+        "Fijar el abono mínimo de la reserva web"
+      ],
+      "img": "img/hotel/admin-config.webp",
+      "thumb": "img/hotel/admin-config-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Isabel Undurraga",
+        "role": "Administrador",
+        "email": "admin@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas del equipo y huéspedes con rol, último acceso y estado, más la matriz de permisos por rol.",
+      "actions": [
+        "Crear usuarios y asignar rol",
+        "Activar o desactivar cuentas",
+        "Eliminar usuarios",
+        "Revisar los permisos de cada rol"
+      ],
+      "img": "img/hotel/admin-usuarios.webp",
+      "thumb": "img/hotel/admin-usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-actividad",
+      "title": "Actividad",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/actividad",
+      "capturedUrl": "admin.html#/actividad",
+      "login": {
+        "id": "u-admin",
+        "name": "Isabel Undurraga",
+        "role": "Administrador",
+        "email": "admin@bahialumen.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de acciones del PMS y del sitio: reservas, check-ins, cambios de tarifa y contenido.",
+      "actions": [
+        "Filtrar por acción y usuario",
+        "Buscar en el registro",
+        "Exportar a CSV"
+      ],
+      "img": "img/hotel/admin-actividad.webp",
+      "thumb": "img/hotel/admin-actividad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Lujo\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/hotel/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/hotel/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/hotel/look-app.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/hotel/look-editorial.webp"
+      },
+      {
+        "id": "nordic",
+        "group": "Estilo",
+        "label": "Nórdico",
+        "desc": "Minimalista, blanco y aire.",
+        "img": "img/hotel/look-nordic.webp"
+      },
+      {
+        "id": "aqua",
+        "group": "Estilo",
+        "label": "Aqua",
+        "desc": "Claro, brillante y redondeado.",
+        "img": "img/hotel/look-aqua.webp"
+      }
+    ]
+  }
+}

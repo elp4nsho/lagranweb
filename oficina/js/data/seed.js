@@ -277,12 +277,12 @@ export function seed() {
   neb.status = 'remoto'; andesFixed.status = 'oficina';
   for (let i = leaves.length - 1; i >= 0; i--) if (leaves[i].personId === neb.id || leaves[i].personId === andesFixed.id) leaves.splice(i, 1);
   const users = [
-    { name: 'Carla Muñoz', email: 'admin@quienesquien.demo', password: 'demo123', role: 'admin', color: '#4f46e5', demo: true, active: true, personId: null, companyId: null },
-    { name: 'Rodrigo Fuentes', email: 'rrhh@quienesquien.demo', password: 'demo123', role: 'rrhh', color: '#b45309', demo: true, active: true, personId: null, companyId: null },
-    { name: 'Daniela Pizarro', email: 'recepcion@quienesquien.demo', password: 'demo123', role: 'recepcion', color: '#0d9488', demo: true, active: true, personId: null, companyId: null },
-    { name: neb.name, email: neb.email, password: 'demo123', role: 'empleado', color: '#4f46e5', demo: true, active: true, personId: neb.id, companyId: 'nebula' },
-    { name: andesFixed.name, email: andesFixed.email, password: 'demo123', role: 'empleado', color: '#ea580c', demo: true, active: true, personId: andesFixed.id, companyId: 'andes' },
-    { name: 'Tomás Vergara', email: 'tomas.vergara@quienesquien.demo', password: 'demo123', role: 'recepcion', color: '#64748b', demo: false, active: false, personId: null, companyId: null }
+    { id: 'u-admin', name: 'Carla Muñoz', email: 'admin@quienesquien.demo', password: 'demo123', role: 'admin', color: '#4f46e5', demo: true, active: true, personId: null, companyId: null },
+    { id: 'u-rrhh', name: 'Rodrigo Fuentes', email: 'rrhh@quienesquien.demo', password: 'demo123', role: 'rrhh', color: '#b45309', demo: true, active: true, personId: null, companyId: null },
+    { id: 'u-recepcion', name: 'Daniela Pizarro', email: 'recepcion@quienesquien.demo', password: 'demo123', role: 'recepcion', color: '#0d9488', demo: true, active: true, personId: null, companyId: null },
+    { id: 'u-nebula', name: neb.name, email: neb.email, password: 'demo123', role: 'empleado', color: '#4f46e5', demo: true, active: true, personId: neb.id, companyId: 'nebula' },
+    { id: 'u-andes', name: andesFixed.name, email: andesFixed.email, password: 'demo123', role: 'empleado', color: '#ea580c', demo: true, active: true, personId: andesFixed.id, companyId: 'andes' },
+    { id: 'u-tomas', name: 'Tomás Vergara', email: 'tomas.vergara@quienesquien.demo', password: 'demo123', role: 'recepcion', color: '#64748b', demo: false, active: false, personId: null, companyId: null }
   ];
   notifications.push(
     { personId: neb.id, text: 'Recuerda reservar tu puesto para mañana: quedan pocos en el Piso 2.', at: new Date(Date.now() - 3 * 36e5).toISOString(), read: false, kind: 'reserva' },

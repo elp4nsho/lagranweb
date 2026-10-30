@@ -1,0 +1,1524 @@
+{
+  "app": "inmobiliaria",
+  "dir": "inmobiliaria",
+  "name": "Hogar Austral Propiedades",
+  "kind": "Corredora de propiedades",
+  "description": "Corredora de propiedades con portal público (búsqueda con mapa, fichas, comparador, proyectos nuevos y publicación), cuenta de clientes y propietarios, app de corredores y panel de gestión con contratos de arriendo.",
+  "demo": "../inmobiliaria/index.html",
+  "theme": "bauhaus",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:39:32.771Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Lo que ve cualquier visitante, sin iniciar sesión."
+    },
+    {
+      "id": "cliente",
+      "label": "Cliente",
+      "desc": "Cuenta de quien busca: favoritos, búsquedas con alerta, avisos y visitas."
+    },
+    {
+      "id": "propietario",
+      "label": "Propietario",
+      "desc": "Seguimiento de las propiedades que el dueño entregó a la corredora."
+    },
+    {
+      "id": "corredor",
+      "label": "Corredor",
+      "desc": "App comercial: cartera, bandeja de leads, agenda de visitas y notas CRM."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Panel de gestión: inventario, leads, visitas, equipo, propietarios, contratos, contenido y sistema."
+    },
+    {
+      "id": "editor",
+      "label": "Editor de contenidos",
+      "desc": "El mismo panel, limitado al inventario y al contenido del sitio."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de inicio con buscador de compra o arriendo, banners, propiedades destacadas, comunas con más oferta, proyectos nuevos y llamado a publicar. Todo se administra desde el CMS del panel.",
+      "actions": [
+        "Buscar por operación, tipo, comuna y precio",
+        "Ver las propiedades destacadas",
+        "Explorar las comunas con más oferta",
+        "Ver proyectos en verde, en blanco o con entrega inmediata",
+        "Ir a publicar una propiedad"
+      ],
+      "img": "img/inmobiliaria/portada.webp",
+      "thumb": "img/inmobiliaria/portada-thumb.webp",
+      "mobile": "img/inmobiliaria/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "buscar",
+      "title": "Resultados de búsqueda",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/buscar?op=venta",
+      "capturedUrl": "index.html#/buscar?op=venta",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Listado de propiedades con filtros combinables, orden y paginación. Cada tarjeta permite guardar en favoritos o sumar al comparador.",
+      "actions": [
+        "Filtrar por operación, tipo, comuna, precio, dormitorios y m²",
+        "Buscar por texto (metro, piscina, código)",
+        "Ordenar resultados y paginar",
+        "Marcar favoritos y agregar al comparador",
+        "Guardar la búsqueda con alerta"
+      ],
+      "img": "img/inmobiliaria/buscar.webp",
+      "thumb": "img/inmobiliaria/buscar-thumb.webp",
+      "mobile": "img/inmobiliaria/buscar-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "buscar-mapa",
+      "title": "Búsqueda en mapa",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/buscar?op=venta&view=mapa",
+      "capturedUrl": "index.html#/buscar?op=venta&view=mapa",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Vista de mapa de Santiago dibujada por comunas, con los precios por zona y la lista de propiedades del área visible. No usa mapas externos: es una ilustración propia del sistema.",
+      "actions": [
+        "Ver la oferta repartida por comuna",
+        "Comparar precios por zona",
+        "Abrir una propiedad desde el mapa",
+        "Volver a la vista de lista"
+      ],
+      "img": "img/inmobiliaria/buscar-mapa.webp",
+      "thumb": "img/inmobiliaria/buscar-mapa-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "propiedad",
+      "title": "Ficha de propiedad",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/propiedad/p083",
+      "capturedUrl": "index.html#/propiedad/p083",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ficha completa con galería, características, plano, calculadora de crédito hipotecario, ubicación, corredor a cargo y propiedades similares.",
+      "actions": [
+        "Recorrer la galería de fotos",
+        "Revisar características y plano",
+        "Simular el dividendo con pie, plazo y tasa",
+        "Agendar una visita o contactar al corredor",
+        "Comparar o compartir la propiedad"
+      ],
+      "img": "img/inmobiliaria/propiedad.webp",
+      "thumb": "img/inmobiliaria/propiedad-thumb.webp",
+      "mobile": "img/inmobiliaria/propiedad-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "propiedad-visita",
+      "title": "Agendar visita",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/propiedad/p083",
+      "capturedUrl": "index.html#/propiedad/p083",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Agenda de visitas de la ficha: días próximos y horarios libres, con los ocupados deshabilitados. La solicitud crea un lead y avisa al corredor.",
+      "actions": [
+        "Elegir día y horario libre",
+        "Dejar nombre, correo y teléfono",
+        "Solicitar la visita",
+        "Cambiar a la pestaña de contacto para escribir un mensaje"
+      ],
+      "img": "img/inmobiliaria/propiedad-visita.webp",
+      "thumb": "img/inmobiliaria/propiedad-visita-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "comparador",
+      "title": "Comparador",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/comparar",
+      "capturedUrl": "index.html#/comparar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Tabla lado a lado de hasta 3 propiedades con precio, UF/m², superficie, dormitorios, gastos comunes y características.",
+      "actions": [
+        "Comparar precio y valor por m²",
+        "Revisar superficie, dormitorios y baños",
+        "Quitar una propiedad o vaciar el comparador",
+        "Abrir la ficha de cualquiera"
+      ],
+      "img": "img/inmobiliaria/comparador.webp",
+      "thumb": "img/inmobiliaria/comparador-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "proyectos",
+      "title": "Proyectos nuevos",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/proyectos",
+      "capturedUrl": "index.html#/proyectos",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Proyectos inmobiliarios con etapa (en verde, en blanco, entrega inmediata), comuna, inmobiliaria y precio desde.",
+      "actions": [
+        "Filtrar por etapa de construcción",
+        "Ver precio desde y fecha de entrega",
+        "Abrir la ficha de un proyecto"
+      ],
+      "img": "img/inmobiliaria/proyectos.webp",
+      "thumb": "img/inmobiliaria/proyectos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "proyecto",
+      "title": "Ficha de proyecto",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/proyecto/pr1",
+      "capturedUrl": "index.html#/proyecto/pr1",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ficha de un proyecto con descripción, tipologías disponibles con superficie y precio, ubicación y formulario de cotización.",
+      "actions": [
+        "Revisar las tipologías disponibles",
+        "Ver superficie y precio de cada una",
+        "Ubicar el proyecto",
+        "Pedir una cotización (llega como lead al panel)"
+      ],
+      "img": "img/inmobiliaria/proyecto.webp",
+      "thumb": "img/inmobiliaria/proyecto-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "publicar",
+      "title": "Publica tu propiedad",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/publicar",
+      "capturedUrl": "index.html#/publicar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Formulario en 5 pasos para que un dueño ofrezca su propiedad: operación, ubicación, características, precio y fotos, y contacto. Sugiere un precio según la comuna.",
+      "actions": [
+        "Elegir vender o arrendar y el tipo de propiedad",
+        "Ver cómo funciona el proceso",
+        "Avanzar o volver entre los pasos"
+      ],
+      "img": "img/inmobiliaria/publicar.webp",
+      "thumb": "img/inmobiliaria/publicar-thumb.webp",
+      "mobile": "img/inmobiliaria/publicar-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "publicar-caracteristicas",
+      "title": "Publicar: características",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/publicar",
+      "capturedUrl": "index.html#/publicar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Paso de características con dormitorios, baños, superficie, estacionamientos y una lista de atributos para marcar.",
+      "actions": [
+        "Indicar dormitorios, baños y m²",
+        "Marcar atributos como piscina, quincho o bodega",
+        "Agregar estacionamientos y año de construcción"
+      ],
+      "img": "img/inmobiliaria/publicar-caracteristicas.webp",
+      "thumb": "img/inmobiliaria/publicar-caracteristicas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "publicar-enviada",
+      "title": "Propiedad enviada a revisión",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/publicar",
+      "capturedUrl": "index.html#/publicar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Confirmación con el código asignado. La propiedad entra al panel en estado \"En revisión\", se asigna a un corredor y se avisa al administrador.",
+      "actions": [
+        "Ver el código de la propiedad",
+        "Saber que un corredor lo contactará",
+        "Crear una cuenta para seguir el estado"
+      ],
+      "img": "img/inmobiliaria/publicar-enviada.webp",
+      "thumb": "img/inmobiliaria/publicar-enviada-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso y registro",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso para el equipo y los usuarios, registro de clientes y propietarios, y cuentas de demostración para entrar con un clic.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Registrarse como cliente o propietario",
+        "Entrar con un clic como administrador, editor, corredor, propietario o cliente",
+        "Volver al sitio"
+      ],
+      "img": "img/inmobiliaria/login.webp",
+      "thumb": "img/inmobiliaria/login-thumb.webp",
+      "mobile": "img/inmobiliaria/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-favoritos",
+      "title": "Mis favoritos",
+      "section": "cliente",
+      "roles": [
+        "Cliente",
+        "Propietario"
+      ],
+      "url": "index.html#/cuenta/favoritos",
+      "capturedUrl": "index.html#/cuenta/favoritos",
+      "login": {
+        "id": "u-client",
+        "name": "Valentina Rojas",
+        "role": "Cliente",
+        "email": "cliente@demo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inicio de la cuenta con las propiedades guardadas como favoritas y pestañas para el resto de la actividad.",
+      "actions": [
+        "Ver sus propiedades favoritas",
+        "Quitar de favoritos o comparar",
+        "Moverse a búsquedas, alertas, visitas y perfil"
+      ],
+      "img": "img/inmobiliaria/cuenta-favoritos.webp",
+      "thumb": "img/inmobiliaria/cuenta-favoritos-thumb.webp",
+      "mobile": "img/inmobiliaria/cuenta-favoritos-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-busquedas",
+      "title": "Búsquedas guardadas",
+      "section": "cliente",
+      "roles": [
+        "Cliente",
+        "Propietario"
+      ],
+      "url": "index.html#/cuenta/busquedas",
+      "capturedUrl": "index.html#/cuenta/busquedas",
+      "login": {
+        "id": "u-client",
+        "name": "Valentina Rojas",
+        "role": "Cliente",
+        "email": "cliente@demo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Búsquedas guardadas con sus filtros y la opción de recibir alertas cuando se publica una propiedad que coincide.",
+      "actions": [
+        "Repetir una búsqueda guardada",
+        "Activar o desactivar alertas",
+        "Eliminar búsquedas"
+      ],
+      "img": "img/inmobiliaria/cuenta-busquedas.webp",
+      "thumb": "img/inmobiliaria/cuenta-busquedas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "guardar-busqueda",
+      "title": "Guardar búsqueda",
+      "section": "cliente",
+      "roles": [
+        "Cliente",
+        "Propietario"
+      ],
+      "url": "index.html#/buscar?op=venta",
+      "capturedUrl": "index.html#/buscar?op=venta",
+      "login": {
+        "id": "u-client",
+        "name": "Valentina Rojas",
+        "role": "Cliente",
+        "email": "cliente@demo.cl",
+        "password": "cliente123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Guardar búsqueda\" en los resultados",
+      "description": "Ventana para guardar los filtros actuales con un nombre y activar la alerta de nuevas publicaciones.",
+      "actions": [
+        "Poner un nombre a la búsqueda",
+        "Activar la alerta por nuevas coincidencias",
+        "Guardar"
+      ],
+      "img": "img/inmobiliaria/guardar-busqueda.webp",
+      "thumb": "img/inmobiliaria/guardar-busqueda-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-alertas",
+      "title": "Alertas y avisos",
+      "section": "cliente",
+      "roles": [
+        "Cliente",
+        "Propietario"
+      ],
+      "url": "index.html#/cuenta/alertas",
+      "capturedUrl": "index.html#/cuenta/alertas",
+      "login": {
+        "id": "u-client",
+        "name": "Valentina Rojas",
+        "role": "Cliente",
+        "email": "cliente@demo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Avisos del sistema: nuevas propiedades que coinciden con sus búsquedas, cambios en sus visitas y novedades de sus propiedades.",
+      "actions": [
+        "Leer las alertas nuevas",
+        "Abrir la propiedad o la visita relacionada",
+        "Marcar todo como leído"
+      ],
+      "img": "img/inmobiliaria/cuenta-alertas.webp",
+      "thumb": "img/inmobiliaria/cuenta-alertas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-visitas",
+      "title": "Mis visitas",
+      "section": "cliente",
+      "roles": [
+        "Cliente",
+        "Propietario"
+      ],
+      "url": "index.html#/cuenta/visitas",
+      "capturedUrl": "index.html#/cuenta/visitas",
+      "login": {
+        "id": "u-client",
+        "name": "Valentina Rojas",
+        "role": "Cliente",
+        "email": "cliente@demo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Visitas solicitadas con la propiedad, fecha, hora, corredor y estado (pendiente, confirmada o realizada).",
+      "actions": [
+        "Ver sus próximas visitas",
+        "Saber si el corredor la confirmó",
+        "Cancelar una visita"
+      ],
+      "img": "img/inmobiliaria/cuenta-visitas.webp",
+      "thumb": "img/inmobiliaria/cuenta-visitas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-perfil",
+      "title": "Perfil",
+      "section": "cliente",
+      "roles": [
+        "Cliente",
+        "Propietario"
+      ],
+      "url": "index.html#/cuenta/perfil",
+      "capturedUrl": "index.html#/cuenta/perfil",
+      "login": {
+        "id": "u-client",
+        "name": "Valentina Rojas",
+        "role": "Cliente",
+        "email": "cliente@demo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos personales de la cuenta y cambio de contraseña.",
+      "actions": [
+        "Actualizar nombre y teléfono",
+        "Cambiar la contraseña",
+        "Cerrar sesión"
+      ],
+      "img": "img/inmobiliaria/cuenta-perfil.webp",
+      "thumb": "img/inmobiliaria/cuenta-perfil-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "propietario-propiedades",
+      "title": "Mis propiedades",
+      "section": "propietario",
+      "roles": [
+        "Propietario"
+      ],
+      "url": "index.html#/cuenta/propiedades",
+      "capturedUrl": "index.html#/cuenta/propiedades",
+      "login": {
+        "id": "u-owner",
+        "name": "Rodrigo Fuentes",
+        "role": "Propietario",
+        "email": "propietario@demo.cl",
+        "password": "prop123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Propiedades que el dueño entregó a la corredora, con estado (revisión, publicada, reservada, vendida o arrendada), visitas, leads y corredor a cargo.",
+      "actions": [
+        "Ver el estado de cada propiedad",
+        "Revisar cuántas visitas y consultas tiene",
+        "Conocer al corredor asignado",
+        "Publicar una propiedad nueva"
+      ],
+      "img": "img/inmobiliaria/propietario-propiedades.webp",
+      "thumb": "img/inmobiliaria/propietario-propiedades-thumb.webp",
+      "mobile": "img/inmobiliaria/propietario-propiedades-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "propietario-alertas",
+      "title": "Avisos del propietario",
+      "section": "propietario",
+      "roles": [
+        "Propietario"
+      ],
+      "url": "index.html#/cuenta/alertas",
+      "capturedUrl": "index.html#/cuenta/alertas",
+      "login": {
+        "id": "u-owner",
+        "name": "Rodrigo Fuentes",
+        "role": "Propietario",
+        "email": "propietario@demo.cl",
+        "password": "prop123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Avisos automáticos cuando una de sus propiedades cambia de estado (publicada, reservada, vendida o arrendada).",
+      "actions": [
+        "Enterarse de cada cambio de estado",
+        "Abrir la propiedad relacionada",
+        "Marcar los avisos como leídos"
+      ],
+      "img": "img/inmobiliaria/propietario-alertas.webp",
+      "thumb": "img/inmobiliaria/propietario-alertas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "corredor-dia",
+      "title": "Mi día",
+      "section": "corredor",
+      "roles": [
+        "Corredor"
+      ],
+      "url": "agente.html#/resumen",
+      "capturedUrl": "agente.html#/resumen",
+      "login": {
+        "id": "u-ag1",
+        "name": "Ignacio Valdés",
+        "role": "Corredor",
+        "email": "corredor@hogaraustral.cl",
+        "password": "corredor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen del corredor: visitas de hoy, leads nuevos por contactar, propiedades en borrador y su desempeño.",
+      "actions": [
+        "Ver las visitas del día",
+        "Contactar los leads nuevos",
+        "Revisar propiedades por enviar a revisión",
+        "Ver sus indicadores"
+      ],
+      "img": "img/inmobiliaria/corredor-dia.webp",
+      "thumb": "img/inmobiliaria/corredor-dia-thumb.webp",
+      "mobile": "img/inmobiliaria/corredor-dia-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "corredor-propiedades",
+      "title": "Mis propiedades",
+      "section": "corredor",
+      "roles": [
+        "Corredor"
+      ],
+      "url": "agente.html#/propiedades",
+      "capturedUrl": "agente.html#/propiedades",
+      "login": {
+        "id": "u-ag1",
+        "name": "Ignacio Valdés",
+        "role": "Corredor",
+        "email": "corredor@hogaraustral.cl",
+        "password": "corredor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cartera del corredor. Las captaciones nuevas quedan en borrador hasta que las envía a revisión.",
+      "actions": [
+        "Captar una propiedad nueva",
+        "Enviar a revisión, reservar o cerrar",
+        "Abrir la ficha de una propiedad",
+        "Filtrar por estado"
+      ],
+      "img": "img/inmobiliaria/corredor-propiedades.webp",
+      "thumb": "img/inmobiliaria/corredor-propiedades-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "corredor-captar",
+      "title": "Captar propiedad",
+      "section": "corredor",
+      "roles": [
+        "Corredor"
+      ],
+      "url": "agente.html#/propiedades",
+      "capturedUrl": "agente.html#/propiedades",
+      "login": {
+        "id": "u-ag1",
+        "name": "Ignacio Valdés",
+        "role": "Corredor",
+        "email": "corredor@hogaraustral.cl",
+        "password": "corredor123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Captar propiedad\"",
+      "description": "Formulario completo de ficha de propiedad: operación, tipo, ubicación, características, precio, propietario y descripción.",
+      "actions": [
+        "Cargar operación, tipo y comuna",
+        "Ingresar superficie, dormitorios y atributos",
+        "Fijar precio en UF o CLP",
+        "Asociar el propietario"
+      ],
+      "img": "img/inmobiliaria/corredor-captar.webp",
+      "thumb": "img/inmobiliaria/corredor-captar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "corredor-ficha",
+      "title": "Ficha de propiedad (corredor)",
+      "section": "corredor",
+      "roles": [
+        "Corredor"
+      ],
+      "url": "agente.html#/propiedades/p003",
+      "capturedUrl": "agente.html#/propiedades/p003",
+      "login": {
+        "id": "u-ag1",
+        "name": "Ignacio Valdés",
+        "role": "Corredor",
+        "email": "corredor@hogaraustral.cl",
+        "password": "corredor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha interna de una propiedad de su cartera con acciones de estado, leads, visitas e historial.",
+      "actions": [
+        "Cambiar el estado según el flujo",
+        "Ver leads y visitas de la propiedad",
+        "Revisar el historial de cambios",
+        "Editar la ficha"
+      ],
+      "img": "img/inmobiliaria/corredor-ficha.webp",
+      "thumb": "img/inmobiliaria/corredor-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "corredor-leads",
+      "title": "Bandeja de leads",
+      "section": "corredor",
+      "roles": [
+        "Corredor"
+      ],
+      "url": "agente.html#/leads",
+      "capturedUrl": "agente.html#/leads",
+      "login": {
+        "id": "u-ag1",
+        "name": "Ignacio Valdés",
+        "role": "Corredor",
+        "email": "corredor@hogaraustral.cl",
+        "password": "corredor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bandeja de interesados asignados al corredor con el detalle del lead, su etapa en el pipeline, notas CRM y acciones rápidas.",
+      "actions": [
+        "Filtrar por etapa y buscar",
+        "Avanzar el lead en el pipeline o marcarlo perdido",
+        "Agregar notas CRM",
+        "Agendar una visita con el lead",
+        "Llamar o escribir por correo"
+      ],
+      "img": "img/inmobiliaria/corredor-leads.webp",
+      "thumb": "img/inmobiliaria/corredor-leads-thumb.webp",
+      "mobile": "img/inmobiliaria/corredor-leads-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "corredor-visita-lead",
+      "title": "Agendar visita con lead",
+      "section": "corredor",
+      "roles": [
+        "Corredor"
+      ],
+      "url": "agente.html#/leads",
+      "capturedUrl": "agente.html#/leads",
+      "login": {
+        "id": "u-ag1",
+        "name": "Ignacio Valdés",
+        "role": "Corredor",
+        "email": "corredor@hogaraustral.cl",
+        "password": "corredor123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Agendar visita con este lead\"",
+      "description": "Agenda una visita para el lead en la propiedad que consultó.",
+      "actions": [
+        "Elegir fecha y hora",
+        "Dejar un comentario",
+        "Guardar; el lead pasa a etapa de visita"
+      ],
+      "img": "img/inmobiliaria/corredor-visita-lead.webp",
+      "thumb": "img/inmobiliaria/corredor-visita-lead-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "corredor-agenda",
+      "title": "Agenda de visitas",
+      "section": "corredor",
+      "roles": [
+        "Corredor"
+      ],
+      "url": "agente.html#/visitas",
+      "capturedUrl": "agente.html#/visitas",
+      "login": {
+        "id": "u-ag1",
+        "name": "Ignacio Valdés",
+        "role": "Corredor",
+        "email": "corredor@hogaraustral.cl",
+        "password": "corredor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Calendario mensual con las visitas del corredor coloreadas por estado, con vista alternativa en lista.",
+      "actions": [
+        "Moverse entre meses",
+        "Cambiar entre calendario y lista",
+        "Confirmar, cancelar o marcar realizada una visita",
+        "Agendar una visita nueva"
+      ],
+      "img": "img/inmobiliaria/corredor-agenda.webp",
+      "thumb": "img/inmobiliaria/corredor-agenda-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "corredor-notas",
+      "title": "Notas CRM",
+      "section": "corredor",
+      "roles": [
+        "Corredor"
+      ],
+      "url": "agente.html#/notas",
+      "capturedUrl": "agente.html#/notas",
+      "login": {
+        "id": "u-ag1",
+        "name": "Ignacio Valdés",
+        "role": "Corredor",
+        "email": "corredor@hogaraustral.cl",
+        "password": "corredor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Historial de notas registradas en todos sus leads, de la más reciente a la más antigua.",
+      "actions": [
+        "Revisar el seguimiento de cada lead",
+        "Ver la etapa actual del lead",
+        "Abrir el lead desde la nota"
+      ],
+      "img": "img/inmobiliaria/corredor-notas.webp",
+      "thumb": "img/inmobiliaria/corredor-notas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-dashboard",
+      "title": "Dashboard",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Editor de contenidos"
+      ],
+      "url": "admin.html#/dashboard",
+      "capturedUrl": "admin.html#/dashboard",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen con inventario, leads y visitas por semana, UF/m² promedio por comuna, propiedades por estado, embudo comercial, leads por origen y propiedades por aprobar.",
+      "actions": [
+        "Ver la evolución semanal de leads y visitas",
+        "Comparar UF/m² por comuna",
+        "Seguir el embudo comercial",
+        "Aprobar las propiedades en revisión"
+      ],
+      "img": "img/inmobiliaria/admin-dashboard.webp",
+      "thumb": "img/inmobiliaria/admin-dashboard-thumb.webp",
+      "mobile": "img/inmobiliaria/admin-dashboard-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-propiedades",
+      "title": "Propiedades",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Editor de contenidos"
+      ],
+      "url": "admin.html#/propiedades",
+      "capturedUrl": "admin.html#/propiedades",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inventario completo con estado, operación, comuna, precio y corredor. Las propiedades avanzan por el flujo borrador → revisión → publicada → reservada → vendida o arrendada.",
+      "actions": [
+        "Filtrar por estado, operación y comuna",
+        "Aprobar o rechazar propiedades en revisión",
+        "Crear, editar o eliminar fichas",
+        "Abrir la ficha interna"
+      ],
+      "img": "img/inmobiliaria/admin-propiedades.webp",
+      "thumb": "img/inmobiliaria/admin-propiedades-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-propiedad",
+      "title": "Ficha interna de propiedad",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Editor de contenidos"
+      ],
+      "url": "admin.html#/propiedades/p001",
+      "capturedUrl": "admin.html#/propiedades/p001",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha interna con acciones de flujo, opción de destacarla en la portada, leads, visitas, corredor, propietario, contrato vigente e historial de estados.",
+      "actions": [
+        "Cambiar el estado de la propiedad",
+        "Destacarla en la portada del sitio",
+        "Reasignar el corredor",
+        "Ver leads, visitas y contrato",
+        "Revisar el historial"
+      ],
+      "img": "img/inmobiliaria/admin-propiedad.webp",
+      "thumb": "img/inmobiliaria/admin-propiedad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-propiedad-editar",
+      "title": "Nueva propiedad",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Editor de contenidos"
+      ],
+      "url": "admin.html#/propiedades",
+      "capturedUrl": "admin.html#/propiedades",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva propiedad\"",
+      "description": "Formulario de ficha de propiedad del panel.",
+      "actions": [
+        "Cargar operación, tipo y ubicación",
+        "Ingresar características y precio",
+        "Asignar corredor y propietario",
+        "Definir el estado inicial"
+      ],
+      "img": "img/inmobiliaria/admin-propiedad-editar.webp",
+      "thumb": "img/inmobiliaria/admin-propiedad-editar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-proyectos",
+      "title": "Proyectos nuevos",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Editor de contenidos"
+      ],
+      "url": "admin.html#/proyectos",
+      "capturedUrl": "admin.html#/proyectos",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Desarrollos inmobiliarios que se muestran en la sección Proyectos del sitio.",
+      "actions": [
+        "Crear, editar o eliminar proyectos",
+        "Publicar u ocultar un proyecto",
+        "Abrir el detalle con tipologías"
+      ],
+      "img": "img/inmobiliaria/admin-proyectos.webp",
+      "thumb": "img/inmobiliaria/admin-proyectos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-proyecto",
+      "title": "Detalle de proyecto",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Editor de contenidos"
+      ],
+      "url": "admin.html#/proyectos/pr1",
+      "capturedUrl": "admin.html#/proyectos/pr1",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Proyecto con sus tipologías (dormitorios, baños, m², precio y stock) y las cotizaciones recibidas desde el sitio.",
+      "actions": [
+        "Agregar, editar o quitar tipologías",
+        "Ver las cotizaciones recibidas",
+        "Editar los datos del proyecto"
+      ],
+      "img": "img/inmobiliaria/admin-proyecto.webp",
+      "thumb": "img/inmobiliaria/admin-proyecto-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-leads",
+      "title": "Leads",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/leads",
+      "capturedUrl": "admin.html#/leads",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bandeja general de interesados con origen, propiedad, corredor y etapa, más la carga de cada corredor.",
+      "actions": [
+        "Asignar leads a mano o distribuirlos automáticamente por carga",
+        "Filtrar por etapa, origen y corredor",
+        "Crear un lead manual",
+        "Abrir un lead para seguirlo"
+      ],
+      "img": "img/inmobiliaria/admin-leads.webp",
+      "thumb": "img/inmobiliaria/admin-leads-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-lead",
+      "title": "Detalle de lead",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/leads",
+      "capturedUrl": "admin.html#/leads",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "modal",
+      "from": "Clic en un lead",
+      "description": "Ficha del lead con su mensaje, propiedad de interés, corredor asignado, etapa y notas de seguimiento.",
+      "actions": [
+        "Cambiar la etapa del lead",
+        "Reasignar el corredor",
+        "Agregar una nota de seguimiento"
+      ],
+      "img": "img/inmobiliaria/admin-lead.webp",
+      "thumb": "img/inmobiliaria/admin-lead-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-visitas",
+      "title": "Visitas",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/visitas",
+      "capturedUrl": "admin.html#/visitas",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Calendario con las visitas de todos los corredores, coloreadas por estado, con vista en lista.",
+      "actions": [
+        "Moverse entre meses",
+        "Cambiar entre calendario y lista",
+        "Abrir una visita para confirmarla o cancelarla",
+        "Agendar una visita"
+      ],
+      "img": "img/inmobiliaria/admin-visitas.webp",
+      "thumb": "img/inmobiliaria/admin-visitas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-visita",
+      "title": "Detalle de visita",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/visitas",
+      "capturedUrl": "admin.html#/visitas",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "modal",
+      "from": "Clic en una visita del calendario",
+      "description": "Visita con propiedad, interesado, corredor y fecha, con acciones de estado y comentario.",
+      "actions": [
+        "Confirmar la visita",
+        "Marcarla como realizada o cancelarla",
+        "Guardar un comentario"
+      ],
+      "img": "img/inmobiliaria/admin-visita.webp",
+      "thumb": "img/inmobiliaria/admin-visita-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-corredores",
+      "title": "Corredores y oficinas",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/agentes",
+      "capturedUrl": "admin.html#/agentes",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Equipo comercial con cartera, leads, ventas y nota de cada corredor, y la pestaña de oficinas.",
+      "actions": [
+        "Crear o editar corredores",
+        "Ver el desempeño de cada uno",
+        "Vincular un corredor a su cuenta de usuario",
+        "Gestionar oficinas"
+      ],
+      "img": "img/inmobiliaria/admin-corredores.webp",
+      "thumb": "img/inmobiliaria/admin-corredores-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-propietarios",
+      "title": "Propietarios",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/propietarios",
+      "capturedUrl": "admin.html#/propietarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Mandantes de venta y arriendo con datos de contacto y número de propiedades.",
+      "actions": [
+        "Crear o editar propietarios",
+        "Ver la cartera de cada uno",
+        "Eliminar propietarios"
+      ],
+      "img": "img/inmobiliaria/admin-propietarios.webp",
+      "thumb": "img/inmobiliaria/admin-propietarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-propietario",
+      "title": "Cartera del propietario",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/propietarios",
+      "capturedUrl": "admin.html#/propietarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "modal",
+      "from": "Clic en un propietario",
+      "description": "Ficha del propietario con sus datos y la lista de sus propiedades con estado.",
+      "actions": [
+        "Ver sus propiedades y su estado",
+        "Abrir una propiedad",
+        "Revisar notas del propietario"
+      ],
+      "img": "img/inmobiliaria/admin-propietario.webp",
+      "thumb": "img/inmobiliaria/admin-propietario-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-contratos",
+      "title": "Contratos y arriendos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/contratos",
+      "capturedUrl": "admin.html#/contratos",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Contratos de arriendo administrados con la recaudación de los últimos 6 meses y el estado de cobranza de cada uno.",
+      "actions": [
+        "Crear un contrato de arriendo",
+        "Generar los cobros del mes",
+        "Ver la recaudación mensual",
+        "Abrir el detalle de un contrato"
+      ],
+      "img": "img/inmobiliaria/admin-contratos.webp",
+      "thumb": "img/inmobiliaria/admin-contratos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-contrato",
+      "title": "Detalle de contrato",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/contratos/c1",
+      "capturedUrl": "admin.html#/contratos/c1",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Contrato con la cobranza mes a mes, datos del arrendatario y del propietario.",
+      "actions": [
+        "Registrar el pago de un mes",
+        "Ver rentas pagadas y pendientes",
+        "Revisar datos del arrendatario y propietario",
+        "Terminar el contrato"
+      ],
+      "img": "img/inmobiliaria/admin-contrato.webp",
+      "thumb": "img/inmobiliaria/admin-contrato-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-contrato-nuevo",
+      "title": "Nuevo contrato de arriendo",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/contratos",
+      "capturedUrl": "admin.html#/contratos",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo contrato\"",
+      "description": "Formulario para formalizar un arriendo sobre una propiedad de la cartera.",
+      "actions": [
+        "Elegir la propiedad",
+        "Ingresar los datos del arrendatario",
+        "Fijar renta, inicio y duración"
+      ],
+      "img": "img/inmobiliaria/admin-contrato-nuevo.webp",
+      "thumb": "img/inmobiliaria/admin-contrato-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-cms",
+      "title": "Contenido del sitio",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Editor de contenidos"
+      ],
+      "url": "admin.html#/cms",
+      "capturedUrl": "admin.html#/cms",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "CMS de la portada: textos del hero, banners y selección de propiedades destacadas. Los cambios se ven al instante en el sitio.",
+      "actions": [
+        "Editar título y bajada de la portada",
+        "Crear, editar o quitar banners",
+        "Elegir las propiedades destacadas",
+        "Mostrar u ocultar secciones de la portada"
+      ],
+      "img": "img/inmobiliaria/admin-cms.webp",
+      "thumb": "img/inmobiliaria/admin-cms-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-configuracion",
+      "title": "Configuración y UF",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/configuracion",
+      "capturedUrl": "admin.html#/configuracion",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Valor de la UF (afecta todas las conversiones de precio), parámetros del simulador hipotecario y datos de contacto.",
+      "actions": [
+        "Actualizar el valor de la UF",
+        "Fijar tasa, plazo y pie del simulador",
+        "Editar teléfono, correo y dirección",
+        "Restablecer los datos de demostración"
+      ],
+      "img": "img/inmobiliaria/admin-configuracion.webp",
+      "thumb": "img/inmobiliaria/admin-configuracion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas de acceso con su rol, más la matriz de permisos por rol.",
+      "actions": [
+        "Crear o editar usuarios",
+        "Cambiar el rol o desactivar una cuenta",
+        "Restablecer la contraseña",
+        "Consultar los permisos por rol"
+      ],
+      "img": "img/inmobiliaria/admin-usuarios.webp",
+      "thumb": "img/inmobiliaria/admin-usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-bitacora",
+      "title": "Bitácora",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/bitacora",
+      "capturedUrl": "admin.html#/bitacora",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@hogaraustral.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de las últimas 300 acciones de usuarios y del sistema.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Filtrar por acción y buscar",
+        "Exportar a CSV"
+      ],
+      "img": "img/inmobiliaria/admin-bitacora.webp",
+      "thumb": "img/inmobiliaria/admin-bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "editor-panel",
+      "title": "Panel del editor",
+      "section": "editor",
+      "roles": [
+        "Editor de contenidos"
+      ],
+      "url": "admin.html#/propiedades",
+      "capturedUrl": "admin.html#/propiedades",
+      "login": {
+        "id": "u-editor",
+        "name": "Martín Ossandón",
+        "role": "Editor de contenidos",
+        "email": "editor@hogaraustral.cl",
+        "password": "editor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "El editor entra al mismo panel, pero su menú solo muestra dashboard, propiedades, proyectos y contenido del sitio.",
+      "actions": [
+        "Mantener las fichas de propiedades",
+        "Gestionar proyectos nuevos",
+        "Editar portada, banners y destacadas"
+      ],
+      "img": "img/inmobiliaria/editor-panel.webp",
+      "thumb": "img/inmobiliaria/editor-panel-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "editor-restringido",
+      "title": "Sección restringida",
+      "section": "editor",
+      "roles": [
+        "Editor de contenidos"
+      ],
+      "url": "admin.html#/leads",
+      "capturedUrl": "admin.html#/leads",
+      "login": {
+        "id": "u-editor",
+        "name": "Martín Ossandón",
+        "role": "Editor de contenidos",
+        "email": "editor@hogaraustral.cl",
+        "password": "editor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Si el editor abre una sección comercial o de sistema (como Leads), el panel muestra un aviso de permiso insuficiente en lugar del contenido.",
+      "actions": [
+        "Ver que la sección no está permitida para su rol",
+        "Volver a una sección permitida desde el menú",
+        "Pedir acceso a un administrador"
+      ],
+      "img": "img/inmobiliaria/editor-restringido.webp",
+      "thumb": "img/inmobiliaria/editor-restringido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Bauhaus\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/inmobiliaria/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/inmobiliaria/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/inmobiliaria/look-app.webp"
+      },
+      {
+        "id": "nordic",
+        "group": "Estilo",
+        "label": "Nórdico",
+        "desc": "Minimalista, blanco y aire.",
+        "img": "img/inmobiliaria/look-nordic.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/inmobiliaria/look-editorial.webp"
+      },
+      {
+        "id": "noir",
+        "group": "Estilo",
+        "label": "Noir Neón",
+        "desc": "Oscuro con acentos brillantes.",
+        "img": "img/inmobiliaria/look-noir.webp"
+      }
+    ]
+  }
+}

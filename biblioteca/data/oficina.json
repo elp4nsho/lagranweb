@@ -1,0 +1,1086 @@
+{
+  "app": "oficina",
+  "dir": "oficina",
+  "name": "¿Quién es quién?",
+  "kind": "Directorio y mapa de oficina compartida",
+  "description": "Edificio de oficinas compartido por varias empresas con directorio público, mapa de puestos y organigrama, app del empleado para reservar puestos y salas, kiosko de recepción de visitas y panel de administración con editor de planos.",
+  "demo": "../oficina/index.html",
+  "theme": "aurora",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:37:59.423Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Directorio, mapa y organigrama de la empresa elegida, sin iniciar sesión."
+    },
+    {
+      "id": "empleado",
+      "label": "Empleado",
+      "desc": "Mi espacio: estado del día, reserva de puestos y salas, equipo, calendario, visitas y perfil."
+    },
+    {
+      "id": "recepcion",
+      "label": "Recepción",
+      "desc": "Kiosko de visitas con credencial y registro de visitas del panel."
+    },
+    {
+      "id": "rrhh",
+      "label": "RRHH",
+      "desc": "Personas, áreas, asignación de puestos y bitácora."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Empresas, pisos y editor de planos, reglas de reserva, usuarios y ajustes del sitio."
+    }
+  ],
+  "views": [
+    {
+      "id": "directorio",
+      "title": "Directorio",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Directorio de la empresa elegida con buscador, filtros y tarjetas de cada persona con su estado del día, contacto, puesto y jefatura. Arriba, cifras de asistencia y anuncios fijados.",
+      "actions": [
+        "Cambiar de empresa del edificio",
+        "Buscar por nombre, cargo, área o habilidad",
+        "Filtrar por área, habilidad, piso y estado (oficina, reunión, remoto, vacaciones)",
+        "Abrir el perfil de una persona",
+        "Ubicar su puesto en el mapa"
+      ],
+      "img": "img/oficina/directorio.webp",
+      "thumb": "img/oficina/directorio-thumb.webp",
+      "mobile": "img/oficina/directorio-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "perfil",
+      "title": "Perfil de persona",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "modal",
+      "from": "Botón \"Perfil\" de una tarjeta del directorio",
+      "description": "Ficha con cargo, área, estado de hoy, correo, anexo, teléfono, puesto, jefatura, equipo a cargo y habilidades.",
+      "actions": [
+        "Ver cómo contactarla",
+        "Saber dónde se sienta y si vino hoy",
+        "Navegar a su jefatura o a su equipo",
+        "Ubicarla en el mapa"
+      ],
+      "img": "img/oficina/perfil.webp",
+      "thumb": "img/oficina/perfil-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mapa",
+      "title": "Mapa de la oficina",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/mapa",
+      "capturedUrl": "index.html#/mapa",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Plano interactivo por piso con salas, puestos fijos y flexibles y quién está sentado en cada uno, con ocupación del día y leyenda.",
+      "actions": [
+        "Cambiar de piso",
+        "Buscar y ubicar a una persona en el plano",
+        "Acercar, alejar y arrastrar el plano",
+        "Ver ocupación, puestos libres y reservas flexibles",
+        "Ir a reservar un puesto"
+      ],
+      "img": "img/oficina/mapa.webp",
+      "thumb": "img/oficina/mapa-thumb.webp",
+      "mobile": "img/oficina/mapa-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mapa-ubicar",
+      "title": "Ubicar a una persona",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/mapa?p=nebula-1",
+      "capturedUrl": "index.html#/mapa?p=nebula-1",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "El mapa al llegar desde \"Ver en el mapa\": abre el piso correcto y destaca el puesto de la persona.",
+      "actions": [
+        "Ver el puesto destacado en su piso",
+        "Abrir el perfil desde el plano",
+        "Buscar a otra persona"
+      ],
+      "img": "img/oficina/mapa-ubicar.webp",
+      "thumb": "img/oficina/mapa-ubicar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "organigrama",
+      "title": "Organigrama",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/organigrama",
+      "capturedUrl": "index.html#/organigrama",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Organigrama de la empresa desde la gerencia hasta cada área, con jefaturas, cantidad de personas y buscador que resalta a alguien.",
+      "actions": [
+        "Recorrer la estructura por áreas",
+        "Expandir o contraer ramas",
+        "Resaltar a una persona",
+        "Abrir el perfil de cualquiera"
+      ],
+      "img": "img/oficina/organigrama.webp",
+      "thumb": "img/oficina/organigrama-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso con cuentas de prueba para cada rol. Cada uno abre una app distinta: panel, recepción (kiosko) o espacio del empleado.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic como administración, RRHH, recepción o empleado",
+        "Volver al directorio público"
+      ],
+      "img": "img/oficina/login.webp",
+      "thumb": "img/oficina/login-thumb.webp",
+      "mobile": "img/oficina/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empleado-inicio",
+      "title": "Inicio del empleado",
+      "section": "empleado",
+      "roles": null,
+      "url": "empleado.html#/",
+      "capturedUrl": "empleado.html#/",
+      "login": {
+        "id": "u-nebula",
+        "name": "Andrés Rojas",
+        "role": "Empleado",
+        "email": "andres.rojas@nebulalabs.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inicio de \"Mi espacio\" con el estado del día, el puesto de hoy, próximas reservas, la agenda del día, quién de su equipo está en la oficina y anuncios.",
+      "actions": [
+        "Declarar dónde trabaja hoy (oficina, reunión, remoto, vacaciones)",
+        "Ver o reservar su puesto del día",
+        "Revisar próximas reservas y agenda",
+        "Ver dónde está su equipo hoy",
+        "Leer anuncios y notificaciones"
+      ],
+      "img": "img/oficina/empleado-inicio.webp",
+      "thumb": "img/oficina/empleado-inicio-thumb.webp",
+      "mobile": "img/oficina/empleado-inicio-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empleado-reservar",
+      "title": "Reservar puesto",
+      "section": "empleado",
+      "roles": null,
+      "url": "empleado.html#/reservas",
+      "capturedUrl": "empleado.html#/reservas",
+      "login": {
+        "id": "u-nebula",
+        "name": "Andrés Rojas",
+        "role": "Empleado",
+        "email": "andres.rojas@nebulalabs.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Reserva de puesto flexible: se elige un día y se toca un puesto libre en el plano. Respeta las reglas del edificio (anticipación, máximo semanal, barrios por área).",
+      "actions": [
+        "Elegir el día con los puestos libres de cada uno",
+        "Cambiar de piso y acercar el plano",
+        "Reservar un puesto con un toque",
+        "Ver y cancelar sus reservas",
+        "Revisar las reglas de reserva"
+      ],
+      "img": "img/oficina/empleado-reservar.webp",
+      "thumb": "img/oficina/empleado-reservar-thumb.webp",
+      "mobile": "img/oficina/empleado-reservar-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empleado-salas",
+      "title": "Salas de reuniones",
+      "section": "empleado",
+      "roles": null,
+      "url": "empleado.html#/salas",
+      "capturedUrl": "empleado.html#/salas",
+      "login": {
+        "id": "u-nebula",
+        "name": "Andrés Rojas",
+        "role": "Empleado",
+        "email": "andres.rojas@nebulalabs.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Agenda de las salas por día en bloques de media hora. Las reservas propias aparecen destacadas.",
+      "actions": [
+        "Cambiar de día",
+        "Ver la ocupación de cada sala",
+        "Reservar un bloque libre",
+        "Editar o cancelar sus reuniones"
+      ],
+      "img": "img/oficina/empleado-salas.webp",
+      "thumb": "img/oficina/empleado-salas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empleado-sala",
+      "title": "Reservar sala",
+      "section": "empleado",
+      "roles": null,
+      "url": "empleado.html#/salas",
+      "capturedUrl": "empleado.html#/salas",
+      "login": {
+        "id": "u-nebula",
+        "name": "Andrés Rojas",
+        "role": "Empleado",
+        "email": "andres.rojas@nebulalabs.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Clic en un bloque libre de la agenda de salas",
+      "description": "Reserva de una sala con título, horario de inicio y término y asistentes. Avisa si choca con otra reunión.",
+      "actions": [
+        "Escribir el título de la reunión",
+        "Ajustar inicio y término",
+        "Indicar asistentes",
+        "Guardar la reserva"
+      ],
+      "img": "img/oficina/empleado-sala.webp",
+      "thumb": "img/oficina/empleado-sala-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empleado-equipo",
+      "title": "Mi equipo",
+      "section": "empleado",
+      "roles": null,
+      "url": "empleado.html#/equipo",
+      "capturedUrl": "empleado.html#/equipo",
+      "login": {
+        "id": "u-nebula",
+        "name": "Andrés Rojas",
+        "role": "Empleado",
+        "email": "andres.rojas@nebulalabs.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Su jefatura y las personas de su área con estado del día, puesto, correo y anexo.",
+      "actions": [
+        "Ver a su jefatura",
+        "Ver quién del área está en la oficina, en reunión o remoto",
+        "Contactar a cualquiera"
+      ],
+      "img": "img/oficina/empleado-equipo.webp",
+      "thumb": "img/oficina/empleado-equipo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empleado-calendario",
+      "title": "Calendario del equipo",
+      "section": "empleado",
+      "roles": null,
+      "url": "empleado.html#/calendario",
+      "capturedUrl": "empleado.html#/calendario",
+      "login": {
+        "id": "u-nebula",
+        "name": "Andrés Rojas",
+        "role": "Empleado",
+        "email": "andres.rojas@nebulalabs.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Planificación semanal de quién va a la oficina, según patrones de días habituales, reservas y vacaciones.",
+      "actions": [
+        "Ver la semana de su área, su equipo directo o la empresa",
+        "Cambiar de semana",
+        "Coordinar días presenciales con su equipo"
+      ],
+      "img": "img/oficina/empleado-calendario.webp",
+      "thumb": "img/oficina/empleado-calendario-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empleado-visitas",
+      "title": "Mis visitas",
+      "section": "empleado",
+      "roles": null,
+      "url": "empleado.html#/visitas",
+      "capturedUrl": "empleado.html#/visitas",
+      "login": {
+        "id": "u-nebula",
+        "name": "Andrés Rojas",
+        "role": "Empleado",
+        "email": "andres.rojas@nebulalabs.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Visitas pre-registradas por el empleado e historial. Recepción las ve en el kiosko y le avisa cuando llegan.",
+      "actions": [
+        "Invitar una visita",
+        "Ver las próximas y en curso",
+        "Revisar el historial de visitas"
+      ],
+      "img": "img/oficina/empleado-visitas.webp",
+      "thumb": "img/oficina/empleado-visitas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empleado-invitar",
+      "title": "Invitar visita",
+      "section": "empleado",
+      "roles": null,
+      "url": "empleado.html#/visitas",
+      "capturedUrl": "empleado.html#/visitas",
+      "login": {
+        "id": "u-nebula",
+        "name": "Andrés Rojas",
+        "role": "Empleado",
+        "email": "andres.rojas@nebulalabs.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Invitar visita\" en Mis visitas",
+      "description": "Pre-registro de una visita con nombre, documento, empresa, fecha, hora y motivo.",
+      "actions": [
+        "Ingresar los datos de la visita",
+        "Elegir fecha, hora y motivo",
+        "Dejarla esperada en recepción"
+      ],
+      "img": "img/oficina/empleado-invitar.webp",
+      "thumb": "img/oficina/empleado-invitar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empleado-perfil",
+      "title": "Mi perfil",
+      "section": "empleado",
+      "roles": null,
+      "url": "empleado.html#/perfil",
+      "capturedUrl": "empleado.html#/perfil",
+      "login": {
+        "id": "u-nebula",
+        "name": "Andrés Rojas",
+        "role": "Empleado",
+        "email": "andres.rojas@nebulalabs.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos que sus colegas ven en el directorio: teléfono, ciudad, pronombres, habilidades, presentación y días habituales en la oficina. Cargo y área los mantiene RRHH.",
+      "actions": [
+        "Actualizar teléfono, ciudad y pronombres",
+        "Escribir su presentación y habilidades",
+        "Marcar sus días habituales en la oficina",
+        "Cambiar la contraseña",
+        "Ver su ficha pública"
+      ],
+      "img": "img/oficina/empleado-perfil.webp",
+      "thumb": "img/oficina/empleado-perfil-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "kiosko",
+      "title": "Kiosko de recepción",
+      "section": "recepcion",
+      "roles": null,
+      "url": "recepcion.html",
+      "capturedUrl": "recepcion.html",
+      "login": {
+        "id": "u-recepcion",
+        "name": "Daniela Pizarro",
+        "role": "Recepción",
+        "email": "recepcion@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pantalla de recepción para registrar visitas: buscar al anfitrión, completar los datos y emitir la credencial. Al lado, visitas esperadas, en el edificio y que ya salieron.",
+      "actions": [
+        "Buscar a quién se visita por nombre o área",
+        "Registrar la visita con documento, empresa y motivo",
+        "Hacer check-in de visitas pre-registradas",
+        "Marcar salidas",
+        "Pasar a modo kiosko a pantalla completa"
+      ],
+      "img": "img/oficina/kiosko.webp",
+      "thumb": "img/oficina/kiosko-thumb.webp",
+      "mobile": "img/oficina/kiosko-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "kiosko-credencial",
+      "title": "Credencial de visita",
+      "section": "recepcion",
+      "roles": null,
+      "url": "recepcion.html",
+      "capturedUrl": "recepcion.html",
+      "login": {
+        "id": "u-recepcion",
+        "name": "Daniela Pizarro",
+        "role": "Recepción",
+        "email": "recepcion@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Registrar y obtener credencial\" del kiosko",
+      "description": "Credencial imprimible con nombre, empresa, anfitrión, piso, hora de ingreso y la red Wi-Fi de visitas. El anfitrión recibe el aviso de llegada.",
+      "actions": [
+        "Imprimir la credencial",
+        "Ver anfitrión, piso y hora de ingreso",
+        "Entregar los datos de Wi-Fi de visitas"
+      ],
+      "img": "img/oficina/kiosko-credencial.webp",
+      "thumb": "img/oficina/kiosko-credencial-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-visitas",
+      "title": "Registro de visitas",
+      "section": "recepcion",
+      "roles": [
+        "Administrador",
+        "RRHH",
+        "Recepción"
+      ],
+      "url": "admin.html#/visitas",
+      "capturedUrl": "admin.html#/visitas",
+      "login": {
+        "id": "u-recepcion",
+        "name": "Daniela Pizarro",
+        "role": "Recepción",
+        "email": "recepcion@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de visitas del panel con indicadores del día, permanencia promedio y la tabla de visitas con anfitrión, motivo y estado.",
+      "actions": [
+        "Registrar una llegada o pre-registrar una visita",
+        "Hacer check-in y marcar salidas",
+        "Reimprimir credenciales",
+        "Filtrar por periodo, estado y motivo",
+        "Abrir el kiosko y exportar a CSV"
+      ],
+      "img": "img/oficina/recepcion-visitas.webp",
+      "thumb": "img/oficina/recepcion-visitas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-registrar",
+      "title": "Registrar llegada de visita",
+      "section": "recepcion",
+      "roles": [
+        "Administrador",
+        "RRHH",
+        "Recepción"
+      ],
+      "url": "admin.html#/visitas",
+      "capturedUrl": "admin.html#/visitas",
+      "login": {
+        "id": "u-recepcion",
+        "name": "Daniela Pizarro",
+        "role": "Recepción",
+        "email": "recepcion@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Registrar llegada\" en Visitas",
+      "description": "Registro manual de una visita que llega, con anfitrión, motivo y datos de identificación.",
+      "actions": [
+        "Ingresar nombre, documento y empresa",
+        "Elegir anfitrión y motivo",
+        "Registrar el ingreso y emitir la credencial"
+      ],
+      "img": "img/oficina/recepcion-registrar.webp",
+      "thumb": "img/oficina/recepcion-registrar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-anuncios",
+      "title": "Anuncios",
+      "section": "recepcion",
+      "roles": [
+        "Administrador",
+        "RRHH",
+        "Recepción"
+      ],
+      "url": "admin.html#/anuncios",
+      "capturedUrl": "admin.html#/anuncios",
+      "login": {
+        "id": "u-recepcion",
+        "name": "Daniela Pizarro",
+        "role": "Recepción",
+        "email": "recepcion@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Comunicados con audiencia (todos, app de empleados o kiosko), empresa, fecha y estado. Aparecen al instante en el directorio, la app y el kiosko.",
+      "actions": [
+        "Crear y editar anuncios",
+        "Elegir audiencia y empresa",
+        "Fijar anuncios arriba",
+        "Publicar u ocultar",
+        "Exportar a CSV"
+      ],
+      "img": "img/oficina/recepcion-anuncios.webp",
+      "thumb": "img/oficina/recepcion-anuncios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rrhh-dashboard",
+      "title": "Dashboard",
+      "section": "rrhh",
+      "roles": [
+        "Administrador",
+        "RRHH",
+        "Recepción"
+      ],
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-rrhh",
+        "name": "Rodrigo Fuentes",
+        "role": "RRHH",
+        "email": "rrhh@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Indicadores de la empresa elegida: personas, presentes hoy, ocupación de puestos, puestos libres, visitas y salas reservadas, con tendencia de asistencia y ocupación por piso y por día.",
+      "actions": [
+        "Cambiar de empresa del edificio",
+        "Ver asistencia y ocupación de hoy",
+        "Seguir la tendencia semanal de uso de puestos",
+        "Revisar ocupación por piso y por día de la semana",
+        "Ir a las visitas de hoy"
+      ],
+      "img": "img/oficina/rrhh-dashboard.webp",
+      "thumb": "img/oficina/rrhh-dashboard-thumb.webp",
+      "mobile": "img/oficina/rrhh-dashboard-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rrhh-personas",
+      "title": "Personas",
+      "section": "rrhh",
+      "roles": [
+        "Administrador",
+        "RRHH"
+      ],
+      "url": "admin.html#/empleados",
+      "capturedUrl": "admin.html#/empleados",
+      "login": {
+        "id": "u-rrhh",
+        "name": "Rodrigo Fuentes",
+        "role": "RRHH",
+        "email": "rrhh@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Nómina de la empresa con área, estado de hoy, puesto, correo y anexo.",
+      "actions": [
+        "Buscar y filtrar por área, estado y tipo de puesto",
+        "Crear o editar personas",
+        "Importar personas desde CSV",
+        "Abrir la ficha de una persona",
+        "Exportar a CSV"
+      ],
+      "img": "img/oficina/rrhh-personas.webp",
+      "thumb": "img/oficina/rrhh-personas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rrhh-persona",
+      "title": "Ficha de persona",
+      "section": "rrhh",
+      "roles": [
+        "Administrador",
+        "RRHH"
+      ],
+      "url": "admin.html#/empleados/nebula-1",
+      "capturedUrl": "admin.html#/empleados/nebula-1",
+      "login": {
+        "id": "u-rrhh",
+        "name": "Rodrigo Fuentes",
+        "role": "RRHH",
+        "email": "rrhh@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha interna con datos laborales, jefatura, puesto asignado, reservas, vacaciones y equipo a cargo.",
+      "actions": [
+        "Editar cargo, área y jefatura",
+        "Asignar o cambiar el puesto",
+        "Registrar vacaciones",
+        "Ver reservas y equipo a cargo"
+      ],
+      "img": "img/oficina/rrhh-persona.webp",
+      "thumb": "img/oficina/rrhh-persona-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rrhh-importar",
+      "title": "Importar personas desde CSV",
+      "section": "rrhh",
+      "roles": [
+        "Administrador",
+        "RRHH"
+      ],
+      "url": "admin.html#/empleados",
+      "capturedUrl": "admin.html#/empleados",
+      "login": {
+        "id": "u-rrhh",
+        "name": "Rodrigo Fuentes",
+        "role": "RRHH",
+        "email": "rrhh@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Importar CSV\" en Personas",
+      "description": "Carga masiva de personas pegando o subiendo un CSV, con ejemplo de formato y vista previa de lo que se va a crear.",
+      "actions": [
+        "Pegar filas o subir un archivo",
+        "Cargar un ejemplo",
+        "Revisar la vista previa con errores",
+        "Importar las filas válidas"
+      ],
+      "img": "img/oficina/rrhh-importar.webp",
+      "thumb": "img/oficina/rrhh-importar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rrhh-areas",
+      "title": "Áreas y equipos",
+      "section": "rrhh",
+      "roles": [
+        "Administrador",
+        "RRHH"
+      ],
+      "url": "admin.html#/areas",
+      "capturedUrl": "admin.html#/areas",
+      "login": {
+        "id": "u-rrhh",
+        "name": "Rodrigo Fuentes",
+        "role": "RRHH",
+        "email": "rrhh@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Áreas de la empresa con color, jefatura, cantidad de personas y presentes hoy. Los colores se usan en el mapa, el directorio y el organigrama.",
+      "actions": [
+        "Crear y editar áreas",
+        "Asignar la jefatura",
+        "Elegir el color del área",
+        "Ver a las personas de un área"
+      ],
+      "img": "img/oficina/rrhh-areas.webp",
+      "thumb": "img/oficina/rrhh-areas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rrhh-puestos",
+      "title": "Puestos y reservas",
+      "section": "rrhh",
+      "roles": [
+        "Administrador",
+        "RRHH"
+      ],
+      "url": "admin.html#/asignacion",
+      "capturedUrl": "admin.html#/asignacion",
+      "login": {
+        "id": "u-rrhh",
+        "name": "Rodrigo Fuentes",
+        "role": "RRHH",
+        "email": "rrhh@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Asignación de puestos fijos por persona y listado de reservas flexibles, con acceso a la asignación directa sobre el plano.",
+      "actions": [
+        "Asignar o quitar un puesto fijo",
+        "Filtrar por asignación y área",
+        "Ver y crear reservas flexibles",
+        "Asignar puestos en el plano",
+        "Exportar a CSV"
+      ],
+      "img": "img/oficina/rrhh-puestos.webp",
+      "thumb": "img/oficina/rrhh-puestos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rrhh-bitacora",
+      "title": "Bitácora",
+      "section": "rrhh",
+      "roles": [
+        "Administrador",
+        "RRHH"
+      ],
+      "url": "admin.html#/bitacora",
+      "capturedUrl": "admin.html#/bitacora",
+      "login": {
+        "id": "u-rrhh",
+        "name": "Rodrigo Fuentes",
+        "role": "RRHH",
+        "email": "rrhh@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de acciones del sistema: reservas, visitas, cambios de personas, planos y ajustes.",
+      "actions": [
+        "Filtrar por acción y usuario",
+        "Buscar en el registro",
+        "Exportar a CSV"
+      ],
+      "img": "img/oficina/rrhh-bitacora.webp",
+      "thumb": "img/oficina/rrhh-bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-empresas",
+      "title": "Empresas",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/empresas",
+      "capturedUrl": "admin.html#/empresas",
+      "login": {
+        "id": "u-admin",
+        "name": "Carla Muñoz",
+        "role": "Administrador",
+        "email": "admin@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Empresas que comparten el edificio, cada una con su dominio, personas, pisos, puestos y estado.",
+      "actions": [
+        "Crear una empresa",
+        "Editar datos y dominio",
+        "Gestionar una empresa (cambia el contexto del panel)",
+        "Activar o desactivar",
+        "Exportar a CSV"
+      ],
+      "img": "img/oficina/admin-empresas.webp",
+      "thumb": "img/oficina/admin-empresas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-pisos",
+      "title": "Pisos y planos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/pisos",
+      "capturedUrl": "admin.html#/pisos",
+      "login": {
+        "id": "u-admin",
+        "name": "Carla Muñoz",
+        "role": "Administrador",
+        "email": "admin@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pisos de la empresa con miniatura del plano, puestos asignados y flexibles, salas y zonas.",
+      "actions": [
+        "Crear un piso desde una plantilla",
+        "Abrir el editor de planos",
+        "Renombrar, duplicar o eliminar pisos"
+      ],
+      "img": "img/oficina/admin-pisos.webp",
+      "thumb": "img/oficina/admin-pisos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-editor",
+      "title": "Editor de planos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/pisos/nebula-f1",
+      "capturedUrl": "admin.html#/pisos/nebula-f1",
+      "login": {
+        "id": "u-admin",
+        "name": "Carla Muñoz",
+        "role": "Administrador",
+        "email": "admin@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor visual del piso: se agregan, mueven y redimensionan salas, puestos y zonas, y se define el tipo de cada puesto.",
+      "actions": [
+        "Agregar salas, puestos y zonas",
+        "Mover y redimensionar con el mouse",
+        "Marcar puestos como fijos o flexibles",
+        "Deshacer cambios y guardar el plano"
+      ],
+      "img": "img/oficina/admin-editor.webp",
+      "thumb": "img/oficina/admin-editor-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-reglas",
+      "title": "Reglas y barrios",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/reglas",
+      "capturedUrl": "admin.html#/reglas",
+      "login": {
+        "id": "u-admin",
+        "name": "Carla Muñoz",
+        "role": "Administrador",
+        "email": "admin@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Reglas de reserva de puestos flexibles (anticipación, máximo semanal, hora límite de check-in, liberación automática, fines de semana) y asignación de cada zona a un área como barrio.",
+      "actions": [
+        "Ajustar anticipación y máximo de reservas",
+        "Fijar la hora límite de check-in",
+        "Activar liberación automática de no-shows",
+        "Asignar zonas como barrios de un área"
+      ],
+      "img": "img/oficina/admin-reglas.webp",
+      "thumb": "img/oficina/admin-reglas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-salas",
+      "title": "Salas de reuniones",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "RRHH",
+        "Recepción"
+      ],
+      "url": "admin.html#/salas",
+      "capturedUrl": "admin.html#/salas",
+      "login": {
+        "id": "u-admin",
+        "name": "Carla Muñoz",
+        "role": "Administrador",
+        "email": "admin@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Agenda de todas las salas por día con las reservas de toda la empresa y la lista de reuniones del día.",
+      "actions": [
+        "Ver la ocupación de todas las salas",
+        "Reservar a nombre de alguien",
+        "Editar o eliminar reservas",
+        "Exportar las reservas del día"
+      ],
+      "img": "img/oficina/admin-salas.webp",
+      "thumb": "img/oficina/admin-salas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Carla Muñoz",
+        "role": "Administrador",
+        "email": "admin@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas de acceso con rol, persona asociada, último acceso y estado, con la descripción de qué puede hacer cada rol.",
+      "actions": [
+        "Crear usuarios y asignar rol",
+        "Vincular un usuario a una persona del directorio",
+        "Activar o desactivar cuentas",
+        "Exportar a CSV"
+      ],
+      "img": "img/oficina/admin-usuarios.webp",
+      "thumb": "img/oficina/admin-usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-ajustes",
+      "title": "Ajustes del sitio",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/ajustes",
+      "capturedUrl": "admin.html#/ajustes",
+      "login": {
+        "id": "u-admin",
+        "name": "Carla Muñoz",
+        "role": "Administrador",
+        "email": "admin@quienesquien.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Textos del directorio público, visibilidad de teléfonos y organigrama, mensajes del kiosko y Wi-Fi de visitas, con vista previa y restablecimiento de datos demo.",
+      "actions": [
+        "Editar título y bajada del directorio",
+        "Mostrar u ocultar teléfonos y organigrama",
+        "Configurar los textos del kiosko y el Wi-Fi",
+        "Restablecer los datos de demostración"
+      ],
+      "img": "img/oficina/admin-ajustes.webp",
+      "thumb": "img/oficina/admin-ajustes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Aurora\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/oficina/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/oficina/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/oficina/look-app.webp"
+      },
+      {
+        "id": "noir",
+        "group": "Estilo",
+        "label": "Noir Neón",
+        "desc": "Oscuro con acentos brillantes.",
+        "img": "img/oficina/look-noir.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/oficina/look-editorial.webp"
+      },
+      {
+        "id": "brutal",
+        "group": "Estilo",
+        "label": "Brutalista",
+        "desc": "Bordes gruesos y contraste alto.",
+        "img": "img/oficina/look-brutal.webp"
+      }
+    ]
+  }
+}

@@ -399,8 +399,8 @@ a.admin-brand { text-decoration: none; color: var(--text); }
 .ops-item .progress { height: 6px; }
 .map-legend { position: absolute; z-index: 500; left: 10px; top: 10px; display: flex; flex-wrap: wrap; gap: 4px 10px; max-width: calc(100% - 70px); padding: 6px 10px; border-radius: var(--radius-sm); background: color-mix(in srgb, var(--surface) 88%, transparent); border: var(--border-w) solid var(--line); font-size: 11px; }
 .map-legend span { display: inline-flex; align-items: center; gap: 5px; }
-.lg { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-.lg.free { background: var(--success); } .lg.busy { background: var(--primary); } .lg.late { background: var(--danger); } .lg.offer { background: var(--warning); } .lg.pend { background: var(--warning); border-radius: 2px; transform: rotate(45deg); }
+.map-legend .lg { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.map-legend .lg.free { background: var(--success); } .map-legend .lg.busy { background: var(--primary); } .map-legend .lg.late { background: var(--danger); } .map-legend .lg.offer { background: var(--warning); } .map-legend .lg.pend { background: var(--warning); border-radius: 2px; transform: rotate(45deg); }
 .denied { max-width: 520px; margin: 40px auto; }
 @media (max-width: 1100px) { .ops-grid { grid-template-columns: 1fr; } .ops-map { height: 56vh; min-height: 340px; } .ops-side { max-height: none; min-height: 0; } .ops-list { max-height: 60vh; } }
 @media (max-width: 700px) { .sim-clock { display: none; } .top-search { max-width: none; } }

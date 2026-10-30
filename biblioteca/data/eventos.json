@@ -1,0 +1,1567 @@
+{
+  "app": "eventos",
+  "dir": "eventos",
+  "name": "Tiquetera Volcán",
+  "kind": "Venta de entradas",
+  "description": "Plataforma de venta de entradas para conciertos, teatro, deportes y conferencias, con mapa de asientos, entradas digitales con QR, reventa oficial, portal para productoras, app de control de acceso y panel de administración.",
+  "demo": "../eventos/index.html",
+  "theme": "parallax",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:21:42.954Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Cartelera, fichas de evento y selección de entradas, sin iniciar sesión."
+    },
+    {
+      "id": "cliente",
+      "label": "Cliente",
+      "desc": "Compra, pago y billetera de entradas del comprador."
+    },
+    {
+      "id": "productor",
+      "label": "Productora",
+      "desc": "Portal de la productora: sus eventos, ventas en vivo, asistentes, promociones y liquidaciones."
+    },
+    {
+      "id": "staff",
+      "label": "Staff de acceso",
+      "desc": "App de celular para validar entradas en la puerta del recinto."
+    },
+    {
+      "id": "soporte",
+      "label": "Soporte",
+      "desc": "Panel con acceso limitado a pedidos, eventos y actividad."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Panel completo: eventos, pedidos, recintos, productoras, tarifas, contenido y usuarios."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de inicio con buscador, eventos destacados, accesos por categoría y lo que viene esta semana. El título, el banner superior y los destacados se editan desde el panel.",
+      "actions": [
+        "Buscar por artista, obra, equipo o recinto",
+        "Filtrar por ciudad y fecha desde el buscador",
+        "Ver los eventos destacados y los de esta semana",
+        "Entrar a una categoría (conciertos, teatro, deportes, conferencias)"
+      ],
+      "img": "img/eventos/portada.webp",
+      "thumb": "img/eventos/portada-thumb.webp",
+      "mobile": "img/eventos/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "explorar",
+      "title": "Cartelera",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/explorar",
+      "capturedUrl": "index.html#/explorar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Listado de todos los próximos eventos publicados con filtros combinables. Los filtros quedan en la dirección, así que la búsqueda se puede compartir.",
+      "actions": [
+        "Buscar por nombre, artista o recinto",
+        "Filtrar por categoría, ciudad y fecha (o un rango de fechas)",
+        "Mostrar solo eventos con entradas disponibles",
+        "Ordenar por fecha, precio más bajo o más vendidos"
+      ],
+      "img": "img/eventos/explorar.webp",
+      "thumb": "img/eventos/explorar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "evento",
+      "title": "Ficha del evento",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/evento/e1",
+      "capturedUrl": "index.html#/evento/e1",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de cada evento con afiche, cuenta regresiva, lineup o programa, recinto con su mapa y la caja de precios por tipo de entrada.",
+      "actions": [
+        "Ver fecha, hora, recinto y edad mínima",
+        "Revisar el lineup con horarios",
+        "Ver precios por zona, preventa y porcentaje vendido",
+        "Ir a elegir asientos o comprar entradas",
+        "Descubrir eventos relacionados"
+      ],
+      "img": "img/eventos/evento.webp",
+      "thumb": "img/eventos/evento-thumb.webp",
+      "mobile": "img/eventos/evento-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "evento-agotado",
+      "title": "Evento agotado y lista de espera",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/evento/e3",
+      "capturedUrl": "index.html#/evento/e3",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Cuando un evento se agota, la caja de compra ofrece unirse a la lista de espera indicando cuántas entradas se necesitan. Si se liberan entradas por reembolsos, se avisa a quienes esperan.",
+      "actions": [
+        "Ver que el evento está agotado",
+        "Elegir cuántas entradas necesita",
+        "Unirse a la lista de espera (pide iniciar sesión)",
+        "Salir de la lista más tarde"
+      ],
+      "img": "img/eventos/evento-agotado.webp",
+      "thumb": "img/eventos/evento-agotado-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "evento-reventa",
+      "title": "Reventa oficial en la ficha",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/evento/e11",
+      "capturedUrl": "index.html#/evento/e11",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Entradas que otros asistentes publicaron en la reventa oficial, con precio tope sobre el valor original. Al comprarla, la entrada se reemite a nombre del comprador con un código nuevo.",
+      "actions": [
+        "Ver ubicación y precio de cada entrada en reventa",
+        "Comparar con el precio original",
+        "Comprarla con tarjeta en una ventana de pago",
+        "Recibir la entrada con un código nuevo"
+      ],
+      "img": "img/eventos/evento-reventa.webp",
+      "thumb": "img/eventos/evento-reventa-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "evento-finalizado",
+      "title": "Evento ya realizado",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/evento/e20",
+      "capturedUrl": "index.html#/evento/e20",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ficha de un evento pasado: se mantiene visible con su información, pero la caja de compra indica que ya se realizó.",
+      "actions": [
+        "Consultar la información del evento pasado",
+        "Ver el recinto y el lineup",
+        "Ir a otros eventos de la cartelera"
+      ],
+      "img": "img/eventos/evento-finalizado.webp",
+      "thumb": "img/eventos/evento-finalizado-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "asientos",
+      "title": "Mapa de asientos",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/evento/e1/entradas",
+      "capturedUrl": "index.html#/evento/e1/entradas",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Mapa interactivo del recinto por sectores, con precio por zona y asientos vendidos o reservados. Las entradas elegidas quedan guardadas por 10 minutos mientras se paga.",
+      "actions": [
+        "Tocar asientos libres para agregarlos o quitarlos",
+        "Acercar o alejar el mapa",
+        "Sumar entradas generales (de pie) por cantidad",
+        "Ver el subtotal y el cargo por servicio",
+        "Liberar la reserva o continuar al pago"
+      ],
+      "img": "img/eventos/asientos.webp",
+      "thumb": "img/eventos/asientos-thumb.webp",
+      "mobile": "img/eventos/asientos-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "entrada-general",
+      "title": "Entradas generales",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/evento/e4/entradas",
+      "capturedUrl": "index.html#/evento/e4/entradas",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Selección para eventos sin asientos numerados: se elige la cantidad por tipo de entrada y se avisa cuando quedan pocas.",
+      "actions": [
+        "Sumar o restar entradas por tipo",
+        "Ver cuántas quedan disponibles",
+        "Revisar el total con cargos",
+        "Continuar al pago"
+      ],
+      "img": "img/eventos/entrada-general.webp",
+      "thumb": "img/eventos/entrada-general-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso para clientes y equipo, con registro de cliente nuevo y cuentas de prueba para entrar con un clic. Cada rol aterriza en su propia aplicación.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Crear una cuenta de cliente",
+        "Entrar con un clic como cliente, productor, staff, soporte o administrador",
+        "Volver a la cartelera"
+      ],
+      "img": "img/eventos/login.webp",
+      "thumb": "img/eventos/login-thumb.webp",
+      "mobile": "img/eventos/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "checkout",
+      "title": "Pago",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/evento/e1/entradas",
+      "capturedUrl": "index.html#/checkout",
+      "login": {
+        "id": "u-cli",
+        "name": "Valentina Rojas",
+        "role": "Cliente",
+        "email": "cliente@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Checkout con los datos del comprador, el medio de pago y el resumen del pedido. Un contador muestra cuánto queda de la reserva de asientos.",
+      "actions": [
+        "Confirmar nombre, correo, RUT y teléfono",
+        "Pagar con tarjeta (con vista previa) o débito/transferencia simulada",
+        "Aplicar un código promocional",
+        "Ver subtotal, descuento, cargos y total",
+        "Volver a cambiar las entradas"
+      ],
+      "img": "img/eventos/checkout.webp",
+      "thumb": "img/eventos/checkout-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "confirmacion",
+      "title": "Compra confirmada",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/evento/e1/entradas",
+      "capturedUrl": "index.html#/confirmacion/lfofcpsmlj",
+      "login": {
+        "id": "u-cli",
+        "name": "Valentina Rojas",
+        "role": "Cliente",
+        "email": "cliente@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Comprobante del pedido con número, cantidad de entradas y total pagado. Las entradas aparecen de inmediato en la billetera del cliente.",
+      "actions": [
+        "Ver el número de pedido y el total",
+        "Ir a Mis entradas",
+        "Abrir la primera entrada con su QR"
+      ],
+      "img": "img/eventos/confirmacion.webp",
+      "thumb": "img/eventos/confirmacion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mis-entradas",
+      "title": "Mis entradas",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/mis-entradas",
+      "capturedUrl": "index.html#/mis-entradas",
+      "login": {
+        "id": "u-cli",
+        "name": "Valentina Rojas",
+        "role": "Cliente",
+        "email": "cliente@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Billetera con las entradas de próximos eventos, cada una con sector, fila y asiento. Desde aquí se transfiere o revende una entrada.",
+      "actions": [
+        "Ver las entradas de próximos eventos y las pasadas",
+        "Abrir la entrada con su código QR",
+        "Transferir una entrada a otra persona",
+        "Publicarla en la reventa oficial o retirarla"
+      ],
+      "img": "img/eventos/mis-entradas.webp",
+      "thumb": "img/eventos/mis-entradas-thumb.webp",
+      "mobile": "img/eventos/mis-entradas-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mis-pedidos",
+      "title": "Mis pedidos",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/mis-entradas",
+      "capturedUrl": "index.html#/mis-entradas",
+      "login": {
+        "id": "u-cli",
+        "name": "Valentina Rojas",
+        "role": "Cliente",
+        "email": "cliente@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Historial de compras con medio de pago, total y estado. Los pedidos dentro del plazo permiten pedir reembolso, que revisa el equipo de soporte.",
+      "actions": [
+        "Revisar cada pedido con su total y medio de pago",
+        "Solicitar el reembolso de un pedido dentro del plazo",
+        "Seguir el estado de las solicitudes"
+      ],
+      "img": "img/eventos/mis-pedidos.webp",
+      "thumb": "img/eventos/mis-pedidos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "entrada-qr",
+      "title": "Entrada digital",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/entrada/tbt",
+      "capturedUrl": "index.html#/entrada/tbt",
+      "login": {
+        "id": "u-cli",
+        "name": "Valentina Rojas",
+        "role": "Cliente",
+        "email": "cliente@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Entrada en formato pase de billetera con el código QR que se escanea en la puerta, titular, sector, fila y asiento.",
+      "actions": [
+        "Mostrar el QR en la entrada del recinto",
+        "Copiar el código de la entrada",
+        "Agregarla a la billetera del celular (simulado)",
+        "Pasar a las otras entradas del mismo pedido"
+      ],
+      "img": "img/eventos/entrada-qr.webp",
+      "thumb": "img/eventos/entrada-qr-thumb.webp",
+      "mobile": "img/eventos/entrada-qr-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "transferir",
+      "title": "Transferir entrada",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/mis-entradas",
+      "capturedUrl": "index.html#/mis-entradas",
+      "login": {
+        "id": "u-cli",
+        "name": "Valentina Rojas",
+        "role": "Cliente",
+        "email": "cliente@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Transferir\" en Mis entradas",
+      "description": "Envía la entrada a otra persona con cuenta en la plataforma. La entrada se reemite con un código nuevo y la anterior deja de valer.",
+      "actions": [
+        "Indicar el correo de la persona",
+        "Transferir la entrada al instante",
+        "Invalidar el código anterior"
+      ],
+      "img": "img/eventos/transferir.webp",
+      "thumb": "img/eventos/transferir-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "revender",
+      "title": "Publicar en reventa",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/mis-entradas",
+      "capturedUrl": "index.html#/mis-entradas",
+      "login": {
+        "id": "u-cli",
+        "name": "Valentina Rojas",
+        "role": "Cliente",
+        "email": "cliente@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Revender\" en Mis entradas",
+      "description": "Publica la entrada en la reventa oficial con un precio que no puede superar el tope fijado por la plataforma sobre el valor original.",
+      "actions": [
+        "Fijar el precio de venta dentro del tope",
+        "Ver el precio original de referencia",
+        "Publicarla en la ficha del evento"
+      ],
+      "img": "img/eventos/revender.webp",
+      "thumb": "img/eventos/revender-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "prod-resumen",
+      "title": "Resumen de la productora",
+      "section": "productor",
+      "roles": [
+        "Productor",
+        "Administrador"
+      ],
+      "url": "productor.html#/",
+      "capturedUrl": "productor.html#/",
+      "login": {
+        "id": "u-prod",
+        "name": "Ignacio Vergara",
+        "role": "Productor",
+        "email": "productor@sursonoro.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inicio del portal con los indicadores de venta de la productora, la recaudación mensual, sus eventos por estado y los próximos eventos.",
+      "actions": [
+        "Ver entradas vendidas y recaudación",
+        "Revisar la recaudación de los últimos meses",
+        "Ver cuántos eventos hay en cada estado",
+        "Crear un evento nuevo"
+      ],
+      "img": "img/eventos/prod-resumen.webp",
+      "thumb": "img/eventos/prod-resumen-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "prod-eventos",
+      "title": "Mis eventos",
+      "section": "productor",
+      "roles": [
+        "Productor",
+        "Administrador"
+      ],
+      "url": "productor.html#/eventos",
+      "capturedUrl": "productor.html#/eventos",
+      "login": {
+        "id": "u-prod",
+        "name": "Ignacio Vergara",
+        "role": "Productor",
+        "email": "productor@sursonoro.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Eventos de la productora con fecha, estado (borrador, pendiente, publicado, rechazado o finalizado), entradas vendidas y recaudación.",
+      "actions": [
+        "Buscar entre sus eventos",
+        "Enviar un borrador a aprobación",
+        "Editar o eliminar eventos sin ventas",
+        "Abrir el panel de ventas de un evento",
+        "Exportar a CSV"
+      ],
+      "img": "img/eventos/prod-eventos.webp",
+      "thumb": "img/eventos/prod-eventos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "prod-crear-detalles",
+      "title": "Crear evento: detalles",
+      "section": "productor",
+      "roles": [
+        "Productor",
+        "Administrador"
+      ],
+      "url": "productor.html#/nuevo",
+      "capturedUrl": "productor.html#/nuevo",
+      "login": {
+        "id": "u-prod",
+        "name": "Ignacio Vergara",
+        "role": "Productor",
+        "email": "productor@sursonoro.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Primer paso del asistente de creación: nombre, categoría, edad mínima, descripción, estilo del afiche y lineup.",
+      "actions": [
+        "Escribir nombre y descripción",
+        "Elegir categoría y edad mínima",
+        "Elegir uno de los estilos de afiche",
+        "Armar el lineup o programa con horarios"
+      ],
+      "img": "img/eventos/prod-crear-detalles.webp",
+      "thumb": "img/eventos/prod-crear-detalles-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "prod-crear-entradas",
+      "title": "Crear evento: entradas y precios",
+      "section": "productor",
+      "roles": [
+        "Productor",
+        "Administrador"
+      ],
+      "url": "productor.html#/nuevo",
+      "capturedUrl": "productor.html#/nuevo",
+      "login": {
+        "id": "u-prod",
+        "name": "Ignacio Vergara",
+        "role": "Productor",
+        "email": "productor@sursonoro.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tercer paso del asistente (tras elegir recinto y fecha): tipos de entrada asociados a cada zona del recinto, con precio, preventa y cupo.",
+      "actions": [
+        "Definir nombre y precio de cada tipo de entrada",
+        "Asociar cada tipo a una zona del recinto",
+        "Fijar precio y fecha de preventa",
+        "Proponer tipos automáticamente según las zonas"
+      ],
+      "img": "img/eventos/prod-crear-entradas.webp",
+      "thumb": "img/eventos/prod-crear-entradas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "prod-crear-revision",
+      "title": "Crear evento: revisión",
+      "section": "productor",
+      "roles": [
+        "Productor",
+        "Administrador"
+      ],
+      "url": "productor.html#/nuevo",
+      "capturedUrl": "productor.html#/nuevo",
+      "login": {
+        "id": "u-prod",
+        "name": "Ignacio Vergara",
+        "role": "Productor",
+        "email": "productor@sursonoro.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Último paso con el afiche, la fecha, la capacidad total y la recaudación potencial. El evento se guarda como borrador o se envía a aprobación del equipo.",
+      "actions": [
+        "Revisar todos los datos del evento",
+        "Ver capacidad y recaudación potencial",
+        "Guardar como borrador",
+        "Enviar a aprobación"
+      ],
+      "img": "img/eventos/prod-crear-revision.webp",
+      "thumb": "img/eventos/prod-crear-revision-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "prod-ventas",
+      "title": "Ventas del evento en vivo",
+      "section": "productor",
+      "roles": [
+        "Productor",
+        "Administrador"
+      ],
+      "url": "productor.html#/eventos/e1",
+      "capturedUrl": "productor.html#/eventos/e1",
+      "login": {
+        "id": "u-prod",
+        "name": "Ignacio Vergara",
+        "role": "Productor",
+        "email": "productor@sursonoro.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Panel de un evento que se actualiza con cada compra, incluso si ocurre en otra pestaña: vendidas por tipo, ventas diarias, últimas ventas y mapa de ocupación.",
+      "actions": [
+        "Ver vendidas, recaudación y ventas de hoy",
+        "Revisar ventas por tipo y por día",
+        "Ver el mapa de ocupación del recinto",
+        "Simular ventas en vivo para la demo",
+        "Editar el evento"
+      ],
+      "img": "img/eventos/prod-ventas.webp",
+      "thumb": "img/eventos/prod-ventas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "prod-asistentes",
+      "title": "Asistentes",
+      "section": "productor",
+      "roles": [
+        "Productor",
+        "Administrador"
+      ],
+      "url": "productor.html#/asistentes",
+      "capturedUrl": "productor.html#/asistentes",
+      "login": {
+        "id": "u-prod",
+        "name": "Ignacio Vergara",
+        "role": "Productor",
+        "email": "productor@sursonoro.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Entradas emitidas por evento con titular, código, ubicación y estado de ingreso.",
+      "actions": [
+        "Elegir el evento y filtrar por estado",
+        "Buscar por nombre, correo o código",
+        "Marcar un ingreso manual",
+        "Exportar la lista a CSV"
+      ],
+      "img": "img/eventos/prod-asistentes.webp",
+      "thumb": "img/eventos/prod-asistentes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "prod-promos",
+      "title": "Códigos promocionales",
+      "section": "productor",
+      "roles": [
+        "Productor",
+        "Administrador"
+      ],
+      "url": "productor.html#/promos",
+      "capturedUrl": "productor.html#/promos",
+      "login": {
+        "id": "u-prod",
+        "name": "Ignacio Vergara",
+        "role": "Productor",
+        "email": "productor@sursonoro.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Descuentos propios de la productora para sus eventos, con usos y vigencia.",
+      "actions": [
+        "Crear un código nuevo",
+        "Editar valor, usos máximos y vigencia",
+        "Eliminar un código"
+      ],
+      "img": "img/eventos/prod-promos.webp",
+      "thumb": "img/eventos/prod-promos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "prod-promo-nuevo",
+      "title": "Nuevo código promocional",
+      "section": "productor",
+      "roles": [
+        "Productor",
+        "Administrador"
+      ],
+      "url": "productor.html#/promos",
+      "capturedUrl": "productor.html#/promos",
+      "login": {
+        "id": "u-prod",
+        "name": "Ignacio Vergara",
+        "role": "Productor",
+        "email": "productor@sursonoro.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo código\" en Códigos promocionales",
+      "description": "Formulario para crear un descuento porcentual o de monto fijo para uno de los eventos de la productora.",
+      "actions": [
+        "Definir el código y el tipo de descuento",
+        "Elegir el evento al que aplica",
+        "Fijar usos máximos y fecha de vencimiento"
+      ],
+      "img": "img/eventos/prod-promo-nuevo.webp",
+      "thumb": "img/eventos/prod-promo-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "prod-liquidaciones",
+      "title": "Liquidaciones",
+      "section": "productor",
+      "roles": [
+        "Productor",
+        "Administrador"
+      ],
+      "url": "productor.html#/liquidaciones",
+      "capturedUrl": "productor.html#/liquidaciones",
+      "login": {
+        "id": "u-prod",
+        "name": "Ignacio Vergara",
+        "role": "Productor",
+        "email": "productor@sursonoro.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Saldo por evento con el bruto, la comisión de la plataforma, lo liquidado y lo pendiente, más el historial de pagos.",
+      "actions": [
+        "Ver lo disponible para liquidar y lo por liberar",
+        "Solicitar el pago de un evento ya realizado",
+        "Pedir un anticipo de hasta 30 % del neto",
+        "Exportar a CSV"
+      ],
+      "img": "img/eventos/prod-liquidaciones.webp",
+      "thumb": "img/eventos/prod-liquidaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "acceso",
+      "title": "App de control de acceso",
+      "section": "staff",
+      "roles": [
+        "Staff de acceso",
+        "Productor",
+        "Administrador"
+      ],
+      "url": "acceso.html",
+      "capturedUrl": "acceso.html",
+      "login": {
+        "id": "u-staff",
+        "name": "Diego Paredes",
+        "role": "Staff de acceso",
+        "email": "acceso@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "App de celular para la puerta: se elige el evento, se escanea o escribe el código de la entrada y se ve el conteo de ingresados en tiempo real.",
+      "actions": [
+        "Elegir el evento del día",
+        "Validar un código escrito o pegado",
+        "Ver ingresados, pendientes y porcentaje",
+        "Revisar los últimos escaneos",
+        "Simular entradas válidas o inválidas"
+      ],
+      "img": "img/eventos/acceso.webp",
+      "thumb": "img/eventos/acceso-thumb.webp",
+      "mobile": "img/eventos/acceso-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "acceso-valida",
+      "title": "Resultado: entrada válida",
+      "section": "staff",
+      "roles": null,
+      "url": "acceso.html",
+      "capturedUrl": "acceso.html",
+      "login": {
+        "id": "u-staff",
+        "name": "Diego Paredes",
+        "role": "Staff de acceso",
+        "email": "acceso@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Validar\" de la app de acceso",
+      "description": "Pantalla completa en verde con el nombre del titular, el tipo de entrada y la ubicación. La entrada queda marcada como usada.",
+      "actions": [
+        "Confirmar el ingreso de un vistazo",
+        "Ver titular, tipo y ubicación",
+        "Volver al escáner con un toque"
+      ],
+      "img": "img/eventos/acceso-valida.webp",
+      "thumb": "img/eventos/acceso-valida-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "acceso-invalida",
+      "title": "Resultado: entrada rechazada",
+      "section": "staff",
+      "roles": null,
+      "url": "acceso.html",
+      "capturedUrl": "acceso.html",
+      "login": {
+        "id": "u-staff",
+        "name": "Diego Paredes",
+        "role": "Staff de acceso",
+        "email": "acceso@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Validar\" de la app de acceso",
+      "description": "Pantalla de alerta cuando el código no existe, es de otro evento o ya fue usado (en ese caso indica a qué hora ingresó).",
+      "actions": [
+        "Detectar entradas falsas o de otro evento",
+        "Detectar entradas ya usadas y su hora de ingreso",
+        "Registrar el intento en el historial"
+      ],
+      "img": "img/eventos/acceso-invalida.webp",
+      "thumb": "img/eventos/acceso-invalida-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "soporte-pedidos",
+      "title": "Pedidos y reembolsos",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Administrador"
+      ],
+      "url": "admin.html#/pedidos",
+      "capturedUrl": "admin.html#/pedidos",
+      "login": {
+        "id": "u-soporte",
+        "name": "Rodrigo Pizarro",
+        "role": "Soporte",
+        "email": "soporte@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todas las compras de la plataforma con buscador por número de pedido, comprador o código de entrada, y el flujo de reembolsos. Soporte ve solo pedidos, eventos y actividad.",
+      "actions": [
+        "Buscar un pedido por número, comprador o código de entrada",
+        "Filtrar por estado, canal y evento",
+        "Aprobar o rechazar solicitudes de reembolso",
+        "Reembolsar un pedido pagado",
+        "Exportar a CSV"
+      ],
+      "img": "img/eventos/soporte-pedidos.webp",
+      "thumb": "img/eventos/soporte-pedidos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "soporte-pedido",
+      "title": "Detalle del pedido",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Administrador"
+      ],
+      "url": "admin.html#/pedidos",
+      "capturedUrl": "admin.html#/pedidos",
+      "login": {
+        "id": "u-soporte",
+        "name": "Rodrigo Pizarro",
+        "role": "Soporte",
+        "email": "soporte@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Clic en una fila de Pedidos y reembolsos",
+      "description": "Ventana con el estado, comprador, evento, medio de pago y cada entrada del pedido con su código, ubicación y estado.",
+      "actions": [
+        "Revisar las entradas y sus códigos",
+        "Ver subtotal, descuento, cargos y total",
+        "Reembolsar el pedido desde la misma ventana"
+      ],
+      "img": "img/eventos/soporte-pedido.webp",
+      "thumb": "img/eventos/soporte-pedido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "soporte-reembolso",
+      "title": "Reembolsar pedido",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Administrador"
+      ],
+      "url": "admin.html#/pedidos",
+      "capturedUrl": "admin.html#/pedidos",
+      "login": {
+        "id": "u-soporte",
+        "name": "Rodrigo Pizarro",
+        "role": "Soporte",
+        "email": "soporte@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Reembolsar\" de un pedido",
+      "description": "Confirmación del reembolso con el motivo. Las entradas del pedido se anulan y se avisa a la lista de espera si el evento estaba agotado.",
+      "actions": [
+        "Indicar el motivo del reembolso",
+        "Anular las entradas del pedido",
+        "Liberar cupos para la lista de espera"
+      ],
+      "img": "img/eventos/soporte-reembolso.webp",
+      "thumb": "img/eventos/soporte-reembolso-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "soporte-restringido",
+      "title": "Ruta protegida por rol",
+      "section": "soporte",
+      "roles": null,
+      "url": "admin.html#/tarifas",
+      "capturedUrl": "admin.html#/tarifas",
+      "login": {
+        "id": "u-soporte",
+        "name": "Rodrigo Pizarro",
+        "role": "Soporte",
+        "email": "soporte@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve soporte si intenta abrir una sección de configuración que no corresponde a su rol.",
+      "actions": [
+        "Ver el aviso de acceso restringido",
+        "Volver a las secciones permitidas desde el menú",
+        "Comprobar que cada rol solo ve sus menús"
+      ],
+      "img": "img/eventos/soporte-restringido.webp",
+      "thumb": "img/eventos/soporte-restringido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-dashboard",
+      "title": "Dashboard",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen de los últimos 30 días: ventas brutas, entradas vendidas, ventas por día, por ciudad y por categoría, top de eventos y pendientes de aprobación.",
+      "actions": [
+        "Ver ventas brutas y entradas vendidas",
+        "Revisar ventas mensuales, diarias y por ciudad",
+        "Ver los eventos más vendidos",
+        "Atender los eventos pendientes de aprobación",
+        "Seguir la actividad reciente"
+      ],
+      "img": "img/eventos/admin-dashboard.webp",
+      "thumb": "img/eventos/admin-dashboard-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-eventos",
+      "title": "Eventos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/eventos",
+      "capturedUrl": "admin.html#/eventos",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todos los eventos de la plataforma con estado, porcentaje vendido y recaudación. Los eventos que envían las productoras se aprueban o rechazan aquí.",
+      "actions": [
+        "Filtrar por estado, categoría y ciudad",
+        "Aprobar o rechazar eventos pendientes",
+        "Destacar eventos en la portada",
+        "Abrir el detalle de un evento",
+        "Exportar a CSV"
+      ],
+      "img": "img/eventos/admin-eventos.webp",
+      "thumb": "img/eventos/admin-eventos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-rechazar",
+      "title": "Rechazar evento",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/eventos?status=pendiente",
+      "capturedUrl": "admin.html#/eventos?status=pendiente",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Rechazar\" de un evento pendiente",
+      "description": "Ventana para rechazar un evento enviado por una productora indicando el motivo, que la productora ve en su listado.",
+      "actions": [
+        "Escribir el motivo del rechazo",
+        "Devolver el evento a la productora",
+        "Notificar a la productora"
+      ],
+      "img": "img/eventos/admin-rechazar.webp",
+      "thumb": "img/eventos/admin-rechazar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-evento-detalle",
+      "title": "Detalle del evento",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/eventos/e1",
+      "capturedUrl": "admin.html#/eventos/e1",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha interna del evento con vendidas, recaudación, cargos e ingresados, ventas diarias y por tipo, últimos pedidos y lista de espera.",
+      "actions": [
+        "Ver los indicadores del evento",
+        "Revisar ventas por día y por tipo de entrada",
+        "Ver los últimos pedidos y la lista de espera",
+        "Editar, cancelar con reembolso masivo o eliminar el evento",
+        "Abrirlo en el sitio público"
+      ],
+      "img": "img/eventos/admin-evento-detalle.webp",
+      "thumb": "img/eventos/admin-evento-detalle-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-evento-editar",
+      "title": "Editar evento",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/eventos/e17/editar",
+      "capturedUrl": "admin.html#/eventos/e17/editar",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "El mismo asistente de cinco pasos que usan las productoras, con la opción de guardar y publicar directamente.",
+      "actions": [
+        "Modificar detalles, recinto, fecha y entradas",
+        "Ajustar precios y preventa",
+        "Gestionar los códigos del evento",
+        "Guardar los cambios"
+      ],
+      "img": "img/eventos/admin-evento-editar.webp",
+      "thumb": "img/eventos/admin-evento-editar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-pedidos",
+      "title": "Pedidos y reembolsos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/pedidos",
+      "capturedUrl": "admin.html#/pedidos",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Listado de todas las compras con indicadores de pedidos, ventas y reembolsos, y filtros por estado, canal y evento.",
+      "actions": [
+        "Buscar por número de pedido, comprador o código de entrada",
+        "Filtrar por estado, canal (web o reventa) y evento",
+        "Abrir el detalle de un pedido",
+        "Reembolsar o resolver solicitudes",
+        "Exportar a CSV"
+      ],
+      "img": "img/eventos/admin-pedidos.webp",
+      "thumb": "img/eventos/admin-pedidos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-recintos",
+      "title": "Recintos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/recintos",
+      "capturedUrl": "admin.html#/recintos",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lugares donde se realizan los eventos, con ciudad, secciones numeradas, asientos, cupo de pie y capacidad total.",
+      "actions": [
+        "Buscar recintos",
+        "Crear un recinto nuevo",
+        "Abrir el editor del mapa de asientos",
+        "Eliminar recintos sin eventos",
+        "Exportar a CSV"
+      ],
+      "img": "img/eventos/admin-recintos.webp",
+      "thumb": "img/eventos/admin-recintos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-recinto-editor",
+      "title": "Editor de recinto",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/recintos/v1",
+      "capturedUrl": "admin.html#/recintos/v1",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos del recinto y generador del mapa de asientos: cada sección se define con filas, asientos por fila y zona, con vista previa inmediata.",
+      "actions": [
+        "Editar nombre, ciudad, dirección y cupo de pie",
+        "Agregar, ordenar o quitar secciones",
+        "Definir filas, asientos y zona de cada sección",
+        "Ver la vista previa del mapa"
+      ],
+      "img": "img/eventos/admin-recinto-editor.webp",
+      "thumb": "img/eventos/admin-recinto-editor-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-productoras",
+      "title": "Productoras",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/productoras",
+      "capturedUrl": "admin.html#/productoras",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Organizadores que publican en la plataforma con sus ventas, comisión y estado, más las liquidaciones solicitadas.",
+      "actions": [
+        "Aprobar productoras nuevas",
+        "Crear o editar una productora y su comisión",
+        "Marcar liquidaciones como pagadas",
+        "Abrir el detalle de una productora",
+        "Exportar a CSV"
+      ],
+      "img": "img/eventos/admin-productoras.webp",
+      "thumb": "img/eventos/admin-productoras-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-productora-detalle",
+      "title": "Detalle de productora",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/productoras",
+      "capturedUrl": "admin.html#/productoras",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Clic en una fila de Productoras",
+      "description": "Datos de la productora (RUT, contacto, cuenta bancaria, comisión), sus eventos con ventas y su historial de liquidaciones.",
+      "actions": [
+        "Revisar datos y cuenta bancaria",
+        "Ver los eventos con vendidas y recaudación",
+        "Revisar las liquidaciones"
+      ],
+      "img": "img/eventos/admin-productora-detalle.webp",
+      "thumb": "img/eventos/admin-productora-detalle-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-promos",
+      "title": "Códigos promocionales",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/promos",
+      "capturedUrl": "admin.html#/promos",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Descuentos globales o por evento con tipo, valor, usos y vigencia.",
+      "actions": [
+        "Crear o editar códigos",
+        "Activar o desactivar un código",
+        "Ver usos contra el máximo",
+        "Eliminar códigos",
+        "Exportar a CSV"
+      ],
+      "img": "img/eventos/admin-promos.webp",
+      "thumb": "img/eventos/admin-promos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-promo-nuevo",
+      "title": "Nuevo código promocional",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/promos",
+      "capturedUrl": "admin.html#/promos",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo código\" en Códigos promocionales",
+      "description": "Formulario para crear un descuento porcentual o fijo, global o limitado a un evento o productora.",
+      "actions": [
+        "Definir código, tipo y valor",
+        "Limitarlo a un evento o dejarlo global",
+        "Fijar usos máximos y vencimiento"
+      ],
+      "img": "img/eventos/admin-promo-nuevo.webp",
+      "thumb": "img/eventos/admin-promo-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-tarifas",
+      "title": "Tarifas y cargos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/tarifas",
+      "capturedUrl": "admin.html#/tarifas",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cargo por servicio, cargo fijo por entrada, máximo por compra, minutos de reserva, tope de reventa y plazo de reembolso, con un simulador de precio final. Se aplican al instante en el checkout.",
+      "actions": [
+        "Ajustar el cargo porcentual y el fijo",
+        "Definir máximo de entradas y minutos de reserva",
+        "Fijar el tope de reventa y el plazo de reembolso",
+        "Simular el precio final de una compra"
+      ],
+      "img": "img/eventos/admin-tarifas.webp",
+      "thumb": "img/eventos/admin-tarifas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-contenido",
+      "title": "Contenido del sitio",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/contenido",
+      "capturedUrl": "admin.html#/contenido",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor de la portada pública: título, bajada y botón principal, banner superior, correo de soporte y eventos destacados. Los cambios se ven al instante en el sitio.",
+      "actions": [
+        "Editar título, bajada y texto del botón de la portada",
+        "Mostrar u ocultar el banner superior",
+        "Elegir los eventos destacados",
+        "Cambiar el correo de soporte"
+      ],
+      "img": "img/eventos/admin-contenido.webp",
+      "thumb": "img/eventos/admin-contenido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas de la plataforma con su rol y productora asignada, más la tabla de permisos de cada rol.",
+      "actions": [
+        "Filtrar por rol",
+        "Crear o editar usuarios",
+        "Asignar una productora a un productor",
+        "Desactivar una cuenta",
+        "Consultar los permisos por rol"
+      ],
+      "img": "img/eventos/admin-usuarios.webp",
+      "thumb": "img/eventos/admin-usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-usuario-nuevo",
+      "title": "Nuevo usuario",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo usuario\" en Usuarios y roles",
+      "description": "Formulario para crear una cuenta con nombre, correo, contraseña, rol y, si es productor, la productora a la que pertenece.",
+      "actions": [
+        "Ingresar nombre, correo y contraseña",
+        "Elegir el rol",
+        "Asociar la cuenta a una productora"
+      ],
+      "img": "img/eventos/admin-usuario-nuevo.webp",
+      "thumb": "img/eventos/admin-usuario-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-actividad",
+      "title": "Actividad",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/actividad",
+      "capturedUrl": "admin.html#/actividad",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bitácora de las últimas 300 acciones: compras, reembolsos, cambios de estado de eventos, tarifas y registros.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Filtrar por tipo de acción o texto",
+        "Exportar a CSV",
+        "Restablecer los datos de demostración desde el menú"
+      ],
+      "img": "img/eventos/admin-actividad.webp",
+      "thumb": "img/eventos/admin-actividad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-como-productora",
+      "title": "Portal productor como administrador",
+      "section": "admin",
+      "roles": null,
+      "url": "productor.html#/",
+      "capturedUrl": "productor.html#/",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Fuentes",
+        "role": "Administrador",
+        "email": "admin@volcan.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "El administrador puede abrir el portal de productoras y ver los datos de cualquiera de ellas eligiéndola en el menú lateral.",
+      "actions": [
+        "Elegir la productora a revisar",
+        "Ver su resumen, eventos y liquidaciones",
+        "Dar soporte viendo lo mismo que la productora"
+      ],
+      "img": "img/eventos/admin-como-productora.webp",
+      "thumb": "img/eventos/admin-como-productora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Parallax\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/eventos/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/eventos/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/eventos/look-app.webp"
+      },
+      {
+        "id": "noir",
+        "group": "Estilo",
+        "label": "Noir Neón",
+        "desc": "Oscuro con acentos brillantes.",
+        "img": "img/eventos/look-noir.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/eventos/look-editorial.webp"
+      },
+      {
+        "id": "brutal",
+        "group": "Estilo",
+        "label": "Brutalista",
+        "desc": "Bordes gruesos y contraste alto.",
+        "img": "img/eventos/look-brutal.webp"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1561 @@
+{
+  "app": "gimnasio",
+  "dir": "gimnasio",
+  "name": "Titán Fit",
+  "kind": "Cadena de gimnasios",
+  "description": "Red de gimnasios con sitio público (planes, inscripción con pago en línea, horario de clases, sedes y entrenadores), app del socio y apps para recepción, entrenadores y administración.",
+  "demo": "../gimnasio/index.html",
+  "theme": "chrome",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:33:49.878Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Lo que ve cualquier visitante, sin iniciar sesión."
+    },
+    {
+      "id": "socio",
+      "label": "Socio",
+      "desc": "App del socio: clases, carnet digital, rutina, progreso, desafíos y pagos."
+    },
+    {
+      "id": "recepcion",
+      "label": "Recepción",
+      "desc": "Kiosco de check-in, tienda (POS) y cobros en el mesón."
+    },
+    {
+      "id": "entrenador",
+      "label": "Entrenador",
+      "desc": "App del coach: clases y asistencia, rutinas y seguimiento de clientes."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Panel de la red: socios, cobranza, tienda, planes, horario, sedes, marketing y configuración."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de inicio de la red con el mensaje principal, los planes, las próximas clases del día, las disciplinas y las sedes. Los textos se editan desde la configuración del sitio.",
+      "actions": [
+        "Ver los planes y pasar a inscribirse",
+        "Revisar las próximas clases",
+        "Conocer las disciplinas por nivel",
+        "Ver dirección de cada sede"
+      ],
+      "img": "img/gimnasio/portada.webp",
+      "thumb": "img/gimnasio/portada-thumb.webp",
+      "mobile": "img/gimnasio/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "planes",
+      "title": "Planes y precios",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/planes",
+      "capturedUrl": "index.html#/planes",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Planes de membresía con precio mensual o anual y una tabla comparativa de lo que incluye cada uno. Se administran desde el panel.",
+      "actions": [
+        "Cambiar entre precio mensual y anual",
+        "Comparar clases semanales, sedes y beneficios",
+        "Elegir un plan e inscribirse en línea"
+      ],
+      "img": "img/gimnasio/planes.webp",
+      "thumb": "img/gimnasio/planes-thumb.webp",
+      "mobile": "img/gimnasio/planes-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inscripcion",
+      "title": "Inscripción: modalidad y sede",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/inscripcion/full",
+      "capturedUrl": "index.html#/inscripcion/full",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Primer paso de la inscripción en línea: modalidad de pago (mensual o anual) y sede principal, con el resumen del plan, la matrícula y el total.",
+      "actions": [
+        "Elegir pago mensual o anual",
+        "Elegir la sede principal",
+        "Ver el resumen con matrícula y total",
+        "Continuar a los datos personales"
+      ],
+      "img": "img/gimnasio/inscripcion.webp",
+      "thumb": "img/gimnasio/inscripcion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inscripcion-datos",
+      "title": "Inscripción: datos del socio",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/inscripcion/full",
+      "capturedUrl": "index.html#/inscripcion/full",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Formulario de datos del nuevo socio, que también crea su cuenta para la app.",
+      "actions": [
+        "Ingresar nombre, RUT, correo y celular",
+        "Indicar fecha de nacimiento y objetivo",
+        "Crear la contraseña de la app",
+        "Aceptar el reglamento interno"
+      ],
+      "img": "img/gimnasio/inscripcion-datos.webp",
+      "thumb": "img/gimnasio/inscripcion-datos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inscripcion-pago",
+      "title": "Inscripción: pago",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/inscripcion/full",
+      "capturedUrl": "index.html#/inscripcion/full",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Pago simulado con tarjeta, con la opción de dejar activo el pago automático mensual (PAT).",
+      "actions": [
+        "Ingresar número, vencimiento y CVV",
+        "Activar o no el pago automático",
+        "Pagar el primer mes o el año más la matrícula"
+      ],
+      "img": "img/gimnasio/inscripcion-pago.webp",
+      "thumb": "img/gimnasio/inscripcion-pago-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inscripcion-lista",
+      "title": "Inscripción confirmada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/inscripcion/full",
+      "capturedUrl": "index.html#/inscripcion/full",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Bienvenida al nuevo socio con su código de socio. La membresía y el pago quedan registrados en el panel y la cuenta ya puede entrar a la app.",
+      "actions": [
+        "Ver su código de socio",
+        "Entrar a la app del socio",
+        "Revisar el horario para reservar su primera clase"
+      ],
+      "img": "img/gimnasio/inscripcion-lista.webp",
+      "thumb": "img/gimnasio/inscripcion-lista-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "horario",
+      "title": "Horario de clases",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/horario",
+      "capturedUrl": "index.html#/horario",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Horario semanal de clases por sede con disciplina, entrenador, duración y cupos disponibles.",
+      "actions": [
+        "Elegir la sede",
+        "Filtrar por disciplina",
+        "Ver cupos libres o clases llenas",
+        "Ir a inscribirse para reservar"
+      ],
+      "img": "img/gimnasio/horario.webp",
+      "thumb": "img/gimnasio/horario-thumb.webp",
+      "mobile": "img/gimnasio/horario-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sedes",
+      "title": "Sedes",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/sedes",
+      "capturedUrl": "index.html#/sedes",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Las sedes de la red con dirección, horarios, servicios y aforo.",
+      "actions": [
+        "Ver dirección y comuna",
+        "Revisar horarios de lunes a viernes y fin de semana",
+        "Conocer los servicios de cada sede"
+      ],
+      "img": "img/gimnasio/sedes.webp",
+      "thumb": "img/gimnasio/sedes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "entrenadores",
+      "title": "Entrenadores",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/entrenadores",
+      "capturedUrl": "index.html#/entrenadores",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Staff de entrenadores con su especialidad y biografía, administrado desde el panel.",
+      "actions": [
+        "Conocer a cada entrenador",
+        "Ver sus especialidades",
+        "Saber qué clases dicta"
+      ],
+      "img": "img/gimnasio/entrenadores.webp",
+      "thumb": "img/gimnasio/entrenadores-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso para socios y equipo, con cuentas de prueba para entrar con un clic a cada rol (incluye un socio con pago atrasado).",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic como administración, recepción, entrenador o socio",
+        "Probar la cuenta de un socio moroso",
+        "Volver al sitio"
+      ],
+      "img": "img/gimnasio/login.webp",
+      "thumb": "img/gimnasio/login-thumb.webp",
+      "mobile": "img/gimnasio/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "socio-inicio",
+      "title": "Inicio del socio",
+      "section": "socio",
+      "roles": [
+        "Socio"
+      ],
+      "url": "socio.html#/",
+      "capturedUrl": "socio.html#/",
+      "login": {
+        "id": "u4",
+        "name": "Sofía Navarro Bustos",
+        "role": "Socio",
+        "email": "socio@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inicio de la app con el estado de la membresía, visitas, próximas clases reservadas, la rutina asignada y el desafío activo.",
+      "actions": [
+        "Ver el estado y vencimiento de la membresía",
+        "Revisar sus próximas clases",
+        "Ir a la rutina del día",
+        "Ver su posición en el desafío"
+      ],
+      "img": "img/gimnasio/socio-inicio.webp",
+      "thumb": "img/gimnasio/socio-inicio-thumb.webp",
+      "mobile": "img/gimnasio/socio-inicio-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "socio-clases",
+      "title": "Reservar clases",
+      "section": "socio",
+      "roles": [
+        "Socio"
+      ],
+      "url": "socio.html#/clases",
+      "capturedUrl": "socio.html#/clases",
+      "login": {
+        "id": "u4",
+        "name": "Sofía Navarro Bustos",
+        "role": "Socio",
+        "email": "socio@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Horario semanal con cupos en vivo para reservar clases, más la lista de reservas propias. El plan limita cuántas clases se pueden reservar por semana.",
+      "actions": [
+        "Elegir sede y disciplina",
+        "Reservar una clase con cupo",
+        "Quedar en lista de espera si está llena",
+        "Gestionar o cancelar sus reservas"
+      ],
+      "img": "img/gimnasio/socio-clases.webp",
+      "thumb": "img/gimnasio/socio-clases-thumb.webp",
+      "mobile": "img/gimnasio/socio-clases-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "socio-clase",
+      "title": "Detalle y reserva de clase",
+      "section": "socio",
+      "roles": [
+        "Socio"
+      ],
+      "url": "socio.html#/clases",
+      "capturedUrl": "socio.html#/clases",
+      "login": {
+        "id": "u4",
+        "name": "Sofía Navarro Bustos",
+        "role": "Socio",
+        "email": "socio@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Clic en una clase del horario",
+      "description": "Ventana de una clase con hora, sala, entrenador y cupos, para reservarla o cancelar la reserva.",
+      "actions": [
+        "Ver detalles de la clase y el entrenador",
+        "Reservar el cupo",
+        "Cancelar una reserva existente"
+      ],
+      "img": "img/gimnasio/socio-clase.webp",
+      "thumb": "img/gimnasio/socio-clase-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "socio-carnet",
+      "title": "Carnet digital",
+      "section": "socio",
+      "roles": [
+        "Socio"
+      ],
+      "url": "socio.html#/carnet",
+      "capturedUrl": "socio.html#/carnet",
+      "login": {
+        "id": "u4",
+        "name": "Sofía Navarro Bustos",
+        "role": "Socio",
+        "email": "socio@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Carnet con código QR y código de socio para validar el ingreso en el kiosco de la sede, más las últimas visitas.",
+      "actions": [
+        "Mostrar el QR en el kiosco",
+        "Dictar el código en recepción",
+        "Revisar las últimas visitas"
+      ],
+      "img": "img/gimnasio/socio-carnet.webp",
+      "thumb": "img/gimnasio/socio-carnet-thumb.webp",
+      "mobile": "img/gimnasio/socio-carnet-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "socio-rutina",
+      "title": "Mi rutina",
+      "section": "socio",
+      "roles": [
+        "Socio"
+      ],
+      "url": "socio.html#/rutina",
+      "capturedUrl": "socio.html#/rutina",
+      "login": {
+        "id": "u4",
+        "name": "Sofía Navarro Bustos",
+        "role": "Socio",
+        "email": "socio@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Rutina asignada por el entrenador, organizada por días, con series, repeticiones y carga de cada ejercicio, y el historial de cargas registradas.",
+      "actions": [
+        "Elegir el día de la rutina",
+        "Ver series, repeticiones y carga sugerida",
+        "Registrar la carga usada en cada ejercicio",
+        "Revisar su historial"
+      ],
+      "img": "img/gimnasio/socio-rutina.webp",
+      "thumb": "img/gimnasio/socio-rutina-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "socio-progreso",
+      "title": "Mi progreso",
+      "section": "socio",
+      "roles": [
+        "Socio"
+      ],
+      "url": "socio.html#/progreso",
+      "capturedUrl": "socio.html#/progreso",
+      "login": {
+        "id": "u4",
+        "name": "Sofía Navarro Bustos",
+        "role": "Socio",
+        "email": "socio@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Evolución del peso y del porcentaje de grasa en gráficos, con la tabla de mediciones corporales.",
+      "actions": [
+        "Ver la evolución de peso y grasa",
+        "Revisar mediciones de cintura, cadera y brazo",
+        "Registrar una medición nueva"
+      ],
+      "img": "img/gimnasio/socio-progreso.webp",
+      "thumb": "img/gimnasio/socio-progreso-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "socio-medicion",
+      "title": "Nueva medición",
+      "section": "socio",
+      "roles": [
+        "Socio"
+      ],
+      "url": "socio.html#/progreso",
+      "capturedUrl": "socio.html#/progreso",
+      "login": {
+        "id": "u4",
+        "name": "Sofía Navarro Bustos",
+        "role": "Socio",
+        "email": "socio@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva medición\" en Progreso",
+      "description": "Formulario de medición corporal; el entrenador asignado la ve en la ficha del cliente.",
+      "actions": [
+        "Ingresar peso y % de grasa",
+        "Registrar cintura, cadera y brazo",
+        "Guardar y ver el gráfico actualizado"
+      ],
+      "img": "img/gimnasio/socio-medicion.webp",
+      "thumb": "img/gimnasio/socio-medicion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "socio-desafios",
+      "title": "Desafíos",
+      "section": "socio",
+      "roles": [
+        "Socio"
+      ],
+      "url": "socio.html#/desafios",
+      "capturedUrl": "socio.html#/desafios",
+      "login": {
+        "id": "u4",
+        "name": "Sofía Navarro Bustos",
+        "role": "Socio",
+        "email": "socio@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Retos de la red (visitas, clases, temporadas) con su ranking, que se actualiza con cada visita.",
+      "actions": [
+        "Ver los desafíos activos y su premio",
+        "Revisar su posición en el ranking",
+        "Ver cuánto le falta para la meta"
+      ],
+      "img": "img/gimnasio/socio-desafios.webp",
+      "thumb": "img/gimnasio/socio-desafios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "socio-pagos",
+      "title": "Pagos y membresía",
+      "section": "socio",
+      "roles": [
+        "Socio"
+      ],
+      "url": "socio.html#/pagos",
+      "capturedUrl": "socio.html#/pagos",
+      "login": {
+        "id": "u4",
+        "name": "Sofía Navarro Bustos",
+        "role": "Socio",
+        "email": "socio@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Estado de la membresía, historial de pagos y gestiones de la cuenta: pagar, congelar o cambiar de plan.",
+      "actions": [
+        "Pagar la membresía en línea",
+        "Revisar el historial de pagos",
+        "Congelar la membresía por un periodo",
+        "Solicitar un cambio de plan"
+      ],
+      "img": "img/gimnasio/socio-pagos.webp",
+      "thumb": "img/gimnasio/socio-pagos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "socio-congelar",
+      "title": "Congelar membresía",
+      "section": "socio",
+      "roles": [
+        "Socio"
+      ],
+      "url": "socio.html#/pagos",
+      "capturedUrl": "socio.html#/pagos",
+      "login": {
+        "id": "u4",
+        "name": "Sofía Navarro Bustos",
+        "role": "Socio",
+        "email": "socio@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Congelar\" en Pagos y membresía",
+      "description": "Solicitud de congelamiento de la membresía (viaje, lesión, etc.) por un número de días.",
+      "actions": [
+        "Elegir cuántos días congelar",
+        "Indicar el motivo",
+        "Confirmar; el vencimiento se corre automáticamente"
+      ],
+      "img": "img/gimnasio/socio-congelar.webp",
+      "thumb": "img/gimnasio/socio-congelar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "socio-moroso",
+      "title": "Inicio con pago atrasado",
+      "section": "socio",
+      "roles": [
+        "Socio"
+      ],
+      "url": "socio.html#/",
+      "capturedUrl": "socio.html#/",
+      "login": {
+        "id": "u5",
+        "name": "Rodrigo Pino Lagos",
+        "role": "Socio (moroso)",
+        "email": "moroso@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve un socio con la membresía impaga: un aviso destacado con el monto adeudado y el botón para pagar. En el kiosco su ingreso aparece rechazado.",
+      "actions": [
+        "Ver el aviso de pago pendiente",
+        "Pagar la deuda en línea",
+        "Seguir usando la app mientras regulariza"
+      ],
+      "img": "img/gimnasio/socio-moroso.webp",
+      "thumb": "img/gimnasio/socio-moroso-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "socio-pagar",
+      "title": "Pagar membresía",
+      "section": "socio",
+      "roles": [
+        "Socio"
+      ],
+      "url": "socio.html#/",
+      "capturedUrl": "socio.html#/",
+      "login": {
+        "id": "u5",
+        "name": "Rodrigo Pino Lagos",
+        "role": "Socio (moroso)",
+        "email": "moroso@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Pagar\" del aviso de deuda",
+      "description": "Pago simulado de la membresía pendiente. Al pagar, el socio queda al día en recepción y en el panel.",
+      "actions": [
+        "Revisar el monto y el concepto",
+        "Pagar con tarjeta",
+        "Quedar habilitado para ingresar"
+      ],
+      "img": "img/gimnasio/socio-pagar.webp",
+      "thumb": "img/gimnasio/socio-pagar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rec-kiosco",
+      "title": "Kiosco de check-in",
+      "section": "recepcion",
+      "roles": [
+        "Recepción",
+        "Administrador"
+      ],
+      "url": "recepcion.html#/",
+      "capturedUrl": "recepcion.html#/",
+      "login": {
+        "id": "u2",
+        "name": "Kevin Salinas",
+        "role": "Recepción",
+        "email": "recepcion@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Validación de ingreso por código o QR del carnet: indica si el socio está al día, moroso, congelado o dado de baja, y registra la visita. Al lado, los ingresos del día por hora.",
+      "actions": [
+        "Escanear o escribir el código del socio",
+        "Ver si el ingreso está permitido y por qué",
+        "Cambiar de sede",
+        "Revisar los ingresos de hoy"
+      ],
+      "img": "img/gimnasio/rec-kiosco.webp",
+      "thumb": "img/gimnasio/rec-kiosco-thumb.webp",
+      "mobile": "img/gimnasio/rec-kiosco-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rec-kiosco-moroso",
+      "title": "Kiosco: ingreso rechazado",
+      "section": "recepcion",
+      "roles": [
+        "Recepción",
+        "Administrador"
+      ],
+      "url": "recepcion.html#/",
+      "capturedUrl": "recepcion.html#/",
+      "login": {
+        "id": "u2",
+        "name": "Kevin Salinas",
+        "role": "Recepción",
+        "email": "recepcion@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resultado del kiosco para un socio con deuda: el ingreso se rechaza y se ofrece cobrar en el mesón.",
+      "actions": [
+        "Ver el motivo del rechazo",
+        "Cobrar la deuda en el momento",
+        "Registrar el ingreso una vez pagado"
+      ],
+      "img": "img/gimnasio/rec-kiosco-moroso.webp",
+      "thumb": "img/gimnasio/rec-kiosco-moroso-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rec-pos",
+      "title": "Tienda (POS)",
+      "section": "recepcion",
+      "roles": [
+        "Recepción",
+        "Administrador"
+      ],
+      "url": "recepcion.html#/pos",
+      "capturedUrl": "recepcion.html#/pos",
+      "login": {
+        "id": "u2",
+        "name": "Kevin Salinas",
+        "role": "Recepción",
+        "email": "recepcion@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Punto de venta de recepción con productos por categoría, carro de venta y stock que se descuenta al cobrar.",
+      "actions": [
+        "Buscar productos por nombre o SKU",
+        "Filtrar por categoría",
+        "Agregar o quitar unidades del carro",
+        "Asociar la venta a un socio",
+        "Cobrar y ver las ventas del día"
+      ],
+      "img": "img/gimnasio/rec-pos.webp",
+      "thumb": "img/gimnasio/rec-pos-thumb.webp",
+      "mobile": "img/gimnasio/rec-pos-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rec-socios",
+      "title": "Socios y cobros",
+      "section": "recepcion",
+      "roles": [
+        "Recepción",
+        "Administrador"
+      ],
+      "url": "recepcion.html#/socios",
+      "capturedUrl": "recepcion.html#/socios",
+      "login": {
+        "id": "u2",
+        "name": "Kevin Salinas",
+        "role": "Recepción",
+        "email": "recepcion@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Buscador de socios con su estado y plan, para cobrar la membresía en el mesón.",
+      "actions": [
+        "Buscar socios por nombre, RUT o código",
+        "Filtrar por estado",
+        "Cobrar la membresía",
+        "Abrir la ficha del socio"
+      ],
+      "img": "img/gimnasio/rec-socios.webp",
+      "thumb": "img/gimnasio/rec-socios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rec-cobro",
+      "title": "Cobro de membresía",
+      "section": "recepcion",
+      "roles": [
+        "Recepción",
+        "Administrador"
+      ],
+      "url": "recepcion.html#/socios",
+      "capturedUrl": "recepcion.html#/socios",
+      "login": {
+        "id": "u2",
+        "name": "Kevin Salinas",
+        "role": "Recepción",
+        "email": "recepcion@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Cobrar\" en Socios y cobros",
+      "description": "Registro de un pago de membresía hecho en recepción.",
+      "actions": [
+        "Ver el monto del plan",
+        "Elegir el medio de pago",
+        "Registrar el pago y dejar al socio al día"
+      ],
+      "img": "img/gimnasio/rec-cobro.webp",
+      "thumb": "img/gimnasio/rec-cobro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "coach-clases",
+      "title": "Mis clases",
+      "section": "entrenador",
+      "roles": [
+        "Entrenador"
+      ],
+      "url": "entrenador.html#/",
+      "capturedUrl": "entrenador.html#/",
+      "login": {
+        "id": "u3",
+        "name": "Matías Leiva",
+        "role": "Entrenador",
+        "email": "coach@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Clases del entrenador para hoy y el resto de la semana, con ocupación de cada una.",
+      "actions": [
+        "Ver las clases de hoy",
+        "Revisar la ocupación",
+        "Abrir la lista de asistencia de una clase"
+      ],
+      "img": "img/gimnasio/coach-clases.webp",
+      "thumb": "img/gimnasio/coach-clases-thumb.webp",
+      "mobile": "img/gimnasio/coach-clases-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "coach-asistencia",
+      "title": "Asistencia de la clase",
+      "section": "entrenador",
+      "roles": [
+        "Entrenador"
+      ],
+      "url": "entrenador.html#/clase/c12/2026-10-30",
+      "capturedUrl": "entrenador.html#/clase/c12/2026-10-30",
+      "login": {
+        "id": "u3",
+        "name": "Matías Leiva",
+        "role": "Entrenador",
+        "email": "coach@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lista de inscritos de una clase para marcar presentes y ausentes, liberar cupos a la lista de espera y agregar socios sin reserva.",
+      "actions": [
+        "Marcar presente o ausente",
+        "Dar el cupo a quien está en espera",
+        "Agregar un socio que llegó sin reserva"
+      ],
+      "img": "img/gimnasio/coach-asistencia.webp",
+      "thumb": "img/gimnasio/coach-asistencia-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "coach-rutinas",
+      "title": "Rutinas",
+      "section": "entrenador",
+      "roles": [
+        "Entrenador"
+      ],
+      "url": "entrenador.html#/rutinas",
+      "capturedUrl": "entrenador.html#/rutinas",
+      "login": {
+        "id": "u3",
+        "name": "Matías Leiva",
+        "role": "Entrenador",
+        "email": "coach@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Rutinas creadas por el entrenador y asignadas a sus clientes. Se ven en la app del socio.",
+      "actions": [
+        "Crear una rutina nueva",
+        "Editar o eliminar rutinas",
+        "Ver a quién está asignada cada una"
+      ],
+      "img": "img/gimnasio/coach-rutinas.webp",
+      "thumb": "img/gimnasio/coach-rutinas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "coach-rutina-editor",
+      "title": "Constructor de rutinas",
+      "section": "entrenador",
+      "roles": [
+        "Entrenador"
+      ],
+      "url": "entrenador.html#/rutinas/r0",
+      "capturedUrl": "entrenador.html#/rutinas/r0",
+      "login": {
+        "id": "u3",
+        "name": "Matías Leiva",
+        "role": "Entrenador",
+        "email": "coach@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor de rutinas por días con ejercicios, series, repeticiones y carga, y la asignación al socio.",
+      "actions": [
+        "Nombrar la rutina y escribir notas",
+        "Agregar o quitar días",
+        "Agregar ejercicios con series, repeticiones y carga",
+        "Guardar y asignar a un cliente"
+      ],
+      "img": "img/gimnasio/coach-rutina-editor.webp",
+      "thumb": "img/gimnasio/coach-rutina-editor-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "coach-clientes",
+      "title": "Mis clientes",
+      "section": "entrenador",
+      "roles": [
+        "Entrenador"
+      ],
+      "url": "entrenador.html#/clientes",
+      "capturedUrl": "entrenador.html#/clientes",
+      "login": {
+        "id": "u3",
+        "name": "Matías Leiva",
+        "role": "Entrenador",
+        "email": "coach@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Socios asignados al entrenador con plan, último peso y última visita.",
+      "actions": [
+        "Buscar a un cliente",
+        "Ver su último peso y visita",
+        "Abrir su ficha de seguimiento"
+      ],
+      "img": "img/gimnasio/coach-clientes.webp",
+      "thumb": "img/gimnasio/coach-clientes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "coach-cliente",
+      "title": "Ficha del cliente",
+      "section": "entrenador",
+      "roles": [
+        "Entrenador"
+      ],
+      "url": "entrenador.html#/clientes/m0",
+      "capturedUrl": "entrenador.html#/clientes/m0",
+      "login": {
+        "id": "u3",
+        "name": "Matías Leiva",
+        "role": "Entrenador",
+        "email": "coach@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Seguimiento de un cliente con gráficos de peso y grasa, mediciones y los últimos registros de entrenamiento.",
+      "actions": [
+        "Ver la evolución corporal",
+        "Registrar una medición",
+        "Revisar los entrenamientos registrados"
+      ],
+      "img": "img/gimnasio/coach-cliente.webp",
+      "thumb": "img/gimnasio/coach-cliente-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-dashboard",
+      "title": "Dashboard",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen de la red con socios activos, morosidad e ingresos, gráficos de ingresos por membresía, socios por plan, check-ins por hora, ocupación por disciplina y altas por mes.",
+      "actions": [
+        "Ver ingresos de los últimos 6 meses",
+        "Analizar socios por plan y altas por mes",
+        "Detectar horas peak de check-in",
+        "Ver la ocupación de clases por disciplina"
+      ],
+      "img": "img/gimnasio/admin-dashboard.webp",
+      "thumb": "img/gimnasio/admin-dashboard-thumb.webp",
+      "mobile": "img/gimnasio/admin-dashboard-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-socios",
+      "title": "Socios",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/socios",
+      "capturedUrl": "admin.html#/socios",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Base de socios con plan, sede, estado y vencimiento.",
+      "actions": [
+        "Buscar y filtrar por estado, plan y sede",
+        "Crear o editar socios",
+        "Dar de baja",
+        "Abrir la ficha del socio",
+        "Exportar a CSV"
+      ],
+      "img": "img/gimnasio/admin-socios.webp",
+      "thumb": "img/gimnasio/admin-socios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-socio-ficha",
+      "title": "Ficha de socio",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/socios/m0",
+      "capturedUrl": "admin.html#/socios/m0",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha del socio con datos, plan, estado, pagos y reservas de clases.",
+      "actions": [
+        "Ver datos y estado de la membresía",
+        "Revisar pagos y reservas",
+        "Descongelar una membresía",
+        "Editar la ficha"
+      ],
+      "img": "img/gimnasio/admin-socio-ficha.webp",
+      "thumb": "img/gimnasio/admin-socio-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-socio-editar",
+      "title": "Nuevo socio",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/socios",
+      "capturedUrl": "admin.html#/socios",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo socio\" en Socios",
+      "description": "Formulario de alta o edición de socio.",
+      "actions": [
+        "Ingresar datos personales y RUT",
+        "Asignar plan y sede",
+        "Definir estado y vencimiento"
+      ],
+      "img": "img/gimnasio/admin-socio-editar.webp",
+      "thumb": "img/gimnasio/admin-socio-editar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-pagos",
+      "title": "Pagos y cobranza",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/pagos",
+      "capturedUrl": "admin.html#/pagos",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Socios morosos con días de atraso y monto, y el registro de todos los pagos de membresía.",
+      "actions": [
+        "Ver la lista de morosos por días de atraso",
+        "Cobrar una deuda",
+        "Enviar recordatorio a los morosos",
+        "Ver todos los pagos y exportar"
+      ],
+      "img": "img/gimnasio/admin-pagos.webp",
+      "thumb": "img/gimnasio/admin-pagos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-tienda",
+      "title": "Tienda y stock",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/tienda",
+      "capturedUrl": "admin.html#/tienda",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Productos que se venden en el POS de recepción, con stock, ventas de los últimos 30 días y los más vendidos.",
+      "actions": [
+        "Crear o editar productos",
+        "Controlar el stock bajo",
+        "Ver los más vendidos",
+        "Ir al POS de recepción"
+      ],
+      "img": "img/gimnasio/admin-tienda.webp",
+      "thumb": "img/gimnasio/admin-tienda-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-planes",
+      "title": "Planes",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/planes",
+      "capturedUrl": "admin.html#/planes",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Planes de membresía con precio mensual y anual, clases por semana y sedes incluidas. Los activos se publican en la página de precios.",
+      "actions": [
+        "Crear, editar o eliminar planes",
+        "Fijar precios mensual y anual",
+        "Definir beneficios y sedes",
+        "Activar o desactivar un plan"
+      ],
+      "img": "img/gimnasio/admin-planes.webp",
+      "thumb": "img/gimnasio/admin-planes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-plan-editar",
+      "title": "Editar plan",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/planes",
+      "capturedUrl": "admin.html#/planes",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Clic en un plan",
+      "description": "Editor de un plan con precios, límites y la lista de beneficios que se muestra en el sitio.",
+      "actions": [
+        "Editar nombre y precios",
+        "Fijar clases por semana",
+        "Elegir si incluye todas las sedes",
+        "Editar la lista de beneficios"
+      ],
+      "img": "img/gimnasio/admin-plan-editar.webp",
+      "thumb": "img/gimnasio/admin-plan-editar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-horario",
+      "title": "Clases y horario",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/horario",
+      "capturedUrl": "admin.html#/horario",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Constructor del horario semanal por sede, en grilla o lista. Lo publicado aparece en el sitio y en la app de socios.",
+      "actions": [
+        "Elegir la sede",
+        "Crear, editar o eliminar clases",
+        "Ver el horario en grilla o en lista",
+        "Agregar clases por disciplina"
+      ],
+      "img": "img/gimnasio/admin-horario.webp",
+      "thumb": "img/gimnasio/admin-horario-thumb.webp",
+      "mobile": "img/gimnasio/admin-horario-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-clase-editar",
+      "title": "Nueva clase",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/horario",
+      "capturedUrl": "admin.html#/horario",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva clase\" en Clases y horario",
+      "description": "Formulario de clase del horario.",
+      "actions": [
+        "Elegir disciplina, entrenador y sala",
+        "Definir día, hora y duración",
+        "Fijar el cupo máximo"
+      ],
+      "img": "img/gimnasio/admin-clase-editar.webp",
+      "thumb": "img/gimnasio/admin-clase-editar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-sedes",
+      "title": "Sedes",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/sedes",
+      "capturedUrl": "admin.html#/sedes",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Sedes de la red con horarios, servicios, aforo y clases por semana.",
+      "actions": [
+        "Crear o editar sedes",
+        "Definir horarios de semana y fin de semana",
+        "Indicar servicios y aforo"
+      ],
+      "img": "img/gimnasio/admin-sedes.webp",
+      "thumb": "img/gimnasio/admin-sedes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-entrenadores",
+      "title": "Entrenadores",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/entrenadores",
+      "capturedUrl": "admin.html#/entrenadores",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Staff que aparece en el sitio y dicta clases, con su carga semanal.",
+      "actions": [
+        "Crear o editar entrenadores",
+        "Escribir su biografía y especialidades",
+        "Ver cuántas clases dicta por semana"
+      ],
+      "img": "img/gimnasio/admin-entrenadores.webp",
+      "thumb": "img/gimnasio/admin-entrenadores-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-campanas",
+      "title": "Campañas",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/campanas",
+      "capturedUrl": "admin.html#/campanas",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Campañas de marketing y retención por correo o SMS (envío simulado) con segmento, alcance y conversiones.",
+      "actions": [
+        "Crear o editar campañas",
+        "Elegir el segmento (morosos, ex socios, todos)",
+        "Enviar una campaña",
+        "Ver alcance y conversiones"
+      ],
+      "img": "img/gimnasio/admin-campanas.webp",
+      "thumb": "img/gimnasio/admin-campanas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-campana-editar",
+      "title": "Nueva campaña",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/campanas",
+      "capturedUrl": "admin.html#/campanas",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva campaña\"",
+      "description": "Formulario de campaña con canal, segmento y mensaje.",
+      "actions": [
+        "Poner nombre y canal",
+        "Elegir el segmento de socios",
+        "Escribir el mensaje"
+      ],
+      "img": "img/gimnasio/admin-campana-editar.webp",
+      "thumb": "img/gimnasio/admin-campana-editar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-desafios",
+      "title": "Desafíos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/desafios",
+      "capturedUrl": "admin.html#/desafios",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Retos de fidelización que los socios ven en su app, con su líder actual.",
+      "actions": [
+        "Crear o editar desafíos",
+        "Definir meta, fechas y premio",
+        "Ver quién lidera cada uno"
+      ],
+      "img": "img/gimnasio/admin-desafios.webp",
+      "thumb": "img/gimnasio/admin-desafios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas de acceso con su rol y vínculo (sede, entrenador o ficha de socio).",
+      "actions": [
+        "Crear, editar o eliminar usuarios",
+        "Asignar rol",
+        "Vincular a un entrenador, sede o socio",
+        "Desactivar una cuenta"
+      ],
+      "img": "img/gimnasio/admin-usuarios.webp",
+      "thumb": "img/gimnasio/admin-usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-config",
+      "title": "Configuración del sitio",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/config",
+      "capturedUrl": "admin.html#/config",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Marca, textos de la portada, promoción de la barra superior, contacto y reglas del negocio (matrícula, cancelación de clases y congelamiento). Se reflejan de inmediato en el sitio y en las apps.",
+      "actions": [
+        "Editar marca, eslogan y textos de la portada",
+        "Publicar u ocultar la promoción de la barra superior",
+        "Actualizar teléfono, correo e Instagram",
+        "Fijar la matrícula (0 = promoción)",
+        "Definir plazo de cancelación y reglas de congelamiento"
+      ],
+      "img": "img/gimnasio/admin-config.webp",
+      "thumb": "img/gimnasio/admin-config-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-bitacora",
+      "title": "Bitácora",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/bitacora",
+      "capturedUrl": "admin.html#/bitacora",
+      "login": {
+        "id": "u1",
+        "name": "Carolina Méndez",
+        "role": "Administrador",
+        "email": "admin@titanfit.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Últimos 300 eventos del sistema: inicios de sesión, check-ins, pagos, reservas y cambios de configuración.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Filtrar por tipo de acción y buscar",
+        "Exportar a CSV",
+        "Restablecer los datos de demostración"
+      ],
+      "img": "img/gimnasio/admin-bitacora.webp",
+      "thumb": "img/gimnasio/admin-bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Cromo\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/gimnasio/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/gimnasio/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/gimnasio/look-app.webp"
+      },
+      {
+        "id": "noir",
+        "group": "Estilo",
+        "label": "Noir Neón",
+        "desc": "Oscuro con acentos brillantes.",
+        "img": "img/gimnasio/look-noir.webp"
+      },
+      {
+        "id": "nordic",
+        "group": "Estilo",
+        "label": "Nórdico",
+        "desc": "Minimalista, blanco y aire.",
+        "img": "img/gimnasio/look-nordic.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/gimnasio/look-editorial.webp"
+      }
+    ]
+  }
+}

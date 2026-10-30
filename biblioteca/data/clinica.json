@@ -1,0 +1,1638 @@
+{
+  "app": "clinica",
+  "dir": "clinica",
+  "name": "Centro Médico Alerce",
+  "kind": "Centro médico",
+  "description": "Centro médico ambulatorio con sitio público (especialidades, staff, reserva en línea, telemedicina y resultados), portal del paciente y apps para recepción, médicos y administración, más la pantalla de la sala de espera.",
+  "demo": "../clinica/index.html",
+  "theme": "neumorph",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:31:55.519Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Lo que ve cualquier paciente, sin iniciar sesión."
+    },
+    {
+      "id": "paciente",
+      "label": "Paciente",
+      "desc": "Portal personal: horas, historial, recetas, exámenes y grupo familiar."
+    },
+    {
+      "id": "recepcion",
+      "label": "Recepción",
+      "desc": "Check-in, sala de espera, caja y la pantalla de llamados."
+    },
+    {
+      "id": "medico",
+      "label": "Médico",
+      "desc": "App del profesional: cola del día, ficha clínica, agenda y bloqueos."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Panel completo: citas, pacientes, staff, precios, recordatorios y configuración."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de inicio del centro médico con accesos a reserva, telemedicina y resultados, especialidades, profesionales destacados, ubicación y previsiones atendidas. Los textos se editan desde la configuración del sitio.",
+      "actions": [
+        "Reservar hora o entrar a telemedicina",
+        "Ver las especialidades y profesionales destacados",
+        "Revisar dirección, horario y contacto",
+        "Ver qué previsiones se atienden (Fonasa, isapres, particular)"
+      ],
+      "img": "img/clinica/portada.webp",
+      "thumb": "img/clinica/portada-thumb.webp",
+      "mobile": "img/clinica/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "especialidades",
+      "title": "Especialidades",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/especialidades",
+      "capturedUrl": "index.html#/especialidades",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Listado de especialidades activas con su descripción y número de profesionales. Se administran desde el panel.",
+      "actions": [
+        "Ver todas las especialidades",
+        "Saber cuántos profesionales atienden cada una",
+        "Entrar a la página de una especialidad"
+      ],
+      "img": "img/clinica/especialidades.webp",
+      "thumb": "img/clinica/especialidades-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "especialidad",
+      "title": "Página de especialidad",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/especialidades/car",
+      "capturedUrl": "index.html#/especialidades/car",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Detalle de una especialidad con su descripción y los profesionales que la atienden, con su próxima hora disponible.",
+      "actions": [
+        "Leer en qué consiste la especialidad",
+        "Ver los profesionales y su próxima hora",
+        "Reservar directamente con uno de ellos"
+      ],
+      "img": "img/clinica/especialidad.webp",
+      "thumb": "img/clinica/especialidad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "medicos",
+      "title": "Directorio de profesionales",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/medicos",
+      "capturedUrl": "index.html#/medicos",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Directorio del staff médico con especialidad, modalidad de atención y próxima hora libre.",
+      "actions": [
+        "Buscar por nombre",
+        "Filtrar por especialidad",
+        "Mostrar solo quienes atienden por telemedicina",
+        "Abrir el perfil de un profesional"
+      ],
+      "img": "img/clinica/medicos.webp",
+      "thumb": "img/clinica/medicos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "medico-perfil",
+      "title": "Perfil del profesional",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/medicos/d1",
+      "capturedUrl": "index.html#/medicos/d1",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Perfil de un médico con su formación, horario de atención semanal y las próximas horas disponibles, generadas desde su plantilla de horario.",
+      "actions": [
+        "Revisar especialidad, formación y modalidad",
+        "Ver el horario de atención por día",
+        "Elegir una de las próximas horas libres para reservar"
+      ],
+      "img": "img/clinica/medico-perfil.webp",
+      "thumb": "img/clinica/medico-perfil-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reservar",
+      "title": "Reserva: especialidad",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/reservar",
+      "capturedUrl": "index.html#/reservar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Primer paso de la reserva en línea, en 5 pasos (especialidad, profesional, día y hora, datos y confirmación), con un resumen que muestra el valor según la previsión.",
+      "actions": [
+        "Elegir la especialidad",
+        "Ver cuántos profesionales atienden cada una",
+        "Seguir el avance en la barra de pasos",
+        "Ver el resumen de la reserva y su valor"
+      ],
+      "img": "img/clinica/reservar.webp",
+      "thumb": "img/clinica/reservar-thumb.webp",
+      "mobile": "img/clinica/reservar-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reservar-hora",
+      "title": "Reserva: día y hora",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/reservar",
+      "capturedUrl": "index.html#/reservar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Paso de agenda con los días de la semana que tienen cupos y las horas libres de la mañana y la tarde. Solo aparecen los cupos que genera la plantilla de horario del médico, sin los bloqueados.",
+      "actions": [
+        "Moverse entre semanas",
+        "Elegir un día con cupos disponibles",
+        "Elegir una hora de la mañana o de la tarde",
+        "Volver a cambiar de profesional"
+      ],
+      "img": "img/clinica/reservar-hora.webp",
+      "thumb": "img/clinica/reservar-hora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reservar-datos",
+      "title": "Reserva: datos del paciente",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/reservar",
+      "capturedUrl": "index.html#/reservar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Formulario de datos del paciente. Valida el RUT y, si el paciente ya existe, completa su ficha automáticamente; el valor se recalcula al cambiar la previsión.",
+      "actions": [
+        "Ingresar RUT, nombre y fecha de nacimiento",
+        "Elegir la previsión y ver el copago",
+        "Dejar correo, celular y motivo de consulta",
+        "Aceptar las condiciones y confirmar"
+      ],
+      "img": "img/clinica/reservar-datos.webp",
+      "thumb": "img/clinica/reservar-datos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reservar-confirmada",
+      "title": "Reserva confirmada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/reservar",
+      "capturedUrl": "index.html#/reservar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Comprobante de la reserva con código, profesional, fecha, lugar y valor. La hora aparece al instante en recepción, en la agenda del médico y en el panel.",
+      "actions": [
+        "Ver el código de la reserva",
+        "Agregar la hora al calendario (.ics o Google Calendar)",
+        "Gestionar la hora (confirmar, anular o cambiar)",
+        "Hacer una nueva reserva"
+      ],
+      "img": "img/clinica/reservar-confirmada.webp",
+      "thumb": "img/clinica/reservar-confirmada-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mi-hora",
+      "title": "Gestionar mi hora",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/mi-hora",
+      "capturedUrl": "index.html#/mi-hora",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Búsqueda de una hora con el código y el RUT del paciente para confirmarla, anularla o cambiarla. La anulación sin costo respeta el plazo mínimo configurado.",
+      "actions": [
+        "Buscar la hora con código y RUT",
+        "Confirmar la asistencia",
+        "Anular la hora dentro del plazo",
+        "Reagendar a otro día u hora",
+        "Agregarla al calendario"
+      ],
+      "img": "img/clinica/mi-hora.webp",
+      "thumb": "img/clinica/mi-hora-thumb.webp",
+      "mobile": "img/clinica/mi-hora-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "telemedicina",
+      "title": "Telemedicina: ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/telemedicina",
+      "capturedUrl": "index.html#/telemedicina",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso a la sala de espera virtual con código y RUT, con recomendaciones antes de la teleconsulta.",
+      "actions": [
+        "Entrar a la sala con código de reserva y RUT",
+        "Ver sus próximas teleconsultas si tiene sesión",
+        "Revisar los requisitos de cámara y micrófono"
+      ],
+      "img": "img/clinica/telemedicina.webp",
+      "thumb": "img/clinica/telemedicina-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "telemedicina-sala",
+      "title": "Sala de espera virtual",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/telemedicina",
+      "capturedUrl": "index.html#/telemedicina",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Sala de teleconsulta con video simulado, controles de cámara y micrófono y chat con el médico. El paciente queda \"en espera\" y el médico lo ve en su app.",
+      "actions": [
+        "Esperar a que el médico se conecte",
+        "Encender o apagar cámara y micrófono",
+        "Escribir en el chat de la consulta",
+        "Probar sonido o salir de la sala"
+      ],
+      "img": "img/clinica/telemedicina-sala.webp",
+      "thumb": "img/clinica/telemedicina-sala-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "resultados",
+      "title": "Resultados de exámenes",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/resultados",
+      "capturedUrl": "index.html#/resultados",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Consulta de resultados de laboratorio con RUT y folio. Muestra el estado del examen y, si está validado, permite ver el informe.",
+      "actions": [
+        "Consultar con RUT y folio",
+        "Ver si el informe está disponible o en proceso",
+        "Abrir el informe en PDF"
+      ],
+      "img": "img/clinica/resultados.webp",
+      "thumb": "img/clinica/resultados-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "resultado-informe",
+      "title": "Informe de examen",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/resultados",
+      "capturedUrl": "index.html#/resultados",
+      "login": null,
+      "kind": "modal",
+      "from": "Botón \"Ver PDF\" de un examen disponible",
+      "description": "Informe de laboratorio con los resultados, valores de referencia y el profesional que lo validó, listo para imprimir.",
+      "actions": [
+        "Revisar los resultados y rangos de referencia",
+        "Ver quién validó el informe",
+        "Imprimir o guardar en PDF"
+      ],
+      "img": "img/clinica/resultado-informe.webp",
+      "thumb": "img/clinica/resultado-informe-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-ingreso",
+      "title": "Portal paciente (sin sesión)",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/portal",
+      "capturedUrl": "index.html#/portal",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve un paciente al abrir el portal sin haber ingresado: inicio de sesión, registro de cuenta nueva y cuenta de prueba.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Crear una cuenta con RUT y datos personales",
+        "Entrar con la cuenta de prueba de paciente"
+      ],
+      "img": "img/clinica/portal-ingreso.webp",
+      "thumb": "img/clinica/portal-ingreso-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso de funcionarios",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso para el equipo y los pacientes, con cuentas de prueba para entrar con un clic a cada rol.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic como administración, recepción, médico o paciente",
+        "Ir a crear una cuenta de paciente",
+        "Volver al sitio"
+      ],
+      "img": "img/clinica/login.webp",
+      "thumb": "img/clinica/login-thumb.webp",
+      "mobile": "img/clinica/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-proximas",
+      "title": "Próximas horas",
+      "section": "paciente",
+      "roles": [
+        "Paciente"
+      ],
+      "url": "index.html#/portal/proximas",
+      "capturedUrl": "index.html#/portal/proximas",
+      "login": {
+        "id": "u5",
+        "name": "Camila Fuentes Herrera",
+        "role": "Paciente",
+        "email": "paciente@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inicio del portal con las horas futuras del paciente y de sus cargas familiares.",
+      "actions": [
+        "Confirmar o anular una hora",
+        "Agregarla al calendario",
+        "Entrar a la sala virtual de una teleconsulta",
+        "Reservar una hora nueva"
+      ],
+      "img": "img/clinica/portal-proximas.webp",
+      "thumb": "img/clinica/portal-proximas-thumb.webp",
+      "mobile": "img/clinica/portal-proximas-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-historial",
+      "title": "Historial de atenciones",
+      "section": "paciente",
+      "roles": [
+        "Paciente"
+      ],
+      "url": "index.html#/portal/historial",
+      "capturedUrl": "index.html#/portal/historial",
+      "login": {
+        "id": "u5",
+        "name": "Camila Fuentes Herrera",
+        "role": "Paciente",
+        "email": "paciente@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Atenciones anteriores con profesional, especialidad, estado y acceso a la receta emitida.",
+      "actions": [
+        "Revisar atenciones pasadas",
+        "Ver el diagnóstico e indicaciones",
+        "Abrir la receta de una atención"
+      ],
+      "img": "img/clinica/portal-historial.webp",
+      "thumb": "img/clinica/portal-historial-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-recetas",
+      "title": "Recetas",
+      "section": "paciente",
+      "roles": [
+        "Paciente"
+      ],
+      "url": "index.html#/portal/recetas",
+      "capturedUrl": "index.html#/portal/recetas",
+      "login": {
+        "id": "u5",
+        "name": "Camila Fuentes Herrera",
+        "role": "Paciente",
+        "email": "paciente@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Recetas emitidas por los médicos del centro, con medicamentos, dosis y fecha.",
+      "actions": [
+        "Ver las recetas vigentes",
+        "Revisar medicamentos y dosis",
+        "Abrir o imprimir una receta"
+      ],
+      "img": "img/clinica/portal-recetas.webp",
+      "thumb": "img/clinica/portal-recetas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-receta",
+      "title": "Receta médica",
+      "section": "paciente",
+      "roles": [
+        "Paciente"
+      ],
+      "url": "index.html#/portal/recetas",
+      "capturedUrl": "index.html#/portal/recetas",
+      "login": {
+        "id": "u5",
+        "name": "Camila Fuentes Herrera",
+        "role": "Paciente",
+        "email": "paciente@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Ver / imprimir\" en Recetas",
+      "description": "Receta con los datos del paciente, el profesional, los medicamentos con dosis y frecuencia, lista para imprimir.",
+      "actions": [
+        "Revisar la prescripción",
+        "Ver el profesional que la emitió",
+        "Imprimir o guardar en PDF"
+      ],
+      "img": "img/clinica/portal-receta.webp",
+      "thumb": "img/clinica/portal-receta-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-examenes",
+      "title": "Exámenes",
+      "section": "paciente",
+      "roles": [
+        "Paciente"
+      ],
+      "url": "index.html#/portal/examenes",
+      "capturedUrl": "index.html#/portal/examenes",
+      "login": {
+        "id": "u5",
+        "name": "Camila Fuentes Herrera",
+        "role": "Paciente",
+        "email": "paciente@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Exámenes del paciente con folio, fecha y estado, sin necesidad de ingresar el folio a mano.",
+      "actions": [
+        "Ver los exámenes realizados",
+        "Saber cuáles están disponibles",
+        "Abrir el informe en PDF"
+      ],
+      "img": "img/clinica/portal-examenes.webp",
+      "thumb": "img/clinica/portal-examenes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-familia",
+      "title": "Grupo familiar",
+      "section": "paciente",
+      "roles": [
+        "Paciente"
+      ],
+      "url": "index.html#/portal/familia",
+      "capturedUrl": "index.html#/portal/familia",
+      "login": {
+        "id": "u5",
+        "name": "Camila Fuentes Herrera",
+        "role": "Paciente",
+        "email": "paciente@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cargas familiares asociadas a la cuenta, para reservar y ver las horas de hijos u otros familiares desde el mismo portal.",
+      "actions": [
+        "Ver las cargas registradas",
+        "Agregar una carga familiar",
+        "Quitar una carga"
+      ],
+      "img": "img/clinica/portal-familia.webp",
+      "thumb": "img/clinica/portal-familia-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-carga",
+      "title": "Agregar carga familiar",
+      "section": "paciente",
+      "roles": [
+        "Paciente"
+      ],
+      "url": "index.html#/portal/familia",
+      "capturedUrl": "index.html#/portal/familia",
+      "login": {
+        "id": "u5",
+        "name": "Camila Fuentes Herrera",
+        "role": "Paciente",
+        "email": "paciente@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Agregar\" en Grupo familiar",
+      "description": "Formulario para sumar un familiar al grupo del titular.",
+      "actions": [
+        "Ingresar nombre, RUT y fecha de nacimiento",
+        "Indicar la relación con el titular",
+        "Elegir su previsión"
+      ],
+      "img": "img/clinica/portal-carga.webp",
+      "thumb": "img/clinica/portal-carga-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-datos",
+      "title": "Mis datos",
+      "section": "paciente",
+      "roles": [
+        "Paciente"
+      ],
+      "url": "index.html#/portal/datos",
+      "capturedUrl": "index.html#/portal/datos",
+      "login": {
+        "id": "u5",
+        "name": "Camila Fuentes Herrera",
+        "role": "Paciente",
+        "email": "paciente@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos personales del paciente y cambio de contraseña.",
+      "actions": [
+        "Actualizar teléfono, correo y previsión",
+        "Revisar alergias y enfermedades crónicas registradas",
+        "Cambiar la contraseña"
+      ],
+      "img": "img/clinica/portal-datos.webp",
+      "thumb": "img/clinica/portal-datos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rec-checkin",
+      "title": "Check-in de hoy",
+      "section": "recepcion",
+      "roles": [
+        "Recepción",
+        "Administrador"
+      ],
+      "url": "recepcion.html#/",
+      "capturedUrl": "recepcion.html#/",
+      "login": {
+        "id": "u2",
+        "name": "Jorge Muñoz Tapia",
+        "role": "Recepción",
+        "email": "recepcion@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lista de las citas del día para marcar la llegada del paciente, cobrar y llamarlo a box, con buscador por RUT, nombre o código.",
+      "actions": [
+        "Buscar al paciente por RUT, nombre o código",
+        "Hacer check-in (queda en la sala de espera)",
+        "Cobrar la consulta",
+        "Llamar al paciente a la pantalla",
+        "Agendar un sobrecupo"
+      ],
+      "img": "img/clinica/rec-checkin.webp",
+      "thumb": "img/clinica/rec-checkin-thumb.webp",
+      "mobile": "img/clinica/rec-checkin-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rec-sobrecupo",
+      "title": "Agendar paciente presencial",
+      "section": "recepcion",
+      "roles": [
+        "Recepción",
+        "Administrador"
+      ],
+      "url": "recepcion.html#/",
+      "capturedUrl": "recepcion.html#/",
+      "login": {
+        "id": "u2",
+        "name": "Jorge Muñoz Tapia",
+        "role": "Recepción",
+        "email": "recepcion@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Sobrecupo / agendar\" en Check-in",
+      "description": "Agenda rápida para un paciente que llega sin hora o pide un sobrecupo, buscando su ficha por RUT o creándola.",
+      "actions": [
+        "Buscar o crear al paciente",
+        "Elegir profesional, día y hora",
+        "Agendar como sobrecupo si no hay cupos"
+      ],
+      "img": "img/clinica/rec-sobrecupo.webp",
+      "thumb": "img/clinica/rec-sobrecupo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rec-cobrar",
+      "title": "Cobro de consulta",
+      "section": "recepcion",
+      "roles": [
+        "Recepción",
+        "Administrador"
+      ],
+      "url": "recepcion.html#/pagos",
+      "capturedUrl": "recepcion.html#/pagos",
+      "login": {
+        "id": "u2",
+        "name": "Jorge Muñoz Tapia",
+        "role": "Recepción",
+        "email": "recepcion@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Cobrar\" en Check-in o Caja",
+      "description": "Registro del pago de una consulta con el copago según previsión.",
+      "actions": [
+        "Ver el valor a pagar según previsión",
+        "Elegir medio de pago (efectivo, tarjeta, bono electrónico)",
+        "Registrar el pago"
+      ],
+      "img": "img/clinica/rec-cobrar.webp",
+      "thumb": "img/clinica/rec-cobrar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rec-sala",
+      "title": "Sala de espera",
+      "section": "recepcion",
+      "roles": [
+        "Recepción",
+        "Administrador"
+      ],
+      "url": "recepcion.html#/sala",
+      "capturedUrl": "recepcion.html#/sala",
+      "login": {
+        "id": "u2",
+        "name": "Jorge Muñoz Tapia",
+        "role": "Recepción",
+        "email": "recepcion@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pacientes esperando agrupados por profesional, con tiempo de espera promedio y los últimos llamados.",
+      "actions": [
+        "Ver quién espera a cada médico",
+        "Llamar al siguiente paciente",
+        "Repetir un llamado",
+        "Controlar la espera promedio"
+      ],
+      "img": "img/clinica/rec-sala.webp",
+      "thumb": "img/clinica/rec-sala-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rec-caja",
+      "title": "Caja: pagos y bonos",
+      "section": "recepcion",
+      "roles": [
+        "Recepción",
+        "Administrador"
+      ],
+      "url": "recepcion.html#/pagos",
+      "capturedUrl": "recepcion.html#/pagos",
+      "login": {
+        "id": "u2",
+        "name": "Jorge Muñoz Tapia",
+        "role": "Recepción",
+        "email": "recepcion@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Caja del día con las atenciones pendientes de cobro, el total por medio de pago y los pagos registrados hoy.",
+      "actions": [
+        "Cobrar las atenciones pendientes",
+        "Ver la recaudación por medio de pago",
+        "Revisar los pagos del día"
+      ],
+      "img": "img/clinica/rec-caja.webp",
+      "thumb": "img/clinica/rec-caja-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rec-panel",
+      "title": "Panel con permisos de recepción",
+      "section": "recepcion",
+      "roles": [
+        "Recepción",
+        "Administrador"
+      ],
+      "url": "admin.html#/medicos",
+      "capturedUrl": "admin.html#/medicos",
+      "login": {
+        "id": "u2",
+        "name": "Jorge Muñoz Tapia",
+        "role": "Recepción",
+        "email": "recepcion@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Recepción también entra al panel de administración, pero solo ve dashboard, citas, pacientes y recordatorios; si abre una sección de administrador, como Médicos y horarios, aparece un aviso de acceso restringido.",
+      "actions": [
+        "Usar dashboard, citas, pacientes y recordatorios del panel",
+        "Ver qué secciones son solo del administrador",
+        "Volver a una sección permitida desde el menú"
+      ],
+      "img": "img/clinica/rec-panel.webp",
+      "thumb": "img/clinica/rec-panel-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "pantalla",
+      "title": "Pantalla de sala de espera",
+      "section": "recepcion",
+      "roles": null,
+      "url": "pantalla.html",
+      "capturedUrl": "pantalla.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Pantalla tipo TV para la sala de espera: muestra el llamado actual con el box, los últimos llamados y los pacientes en espera. Se actualiza sola cuando recepción o el médico llaman a alguien.",
+      "actions": [
+        "Mostrar el paciente llamado y su box",
+        "Ver los últimos llamados",
+        "Ver la cola de espera",
+        "Funcionar en un televisor sin intervención"
+      ],
+      "img": "img/clinica/pantalla.webp",
+      "thumb": "img/clinica/pantalla-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "med-hoy",
+      "title": "Agenda y cola de hoy",
+      "section": "medico",
+      "roles": [
+        "Médico"
+      ],
+      "url": "medico.html#/",
+      "capturedUrl": "medico.html#/",
+      "login": {
+        "id": "u3",
+        "name": "Dra. Antonia Vergara Ríos",
+        "role": "Médico",
+        "email": "medico@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inicio de la app del médico con la cola del día: pacientes en espera, el que está en atención y las próximas horas, presenciales y por telemedicina.",
+      "actions": [
+        "Llamar al siguiente paciente (aparece en la pantalla)",
+        "Abrir la ficha y comenzar la atención",
+        "Marcar un no-show",
+        "Ver el resumen del día"
+      ],
+      "img": "img/clinica/med-hoy.webp",
+      "thumb": "img/clinica/med-hoy-thumb.webp",
+      "mobile": "img/clinica/med-hoy-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "med-atencion",
+      "title": "Ficha clínica de la atención",
+      "section": "medico",
+      "roles": [
+        "Médico"
+      ],
+      "url": "medico.html#/atencion/anp",
+      "capturedUrl": "medico.html#/atencion/anp",
+      "login": {
+        "id": "u3",
+        "name": "Dra. Antonia Vergara Ríos",
+        "role": "Médico",
+        "email": "medico@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de la atención: anamnesis y examen físico, diagnóstico con buscador CIE-10, indicaciones y receta, junto a los datos del paciente y sus atenciones anteriores. En teleconsultas incluye la sala virtual con chat.",
+      "actions": [
+        "Escribir anamnesis y examen físico",
+        "Agregar diagnósticos CIE-10",
+        "Dejar indicaciones",
+        "Armar la receta con dosis y frecuencia",
+        "Guardar borrador o finalizar la atención"
+      ],
+      "img": "img/clinica/med-atencion.webp",
+      "thumb": "img/clinica/med-atencion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "med-receta",
+      "title": "Vista de receta",
+      "section": "medico",
+      "roles": [
+        "Médico"
+      ],
+      "url": "medico.html#/atencion/anp",
+      "capturedUrl": "medico.html#/atencion/anp",
+      "login": {
+        "id": "u3",
+        "name": "Dra. Antonia Vergara Ríos",
+        "role": "Médico",
+        "email": "medico@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Receta\" en la ficha de la atención",
+      "description": "Receta generada desde la ficha, con los datos del paciente y del profesional, lista para imprimir; al finalizar queda disponible en el portal del paciente.",
+      "actions": [
+        "Revisar los medicamentos antes de emitir",
+        "Imprimir o guardar en PDF",
+        "Volver a la ficha para corregir"
+      ],
+      "img": "img/clinica/med-receta.webp",
+      "thumb": "img/clinica/med-receta-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "med-semana",
+      "title": "Agenda semanal",
+      "section": "medico",
+      "roles": [
+        "Médico"
+      ],
+      "url": "medico.html#/semana",
+      "capturedUrl": "medico.html#/semana",
+      "login": {
+        "id": "u3",
+        "name": "Dra. Antonia Vergara Ríos",
+        "role": "Médico",
+        "email": "medico@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Agenda de la semana del médico por día y hora, con el estado de cada cita y los bloqueos.",
+      "actions": [
+        "Moverse entre semanas o volver a hoy",
+        "Ver las citas de cada día",
+        "Abrir el detalle de una cita"
+      ],
+      "img": "img/clinica/med-semana.webp",
+      "thumb": "img/clinica/med-semana-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "med-pacientes",
+      "title": "Mis pacientes",
+      "section": "medico",
+      "roles": [
+        "Médico"
+      ],
+      "url": "medico.html#/pacientes",
+      "capturedUrl": "medico.html#/pacientes",
+      "login": {
+        "id": "u3",
+        "name": "Dra. Antonia Vergara Ríos",
+        "role": "Médico",
+        "email": "medico@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pacientes atendidos por el médico con previsión, última atención y próxima hora.",
+      "actions": [
+        "Buscar a un paciente",
+        "Ver su última y próxima atención",
+        "Abrir su historial clínico"
+      ],
+      "img": "img/clinica/med-pacientes.webp",
+      "thumb": "img/clinica/med-pacientes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "med-historial",
+      "title": "Historial del paciente",
+      "section": "medico",
+      "roles": [
+        "Médico"
+      ],
+      "url": "medico.html#/pacientes",
+      "capturedUrl": "medico.html#/pacientes",
+      "login": {
+        "id": "u3",
+        "name": "Dra. Antonia Vergara Ríos",
+        "role": "Médico",
+        "email": "medico@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Clic en un paciente de Mis pacientes",
+      "description": "Historial clínico de un paciente con sus registros, recetas y últimas citas.",
+      "actions": [
+        "Revisar los registros clínicos",
+        "Abrir una receta anterior",
+        "Ver las últimas citas"
+      ],
+      "img": "img/clinica/med-historial.webp",
+      "thumb": "img/clinica/med-historial-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "med-bloqueos",
+      "title": "Bloquear horario",
+      "section": "medico",
+      "roles": [
+        "Médico"
+      ],
+      "url": "medico.html#/bloqueos",
+      "capturedUrl": "medico.html#/bloqueos",
+      "login": {
+        "id": "u3",
+        "name": "Dra. Antonia Vergara Ríos",
+        "role": "Médico",
+        "email": "medico@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bloqueos de agenda por vacaciones, congresos o trámites. Cada bloqueo quita esos cupos de la reserva en línea.",
+      "actions": [
+        "Crear un bloqueo con fecha, horario y motivo",
+        "Ver los bloqueos próximos",
+        "Quitar un bloqueo"
+      ],
+      "img": "img/clinica/med-bloqueos.webp",
+      "thumb": "img/clinica/med-bloqueos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-dashboard",
+      "title": "Dashboard",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen operativo con citas de hoy, ocupación de la semana, ingresos y no-show, gráficos de citas por día, ingresos por previsión, ocupación por profesional y próximas atenciones.",
+      "actions": [
+        "Comparar indicadores con la semana pasada",
+        "Ver la ocupación por profesional",
+        "Analizar ingresos por previsión y no-show por día",
+        "Revisar las próximas atenciones y la actividad reciente"
+      ],
+      "img": "img/clinica/admin-dashboard.webp",
+      "thumb": "img/clinica/admin-dashboard-thumb.webp",
+      "mobile": "img/clinica/admin-dashboard-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-citas",
+      "title": "Citas",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/citas",
+      "capturedUrl": "admin.html#/citas",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Agenda de todo el centro con estado, profesional, previsión y pago de cada cita.",
+      "actions": [
+        "Filtrar por fecha, profesional y estado",
+        "Abrir una cita para cambiar su estado",
+        "Crear una cita nueva",
+        "Exportar a CSV"
+      ],
+      "img": "img/clinica/admin-citas.webp",
+      "thumb": "img/clinica/admin-citas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-cita-detalle",
+      "title": "Detalle de cita",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/citas",
+      "capturedUrl": "admin.html#/citas",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Clic en una cita",
+      "description": "Detalle de una cita con el paciente, el profesional y su flujo de estados (reservada, confirmada, en espera, en atención, atendida).",
+      "actions": [
+        "Avanzar el estado de la cita",
+        "Cobrar la consulta",
+        "Reprogramar o cancelar",
+        "Enviar un recordatorio",
+        "Marcar que no asistió"
+      ],
+      "img": "img/clinica/admin-cita-detalle.webp",
+      "thumb": "img/clinica/admin-cita-detalle-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-cita-nueva",
+      "title": "Nueva cita",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/citas",
+      "capturedUrl": "admin.html#/citas",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva cita\" en Citas",
+      "description": "Agendamiento interno de una cita, con búsqueda del paciente y los cupos libres del profesional.",
+      "actions": [
+        "Buscar o crear al paciente",
+        "Elegir profesional y modalidad",
+        "Elegir día y hora libre",
+        "Confirmar la cita"
+      ],
+      "img": "img/clinica/admin-cita-nueva.webp",
+      "thumb": "img/clinica/admin-cita-nueva-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-pacientes",
+      "title": "Pacientes",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/pacientes",
+      "capturedUrl": "admin.html#/pacientes",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Base de pacientes con RUT, previsión y última atención.",
+      "actions": [
+        "Buscar por nombre o RUT",
+        "Filtrar por previsión",
+        "Crear, editar o eliminar pacientes",
+        "Abrir la ficha del paciente"
+      ],
+      "img": "img/clinica/admin-pacientes.webp",
+      "thumb": "img/clinica/admin-pacientes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-paciente-ficha",
+      "title": "Ficha de paciente",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/pacientes/p0",
+      "capturedUrl": "admin.html#/pacientes/p0",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha completa con datos personales, alergias, citas, atenciones registradas, grupo familiar y exámenes.",
+      "actions": [
+        "Ver citas y abrir su detalle",
+        "Revisar atenciones y recetas",
+        "Ver el grupo familiar y los exámenes",
+        "Agendar una nueva cita",
+        "Editar los datos"
+      ],
+      "img": "img/clinica/admin-paciente-ficha.webp",
+      "thumb": "img/clinica/admin-paciente-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-paciente-editar",
+      "title": "Nuevo paciente",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/pacientes",
+      "capturedUrl": "admin.html#/pacientes",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo paciente\" en Pacientes",
+      "description": "Formulario de ficha de paciente.",
+      "actions": [
+        "Ingresar RUT, nombre y fecha de nacimiento",
+        "Registrar previsión y contacto",
+        "Anotar alergias y enfermedades crónicas"
+      ],
+      "img": "img/clinica/admin-paciente-editar.webp",
+      "thumb": "img/clinica/admin-paciente-editar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-medicos",
+      "title": "Médicos y horarios",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/medicos",
+      "capturedUrl": "admin.html#/medicos",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Staff médico con especialidad, días de atención, cupos semanales y próxima hora. La plantilla de horario de cada uno genera los cupos de la reserva en línea.",
+      "actions": [
+        "Agregar o editar profesionales",
+        "Ver cupos por semana y próxima hora",
+        "Activar o desactivar un profesional",
+        "Exportar a CSV"
+      ],
+      "img": "img/clinica/admin-medicos.webp",
+      "thumb": "img/clinica/admin-medicos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-medico-editar",
+      "title": "Editar profesional y horario",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/medicos",
+      "capturedUrl": "admin.html#/medicos",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Clic en un profesional de Médicos y horarios",
+      "description": "Datos del profesional y su plantilla de horario (días, horas y duración de cada cita) con la vista previa de los cupos que genera.",
+      "actions": [
+        "Editar nombre, RUT, especialidad y box",
+        "Definir días y horario de atención",
+        "Fijar la duración de cada cita",
+        "Activar la atención por telemedicina",
+        "Ver la vista previa de cupos"
+      ],
+      "img": "img/clinica/admin-medico-editar.webp",
+      "thumb": "img/clinica/admin-medico-editar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-especialidades",
+      "title": "Especialidades",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/especialidades",
+      "capturedUrl": "admin.html#/especialidades",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Especialidades del centro con descripción e ícono. Se muestran en el sitio, el directorio y la reserva.",
+      "actions": [
+        "Crear, editar o eliminar especialidades",
+        "Elegir el ícono",
+        "Ordenar cómo aparecen en el sitio"
+      ],
+      "img": "img/clinica/admin-especialidades.webp",
+      "thumb": "img/clinica/admin-especialidades-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-boxes",
+      "title": "Boxes y salas",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/boxes",
+      "capturedUrl": "admin.html#/boxes",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Espacios de atención con su tipo o equipamiento y el uso de cada uno hoy.",
+      "actions": [
+        "Crear, editar o eliminar boxes",
+        "Indicar tipo y equipamiento",
+        "Ver la ocupación del día"
+      ],
+      "img": "img/clinica/admin-boxes.webp",
+      "thumb": "img/clinica/admin-boxes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-precios",
+      "title": "Precios y previsión",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/precios",
+      "capturedUrl": "admin.html#/precios",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Copago por consulta según especialidad y previsión. Se usa en la reserva en línea y en la caja de recepción.",
+      "actions": [
+        "Editar el copago por especialidad y previsión",
+        "Aplicar un ajuste masivo en porcentaje",
+        "Guardar la tabla de precios"
+      ],
+      "img": "img/clinica/admin-precios.webp",
+      "thumb": "img/clinica/admin-precios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-ajuste-precios",
+      "title": "Ajuste masivo de precios",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/precios",
+      "capturedUrl": "admin.html#/precios",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Ajuste masivo %\" en Precios",
+      "description": "Ajuste porcentual de todos los precios de una vez, hacia arriba o hacia abajo.",
+      "actions": [
+        "Ingresar el porcentaje de ajuste",
+        "Aplicar a toda la tabla",
+        "Revisar antes de guardar"
+      ],
+      "img": "img/clinica/admin-ajuste-precios.webp",
+      "thumb": "img/clinica/admin-ajuste-precios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-recordatorios",
+      "title": "Recordatorios",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Recepción"
+      ],
+      "url": "admin.html#/recordatorios",
+      "capturedUrl": "admin.html#/recordatorios",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro simulado de SMS y correos de recordatorio enviados a los pacientes, con su estado y la plantilla del mensaje.",
+      "actions": [
+        "Ver los recordatorios enviados y fallidos",
+        "Reintentar los fallidos",
+        "Editar la plantilla del recordatorio"
+      ],
+      "img": "img/clinica/admin-recordatorios.webp",
+      "thumb": "img/clinica/admin-recordatorios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas de acceso con su rol y vínculo (profesional o ficha de paciente).",
+      "actions": [
+        "Crear, editar o eliminar usuarios",
+        "Asignar rol",
+        "Vincular un médico a su perfil o un paciente a su ficha",
+        "Desactivar una cuenta"
+      ],
+      "img": "img/clinica/admin-usuarios.webp",
+      "thumb": "img/clinica/admin-usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-config",
+      "title": "Configuración del sitio",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/config",
+      "capturedUrl": "admin.html#/config",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Textos del sitio público, datos de contacto y reglas de reserva (días de anticipación y plazo para anular). Se reflejan de inmediato en el sitio.",
+      "actions": [
+        "Editar título, bajada y aviso del sitio",
+        "Actualizar dirección, teléfono y horario",
+        "Definir cuántos días se puede reservar",
+        "Fijar el plazo mínimo para anular sin costo"
+      ],
+      "img": "img/clinica/admin-config.webp",
+      "thumb": "img/clinica/admin-config-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-bitacora",
+      "title": "Bitácora",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/bitacora",
+      "capturedUrl": "admin.html#/bitacora",
+      "login": {
+        "id": "u1",
+        "name": "Patricia Lagos Ibáñez",
+        "role": "Administrador",
+        "email": "admin@alerce.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Últimos 300 eventos del sistema: inicios de sesión, reservas, cambios de estado y configuración.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Filtrar por tipo de acción y buscar",
+        "Exportar a CSV",
+        "Restablecer los datos de demostración"
+      ],
+      "img": "img/clinica/admin-bitacora.webp",
+      "thumb": "img/clinica/admin-bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Neumorfismo\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/clinica/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/clinica/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/clinica/look-app.webp"
+      },
+      {
+        "id": "nordic",
+        "group": "Estilo",
+        "label": "Nórdico",
+        "desc": "Minimalista, blanco y aire.",
+        "img": "img/clinica/look-nordic.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/clinica/look-editorial.webp"
+      },
+      {
+        "id": "noir",
+        "group": "Estilo",
+        "label": "Noir Neón",
+        "desc": "Oscuro con acentos brillantes.",
+        "img": "img/clinica/look-noir.webp"
+      }
+    ]
+  }
+}

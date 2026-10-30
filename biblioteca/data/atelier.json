@@ -1,0 +1,1603 @@
+{
+  "app": "atelier",
+  "dir": "atelier",
+  "name": "Atelier Torque",
+  "kind": "Taller premium y performance",
+  "description": "Taller premium para autos de alta gama, deportivos y eléctricos, con sitio público (programas por marca, agenda con retiro concierge, seguimiento en vivo, inspección digital y dyno), garage del cliente, panel de gestión y apps para técnicos y choferes.",
+  "demo": "../atelier/index.html",
+  "theme": "noir",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:45:28.671Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Lo que ve cualquier visitante, sin iniciar sesión."
+    },
+    {
+      "id": "cliente",
+      "label": "Cliente",
+      "desc": "Mi garage: autos, membresía, libro de mantenciones, documentos, inspecciones y dyno."
+    },
+    {
+      "id": "asesor",
+      "label": "Asesor de servicio",
+      "desc": "Panel: órdenes de trabajo, aprobaciones, concierge, clientes y repuestos."
+    },
+    {
+      "id": "gerente",
+      "label": "Gerente de servicio",
+      "desc": "Indicadores, catálogo (programas y servicios), membresías y técnicos."
+    },
+    {
+      "id": "tecnico",
+      "label": "Técnico",
+      "desc": "App del taller: tarjetas de trabajo, cronómetro e inspección multipunto."
+    },
+    {
+      "id": "chofer",
+      "label": "Chofer concierge",
+      "desc": "App móvil de corridas con acta de retiro y entrega."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Contenido del sitio, usuarios y permisos."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de inicio con calculadora rápida de la próxima mantención, las cinco especialidades del taller, cómo funciona el concierge, servicios destacados, último resultado de dinamómetro, membresías, testimonios y preguntas frecuentes. Las secciones visibles se activan desde el panel.",
+      "actions": [
+        "Calcular qué mantención le toca según marca, modelo y km",
+        "Entrar a una especialidad (mantención, performance, estética, eléctricos, diagnóstico)",
+        "Agendar un servicio destacado",
+        "Ver la última curva de dyno",
+        "Comparar membresías y leer las preguntas frecuentes"
+      ],
+      "img": "img/atelier/portada.webp",
+      "thumb": "img/atelier/portada-thumb.webp",
+      "mobile": "img/atelier/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "programas",
+      "title": "Programas por marca",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/programas?brand=Porsche&km=42000",
+      "capturedUrl": "index.html#/programas?brand=Porsche&km=42000",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Calculadora de mantención según el plan del fabricante: con marca, modelo y kilometraje muestra el servicio que corresponde, los siguientes, sus tareas y precio, y la ilustración del modelo elegido.",
+      "actions": [
+        "Elegir marca y modelo",
+        "Ajustar el kilometraje con el campo o el deslizador",
+        "Ver el servicio que le corresponde y los próximos",
+        "Revisar tareas, horas y precio de cada uno",
+        "Agendar directamente el servicio calculado"
+      ],
+      "img": "img/atelier/programas.webp",
+      "thumb": "img/atelier/programas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "servicios",
+      "title": "Servicios",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/servicios",
+      "capturedUrl": "index.html#/servicios",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Menú de servicios de performance, estética, eléctricos y diagnóstico con lo que incluye cada uno, horas aproximadas y precio. Precios y destacados vienen del panel.",
+      "actions": [
+        "Filtrar por línea de servicio",
+        "Revisar qué incluye cada servicio",
+        "Ver precio y horas estimadas",
+        "Agendar un servicio"
+      ],
+      "img": "img/atelier/servicios.webp",
+      "thumb": "img/atelier/servicios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "servicios-ev",
+      "title": "Servicios para eléctricos",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/servicios/ev",
+      "capturedUrl": "index.html#/servicios/ev",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Línea de eléctricos e híbridos con el ejemplo del informe de salud de batería (SOH): capacidad útil, desbalance de celdas y autonomía real.",
+      "actions": [
+        "Conocer el informe de salud de batería",
+        "Ver servicios de alta tensión y cargadores domiciliarios",
+        "Agendar el informe SOH"
+      ],
+      "img": "img/atelier/servicios-ev.webp",
+      "thumb": "img/atelier/servicios-ev-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "agendar",
+      "title": "Agenda concierge: vehículo",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/agendar",
+      "capturedUrl": "index.html#/agendar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Primer paso de la agenda en cuatro pasos (vehículo, servicio, retiro y entrega, confirmación). El resumen lateral muestra el auto y el precio estimado.",
+      "actions": [
+        "Elegir marca, modelo y año",
+        "Indicar kilometraje y patente",
+        "Ver el auto en el resumen",
+        "Avanzar al siguiente paso"
+      ],
+      "img": "img/atelier/agendar.webp",
+      "thumb": "img/atelier/agendar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "agendar-servicio",
+      "title": "Agenda concierge: servicio",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/agendar?brand=Porsche&model=911%20Carrera%20S&km=28000",
+      "capturedUrl": "index.html#/agendar?brand=Porsche&model=911%20Carrera%20S&km=28000",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Paso de servicios: propone la mantención programada que corresponde según el plan de la marca y permite sumar servicios de las otras líneas. Si el cliente es socio, aplica su descuento.",
+      "actions": [
+        "Incluir la mantención programada calculada",
+        "Sumar servicios de performance, estética, eléctricos o diagnóstico",
+        "Ver el precio de cada uno",
+        "Revisar el total en el resumen"
+      ],
+      "img": "img/atelier/agendar-servicio.webp",
+      "thumb": "img/atelier/agendar-servicio-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "agendar-retiro",
+      "title": "Agenda concierge: retiro y entrega",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/agendar?brand=Porsche&model=911%20Carrera%20S&km=28000",
+      "capturedUrl": "index.html#/agendar?brand=Porsche&model=911%20Carrera%20S&km=28000",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Logística del concierge: retiro en domicilio u oficina (o llevarlo uno mismo), día, ventana de 2 horas según choferes libres, dirección y auto de cortesía eléctrico si hay disponible.",
+      "actions": [
+        "Elegir retiro en domicilio, oficina o llegar al taller",
+        "Escoger día y ventana horaria con choferes libres",
+        "Indicar la dirección y comuna",
+        "Pedir auto de cortesía eléctrico",
+        "Dejar indicaciones para el chofer"
+      ],
+      "img": "img/atelier/agendar-retiro.webp",
+      "thumb": "img/atelier/agendar-retiro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "agendar-confirmada",
+      "title": "Agenda confirmada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/agendar?brand=Porsche&model=911%20Carrera%20S&km=28000",
+      "capturedUrl": "index.html#/agendar?brand=Porsche&model=911%20Carrera%20S&km=28000",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Confirmación con el código de seguimiento, el total estimado y la ventana de retiro. La OT y la corrida del chofer se crean al instante en el panel y en la app del chofer.",
+      "actions": [
+        "Ver el código de seguimiento",
+        "Seguir el auto en vivo",
+        "Agendar otro servicio"
+      ],
+      "img": "img/atelier/agendar-confirmada.webp",
+      "thumb": "img/atelier/agendar-confirmada-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "seguimiento-buscar",
+      "title": "Seguimiento: buscar orden",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/seguimiento",
+      "capturedUrl": "index.html#/seguimiento",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Búsqueda de la orden por su código, con un enlace a un seguimiento de ejemplo en curso.",
+      "actions": [
+        "Ingresar el código de la OT",
+        "Abrir un seguimiento de ejemplo",
+        "Ver sus órdenes activas si ingresó"
+      ],
+      "img": "img/atelier/seguimiento-buscar.webp",
+      "thumb": "img/atelier/seguimiento-buscar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "seguimiento",
+      "title": "Seguimiento concierge en vivo",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/seguimiento/OT-24331",
+      "capturedUrl": "index.html#/seguimiento/OT-24331",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Seguimiento de la corrida: llegada estimada, pasos del concierge, mapa esquemático (SVG) con la ruta del chofer entre el taller y el cliente, datos del chofer y resumen de la orden.",
+      "actions": [
+        "Ver cuántos minutos faltan para que llegue el chofer",
+        "Seguir los pasos del retiro, el taller y la entrega",
+        "Ver la ruta en el mapa esquemático",
+        "Contactar al chofer",
+        "Avanzar la demo con \"simular siguiente paso\""
+      ],
+      "img": "img/atelier/seguimiento.webp",
+      "thumb": "img/atelier/seguimiento-thumb.webp",
+      "mobile": "img/atelier/seguimiento-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "seguimiento-taller",
+      "title": "Seguimiento: auto en el taller",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/seguimiento/OT-24329",
+      "capturedUrl": "index.html#/seguimiento/OT-24329",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Cuando el auto ya está en el atelier, el seguimiento muestra la etapa dentro del taller y el acceso a la inspección digital cuando hay trabajos por aprobar.",
+      "actions": [
+        "Ver la etapa en el taller",
+        "Abrir la inspección digital para aprobar",
+        "Revisar el resumen de la orden"
+      ],
+      "img": "img/atelier/seguimiento-taller.webp",
+      "thumb": "img/atelier/seguimiento-taller-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inspeccion",
+      "title": "Inspección digital y aprobación",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/inspeccion/in24329",
+      "capturedUrl": "index.html#/inspeccion/in24329",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Informe multipunto con semáforo (bien, atención, requiere acción), fotos y videos por punto, comentarios del técnico y trabajos recomendados con precio. El cliente aprueba en línea solo lo que quiere.",
+      "actions": [
+        "Filtrar puntos por color del semáforo",
+        "Ver fotos y videos de cada punto",
+        "Marcar los trabajos recomendados que aprueba",
+        "Ver el presupuesto actualizado",
+        "Aprobar o seguir sin adicionales"
+      ],
+      "img": "img/atelier/inspeccion.webp",
+      "thumb": "img/atelier/inspeccion-thumb.webp",
+      "mobile": "img/atelier/inspeccion-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inspeccion-ev",
+      "title": "Inspección de un eléctrico",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/inspeccion/in24330",
+      "capturedUrl": "index.html#/inspeccion/in24330",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "La misma inspección para un auto eléctrico, con el bloque de batería de alta tensión: salud (SOH), temperatura, ciclos, autonomía y voltaje de cada módulo.",
+      "actions": [
+        "Ver la salud de la batería",
+        "Revisar el balance de voltaje por módulo",
+        "Leer el resumen del técnico"
+      ],
+      "img": "img/atelier/inspeccion-ev.webp",
+      "thumb": "img/atelier/inspeccion-ev-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inspeccion-media",
+      "title": "Foto de la inspección",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/inspeccion/in24329",
+      "capturedUrl": "index.html#/inspeccion/in24329",
+      "login": null,
+      "kind": "modal",
+      "from": "Foto o video de un punto de la inspección",
+      "description": "Visor de la foto o el video que el técnico adjuntó a un punto de la inspección, con su comentario.",
+      "actions": [
+        "Ver la evidencia del punto revisado",
+        "Leer el comentario del técnico",
+        "Volver al informe"
+      ],
+      "img": "img/atelier/inspeccion-media.webp",
+      "thumb": "img/atelier/inspeccion-media-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dyno",
+      "title": "Resultados dyno",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/dyno",
+      "capturedUrl": "index.html#/dyno",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Galería de mediciones de potencia en rueda antes y después de cada reprogramación, publicadas con autorización del cliente.",
+      "actions": [
+        "Ver la ganancia de potencia de cada auto",
+        "Abrir la curva completa",
+        "Agendar una reprogramación"
+      ],
+      "img": "img/atelier/dyno.webp",
+      "thumb": "img/atelier/dyno-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dyno-detalle",
+      "title": "Curva de dinamómetro",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/dyno/dy24296",
+      "capturedUrl": "index.html#/dyno/dy24296",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Detalle de una medición con las curvas de potencia y torque antes y después, y los valores máximos de cada una.",
+      "actions": [
+        "Comparar las curvas antes y después",
+        "Ver potencia y torque máximos",
+        "Agendar la misma etapa para su auto"
+      ],
+      "img": "img/atelier/dyno-detalle.webp",
+      "thumb": "img/atelier/dyno-detalle-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "membresias",
+      "title": "Membresías",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/membresias",
+      "capturedUrl": "index.html#/membresias",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Planes anuales Silver, Gold y Black con precio, descuento, retiros concierge incluidos y tabla comparativa de beneficios. Se administran desde el panel.",
+      "actions": [
+        "Comparar los tres niveles",
+        "Ver precio anual y mensual equivalente",
+        "Revisar la tabla de beneficios",
+        "Ingresar para activar una membresía"
+      ],
+      "img": "img/atelier/membresias.webp",
+      "thumb": "img/atelier/membresias-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de ingreso para clientes y equipo, con cuentas de prueba para entrar con un clic a cada rol.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic como administrador, gerente, asesor, técnico, chofer o cliente",
+        "Crear una cuenta de cliente",
+        "Volver al sitio"
+      ],
+      "img": "img/atelier/login.webp",
+      "thumb": "img/atelier/login-thumb.webp",
+      "mobile": "img/atelier/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "garage-sin-sesion",
+      "title": "Mi garage (sin sesión)",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/garage",
+      "capturedUrl": "index.html#/garage",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve un visitante al abrir \"Mi garage\" sin haber ingresado: la invitación a entrar con su cuenta.",
+      "actions": [
+        "Ir a ingresar con su cuenta",
+        "Saber qué encontrará en su garage",
+        "Volver a navegar el sitio"
+      ],
+      "img": "img/atelier/garage-sin-sesion.webp",
+      "thumb": "img/atelier/garage-sin-sesion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "garage",
+      "title": "Mi garage",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/garage",
+      "capturedUrl": "index.html#/garage",
+      "login": {
+        "id": "u-cli1",
+        "name": "Martina Larraín",
+        "role": "Cliente",
+        "email": "martina@correo.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inicio del cliente con su membresía, las órdenes en curso (y las inspecciones por aprobar), sus autos y la ficha del auto elegido con los próximos servicios de su plan.",
+      "actions": [
+        "Ver la membresía y sus beneficios",
+        "Abrir una orden en curso o aprobar su inspección",
+        "Cambiar entre sus autos",
+        "Revisar los próximos servicios del plan",
+        "Agendar o agregar un auto"
+      ],
+      "img": "img/atelier/garage.webp",
+      "thumb": "img/atelier/garage-thumb.webp",
+      "mobile": "img/atelier/garage-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "garage-libro",
+      "title": "Libro de mantenciones digital",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/garage",
+      "capturedUrl": "index.html#/garage",
+      "login": {
+        "id": "u-cli1",
+        "name": "Martina Larraín",
+        "role": "Cliente",
+        "email": "martina@correo.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Historial sellado de cada servicio del auto, con fecha, kilometraje, línea, ítems realizados y enlace a la inspección digital de esa visita.",
+      "actions": [
+        "Revisar cada servicio realizado",
+        "Ver los ítems de cada visita",
+        "Abrir la inspección de esa visita"
+      ],
+      "img": "img/atelier/garage-libro.webp",
+      "thumb": "img/atelier/garage-libro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "garage-documentos",
+      "title": "Documentos del auto",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/garage",
+      "capturedUrl": "index.html#/garage",
+      "login": {
+        "id": "u-cli1",
+        "name": "Martina Larraín",
+        "role": "Cliente",
+        "email": "martina@correo.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Documentos del auto (permiso de circulación, revisión técnica, SOAP y otros) con su vencimiento. El taller avisa 30 días antes.",
+      "actions": [
+        "Ver los documentos y su vencimiento",
+        "Subir un documento nuevo",
+        "Recibir aviso antes de que venzan"
+      ],
+      "img": "img/atelier/garage-documentos.webp",
+      "thumb": "img/atelier/garage-documentos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "garage-inspecciones",
+      "title": "Inspecciones del auto",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/garage",
+      "capturedUrl": "index.html#/garage",
+      "login": {
+        "id": "u-cli1",
+        "name": "Martina Larraín",
+        "role": "Cliente",
+        "email": "martina@correo.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Listado de inspecciones digitales del auto con su fecha, kilometraje y resumen del semáforo.",
+      "actions": [
+        "Ver cuántos puntos quedaron en cada color",
+        "Abrir una inspección completa",
+        "Comparar visitas"
+      ],
+      "img": "img/atelier/garage-inspecciones.webp",
+      "thumb": "img/atelier/garage-inspecciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "garage-dyno",
+      "title": "Dyno del auto",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/garage",
+      "capturedUrl": "index.html#/garage",
+      "login": {
+        "id": "u-cli1",
+        "name": "Martina Larraín",
+        "role": "Cliente",
+        "email": "martina@correo.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pestaña del garage con las mediciones de dinamómetro del auto del cliente (aparece solo si tiene alguna).",
+      "actions": [
+        "Ver la ganancia de potencia",
+        "Abrir la curva completa",
+        "Agendar una nueva etapa"
+      ],
+      "img": "img/atelier/garage-dyno.webp",
+      "thumb": "img/atelier/garage-dyno-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "garage-agregar",
+      "title": "Agregar auto",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/garage",
+      "capturedUrl": "index.html#/garage",
+      "login": {
+        "id": "u-cli1",
+        "name": "Martina Larraín",
+        "role": "Cliente",
+        "email": "martina@correo.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"+ Agregar auto\" en Mi garage",
+      "description": "Formulario para sumar un auto al garage: marca y modelo del catálogo de programas, año, patente y kilometraje.",
+      "actions": [
+        "Elegir marca y modelo",
+        "Indicar año, patente y kilometraje",
+        "Ver al instante su próximo servicio del plan"
+      ],
+      "img": "img/atelier/garage-agregar.webp",
+      "thumb": "img/atelier/garage-agregar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ordenes",
+      "title": "Órdenes de trabajo",
+      "section": "asesor",
+      "roles": [
+        "Asesor de servicio",
+        "Gerente de servicio",
+        "Administrador"
+      ],
+      "url": "admin.html#/ordenes/lista",
+      "capturedUrl": "admin.html#/ordenes/lista",
+      "login": {
+        "id": "u-asesor",
+        "name": "Fernanda Tapia",
+        "role": "Asesor de servicio",
+        "email": "asesor@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Listado de todas las OT con vehículo, cliente, trabajo, técnico, estado y total. Tiene vistas de tablero y de aprobaciones pendientes.",
+      "actions": [
+        "Filtrar por estado, línea, técnico o solo abiertas",
+        "Buscar por código, patente o cliente",
+        "Abrir la ficha de una OT",
+        "Crear una OT",
+        "Exportar a CSV"
+      ],
+      "img": "img/atelier/ordenes.webp",
+      "thumb": "img/atelier/ordenes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ordenes-tablero",
+      "title": "Tablero de OT",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/ordenes/tablero",
+      "capturedUrl": "admin.html#/ordenes/tablero",
+      "login": {
+        "id": "u-asesor",
+        "name": "Fernanda Tapia",
+        "role": "Asesor de servicio",
+        "email": "asesor@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Columnas por etapa (agendada, recepción, inspección, aprobación, en proceso, control y lista) con cada OT abierta.",
+      "actions": [
+        "Ver cuántas OT hay en cada etapa",
+        "Abrir una OT desde su tarjeta",
+        "Detectar cuellos de botella"
+      ],
+      "img": "img/atelier/ordenes-tablero.webp",
+      "thumb": "img/atelier/ordenes-tablero-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ordenes-aprobaciones",
+      "title": "Aprobaciones pendientes",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/ordenes/aprobaciones",
+      "capturedUrl": "admin.html#/ordenes/aprobaciones",
+      "login": {
+        "id": "u-asesor",
+        "name": "Fernanda Tapia",
+        "role": "Asesor de servicio",
+        "email": "asesor@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "OT cuyo cliente aún no responde la inspección digital, con el semáforo y el monto de adicionales sugeridos.",
+      "actions": [
+        "Ver qué clientes tienen trabajos por aprobar",
+        "Revisar el monto en adicionales",
+        "Gestionar la aprobación por teléfono"
+      ],
+      "img": "img/atelier/ordenes-aprobaciones.webp",
+      "thumb": "img/atelier/ordenes-aprobaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "orden-ficha",
+      "title": "Ficha de la OT",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/ordenes/aprobaciones",
+      "capturedUrl": "admin.html#/ordenes/aprobaciones",
+      "login": {
+        "id": "u-asesor",
+        "name": "Fernanda Tapia",
+        "role": "Asesor de servicio",
+        "email": "asesor@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Fila de Órdenes o botón \"Gestionar\" en Aprobaciones",
+      "description": "Ficha con el flujo de etapas, vehículo y cliente, técnico y asesor, ítems con total, resumen de la inspección digital, corrida concierge, notas e historial. Permite avanzar la OT de etapa.",
+      "actions": [
+        "Avanzar la OT a la siguiente etapa",
+        "Asignar técnico y asesor",
+        "Agregar ítems desde el inventario o libres",
+        "Registrar la aprobación telefónica del cliente",
+        "Ver historial y registro de tiempos"
+      ],
+      "img": "img/atelier/orden-ficha.webp",
+      "thumb": "img/atelier/orden-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "orden-nueva",
+      "title": "Nueva orden de trabajo",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/ordenes/lista",
+      "capturedUrl": "admin.html#/ordenes/lista",
+      "login": {
+        "id": "u-asesor",
+        "name": "Fernanda Tapia",
+        "role": "Asesor de servicio",
+        "email": "asesor@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"+ Nueva OT\"",
+      "description": "Formulario para abrir una OT desde el panel: vehículo del cliente, trabajo (mantención según programa o un servicio del menú), kilometraje, fecha y técnico.",
+      "actions": [
+        "Elegir el vehículo y su cliente",
+        "Calcular la mantención del programa o elegir un servicio",
+        "Indicar km y fecha",
+        "Asignar técnico y dejar notas"
+      ],
+      "img": "img/atelier/orden-nueva.webp",
+      "thumb": "img/atelier/orden-nueva-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "concierge-agenda",
+      "title": "Concierge: agenda",
+      "section": "asesor",
+      "roles": [
+        "Asesor de servicio",
+        "Gerente de servicio",
+        "Administrador"
+      ],
+      "url": "admin.html#/concierge/agenda",
+      "capturedUrl": "admin.html#/concierge/agenda",
+      "login": {
+        "id": "u-asesor",
+        "name": "Fernanda Tapia",
+        "role": "Asesor de servicio",
+        "email": "asesor@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Agenda de retiros y entregas de los próximos 5 días por ventana horaria, con la carga de cada chofer en el día.",
+      "actions": [
+        "Ver las corridas por día y ventana",
+        "Revisar cuántas corridas tiene cada chofer hoy",
+        "Abrir una corrida para reasignar chofer o cambiar estado"
+      ],
+      "img": "img/atelier/concierge-agenda.webp",
+      "thumb": "img/atelier/concierge-agenda-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "concierge-corrida",
+      "title": "Detalle de corrida",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/concierge/corridas",
+      "capturedUrl": "admin.html#/concierge/corridas",
+      "login": {
+        "id": "u-asesor",
+        "name": "Fernanda Tapia",
+        "role": "Asesor de servicio",
+        "email": "asesor@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Una corrida de la agenda o del listado",
+      "description": "Detalle de una corrida concierge con el mapa esquemático (SVG) de la ruta, los pasos, cliente, vehículo, dirección, ventana y auto de cortesía, más el acta de retiro con firma cuando existe.",
+      "actions": [
+        "Ver la ruta y el paso actual",
+        "Reasignar el chofer",
+        "Cambiar el estado de la corrida",
+        "Revisar el acta de retiro y la firma"
+      ],
+      "img": "img/atelier/concierge-corrida.webp",
+      "thumb": "img/atelier/concierge-corrida-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "concierge-corridas",
+      "title": "Concierge: corridas",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/concierge/corridas",
+      "capturedUrl": "admin.html#/concierge/corridas",
+      "login": {
+        "id": "u-asesor",
+        "name": "Fernanda Tapia",
+        "role": "Asesor de servicio",
+        "email": "asesor@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Listado de todas las corridas con fecha, ventana, cliente, vehículo, comuna, chofer, estado y tarifa.",
+      "actions": [
+        "Filtrar por estado, chofer o comuna",
+        "Buscar por código, cliente o dirección",
+        "Abrir el detalle de una corrida",
+        "Exportar a CSV"
+      ],
+      "img": "img/atelier/concierge-corridas.webp",
+      "thumb": "img/atelier/concierge-corridas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "concierge-flota",
+      "title": "Flota de cortesía",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/concierge/flota",
+      "capturedUrl": "admin.html#/concierge/flota",
+      "login": {
+        "id": "u-asesor",
+        "name": "Fernanda Tapia",
+        "role": "Asesor de servicio",
+        "email": "asesor@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Autos de cortesía y plataforma del taller con su carga, kilometraje y estado (disponible, prestado o en mantención).",
+      "actions": [
+        "Ver el estado y la carga de cada auto",
+        "Agregar o editar autos de la flota",
+        "Marcar un auto en mantención",
+        "Exportar a CSV"
+      ],
+      "img": "img/atelier/concierge-flota.webp",
+      "thumb": "img/atelier/concierge-flota-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "clientes",
+      "title": "Clientes y vehículos",
+      "section": "asesor",
+      "roles": [
+        "Asesor de servicio",
+        "Gerente de servicio",
+        "Administrador"
+      ],
+      "url": "admin.html#/clientes/clientes",
+      "capturedUrl": "admin.html#/clientes/clientes",
+      "login": {
+        "id": "u-asesor",
+        "name": "Fernanda Tapia",
+        "role": "Asesor de servicio",
+        "email": "asesor@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Clientes con su membresía, comuna, autos, total facturado y última visita; y la pestaña de vehículos con documentos vencidos.",
+      "actions": [
+        "Filtrar por membresía o comuna",
+        "Ver vehículos por marca, motor y documentos vencidos",
+        "Abrir la ficha de un cliente",
+        "Crear clientes y vehículos",
+        "Exportar a CSV"
+      ],
+      "img": "img/atelier/clientes.webp",
+      "thumb": "img/atelier/clientes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-ficha",
+      "title": "Ficha del cliente",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/clientes/clientes",
+      "capturedUrl": "admin.html#/clientes/clientes",
+      "login": {
+        "id": "u-asesor",
+        "name": "Fernanda Tapia",
+        "role": "Asesor de servicio",
+        "email": "asesor@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Fila de la tabla de Clientes",
+      "description": "Ficha del cliente con contacto, membresía, sus autos con documentos y el historial de órdenes.",
+      "actions": [
+        "Editar datos y membresía",
+        "Agregar o editar autos",
+        "Revisar las órdenes del cliente",
+        "Eliminar el cliente"
+      ],
+      "img": "img/atelier/cliente-ficha.webp",
+      "thumb": "img/atelier/cliente-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "repuestos",
+      "title": "Repuestos OEM",
+      "section": "asesor",
+      "roles": [
+        "Asesor de servicio",
+        "Gerente de servicio",
+        "Administrador"
+      ],
+      "url": "admin.html#/repuestos/inventario",
+      "capturedUrl": "admin.html#/repuestos/inventario",
+      "login": {
+        "id": "u-asesor",
+        "name": "Fernanda Tapia",
+        "role": "Asesor de servicio",
+        "email": "asesor@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inventario de repuestos originales con stock y mínimo, precio, ubicación, valor del inventario y alertas de reposición.",
+      "actions": [
+        "Filtrar por marca o stock bajo",
+        "Ajustar el stock de un repuesto",
+        "Crear o editar repuestos",
+        "Exportar a CSV"
+      ],
+      "img": "img/atelier/repuestos.webp",
+      "thumb": "img/atelier/repuestos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "repuestos-pedidos",
+      "title": "Pedidos especiales",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/repuestos/pedidos",
+      "capturedUrl": "admin.html#/repuestos/pedidos",
+      "login": {
+        "id": "u-asesor",
+        "name": "Fernanda Tapia",
+        "role": "Asesor de servicio",
+        "email": "asesor@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Repuestos importados a pedido con proveedor, OT asociada, fecha de pedido, ETA y estado; los atrasados se marcan.",
+      "actions": [
+        "Seguir los pedidos en camino y su ETA",
+        "Ver los atrasados",
+        "Crear o editar un pedido especial",
+        "Exportar a CSV"
+      ],
+      "img": "img/atelier/repuestos-pedidos.webp",
+      "thumb": "img/atelier/repuestos-pedidos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dashboard",
+      "title": "Dashboard",
+      "section": "gerente",
+      "roles": [
+        "Gerente de servicio",
+        "Administrador",
+        "Asesor de servicio"
+      ],
+      "url": "admin.html#/dashboard",
+      "capturedUrl": "admin.html#/dashboard",
+      "login": {
+        "id": "u-gerente",
+        "name": "Andrés Undurraga",
+        "role": "Gerente de servicio",
+        "email": "gerente@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Indicadores del atelier: ingresos y ticket de 30 días, NPS, OT abiertas, participación de eléctricos y corridas concierge del día, con gráficos por línea de servicio, productividad técnica y semanas de concierge.",
+      "actions": [
+        "Ver ingresos, ticket y NPS contra el periodo anterior",
+        "Revisar ingresos por línea y el mix del mes",
+        "Comparar horas facturadas por técnico",
+        "Seguir la participación de eléctricos",
+        "Ver aprobaciones pendientes y el concierge de hoy"
+      ],
+      "img": "img/atelier/dashboard.webp",
+      "thumb": "img/atelier/dashboard-thumb.webp",
+      "mobile": "img/atelier/dashboard-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "programas-admin",
+      "title": "Programas por marca",
+      "section": "gerente",
+      "roles": [
+        "Gerente de servicio",
+        "Administrador"
+      ],
+      "url": "admin.html#/programas",
+      "capturedUrl": "admin.html#/programas",
+      "login": {
+        "id": "u-gerente",
+        "name": "Andrés Undurraga",
+        "role": "Gerente de servicio",
+        "email": "gerente@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Planes de mantención de cada marca: intervalo, niveles de servicio con precio base y horas, y modelos con su factor de precio. Es lo que usa la calculadora del sitio.",
+      "actions": [
+        "Publicar u ocultar un programa",
+        "Editar intervalos y descripción",
+        "Editar niveles de servicio y sus tareas",
+        "Agregar modelos con su factor de precio",
+        "Crear un programa nuevo"
+      ],
+      "img": "img/atelier/programas-admin.webp",
+      "thumb": "img/atelier/programas-admin-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "programa-nivel",
+      "title": "Editar nivel de servicio",
+      "section": "gerente",
+      "roles": null,
+      "url": "admin.html#/programas",
+      "capturedUrl": "admin.html#/programas",
+      "login": {
+        "id": "u-gerente",
+        "name": "Andrés Undurraga",
+        "role": "Gerente de servicio",
+        "email": "gerente@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Fila de un nivel de servicio en Programas",
+      "description": "Nivel de servicio de un programa: nombre, cada cuántos intervalos se aplica, precio base, horas y las tareas para autos a combustión y eléctricos.",
+      "actions": [
+        "Cambiar nombre y frecuencia",
+        "Fijar precio base y horas",
+        "Editar las tareas de combustión y de eléctricos"
+      ],
+      "img": "img/atelier/programa-nivel.webp",
+      "thumb": "img/atelier/programa-nivel-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "servicios-admin",
+      "title": "Menú de servicios",
+      "section": "gerente",
+      "roles": [
+        "Gerente de servicio",
+        "Administrador"
+      ],
+      "url": "admin.html#/servicios",
+      "capturedUrl": "admin.html#/servicios",
+      "login": {
+        "id": "u-gerente",
+        "name": "Andrés Undurraga",
+        "role": "Gerente de servicio",
+        "email": "gerente@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Servicios publicados en el sitio con línea, precio y horas, y los interruptores de destacado y activo.",
+      "actions": [
+        "Filtrar por línea o estado",
+        "Destacar un servicio en la portada",
+        "Activar o desactivar un servicio",
+        "Crear o editar servicios",
+        "Exportar a CSV"
+      ],
+      "img": "img/atelier/servicios-admin.webp",
+      "thumb": "img/atelier/servicios-admin-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "servicio-editor",
+      "title": "Editor de servicio",
+      "section": "gerente",
+      "roles": null,
+      "url": "admin.html#/servicios",
+      "capturedUrl": "admin.html#/servicios",
+      "login": {
+        "id": "u-gerente",
+        "name": "Andrés Undurraga",
+        "role": "Gerente de servicio",
+        "email": "gerente@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Fila de la tabla de Menú de servicios",
+      "description": "Ficha del servicio con línea, ícono, precio (con opción \"desde\"), horas, descripción, lista de lo que incluye, destacado y activo.",
+      "actions": [
+        "Editar nombre, línea e ícono",
+        "Fijar precio y horas",
+        "Escribir descripción y lo que incluye",
+        "Destacarlo o desactivarlo"
+      ],
+      "img": "img/atelier/servicio-editor.webp",
+      "thumb": "img/atelier/servicio-editor-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "membresias-admin",
+      "title": "Membresías y socios",
+      "section": "gerente",
+      "roles": [
+        "Gerente de servicio",
+        "Administrador"
+      ],
+      "url": "admin.html#/membresias",
+      "capturedUrl": "admin.html#/membresias",
+      "login": {
+        "id": "u-gerente",
+        "name": "Andrés Undurraga",
+        "role": "Gerente de servicio",
+        "email": "gerente@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Niveles de membresía con precio, descuento y beneficios, indicadores de socios e ingreso recurrente, y la tabla de socios.",
+      "actions": [
+        "Ver socios activos e ingreso anual recurrente",
+        "Editar precio, descuento y beneficios de cada nivel",
+        "Cambiar la membresía de un socio",
+        "Filtrar socios por nivel"
+      ],
+      "img": "img/atelier/membresias-admin.webp",
+      "thumb": "img/atelier/membresias-admin-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "tecnicos",
+      "title": "Técnicos y certificaciones",
+      "section": "gerente",
+      "roles": [
+        "Gerente de servicio",
+        "Administrador"
+      ],
+      "url": "admin.html#/tecnicos",
+      "capturedUrl": "admin.html#/tecnicos",
+      "login": {
+        "id": "u-gerente",
+        "name": "Andrés Undurraga",
+        "role": "Gerente de servicio",
+        "email": "gerente@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Técnicos con especialidad, nivel, carga actual, horas facturadas y certificaciones con su vencimiento (se alertan las que vencen en 60 días).",
+      "actions": [
+        "Ver certificaciones por vencer",
+        "Agregar una certificación",
+        "Revisar carga y horas de cada técnico",
+        "Crear o editar técnicos"
+      ],
+      "img": "img/atelier/tecnicos.webp",
+      "thumb": "img/atelier/tecnicos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "actividad",
+      "title": "Actividad",
+      "section": "gerente",
+      "roles": [
+        "Gerente de servicio",
+        "Administrador"
+      ],
+      "url": "admin.html#/actividad",
+      "capturedUrl": "admin.html#/actividad",
+      "login": {
+        "id": "u-gerente",
+        "name": "Andrés Undurraga",
+        "role": "Gerente de servicio",
+        "email": "gerente@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de las últimas 300 acciones del equipo y del sistema: agendas, corridas, inspecciones, aprobaciones y cambios en el catálogo.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Filtrar por tipo de acción",
+        "Buscar por detalle o usuario",
+        "Exportar a CSV"
+      ],
+      "img": "img/atelier/actividad.webp",
+      "thumb": "img/atelier/actividad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "tecnico",
+      "title": "Tarjetas de trabajo",
+      "section": "tecnico",
+      "roles": [
+        "Técnico",
+        "Gerente de servicio",
+        "Administrador"
+      ],
+      "url": "tecnico.html",
+      "capturedUrl": "tecnico.html",
+      "login": {
+        "id": "u-tec1",
+        "name": "Diego Morales",
+        "role": "Técnico",
+        "email": "tecnico@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "App del técnico con las tarjetas de trabajo del taller: estado, auto, trabajo, técnico asignado y si hay cronómetro en marcha. Se filtra entre mis trabajos, sin asignar y todo el taller.",
+      "actions": [
+        "Ver mis trabajos, los sin asignar o todo el taller",
+        "Abrir una tarjeta de trabajo",
+        "Ver qué OT tienen cronómetro en marcha",
+        "Revisar sus tiempos registrados"
+      ],
+      "img": "img/atelier/tecnico.webp",
+      "thumb": "img/atelier/tecnico-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "tecnico-ot",
+      "title": "Tarjeta de trabajo",
+      "section": "tecnico",
+      "roles": null,
+      "url": "tecnico.html#/ot/wo24317",
+      "capturedUrl": "tecnico.html#/ot/wo24317",
+      "login": {
+        "id": "u-tec1",
+        "name": "Diego Morales",
+        "role": "Técnico",
+        "email": "tecnico@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Detalle de la OT para el técnico: tareas del plan o del servicio para marcar, cronómetro contra las horas estándar, acceso a la inspección digital y el botón para avanzar la etapa.",
+      "actions": [
+        "Marcar las tareas realizadas",
+        "Iniciar y detener el cronómetro o registrar tiempo manual",
+        "Abrir el formulario de inspección",
+        "Avanzar la OT (inspección, control de calidad, lista)",
+        "Tomar un trabajo sin asignar"
+      ],
+      "img": "img/atelier/tecnico-ot.webp",
+      "thumb": "img/atelier/tecnico-ot-thumb.webp",
+      "mobile": "img/atelier/tecnico-ot-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "tecnico-inspeccion",
+      "title": "Formulario de inspección",
+      "section": "tecnico",
+      "roles": null,
+      "url": "tecnico.html#/ot/wo24327/inspeccion",
+      "capturedUrl": "tecnico.html#/ot/wo24327/inspeccion",
+      "login": {
+        "id": "u-tec1",
+        "name": "Diego Morales",
+        "role": "Técnico",
+        "email": "tecnico@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inspección multipunto que llena el técnico: semáforo por punto, comentario y trabajo recomendado con precio, mediciones, fotos y videos, y lecturas de la batería de alta tensión para eléctricos.",
+      "actions": [
+        "Marcar cada punto en verde, ámbar o rojo",
+        "Proponer un trabajo con su precio",
+        "Adjuntar fotos y videos (simulado)",
+        "Leer las celdas de la batería desde el escáner",
+        "Enviar el informe al cliente para que apruebe"
+      ],
+      "img": "img/atelier/tecnico-inspeccion.webp",
+      "thumb": "img/atelier/tecnico-inspeccion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "chofer",
+      "title": "Corridas del día",
+      "section": "chofer",
+      "roles": [
+        "Chofer concierge",
+        "Asesor de servicio",
+        "Gerente de servicio",
+        "Administrador"
+      ],
+      "url": "chofer.html",
+      "capturedUrl": "chofer.html",
+      "login": {
+        "id": "u-ch1",
+        "name": "Joaquín Soto",
+        "role": "Chofer concierge",
+        "email": "chofer@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "App móvil del chofer con sus retiros y entregas pendientes, las hechas hoy y las próximas, con dirección, ventana, auto y si debe llevar auto de cortesía.",
+      "actions": [
+        "Ver retiros y entregas de hoy por ventana",
+        "Revisar las corridas de los próximos días",
+        "Abrir una corrida",
+        "Saber si lleva auto de cortesía"
+      ],
+      "img": "img/atelier/chofer.webp",
+      "thumb": "img/atelier/chofer-thumb.webp",
+      "mobile": "img/atelier/chofer-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "chofer-acta",
+      "title": "Acta de retiro",
+      "section": "chofer",
+      "roles": null,
+      "url": "chofer.html#/corrida/cc24331",
+      "capturedUrl": "chofer.html#/corrida/cc24331",
+      "login": {
+        "id": "u-ch1",
+        "name": "Joaquín Soto",
+        "role": "Chofer concierge",
+        "email": "chofer@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Corrida en curso con el mapa esquemático de la ruta y el acta de retiro: fotos en 6 ángulos, kilometraje, nivel de carga o combustible, daños, entrega del auto de cortesía y firma del cliente con el dedo.",
+      "actions": [
+        "Capturar fotos en 6 ángulos (simulado)",
+        "Registrar kilometraje y nivel de carga",
+        "Anotar daños u objetos de valor",
+        "Recoger la firma del cliente en pantalla",
+        "Confirmar el retiro y llevarlo al atelier"
+      ],
+      "img": "img/atelier/chofer-acta.webp",
+      "thumb": "img/atelier/chofer-acta-thumb.webp",
+      "mobile": "img/atelier/chofer-acta-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "contenido",
+      "title": "Contenido del sitio",
+      "section": "admin",
+      "roles": [
+        "Administrador"
+      ],
+      "url": "admin.html#/contenido",
+      "capturedUrl": "admin.html#/contenido",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Bascuñán",
+        "role": "Administrador",
+        "email": "admin@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Textos de portada, auto ilustrado del hero (carrocería y color), contacto, tarifa y radio del concierge, secciones visibles del sitio, testimonios y preguntas frecuentes.",
+      "actions": [
+        "Editar título, texto y anuncio de la portada",
+        "Elegir carrocería y color del auto del hero",
+        "Fijar tarifa y radio del concierge",
+        "Mostrar u ocultar dyno, membresías y testimonios",
+        "Administrar testimonios y preguntas frecuentes"
+      ],
+      "img": "img/atelier/contenido.webp",
+      "thumb": "img/atelier/contenido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": [
+        "Administrador"
+      ],
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Bascuñán",
+        "role": "Administrador",
+        "email": "admin@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas del equipo con rol y estado, y la matriz de permisos que define qué módulos ve cada rol.",
+      "actions": [
+        "Crear, editar o eliminar usuarios",
+        "Asignar rol",
+        "Desactivar una cuenta",
+        "Consultar la matriz de permisos"
+      ],
+      "img": "img/atelier/usuarios.webp",
+      "thumb": "img/atelier/usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "acceso-restringido",
+      "title": "Ruta protegida por rol",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-asesor",
+        "name": "Fernanda Tapia",
+        "role": "Asesor de servicio",
+        "email": "asesor@ateliertorque.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve un rol sin permiso al abrir una sección ajena (aquí, el asesor intentando entrar a Usuarios): el menú solo muestra lo permitido y la ruta queda bloqueada.",
+      "actions": [
+        "Ver el aviso de acceso restringido",
+        "Volver a su inicio desde el botón",
+        "Confirmar que cada rol solo ve sus menús"
+      ],
+      "img": "img/atelier/acceso-restringido.webp",
+      "thumb": "img/atelier/acceso-restringido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Noir Neón\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/atelier/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/atelier/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/atelier/look-app.webp"
+      },
+      {
+        "id": "luxury",
+        "group": "Estilo",
+        "label": "Lujo",
+        "desc": "Negro, dorado y serif elegante.",
+        "img": "img/atelier/look-luxury.webp"
+      },
+      {
+        "id": "chrome",
+        "group": "Estilo",
+        "label": "Cromo Y2K",
+        "desc": "Metálico y brillante.",
+        "img": "img/atelier/look-chrome.webp"
+      },
+      {
+        "id": "nordic",
+        "group": "Estilo",
+        "label": "Nórdico",
+        "desc": "Minimalista, blanco y aire.",
+        "img": "img/atelier/look-nordic.webp"
+      }
+    ]
+  }
+}

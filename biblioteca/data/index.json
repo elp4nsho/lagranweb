@@ -4,6 +4,136 @@
       "views": 100,
       "sections": 7,
       "generatedAt": "2026-10-30T22:54:31.093Z"
+    },
+    "presentacion": {
+      "views": 54,
+      "sections": 4,
+      "generatedAt": "2026-10-30T23:15:27.176Z"
+    },
+    "marketplace": {
+      "views": 53,
+      "sections": 6,
+      "generatedAt": "2026-10-30T23:40:27.021Z"
+    },
+    "eventos": {
+      "views": 51,
+      "sections": 6,
+      "generatedAt": "2026-10-30T23:21:42.954Z"
+    },
+    "rrhh": {
+      "views": 53,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:19:55.510Z"
+    },
+    "colegio": {
+      "views": 87,
+      "sections": 6,
+      "generatedAt": "2026-10-30T23:26:02.202Z"
+    },
+    "lubricentro": {
+      "views": 60,
+      "sections": 6,
+      "generatedAt": "2026-10-30T23:31:54.508Z"
+    },
+    "blog": {
+      "views": 45,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:20:59.155Z"
+    },
+    "crm": {
+      "views": 54,
+      "sections": 4,
+      "generatedAt": "2026-10-30T23:27:45.464Z"
+    },
+    "delivery": {
+      "views": 45,
+      "sections": 6,
+      "generatedAt": "2026-10-30T23:45:06.539Z"
+    },
+    "clinica": {
+      "views": 55,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:31:55.519Z"
+    },
+    "menu": {
+      "views": 35,
+      "sections": 6,
+      "generatedAt": "2026-10-30T23:42:43.422Z"
+    },
+    "taller": {
+      "views": 57,
+      "sections": 8,
+      "generatedAt": "2026-10-30T23:31:50.435Z"
+    },
+    "streaming": {
+      "views": 46,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:30:22.138Z"
+    },
+    "soporte": {
+      "views": 41,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:31:13.319Z"
+    },
+    "tienda": {
+      "views": 47,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:31:28.183Z"
+    },
+    "gimnasio": {
+      "views": 51,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:33:49.878Z"
+    },
+    "hotel": {
+      "views": 41,
+      "sections": 6,
+      "generatedAt": "2026-10-30T23:44:58.021Z"
+    },
+    "induccion": {
+      "views": 39,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:36:33.147Z"
+    },
+    "pos": {
+      "views": 36,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:37:10.084Z"
+    },
+    "oficina": {
+      "views": 34,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:37:59.423Z"
+    },
+    "inmobiliaria": {
+      "views": 50,
+      "sections": 6,
+      "generatedAt": "2026-10-30T23:39:32.771Z"
+    },
+    "fintech": {
+      "views": 52,
+      "sections": 6,
+      "generatedAt": "2026-10-30T23:41:23.139Z"
+    },
+    "atelier": {
+      "views": 54,
+      "sections": 7,
+      "generatedAt": "2026-10-30T23:45:28.671Z"
+    },
+    "producto": {
+      "views": 44,
+      "sections": 4,
+      "generatedAt": "2026-10-30T23:43:52.879Z"
+    },
+    "condominio": {
+      "views": 2,
+      "sections": 1,
+      "generatedAt": "2026-10-30T23:42:59.503Z"
+    },
+    "academia": {
+      "views": 42,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:44:31.176Z"
     }
   }
 }

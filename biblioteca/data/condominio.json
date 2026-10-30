@@ -1,0 +1,93 @@
+{
+  "app": "condominio",
+  "dir": "condominio",
+  "name": "Vecindario · Condominio Plaza Ñuñoa",
+  "kind": "Administración de condominios",
+  "description": "Plataforma de administración de edificios con landing pública y apps para la administración y el comité (gastos comunes, morosidad, mantención, asambleas), la conserjería (visitas, encomiendas, novedades) y los residentes.",
+  "demo": "../condominio/index.html",
+  "theme": "skeuo",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:42:59.503Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "residente",
+      "label": "Residente",
+      "desc": "App del departamento: gastos comunes, reservas, visitas, encomiendas, incidencias y comunidad."
+    }
+  ],
+  "views": [
+    {
+      "id": "res-reservas",
+      "title": "Reservas de espacios comunes",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/reservas",
+      "capturedUrl": "residente.html#/reservas",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Reserva de quinchos, salas y otros espacios: se elige el espacio, el día en el calendario y el turno. Muestra las reglas de uso y el valor, que se carga al gasto común.",
+      "actions": [
+        "Elegir el espacio común",
+        "Ver la disponibilidad por día en el calendario",
+        "Elegir un turno libre",
+        "Revisar reglas, valor y garantía",
+        "Cancelar una reserva propia"
+      ],
+      "img": "img/condominio/res-reservas.webp",
+      "thumb": "img/condominio/res-reservas-thumb.webp",
+      "mobile": "img/condominio/res-reservas-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "res-reserva-confirmar",
+      "title": "Confirmar reserva",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/reservas",
+      "capturedUrl": "residente.html#/reservas",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "modal",
+      "from": "Clic en un turno libre de Reservas",
+      "description": "Confirmación de la reserva con espacio, fecha, turno y el monto que se sumará al gasto común.",
+      "actions": [
+        "Revisar el detalle de la reserva",
+        "Ver el valor y la garantía",
+        "Confirmar o cancelar"
+      ],
+      "img": "img/condominio/res-reserva-confirmar.webp",
+      "thumb": "img/condominio/res-reserva-confirmar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": null
+}

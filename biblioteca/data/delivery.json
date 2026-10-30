@@ -1,0 +1,1405 @@
+{
+  "app": "delivery",
+  "dir": "delivery",
+  "name": "Rayo Express",
+  "kind": "Courier y delivery urbano",
+  "description": "Courier urbano en Santiago con sitio público (cotizador, cobertura, solicitud y seguimiento en vivo), portal de clientes personas y empresas, app del repartidor y consola de despacho con operación en tiempo real.",
+  "demo": "../delivery/index.html",
+  "theme": "noir",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:45:06.539Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Lo que ve cualquier visitante, sin iniciar sesión."
+    },
+    {
+      "id": "cliente",
+      "label": "Cliente",
+      "desc": "Portal de clientes: personas (pago con tarjeta) y empresas (factura mensual y carga masiva)."
+    },
+    {
+      "id": "repartidor",
+      "label": "Repartidor",
+      "desc": "App móvil del repartidor: conexión, ruta, entregas con firma, ganancias y documentos."
+    },
+    {
+      "id": "despachador",
+      "label": "Despachador",
+      "desc": "Consola de despacho: operación en vivo, envíos, flota y reportes."
+    },
+    {
+      "id": "soporte",
+      "label": "Soporte",
+      "desc": "Clientes, facturación e incidencias."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Tarifas y zonas, usuarios y permisos, contenidos del sitio y bitácora."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de inicio con buscador de seguimiento, mapa de la flota en vivo, cifras de la operación, cotizador, cobertura, opiniones y preguntas frecuentes. Los textos se editan desde la consola. El mapa muestra calles reales con conexión; sin ella, el plano esquemático propio de la app.",
+      "actions": [
+        "Rastrear un envío por su código RX",
+        "Ver cuántos repartidores están en ruta ahora",
+        "Revisar entregas del día, puntualidad y calificación",
+        "Ir a solicitar un envío o a cotizar",
+        "Leer opiniones y preguntas frecuentes"
+      ],
+      "img": "img/delivery/portada.webp",
+      "thumb": "img/delivery/portada-thumb.webp",
+      "mobile": "img/delivery/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "tarifas",
+      "title": "Cotizador de tarifas",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/tarifas",
+      "capturedUrl": "index.html#/tarifas",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Calculadora de precio por comuna de origen y destino, tamaño del paquete y tipo de servicio, con la tabla de tamaños y la explicación del cálculo. Usa las tarifas vigentes de la consola.",
+      "actions": [
+        "Elegir comunas de origen y destino (o intercambiarlas)",
+        "Elegir tamaño: sobre, pequeño, mediano o grande",
+        "Comparar servicio estándar, express o programado",
+        "Ver precio, distancia, tiempo de entrega y recargos",
+        "Pasar a solicitar con esos datos"
+      ],
+      "img": "img/delivery/tarifas.webp",
+      "thumb": "img/delivery/tarifas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cobertura",
+      "title": "Cobertura",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/cobertura",
+      "capturedUrl": "index.html#/cobertura",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Mapa de las 32 comunas atendidas agrupadas en 3 zonas, con tiempo de retiro y recargo de cada zona y un buscador por comuna.",
+      "actions": [
+        "Consultar si una comuna tiene cobertura",
+        "Ver la zona, el tiempo de retiro y el recargo",
+        "Revisar las comunas de cada zona en el mapa"
+      ],
+      "img": "img/delivery/cobertura.webp",
+      "thumb": "img/delivery/cobertura-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rastrear",
+      "title": "Rastrear envío",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/rastrear",
+      "capturedUrl": "index.html#/rastrear",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Buscador de seguimiento por código, con accesos a los envíos de demostración que están en ruta en ese momento.",
+      "actions": [
+        "Ingresar un código RX (o solo sus 5 dígitos)",
+        "Abrir uno de los envíos en ruta de la demo",
+        "Ver un envío ya entregado"
+      ],
+      "img": "img/delivery/rastrear.webp",
+      "thumb": "img/delivery/rastrear-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "seguimiento",
+      "title": "Seguimiento en vivo",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/rastrear/RX-48213",
+      "capturedUrl": "index.html#/rastrear/RX-48213",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Seguimiento de un envío en camino: el repartidor avanza sobre el mapa, con cuenta regresiva de llegada, progreso, datos del repartidor y línea de tiempo. Con conexión el mapa es de calles reales; la captura muestra el plano esquemático que la app usa sin conexión.",
+      "actions": [
+        "Ver la posición del repartidor y la ruta en el mapa",
+        "Seguir la hora estimada de llegada",
+        "Chatear o llamar al repartidor (simulado)",
+        "Revisar cada etapa del envío con su hora",
+        "Reportar un problema"
+      ],
+      "img": "img/delivery/seguimiento.webp",
+      "thumb": "img/delivery/seguimiento-thumb.webp",
+      "mobile": "img/delivery/seguimiento-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "seguimiento-entregado",
+      "title": "Envío entregado",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/rastrear/RX-30981",
+      "capturedUrl": "index.html#/rastrear/RX-30981",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "El mismo seguimiento cuando el envío ya llegó: muestra la prueba de entrega con firma, foto de respaldo y quién recibió, y permite calificar.",
+      "actions": [
+        "Ver la firma y la foto de la entrega",
+        "Saber quién recibió y a qué hora",
+        "Calificar el servicio con estrellas y comentario",
+        "Revisar la línea de tiempo completa"
+      ],
+      "img": "img/delivery/seguimiento-entregado.webp",
+      "thumb": "img/delivery/seguimiento-entregado-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "solicitar",
+      "title": "Solicitar envío",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/solicitar",
+      "capturedUrl": "index.html#/solicitar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Formulario de solicitud para invitados o clientes con sesión: datos de retiro y entrega, paquete, servicio, propina y pago con tarjeta simulado, con resumen de precio al lado.",
+      "actions": [
+        "Ingresar remitente y destinatario con comuna y teléfono",
+        "Elegir tamaño, servicio y propina",
+        "Agregar indicaciones para el repartidor",
+        "Ver el precio con recargos antes de confirmar",
+        "Pagar con tarjeta (simulado)"
+      ],
+      "img": "img/delivery/solicitar.webp",
+      "thumb": "img/delivery/solicitar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "solicitar-listo",
+      "title": "Envío solicitado",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/solicitar",
+      "capturedUrl": "index.html#/solicitar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Confirmación con el código de seguimiento. El envío entra a la cola de despacho y se busca al repartidor más cercano.",
+      "actions": [
+        "Copiar el código de seguimiento",
+        "Abrir el seguimiento en vivo",
+        "Solicitar otro envío"
+      ],
+      "img": "img/delivery/solicitar-listo.webp",
+      "thumb": "img/delivery/solicitar-listo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso y registro",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso común para clientes, repartidores y equipo, con registro de clientes persona o empresa. Cada rol abre su propia aplicación.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic como administrador, despachador, soporte, repartidor o cliente",
+        "Crear una cuenta persona o empresa (factura mensual con descuento)"
+      ],
+      "img": "img/delivery/login.webp",
+      "thumb": "img/delivery/login-thumb.webp",
+      "mobile": "img/delivery/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-resumen",
+      "title": "Resumen del cliente",
+      "section": "cliente",
+      "roles": null,
+      "url": "cliente.html#/",
+      "capturedUrl": "cliente.html#/",
+      "login": {
+        "id": "u-emp",
+        "name": "Librería Andes",
+        "role": "Cliente (empresa)",
+        "email": "contacto@libreriaandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inicio del portal con envíos en curso y su progreso, gasto y saldo del mes, envíos por semana y últimas entregas por calificar.",
+      "actions": [
+        "Ver envíos en curso con su etapa",
+        "Revisar envíos del mes, gasto y saldo por pagar",
+        "Seguir la tendencia semanal",
+        "Calificar las últimas entregas",
+        "Crear un envío o una carga masiva"
+      ],
+      "img": "img/delivery/cliente-resumen.webp",
+      "thumb": "img/delivery/cliente-resumen-thumb.webp",
+      "mobile": "img/delivery/cliente-resumen-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-nuevo",
+      "title": "Nuevo envío",
+      "section": "cliente",
+      "roles": null,
+      "url": "cliente.html#/nuevo",
+      "capturedUrl": "cliente.html#/nuevo",
+      "login": {
+        "id": "u-emp",
+        "name": "Librería Andes",
+        "role": "Cliente (empresa)",
+        "email": "contacto@libreriaandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Alta de envío desde el portal usando la libreta de direcciones. En cuentas empresa se carga a la factura mensual con descuento; las personas pagan con tarjeta.",
+      "actions": [
+        "Elegir retiro y entrega desde la libreta de direcciones",
+        "Definir paquete y servicio",
+        "Ver el resumen con descuento de empresa",
+        "Crear el envío y seguirlo en vivo"
+      ],
+      "img": "img/delivery/cliente-nuevo.webp",
+      "thumb": "img/delivery/cliente-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-masivo",
+      "title": "Carga masiva",
+      "section": "cliente",
+      "roles": null,
+      "url": "cliente.html#/masivo",
+      "capturedUrl": "cliente.html#/masivo",
+      "login": {
+        "id": "u-emp",
+        "name": "Librería Andes",
+        "role": "Cliente (empresa)",
+        "email": "contacto@libreriaandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Creación de decenas de envíos de una vez pegando filas o subiendo un CSV. Cada fila se valida y se muestra una vista previa con el total.",
+      "actions": [
+        "Pegar filas o subir un archivo .csv",
+        "Cargar un ejemplo con el formato esperado",
+        "Validar y ver qué filas tienen errores",
+        "Crear todos los envíos válidos en un lote"
+      ],
+      "img": "img/delivery/cliente-masivo.webp",
+      "thumb": "img/delivery/cliente-masivo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-envios",
+      "title": "Historial de envíos",
+      "section": "cliente",
+      "roles": null,
+      "url": "cliente.html#/envios",
+      "capturedUrl": "cliente.html#/envios",
+      "login": {
+        "id": "u-emp",
+        "name": "Librería Andes",
+        "role": "Cliente (empresa)",
+        "email": "contacto@libreriaandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todos los envíos del cliente con destinatario, servicio, total y estado en vivo.",
+      "actions": [
+        "Filtrar en curso, entregados o fallidos",
+        "Buscar por código o destinatario",
+        "Exportar a CSV",
+        "Abrir el detalle de un envío"
+      ],
+      "img": "img/delivery/cliente-envios.webp",
+      "thumb": "img/delivery/cliente-envios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-envio",
+      "title": "Detalle de envío",
+      "section": "cliente",
+      "roles": null,
+      "url": "cliente.html#/envios/lsntfodkp0",
+      "capturedUrl": "cliente.html#/envios/lsntfodkp0",
+      "login": {
+        "id": "u-emp",
+        "name": "Librería Andes",
+        "role": "Cliente (empresa)",
+        "email": "contacto@libreriaandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Detalle de un envío del portal con mapa de la ruta, progreso, repartidor, línea de tiempo y acciones según el estado. Con conexión el mapa es de calles reales; la captura muestra el plano esquemático.",
+      "actions": [
+        "Seguir la ruta y la llegada estimada",
+        "Chatear con el repartidor",
+        "Cancelar un envío que aún no se retira",
+        "Calificar la entrega o reportar un problema"
+      ],
+      "img": "img/delivery/cliente-envio.webp",
+      "thumb": "img/delivery/cliente-envio-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-reclamo",
+      "title": "Nuevo reclamo",
+      "section": "cliente",
+      "roles": null,
+      "url": "cliente.html#/reclamos",
+      "capturedUrl": "cliente.html#/reclamos",
+      "login": {
+        "id": "u-emp",
+        "name": "Librería Andes",
+        "role": "Cliente (empresa)",
+        "email": "contacto@libreriaandes.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo reclamo\" en Reclamos o \"Reportar un problema\" en un envío",
+      "description": "Formulario para reclamar sobre un envío. El caso llega al tablero de incidencias de soporte con prioridad según el motivo.",
+      "actions": [
+        "Elegir el envío afectado",
+        "Indicar el motivo (retraso, daño, extravío, cobro, etc.)",
+        "Describir lo ocurrido",
+        "Enviar el reclamo a soporte"
+      ],
+      "img": "img/delivery/cliente-reclamo.webp",
+      "thumb": "img/delivery/cliente-reclamo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-reclamos",
+      "title": "Reclamos",
+      "section": "cliente",
+      "roles": null,
+      "url": "cliente.html#/reclamos",
+      "capturedUrl": "cliente.html#/reclamos",
+      "login": {
+        "id": "u-emp",
+        "name": "Librería Andes",
+        "role": "Cliente (empresa)",
+        "email": "contacto@libreriaandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Casos abiertos con soporte y su estado (abierto, en revisión, resuelto o rechazado). Cada uno abre su conversación.",
+      "actions": [
+        "Ver el estado de cada reclamo",
+        "Abrir la conversación con soporte",
+        "Crear un reclamo nuevo"
+      ],
+      "img": "img/delivery/cliente-reclamos.webp",
+      "thumb": "img/delivery/cliente-reclamos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-direcciones",
+      "title": "Direcciones",
+      "section": "cliente",
+      "roles": null,
+      "url": "cliente.html#/direcciones",
+      "capturedUrl": "cliente.html#/direcciones",
+      "login": {
+        "id": "u-emp",
+        "name": "Librería Andes",
+        "role": "Cliente (empresa)",
+        "email": "contacto@libreriaandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Libreta de direcciones para retiros y entregas frecuentes, con una dirección predeterminada.",
+      "actions": [
+        "Agregar una dirección",
+        "Editar o eliminar direcciones",
+        "Marcar una como predeterminada"
+      ],
+      "img": "img/delivery/cliente-direcciones.webp",
+      "thumb": "img/delivery/cliente-direcciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-facturas",
+      "title": "Facturas y pagos",
+      "section": "cliente",
+      "roles": null,
+      "url": "cliente.html#/facturas",
+      "capturedUrl": "cliente.html#/facturas",
+      "login": {
+        "id": "u-emp",
+        "name": "Librería Andes",
+        "role": "Cliente (empresa)",
+        "email": "contacto@libreriaandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Facturas mensuales de la empresa (o boletas, en cuentas persona) con saldo pendiente, mes en curso, pagos recientes y línea de crédito.",
+      "actions": [
+        "Ver saldo pendiente y línea de crédito",
+        "Abrir el detalle imprimible de cada documento",
+        "Pagar un documento pendiente (simulado)",
+        "Exportar a CSV"
+      ],
+      "img": "img/delivery/cliente-facturas.webp",
+      "thumb": "img/delivery/cliente-facturas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-factura",
+      "title": "Detalle de factura",
+      "section": "cliente",
+      "roles": null,
+      "url": "cliente.html#/facturas",
+      "capturedUrl": "cliente.html#/facturas",
+      "login": {
+        "id": "u-emp",
+        "name": "Librería Andes",
+        "role": "Cliente (empresa)",
+        "email": "contacto@libreriaandes.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Clic en un documento de Facturas y pagos",
+      "description": "Documento con el periodo, los envíos incluidos y los montos, listo para imprimir.",
+      "actions": [
+        "Revisar los envíos facturados",
+        "Ver neto, IVA y total",
+        "Imprimir o guardar en PDF"
+      ],
+      "img": "img/delivery/cliente-factura.webp",
+      "thumb": "img/delivery/cliente-factura-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-perfil",
+      "title": "Perfil",
+      "section": "cliente",
+      "roles": null,
+      "url": "cliente.html#/perfil",
+      "capturedUrl": "cliente.html#/perfil",
+      "login": {
+        "id": "u-emp",
+        "name": "Librería Andes",
+        "role": "Cliente (empresa)",
+        "email": "contacto@libreriaandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos de la cuenta (razón social, contacto, RUT, teléfono y correo), avisos por correo y cambio de contraseña.",
+      "actions": [
+        "Actualizar los datos de la empresa o persona",
+        "Activar avisos de estado por correo",
+        "Cambiar la contraseña",
+        "Ver el plan contratado"
+      ],
+      "img": "img/delivery/cliente-perfil.webp",
+      "thumb": "img/delivery/cliente-perfil-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-persona",
+      "title": "Cuenta persona",
+      "section": "cliente",
+      "roles": null,
+      "url": "cliente.html#/",
+      "capturedUrl": "cliente.html#/",
+      "login": {
+        "id": "u-cli",
+        "name": "Valentina Pérez",
+        "role": "Cliente (persona)",
+        "email": "valentina@correo.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "El mismo portal para una persona: incluye los envíos que va a recibir, paga con tarjeta y ve boletas en vez de facturas.",
+      "actions": [
+        "Ver los envíos que le están llegando",
+        "Enviar paquetes pagando con tarjeta",
+        "Revisar boletas y pagos"
+      ],
+      "img": "img/delivery/cliente-persona.webp",
+      "thumb": "img/delivery/cliente-persona-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "repartidor-ruta",
+      "title": "Ruta activa",
+      "section": "repartidor",
+      "roles": null,
+      "url": "repartidor.html#/",
+      "capturedUrl": "repartidor.html#/",
+      "login": {
+        "id": "u-c1",
+        "name": "Camila Rojas",
+        "role": "Repartidor",
+        "email": "camila@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pantalla principal de la app: interruptor de conexión, mapa con las paradas y la tarjeta del envío actual con los botones de cada etapa. Con conexión el mapa es de calles reales; la captura muestra el plano esquemático.",
+      "actions": [
+        "Conectarse o desconectarse para recibir ofertas",
+        "Aceptar o rechazar ofertas con cuenta regresiva",
+        "Marcar retirado, en camino o entregado",
+        "Llamar o chatear con el destinatario",
+        "Registrar una entrega fallida"
+      ],
+      "img": "img/delivery/repartidor-ruta.webp",
+      "thumb": "img/delivery/repartidor-ruta-thumb.webp",
+      "mobile": "img/delivery/repartidor-ruta-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "repartidor-entrega",
+      "title": "Prueba de entrega",
+      "section": "repartidor",
+      "roles": null,
+      "url": "repartidor.html#/",
+      "capturedUrl": "repartidor.html#/",
+      "login": {
+        "id": "u-c1",
+        "name": "Camila Rojas",
+        "role": "Repartidor",
+        "email": "camila@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Entregar\" de la ruta activa",
+      "description": "Cierre de la entrega con nombre de quien recibe, firma en pantalla y foto de respaldo con hora y GPS (simulada). El cliente la ve en su seguimiento.",
+      "actions": [
+        "Confirmar quién recibe y su RUT",
+        "Marcar entrega en conserjería",
+        "Capturar la firma con el dedo",
+        "Tomar la foto de respaldo",
+        "Confirmar la entrega"
+      ],
+      "img": "img/delivery/repartidor-entrega.webp",
+      "thumb": "img/delivery/repartidor-entrega-thumb.webp",
+      "mobile": "img/delivery/repartidor-entrega-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "repartidor-fallido",
+      "title": "Entrega fallida",
+      "section": "repartidor",
+      "roles": null,
+      "url": "repartidor.html#/",
+      "capturedUrl": "repartidor.html#/",
+      "login": {
+        "id": "u-c1",
+        "name": "Camila Rojas",
+        "role": "Repartidor",
+        "email": "camila@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"No entregado\" de la ruta activa",
+      "description": "Registro de un intento sin éxito con su motivo. El envío vuelve a despacho para reprogramarlo.",
+      "actions": [
+        "Elegir el motivo (ausente, dirección incorrecta, rechazo, etc.)",
+        "Agregar una nota",
+        "Devolver el envío a despacho"
+      ],
+      "img": "img/delivery/repartidor-fallido.webp",
+      "thumb": "img/delivery/repartidor-fallido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "repartidor-ganancias",
+      "title": "Ganancias",
+      "section": "repartidor",
+      "roles": null,
+      "url": "repartidor.html#/ganancias",
+      "capturedUrl": "repartidor.html#/ganancias",
+      "login": {
+        "id": "u-c1",
+        "name": "Camila Rojas",
+        "role": "Repartidor",
+        "email": "camila@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ganancias del día, la semana y el mes con propinas, gráfico de los últimos 14 días, próximo pago y detalle de cada viaje.",
+      "actions": [
+        "Ver lo ganado hoy, en la semana y en el mes",
+        "Revisar el gráfico de 14 días",
+        "Saber el monto y la fecha del próximo pago",
+        "Ver cuánto dejó cada viaje y sus propinas"
+      ],
+      "img": "img/delivery/repartidor-ganancias.webp",
+      "thumb": "img/delivery/repartidor-ganancias-thumb.webp",
+      "mobile": "img/delivery/repartidor-ganancias-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "repartidor-historial",
+      "title": "Historial de viajes",
+      "section": "repartidor",
+      "roles": null,
+      "url": "repartidor.html#/historial",
+      "capturedUrl": "repartidor.html#/historial",
+      "login": {
+        "id": "u-c1",
+        "name": "Camila Rojas",
+        "role": "Repartidor",
+        "email": "camila@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Viajes realizados con ruta, estado, ganancia y calificación recibida.",
+      "actions": [
+        "Ver viajes, calificación promedio y fallidos",
+        "Filtrar entregados, fallidos o con calificación",
+        "Revisar la ganancia de cada viaje"
+      ],
+      "img": "img/delivery/repartidor-historial.webp",
+      "thumb": "img/delivery/repartidor-historial-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "repartidor-perfil",
+      "title": "Perfil y documentos",
+      "section": "repartidor",
+      "roles": null,
+      "url": "repartidor.html#/perfil",
+      "capturedUrl": "repartidor.html#/perfil",
+      "login": {
+        "id": "u-c1",
+        "name": "Camila Rojas",
+        "role": "Repartidor",
+        "email": "camila@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos del repartidor, vehículo, zonas asignadas y documentos con su vencimiento y estado de revisión.",
+      "actions": [
+        "Editar tipo, modelo y patente del vehículo",
+        "Ver las zonas donde trabaja",
+        "Subir documentos (simulado)",
+        "Revisar vencimientos y aprobaciones"
+      ],
+      "img": "img/delivery/repartidor-perfil.webp",
+      "thumb": "img/delivery/repartidor-perfil-thumb.webp",
+      "mobile": "img/delivery/repartidor-perfil-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-dashboard",
+      "title": "Dashboard",
+      "section": "despachador",
+      "roles": [
+        "Administrador",
+        "Despachador",
+        "Soporte"
+      ],
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-desp",
+        "name": "Tomás Herrera",
+        "role": "Despachador",
+        "email": "despacho@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen de la operación en tiempo real: envíos de hoy, en curso y atrasados, puntualidad, ingresos, flota en línea, entregas de 30 días, alertas de SLA e incidencias abiertas.",
+      "actions": [
+        "Ver los indicadores del día",
+        "Atender alertas de SLA con su atraso",
+        "Revisar estados de hoy e ingresos diarios",
+        "Ver el top de repartidores de la semana",
+        "Crear un envío o ir al mapa en vivo"
+      ],
+      "img": "img/delivery/despacho-dashboard.webp",
+      "thumb": "img/delivery/despacho-dashboard-thumb.webp",
+      "mobile": "img/delivery/despacho-dashboard-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-operaciones",
+      "title": "Operaciones en vivo",
+      "section": "despachador",
+      "roles": [
+        "Administrador",
+        "Despachador"
+      ],
+      "url": "admin.html#/operaciones",
+      "capturedUrl": "admin.html#/operaciones",
+      "login": {
+        "id": "u-desp",
+        "name": "Tomás Herrera",
+        "role": "Despachador",
+        "email": "despacho@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Mapa de Santiago con toda la flota moviéndose, cola de envíos por asignar, envíos en curso y control del reloj de simulación. Con conexión el mapa es de calles reales; la captura muestra el plano esquemático.",
+      "actions": [
+        "Ver repartidores libres, en ruta y envíos atrasados en el mapa",
+        "Asignar manualmente o activar la asignación automática",
+        "Revisar la cola, los envíos en curso y la flota",
+        "Acelerar o pausar la simulación",
+        "Generar envíos de prueba"
+      ],
+      "img": "img/delivery/despacho-operaciones.webp",
+      "thumb": "img/delivery/despacho-operaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-envios",
+      "title": "Envíos",
+      "section": "despachador",
+      "roles": [
+        "Administrador",
+        "Despachador",
+        "Soporte"
+      ],
+      "url": "admin.html#/envios",
+      "capturedUrl": "admin.html#/envios",
+      "login": {
+        "id": "u-desp",
+        "name": "Tomás Herrera",
+        "role": "Despachador",
+        "email": "despacho@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todos los envíos con cliente, ruta, repartidor, SLA, total y estado, con filtros combinables.",
+      "actions": [
+        "Filtrar por estado, fecha, servicio, comuna y repartidor",
+        "Ver los atrasados respecto del SLA",
+        "Buscar por código o cliente",
+        "Exportar a CSV",
+        "Abrir el detalle de un envío"
+      ],
+      "img": "img/delivery/despacho-envios.webp",
+      "thumb": "img/delivery/despacho-envios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-envio",
+      "title": "Detalle de envío",
+      "section": "despachador",
+      "roles": [
+        "Administrador",
+        "Despachador",
+        "Soporte"
+      ],
+      "url": "admin.html#/envios",
+      "capturedUrl": "admin.html#/envios",
+      "login": {
+        "id": "u-desp",
+        "name": "Tomás Herrera",
+        "role": "Despachador",
+        "email": "despacho@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Clic en un envío de la tabla, el dashboard o el buscador",
+      "description": "Ficha en vivo de un envío para la consola: mini mapa, progreso, repartidor, línea de tiempo, cliente, chat y notas internas. Los botones dependen del rol y del estado.",
+      "actions": [
+        "Asignar o reasignar repartidor",
+        "Cambiar la etapa o registrar un intento fallido",
+        "Chatear con el repartidor como soporte",
+        "Agregar notas internas",
+        "Cancelar o eliminar el envío"
+      ],
+      "img": "img/delivery/despacho-envio.webp",
+      "thumb": "img/delivery/despacho-envio-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-asignar",
+      "title": "Asignar repartidor",
+      "section": "despachador",
+      "roles": [
+        "Administrador",
+        "Despachador"
+      ],
+      "url": "admin.html#/operaciones",
+      "capturedUrl": "admin.html#/operaciones",
+      "login": {
+        "id": "u-desp",
+        "name": "Tomás Herrera",
+        "role": "Despachador",
+        "email": "despacho@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Asignar\" en la cola de Operaciones en vivo o en un envío pendiente",
+      "description": "Lista de repartidores disponibles ordenados por cercanía al retiro, con vehículo, carga actual y calificación.",
+      "actions": [
+        "Comparar distancia al retiro de cada repartidor",
+        "Ver vehículo, carga y calificación",
+        "Asignar el envío a uno"
+      ],
+      "img": "img/delivery/despacho-asignar.webp",
+      "thumb": "img/delivery/despacho-asignar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-nuevo",
+      "title": "Nuevo envío (consola)",
+      "section": "despachador",
+      "roles": [
+        "Administrador",
+        "Despachador",
+        "Soporte"
+      ],
+      "url": "admin.html#/envios",
+      "capturedUrl": "admin.html#/envios",
+      "login": {
+        "id": "u-desp",
+        "name": "Tomás Herrera",
+        "role": "Despachador",
+        "email": "despacho@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo envío\" de la consola",
+      "description": "Alta de un envío tomado por teléfono, para un cliente existente u ocasional, con precio calculado al instante.",
+      "actions": [
+        "Elegir el cliente o dejarlo como ocasional",
+        "Ingresar retiro, entrega y paquete",
+        "Ver precio, distancia y zona",
+        "Crear el envío y abrir su ficha"
+      ],
+      "img": "img/delivery/despacho-nuevo.webp",
+      "thumb": "img/delivery/despacho-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-repartidores",
+      "title": "Repartidores",
+      "section": "despachador",
+      "roles": [
+        "Administrador",
+        "Despachador"
+      ],
+      "url": "admin.html#/repartidores",
+      "capturedUrl": "admin.html#/repartidores",
+      "login": {
+        "id": "u-desp",
+        "name": "Tomás Herrera",
+        "role": "Despachador",
+        "email": "despacho@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Flota con vehículo, zonas, estado, calificación, viajes y documentos, más indicadores de flota activa y documentos por revisar.",
+      "actions": [
+        "Filtrar en línea, en ruta, con documentos por revisar o suspendidos",
+        "Crear o editar repartidores",
+        "Abrir la ficha de un repartidor",
+        "Exportar a CSV"
+      ],
+      "img": "img/delivery/despacho-repartidores.webp",
+      "thumb": "img/delivery/despacho-repartidores-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-repartidor",
+      "title": "Ficha de repartidor",
+      "section": "despachador",
+      "roles": [
+        "Administrador",
+        "Despachador"
+      ],
+      "url": "admin.html#/repartidores",
+      "capturedUrl": "admin.html#/repartidores",
+      "login": {
+        "id": "u-desp",
+        "name": "Tomás Herrera",
+        "role": "Despachador",
+        "email": "despacho@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Clic en un repartidor de la tabla",
+      "description": "Ficha con datos del repartidor, viajes recientes, calificaciones y documentos para aprobar o rechazar.",
+      "actions": [
+        "Aprobar o rechazar documentos",
+        "Conectarlo o desconectarlo",
+        "Suspender o reactivar la cuenta",
+        "Editar sus datos y zonas"
+      ],
+      "img": "img/delivery/despacho-repartidor.webp",
+      "thumb": "img/delivery/despacho-repartidor-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-reportes",
+      "title": "Reportes",
+      "section": "despachador",
+      "roles": [
+        "Administrador",
+        "Despachador"
+      ],
+      "url": "admin.html#/reportes",
+      "capturedUrl": "admin.html#/reportes",
+      "login": {
+        "id": "u-desp",
+        "name": "Tomás Herrera",
+        "role": "Despachador",
+        "email": "despacho@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Desempeño por periodo: envíos, entregas, puntualidad, ingresos, ticket promedio, ingresos por servicio, desempeño por repartidor y mapa de calor por comuna.",
+      "actions": [
+        "Elegir 7, 30 o 60 días",
+        "Comparar con el periodo anterior",
+        "Ver entregas, ingresos y % a tiempo por semana",
+        "Ver el mapa de calor por comuna de origen o destino",
+        "Exportar el resumen diario a CSV"
+      ],
+      "img": "img/delivery/despacho-reportes.webp",
+      "thumb": "img/delivery/despacho-reportes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "soporte-clientes",
+      "title": "Clientes",
+      "section": "soporte",
+      "roles": [
+        "Administrador",
+        "Soporte"
+      ],
+      "url": "admin.html#/clientes",
+      "capturedUrl": "admin.html#/clientes",
+      "login": {
+        "id": "u-sop",
+        "name": "Daniela Fuentes",
+        "role": "Soporte",
+        "email": "soporte@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Clientes personas y empresas con plan, envíos y gasto de 30 días, saldo y estado.",
+      "actions": [
+        "Filtrar empresas, personas, con saldo pendiente o inactivos",
+        "Crear o editar clientes",
+        "Abrir la ficha de un cliente",
+        "Exportar a CSV"
+      ],
+      "img": "img/delivery/soporte-clientes.webp",
+      "thumb": "img/delivery/soporte-clientes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "soporte-cliente",
+      "title": "Ficha de cliente",
+      "section": "soporte",
+      "roles": [
+        "Administrador",
+        "Soporte"
+      ],
+      "url": "admin.html#/clientes",
+      "capturedUrl": "admin.html#/clientes",
+      "login": {
+        "id": "u-sop",
+        "name": "Daniela Fuentes",
+        "role": "Soporte",
+        "email": "soporte@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Clic en un cliente de la tabla",
+      "description": "Ficha del cliente con sus últimos envíos, facturas, direcciones e incidencias.",
+      "actions": [
+        "Revisar últimos envíos y abrir cualquiera",
+        "Ver facturas y saldo",
+        "Consultar direcciones e incidencias",
+        "Crear un envío para el cliente"
+      ],
+      "img": "img/delivery/soporte-cliente.webp",
+      "thumb": "img/delivery/soporte-cliente-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "soporte-facturacion",
+      "title": "Facturación",
+      "section": "soporte",
+      "roles": [
+        "Administrador",
+        "Soporte"
+      ],
+      "url": "admin.html#/facturacion",
+      "capturedUrl": "admin.html#/facturacion",
+      "login": {
+        "id": "u-sop",
+        "name": "Daniela Fuentes",
+        "role": "Soporte",
+        "email": "soporte@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Documentos emitidos con monto, vencimiento y estado, más indicadores de cobranza.",
+      "actions": [
+        "Ver por cobrar, vencido y facturado en curso",
+        "Emitir las facturas del periodo",
+        "Registrar pagos",
+        "Enviar recordatorios de cobro",
+        "Exportar a CSV"
+      ],
+      "img": "img/delivery/soporte-facturacion.webp",
+      "thumb": "img/delivery/soporte-facturacion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "soporte-incidencias",
+      "title": "Incidencias",
+      "section": "soporte",
+      "roles": [
+        "Administrador",
+        "Despachador",
+        "Soporte"
+      ],
+      "url": "admin.html#/incidencias",
+      "capturedUrl": "admin.html#/incidencias",
+      "login": {
+        "id": "u-sop",
+        "name": "Daniela Fuentes",
+        "role": "Soporte",
+        "email": "soporte@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tablero de reclamos por estado (abierto, en revisión, resuelto, rechazado) con prioridad, responsable y compensaciones.",
+      "actions": [
+        "Filtrar por tipo, prioridad o texto",
+        "Crear una incidencia",
+        "Abrir un caso para gestionarlo",
+        "Exportar a CSV"
+      ],
+      "img": "img/delivery/soporte-incidencias.webp",
+      "thumb": "img/delivery/soporte-incidencias-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "soporte-incidencia",
+      "title": "Gestión de incidencia",
+      "section": "soporte",
+      "roles": [
+        "Administrador",
+        "Despachador",
+        "Soporte"
+      ],
+      "url": "admin.html#/incidencias",
+      "capturedUrl": "admin.html#/incidencias",
+      "login": {
+        "id": "u-sop",
+        "name": "Daniela Fuentes",
+        "role": "Soporte",
+        "email": "soporte@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Clic en una tarjeta del tablero de incidencias",
+      "description": "Caso con cliente, envío, descripción y notas, y el flujo para tomarlo, resolverlo con compensación o rechazarlo.",
+      "actions": [
+        "Tomar el caso o asignarlo a alguien de soporte",
+        "Cambiar la prioridad",
+        "Agregar notas",
+        "Resolver con compensación o rechazar con motivo",
+        "Abrir el envío asociado"
+      ],
+      "img": "img/delivery/soporte-incidencia.webp",
+      "thumb": "img/delivery/soporte-incidencia-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-tarifas",
+      "title": "Tarifas y zonas",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/tarifas",
+      "capturedUrl": "admin.html#/tarifas",
+      "login": {
+        "id": "u-admin",
+        "name": "Francisca Ibáñez",
+        "role": "Administrador",
+        "email": "admin@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor de precios: precio por km, mínimo, % del repartidor, tamaños, servicios, zonas, reglas de recargo y asignación de comunas a zonas, con vista previa. Al guardar, el cotizador público y los nuevos envíos usan los valores al instante.",
+      "actions": [
+        "Ajustar precio por km, mínimo y % del repartidor",
+        "Editar tamaños, servicios y zonas",
+        "Crear reglas de recargo (p. ej. nocturno)",
+        "Mover comunas entre zonas",
+        "Probar un precio en la vista previa antes de guardar"
+      ],
+      "img": "img/delivery/admin-tarifas.webp",
+      "thumb": "img/delivery/admin-tarifas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Francisca Ibáñez",
+        "role": "Administrador",
+        "email": "admin@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas de la consola, repartidores y clientes con su rol, estado y último acceso, más la matriz de permisos por rol.",
+      "actions": [
+        "Crear usuarios y cambiar su rol",
+        "Activar o desactivar cuentas",
+        "Restablecer contraseñas",
+        "Revisar qué puede hacer cada rol"
+      ],
+      "img": "img/delivery/admin-usuarios.webp",
+      "thumb": "img/delivery/admin-usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-ajustes",
+      "title": "Ajustes y CMS",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/ajustes",
+      "capturedUrl": "admin.html#/ajustes",
+      "login": {
+        "id": "u-admin",
+        "name": "Francisca Ibáñez",
+        "role": "Administrador",
+        "email": "admin@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Contenidos del sitio público (portada, anuncio, secciones, preguntas frecuentes y contacto) y parámetros de operación y simulación.",
+      "actions": [
+        "Editar textos de portada y la barra de anuncio",
+        "Administrar preguntas frecuentes",
+        "Actualizar datos de contacto y horario",
+        "Configurar asignación automática y velocidad de la simulación",
+        "Exportar o restablecer los datos demo"
+      ],
+      "img": "img/delivery/admin-ajustes.webp",
+      "thumb": "img/delivery/admin-ajustes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-actividad",
+      "title": "Actividad",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/actividad",
+      "capturedUrl": "admin.html#/actividad",
+      "login": {
+        "id": "u-admin",
+        "name": "Francisca Ibáñez",
+        "role": "Administrador",
+        "email": "admin@rayoexpress.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bitácora de acciones de todo el sistema (consola, app del repartidor y portal de clientes).",
+      "actions": [
+        "Filtrar por tipo de acción",
+        "Buscar en el registro",
+        "Ver quién hizo cada cambio y cuándo",
+        "Exportar a CSV"
+      ],
+      "img": "img/delivery/admin-actividad.webp",
+      "thumb": "img/delivery/admin-actividad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Noir Neón\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/delivery/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/delivery/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/delivery/look-app.webp"
+      },
+      {
+        "id": "aqua",
+        "group": "Estilo",
+        "label": "Aqua",
+        "desc": "Claro, brillante y redondeado.",
+        "img": "img/delivery/look-aqua.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/delivery/look-editorial.webp"
+      },
+      {
+        "id": "nordic",
+        "group": "Estilo",
+        "label": "Nórdico",
+        "desc": "Minimalista, blanco y aire.",
+        "img": "img/delivery/look-nordic.webp"
+      }
+    ]
+  }
+}

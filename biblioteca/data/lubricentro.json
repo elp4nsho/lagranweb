@@ -1,0 +1,1793 @@
+{
+  "app": "lubricentro",
+  "dir": "lubricentro",
+  "name": "Pits Rápido",
+  "kind": "Lubricentro express",
+  "description": "Cadena de lubricentros express con sitio público (precios por segmento, reservas, check-in \"Llegué\" y seguimiento en vivo), cuenta del cliente y apps internas para recepción y caja, tablero de bahías y panel de administración.",
+  "demo": "../lubricentro/index.html",
+  "theme": "bootstrap2",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:31:54.508Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Lo que ve cualquier visitante, sin iniciar sesión."
+    },
+    {
+      "id": "cliente",
+      "label": "Cliente",
+      "desc": "Cuenta personal: vehículos, historial con kilometraje, planes, boletas y datos."
+    },
+    {
+      "id": "recepcion",
+      "label": "Recepcionista",
+      "desc": "App de recepción y caja, más las atenciones y clientes del panel."
+    },
+    {
+      "id": "tecnico",
+      "label": "Técnico",
+      "desc": "Tablero de bahías con checklist, cronómetro y recomendaciones al cliente."
+    },
+    {
+      "id": "jefe",
+      "label": "Jefe de sucursal",
+      "desc": "Panel de gestión: indicadores, inventario, compras, turnos, planes y recordatorios."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Precios, sucursales, promociones, contenido del sitio y usuarios."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de inicio con buscador de precio por patente, la espera en vivo de cada sucursal, los servicios más pedidos, planes prepagados y cupones vigentes. Los textos y el anuncio superior se editan desde el panel.",
+      "actions": [
+        "Escribir la patente y ver el precio para su auto",
+        "Ver la espera actual y las bahías ocupadas de cada sucursal",
+        "Entrar a un servicio o a la lista completa de precios",
+        "Comprar un plan prepagado o copiar un cupón",
+        "Ir a reservar, al check-in \"Llegué\" o al seguimiento del auto"
+      ],
+      "img": "img/lubricentro/portada.webp",
+      "thumb": "img/lubricentro/portada-thumb.webp",
+      "mobile": "img/lubricentro/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "precios",
+      "title": "Servicios y precios",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/precios",
+      "capturedUrl": "index.html#/precios",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Lista de precios de todos los servicios en los 5 segmentos de vehículo (city car, sedán, SUV, camioneta y premium), con el precio por litro de cada aceite. Se puede identificar el auto por patente o por marca, modelo y año.",
+      "actions": [
+        "Elegir marca, modelo y año para ver sus precios",
+        "Buscar el vehículo por patente",
+        "Filtrar servicios por categoría",
+        "Comparar la matriz de precios por segmento",
+        "Revisar el precio por litro y el intervalo de cambio de cada aceite"
+      ],
+      "img": "img/lubricentro/precios.webp",
+      "thumb": "img/lubricentro/precios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "precios-mi-auto",
+      "title": "Precio para mi auto",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/precios?p=KJTR-45",
+      "capturedUrl": "index.html#/precios?p=KJTR-45",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Resultado de buscar una patente: ficha del vehículo con el aceite y los filtros recomendados, y el precio exacto de cada servicio para ese auto, con IVA incluido.",
+      "actions": [
+        "Ver aceite recomendado, litros, filtros y cada cuántos km cambiarlo",
+        "Revisar el precio de cada servicio para su vehículo",
+        "Reservar un servicio puntual desde su tarjeta",
+        "Cambiar de vehículo"
+      ],
+      "img": "img/lubricentro/precios-mi-auto.webp",
+      "thumb": "img/lubricentro/precios-mi-auto-thumb.webp",
+      "mobile": "img/lubricentro/precios-mi-auto-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sucursales",
+      "title": "Sucursales y tiempos de espera",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/sucursales",
+      "capturedUrl": "index.html#/sucursales",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Las sucursales con su espera estimada en vivo, calculada con los autos en bahía, lo que les falta y la fila. La página se actualiza sola.",
+      "actions": [
+        "Ver la espera estimada si llega ahora",
+        "Revisar autos en fila, en bahía y bahías libres",
+        "Ver dirección, horario, teléfono y si abre hoy",
+        "Reservar en esa sucursal o hacer check-in \"Llegué\""
+      ],
+      "img": "img/lubricentro/sucursales.webp",
+      "thumb": "img/lubricentro/sucursales-thumb.webp",
+      "mobile": "img/lubricentro/sucursales-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reservar",
+      "title": "Reserva: vehículo",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/reservar?p=KJTR-45",
+      "capturedUrl": "index.html#/reservar?p=KJTR-45",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Primer paso de la reserva online en cinco pasos. El auto se identifica por patente o por marca, modelo y año, y el resumen lateral va sumando el precio.",
+      "actions": [
+        "Buscar el vehículo por patente",
+        "Elegir marca, modelo y año si no tiene la patente a mano",
+        "Ver el aceite recomendado para su auto",
+        "Avanzar o volver entre los pasos"
+      ],
+      "img": "img/lubricentro/reservar.webp",
+      "thumb": "img/lubricentro/reservar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reservar-servicios",
+      "title": "Reserva: servicios y cupón",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/reservar?p=KJTR-45&b=b1",
+      "capturedUrl": "index.html#/reservar?p=KJTR-45&b=b1",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Paso de servicios: cada uno muestra su duración y el precio para el vehículo elegido. El cupón de descuento se valida al momento.",
+      "actions": [
+        "Marcar uno o varios servicios",
+        "Ver la duración total estimada",
+        "Aplicar un cupón de descuento",
+        "Revisar el total en el resumen"
+      ],
+      "img": "img/lubricentro/reservar-servicios.webp",
+      "thumb": "img/lubricentro/reservar-servicios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reservar-horario",
+      "title": "Reserva: día y hora",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/reservar?p=KJTR-45&b=b1",
+      "capturedUrl": "index.html#/reservar?p=KJTR-45&b=b1",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Calendario de los próximos días con los horarios de la sucursal y los cupos libres de cada bloque. Los bloques llenos o pasados aparecen deshabilitados.",
+      "actions": [
+        "Elegir un día disponible",
+        "Ver cuántos cupos quedan por horario",
+        "Elegir la hora de llegada",
+        "Volver a cambiar sucursal o servicios"
+      ],
+      "img": "img/lubricentro/reservar-horario.webp",
+      "thumb": "img/lubricentro/reservar-horario-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reservar-confirmar",
+      "title": "Reserva: datos y confirmación",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/reservar?p=KJTR-45&b=b1",
+      "capturedUrl": "index.html#/reservar?p=KJTR-45&b=b1",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Último paso con los datos de contacto, el kilometraje y comentarios para el técnico. Se puede activar el recordatorio de mantención en el mismo formulario.",
+      "actions": [
+        "Ingresar nombre, correo y celular",
+        "Indicar el kilometraje aproximado",
+        "Dejar comentarios para el técnico",
+        "Activar recordatorios por WhatsApp",
+        "Confirmar la reserva"
+      ],
+      "img": "img/lubricentro/reservar-confirmar.webp",
+      "thumb": "img/lubricentro/reservar-confirmar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reservar-confirmada",
+      "title": "Reserva confirmada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/reservar?p=KJTR-45&b=b1",
+      "capturedUrl": "index.html#/reservar?p=KJTR-45&b=b1",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Confirmación con el código de atención, sucursal, día y hora. La reserva aparece al instante en la recepción y en el panel, y se envía la confirmación por WhatsApp (simulada).",
+      "actions": [
+        "Ver el código de atención",
+        "Seguir la atención en vivo",
+        "Ir al check-in \"Llegué\" de esa sucursal",
+        "Hacer otra reserva"
+      ],
+      "img": "img/lubricentro/reservar-confirmada.webp",
+      "thumb": "img/lubricentro/reservar-confirmada-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "llegue",
+      "title": "Check-in \"Llegué\"",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/llegue",
+      "capturedUrl": "index.html#/llegue",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Check-in desde el celular al llegar a la sucursal: con la patente se marca la llegada de una reserva del día o se entra a la fila sin cita.",
+      "actions": [
+        "Elegir la sucursal donde está",
+        "Ver la espera y la fila de esa sucursal",
+        "Ingresar la patente",
+        "Quedar en la fila sin pasar por el mesón"
+      ],
+      "img": "img/lubricentro/llegue.webp",
+      "thumb": "img/lubricentro/llegue-thumb.webp",
+      "mobile": "img/lubricentro/llegue-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "llegue-sin-reserva",
+      "title": "Check-in sin reserva",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/llegue",
+      "capturedUrl": "index.html#/llegue",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Si la patente no tiene reserva para hoy, el check-in ofrece entrar a la fila eligiendo los servicios. Los datos del auto vienen del historial o del registro de vehículos (simulado).",
+      "actions": [
+        "Elegir los servicios que necesita",
+        "Dejar nombre y celular si es cliente nuevo",
+        "Indicar el kilometraje del tablero",
+        "Ponerse en la fila de la sucursal"
+      ],
+      "img": "img/lubricentro/llegue-sin-reserva.webp",
+      "thumb": "img/lubricentro/llegue-sin-reserva-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "llegue-en-fila",
+      "title": "Posición en la fila",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/llegue",
+      "capturedUrl": "index.html#/llegue",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Tras el check-in, el cliente ve su posición en la fila y en cuánto entra a bahía. La recepción y el tablero de bahías lo ven al instante.",
+      "actions": [
+        "Ver su posición y la espera estimada",
+        "Pasar al seguimiento en vivo",
+        "Hacer check-in de otro auto"
+      ],
+      "img": "img/lubricentro/llegue-en-fila.webp",
+      "thumb": "img/lubricentro/llegue-en-fila-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "estado",
+      "title": "Seguimiento en vivo",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/estado/KJTR-45",
+      "capturedUrl": "index.html#/estado/KJTR-45",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Estado de la atención por código o patente: etapa actual, bahía y técnico, cronómetro, avance del checklist y las recomendaciones del técnico, que el cliente aprueba o rechaza desde el teléfono.",
+      "actions": [
+        "Buscar la atención por código o patente",
+        "Ver la etapa, la bahía, el técnico y el tiempo en bahía",
+        "Seguir las tareas completadas",
+        "Aprobar o rechazar una recomendación con su precio",
+        "Ver el detalle y la boleta al terminar"
+      ],
+      "img": "img/lubricentro/estado.webp",
+      "thumb": "img/lubricentro/estado-thumb.webp",
+      "mobile": "img/lubricentro/estado-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "planes",
+      "title": "Planes prepagados",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/planes",
+      "capturedUrl": "index.html#/planes",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Planes de mantención que se pagan una vez y se usan en cualquier sucursal. El precio cambia según el segmento del vehículo e incluye el aceite recomendado.",
+      "actions": [
+        "Elegir el segmento del vehículo",
+        "Comparar servicios incluidos, vigencia y ahorro",
+        "Comprar un plan",
+        "Leer las preguntas frecuentes"
+      ],
+      "img": "img/lubricentro/planes.webp",
+      "thumb": "img/lubricentro/planes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "planes-comprar",
+      "title": "Compra de plan",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/planes",
+      "capturedUrl": "index.html#/planes",
+      "login": null,
+      "kind": "modal",
+      "from": "Botón \"Comprar plan\" en Planes",
+      "description": "Ventana de compra con pago simulado con tarjeta. El precio se recalcula según el segmento de la patente y el plan queda asociado a ese vehículo.",
+      "actions": [
+        "Ingresar la patente y ver el precio de su segmento",
+        "Dejar sus datos (o usar su cuenta si ya ingresó)",
+        "Pagar con tarjeta (simulado)",
+        "Recibir el código del plan para usarlo en caja"
+      ],
+      "img": "img/lubricentro/planes-comprar.webp",
+      "thumb": "img/lubricentro/planes-comprar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recordatorios",
+      "title": "Recordatorios de mantención",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/recordatorios",
+      "capturedUrl": "index.html#/recordatorios",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Inscripción para recibir avisos de mantención por WhatsApp, SMS o correo, según kilometraje o fecha. Muestra una vista previa del mensaje con los datos del auto.",
+      "actions": [
+        "Ingresar nombre, celular y patente",
+        "Ver cuándo le toca el próximo cambio",
+        "Elegir canal y si avisar por km o fecha",
+        "Ver cómo llegará el mensaje",
+        "Activar el recordatorio"
+      ],
+      "img": "img/lubricentro/recordatorios.webp",
+      "thumb": "img/lubricentro/recordatorios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de ingreso para clientes y equipo, con el resumen de lo que ve cada rol y cuentas de prueba para entrar con un clic.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic como administrador, jefe, recepcionista, técnico o cliente",
+        "Crear una cuenta de cliente nueva",
+        "Volver al sitio"
+      ],
+      "img": "img/lubricentro/login.webp",
+      "thumb": "img/lubricentro/login-thumb.webp",
+      "mobile": "img/lubricentro/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-sin-sesion",
+      "title": "Mi cuenta (sin sesión)",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/cuenta",
+      "capturedUrl": "index.html#/cuenta",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve un visitante al abrir \"Mi cuenta\" sin haber ingresado: el acceso al login con los datos de la cuenta demo.",
+      "actions": [
+        "Ir a ingresar",
+        "Ver los datos de la cuenta demo de cliente",
+        "Volver a navegar el sitio"
+      ],
+      "img": "img/lubricentro/cuenta-sin-sesion.webp",
+      "thumb": "img/lubricentro/cuenta-sin-sesion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-vehiculos",
+      "title": "Mis vehículos",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta?tab=vehiculos",
+      "capturedUrl": "index.html#/cuenta?tab=vehiculos",
+      "login": {
+        "id": "u-cli",
+        "name": "Javiera Morales",
+        "role": "Cliente",
+        "email": "cliente@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inicio de la cuenta del cliente con sus atenciones en curso o reservadas y cada vehículo con su kilometraje, próximo cambio y estado de la mantención.",
+      "actions": [
+        "Ver atenciones activas y abrir su seguimiento",
+        "Anular una reserva",
+        "Revisar el próximo cambio por km o fecha",
+        "Actualizar el kilometraje de un auto",
+        "Agregar un vehículo o reservar para uno"
+      ],
+      "img": "img/lubricentro/cuenta-vehiculos.webp",
+      "thumb": "img/lubricentro/cuenta-vehiculos-thumb.webp",
+      "mobile": "img/lubricentro/cuenta-vehiculos-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-agregar-vehiculo",
+      "title": "Agregar vehículo",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta?tab=vehiculos",
+      "capturedUrl": "index.html#/cuenta?tab=vehiculos",
+      "login": {
+        "id": "u-cli",
+        "name": "Javiera Morales",
+        "role": "Cliente",
+        "email": "cliente@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Tarjeta \"Agregar vehículo\" en Mis vehículos",
+      "description": "Formulario para sumar un auto a la cuenta. Si la patente ya existe en el historial de la cadena, se asocia con sus servicios anteriores.",
+      "actions": [
+        "Ingresar patente, marca y modelo",
+        "Indicar año y kilometraje",
+        "Asociar un auto ya atendido antes"
+      ],
+      "img": "img/lubricentro/cuenta-agregar-vehiculo.webp",
+      "thumb": "img/lubricentro/cuenta-agregar-vehiculo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-historial",
+      "title": "Historial de servicios",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta?tab=historial",
+      "capturedUrl": "index.html#/cuenta?tab=historial",
+      "login": {
+        "id": "u-cli",
+        "name": "Javiera Morales",
+        "role": "Cliente",
+        "email": "cliente@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Línea de tiempo con todos los servicios de sus vehículos, con fecha, kilometraje, sucursal, monto y número de boleta.",
+      "actions": [
+        "Ver qué se hizo en cada visita",
+        "Revisar el kilometraje de cada servicio",
+        "Ver la sucursal y el total pagado"
+      ],
+      "img": "img/lubricentro/cuenta-historial.webp",
+      "thumb": "img/lubricentro/cuenta-historial-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-planes",
+      "title": "Mis planes",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta?tab=planes",
+      "capturedUrl": "index.html#/cuenta?tab=planes",
+      "login": {
+        "id": "u-cli",
+        "name": "Javiera Morales",
+        "role": "Cliente",
+        "email": "cliente@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Planes prepagados del cliente con su código, patente, vencimiento y los servicios que le quedan disponibles.",
+      "actions": [
+        "Ver el saldo de servicios de cada plan",
+        "Revisar la fecha de vencimiento",
+        "Ir a comprar un plan si no tiene"
+      ],
+      "img": "img/lubricentro/cuenta-planes.webp",
+      "thumb": "img/lubricentro/cuenta-planes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-boletas",
+      "title": "Mis boletas",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta?tab=boletas",
+      "capturedUrl": "index.html#/cuenta?tab=boletas",
+      "login": {
+        "id": "u-cli",
+        "name": "Javiera Morales",
+        "role": "Cliente",
+        "email": "cliente@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Listado de boletas electrónicas (simuladas) de todos sus servicios, con fecha, vehículo, detalle y total.",
+      "actions": [
+        "Buscar una boleta por fecha o vehículo",
+        "Abrir el detalle de la boleta",
+        "Imprimirla o guardarla"
+      ],
+      "img": "img/lubricentro/cuenta-boletas.webp",
+      "thumb": "img/lubricentro/cuenta-boletas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-boleta",
+      "title": "Boleta electrónica",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta?tab=boletas",
+      "capturedUrl": "index.html#/cuenta?tab=boletas",
+      "login": {
+        "id": "u-cli",
+        "name": "Javiera Morales",
+        "role": "Cliente",
+        "email": "cliente@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Ver\" en Mis boletas",
+      "description": "Boleta con los datos del cliente y del vehículo, el detalle de servicios, neto, IVA y total, más la garantía del servicio.",
+      "actions": [
+        "Revisar el detalle y el medio de pago",
+        "Ver neto, IVA y total",
+        "Imprimir o guardar en PDF"
+      ],
+      "img": "img/lubricentro/cuenta-boleta.webp",
+      "thumb": "img/lubricentro/cuenta-boleta-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-datos",
+      "title": "Mis datos",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta?tab=datos",
+      "capturedUrl": "index.html#/cuenta?tab=datos",
+      "login": {
+        "id": "u-cli",
+        "name": "Javiera Morales",
+        "role": "Cliente",
+        "email": "cliente@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos personales del cliente y los canales por los que acepta recibir recordatorios.",
+      "actions": [
+        "Editar nombre, RUT, celular y comuna",
+        "Elegir WhatsApp, SMS o correo para los avisos",
+        "Cerrar sesión"
+      ],
+      "img": "img/lubricentro/cuenta-datos.webp",
+      "thumb": "img/lubricentro/cuenta-datos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion",
+      "title": "Recepción: operación",
+      "section": "recepcion",
+      "roles": [
+        "Recepcionista",
+        "Jefe de sucursal",
+        "Administrador"
+      ],
+      "url": "recepcion.html",
+      "capturedUrl": "recepcion.html",
+      "login": {
+        "id": "u-recep",
+        "name": "Daniela Soto",
+        "role": "Recepcionista",
+        "email": "recepcion@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pantalla de trabajo del mesón con tres columnas: llegadas y fila, autos en bahía y autos listos para cobrar. Se actualiza sola con lo que pasa en el sitio y en las bahías.",
+      "actions": [
+        "Recibir una reserva o marcarla como \"no llegó\"",
+        "Enviar un auto de la fila a una bahía",
+        "Ver el avance de cada auto en bahía",
+        "Responder recomendaciones por teléfono del cliente",
+        "Cobrar y entregar los autos listos"
+      ],
+      "img": "img/lubricentro/recepcion.webp",
+      "thumb": "img/lubricentro/recepcion-thumb.webp",
+      "mobile": "img/lubricentro/recepcion-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-ingreso",
+      "title": "Ingreso de vehículo",
+      "section": "recepcion",
+      "roles": null,
+      "url": "recepcion.html",
+      "capturedUrl": "recepcion.html",
+      "login": {
+        "id": "u-recep",
+        "name": "Daniela Soto",
+        "role": "Recepcionista",
+        "email": "recepcion@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"+ Ingreso sin cita\" en Recepción",
+      "description": "Ficha de ingreso con patente, kilometraje del tablero, datos del cliente, fotos de ingreso y servicios. Si el auto ya es cliente, completa sus datos y muestra el estado de su mantención y su plan.",
+      "actions": [
+        "Buscar el auto por patente",
+        "Registrar el kilometraje",
+        "Marcar las fotos de ingreso (frontal, tablero, daños previos)",
+        "Elegir servicios con su precio",
+        "Dejarlo en la fila o mandarlo directo a bahía"
+      ],
+      "img": "img/lubricentro/recepcion-ingreso.webp",
+      "thumb": "img/lubricentro/recepcion-ingreso-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-recibir",
+      "title": "Recibir reserva",
+      "section": "recepcion",
+      "roles": null,
+      "url": "recepcion.html",
+      "capturedUrl": "recepcion.html",
+      "login": {
+        "id": "u-recep",
+        "name": "Daniela Soto",
+        "role": "Recepcionista",
+        "email": "recepcion@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Recibir\" de una reserva del día",
+      "description": "La misma ficha de ingreso, abierta desde una reserva del día: la patente, el cliente y los servicios ya vienen cargados y solo falta registrar el kilometraje y las fotos.",
+      "actions": [
+        "Confirmar la llegada del cliente con reserva",
+        "Registrar el kilometraje del tablero",
+        "Marcar las fotos de ingreso",
+        "Agregar observaciones",
+        "Pasarlo a la fila o directo a una bahía"
+      ],
+      "img": "img/lubricentro/recepcion-recibir.webp",
+      "thumb": "img/lubricentro/recepcion-recibir-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-asignar-bahia",
+      "title": "Asignar bahía",
+      "section": "recepcion",
+      "roles": null,
+      "url": "recepcion.html",
+      "capturedUrl": "recepcion.html",
+      "login": {
+        "id": "u-recep",
+        "name": "Daniela Soto",
+        "role": "Recepcionista",
+        "email": "recepcion@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Bahía\" de un auto en la fila",
+      "description": "Ventana para pasar un auto de la fila a una bahía libre con el técnico que lo atenderá.",
+      "actions": [
+        "Elegir entre las bahías libres",
+        "Asignar el técnico de la sucursal",
+        "Enviar el auto a bahía y arrancar su cronómetro"
+      ],
+      "img": "img/lubricentro/recepcion-asignar-bahia.webp",
+      "thumb": "img/lubricentro/recepcion-asignar-bahia-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-cobro",
+      "title": "Caja",
+      "section": "recepcion",
+      "roles": null,
+      "url": "recepcion.html",
+      "capturedUrl": "recepcion.html",
+      "login": {
+        "id": "u-recep",
+        "name": "Daniela Soto",
+        "role": "Recepcionista",
+        "email": "recepcion@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Cobrar y entregar\" de un auto listo",
+      "description": "Cobro de la atención con el detalle de servicios y recomendaciones aprobadas. Descuenta servicios de un plan activo, aplica cupones y emite la boleta.",
+      "actions": [
+        "Revisar el detalle y el total",
+        "Cubrir servicios con el plan prepagado del cliente",
+        "Aplicar un cupón",
+        "Elegir el medio de pago",
+        "Cobrar y emitir la boleta"
+      ],
+      "img": "img/lubricentro/recepcion-cobro.webp",
+      "thumb": "img/lubricentro/recepcion-cobro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-boleta",
+      "title": "Boleta emitida",
+      "section": "recepcion",
+      "roles": null,
+      "url": "recepcion.html",
+      "capturedUrl": "recepcion.html",
+      "login": {
+        "id": "u-recep",
+        "name": "Daniela Soto",
+        "role": "Recepcionista",
+        "email": "recepcion@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Al cobrar en Caja",
+      "description": "Boleta electrónica (simulada) que se genera al cobrar. El stock se descuenta y el historial del vehículo se actualiza con el kilometraje.",
+      "actions": [
+        "Ver la boleta recién emitida",
+        "Imprimirla para el cliente",
+        "Seguir con el siguiente auto"
+      ],
+      "img": "img/lubricentro/recepcion-boleta.webp",
+      "thumb": "img/lubricentro/recepcion-boleta-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recepcion-caja-dia",
+      "title": "Caja del día",
+      "section": "recepcion",
+      "roles": null,
+      "url": "recepcion.html",
+      "capturedUrl": "recepcion.html",
+      "login": {
+        "id": "u-recep",
+        "name": "Daniela Soto",
+        "role": "Recepcionista",
+        "email": "recepcion@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Arqueo del día por medio de pago y la lista de boletas emitidas en la sucursal.",
+      "actions": [
+        "Ver el total por medio de pago",
+        "Revisar cada boleta emitida hoy",
+        "Abrir una boleta"
+      ],
+      "img": "img/lubricentro/recepcion-caja-dia.webp",
+      "thumb": "img/lubricentro/recepcion-caja-dia-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-atenciones",
+      "title": "Atenciones",
+      "section": "recepcion",
+      "roles": [
+        "Recepcionista",
+        "Jefe de sucursal",
+        "Administrador"
+      ],
+      "url": "admin.html#/atenciones",
+      "capturedUrl": "admin.html#/atenciones",
+      "login": {
+        "id": "u-recep",
+        "name": "Daniela Soto",
+        "role": "Recepcionista",
+        "email": "recepcion@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Listado de todas las atenciones (reservas, fila, bahía, caja e historial) con filtros por periodo, estado, sucursal y origen.",
+      "actions": [
+        "Filtrar por hoy, próximas reservas, últimos 7 días o en curso",
+        "Buscar por código, patente o cliente",
+        "Crear una atención o reserva telefónica",
+        "Abrir la ficha de cualquier atención",
+        "Exportar a CSV"
+      ],
+      "img": "img/lubricentro/panel-atenciones.webp",
+      "thumb": "img/lubricentro/panel-atenciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-atencion-ficha",
+      "title": "Ficha de la atención",
+      "section": "recepcion",
+      "roles": null,
+      "url": "admin.html#/atenciones",
+      "capturedUrl": "admin.html#/atenciones",
+      "login": {
+        "id": "u-recep",
+        "name": "Daniela Soto",
+        "role": "Recepcionista",
+        "email": "recepcion@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Fila de la tabla de Atenciones",
+      "description": "Detalle de una atención con vehículo, cliente, tiempos, fotos de ingreso, servicios, checklist y recomendaciones. Los botones cambian según la etapa.",
+      "actions": [
+        "Marcar llegada, asignar bahía, marcar listo o cobrar",
+        "Responder una recomendación del técnico",
+        "Editar servicios y notas",
+        "Cancelar o eliminar la atención",
+        "Ver la boleta si ya se pagó"
+      ],
+      "img": "img/lubricentro/panel-atencion-ficha.webp",
+      "thumb": "img/lubricentro/panel-atencion-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-nueva-atencion",
+      "title": "Nueva atención o reserva",
+      "section": "recepcion",
+      "roles": null,
+      "url": "admin.html#/atenciones",
+      "capturedUrl": "admin.html#/atenciones",
+      "login": {
+        "id": "u-recep",
+        "name": "Daniela Soto",
+        "role": "Recepcionista",
+        "email": "recepcion@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"+ Nueva atención\" en Atenciones",
+      "description": "Formulario para registrar un ingreso inmediato o una reserva tomada por teléfono. Con la patente se reconocen el vehículo y el cliente.",
+      "actions": [
+        "Identificar el auto y el cliente por patente",
+        "Elegir la sucursal y los servicios",
+        "Registrar el ingreso ahora o una reserva con fecha y hora",
+        "Agregar notas"
+      ],
+      "img": "img/lubricentro/panel-nueva-atencion.webp",
+      "thumb": "img/lubricentro/panel-nueva-atencion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-clientes",
+      "title": "Clientes y vehículos",
+      "section": "recepcion",
+      "roles": [
+        "Recepcionista",
+        "Jefe de sucursal",
+        "Administrador"
+      ],
+      "url": "admin.html#/clientes",
+      "capturedUrl": "admin.html#/clientes",
+      "login": {
+        "id": "u-recep",
+        "name": "Daniela Soto",
+        "role": "Recepcionista",
+        "email": "recepcion@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Base de clientes y su flota, con pestaña de vehículos que marca la mantención al día, próxima o vencida.",
+      "actions": [
+        "Buscar por nombre, RUT, correo o patente",
+        "Filtrar por comuna o permiso de WhatsApp",
+        "Ver vehículos por segmento, marca y estado de mantención",
+        "Crear clientes y vehículos",
+        "Exportar a CSV"
+      ],
+      "img": "img/lubricentro/panel-clientes.webp",
+      "thumb": "img/lubricentro/panel-clientes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-cliente-ficha",
+      "title": "Ficha del cliente",
+      "section": "recepcion",
+      "roles": null,
+      "url": "admin.html#/clientes",
+      "capturedUrl": "admin.html#/clientes",
+      "login": {
+        "id": "u-recep",
+        "name": "Daniela Soto",
+        "role": "Recepcionista",
+        "email": "recepcion@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Fila de la tabla de Clientes",
+      "description": "Ficha con contacto, canales autorizados, gasto acumulado, notas, cada vehículo con su historial por kilometraje y los planes del cliente.",
+      "actions": [
+        "Editar datos y permisos de contacto",
+        "Agregar o editar vehículos",
+        "Revisar el historial de cada auto",
+        "Crear una atención para el cliente",
+        "Eliminar el cliente"
+      ],
+      "img": "img/lubricentro/panel-cliente-ficha.webp",
+      "thumb": "img/lubricentro/panel-cliente-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-acceso-restringido",
+      "title": "Ruta protegida por rol",
+      "section": "recepcion",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-recep",
+        "name": "Daniela Soto",
+        "role": "Recepcionista",
+        "email": "recepcion@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve un rol sin permiso al abrir una sección ajena: el menú solo muestra lo permitido y la ruta queda bloqueada.",
+      "actions": [
+        "Ver el aviso de acceso restringido",
+        "Volver a su inicio desde el botón",
+        "Confirmar que cada rol solo ve sus menús"
+      ],
+      "img": "img/lubricentro/panel-acceso-restringido.webp",
+      "thumb": "img/lubricentro/panel-acceso-restringido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bahias",
+      "title": "Tablero de bahías",
+      "section": "tecnico",
+      "roles": [
+        "Técnico",
+        "Jefe de sucursal",
+        "Administrador"
+      ],
+      "url": "operario.html",
+      "capturedUrl": "operario.html",
+      "login": {
+        "id": "u-tec",
+        "name": "Felipe Araya",
+        "role": "Técnico",
+        "email": "tecnico@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tablero para trabajar desde la bahía: auto asignado con cronómetro contra el tiempo estándar, checklist de tareas, recomendaciones enviadas y la fila de espera.",
+      "actions": [
+        "Tomar el siguiente auto de la fila en una bahía libre",
+        "Marcar cada tarea del checklist",
+        "Seguir el cronómetro (se marca atrasado si pasa el estándar)",
+        "Enviar una recomendación al celular del cliente",
+        "Terminar la atención y avisar a recepción"
+      ],
+      "img": "img/lubricentro/bahias.webp",
+      "thumb": "img/lubricentro/bahias-thumb.webp",
+      "mobile": "img/lubricentro/bahias-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bahias-recomendar",
+      "title": "Enviar recomendación",
+      "section": "tecnico",
+      "roles": null,
+      "url": "operario.html",
+      "capturedUrl": "operario.html",
+      "login": {
+        "id": "u-tec",
+        "name": "Felipe Araya",
+        "role": "Técnico",
+        "email": "tecnico@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Recomendar\" de una bahía",
+      "description": "Ventana para recomendar un trabajo adicional con su precio para ese auto. El cliente la recibe en la página de seguimiento y la aprueba o rechaza.",
+      "actions": [
+        "Elegir de la lista de recomendaciones con precio",
+        "Escribir una recomendación distinta con su precio",
+        "Agregar una nota para el cliente",
+        "Enviarla al celular del cliente"
+      ],
+      "img": "img/lubricentro/bahias-recomendar.webp",
+      "thumb": "img/lubricentro/bahias-recomendar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bahias-todas",
+      "title": "Todas las bahías (vista del jefe)",
+      "section": "tecnico",
+      "roles": [
+        "Jefe de sucursal",
+        "Administrador"
+      ],
+      "url": "operario.html",
+      "capturedUrl": "operario.html",
+      "login": {
+        "id": "u-jefe",
+        "name": "Rodrigo Muñoz",
+        "role": "Jefe de sucursal",
+        "email": "jefe@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "El mismo tablero con todas las bahías de la sucursal, como lo ve el jefe. Puede cambiar de sucursal y ver las bahías libres, ocupadas o fuera de servicio.",
+      "actions": [
+        "Ver el estado de cada bahía",
+        "Cambiar de sucursal",
+        "Mover el siguiente auto de la fila a una bahía libre",
+        "Aprobar en persona una recomendación"
+      ],
+      "img": "img/lubricentro/bahias-todas.webp",
+      "thumb": "img/lubricentro/bahias-todas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dashboard",
+      "title": "Dashboard",
+      "section": "jefe",
+      "roles": [
+        "Administrador",
+        "Jefe de sucursal"
+      ],
+      "url": "admin.html#/dashboard",
+      "capturedUrl": "admin.html#/dashboard",
+      "login": {
+        "id": "u-jefe",
+        "name": "Rodrigo Muñoz",
+        "role": "Jefe de sucursal",
+        "email": "jefe@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Indicadores de los últimos 30 días comparados con el periodo anterior: autos, ingresos, ticket, uso de bahías, espera y conversión de recomendaciones, con gráficos y el estado en vivo de las sucursales.",
+      "actions": [
+        "Filtrar por sucursal o ver toda la cadena",
+        "Ver autos por día e ingresos por mes",
+        "Comparar sucursales en autos, ingresos, espera y uso",
+        "Revisar el mix de servicios y la conversión de recomendaciones",
+        "Ver stock crítico y actividad reciente"
+      ],
+      "img": "img/lubricentro/dashboard.webp",
+      "thumb": "img/lubricentro/dashboard-thumb.webp",
+      "mobile": "img/lubricentro/dashboard-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inventario",
+      "title": "Inventario",
+      "section": "jefe",
+      "roles": [
+        "Administrador",
+        "Jefe de sucursal"
+      ],
+      "url": "admin.html#/inventario",
+      "capturedUrl": "admin.html#/inventario",
+      "login": {
+        "id": "u-jefe",
+        "name": "Rodrigo Muñoz",
+        "role": "Jefe de sucursal",
+        "email": "jefe@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Stock por sucursal de aceites, filtros, baterías, neumáticos y frenos, con alerta de productos bajo el mínimo. El stock se descuenta solo al cobrar cada atención.",
+      "actions": [
+        "Ver el stock de cada sucursal y su valor",
+        "Filtrar por categoría, alerta o proveedor",
+        "Generar una orden de compra para el stock bajo",
+        "Crear productos",
+        "Exportar a CSV"
+      ],
+      "img": "img/lubricentro/inventario.webp",
+      "thumb": "img/lubricentro/inventario-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inventario-producto",
+      "title": "Ficha de producto",
+      "section": "jefe",
+      "roles": null,
+      "url": "admin.html#/inventario",
+      "capturedUrl": "admin.html#/inventario",
+      "login": {
+        "id": "u-jefe",
+        "name": "Rodrigo Muñoz",
+        "role": "Jefe de sucursal",
+        "email": "jefe@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Fila de la tabla de Inventario",
+      "description": "Ficha del producto con SKU, proveedor, precio, costo y stock mínimo, más el ajuste manual de stock por sucursal con su motivo.",
+      "actions": [
+        "Editar datos, precio y costo",
+        "Definir el stock mínimo",
+        "Ajustar el stock de cada sucursal",
+        "Registrar el motivo del ajuste (conteo, merma, traspaso)"
+      ],
+      "img": "img/lubricentro/inventario-producto.webp",
+      "thumb": "img/lubricentro/inventario-producto-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "compras",
+      "title": "Compras y proveedores",
+      "section": "jefe",
+      "roles": [
+        "Administrador",
+        "Jefe de sucursal"
+      ],
+      "url": "admin.html#/compras",
+      "capturedUrl": "admin.html#/compras",
+      "login": {
+        "id": "u-jefe",
+        "name": "Rodrigo Muñoz",
+        "role": "Jefe de sucursal",
+        "email": "jefe@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Órdenes de compra por sucursal con su estado (borrador, enviada, recibida o cancelada) y la ficha de proveedores.",
+      "actions": [
+        "Filtrar órdenes por estado y sucursal",
+        "Abrir una orden y recibir la mercadería (suma stock)",
+        "Crear una orden de compra",
+        "Administrar proveedores",
+        "Exportar a CSV"
+      ],
+      "img": "img/lubricentro/compras.webp",
+      "thumb": "img/lubricentro/compras-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "compras-orden",
+      "title": "Nueva orden de compra",
+      "section": "jefe",
+      "roles": null,
+      "url": "admin.html#/compras",
+      "capturedUrl": "admin.html#/compras",
+      "login": {
+        "id": "u-jefe",
+        "name": "Rodrigo Muñoz",
+        "role": "Jefe de sucursal",
+        "email": "jefe@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"+ Orden de compra\" en Compras",
+      "description": "Formulario de orden de compra con proveedor, sucursal de destino y líneas de productos con cantidad y costo.",
+      "actions": [
+        "Elegir proveedor y sucursal destino",
+        "Agregar productos con cantidad y costo",
+        "Ver el subtotal de cada línea",
+        "Guardar como borrador o enviar al proveedor"
+      ],
+      "img": "img/lubricentro/compras-orden.webp",
+      "thumb": "img/lubricentro/compras-orden-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "personal",
+      "title": "Personal y turnos",
+      "section": "jefe",
+      "roles": [
+        "Administrador",
+        "Jefe de sucursal"
+      ],
+      "url": "admin.html#/personal",
+      "capturedUrl": "admin.html#/personal",
+      "login": {
+        "id": "u-jefe",
+        "name": "Rodrigo Muñoz",
+        "role": "Jefe de sucursal",
+        "email": "jefe@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Grilla semanal de turnos del personal de la sucursal con la cobertura de técnicos por jornada, y la productividad de cada técnico en los últimos días.",
+      "actions": [
+        "Cambiar un turno con un clic (mañana, tarde, completo o libre)",
+        "Ver días con poca cobertura de técnicos",
+        "Comparar autos, eficiencia y recomendaciones aprobadas por técnico",
+        "Editar celular y sucursal de una persona"
+      ],
+      "img": "img/lubricentro/personal.webp",
+      "thumb": "img/lubricentro/personal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "planes-vendidos",
+      "title": "Planes prepagados",
+      "section": "jefe",
+      "roles": [
+        "Administrador",
+        "Jefe de sucursal"
+      ],
+      "url": "admin.html#/planes",
+      "capturedUrl": "admin.html#/planes",
+      "login": {
+        "id": "u-jefe",
+        "name": "Rodrigo Muñoz",
+        "role": "Jefe de sucursal",
+        "email": "jefe@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Planes vendidos con cliente, patente, monto pagado, saldo de servicios y estado. La pestaña de planes muestra la oferta con su precio por segmento.",
+      "actions": [
+        "Filtrar por plan, estado o segmento",
+        "Ajustar el saldo o la fecha de vencimiento de un plan vendido",
+        "Revisar los planes a la venta y sus precios",
+        "Exportar a CSV"
+      ],
+      "img": "img/lubricentro/planes-vendidos.webp",
+      "thumb": "img/lubricentro/planes-vendidos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recordatorios-campanas",
+      "title": "Recordatorios y campañas",
+      "section": "jefe",
+      "roles": [
+        "Administrador",
+        "Jefe de sucursal"
+      ],
+      "url": "admin.html#/recordatorios",
+      "capturedUrl": "admin.html#/recordatorios",
+      "login": {
+        "id": "u-jefe",
+        "name": "Rodrigo Muñoz",
+        "role": "Jefe de sucursal",
+        "email": "jefe@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Campañas de recordatorio por WhatsApp, SMS o correo con su audiencia y resultados (enviados, entregados, clics y reservas). Los envíos son simulados.",
+      "actions": [
+        "Crear una campaña con audiencia y mensaje con variables",
+        "Enviarla a clientes con mantención vencida, próxima o con plan",
+        "Ver los resultados de cada envío",
+        "Revisar la bitácora de mensajes y los inscritos del sitio"
+      ],
+      "img": "img/lubricentro/recordatorios-campanas.webp",
+      "thumb": "img/lubricentro/recordatorios-campanas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "recordatorios-enviar",
+      "title": "Confirmar envío de campaña",
+      "section": "jefe",
+      "roles": null,
+      "url": "admin.html#/recordatorios",
+      "capturedUrl": "admin.html#/recordatorios",
+      "login": {
+        "id": "u-jefe",
+        "name": "Rodrigo Muñoz",
+        "role": "Jefe de sucursal",
+        "email": "jefe@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Enviar ahora\" de una campaña",
+      "description": "Confirmación antes de enviar una campaña: indica cuántos mensajes saldrán por el canal elegido y muestra un ejemplo ya personalizado.",
+      "actions": [
+        "Ver cuántos contactos recibirán el mensaje",
+        "Revisar un mensaje de ejemplo con los datos reales",
+        "Confirmar o cancelar el envío"
+      ],
+      "img": "img/lubricentro/recordatorios-enviar.webp",
+      "thumb": "img/lubricentro/recordatorios-enviar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "actividad",
+      "title": "Actividad",
+      "section": "jefe",
+      "roles": [
+        "Administrador",
+        "Jefe de sucursal"
+      ],
+      "url": "admin.html#/actividad",
+      "capturedUrl": "admin.html#/actividad",
+      "login": {
+        "id": "u-jefe",
+        "name": "Rodrigo Muñoz",
+        "role": "Jefe de sucursal",
+        "email": "jefe@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bitácora de los últimos 300 eventos del sistema: reservas, check-ins, bahías, caja, cambios de precios y accesos.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Filtrar por tipo de evento",
+        "Buscar por detalle o usuario",
+        "Exportar a CSV"
+      ],
+      "img": "img/lubricentro/actividad.webp",
+      "thumb": "img/lubricentro/actividad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "servicios-precios",
+      "title": "Servicios y precios",
+      "section": "admin",
+      "roles": [
+        "Administrador"
+      ],
+      "url": "admin.html#/servicios",
+      "capturedUrl": "admin.html#/servicios",
+      "login": {
+        "id": "u-admin",
+        "name": "Carolina Fuentes",
+        "role": "Administrador",
+        "email": "admin@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Matriz editable con el precio de cada servicio en los 5 segmentos. Al guardar, el sitio público muestra los precios nuevos. El jefe de sucursal la ve en solo lectura.",
+      "actions": [
+        "Editar precios por segmento directamente en la tabla",
+        "Aplicar un ajuste masivo en %",
+        "Activar u ocultar servicios del sitio",
+        "Crear o editar un servicio con su checklist",
+        "Fijar el precio por litro de cada aceite"
+      ],
+      "img": "img/lubricentro/servicios-precios.webp",
+      "thumb": "img/lubricentro/servicios-precios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "servicios-editor",
+      "title": "Editor de servicio",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/servicios",
+      "capturedUrl": "admin.html#/servicios",
+      "login": {
+        "id": "u-admin",
+        "name": "Carolina Fuentes",
+        "role": "Administrador",
+        "email": "admin@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón de editar un servicio en la matriz",
+      "description": "Ficha del servicio con categoría, duración estándar, descripción pública, checklist de tareas para el técnico y precios por segmento.",
+      "actions": [
+        "Editar nombre, ícono, categoría y duración",
+        "Escribir el checklist que verá el técnico",
+        "Fijar los 5 precios por segmento",
+        "Indicar si suma el aceite y si se destaca en portada"
+      ],
+      "img": "img/lubricentro/servicios-editor.webp",
+      "thumb": "img/lubricentro/servicios-editor-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "servicios-ajuste",
+      "title": "Ajuste masivo de precios",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/servicios",
+      "capturedUrl": "admin.html#/servicios",
+      "login": {
+        "id": "u-admin",
+        "name": "Carolina Fuentes",
+        "role": "Administrador",
+        "email": "admin@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Ajuste masivo %\" en Servicios y precios",
+      "description": "Ventana para subir o bajar todos los precios en un porcentaje, para todas las categorías o una sola.",
+      "actions": [
+        "Indicar la variación en %",
+        "Limitarla a una categoría",
+        "Aplicar el ajuste a la matriz"
+      ],
+      "img": "img/lubricentro/servicios-ajuste.webp",
+      "thumb": "img/lubricentro/servicios-ajuste-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "servicios-aceites",
+      "title": "Aceites (precio por litro)",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/servicios",
+      "capturedUrl": "admin.html#/servicios",
+      "login": {
+        "id": "u-admin",
+        "name": "Carolina Fuentes",
+        "role": "Administrador",
+        "email": "admin@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Precio por litro e intervalo de cambio de cada aceite. Los servicios con aceite suman los litros que pide cada motor.",
+      "actions": [
+        "Editar el precio por litro",
+        "Definir cada cuántos km se cambia",
+        "Ver el costo de ejemplo con 4 litros",
+        "Guardar y publicar en el sitio"
+      ],
+      "img": "img/lubricentro/servicios-aceites.webp",
+      "thumb": "img/lubricentro/servicios-aceites-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sucursales-bahias",
+      "title": "Sucursales y bahías",
+      "section": "admin",
+      "roles": [
+        "Administrador"
+      ],
+      "url": "admin.html#/sucursales",
+      "capturedUrl": "admin.html#/sucursales",
+      "login": {
+        "id": "u-admin",
+        "name": "Carolina Fuentes",
+        "role": "Administrador",
+        "email": "admin@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Sucursales con sus datos públicos y horarios, y las bahías de cada una. Las bahías activas definen los cupos de reserva y el cálculo de espera del sitio.",
+      "actions": [
+        "Editar dirección, teléfono y horarios",
+        "Agregar, editar o eliminar bahías",
+        "Dejar una bahía fuera de servicio",
+        "Ver qué bahías están ocupadas ahora",
+        "Crear una sucursal nueva"
+      ],
+      "img": "img/lubricentro/sucursales-bahias.webp",
+      "thumb": "img/lubricentro/sucursales-bahias-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "promociones",
+      "title": "Promociones y cupones",
+      "section": "admin",
+      "roles": [
+        "Administrador"
+      ],
+      "url": "admin.html#/promociones",
+      "capturedUrl": "admin.html#/promociones",
+      "login": {
+        "id": "u-admin",
+        "name": "Carolina Fuentes",
+        "role": "Administrador",
+        "email": "admin@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cupones de descuento con su vigencia, usos y monto descontado. Los públicos aparecen en la portada y se aplican al reservar o en caja.",
+      "actions": [
+        "Crear cupones por porcentaje o monto fijo",
+        "Limitar a un servicio y a un número de usos",
+        "Pausar o reactivar un cupón",
+        "Mostrarlo u ocultarlo en la portada",
+        "Exportar a CSV"
+      ],
+      "img": "img/lubricentro/promociones.webp",
+      "thumb": "img/lubricentro/promociones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "promociones-cupon",
+      "title": "Editor de cupón",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/promociones",
+      "capturedUrl": "admin.html#/promociones",
+      "login": {
+        "id": "u-admin",
+        "name": "Carolina Fuentes",
+        "role": "Administrador",
+        "email": "admin@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Fila de la tabla de Promociones",
+      "description": "Formulario del cupón con código, descripción pública, tipo y valor del descuento, servicio al que aplica, vigencia y límite de usos.",
+      "actions": [
+        "Definir código y descripción",
+        "Elegir porcentaje o monto fijo",
+        "Limitar a un servicio",
+        "Fijar vigencia y usos máximos",
+        "Activarlo y publicarlo en la portada"
+      ],
+      "img": "img/lubricentro/promociones-cupon.webp",
+      "thumb": "img/lubricentro/promociones-cupon-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "contenido",
+      "title": "Contenido del sitio",
+      "section": "admin",
+      "roles": [
+        "Administrador"
+      ],
+      "url": "admin.html#/contenido",
+      "capturedUrl": "admin.html#/contenido",
+      "login": {
+        "id": "u-admin",
+        "name": "Carolina Fuentes",
+        "role": "Administrador",
+        "email": "admin@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Textos de la portada, barra de anuncio, contacto y parámetros de operación del sitio (días de reserva, bahías para clientes sin cita). Se publican al guardar.",
+      "actions": [
+        "Editar título, bajada y texto de portada",
+        "Escribir o quitar la barra de anuncio",
+        "Cambiar teléfono, WhatsApp y correo",
+        "Definir días de reserva y bahías sin cita",
+        "Editar la garantía y el mensaje de recordatorio"
+      ],
+      "img": "img/lubricentro/contenido.webp",
+      "thumb": "img/lubricentro/contenido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": [
+        "Administrador"
+      ],
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Carolina Fuentes",
+        "role": "Administrador",
+        "email": "admin@pitsrapido.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas del equipo y clientes con rol, sucursal, último acceso y estado, más la matriz de permisos por rol que aplica el panel.",
+      "actions": [
+        "Crear, editar o eliminar usuarios",
+        "Asignar rol y sucursal",
+        "Desactivar una cuenta para cortar su acceso",
+        "Consultar la matriz de permisos por rol",
+        "Exportar a CSV"
+      ],
+      "img": "img/lubricentro/usuarios.webp",
+      "thumb": "img/lubricentro/usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Bootstrap 2\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/lubricentro/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/lubricentro/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/lubricentro/look-app.webp"
+      },
+      {
+        "id": "noir",
+        "group": "Estilo",
+        "label": "Noir Neón",
+        "desc": "Oscuro con acentos brillantes.",
+        "img": "img/lubricentro/look-noir.webp"
+      },
+      {
+        "id": "brutal",
+        "group": "Estilo",
+        "label": "Brutalista",
+        "desc": "Bordes gruesos y contraste alto.",
+        "img": "img/lubricentro/look-brutal.webp"
+      },
+      {
+        "id": "nordic",
+        "group": "Estilo",
+        "label": "Nórdico",
+        "desc": "Minimalista, blanco y aire.",
+        "img": "img/lubricentro/look-nordic.webp"
+      }
+    ]
+  }
+}

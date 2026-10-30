@@ -1,0 +1,1741 @@
+{
+  "app": "taller",
+  "dir": "taller",
+  "name": "Mecánica Integral Los Andes",
+  "kind": "Taller mecánico",
+  "description": "Taller mecánico y de carrocería con sitio público (cotización, aprobación del presupuesto ítem por ítem, seguimiento de la OT y garantías), cuenta del cliente, panel del taller, app del mecánico y portal para liquidadores de seguros.",
+  "demo": "../taller/index.html",
+  "theme": "blueprint",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:31:50.435Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Lo que ve cualquier visitante, sin iniciar sesión."
+    },
+    {
+      "id": "cliente",
+      "label": "Cliente",
+      "desc": "Cuenta personal: OT en curso, vehículos, historial y documentos."
+    },
+    {
+      "id": "asesor",
+      "label": "Asesor de servicio",
+      "desc": "Panel del taller: tablero de OT, ficha de la OT, solicitudes web, clientes, seguros y documentos."
+    },
+    {
+      "id": "mecanico",
+      "label": "Mecánico",
+      "desc": "App móvil con sus trabajos, cronómetro por tarea, repuestos y hallazgos."
+    },
+    {
+      "id": "jefe",
+      "label": "Jefe de taller",
+      "desc": "Indicadores del taller, mecánicos, baremo y tarifas."
+    },
+    {
+      "id": "bodega",
+      "label": "Bodega",
+      "desc": "Inventario de repuestos, pedidos de mecánicos, compras y proveedores."
+    },
+    {
+      "id": "aseguradora",
+      "label": "Aseguradora",
+      "desc": "Portal del liquidador para evaluar siniestros del taller."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Contenido del sitio, usuarios y bitácora."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de inicio con buscador de OT, un resumen en vivo de los autos que están hoy en el taller por etapa, los servicios, el proceso de trabajo y los convenios con aseguradoras.",
+      "actions": [
+        "Buscar su OT por código o patente",
+        "Ver cuántas OT hay en cada etapa del taller",
+        "Entrar a un servicio o pedir cotización",
+        "Ingresar un siniestro con su seguro",
+        "Consultar una garantía"
+      ],
+      "img": "img/taller/portada.webp",
+      "thumb": "img/taller/portada-thumb.webp",
+      "mobile": "img/taller/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "servicios",
+      "title": "Servicios",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/servicios",
+      "capturedUrl": "index.html#/servicios",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Todos los servicios del taller agrupados por área (mecánica, diagnóstico, carrocería y siniestros), con precio referencial desde.",
+      "actions": [
+        "Recorrer los servicios por área",
+        "Ver el precio desde de cada uno",
+        "Abrir la ficha de un servicio"
+      ],
+      "img": "img/taller/servicios.webp",
+      "thumb": "img/taller/servicios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "servicio-ficha",
+      "title": "Ficha de servicio",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/servicios/mecanica",
+      "capturedUrl": "index.html#/servicios/mecanica",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Detalle de un servicio con lo que incluye, la tarifa por hora y la tabla de trabajos frecuentes con sus horas estándar y mano de obra referencial (baremo).",
+      "actions": [
+        "Ver qué incluye el servicio",
+        "Revisar los trabajos típicos y sus horas estándar",
+        "Ver el valor de mano de obra referencial",
+        "Pedir cotización de ese servicio"
+      ],
+      "img": "img/taller/servicio-ficha.webp",
+      "thumb": "img/taller/servicio-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cotizar",
+      "title": "Cotizar o agendar",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/cotizar",
+      "capturedUrl": "index.html#/cotizar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Formulario para pedir una cotización o agendar hora: servicio, vehículo, síntomas, fotos y horario preferido. Para siniestros pide la aseguradora y el número de siniestro.",
+      "actions": [
+        "Elegir entre cotización o agendar hora",
+        "Indicar servicio, patente y vehículo",
+        "Describir los síntomas o el daño",
+        "Adjuntar fotos (simulado)",
+        "Elegir día y hora de ingreso"
+      ],
+      "img": "img/taller/cotizar.webp",
+      "thumb": "img/taller/cotizar-thumb.webp",
+      "mobile": "img/taller/cotizar-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cotizar-enviada",
+      "title": "Solicitud recibida",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/cotizar",
+      "capturedUrl": "index.html#/cotizar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Confirmación con el número de solicitud. La solicitud entra al panel del taller, donde el asesor la contacta y la convierte en OT.",
+      "actions": [
+        "Ver el número de solicitud",
+        "Saber cuándo lo contactarán",
+        "Hacer otra solicitud"
+      ],
+      "img": "img/taller/cotizar-enviada.webp",
+      "thumb": "img/taller/cotizar-enviada-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "presupuesto-ingreso",
+      "title": "Aprobar presupuesto: acceso",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/presupuesto",
+      "capturedUrl": "index.html#/presupuesto",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Acceso al presupuesto en línea con el código de OT y la patente, que el cliente recibe por WhatsApp.",
+      "actions": [
+        "Ingresar el código de OT",
+        "Validar con la patente del vehículo",
+        "Abrir el presupuesto"
+      ],
+      "img": "img/taller/presupuesto-ingreso.webp",
+      "thumb": "img/taller/presupuesto-ingreso-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "presupuesto",
+      "title": "Presupuesto en línea",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/presupuesto",
+      "capturedUrl": "index.html#/presupuesto/OT-24848",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Presupuesto detallado con diagnóstico, fotos, hallazgos y el estado del auto al ingreso. El cliente activa o desactiva cada repuesto y mano de obra, y ve el total y el abono al instante.",
+      "actions": [
+        "Leer el diagnóstico y ver las fotos",
+        "Revisar el diagrama de daños del ingreso",
+        "Aprobar o rechazar cada ítem (los urgentes se destacan)",
+        "Ver el total y el abono con lo seleccionado",
+        "Aprobar y pagar el abono, o rechazar todo"
+      ],
+      "img": "img/taller/presupuesto.webp",
+      "thumb": "img/taller/presupuesto-thumb.webp",
+      "mobile": "img/taller/presupuesto-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "presupuesto-abono",
+      "title": "Pago del abono",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/presupuesto",
+      "capturedUrl": "index.html#/presupuesto/OT-24848",
+      "login": null,
+      "kind": "modal",
+      "from": "Botón \"Aprobar y pagar abono\" del presupuesto",
+      "description": "Pago simulado con tarjeta del abono sobre los ítems aprobados. Al pagar, la OT pasa a \"Aprobado\" y el taller puede empezar a trabajar.",
+      "actions": [
+        "Ver cuántos ítems aprueba y el monto del abono",
+        "Pagar con tarjeta de crédito o débito (simulado)",
+        "Dejar el saldo para el retiro"
+      ],
+      "img": "img/taller/presupuesto-abono.webp",
+      "thumb": "img/taller/presupuesto-abono-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "seguimiento",
+      "title": "Seguimiento de la OT",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/ot/OT-24838",
+      "capturedUrl": "index.html#/ot/OT-24838",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Seguimiento en línea de la orden de trabajo con sus 8 etapas, fecha y responsable de cada una, avance de los trabajos, entrega comprometida y montos (aprobado, abono y saldo).",
+      "actions": [
+        "Ver la etapa actual y el historial con fecha y hora",
+        "Seguir los trabajos terminados y en curso",
+        "Revisar el asesor, el mecánico y la entrega comprometida",
+        "Ver el saldo a pagar al retirar",
+        "Abrir el presupuesto o la factura"
+      ],
+      "img": "img/taller/seguimiento.webp",
+      "thumb": "img/taller/seguimiento-thumb.webp",
+      "mobile": "img/taller/seguimiento-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "seguimiento-buscar",
+      "title": "Buscar mi OT",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/ot",
+      "capturedUrl": "index.html#/ot",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Búsqueda de la orden de trabajo por código o patente para ver su estado.",
+      "actions": [
+        "Buscar por código de OT",
+        "Buscar por patente",
+        "Pasar al seguimiento de la OT"
+      ],
+      "img": "img/taller/seguimiento-buscar.webp",
+      "thumb": "img/taller/seguimiento-buscar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "garantia",
+      "title": "Consulta de garantía",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/garantia",
+      "capturedUrl": "index.html#/garantia",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Consulta de garantías por patente o código: trabajo cubierto, vigencia en meses y kilómetros, y opción de pedir una revisión en garantía.",
+      "actions": [
+        "Buscar por patente o código GAR",
+        "Ver qué cubre y hasta cuándo",
+        "Solicitar una revisión en garantía",
+        "Ver el estado de solicitudes anteriores"
+      ],
+      "img": "img/taller/garantia.webp",
+      "thumb": "img/taller/garantia-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "garantia-revision",
+      "title": "Solicitud de revisión en garantía",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/garantia",
+      "capturedUrl": "index.html#/garantia",
+      "login": null,
+      "kind": "modal",
+      "from": "Botón \"Solicitar revisión en garantía\"",
+      "description": "Formulario breve para reportar un problema sobre un trabajo en garantía. La solicitud queda registrada en la garantía y en la bitácora del taller.",
+      "actions": [
+        "Describir el problema",
+        "Dejar un celular de contacto",
+        "Enviar la solicitud al taller"
+      ],
+      "img": "img/taller/garantia-revision.webp",
+      "thumb": "img/taller/garantia-revision-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de ingreso para clientes, equipo del taller y liquidadores, con cuentas de prueba para entrar con un clic a cada rol.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic como administrador, jefe, asesor, mecánico, bodega, aseguradora o cliente",
+        "Crear una cuenta de cliente",
+        "Volver al sitio"
+      ],
+      "img": "img/taller/login.webp",
+      "thumb": "img/taller/login-thumb.webp",
+      "mobile": "img/taller/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-sin-sesion",
+      "title": "Mi cuenta (sin sesión)",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/cuenta",
+      "capturedUrl": "index.html#/cuenta",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve un visitante al abrir \"Mi cuenta\" sin haber ingresado: el acceso al login con los datos de la cuenta demo.",
+      "actions": [
+        "Ir a ingresar",
+        "Ver los datos de la cuenta demo de cliente",
+        "Volver a navegar el sitio"
+      ],
+      "img": "img/taller/cuenta-sin-sesion.webp",
+      "thumb": "img/taller/cuenta-sin-sesion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-vehiculos",
+      "title": "Mi cuenta: vehículos",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta",
+      "capturedUrl": "index.html#/cuenta",
+      "login": {
+        "id": "u-cli",
+        "name": "Ignacio Pérez",
+        "role": "Cliente",
+        "email": "cliente@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inicio de la cuenta con las OT en curso (y los ítems por aprobar) y los vehículos del cliente con kilometraje, VIN y número de visitas.",
+      "actions": [
+        "Ver las OT abiertas y su etapa",
+        "Ir a aprobar los ítems pendientes",
+        "Seguir una OT en línea",
+        "Revisar sus vehículos",
+        "Agendar una visita"
+      ],
+      "img": "img/taller/cuenta-vehiculos.webp",
+      "thumb": "img/taller/cuenta-vehiculos-thumb.webp",
+      "mobile": "img/taller/cuenta-vehiculos-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-presupuesto",
+      "title": "Presupuesto (con sesión)",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/presupuesto/OT-24848",
+      "capturedUrl": "index.html#/presupuesto/OT-24848",
+      "login": {
+        "id": "u-cli",
+        "name": "Ignacio Pérez",
+        "role": "Cliente",
+        "email": "cliente@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Con la sesión iniciada, el cliente abre su presupuesto directo desde la cuenta, sin escribir el código ni la patente.",
+      "actions": [
+        "Abrir el presupuesto desde \"Mi cuenta\"",
+        "Aprobar o rechazar ítems",
+        "Pagar el abono"
+      ],
+      "img": "img/taller/cuenta-presupuesto.webp",
+      "thumb": "img/taller/cuenta-presupuesto-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-siniestro",
+      "title": "Presupuesto con seguro",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/presupuesto/OT-24849",
+      "capturedUrl": "index.html#/presupuesto/OT-24849",
+      "login": {
+        "id": "u-cli",
+        "name": "Ignacio Pérez",
+        "role": "Cliente",
+        "email": "cliente@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Presupuesto de una reparación por siniestro: muestra el estado de la evaluación de la aseguradora y el deducible que paga el cliente; el resto lo cubre el seguro una vez aprobado.",
+      "actions": [
+        "Ver el estado del siniestro y la aseguradora",
+        "Conocer el deducible en UF y en pesos",
+        "Revisar el presupuesto enviado al liquidador",
+        "Confirmar su aprobación"
+      ],
+      "img": "img/taller/cuenta-siniestro.webp",
+      "thumb": "img/taller/cuenta-siniestro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-historial",
+      "title": "Mi cuenta: historial",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta",
+      "capturedUrl": "index.html#/cuenta",
+      "login": {
+        "id": "u-cli",
+        "name": "Ignacio Pérez",
+        "role": "Cliente",
+        "email": "cliente@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Historial de visitas de todos sus vehículos con fecha, kilometraje, trabajo realizado, OT y monto.",
+      "actions": [
+        "Ver cada visita al taller",
+        "Revisar el kilometraje de cada trabajo",
+        "Ver el monto pagado y la OT"
+      ],
+      "img": "img/taller/cuenta-historial.webp",
+      "thumb": "img/taller/cuenta-historial-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-documentos",
+      "title": "Mi cuenta: documentos",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta",
+      "capturedUrl": "index.html#/cuenta",
+      "login": {
+        "id": "u-cli",
+        "name": "Ignacio Pérez",
+        "role": "Cliente",
+        "email": "cliente@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Facturas y boletas emitidas, presupuestos de cada OT y garantías vigentes del cliente.",
+      "actions": [
+        "Abrir una factura o boleta",
+        "Volver a ver un presupuesto",
+        "Revisar las garantías y su vigencia"
+      ],
+      "img": "img/taller/cuenta-documentos.webp",
+      "thumb": "img/taller/cuenta-documentos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-factura",
+      "title": "Factura o boleta",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta",
+      "capturedUrl": "index.html#/cuenta",
+      "login": {
+        "id": "u-cli",
+        "name": "Ignacio Pérez",
+        "role": "Cliente",
+        "email": "cliente@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Ver\" de una factura en Documentos",
+      "description": "Documento tributario (simulado) con el detalle de repuestos y mano de obra, neto, IVA y total.",
+      "actions": [
+        "Revisar el detalle de la reparación",
+        "Ver neto, IVA y total",
+        "Imprimir o guardar"
+      ],
+      "img": "img/taller/cuenta-factura.webp",
+      "thumb": "img/taller/cuenta-factura-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-datos",
+      "title": "Mi cuenta: datos",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta",
+      "capturedUrl": "index.html#/cuenta",
+      "login": {
+        "id": "u-cli",
+        "name": "Ignacio Pérez",
+        "role": "Cliente",
+        "email": "cliente@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos personales del cliente.",
+      "actions": [
+        "Editar nombre, RUT y celular",
+        "Actualizar la dirección",
+        "Cerrar sesión"
+      ],
+      "img": "img/taller/cuenta-datos.webp",
+      "thumb": "img/taller/cuenta-datos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "tablero",
+      "title": "Tablero de OT",
+      "section": "asesor",
+      "roles": [
+        "Asesor de servicio",
+        "Jefe de taller",
+        "Administrador"
+      ],
+      "url": "admin.html#/tablero",
+      "capturedUrl": "admin.html#/tablero",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Kanban con todas las OT abiertas por etapa, desde recepción hasta listo. Las tarjetas se arrastran entre columnas y el sistema valida las reglas del flujo. Abajo, la carga de cada mecánico y la ocupación de elevadores.",
+      "actions": [
+        "Mover una OT de etapa arrastrando su tarjeta",
+        "Ver ítems por aprobar, OT atrasadas y con seguro",
+        "Filtrar por mecánico o asesor",
+        "Revisar la carga de horas por mecánico y los elevadores ocupados",
+        "Crear una OT nueva"
+      ],
+      "img": "img/taller/tablero.webp",
+      "thumb": "img/taller/tablero-thumb.webp",
+      "mobile": "img/taller/tablero-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ot-nueva",
+      "title": "Nueva orden de trabajo",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/ots",
+      "capturedUrl": "admin.html#/ots",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"+ Nueva OT\"",
+      "description": "Formulario de recepción para abrir una OT: patente, vehículo, cliente, tipo de trabajo, kilometraje, combustible y motivo de ingreso. Si la patente ya existe, toma el vehículo y el cliente registrados.",
+      "actions": [
+        "Registrar la patente (y marca, modelo y año si es nuevo)",
+        "Asociar o crear el cliente",
+        "Elegir el tipo de trabajo",
+        "Indicar kilometraje y combustible",
+        "Anotar el motivo de ingreso o los síntomas"
+      ],
+      "img": "img/taller/ot-nueva.webp",
+      "thumb": "img/taller/ot-nueva-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ots",
+      "title": "Órdenes de trabajo",
+      "section": "asesor",
+      "roles": [
+        "Asesor de servicio",
+        "Jefe de taller",
+        "Administrador"
+      ],
+      "url": "admin.html#/ots",
+      "capturedUrl": "admin.html#/ots",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Listado de todas las OT del taller con vehículo, cliente, tipo de trabajo, mecánico, total y estado.",
+      "actions": [
+        "Filtrar por estado o tipo de trabajo",
+        "Buscar por código, patente o cliente",
+        "Abrir la ficha completa",
+        "Crear una OT",
+        "Exportar a CSV"
+      ],
+      "img": "img/taller/ots.webp",
+      "thumb": "img/taller/ots-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ot-resumen",
+      "title": "Ficha de OT: resumen",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/ots/ot48",
+      "capturedUrl": "admin.html#/ots/ot48",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha de la OT con la línea de tiempo de etapas, asignación de asesor, mecánico, bahía y entrega, diagnóstico y hallazgos del mecánico. Desde aquí se avanza la OT a la siguiente etapa.",
+      "actions": [
+        "Avanzar o devolver la OT de etapa",
+        "Asignar mecánico, bahía y fecha de entrega",
+        "Escribir el diagnóstico",
+        "Revisar los hallazgos del mecánico",
+        "Abrir la vista del cliente"
+      ],
+      "img": "img/taller/ot-resumen.webp",
+      "thumb": "img/taller/ot-resumen-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ot-ingreso",
+      "title": "Ficha de OT: ingreso e inventario",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/ots/ot40",
+      "capturedUrl": "admin.html#/ots/ot40",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inventario de recepción: kilometraje, combustible, checklist de accesorios y un diagrama del auto donde se marcan rayones, abolladuras y trizaduras previas.",
+      "actions": [
+        "Registrar kilometraje y nivel de combustible",
+        "Marcar el checklist de accesorios",
+        "Marcar daños previos en el diagrama",
+        "Agregar fotos (simuladas)",
+        "Guardar el inventario"
+      ],
+      "img": "img/taller/ot-ingreso.webp",
+      "thumb": "img/taller/ot-ingreso-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ot-presupuesto",
+      "title": "Ficha de OT: presupuesto",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/ots/ot58",
+      "capturedUrl": "admin.html#/ots/ot58",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Armado del presupuesto con mano de obra desde el baremo, repuestos del catálogo con su stock e ítems libres, con prioridad (urgente, recomendado u opcional). Se envía al cliente por WhatsApp.",
+      "actions": [
+        "Agregar mano de obra según horas estándar",
+        "Agregar repuestos con su stock",
+        "Marcar la prioridad de cada ítem",
+        "Enviar el presupuesto al cliente",
+        "Registrar una aprobación presencial o un abono"
+      ],
+      "img": "img/taller/ot-presupuesto.webp",
+      "thumb": "img/taller/ot-presupuesto-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ot-item",
+      "title": "Editar ítem del presupuesto",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/ots/ot58",
+      "capturedUrl": "admin.html#/ots/ot58",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón de editar un ítem del presupuesto",
+      "description": "Ventana para ajustar un ítem del presupuesto: descripción, cantidad, precio, horas, prioridad, estado, nota para el cliente y foto del técnico.",
+      "actions": [
+        "Cambiar cantidad, precio y horas",
+        "Definir la prioridad",
+        "Marcarlo aprobado o rechazado (por ejemplo, si el cliente llamó)",
+        "Escribir una nota para el cliente",
+        "Adjuntar la foto del técnico"
+      ],
+      "img": "img/taller/ot-item.webp",
+      "thumb": "img/taller/ot-item-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ot-trabajos",
+      "title": "Ficha de OT: trabajos",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/ots/ot48",
+      "capturedUrl": "admin.html#/ots/ot48",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tareas aprobadas de la OT con el mecánico asignado a cada una, horas estándar y tiempo real registrado con el cronómetro de la app del mecánico.",
+      "actions": [
+        "Ver el avance de cada tarea",
+        "Comparar horas estándar y reales",
+        "Reasignar una tarea a otro mecánico"
+      ],
+      "img": "img/taller/ot-trabajos.webp",
+      "thumb": "img/taller/ot-trabajos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ot-entregar",
+      "title": "Entrega y facturación",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/ots/ot56",
+      "capturedUrl": "admin.html#/ots/ot56",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Entregar y facturar\" de una OT lista",
+      "description": "Cierre de la OT con el total, el abono recibido (y lo que paga la aseguradora si hay siniestro) y el saldo a cobrar. Al confirmar se emite el documento y se genera la garantía.",
+      "actions": [
+        "Ver el saldo a cobrar",
+        "Elegir el medio de pago del saldo",
+        "Emitir boleta o factura",
+        "Registrar la conformidad del cliente",
+        "Generar la garantía automáticamente"
+      ],
+      "img": "img/taller/ot-entregar.webp",
+      "thumb": "img/taller/ot-entregar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "solicitudes",
+      "title": "Solicitudes web",
+      "section": "asesor",
+      "roles": [
+        "Asesor de servicio",
+        "Jefe de taller",
+        "Administrador"
+      ],
+      "url": "admin.html#/solicitudes",
+      "capturedUrl": "admin.html#/solicitudes",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cotizaciones y horas pedidas desde el sitio, con su estado (nueva, contactada, agendada, convertida o descartada).",
+      "actions": [
+        "Filtrar por estado, tipo o servicio",
+        "Buscar por cliente o patente",
+        "Abrir una solicitud",
+        "Exportar a CSV"
+      ],
+      "img": "img/taller/solicitudes.webp",
+      "thumb": "img/taller/solicitudes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "solicitud-detalle",
+      "title": "Detalle de solicitud",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/solicitudes",
+      "capturedUrl": "admin.html#/solicitudes",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Fila de la tabla de Solicitudes web",
+      "description": "Detalle de la solicitud con vehículo, contacto, síntomas, fotos y hora pedida. Se convierte en OT con los datos ya cargados.",
+      "actions": [
+        "Marcarla como contactada o agendada",
+        "Descartarla",
+        "Convertirla en OT con un clic"
+      ],
+      "img": "img/taller/solicitud-detalle.webp",
+      "thumb": "img/taller/solicitud-detalle-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "clientes",
+      "title": "Clientes y vehículos",
+      "section": "asesor",
+      "roles": [
+        "Asesor de servicio",
+        "Jefe de taller",
+        "Administrador"
+      ],
+      "url": "admin.html#/clientes",
+      "capturedUrl": "admin.html#/clientes",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Base de clientes con su flota, número de OT y última visita, y pestaña de vehículos con VIN y kilometraje.",
+      "actions": [
+        "Buscar por nombre, RUT o patente",
+        "Ver vehículos y su historial",
+        "Crear clientes y vehículos",
+        "Exportar a CSV"
+      ],
+      "img": "img/taller/clientes.webp",
+      "thumb": "img/taller/clientes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-ficha",
+      "title": "Ficha del cliente",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/clientes",
+      "capturedUrl": "admin.html#/clientes",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Fila de la tabla de Clientes",
+      "description": "Ficha del cliente con contacto, notas, vehículos y sus OT anteriores.",
+      "actions": [
+        "Editar datos del cliente",
+        "Agregar o editar vehículos",
+        "Revisar las OT de cada vehículo",
+        "Eliminar el cliente"
+      ],
+      "img": "img/taller/cliente-ficha.webp",
+      "thumb": "img/taller/cliente-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "seguros",
+      "title": "Seguros y siniestros",
+      "section": "asesor",
+      "roles": [
+        "Asesor de servicio",
+        "Jefe de taller",
+        "Administrador"
+      ],
+      "url": "admin.html#/seguros",
+      "capturedUrl": "admin.html#/seguros",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Siniestros en curso con aseguradora, OT, presupuesto, monto aprobado, deducible y estado; y la pestaña de aseguradoras en convenio.",
+      "actions": [
+        "Filtrar por estado o aseguradora",
+        "Abrir el detalle de un siniestro",
+        "Denunciar un siniestro para una OT abierta",
+        "Administrar aseguradoras y su tope de tarifa",
+        "Exportar a CSV"
+      ],
+      "img": "img/taller/seguros.webp",
+      "thumb": "img/taller/seguros-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "siniestro-denuncia",
+      "title": "Denunciar siniestro",
+      "section": "asesor",
+      "roles": null,
+      "url": "admin.html#/seguros",
+      "capturedUrl": "admin.html#/seguros",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"+ Siniestro\" en Seguros (después de elegir la OT)",
+      "description": "Registro de un siniestro para una OT abierta: aseguradora, número de siniestro, póliza, deducible y descripción del evento. Queda visible en el portal del liquidador.",
+      "actions": [
+        "Elegir la aseguradora",
+        "Ingresar número de siniestro y póliza",
+        "Fijar el deducible en UF",
+        "Describir el evento"
+      ],
+      "img": "img/taller/siniestro-denuncia.webp",
+      "thumb": "img/taller/siniestro-denuncia-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "facturas",
+      "title": "Facturas y boletas",
+      "section": "asesor",
+      "roles": [
+        "Asesor de servicio",
+        "Jefe de taller",
+        "Administrador"
+      ],
+      "url": "admin.html#/facturas",
+      "capturedUrl": "admin.html#/facturas",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Documentos emitidos al entregar cada OT, con totales del mes separados en repuestos y mano de obra, y lo que falta cobrar a aseguradoras.",
+      "actions": [
+        "Ver lo emitido en el mes",
+        "Filtrar por tipo de documento y pago",
+        "Abrir e imprimir un documento",
+        "Exportar a CSV"
+      ],
+      "img": "img/taller/facturas.webp",
+      "thumb": "img/taller/facturas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "garantias",
+      "title": "Garantías",
+      "section": "asesor",
+      "roles": [
+        "Asesor de servicio",
+        "Jefe de taller",
+        "Administrador"
+      ],
+      "url": "admin.html#/garantias",
+      "capturedUrl": "admin.html#/garantias",
+      "login": {
+        "id": "u-asesor",
+        "name": "Camila Bustos",
+        "role": "Asesor de servicio",
+        "email": "asesor@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Garantías generadas al entregar cada OT, con lo que cubren, su vencimiento y las solicitudes de revisión que llegan desde el sitio.",
+      "actions": [
+        "Filtrar garantías vigentes, vencidas o anuladas",
+        "Revisar solicitudes de revisión",
+        "Anular una garantía con motivo",
+        "Exportar a CSV"
+      ],
+      "img": "img/taller/garantias.webp",
+      "thumb": "img/taller/garantias-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mecanico",
+      "title": "App del mecánico",
+      "section": "mecanico",
+      "roles": [
+        "Mecánico",
+        "Jefe de taller",
+        "Administrador"
+      ],
+      "url": "mecanico.html",
+      "capturedUrl": "mecanico.html",
+      "login": {
+        "id": "u-mec",
+        "name": "Juan Carrasco",
+        "role": "Mecánico",
+        "email": "mecanico@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "App pensada para el celular con las OT asignadas al mecánico: tareas con horas estándar, cronómetro para iniciar, pausar y terminar cada una, pedidos de repuestos y hallazgos.",
+      "actions": [
+        "Iniciar, pausar y terminar cada tarea con cronómetro",
+        "Ver si va sobre el tiempo estándar",
+        "Pedir un repuesto a bodega",
+        "Registrar un hallazgo con foto",
+        "Enviar la OT a control de calidad"
+      ],
+      "img": "img/taller/mecanico.webp",
+      "thumb": "img/taller/mecanico-thumb.webp",
+      "mobile": "img/taller/mecanico-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mecanico-repuesto",
+      "title": "Pedir repuesto",
+      "section": "mecanico",
+      "roles": null,
+      "url": "mecanico.html",
+      "capturedUrl": "mecanico.html",
+      "login": {
+        "id": "u-mec",
+        "name": "Juan Carrasco",
+        "role": "Mecánico",
+        "email": "mecanico@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Pedir repuesto\" de una OT",
+      "description": "Pedido de repuesto a bodega con cantidad y nota. Bodega lo ve en su bandeja y lo entrega descontando el stock.",
+      "actions": [
+        "Elegir el repuesto con su stock",
+        "Indicar la cantidad",
+        "Agregar una nota",
+        "Enviar el pedido a bodega"
+      ],
+      "img": "img/taller/mecanico-repuesto.webp",
+      "thumb": "img/taller/mecanico-repuesto-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mecanico-hallazgo",
+      "title": "Registrar hallazgo",
+      "section": "mecanico",
+      "roles": null,
+      "url": "mecanico.html",
+      "capturedUrl": "mecanico.html",
+      "login": {
+        "id": "u-mec",
+        "name": "Juan Carrasco",
+        "role": "Mecánico",
+        "email": "mecanico@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Hallazgo\" de una OT",
+      "description": "Registro de algo encontrado durante la reparación, con foto. Puede proponerse como ítem nuevo del presupuesto para que el cliente lo apruebe en línea.",
+      "actions": [
+        "Describir el hallazgo",
+        "Adjuntar una foto (simulada)",
+        "Proponer mano de obra o repuesto al cliente",
+        "Avisar al asesor en la OT"
+      ],
+      "img": "img/taller/mecanico-hallazgo.webp",
+      "thumb": "img/taller/mecanico-hallazgo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mecanico-terminados",
+      "title": "Trabajos terminados",
+      "section": "mecanico",
+      "roles": null,
+      "url": "mecanico.html",
+      "capturedUrl": "mecanico.html",
+      "login": {
+        "id": "u-mec",
+        "name": "Juan Carrasco",
+        "role": "Mecánico",
+        "email": "mecanico@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen de horas registradas por el mecánico y las OT donde ya terminó tareas.",
+      "actions": [
+        "Ver el total de horas registradas",
+        "Revisar las OT con tareas terminadas",
+        "Ver la etapa de cada OT"
+      ],
+      "img": "img/taller/mecanico-terminados.webp",
+      "thumb": "img/taller/mecanico-terminados-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dashboard",
+      "title": "Dashboard del taller",
+      "section": "jefe",
+      "roles": [
+        "Jefe de taller",
+        "Administrador"
+      ],
+      "url": "admin.html#/dashboard",
+      "capturedUrl": "admin.html#/dashboard",
+      "login": {
+        "id": "u-jefe",
+        "name": "Hernán Alarcón",
+        "role": "Jefe de taller",
+        "email": "jefe@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Indicadores de productividad, ventas y tiempos: facturación, ticket, aprobación de presupuestos, horas facturadas contra disponibles y eficiencia por mecánico, con gráficos de 12 meses.",
+      "actions": [
+        "Ver facturación, ticket y tasa de aprobación",
+        "Comparar horas facturadas y disponibles",
+        "Revisar ingresos de repuestos vs. mano de obra",
+        "Ver OT abiertas por etapa y tiempos promedio",
+        "Detectar OT atrasadas y alertas"
+      ],
+      "img": "img/taller/dashboard.webp",
+      "thumb": "img/taller/dashboard-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mecanicos",
+      "title": "Mecánicos",
+      "section": "jefe",
+      "roles": [
+        "Jefe de taller",
+        "Administrador"
+      ],
+      "url": "admin.html#/mecanicos",
+      "capturedUrl": "admin.html#/mecanicos",
+      "login": {
+        "id": "u-jefe",
+        "name": "Hernán Alarcón",
+        "role": "Jefe de taller",
+        "email": "jefe@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Mecánicos con especialidad, nivel, costo hora, eficiencia del último mes, carga pendiente y margen de mano de obra.",
+      "actions": [
+        "Comparar eficiencia y carga de cada mecánico",
+        "Ver el margen sobre la tarifa de venta",
+        "Editar especialidad, nivel y costo hora",
+        "Exportar a CSV"
+      ],
+      "img": "img/taller/mecanicos.webp",
+      "thumb": "img/taller/mecanicos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "baremo",
+      "title": "Baremo de horas estándar",
+      "section": "jefe",
+      "roles": [
+        "Jefe de taller",
+        "Administrador"
+      ],
+      "url": "admin.html#/mecanicos",
+      "capturedUrl": "admin.html#/mecanicos",
+      "login": {
+        "id": "u-jefe",
+        "name": "Hernán Alarcón",
+        "role": "Jefe de taller",
+        "email": "jefe@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Catálogo de trabajos con sus horas estándar por área y el precio de mano de obra que resulta de la tarifa. Lo usan el presupuesto y el sitio público.",
+      "actions": [
+        "Filtrar trabajos por área",
+        "Editar las horas estándar",
+        "Crear trabajos nuevos",
+        "Exportar a CSV"
+      ],
+      "img": "img/taller/baremo.webp",
+      "thumb": "img/taller/baremo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "tarifas",
+      "title": "Tarifas",
+      "section": "jefe",
+      "roles": [
+        "Jefe de taller",
+        "Administrador"
+      ],
+      "url": "admin.html#/mecanicos",
+      "capturedUrl": "admin.html#/mecanicos",
+      "login": {
+        "id": "u-jefe",
+        "name": "Hernán Alarcón",
+        "role": "Jefe de taller",
+        "email": "jefe@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tarifa hora de venta para mecánica y para pintura y carrocería, porcentaje de abono y valor de la UF para deducibles.",
+      "actions": [
+        "Fijar la tarifa hora mecánica",
+        "Fijar la tarifa hora de pintura",
+        "Definir el % de abono",
+        "Actualizar el valor UF"
+      ],
+      "img": "img/taller/tarifas.webp",
+      "thumb": "img/taller/tarifas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "actividad",
+      "title": "Actividad",
+      "section": "jefe",
+      "roles": [
+        "Jefe de taller",
+        "Administrador"
+      ],
+      "url": "admin.html#/actividad",
+      "capturedUrl": "admin.html#/actividad",
+      "login": {
+        "id": "u-jefe",
+        "name": "Hernán Alarcón",
+        "role": "Jefe de taller",
+        "email": "jefe@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bitácora de los últimos eventos del taller: OT, presupuestos, aprobaciones, bodega, seguros, mensajes de WhatsApp (simulados) y accesos.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Filtrar por tipo de evento",
+        "Buscar por detalle o usuario",
+        "Exportar a CSV"
+      ],
+      "img": "img/taller/actividad.webp",
+      "thumb": "img/taller/actividad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bodega",
+      "title": "Bodega: inventario",
+      "section": "bodega",
+      "roles": [
+        "Bodega",
+        "Jefe de taller",
+        "Asesor de servicio",
+        "Administrador"
+      ],
+      "url": "admin.html#/repuestos",
+      "capturedUrl": "admin.html#/repuestos",
+      "login": {
+        "id": "u-bod",
+        "name": "Raúl Medina",
+        "role": "Bodega",
+        "email": "bodega@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inventario de repuestos con stock, mínimo, unidades reservadas por pedidos, ubicación en bodega, costo, precio y margen, con alerta de stock bajo.",
+      "actions": [
+        "Filtrar por categoría, alerta o proveedor",
+        "Ver unidades reservadas por mecánicos",
+        "Generar una orden de compra para el stock bajo",
+        "Crear o editar repuestos",
+        "Exportar a CSV"
+      ],
+      "img": "img/taller/bodega.webp",
+      "thumb": "img/taller/bodega-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bodega-repuesto",
+      "title": "Ficha de repuesto",
+      "section": "bodega",
+      "roles": null,
+      "url": "admin.html#/repuestos",
+      "capturedUrl": "admin.html#/repuestos",
+      "login": {
+        "id": "u-bod",
+        "name": "Raúl Medina",
+        "role": "Bodega",
+        "email": "bodega@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Fila de la tabla de Inventario",
+      "description": "Ficha del repuesto con SKU, categoría, proveedor, precio, costo, stock, mínimo y ubicación en bodega.",
+      "actions": [
+        "Editar precio y costo",
+        "Ajustar el stock (queda en la bitácora)",
+        "Definir el mínimo y la ubicación",
+        "Desactivar el repuesto"
+      ],
+      "img": "img/taller/bodega-repuesto.webp",
+      "thumb": "img/taller/bodega-repuesto-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bodega-solicitudes",
+      "title": "Pedidos de mecánicos",
+      "section": "bodega",
+      "roles": null,
+      "url": "admin.html#/repuestos",
+      "capturedUrl": "admin.html#/repuestos",
+      "login": {
+        "id": "u-bod",
+        "name": "Raúl Medina",
+        "role": "Bodega",
+        "email": "bodega@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bandeja de repuestos pedidos desde la app del mecánico, con la OT, el mecánico y la cantidad. Al entregar se descuenta del stock.",
+      "actions": [
+        "Ver pedidos pendientes y entregados",
+        "Entregar un repuesto y descontarlo",
+        "Abrir la OT asociada",
+        "Exportar a CSV"
+      ],
+      "img": "img/taller/bodega-solicitudes.webp",
+      "thumb": "img/taller/bodega-solicitudes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bodega-compras",
+      "title": "Órdenes de compra",
+      "section": "bodega",
+      "roles": null,
+      "url": "admin.html#/repuestos",
+      "capturedUrl": "admin.html#/repuestos",
+      "login": {
+        "id": "u-bod",
+        "name": "Raúl Medina",
+        "role": "Bodega",
+        "email": "bodega@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Órdenes de compra a proveedores con su estado. Al recibir la mercadería, el stock se suma solo.",
+      "actions": [
+        "Filtrar órdenes por estado",
+        "Abrir una orden y recibirla",
+        "Crear una orden de compra",
+        "Exportar a CSV"
+      ],
+      "img": "img/taller/bodega-compras.webp",
+      "thumb": "img/taller/bodega-compras-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bodega-oc",
+      "title": "Nueva orden de compra",
+      "section": "bodega",
+      "roles": null,
+      "url": "admin.html#/repuestos",
+      "capturedUrl": "admin.html#/repuestos",
+      "login": {
+        "id": "u-bod",
+        "name": "Raúl Medina",
+        "role": "Bodega",
+        "email": "bodega@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"OC para stock bajo\" en Bodega",
+      "description": "Orden de compra prellenada con los repuestos bajo el mínimo del proveedor, con cantidades sugeridas y costo.",
+      "actions": [
+        "Revisar las líneas sugeridas",
+        "Cambiar proveedor, repuestos o cantidades",
+        "Guardar como borrador o enviar"
+      ],
+      "img": "img/taller/bodega-oc.webp",
+      "thumb": "img/taller/bodega-oc-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "aseguradora",
+      "title": "Portal del liquidador",
+      "section": "aseguradora",
+      "roles": [
+        "Aseguradora",
+        "Administrador"
+      ],
+      "url": "aseguradora.html",
+      "capturedUrl": "aseguradora.html",
+      "login": {
+        "id": "u-seg",
+        "name": "Marcela Ibáñez",
+        "role": "Aseguradora",
+        "email": "liquidador@segcordillera.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bandeja de siniestros de la aseguradora en el taller. Al abrir uno se ven el asegurado, la póliza, los daños del ingreso, las fotos del peritaje y el presupuesto detallado.",
+      "actions": [
+        "Filtrar siniestros por evaluar, aprobados o rechazados",
+        "Revisar daños, fotos y presupuesto",
+        "Aprobar el presupuesto con monto y deducible",
+        "Pedir antecedentes al taller",
+        "Rechazar el siniestro con motivo"
+      ],
+      "img": "img/taller/aseguradora.webp",
+      "thumb": "img/taller/aseguradora-thumb.webp",
+      "mobile": "img/taller/aseguradora-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "aseguradora-aprobar",
+      "title": "Aprobar siniestro",
+      "section": "aseguradora",
+      "roles": null,
+      "url": "aseguradora.html",
+      "capturedUrl": "aseguradora.html",
+      "login": {
+        "id": "u-seg",
+        "name": "Marcela Ibáñez",
+        "role": "Aseguradora",
+        "email": "liquidador@segcordillera.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Aprobar presupuesto\" de un siniestro",
+      "description": "Aprobación del siniestro con el monto aprobado, el deducible en UF y una observación para el taller. Al aprobar, los ítems quedan aprobados y la OT se libera para reparar.",
+      "actions": [
+        "Fijar el monto aprobado",
+        "Ajustar el deducible",
+        "Dejar una observación al taller",
+        "Liberar la OT para reparación"
+      ],
+      "img": "img/taller/aseguradora-aprobar.webp",
+      "thumb": "img/taller/aseguradora-aprobar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "contenido",
+      "title": "Contenido del sitio",
+      "section": "admin",
+      "roles": [
+        "Administrador"
+      ],
+      "url": "admin.html#/contenido",
+      "capturedUrl": "admin.html#/contenido",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Rojas",
+        "role": "Administrador",
+        "email": "admin@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Nombre, textos de la portada, anuncio superior, dirección, contacto, horario y política de garantía del sitio público. Se publican al guardar.",
+      "actions": [
+        "Editar título y texto de portada",
+        "Cambiar o quitar el anuncio",
+        "Actualizar dirección, teléfono, WhatsApp y horario",
+        "Editar el texto de garantía"
+      ],
+      "img": "img/taller/contenido.webp",
+      "thumb": "img/taller/contenido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": [
+        "Administrador"
+      ],
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Rojas",
+        "role": "Administrador",
+        "email": "admin@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas del equipo, liquidadores y clientes con su rol y estado, más la matriz de permisos por rol que aplica el panel.",
+      "actions": [
+        "Crear, editar o eliminar usuarios",
+        "Asignar rol (y aseguradora a los liquidadores)",
+        "Desactivar una cuenta",
+        "Consultar la matriz de permisos",
+        "Exportar a CSV"
+      ],
+      "img": "img/taller/usuarios.webp",
+      "thumb": "img/taller/usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "acceso-restringido",
+      "title": "Ruta protegida por rol",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/seguros",
+      "capturedUrl": "admin.html#/seguros",
+      "login": {
+        "id": "u-bod",
+        "name": "Raúl Medina",
+        "role": "Bodega",
+        "email": "bodega@losandes.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve un rol sin permiso al abrir una sección ajena (aquí, bodega intentando entrar a Seguros): el menú solo muestra lo permitido y la ruta queda bloqueada.",
+      "actions": [
+        "Ver el aviso de acceso restringido",
+        "Volver a su inicio desde el botón",
+        "Confirmar que cada rol solo ve sus menús"
+      ],
+      "img": "img/taller/acceso-restringido.webp",
+      "thumb": "img/taller/acceso-restringido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Plano\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/taller/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/taller/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/taller/look-app.webp"
+      },
+      {
+        "id": "graphite",
+        "group": "Estilo",
+        "label": "Grafito",
+        "desc": "Sobrio, gris oscuro y tipografía firme.",
+        "img": "img/taller/look-graphite.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/taller/look-editorial.webp"
+      },
+      {
+        "id": "material",
+        "group": "Estilo",
+        "label": "Material 14",
+        "desc": "Tarjetas con sombra y colores planos.",
+        "img": "img/taller/look-material.webp"
+      }
+    ]
+  }
+}

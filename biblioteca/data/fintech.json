@@ -1,0 +1,1588 @@
+{
+  "app": "fintech",
+  "dir": "fintech",
+  "name": "Cóndor Pay",
+  "kind": "Banca digital",
+  "description": "Banco digital con apertura de cuenta en línea, app del cliente (saldos, transferencias con código de verificación, pagos, QR, tarjeta, metas, inversiones y créditos) y back-office con revisión de identidad, monitoreo de fraude, créditos, soporte y auditoría por roles.",
+  "demo": "../fintech/index.html",
+  "theme": "blueprint",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:41:23.139Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Landing del banco y apertura de cuenta en línea, sin iniciar sesión."
+    },
+    {
+      "id": "cliente",
+      "label": "Cliente",
+      "desc": "App bancaria del cliente: dinero, pagos, ahorro, inversión y crédito."
+    },
+    {
+      "id": "ejecutivo",
+      "label": "Ejecutivo",
+      "desc": "Back-office de atención: revisión de identidad, clientes, tarjetas y soporte."
+    },
+    {
+      "id": "riesgo",
+      "label": "Analista de riesgo",
+      "desc": "Monitoreo de fraude, transacciones y aprobación de créditos."
+    },
+    {
+      "id": "auditor",
+      "label": "Auditor",
+      "desc": "Acceso de solo lectura al back-office y a la bitácora de auditoría."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Resumen del negocio, productos y tarifas, contenido del sitio y usuarios."
+    }
+  ],
+  "views": [
+    {
+      "id": "landing",
+      "title": "Landing",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de presentación del banco con beneficios, tarjetas, tarifas, seguridad y preguntas frecuentes. Los textos, tarifas y fondos se administran desde el back-office.",
+      "actions": [
+        "Conocer los beneficios de la cuenta",
+        "Comparar las tarjetas disponibles",
+        "Revisar tarifas y rentabilidad de los fondos",
+        "Leer las preguntas frecuentes",
+        "Empezar la apertura de cuenta"
+      ],
+      "img": "img/fintech/landing.webp",
+      "thumb": "img/fintech/landing-thumb.webp",
+      "mobile": "img/fintech/landing-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "landing-tarifas",
+      "title": "Tarjetas y tarifas",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Secciones de la landing con las tarjetas, sus beneficios y la tabla de tarifas, que se actualizan al instante cuando el administrador las cambia.",
+      "actions": [
+        "Comparar tarjetas por segmento",
+        "Ver comisiones y límites vigentes",
+        "Revisar la rentabilidad simulada de los fondos"
+      ],
+      "img": "img/fintech/landing-tarifas.webp",
+      "thumb": "img/fintech/landing-tarifas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "apertura-rut",
+      "title": "Apertura: identificación",
+      "section": "publico",
+      "roles": null,
+      "url": "abrir-cuenta.html",
+      "capturedUrl": "abrir-cuenta.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Primer paso del asistente de apertura en cinco pasos. Valida el dígito verificador del RUT y que no exista otra cuenta con el mismo RUT o correo.",
+      "actions": [
+        "Ingresar RUT, celular y correo",
+        "Ver el aviso si el RUT no es válido",
+        "Avanzar a los datos personales"
+      ],
+      "img": "img/fintech/apertura-rut.webp",
+      "thumb": "img/fintech/apertura-rut-thumb.webp",
+      "mobile": "img/fintech/apertura-rut-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "apertura-datos",
+      "title": "Apertura: datos personales",
+      "section": "publico",
+      "roles": null,
+      "url": "abrir-cuenta.html",
+      "capturedUrl": "abrir-cuenta.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Datos para la ficha del cliente: nombre, nacimiento, comuna, dirección, ocupación, renta y declaración de persona expuesta políticamente.",
+      "actions": [
+        "Completar nombre, fecha de nacimiento y dirección",
+        "Indicar ocupación y tramo de renta",
+        "Declarar si es persona expuesta políticamente",
+        "Volver o continuar"
+      ],
+      "img": "img/fintech/apertura-datos.webp",
+      "thumb": "img/fintech/apertura-datos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "apertura-selfie",
+      "title": "Apertura: selfie y carnet",
+      "section": "publico",
+      "roles": null,
+      "url": "abrir-cuenta.html",
+      "capturedUrl": "abrir-cuenta.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Captura simulada de la selfie y del carnet (no se usa la cámara real).",
+      "actions": [
+        "Tomar la selfie simulada",
+        "Fotografiar el carnet",
+        "Pasar a la verificación de identidad"
+      ],
+      "img": "img/fintech/apertura-selfie.webp",
+      "thumb": "img/fintech/apertura-selfie-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "apertura-verificacion",
+      "title": "Apertura: verificación",
+      "section": "publico",
+      "roles": null,
+      "url": "abrir-cuenta.html",
+      "capturedUrl": "abrir-cuenta.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Validación simulada contra registro civil, comparación facial, listas restrictivas y perfil de riesgo, con el porcentaje de coincidencia.",
+      "actions": [
+        "Ver cada verificación completarse",
+        "Conocer el porcentaje de coincidencia facial",
+        "Continuar a crear la clave"
+      ],
+      "img": "img/fintech/apertura-verificacion.webp",
+      "thumb": "img/fintech/apertura-verificacion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "apertura-lista",
+      "title": "Apertura: solicitud enviada",
+      "section": "publico",
+      "roles": null,
+      "url": "abrir-cuenta.html",
+      "capturedUrl": "abrir-cuenta.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Confirmación final tras crear la clave: la cuenta queda en revisión y la solicitud aparece en la cola de identidad del back-office.",
+      "actions": [
+        "Ver el resumen de la solicitud",
+        "Entrar a la app mientras se revisa",
+        "Esperar la aprobación del ejecutivo"
+      ],
+      "img": "img/fintech/apertura-lista.webp",
+      "thumb": "img/fintech/apertura-lista-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso para clientes y equipo interno, con cuentas de prueba para entrar con un clic. Los clientes van a su app y el equipo al back-office.",
+      "actions": [
+        "Ingresar con correo y clave",
+        "Entrar con un clic como cliente, ejecutivo, analista, auditor o administrador",
+        "Ir a abrir una cuenta nueva"
+      ],
+      "img": "img/fintech/login.webp",
+      "thumb": "img/fintech/login-thumb.webp",
+      "mobile": "img/fintech/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inicio",
+      "title": "Inicio",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/",
+      "capturedUrl": "app.html#/",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen del cliente con los saldos de sus cuentas, accesos rápidos, últimos movimientos y gasto del mes.",
+      "actions": [
+        "Ver saldos de cuenta vista y ahorro",
+        "Ir directo a transferir, pagar o cobrar con QR",
+        "Revisar los últimos movimientos",
+        "Ver el resumen de gastos del mes"
+      ],
+      "img": "img/fintech/inicio.webp",
+      "thumb": "img/fintech/inicio-thumb.webp",
+      "mobile": "img/fintech/inicio-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "movimientos",
+      "title": "Movimientos",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/movimientos",
+      "capturedUrl": "app.html#/movimientos",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cartola con búsqueda y filtros por cuenta, categoría, tipo y fechas, más el gráfico de gasto mensual por categoría.",
+      "actions": [
+        "Buscar un movimiento por texto",
+        "Filtrar por cuenta, categoría, cargos o abonos y fechas",
+        "Ver el gasto por categoría de cada mes",
+        "Abrir el detalle de un movimiento",
+        "Descargar en CSV"
+      ],
+      "img": "img/fintech/movimientos.webp",
+      "thumb": "img/fintech/movimientos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "movimiento-detalle",
+      "title": "Detalle del movimiento",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/movimientos",
+      "capturedUrl": "app.html#/movimientos",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "modal",
+      "from": "Clic en un movimiento",
+      "description": "Ventana con el detalle de una operación: fecha, cuenta, categoría, contraparte, estado y número de operación.",
+      "actions": [
+        "Revisar todos los datos de la operación",
+        "Ver si fue retenida o revertida",
+        "Guardar el número de operación"
+      ],
+      "img": "img/fintech/movimiento-detalle.webp",
+      "thumb": "img/fintech/movimiento-detalle-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "transferir",
+      "title": "Transferir: destinatario",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/transferir",
+      "capturedUrl": "app.html#/transferir",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Primer paso de la transferencia con los contactos guardados (favoritos primero), el disponible y el uso del límite diario.",
+      "actions": [
+        "Buscar un contacto",
+        "Agregar un destinatario nuevo",
+        "Ver el disponible y el límite diario usado",
+        "Revisar las transferencias recientes"
+      ],
+      "img": "img/fintech/transferir.webp",
+      "thumb": "img/fintech/transferir-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "transferir-monto",
+      "title": "Transferir: monto",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/transferir",
+      "capturedUrl": "app.html#/transferir",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Paso del monto con montos rápidos, mensaje y la comisión según el banco de destino. Valida saldo, mínimo y límite diario.",
+      "actions": [
+        "Escribir el monto o elegir uno rápido",
+        "Agregar un mensaje",
+        "Ver la comisión",
+        "Revisar la transferencia"
+      ],
+      "img": "img/fintech/transferir-monto.webp",
+      "thumb": "img/fintech/transferir-monto-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "transferir-codigo",
+      "title": "Código de verificación",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/transferir",
+      "capturedUrl": "app.html#/transferir",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Revisar transferencia\"",
+      "description": "Confirmación con un código de 6 dígitos enviado por SMS simulado. Se usa en transferencias y otras operaciones sensibles.",
+      "actions": [
+        "Revisar el resumen de la operación",
+        "Ingresar el código de 6 dígitos",
+        "Reenviar el código o ver el SMS de prueba"
+      ],
+      "img": "img/fintech/transferir-codigo.webp",
+      "thumb": "img/fintech/transferir-codigo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "transferir-comprobante",
+      "title": "Transferir: comprobante",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/transferir",
+      "capturedUrl": "app.html#/transferir",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Comprobante con monto, destinatario, banco, cuenta y número de operación. Si el motor antifraude retiene la operación, lo indica aquí.",
+      "actions": [
+        "Ver el detalle de la transferencia",
+        "Imprimir el comprobante",
+        "Hacer otra transferencia",
+        "Ir a los movimientos"
+      ],
+      "img": "img/fintech/transferir-comprobante.webp",
+      "thumb": "img/fintech/transferir-comprobante-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "nuevo-destinatario",
+      "title": "Nuevo destinatario",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/transferir",
+      "capturedUrl": "app.html#/transferir",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo destinatario\" en Transferir",
+      "description": "Formulario de destinatario con nombre, RUT validado, banco, tipo y número de cuenta, y opción de guardarlo como contacto.",
+      "actions": [
+        "Ingresar nombre y RUT",
+        "Elegir banco y tipo de cuenta",
+        "Guardar el contacto para la próxima vez"
+      ],
+      "img": "img/fintech/nuevo-destinatario.webp",
+      "thumb": "img/fintech/nuevo-destinatario-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "pagos",
+      "title": "Pagar cuentas",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/pagos",
+      "capturedUrl": "app.html#/pagos",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas de servicios inscritas con su monto y vencimiento, y empresas disponibles para inscribir nuevas.",
+      "actions": [
+        "Pagar una cuenta o varias a la vez",
+        "Ver los días que faltan para cada vencimiento",
+        "Inscribir una cuenta de luz, agua, gas, telefonía u otra",
+        "Revisar los pagos hechos"
+      ],
+      "img": "img/fintech/pagos.webp",
+      "thumb": "img/fintech/pagos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "qr",
+      "title": "Pagos QR",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/qr",
+      "capturedUrl": "app.html#/qr",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pago en comercios escaneando un código QR (simulado) y generación de un código propio para cobrar.",
+      "actions": [
+        "Simular el escaneo del QR de un comercio",
+        "Confirmar el pago",
+        "Generar un QR para cobrar un monto"
+      ],
+      "img": "img/fintech/qr.webp",
+      "thumb": "img/fintech/qr-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "qr-cobrar",
+      "title": "Cobrar con QR",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/qr",
+      "capturedUrl": "app.html#/qr",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Generador de un código QR con monto y descripción para que otra persona pague.",
+      "actions": [
+        "Definir monto y descripción",
+        "Mostrar el código para que lo escaneen",
+        "Recibir el abono en la cuenta"
+      ],
+      "img": "img/fintech/qr-cobrar.webp",
+      "thumb": "img/fintech/qr-cobrar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "tarjeta",
+      "title": "Mi tarjeta",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/tarjeta",
+      "capturedUrl": "app.html#/tarjeta",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tarjeta con sus datos ocultos, opción de congelarla, compras online e internacionales y límites de uso.",
+      "actions": [
+        "Ver los datos de la tarjeta tras confirmar con código",
+        "Congelar o descongelar la tarjeta",
+        "Activar o desactivar compras online e internacionales",
+        "Ajustar límites diarios",
+        "Pedir una tarjeta de reemplazo"
+      ],
+      "img": "img/fintech/tarjeta.webp",
+      "thumb": "img/fintech/tarjeta-thumb.webp",
+      "mobile": "img/fintech/tarjeta-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "metas",
+      "title": "Metas de ahorro",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/metas",
+      "capturedUrl": "app.html#/metas",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Metas con lo ahorrado, el objetivo y el avance de cada una.",
+      "actions": [
+        "Crear una meta nueva",
+        "Aportar o retirar dinero de una meta",
+        "Editar o eliminar metas",
+        "Ver el total ahorrado contra el objetivo"
+      ],
+      "img": "img/fintech/metas.webp",
+      "thumb": "img/fintech/metas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "meta-nueva",
+      "title": "Nueva meta",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/metas",
+      "capturedUrl": "app.html#/metas",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva meta\"",
+      "description": "Formulario para crear una meta de ahorro con nombre, monto objetivo y fecha.",
+      "actions": [
+        "Ponerle nombre a la meta",
+        "Fijar monto objetivo y fecha",
+        "Crearla y empezar a aportar"
+      ],
+      "img": "img/fintech/meta-nueva.webp",
+      "thumb": "img/fintech/meta-nueva-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inversiones",
+      "title": "Inversiones",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/inversiones",
+      "capturedUrl": "app.html#/inversiones",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Mini portafolio de fondos mutuos con la evolución de lo invertido y la rentabilidad simulada de cada fondo.",
+      "actions": [
+        "Ver el valor actual del portafolio",
+        "Comparar fondos conservador, moderado y agresivo",
+        "Invertir en un fondo",
+        "Rescatar una inversión"
+      ],
+      "img": "img/fintech/inversiones.webp",
+      "thumb": "img/fintech/inversiones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "creditos",
+      "title": "Créditos",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/creditos",
+      "capturedUrl": "app.html#/creditos",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Simulador de crédito de consumo con monto y plazo, cuota y costo total, y los créditos del cliente con su estado.",
+      "actions": [
+        "Simular monto y plazo con deslizadores",
+        "Ver la cuota, tasa y costo total",
+        "Solicitar el crédito (pasa a evaluación)",
+        "Pagar cuotas de un crédito desembolsado"
+      ],
+      "img": "img/fintech/creditos.webp",
+      "thumb": "img/fintech/creditos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "notificaciones",
+      "title": "Notificaciones",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/notificaciones",
+      "capturedUrl": "app.html#/notificaciones",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Centro de avisos: abonos, cargos, alertas de seguridad y novedades de solicitudes.",
+      "actions": [
+        "Filtrar por tipo de aviso",
+        "Marcar como leídas",
+        "Eliminar notificaciones"
+      ],
+      "img": "img/fintech/notificaciones.webp",
+      "thumb": "img/fintech/notificaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "perfil",
+      "title": "Perfil y seguridad",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/perfil",
+      "capturedUrl": "app.html#/perfil",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos personales, preferencias de avisos, cambio de clave y dispositivos conectados.",
+      "actions": [
+        "Editar sus datos de contacto",
+        "Cambiar la clave",
+        "Activar o desactivar avisos",
+        "Cerrar sesión en otros dispositivos"
+      ],
+      "img": "img/fintech/perfil.webp",
+      "thumb": "img/fintech/perfil-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ayuda",
+      "title": "Ayuda",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/ayuda",
+      "capturedUrl": "app.html#/ayuda",
+      "login": {
+        "id": "u-cliente",
+        "name": "Camila Fuentes Araya",
+        "role": "Cliente",
+        "email": "cliente@condorpay.demo",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Casos de soporte del cliente con su conversación. Los responde un ejecutivo desde el back-office.",
+      "actions": [
+        "Abrir un caso nuevo",
+        "Leer las respuestas del ejecutivo",
+        "Responder dentro del mismo caso"
+      ],
+      "img": "img/fintech/ayuda.webp",
+      "thumb": "img/fintech/ayuda-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-en-revision",
+      "title": "Cuenta en revisión",
+      "section": "cliente",
+      "roles": null,
+      "url": "app.html#/transferir",
+      "capturedUrl": "app.html#/transferir",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve un cliente recién registrado mientras su identidad está en revisión: puede entrar a la app, pero transferencias, pagos y productos se habilitan solo al aprobarse.",
+      "actions": [
+        "Ver el aviso de cuenta en revisión",
+        "Navegar la app en modo limitado",
+        "Recibir el aviso cuando aprueben la cuenta"
+      ],
+      "img": "img/fintech/cuenta-en-revision.webp",
+      "thumb": "img/fintech/cuenta-en-revision-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-kyc",
+      "title": "Revisión de identidad (KYC)",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Analista de riesgo",
+        "Administrador"
+      ],
+      "url": "admin.html#/kyc",
+      "capturedUrl": "admin.html#/kyc",
+      "login": {
+        "id": "u-ejec",
+        "name": "Tomás Herrera",
+        "role": "Ejecutivo",
+        "email": "ejecutivo@condorpay.demo",
+        "password": "ejecutivo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cola de solicitudes de apertura con la coincidencia facial, alertas (PEP, listas, documento) y estado.",
+      "actions": [
+        "Ver las solicitudes pendientes, aprobadas y rechazadas",
+        "Priorizar por coincidencia facial y alertas",
+        "Abrir una solicitud para revisarla",
+        "Exportar a CSV"
+      ],
+      "img": "img/fintech/bo-kyc.webp",
+      "thumb": "img/fintech/bo-kyc-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-kyc-revision",
+      "title": "Revisión de solicitud",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Analista de riesgo",
+        "Administrador"
+      ],
+      "url": "admin.html#/kyc",
+      "capturedUrl": "admin.html#/kyc",
+      "login": {
+        "id": "u-ejec",
+        "name": "Tomás Herrera",
+        "role": "Ejecutivo",
+        "email": "ejecutivo@condorpay.demo",
+        "password": "ejecutivo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Revisar\" en la cola KYC",
+      "description": "Ficha del solicitante con sus datos, la selfie y el carnet simulados y la lista de verificaciones. Al aprobar se activan sus cuentas y su tarjeta.",
+      "actions": [
+        "Revisar datos y verificaciones",
+        "Aprobar y activar la cuenta",
+        "Rechazar con un motivo",
+        "Notificar al cliente automáticamente"
+      ],
+      "img": "img/fintech/bo-kyc-revision.webp",
+      "thumb": "img/fintech/bo-kyc-revision-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-clientes",
+      "title": "Clientes y cuentas",
+      "section": "ejecutivo",
+      "roles": [
+        "Todos los roles internos"
+      ],
+      "url": "admin.html#/cuentas",
+      "capturedUrl": "admin.html#/cuentas",
+      "login": {
+        "id": "u-ejec",
+        "name": "Tomás Herrera",
+        "role": "Ejecutivo",
+        "email": "ejecutivo@condorpay.demo",
+        "password": "ejecutivo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Listado de clientes con segmento, nivel de riesgo, estado de identidad y saldos.",
+      "actions": [
+        "Buscar por nombre, RUT o correo",
+        "Filtrar por segmento, riesgo y estado",
+        "Abrir la ficha 360° del cliente",
+        "Exportar a CSV"
+      ],
+      "img": "img/fintech/bo-clientes.webp",
+      "thumb": "img/fintech/bo-clientes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-cliente-360",
+      "title": "Ficha 360° del cliente",
+      "section": "ejecutivo",
+      "roles": [
+        "Todos los roles internos"
+      ],
+      "url": "admin.html#/cuentas/u-cliente",
+      "capturedUrl": "admin.html#/cuentas/u-cliente",
+      "login": {
+        "id": "u-ejec",
+        "name": "Tomás Herrera",
+        "role": "Ejecutivo",
+        "email": "ejecutivo@condorpay.demo",
+        "password": "ejecutivo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todo sobre un cliente: datos, cuentas con saldo, tarjetas, créditos, movimientos recientes, alertas y casos de soporte.",
+      "actions": [
+        "Revisar cuentas, tarjetas y créditos",
+        "Ver los movimientos recientes",
+        "Editar el perfil del cliente",
+        "Congelar una cuenta o hacer un ajuste manual (según rol)"
+      ],
+      "img": "img/fintech/bo-cliente-360.webp",
+      "thumb": "img/fintech/bo-cliente-360-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-tarjetas",
+      "title": "Tarjetas",
+      "section": "ejecutivo",
+      "roles": [
+        "Todos los roles internos"
+      ],
+      "url": "admin.html#/tarjetas",
+      "capturedUrl": "admin.html#/tarjetas",
+      "login": {
+        "id": "u-ejec",
+        "name": "Tomás Herrera",
+        "role": "Ejecutivo",
+        "email": "ejecutivo@condorpay.demo",
+        "password": "ejecutivo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tarjetas emitidas con titular, tipo, estado y límites.",
+      "actions": [
+        "Buscar y filtrar tarjetas",
+        "Bloquear o desbloquear una tarjeta",
+        "Reemplazarla",
+        "Ajustar sus límites"
+      ],
+      "img": "img/fintech/bo-tarjetas.webp",
+      "thumb": "img/fintech/bo-tarjetas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-tarjeta-gestion",
+      "title": "Gestión de tarjeta",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Analista de riesgo",
+        "Administrador"
+      ],
+      "url": "admin.html#/tarjetas",
+      "capturedUrl": "admin.html#/tarjetas",
+      "login": {
+        "id": "u-ejec",
+        "name": "Tomás Herrera",
+        "role": "Ejecutivo",
+        "email": "ejecutivo@condorpay.demo",
+        "password": "ejecutivo123"
+      },
+      "kind": "modal",
+      "from": "Clic en una tarjeta",
+      "description": "Ventana con los datos de la tarjeta y las acciones disponibles para el ejecutivo.",
+      "actions": [
+        "Ver estado, titular y límites",
+        "Bloquear con un motivo",
+        "Reemplazar la tarjeta",
+        "Cambiar límites"
+      ],
+      "img": "img/fintech/bo-tarjeta-gestion.webp",
+      "thumb": "img/fintech/bo-tarjeta-gestion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-soporte",
+      "title": "Soporte",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Auditor",
+        "Administrador"
+      ],
+      "url": "admin.html#/soporte",
+      "capturedUrl": "admin.html#/soporte",
+      "login": {
+        "id": "u-ejec",
+        "name": "Tomás Herrera",
+        "role": "Ejecutivo",
+        "email": "ejecutivo@condorpay.demo",
+        "password": "ejecutivo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bandeja de casos abiertos por los clientes desde la app, con prioridad, categoría y estado.",
+      "actions": [
+        "Filtrar por estado y prioridad",
+        "Buscar un caso",
+        "Abrir la conversación"
+      ],
+      "img": "img/fintech/bo-soporte.webp",
+      "thumb": "img/fintech/bo-soporte-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-caso",
+      "title": "Conversación del caso",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Auditor",
+        "Administrador"
+      ],
+      "url": "admin.html#/soporte/tk12",
+      "capturedUrl": "admin.html#/soporte/tk12",
+      "login": {
+        "id": "u-ejec",
+        "name": "Tomás Herrera",
+        "role": "Ejecutivo",
+        "email": "ejecutivo@condorpay.demo",
+        "password": "ejecutivo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Hilo del caso con los mensajes del cliente y del equipo. La respuesta aparece al instante en la sección Ayuda de la app del cliente.",
+      "actions": [
+        "Leer la conversación",
+        "Responder al cliente",
+        "Cambiar estado, prioridad y asignación"
+      ],
+      "img": "img/fintech/bo-caso.webp",
+      "thumb": "img/fintech/bo-caso-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-fraude",
+      "title": "Monitoreo de fraude",
+      "section": "riesgo",
+      "roles": [
+        "Analista de riesgo",
+        "Auditor",
+        "Administrador"
+      ],
+      "url": "admin.html#/fraude",
+      "capturedUrl": "admin.html#/fraude",
+      "login": {
+        "id": "u-riesgo",
+        "name": "Valeria Muñoz",
+        "role": "Analista de riesgo",
+        "email": "riesgo@condorpay.demo",
+        "password": "riesgo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Alertas generadas en tiempo real por el motor de reglas, con cliente, monto, regla gatillada y estado del caso.",
+      "actions": [
+        "Revisar las alertas abiertas",
+        "Abrir un caso de fraude",
+        "Simular una operación de cliente para probar las reglas",
+        "Pasar al editor de reglas"
+      ],
+      "img": "img/fintech/bo-fraude.webp",
+      "thumb": "img/fintech/bo-fraude-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-fraude-caso",
+      "title": "Caso de fraude",
+      "section": "riesgo",
+      "roles": [
+        "Analista de riesgo",
+        "Auditor",
+        "Administrador"
+      ],
+      "url": "admin.html#/fraude/al0",
+      "capturedUrl": "admin.html#/fraude/al0",
+      "login": {
+        "id": "u-riesgo",
+        "name": "Valeria Muñoz",
+        "role": "Analista de riesgo",
+        "email": "riesgo@condorpay.demo",
+        "password": "riesgo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Detalle de una alerta con la operación, el historial del cliente y las acciones del caso.",
+      "actions": [
+        "Revisar la operación sospechosa",
+        "Liberar la operación retenida",
+        "Confirmar fraude y revertirla",
+        "Agregar notas al caso"
+      ],
+      "img": "img/fintech/bo-fraude-caso.webp",
+      "thumb": "img/fintech/bo-fraude-caso-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-reglas",
+      "title": "Reglas antifraude",
+      "section": "riesgo",
+      "roles": [
+        "Analista de riesgo",
+        "Auditor",
+        "Administrador"
+      ],
+      "url": "admin.html#/fraude",
+      "capturedUrl": "admin.html#/fraude",
+      "login": {
+        "id": "u-riesgo",
+        "name": "Valeria Muñoz",
+        "role": "Analista de riesgo",
+        "email": "riesgo@condorpay.demo",
+        "password": "riesgo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor de reglas del motor (monto alto, velocidad, destinatario nuevo, horario, etc.) con su umbral y acción.",
+      "actions": [
+        "Activar o desactivar reglas",
+        "Editar umbrales y acción (alertar o retener)",
+        "Crear o eliminar reglas"
+      ],
+      "img": "img/fintech/bo-reglas.webp",
+      "thumb": "img/fintech/bo-reglas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-simular",
+      "title": "Simular operación",
+      "section": "riesgo",
+      "roles": [
+        "Analista de riesgo",
+        "Administrador"
+      ],
+      "url": "admin.html#/fraude",
+      "capturedUrl": "admin.html#/fraude",
+      "login": {
+        "id": "u-riesgo",
+        "name": "Valeria Muñoz",
+        "role": "Analista de riesgo",
+        "email": "riesgo@condorpay.demo",
+        "password": "riesgo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Simular operación\" en Monitoreo de fraude",
+      "description": "Herramienta para ejecutar una operación de un cliente y ver en vivo si el motor genera una alerta o la retiene.",
+      "actions": [
+        "Elegir cliente, tipo y monto",
+        "Marcar si va a un destinatario nuevo",
+        "Ejecutar y ver la alerta resultante"
+      ],
+      "img": "img/fintech/bo-simular.webp",
+      "thumb": "img/fintech/bo-simular-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-transacciones",
+      "title": "Transacciones",
+      "section": "riesgo",
+      "roles": [
+        "Todos los roles internos"
+      ],
+      "url": "admin.html#/transacciones",
+      "capturedUrl": "admin.html#/transacciones",
+      "login": {
+        "id": "u-riesgo",
+        "name": "Valeria Muñoz",
+        "role": "Analista de riesgo",
+        "email": "riesgo@condorpay.demo",
+        "password": "riesgo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Explorador de todas las transacciones con filtros por tipo, estado, monto y fecha.",
+      "actions": [
+        "Filtrar por tipo, estado, monto y fechas",
+        "Buscar por cliente o descripción",
+        "Abrir el detalle",
+        "Liberar o reversar operaciones (según rol)"
+      ],
+      "img": "img/fintech/bo-transacciones.webp",
+      "thumb": "img/fintech/bo-transacciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-transaccion",
+      "title": "Detalle de transacción",
+      "section": "riesgo",
+      "roles": [
+        "Todos los roles internos"
+      ],
+      "url": "admin.html#/transacciones",
+      "capturedUrl": "admin.html#/transacciones",
+      "login": {
+        "id": "u-riesgo",
+        "name": "Valeria Muñoz",
+        "role": "Analista de riesgo",
+        "email": "riesgo@condorpay.demo",
+        "password": "riesgo123"
+      },
+      "kind": "modal",
+      "from": "Clic en una transacción",
+      "description": "Ventana con todos los datos de la operación y las acciones de liberación o reversa.",
+      "actions": [
+        "Ver cliente, cuenta, monto y contraparte",
+        "Liberar una operación retenida",
+        "Reversar una operación"
+      ],
+      "img": "img/fintech/bo-transaccion.webp",
+      "thumb": "img/fintech/bo-transaccion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-creditos",
+      "title": "Créditos",
+      "section": "riesgo",
+      "roles": [
+        "Analista de riesgo",
+        "Ejecutivo",
+        "Auditor",
+        "Administrador"
+      ],
+      "url": "admin.html#/creditos",
+      "capturedUrl": "admin.html#/creditos",
+      "login": {
+        "id": "u-riesgo",
+        "name": "Valeria Muñoz",
+        "role": "Analista de riesgo",
+        "email": "riesgo@condorpay.demo",
+        "password": "riesgo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Flujo de aprobación de créditos de consumo: solicitado, en evaluación, aprobado, rechazado y desembolsado.",
+      "actions": [
+        "Filtrar por etapa",
+        "Abrir una solicitud",
+        "Ver monto, plazo y cliente"
+      ],
+      "img": "img/fintech/bo-creditos.webp",
+      "thumb": "img/fintech/bo-creditos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-credito",
+      "title": "Evaluación de crédito",
+      "section": "riesgo",
+      "roles": [
+        "Analista de riesgo",
+        "Ejecutivo",
+        "Auditor",
+        "Administrador"
+      ],
+      "url": "admin.html#/creditos/l3",
+      "capturedUrl": "admin.html#/creditos/l3",
+      "login": {
+        "id": "u-riesgo",
+        "name": "Valeria Muñoz",
+        "role": "Analista de riesgo",
+        "email": "riesgo@condorpay.demo",
+        "password": "riesgo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha de la solicitud con los datos del cliente, su capacidad de pago y la cuota propuesta.",
+      "actions": [
+        "Revisar renta, carga financiera y riesgo",
+        "Aprobar con condiciones",
+        "Rechazar con motivo",
+        "Desembolsar el crédito aprobado"
+      ],
+      "img": "img/fintech/bo-credito.webp",
+      "thumb": "img/fintech/bo-credito-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-auditoria",
+      "title": "Auditoría",
+      "section": "auditor",
+      "roles": [
+        "Auditor",
+        "Administrador"
+      ],
+      "url": "admin.html#/auditoria",
+      "capturedUrl": "admin.html#/auditoria",
+      "login": {
+        "id": "u-audit",
+        "name": "Paula Contreras",
+        "role": "Auditor (solo lectura)",
+        "email": "auditor@condorpay.demo",
+        "password": "auditor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bitácora de todas las acciones de clientes y equipo, con filtros y exportación.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Filtrar por tipo, usuario o texto",
+        "Exportar a CSV"
+      ],
+      "img": "img/fintech/bo-auditoria.webp",
+      "thumb": "img/fintech/bo-auditoria-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-solo-lectura",
+      "title": "Vista de solo lectura",
+      "section": "auditor",
+      "roles": null,
+      "url": "admin.html#/kyc",
+      "capturedUrl": "admin.html#/kyc",
+      "login": {
+        "id": "u-audit",
+        "name": "Paula Contreras",
+        "role": "Auditor (solo lectura)",
+        "email": "auditor@condorpay.demo",
+        "password": "auditor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "El auditor ve las mismas secciones que el resto del equipo, pero marcadas como solo lectura y sin botones de acción.",
+      "actions": [
+        "Consultar solicitudes, clientes y alertas",
+        "Revisar sin poder modificar",
+        "Verificar la matriz de permisos por rol"
+      ],
+      "img": "img/fintech/bo-solo-lectura.webp",
+      "thumb": "img/fintech/bo-solo-lectura-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-resumen",
+      "title": "Resumen",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-admin",
+        "name": "Rodrigo Pizarro",
+        "role": "Administrador",
+        "email": "admin@condorpay.demo",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Indicadores del banco: clientes, depósitos, volumen transado, créditos y alertas de fraude, con sus gráficos.",
+      "actions": [
+        "Ver clientes y depósitos totales",
+        "Revisar el volumen transado por día",
+        "Seguir alertas y créditos pendientes"
+      ],
+      "img": "img/fintech/bo-resumen.webp",
+      "thumb": "img/fintech/bo-resumen-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-productos",
+      "title": "Productos y tarifas",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/productos",
+      "capturedUrl": "admin.html#/productos",
+      "login": {
+        "id": "u-admin",
+        "name": "Rodrigo Pizarro",
+        "role": "Administrador",
+        "email": "admin@condorpay.demo",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tarifas y límites de la operación (transferencias, QR, máximos) que se aplican al instante en la app y en la landing.",
+      "actions": [
+        "Editar comisiones",
+        "Cambiar límites diarios de transferencia y QR",
+        "Pasar a editar portada, tarjetas, fondos y preguntas frecuentes"
+      ],
+      "img": "img/fintech/bo-productos.webp",
+      "thumb": "img/fintech/bo-productos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-portada",
+      "title": "Contenido de la portada",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/productos",
+      "capturedUrl": "admin.html#/productos",
+      "login": {
+        "id": "u-admin",
+        "name": "Rodrigo Pizarro",
+        "role": "Administrador",
+        "email": "admin@condorpay.demo",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Textos principales de la landing pública y sus cifras destacadas.",
+      "actions": [
+        "Editar título y bajada de la portada",
+        "Cambiar el texto del botón principal",
+        "Actualizar las cifras destacadas"
+      ],
+      "img": "img/fintech/bo-portada.webp",
+      "thumb": "img/fintech/bo-portada-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-fondos",
+      "title": "Fondos de inversión",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/productos",
+      "capturedUrl": "admin.html#/productos",
+      "login": {
+        "id": "u-admin",
+        "name": "Rodrigo Pizarro",
+        "role": "Administrador",
+        "email": "admin@condorpay.demo",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Fondos mutuos que se ofrecen en la app y en la landing, con riesgo y rentabilidad.",
+      "actions": [
+        "Crear o editar un fondo",
+        "Definir nivel de riesgo y rentabilidad",
+        "Activar o desactivar fondos"
+      ],
+      "img": "img/fintech/bo-fondos.webp",
+      "thumb": "img/fintech/bo-fondos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Rodrigo Pizarro",
+        "role": "Administrador",
+        "email": "admin@condorpay.demo",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Equipo interno y clientes, con la matriz de permisos de lectura y escritura de cada rol. Solo el administrador puede modificar.",
+      "actions": [
+        "Crear un usuario interno",
+        "Cambiar el rol",
+        "Desactivar o eliminar cuentas",
+        "Consultar la matriz de permisos"
+      ],
+      "img": "img/fintech/bo-usuarios.webp",
+      "thumb": "img/fintech/bo-usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bo-usuario-nuevo",
+      "title": "Nuevo usuario interno",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Rodrigo Pizarro",
+        "role": "Administrador",
+        "email": "admin@condorpay.demo",
+        "password": "admin123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo usuario interno\"",
+      "description": "Alta de una persona del equipo con nombre, correo, clave y rol.",
+      "actions": [
+        "Ingresar nombre, correo y clave",
+        "Asignar el rol",
+        "Crear la cuenta"
+      ],
+      "img": "img/fintech/bo-usuario-nuevo.webp",
+      "thumb": "img/fintech/bo-usuario-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Blueprint\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/fintech/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/fintech/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/fintech/look-app.webp"
+      },
+      {
+        "id": "noir",
+        "group": "Estilo",
+        "label": "Noir Neón",
+        "desc": "Oscuro con acentos brillantes.",
+        "img": "img/fintech/look-noir.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/fintech/look-editorial.webp"
+      },
+      {
+        "id": "nordic",
+        "group": "Estilo",
+        "label": "Nórdico",
+        "desc": "Minimalista, blanco y aire.",
+        "img": "img/fintech/look-nordic.webp"
+      }
+    ]
+  }
+}
