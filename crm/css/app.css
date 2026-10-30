@@ -403,3 +403,211 @@ body.dragging { cursor: grabbing; }
 /* Ajustes por estilo */
 @media (min-width: 901px) { .admin-topbar .admin-burger { display: none; } }
 [data-theme="metro"] .kpi .stat .delta { color: inherit !important; opacity: .85; }
+
+/* =====================================================================
+   Disposiciones (revista / app). Clásica = diseño original.
+   ===================================================================== */
+[data-layout="revista"] .site-main > [data-block], [data-layout="app"] .site-main > [data-block] { display: contents; }
+[data-layout="revista"] [data-block="header"], [data-layout="app"] [data-block="header"] { display: contents; }
+
+/* --- Cabecera --- */
+[data-layout="revista"] .site-header { position: relative; background: var(--bg); backdrop-filter: none; }
+[data-layout="revista"] .site-header .brand { font-size: clamp(30px, 5vw, 52px); }
+[data-layout="revista"] .site-header .brand .logo { width: 48px; height: 48px; }
+[data-layout="revista"] .nav-toggle, [data-layout="app"] .nav-toggle { display: none !important; }
+@media (max-width: 860px) {
+  [data-layout="revista"] .site-nav { position: static; flex-direction: row; box-shadow: none; background: none; border-bottom: 0; padding: 8px 0; gap: 4px 14px; }
+  [data-layout="revista"] .site-nav > a:not(.btn) { padding: 4px; }
+}
+@media (min-width: 901px) {
+  [data-layout="app"] .site-nav > .btn { margin-top: 6px; text-align: center !important; }
+  [data-layout="app"] .site-nav > .btn-primary { margin-top: 14px; }
+}
+@media (max-width: 900px) {
+  [data-layout="app"] .site-nav { border-bottom: 0; padding: 6px 4px; }
+  [data-layout="app"] .site-nav > .btn { flex: 0 0 auto !important; min-height: 0; padding: 6px 10px; }
+  [data-layout="app"] .site-header > .container { justify-content: center; }
+}
+
+/* --- Portada revista: orden editorial --- */
+[data-layout="revista"] .site-main { display: flex; flex-direction: column; }
+[data-layout="revista"] .site-main > [data-block] > section { order: 10; }
+[data-layout="revista"] .site-main > [data-block] > .site-hero { order: 0; }
+[data-layout="revista"] .site-main > [data-block] > .testimonials { order: 1; }
+[data-layout="revista"] .site-main > [data-block] > #funciones { order: 2; }
+[data-layout="revista"] .site-main > [data-block] > .how { order: 3; }
+[data-layout="revista"] .site-main > [data-block] > .proof { order: 4; }
+[data-layout="revista"] .site-main > [data-block] > #precios { order: 5; }
+[data-layout="revista"] .site-main > [data-block] > #faq { order: 6; }
+[data-layout="revista"] .site-main > [data-block] > .demo { order: 7; }
+[data-layout="revista"] .site-main > [data-block] > .guide-band { order: 8; }
+[data-layout="revista"] .site-main > [data-block] > section:not(.site-hero):not(.proof) { border-top: 1px solid var(--line); }
+[data-layout="revista"] .site-main { counter-reset: crm-sec; }
+[data-layout="revista"] .section-head h2::before { counter-increment: crm-sec; content: counter(crm-sec, decimal-leading-zero) '  '; color: var(--primary); font-size: .6em; vertical-align: .35em; }
+[data-layout="revista"] .section-head { justify-items: start; text-align: left; margin-inline: 0; max-width: none; border-bottom: 3px double var(--line); padding-bottom: 14px; }
+[data-layout="revista"] .section-head h2 { font-size: clamp(30px, 4.6vw, 54px); }
+[data-layout="revista"] .hero-mock { transform: none; }
+/* Testimonios como cita destacada */
+[data-layout="revista"] .site-main .testimonials .grid-3 { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 0 32px; }
+[data-layout="revista"] .testimonials .quote { background: none; box-shadow: none; border: 0; border-radius: 0; padding: 16px 0; border-bottom: 1px solid var(--line); }
+[data-layout="revista"] .site-main .testimonials .quote:first-child { grid-column: auto; grid-row: span 3; border-bottom: 0; border-right: 1px solid var(--line); padding-right: 32px; }
+[data-layout="revista"] .testimonials .quote:first-child blockquote { font: var(--head-weight) clamp(24px, 3vw, 38px)/1.25 var(--font-head); }
+/* Funciones con pieza destacada */
+[data-layout="revista"] #funciones .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-flow: dense; gap: 0; }
+[data-layout="revista"] #funciones .feature { background: none; box-shadow: none; border: 0; border-radius: 0; border-top: 1px solid var(--line); }
+[data-layout="revista"] #funciones .feature:first-child { grid-column: span 2; grid-row: span 2; border-top: 4px solid var(--primary); }
+[data-layout="revista"] #funciones .feature:first-child h3 { font-size: clamp(26px, 3vw, 40px); }
+[data-layout="revista"] #funciones .feature:first-child p { font-size: 19px; }
+/* Pasos en columnas con filete */
+[data-layout="revista"] .how { background: none; }
+[data-layout="revista"] .steps { gap: 0; }
+[data-layout="revista"] .step-card { border-left: 0; border-top: 0; background: none; box-shadow: none; border-radius: 0; }
+[data-layout="revista"] .step-card + .step-card { border-left: 1px solid var(--line); }
+/* Cifras como franja */
+[data-layout="revista"] .proof .stats-row { border-block: 3px double var(--line); padding-block: 18px; }
+/* El núcleo destaca la 1.ª pieza de cada .grid-3: aquí solo se quiere en Funciones */
+[data-layout="revista"] .site-main :is(.stats-row, .steps, .plans) > :first-child { grid-column: auto; grid-row: auto; }
+[data-layout="revista"] .site-main .grid-3:is(.stats-row, .steps) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 760px) { [data-layout="revista"] .site-main .grid-3.steps { grid-template-columns: 1fr; } }
+/* Precios como filas comparativas */
+[data-layout="revista"] .site-main .grid-3.plans { grid-template-columns: minmax(0, 1fr); gap: 0; }
+[data-layout="revista"] .plan { display: grid; grid-template-columns: 160px 200px minmax(0, 1fr) 180px; align-items: center; gap: 20px; border-radius: 0; box-shadow: none; border-width: 0 0 1px; background: none; padding: 22px 8px; }
+[data-layout="revista"] .plan.featured { border: 0; border-block: 3px solid var(--primary); box-shadow: none; }
+[data-layout="revista"] .plan .checks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+[data-layout="revista"] .plan-tag { position: static; grid-column: 1; grid-row: 2; justify-self: start; }
+[data-layout="revista"] .plan h3 { font-size: 26px; }
+/* Preguntas en dos columnas */
+[data-layout="revista"] #faq .narrow { max-width: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
+[data-layout="revista"] #faq .section-head { grid-column: 1 / -1; }
+[data-layout="revista"] .faq-item { background: none; box-shadow: none; border: 0; border-radius: 0; border-bottom: 1px solid var(--line); }
+/* Demo: formulario a la izquierda, texto a la derecha */
+[data-layout="revista"] .demo-grid { grid-template-columns: 1.2fr 1fr; }
+[data-layout="revista"] .demo-form { order: -1; border-top: 4px solid var(--primary); }
+[data-layout="revista"] .guide { background: none; box-shadow: none; border-width: 0; border-block: 3px double var(--line); border-radius: 0; }
+@media (max-width: 900px) {
+  [data-layout="revista"] .demo-grid { grid-template-columns: 1fr; }
+  [data-layout="revista"] .plan { grid-template-columns: 1fr; gap: 10px; }
+  [data-layout="revista"] .plan .checks { grid-template-columns: 1fr; }
+  [data-layout="revista"] .plan-tag { grid-row: auto; }
+  [data-layout="revista"] #faq .narrow, [data-layout="revista"] .site-main .testimonials .grid-3 { grid-template-columns: 1fr; }
+  [data-layout="revista"] .site-main .testimonials .quote:first-child { grid-row: auto; border-right: 0; padding-right: 0; border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 760px) {
+  [data-layout="revista"] #funciones .grid-3 { grid-template-columns: 1fr; }
+  [data-layout="revista"] #funciones .feature:first-child { grid-column: auto; grid-row: auto; }
+  [data-layout="revista"] .step-card + .step-card { border-left: 0; border-top: 1px solid var(--line); }
+}
+
+/* --- Portada app: columna central + formulario de demo fijo a la derecha --- */
+[data-layout="app"] .site-main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; width: min(1360px, 100% - 32px); margin-inline: auto; padding-block: 16px; }
+[data-layout="app"] .site-main > [data-block] > section { padding: 0 !important; background: none; }
+[data-layout="app"] .site-main > [data-block] > section > .container { width: auto; margin: 0; }
+[data-layout="app"] .site-main > [data-block] > section:not(.site-hero):not(.demo) > .container { padding: clamp(16px, 2.4vw, 26px); background: color-mix(in srgb, var(--surface) 70%, transparent); border: var(--border-w) solid var(--line); border-radius: var(--radius); }
+[data-layout="app"] .section-head { justify-items: start; text-align: left; margin: 0 0 4px; max-width: none; }
+[data-layout="app"] .section-head h2 { font-size: clamp(20px, 2.4vw, 26px); }
+[data-layout="app"] .site-main > [data-block] > section .center.muted { text-align: left; }
+[data-layout="app"] .hero-mock { transform: none; box-shadow: none; }
+@media (min-width: 1100px) {
+  [data-layout="app"] .site-main { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 360px; align-items: start; grid-auto-flow: dense; }
+  [data-layout="app"] .site-main > [data-block] > section { grid-column: 1 / 3; }
+  [data-layout="app"] .site-main > [data-block] > .demo { grid-column: 3; grid-row: 1 / span 9; position: sticky; top: 16px; }
+  [data-layout="app"] .site-main > [data-block] > .proof { grid-column: 1 / 3; }
+  [data-layout="app"] .site-main > [data-block] > .how { grid-column: 1; }
+  [data-layout="app"] .site-main > [data-block] > .guide-band { grid-column: 2; }
+  [data-layout="app"] .site-main > [data-block] > #faq { grid-column: 1 / 3; }
+  [data-layout="app"] .how .steps { grid-template-columns: 1fr; }
+  [data-layout="app"] .guide { grid-template-columns: 1fr; }
+}
+[data-layout="app"] .demo-grid { grid-template-columns: 1fr; gap: 12px; }
+[data-layout="app"] .demo-grid > .stack { padding: 18px; background: color-mix(in srgb, var(--primary) 10%, var(--surface)); border: var(--border-w) solid var(--line); border-radius: var(--radius); gap: 8px; }
+[data-layout="app"] .demo-grid > .stack h2 { font-size: 20px; margin: 0; }
+[data-layout="app"] .demo-grid > .stack .checks, [data-layout="app"] .demo-grid > .stack > p.muted:not(.small) { display: none; }
+[data-layout="app"] .demo-form .grid-2 { grid-template-columns: 1fr; gap: 10px; }
+[data-layout="app"] .demo-form textarea { min-height: 70px; }
+[data-layout="app"] .site-main :is(.stats-row, .steps) > * { grid-column: auto !important; }
+/* cifras como fila de fichas */
+[data-layout="app"] .proof .stats-row { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+[data-layout="app"] .proof .stats-row .stat { align-items: flex-start; padding: 12px; background: var(--surface-2); border-radius: var(--radius-sm); }
+[data-layout="app"] .proof .logos { justify-content: flex-start; }
+/* funciones como lista compacta de íconos */
+[data-layout="app"] #funciones .grid-3 { grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: 8px; }
+[data-layout="app"] #funciones .grid-3 > * { grid-column: auto !important; }
+[data-layout="app"] #funciones .feature { grid-template-columns: 40px minmax(0, 1fr); column-gap: 12px; row-gap: 2px; padding: 12px; box-shadow: none; }
+[data-layout="app"] #funciones .feature .feat-ico { grid-row: span 2; width: 40px; height: 40px; }
+[data-layout="app"] #funciones .feature h3 { font-size: 15px; }
+[data-layout="app"] #funciones .feature p { font-size: 13px; }
+/* precios: carrusel horizontal */
+[data-layout="app"] .plans { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 6px; }
+[data-layout="app"] .plans > .plan { flex: 0 0 min(300px, 85%); scroll-snap-align: start; }
+[data-layout="app"] .testimonials .grid-3 { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; }
+[data-layout="app"] .testimonials .quote { flex: 0 0 min(340px, 85%); scroll-snap-align: start; box-shadow: none; }
+[data-layout="app"] .testimonials .quote blockquote { font-size: 15px; }
+[data-layout="app"] #faq .narrow { max-width: none; }
+[data-layout="app"] .faq-item { box-shadow: none; padding: 12px 16px; }
+@media (max-width: 1099px) {
+  [data-layout="app"] .site-main > [data-block] > .demo { order: 3; }
+  [data-layout="app"] .site-main > [data-block] > .site-hero, [data-layout="app"] .site-main > [data-block] > .proof { order: 0; }
+  [data-layout="app"] .site-main > [data-block] > #funciones { order: 1; }
+  [data-layout="app"] .site-main > [data-block] > #precios { order: 2; }
+  [data-layout="app"] .site-main > [data-block] > section { order: 4; }
+}
+
+/* --- Dashboard comercial y de administración --- */
+[data-layout="revista"] .admin-content > .grid-4 { gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .admin-content > .grid-4 > .kpi { background: none; box-shadow: none; border: 0; border-radius: 0; text-align: center; }
+[data-layout="revista"] .admin-content > .grid-4 > .kpi + .kpi { border-left: 1px solid var(--line); }
+[data-layout="revista"] .admin-content > .grid-4 .stat { align-items: center; }
+[data-layout="revista"] .dash-grid { grid-auto-flow: dense; }
+[data-layout="revista"] .dash-grid > .card { box-shadow: none; border-width: 0; border-top: 3px solid var(--text); border-radius: 0; background: none; }
+[data-layout="revista"] .dash-grid > .card h3 { font-size: 22px; }
+@media (min-width: 1101px) {
+  [data-layout="revista"] .dash-grid > .span-2:first-child { grid-row: span 2; }
+}
+@media (max-width: 700px) { [data-layout="revista"] .admin-content > .grid-4 > .kpi:nth-child(odd) { border-left: 0; } }
+@media (min-width: 1000px) {
+  [data-layout="app"] .admin-content:has(> .grid-4 + .dash-grid) { display: grid; grid-template-columns: 240px minmax(0, 1fr); align-items: start; }
+  [data-layout="app"] .admin-content:has(> .grid-4 + .dash-grid) > :not(.grid-4):not(.dash-grid) { grid-column: 1 / -1; }
+  [data-layout="app"] .admin-content > .grid-4:has(+ .dash-grid) { grid-template-columns: 1fr; gap: 0; position: sticky; top: 70px; border: var(--border-w) solid var(--line); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+  [data-layout="app"] .admin-content > .grid-4:has(+ .dash-grid) > .kpi { border: 0; border-bottom: 1px solid var(--line); border-radius: 0; box-shadow: none; padding: 12px 14px; }
+  [data-layout="app"] .admin-content > .grid-4:has(+ .dash-grid) > .kpi:last-child { border-bottom: 0; }
+  [data-layout="app"] .dash-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  [data-layout="app"] .dash-grid > .span-2, [data-layout="app"] .dash-grid > .span-3 { grid-column: 1 / -1; }
+}
+@media (max-width: 999px) {
+  [data-layout="app"] .admin-content > .grid-4:has(+ .dash-grid) { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; padding-bottom: 4px; }
+  [data-layout="app"] .admin-content > .grid-4:has(+ .dash-grid) > .kpi { flex: 0 0 min(210px, 72%); scroll-snap-align: start; }
+}
+/* La agenda del día sube al primer lugar en app */
+[data-layout="app"] .dash-grid > .card:has([data-acts]) { order: -1; }
+[data-layout="app"] .dash-grid { gap: 12px; }
+[data-layout="app"] .dash-grid > .card { padding: 14px; }
+
+/* --- Tablero de negocios --- */
+/* Revista: cada etapa es una franja horizontal con sus negocios en fila */
+[data-layout="revista"] .kanban { grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); grid-auto-columns: auto; overflow: visible; gap: 0; }
+[data-layout="revista"] .kcol { flex-direction: row; min-height: 0; background: none; border-width: 0 0 1px; border-radius: 0; }
+[data-layout="revista"] .kcol-head { flex: 0 0 200px; border-bottom: 0; border-right: 3px solid var(--primary); padding: 14px 16px; align-content: start; }
+[data-layout="revista"] .kcol-ganado .kcol-head { border-right-color: var(--success); }
+[data-layout="revista"] .kcol-perdido .kcol-head { border-right-color: var(--danger); }
+[data-layout="revista"] .kcol-propuesta .kcol-head, [data-layout="revista"] .kcol-negociacion .kcol-head { border-right-color: var(--warning); }
+[data-layout="revista"] .kcol-prospeccion .kcol-head { border-right-color: var(--info); }
+[data-layout="revista"] .kcol-body { flex-direction: row; flex-wrap: wrap; max-height: none; overflow: visible; align-items: flex-start; align-content: flex-start; min-height: 80px; }
+[data-layout="revista"] .kcol-body > * { flex: 0 1 230px; min-width: 0; }
+[data-layout="revista"] .kcard { box-shadow: none; }
+@media (max-width: 700px) {
+  [data-layout="revista"] .kcol { flex-direction: column; }
+  [data-layout="revista"] .kcol-head { flex: none; border-right: 0; border-bottom: 3px solid var(--primary); }
+  [data-layout="revista"] .kcol-body > * { flex: 1 1 100%; }
+}
+/* App: columnas angostas y tarjetas densas */
+[data-layout="app"] .kanban { grid-auto-columns: minmax(200px, 1fr); gap: 8px; }
+[data-layout="app"] .kcol-head { padding: 8px 10px 6px; font-size: 13px; }
+[data-layout="app"] .kcol-body { padding: 6px; gap: 6px; }
+[data-layout="app"] .kcard { padding: 7px 9px; font-size: 13px; box-shadow: none; gap: 2px; }
+/* Riel de íconos (app): el núcleo recorta las etiquetas y dejaba 2-3 letras visibles; se ocultan hasta expandir */
+@media (min-width: 901px) {
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) :is(.nav-link, .admin-brand) { font-size: 0; gap: 0; }
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .nav-link .count { display: none; }
+}
+[data-layout="app"] .dash-grid { grid-auto-flow: dense; }
+@media (min-width: 1000px) { [data-layout="app"] .dash-grid > .card:has([data-acts]) { grid-row: span 2; } }

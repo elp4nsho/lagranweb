@@ -257,3 +257,154 @@ mark { background: color-mix(in srgb, var(--warning) 35%, transparent); color: i
 .dept-node { display: flex; flex-direction: column; gap: 6px; padding: 12px; min-width: 200px; max-width: 240px; background: var(--surface); border: var(--border-w) solid var(--line); border-top: 4px solid var(--c, var(--primary)); border-radius: var(--radius-sm); box-shadow: var(--shadow); text-align: left; font: inherit; color: var(--text); cursor: pointer; }
 .dept-node b { font-size: 15px; }
 .enps-big { font: var(--head-weight) 56px/1 var(--font-head); }
+
+/* =====================================================================
+   Disposiciones (revista / app). Clásica = diseño original.
+   ===================================================================== */
+/* --- Cabecera --- */
+[data-layout="revista"] .topbar { position: relative; background: var(--bg); backdrop-filter: none; }
+[data-layout="revista"] .topnav { flex: none; justify-content: center; overflow-x: auto; }
+[data-layout="revista"] .topbar .brand .logo { width: 44px; height: 44px; }
+@media (max-width: 760px) { [data-layout="revista"] .brand-name { display: inline; } [data-layout="revista"] .topbar-end { position: static; } }
+[data-layout="app"] .topnav { flex: none; }
+@media (min-width: 901px) {
+  [data-layout="app"] .topbar-end { flex-direction: column; align-items: stretch; margin-left: 0; }
+  [data-layout="app"] .topbar-end .menu-pop { right: auto; left: 0; top: auto; bottom: calc(100% + 8px); width: 216px; }
+  [data-layout="app"] .topbar .brand-name { display: inline; }
+}
+
+/* --- Portada --- */
+[data-layout="revista"] .site-main:has(> .home-jobs) { display: flex; flex-direction: column; }
+[data-layout="revista"] .home-jobs { order: 1; }
+[data-layout="revista"] .home-about { order: 2; }
+[data-layout="revista"] .home-stats { order: 3; padding-block: 28px; }
+[data-layout="revista"] .home-cta { order: 4; }
+[data-layout="revista"] .home-stats .stats-strip { gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .home-stats .card { background: none; border: 0; box-shadow: none; border-radius: 0; text-align: center; }
+[data-layout="revista"] .home-stats .card + .card { border-left: 1px solid var(--line); }
+[data-layout="revista"] .home-about .grid-2 { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 0; }
+[data-layout="revista"] .home-about .card { background: none; box-shadow: none; border: 0; border-radius: 0; }
+[data-layout="revista"] .home-about .card + .card { border-left: 1px solid var(--line); }
+[data-layout="revista"] .home-about .card:first-child p { font-size: 19px; line-height: 1.6; }
+[data-layout="revista"] .home-about .benefit-grid { grid-template-columns: 1fr; }
+[data-layout="revista"] .home-cta .card { flex-direction: column; text-align: center; border-width: 0; border-block: 3px double var(--line); border-radius: 0; box-shadow: none; background: none; }
+@media (max-width: 760px) {
+  [data-layout="revista"] .home-about .grid-2 { grid-template-columns: 1fr; }
+  [data-layout="revista"] .home-about .card + .card { border-left: 0; border-top: 1px solid var(--line); }
+  [data-layout="revista"] .home-stats .card:nth-child(3) { border-left: 0; }
+}
+
+/* Lista de empleos en revista: dos columnas con pieza destacada */
+[data-layout="revista"] .job-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+[data-layout="revista"] .job-card { grid-template-columns: 1fr; align-content: start; background: none; box-shadow: none; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 20px 18px; }
+[data-layout="revista"] .job-card:nth-child(odd) { border-right: 1px solid var(--line); }
+[data-layout="revista"] .job-card > div[style] { text-align: left !important; }
+[data-layout="revista"] .job-card h3 { font-size: 22px; }
+[data-layout="revista"] .job-list > .job-card:first-child { grid-column: 1 / -1; border-right: 0; padding-block: 28px; }
+[data-layout="revista"] .job-list > .job-card:first-child h3 { font-size: clamp(26px, 3.4vw, 40px); }
+[data-layout="revista"] .job-list > .job-card:first-child + .job-card { border-right: 1px solid var(--line); }
+[data-layout="revista"] .job-list > .job-card:first-child ~ .job-card:nth-child(odd) { border-right: 0; }
+@media (max-width: 700px) { [data-layout="revista"] .job-list { grid-template-columns: 1fr; } [data-layout="revista"] .job-card { border-right: 0 !important; } }
+
+/* Portada en app: tablero con columna lateral */
+@media (min-width: 1000px) {
+  [data-layout="app"] .site-main:has(> .home-jobs) { display: grid; grid-template-columns: minmax(0, 1fr) 330px; grid-template-areas: "hero stats" "jobs about" "cta about"; grid-template-rows: auto auto 1fr; gap: 16px; align-items: start; width: min(1360px, 100% - 32px); margin-inline: auto; padding-block: 16px; }
+  [data-layout="app"] .site-main:has(> .home-jobs) > section { width: auto; margin: 0; }
+  [data-layout="app"] .home-stats { grid-area: stats; }
+  [data-layout="app"] .home-stats .stats-strip { grid-template-columns: 1fr; gap: 0; border: var(--border-w) solid var(--line); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+  [data-layout="app"] .home-stats .card { border: 0; border-radius: 0; box-shadow: none; border-bottom: 1px solid var(--line); padding: 12px 16px; }
+  [data-layout="app"] .home-stats .card:last-child { border-bottom: 0; }
+  [data-layout="app"] .home-stats .stat { flex-direction: row; justify-content: space-between; align-items: baseline; width: 100%; }
+  [data-layout="app"] .home-jobs { grid-area: jobs; padding: 0; }
+  [data-layout="app"] .home-about { grid-area: about; position: sticky; top: 16px; }
+  [data-layout="app"] .home-about .grid-2 { grid-template-columns: 1fr; gap: 12px; }
+  [data-layout="app"] .home-about .benefit-grid { grid-template-columns: 1fr; gap: 8px; }
+  [data-layout="app"] .home-cta { grid-area: cta; padding: 0; }
+  [data-layout="app"] .site-main:has(> .home-jobs) > .site-hero { grid-area: hero; padding: 0 !important; }
+  [data-layout="app"] .site-main:has(> .home-jobs) > .site-hero > .container { width: auto; height: 100%; }
+}
+[data-layout="app"] .home-stats .card { display: flex; align-items: center; }
+[data-layout="app"] .home-jobs, [data-layout="app"] .jobs-page .job-list { gap: 0; }
+/* Empleos como filas densas */
+[data-layout="app"] .job-list { gap: 0; border: var(--border-w) solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+[data-layout="app"] .job-card { border: 0; border-radius: 0; box-shadow: none; border-bottom: 1px solid var(--line); padding: 10px 14px; }
+[data-layout="app"] .job-card:last-child { border-bottom: 0; }
+[data-layout="app"] .job-card h3 { font-size: 15px; margin-bottom: 2px; }
+[data-layout="app"] .job-card .badge { font-size: 11px; }
+[data-layout="app"] .home-cta .card { box-shadow: none; }
+
+/* --- Listado de empleos: filtros a la izquierda (revista) / derecha (app) --- */
+@media (min-width: 900px) {
+  [data-layout="revista"] .jobs-page { display: grid; grid-template-columns: 250px minmax(0, 1fr); grid-template-areas: "head head" "filters count" "filters list"; column-gap: 32px; align-items: start; }
+  [data-layout="app"] .jobs-page { display: grid; grid-template-columns: minmax(0, 1fr) 280px; grid-template-areas: "head filters" "count filters" "list filters"; column-gap: 16px; align-items: start; }
+  [data-layout="revista"] .jobs-filters, [data-layout="app"] .jobs-filters { grid-area: filters; position: sticky; top: 16px; }
+  [data-layout="revista"] .jobs-filters .row, [data-layout="app"] .jobs-filters .row { flex-direction: column; align-items: stretch; }
+  [data-layout="revista"] .jobs-filters .row > *, [data-layout="app"] .jobs-filters .row > * { flex: none !important; width: 100% !important; }
+  [data-layout="revista"] .jobs-head, [data-layout="app"] .jobs-head { grid-area: head; }
+  [data-layout="revista"] .jobs-count, [data-layout="app"] .jobs-count { grid-area: count; }
+  [data-layout="revista"] .jobs-page .job-list, [data-layout="app"] .jobs-page .job-list { grid-area: list; }
+}
+[data-layout="revista"] .jobs-head { text-align: center; border-bottom: 3px double var(--line); padding-bottom: 14px; }
+[data-layout="revista"] .jobs-head h1 { font-size: clamp(34px, 5vw, 60px); }
+[data-layout="revista"] .jobs-filters { background: none; box-shadow: none; border-width: 0; border-top: 4px solid var(--primary); border-radius: 0; padding: 14px 0 !important; }
+[data-layout="app"] .jobs-head h1 { font-size: clamp(22px, 3vw, 30px); }
+@media (max-width: 899px) {
+  [data-layout="app"] .jobs-filters { position: sticky; top: 0; z-index: 20; }
+  [data-layout="app"] .jobs-filters .row { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  [data-layout="app"] .jobs-filters .row > * { flex: 0 0 auto !important; width: 170px !important; }
+}
+
+/* --- Detalle de vacante --- */
+[data-layout="revista"] .job-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
+[data-layout="revista"] .job-body { background: none; box-shadow: none; border: 0; padding-inline: 0; column-count: 2; column-gap: 40px; column-rule: 1px solid var(--line); }
+[data-layout="revista"] .job-body > :is(.eyebrow, h1, .row) { column-span: all; }
+[data-layout="revista"] .job-body h1 { font-size: clamp(36px, 6vw, 68px) !important; text-align: center; }
+[data-layout="revista"] .job-body > .eyebrow { display: block; text-align: center; }
+[data-layout="revista"] .job-body > .row { justify-content: center; padding-bottom: 16px; border-bottom: 3px double var(--line); }
+[data-layout="revista"] .job-body h3 { break-after: avoid; }
+[data-layout="revista"] .job-layout > form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 20px; border-top: 4px solid var(--primary); }
+[data-layout="revista"] .job-layout > form > :is(h2, .form-grid, .field:has(#ap-name), .field:has(#ap-sal), .field:has(.upload), .field:has(textarea), .check, p, button) { grid-column: 1 / -1; }
+@media (max-width: 700px) {
+  [data-layout="revista"] .job-body { column-count: 1; }
+  [data-layout="revista"] .job-layout > form { grid-template-columns: 1fr; }
+}
+@media (min-width: 900px) {
+  [data-layout="app"] .job-layout { grid-template-columns: 380px minmax(0, 1fr); }
+  [data-layout="app"] .job-layout > form { order: -1; position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow-y: auto; }
+}
+[data-layout="app"] .job-body h1 { font-size: clamp(24px, 3vw, 32px) !important; }
+[data-layout="app"] .job-body h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-top: 18px; }
+
+/* --- Dashboard del panel (y portal) --- */
+[data-layout="revista"] .admin-content > .kpis { gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .admin-content > .kpis > .kpi { background: none; box-shadow: none; border: 0; border-radius: 0; text-align: center; }
+[data-layout="revista"] .admin-content > .kpis > .kpi + .kpi { border-left: 1px solid var(--line); }
+[data-layout="revista"] .admin-content > .kpis .stat { align-items: center; }
+@media (min-width: 1101px) {
+  [data-layout="revista"] .dash-grid > * { grid-column: span 4; }
+  [data-layout="revista"] .dash-grid > :first-child { grid-column: span 8; grid-row: span 2; }
+  [data-layout="revista"] .dash-grid > :last-child:nth-child(even) { grid-column: span 8; }
+  [data-layout="revista"] .dash-grid { grid-auto-flow: dense; }
+}
+[data-layout="revista"] .dash-grid > .card { box-shadow: none; border-width: 0; border-top: 3px solid var(--text); border-radius: 0; background: none; }
+[data-layout="revista"] .dash-grid .card-h h3 { font-size: 22px; }
+@media (min-width: 1000px) {
+  [data-layout="app"] .admin-content:has(> .kpis + .dash-grid) { display: grid; grid-template-columns: 230px minmax(0, 1fr); align-items: start; }
+  [data-layout="app"] .admin-content:has(> .kpis + .dash-grid) > :not(.kpis):not(.dash-grid) { grid-column: 1 / -1; }
+  [data-layout="app"] .admin-content > .kpis { grid-template-columns: 1fr; gap: 0; position: sticky; top: 70px; border: var(--border-w) solid var(--line); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+  [data-layout="app"] .admin-content > .kpis > .kpi { border: 0; border-bottom: 1px solid var(--line); border-radius: 0; box-shadow: none; padding: 12px 14px; }
+  [data-layout="app"] .admin-content > .kpis > .kpi:last-child { border-bottom: 0; }
+  [data-layout="app"] .dash-grid > *, [data-layout="app"] .dash-grid > .span-4, [data-layout="app"] .dash-grid > .span-8 { grid-column: span 6; }
+}
+@media (max-width: 999px) {
+  [data-layout="app"] .admin-content > .kpis { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; padding-bottom: 4px; }
+  [data-layout="app"] .admin-content > .kpis > .kpi { flex: 0 0 min(200px, 70%); scroll-snap-align: start; }
+}
+[data-layout="app"] .dash-grid { gap: 12px; }
+[data-layout="app"] .dash-grid > .card { padding: 14px; }
+[data-layout="app"] .dash-grid .card-h { margin-bottom: 6px; }
+/* Riel de íconos (app): el núcleo recorta las etiquetas y dejaba 2-3 letras visibles; se ocultan hasta expandir */
+@media (min-width: 901px) {
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) :is(.nav-link, .admin-brand) { font-size: 0; gap: 0; }
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .nav-link .count { display: none; }
+}

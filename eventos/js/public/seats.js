@@ -26,7 +26,7 @@ export function renderSeats(app, id) {
           <div class="seatmap-wrap" id="mapwrap"></div></div>
           <div class="legend" id="legend"></div>`) : raw(`<div class="card"><h3>Entrada general</h3><p class="muted">Este evento no tiene asientos numerados: elige la cantidad de entradas por tipo.</p></div>`)}
       </div>
-      <aside class="card stack" style="position:sticky;top:130px" id="summary"></aside>
+      <aside class="card stack seat-sum" id="summary"></aside>
     </div></div></section>`;
 
   const tierByZone = Object.fromEntries(seated.map(t => [t.zone, { label: `${t.name} ${money(tierPrice(t))}`, short: money(tierPrice(t)), tier: t }]));

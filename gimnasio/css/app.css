@@ -303,3 +303,185 @@ button.cls { cursor: pointer; }
 .stat-card .value { font-size: clamp(20px, 2.3vw, 30px); overflow-wrap: anywhere; }
 @media (max-width: 420px) { .hide-xs { display: none; } }
 .member-card .qr { border-radius: min(var(--radius-sm), 12px); }
+
+/* =====================================================================
+   Disposiciones (clásica / revista / app) — ver assets/core/layouts.css
+   ===================================================================== */
+:is([data-layout="revista"], [data-layout="app"]) .site-header .bar .nav-toggle { display: none !important; }
+
+/* ---------- REVISTA: revista deportiva ---------- */
+[data-layout="revista"] .site-header { position: relative; background: var(--bg); }
+[data-layout="revista"] .site-header .brand { flex-direction: column; text-align: center; gap: 6px; }
+[data-layout="revista"] .site-header .brand small { display: block !important; letter-spacing: .25em; text-transform: uppercase; }
+[data-layout="revista"] .site-header .site-nav,
+[data-layout="revista"] .site-header.compact .site-nav { position: static; display: flex; flex-direction: row; box-shadow: none; background: none; margin: 0; padding: 8px 0; }
+[data-layout="revista"] .site-nav a { text-transform: uppercase; letter-spacing: .12em; font-size: 12px; border-radius: 0; padding: 6px 4px !important; }
+[data-layout="revista"] .site-nav a.active { background: none; box-shadow: inset 0 -2px 0 var(--primary); }
+[data-layout="revista"] .header-cta .hide-sm { display: inline; }
+@media (max-width: 900px) {
+  [data-layout="revista"] .site-header .site-nav { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; }
+  [data-layout="revista"] .site-nav a { flex: none; }
+  [data-layout="revista"] .site-actions { justify-content: center; padding-bottom: 10px; }
+}
+[data-layout="revista"] .hero-gym h1 { font-size: clamp(40px, 7.5vw, 96px); text-transform: uppercase; }
+[data-layout="revista"] .section-head { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+[data-layout="revista"] .section-head .muted { margin-inline: auto; }
+/* cifras: franja de 4 columnas con filetes */
+[data-layout="revista"] .site-main .section.tight > .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .site-main .section.tight > .grid-4 > .card { grid-column: auto; grid-row: auto; background: none; border: 0; box-shadow: none; border-radius: 0; text-align: center; }
+[data-layout="revista"] .site-main .section.tight > .grid-4 > .card + .card { border-left: 1px solid var(--line); }
+@media (max-width: 760px) { [data-layout="revista"] .site-main .section.tight > .grid-4 { grid-template-columns: 1fr 1fr; } [data-layout="revista"] .site-main .section.tight > .grid-4 > .card:nth-child(3) { border-left: 0; } }
+/* planes: columnas de tabla comparativa separadas por filetes, plan destacado con faja superior */
+[data-layout="revista"] .plans { gap: 0; border-block: 1px solid var(--line); }
+[data-layout="revista"] .plans > .plan { background: none; box-shadow: none; border: 0; border-radius: 0; text-align: center; padding-block: 28px; }
+[data-layout="revista"] .plans > .plan + .plan { border-left: 1px solid var(--line); }
+[data-layout="revista"] .plans > .plan.featured { box-shadow: inset 0 6px 0 var(--primary); background: color-mix(in srgb, var(--primary) 6%, transparent); }
+[data-layout="revista"] .plan .ribbon { position: static; align-self: center; }
+[data-layout="revista"] .plan .price { font-size: clamp(38px, 5vw, 60px); }
+[data-layout="revista"] .plan ul { text-align: left; }
+@media (max-width: 760px) { [data-layout="revista"] .plans > .plan + .plan { border-left: 0; border-top: 1px solid var(--line); } }
+[data-layout="revista"] .billing-toggle { align-self: center; }
+/* clases de hoy: horario tipo cartelera a dos columnas, hora grande */
+[data-layout="revista"] .site-main .grid-3:has(> .cls) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
+[data-layout="revista"] .site-main .grid-3 > .cls { grid-column: auto; grid-row: auto; display: grid; grid-template-columns: 130px minmax(0, 1fr); column-gap: 14px; background: none; box-shadow: none; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 14px 0; margin: 0; }
+[data-layout="revista"] .site-main .grid-3 > .cls > small:first-child { grid-row: span 3; font: var(--head-weight) 20px/1.1 var(--font-head); color: var(--c, var(--primary)); white-space: normal; }
+@media (max-width: 760px) { [data-layout="revista"] .site-main .grid-3:has(> .cls) { grid-template-columns: minmax(0, 1fr); } }
+[data-layout="revista"] .site-main .grid-4:has(> .card.hover) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+[data-layout="revista"] .site-main .grid-4 > .card.hover:first-child { grid-column: auto; grid-row: auto; }
+@media (max-width: 760px) { [data-layout="revista"] .site-main .grid-4:has(> .card.hover) { grid-template-columns: 1fr 1fr; } }
+[data-layout="revista"] .site-main .grid-4 > .card.hover { background: none; box-shadow: none; border: 0; border-top: 3px solid var(--primary); border-radius: 0; padding-inline: 0; }
+[data-layout="revista"] .site-main .section.tight > .grid-2 > .card { background: none; box-shadow: none; border: 0; border-left: 4px solid var(--primary); border-radius: 0; }
+/* inscripción: pasos como índice con filetes y resumen a la izquierda */
+[data-layout="revista"] .steps { gap: 0; border-block: 1px solid var(--line); }
+[data-layout="revista"] .steps li { background: none; border: 0; border-radius: 0; justify-content: center; text-transform: uppercase; letter-spacing: .06em; font-size: 11px; }
+[data-layout="revista"] .steps li + li { border-left: 1px solid var(--line); }
+[data-layout="revista"] .steps li.current { background: none; box-shadow: inset 0 -3px 0 var(--primary); }
+[data-layout="revista"] .booking-layout { grid-template-columns: 300px minmax(0, 1fr); }
+[data-layout="revista"] .booking-layout > aside { order: -1; }
+[data-layout="revista"] .summary { background: none; box-shadow: none; border: 0; border-block: 3px double var(--line); border-radius: 0; }
+@media (max-width: 900px) { [data-layout="revista"] .booking-layout { grid-template-columns: 1fr; } [data-layout="revista"] .steps li + li { border-left: 0; } }
+[data-layout="revista"] .site-footer .cols { text-align: center; }
+[data-layout="revista"] .site-footer .brand { justify-content: center; }
+
+/* ---------- APP: app de entrenamiento ---------- */
+[data-layout="app"] .site-header.compact .site-nav { position: static; display: flex; box-shadow: none; background: none; }
+@media (min-width: 901px) {
+  [data-layout="app"] .site-header .announce { font-size: 12px; padding: 8px 12px; }
+  [data-layout="app"] .site-header .brand { white-space: normal; font-size: 17px; align-items: flex-start; }
+  [data-layout="app"] .site-header .brand small { display: block !important; }
+  [data-layout="app"] .site-header .site-nav { margin: 0; padding: 0; position: static; flex-direction: column; box-shadow: none; background: none; }
+  [data-layout="app"] .header-cta .btn { width: 100%; justify-content: center; }
+  [data-layout="app"] .header-cta .hide-sm, [data-layout="app"] .header-cta .hide-xs { display: inline; }
+  [data-layout="app"] .site-footer { padding-bottom: 40px; }
+}
+@media (max-width: 900px) {
+  [data-layout="app"] .site-header .bar { min-height: 56px; }
+  [data-layout="app"] .site-actions { margin-left: auto; }
+  [data-layout="app"] .site-nav a { padding: 6px 10px !important; }
+}
+[data-layout="app"] .hero-gym h1 { font-size: clamp(28px, 3.6vw, 46px); }
+/* portada: tablero (cifras, hoy + sedes lado a lado, planes en carrusel, disciplinas bento) */
+[data-layout="app"] .site-main:has(> .site-hero) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding-inline: max(16px, (100% - 1360px) / 2); }
+[data-layout="app"] .site-main:has(> .site-hero) > * { grid-column: 1 / -1; min-width: 0; }
+[data-layout="app"] .site-main:has(> .site-hero) > section > .container { width: auto; margin-inline: 6px; }
+[data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(2) { padding-block: 0 14px; }
+[data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(2) > .container { background: none; border: 0; padding: 0; }
+[data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(2) .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+[data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(2) .grid-4 > .card { grid-column: auto; border-top: 4px solid var(--primary); }
+@media (max-width: 760px) { [data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(2) .grid-4 { grid-template-columns: 1fr 1fr; } }
+[data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(4) { order: 1; grid-column: 1; }
+[data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(6) { order: 1; grid-column: 2; }
+[data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(3) { order: 2; }
+[data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(5) { order: 3; }
+@media (max-width: 900px) { [data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(n) { grid-column: 1 / -1; } }
+[data-layout="app"] .site-main .section-head { margin-bottom: 12px; }
+[data-layout="app"] .site-main .section-head h2 { font-size: 20px; }
+[data-layout="app"] .site-main .grid-3:has(> .cls) { grid-template-columns: minmax(0, 1fr) !important; gap: 6px; }
+[data-layout="app"] .site-main .grid-3 > .cls { grid-column: auto !important; margin: 0; display: grid; grid-template-columns: 110px minmax(0, 1fr); column-gap: 10px; align-items: center; }
+[data-layout="app"] .site-main .grid-3 > .cls > small:first-child { grid-row: span 2; }
+[data-layout="app"] .site-main .section.tight > .grid-2 { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+[data-layout="app"] .site-main .section.tight > .grid-2 > .card { padding: 12px; }
+/* planes: carrusel horizontal deslizable en la portada */
+[data-layout="app"] .site-main:has(> .site-hero) .plans { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 8px; }
+[data-layout="app"] .site-main:has(> .site-hero) .plans > .plan { flex: 0 0 min(280px, 82%); scroll-snap-align: start; height: auto; }
+/* página de planes: filas densas (nombre | precio | incluye | botón) */
+[data-layout="app"] .container.stack > .plans { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+@media (min-width: 761px) {
+  [data-layout="app"] .container.stack > .plans > .plan { display: grid; grid-template-columns: 200px 150px minmax(0, 1fr) 170px; grid-template-rows: auto auto; column-gap: 18px; row-gap: 2px; align-items: center; padding: 14px 18px; }
+  [data-layout="app"] .container.stack > .plans > .plan > h3 { grid-column: 1; grid-row: 1; }
+  [data-layout="app"] .container.stack > .plans > .plan > p { grid-column: 1; grid-row: 2; }
+  [data-layout="app"] .container.stack > .plans > .plan > .price { grid-column: 2; grid-row: 1; font-size: 26px; }
+  [data-layout="app"] .container.stack > .plans > .plan > span.small { grid-column: 2; grid-row: 2; }
+  [data-layout="app"] .container.stack > .plans > .plan > ul { grid-column: 3; grid-row: 1 / span 2; display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; }
+  [data-layout="app"] .container.stack > .plans > .plan > .btn { grid-column: 4; grid-row: 1 / span 2; }
+  [data-layout="app"] .container.stack > .plans > .plan > .ribbon { top: -10px; right: auto; left: 14px; }
+}
+[data-layout="app"] .site-main > section > .container.stack:has(> .plans),
+[data-layout="app"] .site-main > section > .container:has(> .booking-layout) { background: none; border: 0; padding: 0; }
+[data-layout="app"] .section-head:has(.billing-toggle) { position: sticky; top: 0; z-index: 5; padding: 12px 14px; background: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius); }
+/* horario: filtros como barra de herramientas fija */
+[data-layout="app"] .container.stack > .card:has([data-br]) { position: sticky; top: 0; z-index: 5; box-shadow: var(--shadow-lg); }
+[data-layout="app"] .container.stack > .card:has([data-br]) .row { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+[data-layout="app"] .container.stack > .card:has([data-br]) .chip { flex: none; }
+/* inscripción: pasos verticales a la izquierda y resumen como barra fija inferior */
+@media (min-width: 901px) {
+  [data-layout="app"] .container:has(> .booking-layout) { display: grid; grid-template-columns: 200px minmax(0, 1fr); column-gap: 20px; align-items: start; }
+  [data-layout="app"] .container:has(> .booking-layout) > * { grid-column: 1 / -1; }
+  [data-layout="app"] .container:has(> .booking-layout) > .steps { grid-column: 1; flex-direction: column; position: sticky; top: 16px; }
+  [data-layout="app"] .container:has(> .booking-layout) > .steps li { flex: none; }
+  [data-layout="app"] .container:has(> .booking-layout) > .booking-layout { grid-column: 2; }
+  [data-layout="app"] .booking-layout { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="app"] .summary { position: sticky; top: auto; bottom: 12px; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 0; box-shadow: var(--shadow-lg); }
+  [data-layout="app"] .summary h3 { flex-basis: 100%; margin-bottom: 4px; font-size: 15px; }
+  [data-layout="app"] .summary .line { flex-direction: column; gap: 0; border: 0; padding: 0 14px; border-left: 1px solid var(--line); font-size: 12px; }
+  [data-layout="app"] .summary .line span:last-child { text-align: left; font-size: 14px; }
+  [data-layout="app"] .summary p { flex-basis: 100%; margin-top: 6px; }
+  [data-layout="app"] .booking-layout > aside { order: 2; }
+}
+@media (max-width: 900px) {
+  [data-layout="app"] .steps { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  [data-layout="app"] .steps li { flex: none; }
+  [data-layout="app"] .booking-layout > aside { order: -1; }
+}
+[data-layout="app"] .site-footer .cols { font-size: 13px; }
+
+/* ---------- Paneles (admin / socio / entrenador): resumen ---------- */
+:is([data-layout="revista"], [data-layout="app"]) .admin-content:is([data-page="dashboard"], [data-page="inicio"], [data-page="mis-clases"]) { display: grid; grid-template-columns: minmax(0, 1fr); }
+[data-layout="revista"] .admin-content[data-page] > .page-head { flex-direction: column; align-items: center; text-align: center; }
+[data-layout="revista"] .admin-content[data-page] > :is(.grid-4, .grid-3):has(> .stat-card) { gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .admin-content[data-page] > :is(.grid-4, .grid-3) > .card { background: none; border: 0; border-radius: 0; box-shadow: none; text-align: center; }
+[data-layout="revista"] .admin-content[data-page] > :is(.grid-4, .grid-3):has(> .stat-card) > .card + .card { border-left: 1px solid var(--line); }
+[data-layout="revista"] .admin-content[data-page] .stat-ico { margin-inline: auto; }
+[data-layout="revista"] .admin-content[data-page="dashboard"] > .card { order: 1; }
+[data-layout="revista"] .admin-content[data-page="dashboard"] > .grid-main { order: 2; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+[data-layout="revista"] .admin-content[data-page="dashboard"] > .grid-main > :first-child { order: 2; }
+[data-layout="revista"] .admin-content[data-page="dashboard"] > .grid-2 { order: 3; }
+[data-layout="revista"] .admin-content[data-page="dashboard"] > .grid-2 > .stack { order: -1; }
+[data-layout="revista"] .admin-content[data-page="dashboard"] > .grid-3 { order: 4; }
+@media (max-width: 1000px) { [data-layout="revista"] .admin-content[data-page="dashboard"] > .grid-main { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 760px) {
+  [data-layout="revista"] .admin-content[data-page] > :is(.grid-4, .grid-3):has(> .stat-card) { grid-template-columns: 1fr 1fr; }
+  [data-layout="revista"] .admin-content[data-page] > :is(.grid-4, .grid-3) > .card:nth-child(odd) { border-left: 0; }
+}
+
+[data-layout="app"] .admin-content:is([data-page="dashboard"], [data-page="inicio"], [data-page="mis-clases"]) { grid-template-columns: minmax(0, 1fr) 230px; column-gap: 16px; row-gap: 0; align-items: start; }
+[data-layout="app"] .admin-content:is([data-page="dashboard"], [data-page="inicio"], [data-page="mis-clases"]) > * { grid-column: 1; margin-bottom: 14px; min-width: 0; }
+[data-layout="app"] .admin-content:is([data-page="dashboard"], [data-page="inicio"], [data-page="mis-clases"]) > .page-head { grid-column: 1 / -1; }
+[data-layout="app"] .admin-content:is([data-page="dashboard"], [data-page="inicio"], [data-page="mis-clases"]) > .grid-4 { grid-column: 2; grid-row: 2 / span 3; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+[data-layout="app"] .admin-content[data-page="dashboard"] > .grid-3 { grid-column: 2; grid-row: 5 / span 2; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+[data-layout="app"] .admin-content[data-page] > :is(.grid-4, .grid-3) > .card { padding: 12px 14px; border-left: 4px solid var(--primary); }
+[data-layout="app"] .admin-content[data-page="dashboard"] > .card { order: -1; grid-row: 2; }
+@media (max-width: 1100px) {
+  [data-layout="app"] .admin-content:is([data-page="dashboard"], [data-page="inicio"], [data-page="mis-clases"]) { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="app"] .admin-content[data-page] > :is(.grid-4, .grid-3):has(> .card) { grid-column: 1; grid-row: auto; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 4px; }
+  [data-layout="app"] .admin-content[data-page] > .grid-4 { order: -2; }
+  [data-layout="app"] .admin-content[data-page] > .page-head { order: -3; }
+  [data-layout="app"] .admin-content[data-page] > :is(.grid-4, .grid-3) > .card { flex: 0 0 min(190px, 70%); scroll-snap-align: start; }
+  [data-layout="app"] .admin-content[data-page="dashboard"] > .card { grid-row: auto; order: -1; }
+}
+/* app: riel del panel plegado: las etiquetas quedan fuera del riel (no asoman cortadas) */
+@media (min-width: 901px) {
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) :is(.nav-link, .admin-brand, .user-chip) { gap: 48px; }
+  [data-layout="app"] .admin-sidebar :is(.admin-brand, .user-chip) > :first-child { flex: none; }
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .foot-btns { visibility: hidden; }
+}

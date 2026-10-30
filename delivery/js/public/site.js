@@ -8,17 +8,19 @@ export const BOLT = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 
 export function renderHeader(el, { active = '' } = {}) {
   const u = anyUser();
   const st = db.getValue('settings') || {};
-  const links = [['#/tarifas', 'Tarifas'], ['#/cobertura', 'Cobertura'], ['#/rastrear', 'Rastrear'], ['#/empresas', 'Empresas']];
+  const links = [['#/', 'Inicio'], ['#/tarifas', 'Tarifas'], ['#/cobertura', 'Cobertura'], ['#/rastrear', 'Rastrear'], ['#/empresas', 'Empresas']];
   el.innerHTML = html`
     ${st.showAnnouncement && st.announcement ? raw(html`<div class="announce"><div class="container">⚡ ${st.announcement}</div></div>`) : ''}
     <div class="site-head-in container">
-      <a class="brand" href="index.html#/">${raw(`<span class="brand-logo">${BOLT}</span>`)}<span>Rayo <b>Express</b></span></a>
+      <a class="brand site-brand" href="index.html#/">${raw(`<span class="brand-logo">${BOLT}</span>`)}<span>Rayo <b>Express</b></span></a>
       <nav class="site-nav" id="site-nav" aria-label="Principal">
         ${links.map(([h, t]) => raw(html`<a href="index.html${h}" class="${active === h ? 'active' : ''}">${t}</a>`))}
+      </nav>
+      <div class="site-actions">
         <a href="index.html#/solicitar" class="btn btn-primary btn-sm nav-cta">Solicitar envío</a>
         ${u ? raw(html`<a class="btn btn-sm nav-user" href="${homeFor(u)}"><span class="avatar" style="--av:${u.color || 'var(--primary)'};--size:24px">${initials(u.name)}</span>Mi cuenta</a>`)
             : raw('<a class="btn btn-sm btn-ghost" href="login.html">Ingresar</a>')}
-      </nav>
+      </div>
       <button class="btn btn-icon btn-ghost nav-burger" aria-label="Menú" aria-expanded="false" aria-controls="site-nav">☰</button>
     </div>`;
   const burger = el.querySelector('.nav-burger');

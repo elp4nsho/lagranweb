@@ -11,8 +11,9 @@ function render() {
   const plans = db.query('plans', p => p.active).sort((a, b) => a.price - b.price);
   const cat = db.query('titles', t => isAvailable(t));
   const top = cat.slice().sort((a, b) => b.trending - a.trending).slice(0, 10);
-  $('#header').innerHTML = `<div class="container"><div class="bar"><a class="logo-word" href="index.html">Andes<b>+</b></a>
-    <div class="st-actions">${u ? `<a class="btn btn-primary btn-sm" href="${HOME_BY_ROLE[u.role]}">${u.role === 'suscriptor' ? 'Ir a Andes+' : 'Ir al CMS'}</a>` : '<a class="btn btn-ghost btn-sm" href="#planes">Planes</a><a class="btn btn-primary btn-sm" href="login.html">Ingresar</a>'}</div></div></div>`;
+  $('#header').innerHTML = `<div class="container"><div class="bar"><a class="logo-word site-brand" href="index.html">Andes<b>+</b></a>
+    <nav class="st-nav site-nav land-nav" aria-label="Secciones"><a href="#top10"><span class="nav-ico" aria-hidden="true">🔥</span>Top 10</a><a href="#ventajas"><span class="nav-ico" aria-hidden="true">✨</span>Ventajas</a><a href="#planes"><span class="nav-ico" aria-hidden="true">💳</span>Planes</a><a href="#faq"><span class="nav-ico" aria-hidden="true">❓</span>Preguntas</a></nav>
+    <div class="st-actions site-actions">${u ? `<a class="btn btn-primary btn-sm" href="${HOME_BY_ROLE[u.role]}">${u.role === 'suscriptor' ? 'Ir a Andes+' : 'Ir al CMS'}</a>` : '<a class="btn btn-ghost btn-sm" href="#planes">Planes</a><a class="btn btn-primary btn-sm" href="login.html">Ingresar</a>'}</div></div></div>`;
   $('#main').innerHTML = html`
   <section class="land-hero">
     <div class="mosaic" aria-hidden="true">${raw(cat.concat(cat).slice(0, 30).map(t => artCard(t)).join(''))}</div>
@@ -24,23 +25,23 @@ function render() {
       <div class="row" style="justify-content:center"><a class="btn btn-primary btn-lg" href="#planes">Ver planes desde ${money(plans[0]?.price)}</a>${u ? '' : raw('<a class="btn btn-lg" href="login.html">Ya tengo cuenta</a>')}</div>
     </div>
   </section>
-  <section class="section"><div class="container stack">
+  <section class="section land-top" id="top10"><div class="container stack">
     <h2 data-anim>Top 10 de esta semana</h2>
     <div class="row-scroll">${top.map((t, i) => raw(html`<div class="tile"><div style="position:relative">${raw(artCard(t))}</div><span class="sub"><b>#${i + 1}</b> · ${t.genres[0]} · ${t.type === 'serie' ? 'Serie' : 'Película'}</span></div>`))}</div>
   </div></section>
-  <section class="section" style="padding-top:0"><div class="container grid-3">
+  <section class="section land-feat" id="ventajas" style="padding-top:0"><div class="container grid-3">
     <div class="card" data-anim><h3>📺 En todas tus pantallas</h3><p class="muted">Smart TV, celular, tablet, computador y consolas. Retoma donde quedaste en cualquier dispositivo.</p></div>
     <div class="card" data-anim data-anim-delay="100"><h3>👨‍👩‍👧 Perfiles para todos</h3><p class="muted">Hasta 5 perfiles por cuenta, perfil infantil y control parental con PIN.</p></div>
     <div class="card" data-anim data-anim-delay="200"><h3>🏔️ Originales del sur</h3><p class="muted">${cat.filter(t => t.original).length} producciones originales filmadas en Chile y la Patagonia.</p></div>
   </div></section>
-  <section class="section" id="planes" style="padding-top:0"><div class="container stack">
+  <section class="section land-plans" id="planes" style="padding-top:0"><div class="container stack">
     <div style="text-align:center"><span class="eyebrow">Planes</span><h2>Elige tu plan</h2><p class="muted">Sin contratos. Cambia o cancela cuando quieras.</p></div>
     <div class="plans">${plans.map(p => raw(html`<div class="card plan ${p.highlight ? 'hl' : ''}" data-anim>${p.highlight ? raw('<span class="badge badge-primary ribbon">Más elegido</span>') : ''}
       <h3 style="margin:0">${p.name}</h3><div class="price">${money(p.price)}<small class="muted" style="font-size:14px"> /mes</small></div><span class="muted">${p.quality}</span>
       <ul>${p.features.map(f => raw(`<li>${escape(f)}</li>`))}</ul>
       <button class="btn ${p.highlight ? 'btn-primary' : ''} btn-lg btn-block" data-plan="${p.id}">Elegir ${p.name}</button></div>`))}</div>
   </div></section>
-  <section class="section faq" style="padding-top:0"><div class="container" style="max-width:820px">
+  <section class="section faq land-faq" id="faq" style="padding-top:0"><div class="container" style="max-width:820px">
     <h2>Preguntas frecuentes</h2>
     <details><summary>¿Qué es Andes+?</summary><p>Una plataforma de streaming (ficticia) con series, películas y documentales, con foco en historias del sur del mundo.</p></details>
     <details><summary>¿Cuánto cuesta?</summary><p>Desde ${money(plans[0]?.price)} al mes. Los primeros ${s.trialDays} días son gratis y puedes cancelar antes sin costo.</p></details>

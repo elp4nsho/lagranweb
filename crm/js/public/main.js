@@ -20,7 +20,10 @@ const blocks = {
   faq: () => S.faq(db.getValue('site', {})),
   footer: () => S.footer(db.getValue('site', {}))
 };
-root.innerHTML = Object.keys(blocks).map(k => `<div data-block="${k}"></div>`).join('');
+// Cabecera y pie fuera de <main class="site-main"> (clases-gancho de las disposiciones).
+const blockDiv = k => `<div data-block="${k}"></div>`;
+const inner = Object.keys(blocks).filter(k => !['announce', 'header', 'footer'].includes(k));
+root.innerHTML = blockDiv('announce') + blockDiv('header') + `<main class="site-main">${inner.map(blockDiv).join('')}</main>` + blockDiv('footer');
 const paint = (k) => { $(`[data-block="${k}"]`, root).innerHTML = blocks[k](); };
 Object.keys(blocks).forEach(paint);
 wireForms(root);

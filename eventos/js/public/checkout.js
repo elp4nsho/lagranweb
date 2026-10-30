@@ -75,7 +75,7 @@ export function renderCheckout(app) {
         <label class="check"><input type="checkbox" name="terms" checked> Acepto los términos y la política de reembolsos</label>
         <button class="btn btn-primary btn-lg" id="paybtn">Pagar</button>
       </form>
-      <aside class="card stack" style="position:sticky;top:130px">
+      <aside class="card stack co-sum">
         <div style="border-radius:var(--radius-sm);overflow:hidden;aspect-ratio:16/7">${raw(poster(ev))}</div>
         <div><b>${ev.title}</b><br><small class="muted">${fmtLong(ev.date)} · ${fmtHour(ev.date)} hrs</small></div>
         <ul class="cart-list">${lines.map(l => raw(html`<li><span>${l.label}</span><b>${money(l.price)}</b></li>`))}</ul>

@@ -12,15 +12,15 @@ export function renderHome(el) {
   const upcoming = classesOn(ymd()).filter(c => classStart(c, ymd()) > new Date()).slice(0, 6);
   const discs = db.query('disciplines', d => d.active !== false);
   el.innerHTML = `
-  <section class="hero hero-gym"><div class="container hero-grid">
-    <div data-anim>
+  <section class="hero hero-gym site-hero"><div class="container hero-grid">
+    <div class="hero-text" data-anim>
       <span class="eyebrow">${escape(s.tagline)}</span>
       <h1>${escape(s.heroTitle)}</h1>
       <p class="lead">${escape(s.heroText)}</p>
       <div class="row"><a class="btn btn-primary btn-lg" href="#/planes">${icon('fire', 18)} Ver planes</a><a class="btn btn-lg" href="#/horario">${icon('calendar', 18)} Horario de clases</a></div>
       <div class="promo-strip"><span class="badge badge-success">Sin contrato de permanencia</span><span class="badge badge-primary">${branches.length} sedes</span><span class="badge badge-info">${db.count('classes')} clases semanales</span></div>
     </div>
-    <div class="hero-art" data-anim data-anim-delay="150">${heroArt()}</div>
+    <div class="hero-art hero-media" data-anim data-anim-delay="150">${heroArt()}</div>
   </div></section>
 
   <section class="section tight"><div class="container grid-4">

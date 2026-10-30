@@ -34,7 +34,7 @@ export function bayArt() {
     <rect x="20" y="10" width="280" height="100" rx="6" class="ba-wall"/>
     <rect x="40" y="26" width="70" height="40" rx="3" class="ba-win"/><rect x="210" y="26" width="70" height="40" rx="3" class="ba-win"/>
     <rect x="128" y="18" width="64" height="12" rx="3" class="ba-sign"/>
-    <g transform="translate(50 30)">${carArt('suv').replace(/<svg[^>]*>|<\/svg>/g, '')}</g>
+    <g class="car-art" transform="translate(50 30)">${carArt('suv').replace(/<svg[^>]*>|<\/svg>/g, '')}</g>
   </svg>`;
 }
 

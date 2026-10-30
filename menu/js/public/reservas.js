@@ -29,7 +29,8 @@ const taken = (day, time) => db.count('reservations', r => r.date === day && r.t
 
 function header() {
   const cfg = settings();
-  hdr.innerHTML = `<div class="container hdr-row"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">🔥</span><span class="brand-name">${escape(cfg.name)}</span></a><span class="grow"></span><a class="btn btn-sm btn-ghost" href="index.html#/carta">Carta</a><a class="btn btn-sm btn-ghost" href="index.html">Inicio</a></div>`;
+  hdr.innerHTML = `<div class="container hdr-row"><a class="brand site-brand" href="index.html"><span class="brand-mark" aria-hidden="true">🔥</span><span class="brand-name">${escape(cfg.name)}</span></a><span class="grow"></span><div class="site-actions"><a class="btn btn-sm" href="index.html#/carta">Ver carta</a></div></div>
+    <nav class="container subnav site-nav" aria-label="Principal"><a href="index.html">Inicio</a><a href="index.html#/carta">Carta</a><a href="reservas.html" class="active" aria-current="page">Reservas</a></nav>`;
 }
 
 function render() {

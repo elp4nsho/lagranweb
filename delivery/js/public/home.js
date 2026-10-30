@@ -27,9 +27,9 @@ export function mountHome(el) {
   const st = ops.settings();
   const stats = liveStats();
   el.innerHTML = html`
-  <section class="hero section">
+  <section class="hero section site-hero">
     <div class="container hero-grid">
-      <div class="stack hero-copy" data-anim>
+      <div class="stack hero-copy hero-text" data-anim>
         <span class="eyebrow" data-cms="heroEyebrow">${st.heroEyebrow}</span>
         <h1 data-cms="heroTitle">${st.heroTitle}</h1>
         <p class="lead muted" data-cms="heroSubtitle">${st.heroSubtitle}</p>
@@ -38,7 +38,7 @@ export function mountHome(el) {
           <input class="input" id="hero-code" placeholder="Código de seguimiento, ej. RX-48213" autocomplete="off"><button class="btn btn-accent">Rastrear</button></form>
         <div class="demo-codes row small" id="demo-codes"></div>
       </div>
-      <div class="card hero-map-card" data-anim="zoomIn">
+      <div class="card hero-map-card hero-media" data-anim="zoomIn">
         <div class="live-pill"><span class="dot-live"></span><span id="live-n">${stats.online}</span> repartidores en ruta ahora</div>
         <div class="hero-map"></div>
       </div>
@@ -68,7 +68,7 @@ export function mountHome(el) {
   <section class="section" id="repartidores"><div class="container">
     <div class="card cta-card" data-anim><div class="stack" style="gap:8px"><span class="eyebrow">Flota Rayo</span><h2 data-cms="courierTitle">${st.courierTitle}</h2><p class="muted" data-cms="courierText">${st.courierText}</p></div>
     <a class="btn btn-accent btn-lg" href="repartidor.html">Abrir app del repartidor</a></div></div></section>
-  <section class="section alt"><div class="container stack">
+  <section class="section alt" id="opiniones"><div class="container stack">
     <div class="sec-head" data-anim><span class="eyebrow">Opiniones</span><h2>Lo que dicen quienes reciben</h2></div>
     <div class="grid-3" id="reviews"></div></div></section>
   <section class="section" id="faq"><div class="container narrow stack">

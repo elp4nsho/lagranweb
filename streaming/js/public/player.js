@@ -72,11 +72,11 @@ function play() {
           <button class="ctl" id="fs" aria-label="Pantalla completa">⛶</button>
         </div>
       </div></div>
-    <section class="section" style="padding-top:24px"><div class="container stack">
+    <section class="section pl-info" style="padding-top:24px"><div class="container stack">
       <div class="row between"><div><h1 style="margin:0;font-size:clamp(22px,3vw,32px)">${t.title}</h1><span class="muted">${metaLine(t)} · <span class="rating">${t.maturity}</span></span></div><a class="btn" href="app.html#/titulo/${t.id}">Ver ficha</a></div>
       <p style="margin:0;max-width:760px" id="epsyn">${t.synopsis}</p>
       <p class="muted small" style="margin:0">Atajos: espacio (pausa), ← → (10 s), ↑ ↓ (volumen), M (silencio), C (subtítulos), F (pantalla completa).</p>
-      ${t.type === 'serie' ? raw('<div><h3>Episodios</h3><ul class="ep-list" id="eplist"></ul></div>') : ''}
+      ${t.type === 'serie' ? raw('<div class="pl-eps"><h3>Episodios</h3><ul class="ep-list" id="eplist"></ul></div>') : ''}
     </div></section>`;
   const pl = $('#pl');
 

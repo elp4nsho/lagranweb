@@ -435,3 +435,164 @@ a.admin-brand { text-decoration: none; color: var(--text); }
 .select:not(.select-sm) { min-width: 0; }
 .field > label { overflow-wrap: anywhere; }
 @media (max-width: 600px) { .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } .kpis .stat .value { font-size: 20px; } }
+
+/* =====================================================================
+   Disposiciones (clásica = diseño base; revista y app reorganizan)
+   ===================================================================== */
+.site-actions { display: flex; align-items: center; gap: 8px; }
+.site-actions .nav-cta { margin: 0; }
+@media (max-width: 900px) { .site-head-in .site-actions { margin-left: auto; } }
+@media (max-width: 480px) { .site-actions .nav-cta { display: none; } }
+
+/* ---------- REVISTA: diario del despacho ---------- */
+[data-layout="revista"] .nav-burger { display: none !important; }
+[data-layout="revista"] .site-head { position: relative; background: var(--bg); }
+[data-layout="revista"] .site-nav { position: static !important; flex-direction: row !important; background: none !important; box-shadow: none !important; padding-inline: 0 !important; }
+[data-layout="revista"] .site-nav > a:not(.btn) { text-transform: uppercase; letter-spacing: .1em; font-size: 12px; padding: 6px 2px; border-radius: 0; }
+[data-layout="revista"] .site-nav > a.active { box-shadow: inset 0 -2px 0 var(--primary); }
+[data-layout="revista"] .site-main { display: flex; flex-direction: column; }
+/* Portada: titular arriba y el mapa en vivo como gran fotografía panorámica debajo */
+[data-layout="revista"] .site-hero .hero-grid { grid-template-columns: minmax(0, 1fr) !important; }
+[data-layout="revista"] .site-hero .hero-text { max-width: 860px; }
+[data-layout="revista"] .site-hero .hero-map-card { border-radius: 0; box-shadow: none; }
+[data-layout="revista"] .site-hero .hero-map { height: clamp(260px, 30vw, 380px); }
+/* Orden editorial */
+[data-layout="revista"] .stats-strip { order: 1; background: none; border-block: 3px double var(--line); }
+[data-layout="revista"] #como { order: 2; }
+[data-layout="revista"] #empresas { order: 3; }
+[data-layout="revista"] #opiniones { order: 4; }
+[data-layout="revista"] #cobertura { order: 5; }
+[data-layout="revista"] #tarifas { order: 6; }
+[data-layout="revista"] #repartidores { order: 7; }
+[data-layout="revista"] #faq { order: 8; }
+[data-layout="revista"] .site-main > .section.alt { background: none; border-bottom: 0; }
+[data-layout="revista"] .stats-strip .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; }
+[data-layout="revista"] .stats-strip .grid-4 > * { grid-column: auto !important; grid-row: auto !important; border-left: 1px solid var(--line); padding-inline: 16px; }
+[data-layout="revista"] .stats-strip .grid-4 > :first-child { border-left: 0; }
+/* Pasos como columnas de diario con numerales gigantes */
+[data-layout="revista"] .steps { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 0; }
+[data-layout="revista"] .steps > .step { grid-column: auto !important; grid-row: auto !important; background: none; border: 0; border-left: 1px solid var(--line); border-radius: 0; box-shadow: none; transform: none !important; }
+[data-layout="revista"] .steps > .step:first-child { border-left: 0; }
+[data-layout="revista"] .steps .step-n { font-size: clamp(48px, 6vw, 80px); line-height: 1; }
+/* Empresas: cifras a la izquierda, texto a la derecha */
+[data-layout="revista"] .biz > :first-child { order: 2; border-left: 4px solid var(--primary); padding-left: 24px; }
+[data-layout="revista"] .biz-cards > .card { border-radius: 0; box-shadow: none; background: none; border-width: 0 0 1px; }
+/* Opiniones como citas destacadas */
+[data-layout="revista"] #reviews { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; gap: 0 32px; }
+[data-layout="revista"] #reviews > .review { grid-column: auto !important; grid-row: auto !important; background: none; border: 0; border-top: 1px solid var(--line); border-radius: 0; box-shadow: none; padding-inline: 0; }
+[data-layout="revista"] #reviews > .review:first-child { grid-column: 1 / -1 !important; text-align: center; }
+[data-layout="revista"] #reviews > .review:first-child blockquote { font: var(--head-weight) clamp(22px, 3vw, 34px)/1.25 var(--font-head); }
+[data-layout="revista"] #reviews > .review:first-child figcaption { justify-content: center; }
+/* Cobertura: mapa a la derecha */
+[data-layout="revista"] .cov-grid > .map-card { order: 2; }
+[data-layout="revista"] .cta-card { border-radius: 0; border-width: 3px 0; border-style: double; box-shadow: none; background: none; }
+[data-layout="revista"] .faq { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+/* Seguimiento: mapa ancho arriba, ficha en columnas debajo */
+[data-layout="revista"] .track-head { flex-direction: column; align-items: center; text-align: center; border-bottom: 3px double var(--line); padding-bottom: 14px; }
+[data-layout="revista"] .track-head h1 { font-size: clamp(36px, 6vw, 72px); }
+[data-layout="revista"] .track-grid { grid-template-columns: minmax(0, 1fr); }
+[data-layout="revista"] .track-grid > .map-card { position: relative; top: 0; }
+[data-layout="revista"] .track-grid .track-map { height: 360px; }
+[data-layout="revista"] .track-side { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); align-items: start; }
+/* Solicitar: resumen como franja ARRIBA del formulario */
+[data-layout="revista"] .req-grid { grid-template-columns: minmax(0, 1fr); max-width: 900px; margin-inline: auto; }
+[data-layout="revista"] .req-summary { order: -1; position: static; display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(200px, auto); align-items: center; gap: 10px 20px; border-style: dashed; }
+[data-layout="revista"] .req-summary .kv { display: flex; flex-wrap: wrap; gap: 2px 14px; }
+[data-layout="revista"] .req-summary > small { grid-column: 1 / -1; }
+/* Panel: KPIs como franja con filetes; gráficos en columna ancha + barra lateral de listas */
+[data-layout="revista"] .admin-content > .kpis { gap: 0; border-block: 3px double var(--line); grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); }
+[data-layout="revista"] .admin-content > .kpis > .card { border-radius: 0; background: none; box-shadow: none; border: 0; border-right: 1px solid var(--line); }
+[data-layout="revista"] .admin-content > .panel-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+[data-layout="revista"] .admin-content > .panel-grid > .card { border-radius: 0; box-shadow: none; border-width: 1px 0 0; background: none; padding-inline: 0; }
+[data-layout="revista"] .ops-grid { grid-template-columns: 340px minmax(0, 1fr); }
+[data-layout="revista"] .ops-grid > .ops-side { order: -1; }
+@media (max-width: 1100px) {
+  [data-layout="revista"] .admin-content > .panel-grid, [data-layout="revista"] .ops-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  [data-layout="revista"] .stats-strip .grid-4, [data-layout="revista"] .steps, [data-layout="revista"] #reviews, [data-layout="revista"] .faq { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  [data-layout="revista"] .steps > .step:nth-child(3), [data-layout="revista"] .stats-strip .grid-4 > :nth-child(3) { border-left: 0; }
+  [data-layout="revista"] #reviews, [data-layout="revista"] .faq { grid-template-columns: minmax(0, 1fr) !important; }
+  [data-layout="revista"] .biz > :first-child { order: 0; }
+  [data-layout="revista"] .req-summary { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- APP: despacho como aplicación ---------- */
+[data-layout="app"] .site-main { display: flex; flex-direction: column; }
+[data-layout="app"] .site-head .announce { display: none; }
+@media (min-width: 901px) { [data-layout="app"] .site-head { padding-top: 0; } [data-layout="app"] .site-head .site-actions .btn { justify-content: center; } }
+[data-layout="app"] .site-hero .hero-map { height: 260px; }
+@media (max-width: 760px) {
+  [data-layout="app"] .site-hero .hero-media { display: block !important; order: -1; }
+  [data-layout="app"] .site-hero .hero-map { height: 200px; }
+  [data-layout="app"] .site-head-in { min-height: 56px; }
+}
+/* Orden tipo app: cotizador primero, luego cifras, cobertura, pasos… */
+[data-layout="app"] #tarifas { order: 1; background: none; border: 0; }
+[data-layout="app"] .stats-strip { order: 2; background: none; border: 0; padding: 0; }
+[data-layout="app"] #cobertura { order: 3; }
+[data-layout="app"] #como { order: 4; }
+[data-layout="app"] #opiniones { order: 5; background: none; border: 0; }
+[data-layout="app"] #empresas { order: 6; background: none; border: 0; }
+[data-layout="app"] #faq { order: 7; }
+[data-layout="app"] #repartidores { order: 8; }
+[data-layout="app"] .stats-strip .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 10px; }
+[data-layout="app"] .stats-strip .grid-4 > * { grid-column: auto !important; background: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius); padding: 12px 14px; }
+/* Pasos como lista compacta numerada */
+[data-layout="app"] .steps { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 8px; }
+[data-layout="app"] .steps > .step { grid-column: auto !important; display: grid; grid-template-columns: 56px minmax(0, 1fr); column-gap: 10px; align-items: center; padding: 12px 14px; }
+[data-layout="app"] .steps .step-n { grid-row: span 2; font-size: 26px; margin: 0; }
+[data-layout="app"] .steps h3 { margin: 0; font-size: 16px; }
+/* Opiniones en carrusel horizontal */
+[data-layout="app"] #reviews { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 6px; }
+[data-layout="app"] #reviews > .review { flex: 0 0 min(320px, 82%); scroll-snap-align: start; }
+/* Cobertura: panel lateral a la izquierda, mapa a la derecha */
+[data-layout="app"] .cov-grid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+[data-layout="app"] .cov-grid > .cov-side { order: -1; }
+[data-layout="app"] .faq { gap: 0; }
+[data-layout="app"] .faq details { border-radius: 0; box-shadow: none; border-width: 0 0 1px; }
+[data-layout="app"] .faq details:first-child { border-top-width: 1px; }
+/* Seguimiento: ficha a la izquierda y mapa a pantalla completa a la derecha */
+[data-layout="app"] .track-grid { grid-template-columns: 340px minmax(0, 1fr); }
+[data-layout="app"] .track-grid > .track-side { order: -1; }
+[data-layout="app"] .track-grid > .map-card { top: 16px; }
+[data-layout="app"] .track-grid .track-map { height: calc(100vh - 140px); min-height: 420px; }
+/* Solicitar: resumen pegado a la izquierda (escritorio) o barra inferior (celular) */
+[data-layout="app"] .req-grid { grid-template-columns: 300px minmax(0, 1fr); }
+[data-layout="app"] .req-summary { order: -1; top: 16px; }
+/* Panel: tablero denso — KPIs como columna lateral y paneles en mosaico */
+@media (min-width: 1200px) {
+  [data-layout="app"] .admin-content:has(> .kpis) { display: grid; grid-template-columns: 250px minmax(0, 1fr) minmax(0, 1fr); align-content: start; }
+  [data-layout="app"] .admin-content:has(> .kpis) > .page-head { grid-column: 1 / -1; }
+  [data-layout="app"] .admin-content > .kpis { grid-column: 1; grid-row: 2 / span 3; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 8px; }
+  [data-layout="app"] .admin-content:has(> .kpis) > .panel-grid { display: contents; }
+  [data-layout="app"] .admin-content:has(> .kpis) > .panel-grid > .card { grid-column: auto; }
+}
+[data-layout="app"] .admin-content > .kpis > .card { padding: 12px 14px; }
+[data-layout="app"] .ops-grid { grid-template-columns: minmax(0, 1fr); }
+[data-layout="app"] .ops-grid > .ops-side { order: -1; max-height: none; min-height: 0; }
+[data-layout="app"] .ops-side .ops-list { display: flex; overflow-x: auto; max-height: none; }
+[data-layout="app"] .ops-side .ops-list > * { flex: 0 0 260px; }
+/* App del repartidor: pestañas como barra inferior fija */
+[data-layout="app"] .rider-tabs { position: fixed; left: 50%; transform: translateX(-50%); width: min(600px, 100%); top: auto; bottom: 0; z-index: 70; border-top: var(--border-w) solid var(--line); box-shadow: 0 -6px 20px rgba(0, 0, 0, .12); }
+[data-layout="app"] .rider-main { padding-bottom: 150px; }
+@media (max-width: 760px) { [data-layout="app"] .rider-body .lgw-dock { bottom: 80px; } }
+[data-layout="revista"] .rider { width: min(960px, 100%); }
+[data-layout="revista"] .rider-main { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: start; }
+@media (max-width: 760px) { [data-layout="revista"] .rider-main { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 900px) {
+  [data-layout="app"] .cov-grid, [data-layout="app"] .track-grid, [data-layout="app"] .req-grid { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="app"] .track-grid > .track-side { order: 2; }
+  [data-layout="app"] .track-grid .track-map { height: 52vh; min-height: 300px; }
+  [data-layout="app"] .req-summary { order: 2; position: sticky; top: auto; bottom: 72px; z-index: 30; box-shadow: var(--shadow-lg); }
+  [data-layout="app"] .req-summary [data-sum] .kv, [data-layout="app"] .req-summary > b, [data-layout="app"] .req-summary > small { display: none; }
+  [data-layout="app"] .stats-strip .grid-4, [data-layout="app"] .steps { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  [data-layout="app"] .admin-content > .kpis { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+  [data-layout="app"] .admin-content > .kpis > .card { flex: 0 0 62%; scroll-snap-align: start; }
+}
+@media (max-width: 520px) { [data-layout="app"] .steps { grid-template-columns: minmax(0, 1fr) !important; } }
+[data-layout="revista"] .site-head-in { position: relative; }
+[data-layout="revista"] .rider-top { justify-content: center; border-bottom: 3px double var(--line); }
+[data-layout="revista"] .rider-tabs .tab { text-transform: uppercase; letter-spacing: .08em; font-size: 11px; }
+[data-layout="revista"] .rider-main > .rider-map { order: 2; }
+[data-layout="revista"] .rider-main > .rider-map .rmap-host { height: min(30vh, 260px); }

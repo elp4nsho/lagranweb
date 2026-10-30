@@ -12,14 +12,16 @@ export function renderHeader(el) {
   const s = settings(), u = auth.current();
   const ann = s.announcement?.on ? `<div class="announce"><div class="container">${escape(s.announcement.text)} <a href="#/cotizar">Cotizar →</a></div></div>` : '';
   el.innerHTML = `${ann}
-    <div class="site-nav"><div class="container nav-inner">
-      <a class="brand" href="#/" aria-label="${escape(s.name)}, inicio">${logo(s.name)}</a>
+    <div class="nav-bar"><div class="container nav-inner">
+      <a class="brand site-brand" href="#/" aria-label="${escape(s.name)}, inicio">${logo(s.name)}</a>
       <button class="btn btn-ghost btn-icon nav-burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">☰</button>
-      <nav id="site-menu" class="site-menu" aria-label="Principal">
-        ${NAV.map(([h, l]) => `<a href="${h}">${l}</a>`).join('')}
-        ${u && STAFF.includes(u.role) ? `<a href="admin.html" class="menu-admin">Panel</a>` : `<a href="login.html" class="menu-admin">Acceso</a>`}
-        <a href="#/cotizar" class="btn btn-primary btn-sm">Cotizar proyecto</a>
-      </nav>
+      <div id="site-menu" class="site-menu">
+        <nav class="site-nav" aria-label="Principal">${NAV.map(([h, l]) => `<a href="${h}">${l}</a>`).join('')}</nav>
+        <div class="site-actions">
+          ${u && STAFF.includes(u.role) ? `<a href="admin.html" class="menu-admin">Panel</a>` : `<a href="login.html" class="menu-admin">Acceso</a>`}
+          <a href="#/cotizar" class="btn btn-primary btn-sm">Cotizar proyecto</a>
+        </div>
+      </div>
     </div></div>`;
   const burger = el.querySelector('.nav-burger'), menu = el.querySelector('.site-menu');
   burger.onclick = () => { const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', o); burger.textContent = o ? '✕' : '☰'; };
@@ -72,4 +74,4 @@ export function applySEO(title) {
 }
 
 export const sectionHead = (eyebrow, title, sub = '', extra = '') => `
-  <header class="section-head" data-anim><div><span class="eyebrow">${escape(eyebrow)}</span><h2>${escape(title)}</h2>${sub ? `<p class="muted lead">${escape(sub)}</p>` : ''}</div>${extra}</header>`;
+  <header class="section-head" data-anim><div><span class="eyebrow">${escape(eyebrow).replace(/^(\d+ — )/, '<span class="sec-n">$1</span>')}</span><h2>${escape(title)}</h2>${sub ? `<p class="muted lead">${escape(sub)}</p>` : ''}</div>${extra}</header>`;

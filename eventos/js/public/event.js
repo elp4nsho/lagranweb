@@ -31,17 +31,17 @@ export function renderEvent(app, id) {
       <p style="font-size:17px;margin:0"><b>${fmtLong(ev.date)}</b> · ${fmtHour(ev.date)} hrs · ${v.name}, ${v.city}</p>
     </div>
   </section>
-  <section class="section" style="padding-top:28px"><div class="container ev-layout">
-    <div class="stack" style="gap:28px">
-      ${!past ? raw(`<div data-anim><h3>Faltan</h3><div class="countdown" id="cd"></div></div>`) : ''}
-      <div data-anim><h2>Sobre el evento</h2><p>${ev.description}</p><p class="muted small">Organiza: <b>${org?.name || '—'}</b> · Apertura de puertas: ${fmtHour(new Date(Date.parse(ev.date) - 90 * 6e4))} hrs</p></div>
-      ${ev.lineup.length ? raw(html`<div data-anim><h2>${ev.category === 'conferencias' ? 'Programa' : ev.category === 'deportes' ? 'Equipos' : 'Lineup'}</h2>
+  <section class="section ev-body" style="padding-top:28px"><div class="container ev-layout">
+    <div class="stack ev-info" style="gap:28px">
+      ${!past ? raw(`<div class="ev-cd" data-anim><h3>Faltan</h3><div class="countdown" id="cd"></div></div>`) : ''}
+      <div class="ev-about" data-anim><h2>Sobre el evento</h2><p>${ev.description}</p><p class="muted small">Organiza: <b>${org?.name || '—'}</b> · Apertura de puertas: ${fmtHour(new Date(Date.parse(ev.date) - 90 * 6e4))} hrs</p></div>
+      ${ev.lineup.length ? raw(html`<div class="ev-lineup" data-anim><h2>${ev.category === 'conferencias' ? 'Programa' : ev.category === 'deportes' ? 'Equipos' : 'Lineup'}</h2>
         <ul class="lineup">${ev.lineup.map(l => raw(html`<li><span class="time">${l.time || '—'}</span><div><b>${l.name}</b><br><small class="muted">${l.role}</small></div></li>`))}</ul></div>`) : ''}
-      <div data-anim><h2>Recinto</h2>
+      <div class="ev-venue" data-anim><h2>Recinto</h2>
         <div class="card stack"><div class="row between"><div><b>${v.name}</b><br><span class="muted">${v.address}, ${v.city}</span></div><span class="badge">Capacidad ${v.capacity.toLocaleString('es-CL')}</span></div>
         ${raw(venueMap(v))}
         <div class="row small muted" style="gap:14px"><span>🚇 Transporte público cercano</span><span>♿ Acceso universal</span><span>🅿️ Estacionamiento</span></div></div></div>
-      ${resale.length && open ? raw(html`<div data-anim><h2>Reventa oficial</h2><p class="muted">Entradas de otros fans, con precio tope de +${fees().resaleCapPct || 10}% sobre el valor original. La entrada se reemite a tu nombre con un código nuevo.</p>
+      ${resale.length && open ? raw(html`<div class="ev-resale" data-anim><h2>Reventa oficial</h2><p class="muted">Entradas de otros fans, con precio tope de +${fees().resaleCapPct || 10}% sobre el valor original. La entrada se reemite a tu nombre con un código nuevo.</p>
         <div class="table-wrap"><table class="table"><thead><tr><th>Ubicación</th><th>Precio</th><th></th></tr></thead><tbody>
         ${resale.map(t => raw(html`<tr><td>${ev.tiers.find(x => x.id === t.tierId)?.name}${t.seat ? ' · ' + t.seat.split('-').slice(1).join(' ') : ''}</td><td><b>${money(t.resalePrice)}</b> <span class="strike">${money(t.price)}</span></td><td><button class="btn btn-sm btn-primary" data-resale="${t.id}">Comprar</button></td></tr>`))}
         </tbody></table></div></div>`) : ''}
@@ -58,7 +58,7 @@ export function renderEvent(app, id) {
       : raw(`<a class="btn btn-primary btn-lg btn-block" href="#/evento/${ev.id}/entradas">${v.sections.length ? 'Elegir asientos' : 'Comprar entradas'}</a>`)}
     </aside>
   </div></section>
-  ${related.length ? raw(html`<section class="section" style="padding-top:0"><div class="container stack"><h2>También te puede gustar</h2><div class="grid-3">${raw(related.map(eventCard).join(''))}</div></div></section>`) : ''}`;
+  ${related.length ? raw(html`<section class="section ev-related" style="padding-top:0"><div class="container stack"><h2>También te puede gustar</h2><div class="grid-3">${raw(related.map(eventCard).join(''))}</div></div></section>`) : ''}`;
 
   // Cuenta regresiva
   let timer;

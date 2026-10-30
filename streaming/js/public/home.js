@@ -31,9 +31,9 @@ export function renderHome(el, ctx) {
     el.innerHTML = html`
       ${blocked ? raw(`<div class="container" style="padding-top:12px"><div class="card row between"><span>⚠️ Tu suscripción está <b>${escape(user.subStatus)}</b>. Puedes explorar, pero para reproducir debes reactivarla.</span><a class="btn btn-primary btn-sm" href="cuenta.html#plan">Reactivar</a></div></div>`) : ''}
       ${profile.kids ? raw('<div class="container" style="padding-top:12px"><span class="badge badge-success">Perfil infantil · solo contenido TE y 7+</span></div>') : ''}
-      ${t ? raw(html`<section class="billboard" aria-label="Destacado">
+      ${t ? raw(html`<section class="billboard site-hero" aria-label="Destacado">
         <div class="bg"><div class="art">${raw(artCardBg(t))}</div></div><div class="scrim"></div>
-        <div class="container"><div class="content" data-anim>
+        <div class="container"><div class="content hero-text" data-anim>
           ${t.original ? raw('<span class="eyebrow">Original Andes+</span>') : ''}
           <h1 id="bbTitle">${t.title}</h1>
           <div class="meta"><span class="match">${match(t)}% para ti</span><span class="rating">${t.maturity}</span><span>${metaLine(t)}</span></div>

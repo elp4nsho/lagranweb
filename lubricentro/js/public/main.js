@@ -14,7 +14,7 @@ import { renderReminders } from './reminders.js';
 import { renderAccount } from './account.js';
 
 const hdr = document.getElementById('hdr');
-const view = document.getElementById('view');
+let view = document.getElementById('view');
 const foot = document.getElementById('foot');
 let current = null;
 
@@ -47,7 +47,10 @@ hdr.addEventListener('click', e => {
 function mount(name, fn, params, query, keepScroll = false) {
   if (current?.res?.destroy) current.res.destroy();
   const y = window.scrollY;
-  view.replaceChildren();
+  // Un <main> nuevo por vista: así no se acumulan listeners y las secciones quedan como hijas directas (layouts).
+  const fresh = document.createElement('main');
+  fresh.id = 'view'; fresh.className = view.className;
+  view.replaceWith(fresh); view = fresh;
   const res = fn(view, params, query) || {};
   current = { name, fn, params, query, res };
   keepScroll ? window.scrollTo(0, y) : window.scrollTo(0, 0);

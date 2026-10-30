@@ -17,23 +17,23 @@ export function render(el, ctx) {
   const depts = Object.fromEntries(db.all('departments').map(d => [d.id, d]));
   const headcount = db.count('employees', e => e.status !== 'desvinculado');
   el.innerHTML = `
-    <section class="hero"><div class="container hero-grid">
-      <div data-anim><span class="eyebrow">Trabaja con nosotros</span><h1>${escape(site.heroTitle || '')}</h1><p class="lead">${escape(site.heroSubtitle || '')}</p>
+    <section class="hero site-hero"><div class="container hero-grid">
+      <div class="hero-text" data-anim><span class="eyebrow">Trabaja con nosotros</span><h1>${escape(site.heroTitle || '')}</h1><p class="lead">${escape(site.heroSubtitle || '')}</p>
         <div class="row" style="margin-top:20px"><a class="btn btn-primary btn-lg" href="#/empleos">Ver ${open.length} empleos</a><a class="btn btn-lg" href="#/estado">Revisar mi postulación</a></div></div>
-      <div class="hero-art" data-anim="zoomIn">${ART}</div>
+      <div class="hero-art hero-media" data-anim="zoomIn">${ART}</div>
     </div></section>
-    <section class="container"><div class="stats-strip">
+    <section class="container home-stats"><div class="stats-strip">
       <div class="card" data-anim><div class="stat"><span class="label">Colaboradores</span><span class="value">${headcount}</span></div></div>
       <div class="card" data-anim data-anim-delay="80"><div class="stat"><span class="label">Vacantes abiertas</span><span class="value">${open.reduce((s, j) => s + (j.openings || 1), 0)}</span></div></div>
       <div class="card" data-anim data-anim-delay="160"><div class="stat"><span class="label">Ciudades</span><span class="value">3</span></div></div>
       <div class="card" data-anim data-anim-delay="240"><div class="stat"><span class="label">Jornada</span><span class="value">42 h</span></div></div>
     </div></section>
-    <section class="section container stack"><div class="row between"><h2 style="margin:0">Empleos destacados</h2><a href="#/empleos">Ver todos →</a></div>
+    <section class="section container stack home-jobs"><div class="row between"><h2 style="margin:0">Empleos destacados</h2><a href="#/empleos">Ver todos →</a></div>
       <div class="job-list">${open.slice(0, 4).map(j => jobCard(j, depts)).join('') || '<div class="card empty">No hay vacantes publicadas en este momento.</div>'}</div></section>
-    <section class="container"><div class="grid-2">
+    <section class="container home-about"><div class="grid-2">
       <div class="card" data-anim><span class="eyebrow">Quiénes somos</span><h2 style="margin-top:6px">Grupo Cordillera</h2><p>${escape(site.about || '')}</p><div class="row gap-sm">${(site.values || []).map(v => `<span class="badge badge-primary">${escape(v)}</span>`).join('')}</div></div>
       <div class="card" data-anim><span class="eyebrow">Beneficios</span><h2 style="margin-top:6px">Lo que te ofrecemos</h2><div class="benefit-grid">${(site.benefits || []).map((b, i) => `<div class="benefit"><span class="ico" aria-hidden="true">${['🩺', '⏱️', '🎂', '🎓', '🏡', '🎁', '⭐', '🚌'][i % 8]}</span><span>${escape(b)}</span></div>`).join('')}</div></div>
     </div></section>
-    <section class="section container"><div class="card row between" data-anim><div><h2 style="margin:0">¿No encuentras tu cargo?</h2><p class="muted" style="margin:6px 0 0">Escríbenos a <a href="mailto:${escape(site.contact || '')}">${escape(site.contact || '')}</a> con tu CV y te consideraremos para futuros procesos.</p></div><a class="btn btn-accent" href="#/empleos">Explorar empleos</a></div></section>`;
+    <section class="section container home-cta"><div class="card row between" data-anim><div><h2 style="margin:0">¿No encuentras tu cargo?</h2><p class="muted" style="margin:6px 0 0">Escríbenos a <a href="mailto:${escape(site.contact || '')}">${escape(site.contact || '')}</a> con tu CV y te consideraremos para futuros procesos.</p></div><a class="btn btn-accent" href="#/empleos">Explorar empleos</a></div></section>`;
 }
 export { money };

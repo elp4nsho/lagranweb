@@ -23,17 +23,17 @@ function render() {
   const hist = db.query('scans', s => s.eventId === eventId).slice(0, 8);
   app.innerHTML = html`<div class="acc-head"><a class="brand" href="${HOME_BY_ROLE[user.role]}"><span class="logo">${raw(LOGO)}</span><span>Acceso</span></a>
       <span class="row" style="gap:8px"><span class="avatar" style="--av:${user.color};--size:32px" title="${user.name}">${initials(user.name)}</span><button class="btn btn-sm btn-ghost" id="out">Salir</button></span></div>
-    <div class="field"><label for="ev">Evento</label><select class="select" id="ev">${list.map(e => raw(html`<option value="${e.id}" ${e.id === eventId ? 'selected' : ''}>${fmtDay(e.date)} · ${e.title}</option>`))}</select></div>
-    ${ev ? raw(html`<p class="muted small" style="margin:-6px 0 0">${venueOf(ev).name} · puertas ${fmtHour(new Date(Date.parse(ev.date) - 90 * 6e4))} · inicio ${fmtHour(ev.date)}</p>
+    <div class="field acc-ev"><label for="ev">Evento</label><select class="select" id="ev">${list.map(e => raw(html`<option value="${e.id}" ${e.id === eventId ? 'selected' : ''}>${fmtDay(e.date)} · ${e.title}</option>`))}</select></div>
+    ${ev ? raw(html`<p class="muted small acc-meta" style="margin:-6px 0 0">${venueOf(ev).name} · puertas ${fmtHour(new Date(Date.parse(ev.date) - 90 * 6e4))} · inicio ${fmtHour(ev.date)}</p>
     <div class="acc-counter"><div class="card"><b id="cIn">${used}</b><small>Ingresados</small></div><div class="card"><b>${tk.length - used}</b><small>Por ingresar</small></div><div class="card"><b>${tk.length ? Math.round(used / tk.length * 100) : 0}%</b><small>Asistencia</small></div></div>
-    <div class="progress"><i style="--v:${tk.length ? used / tk.length * 100 : 0}%"></i></div>
+    <div class="progress acc-prog"><i style="--v:${tk.length ? used / tk.length * 100 : 0}%"></i></div>
     <div class="viewfinder" aria-hidden="true"><div class="laser"></div><span>Apunta al código QR o escribe el código</span></div>
-    <form class="stack" id="f" autocomplete="off"><label class="sr-only" for="code">Código de la entrada</label>
+    <form class="stack acc-form" id="f" autocomplete="off"><label class="sr-only" for="code">Código de la entrada</label>
       <input class="input acc-input" id="code" placeholder="VLC-XXXX-XXXX" autocapitalize="characters" spellcheck="false" inputmode="text">
       <div class="grid-2" style="gap:8px"><button class="btn btn-primary btn-lg">Validar</button><button type="button" class="btn btn-lg" id="paste">📋 Pegar</button></div>
       <div class="grid-2" style="gap:8px"><button type="button" class="btn btn-sm" id="simOk">🎲 Simular válida</button><button type="button" class="btn btn-sm" id="simBad">🎲 Simular usada/inválida</button></div>
     </form>
-    <div><h3 style="font-size:16px">Últimos escaneos</h3>${hist.length ? raw(`<ul class="scan-hist">${hist.map(s => `<li><span><code>${escape(s.code)}</code><br><small class="muted">${time(s.createdAt)} · ${escape(s.reason || '')}</small></span><span class="badge ${s.result === 'valid' ? 'badge-success' : s.result === 'used' ? 'badge-warning' : 'badge-danger'}">${s.result === 'valid' ? 'Válida' : s.result === 'used' ? 'Usada' : 'Inválida'}</span></li>`).join('')}</ul>`) : raw('<p class="muted small">Aún no hay escaneos en este evento.</p>')}</div>`) : raw('<div class="empty">No hay eventos para controlar.</div>')}`;
+    <div class="acc-hist"><h3 style="font-size:16px">Últimos escaneos</h3>${hist.length ? raw(`<ul class="scan-hist">${hist.map(s => `<li><span><code>${escape(s.code)}</code><br><small class="muted">${time(s.createdAt)} · ${escape(s.reason || '')}</small></span><span class="badge ${s.result === 'valid' ? 'badge-success' : s.result === 'used' ? 'badge-warning' : 'badge-danger'}">${s.result === 'valid' ? 'Válida' : s.result === 'used' ? 'Usada' : 'Inválida'}</span></li>`).join('')}</ul>`) : raw('<p class="muted small">Aún no hay escaneos en este evento.</p>')}</div>`) : raw('<div class="empty">No hay eventos para controlar.</div>')}`;
   $('#out').onclick = () => { auth.logout(); location.href = 'login.html'; };
   $('#ev')?.addEventListener('change', e => { eventId = e.target.value; sessionStorage.setItem(evKey, eventId); render(); });
   $('#f')?.addEventListener('submit', e => { e.preventDefault(); validate($('#code').value); });

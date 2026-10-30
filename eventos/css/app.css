@@ -259,3 +259,263 @@ body { overflow-x: hidden; }
 .btn.wrap { white-space: normal; text-align: center; height: auto; min-height: 40px; padding-block: 8px; }
 /* En estilos sin borde (p. ej. Metro) los campos dentro de modales/tarjetas se confundían con el fondo. */
 .modal .input, .modal .select, .modal .textarea, .card .input, .card .select, .card .textarea { background-color: var(--surface-2); }
+
+/* =====================================================================
+   Disposiciones (data-layout): clásica = diseño original.
+   revista = programa de mano / diario · app = aplicación con barra lateral.
+   ===================================================================== */
+html:not([data-layout="app"]) .main-nav :is(.nav-ico, .nav-home, .nav-tickets) { display: none; }
+.dash { display: flex; flex-direction: column; gap: 20px; }
+
+/* ---------- REVISTA ---------- */
+[data-layout="revista"] .site-header { position: relative; backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--bg); }
+[data-layout="revista"] .site-header .bar { display: contents; }
+[data-layout="revista"] .site-header .mobile-nav { display: none; }
+[data-layout="revista"] .main-nav { margin-left: 0; }
+[data-layout="revista"] .main-nav a { text-transform: uppercase; letter-spacing: .08em; font-size: 12px; }
+[data-layout="revista"] .site-brand .logo { width: 44px; height: 44px; }
+[data-layout="revista"] .hero { background-image: none; border-bottom: 3px double var(--line); }
+[data-layout="revista"] .hero .searchbar { box-shadow: none; border-radius: 0; border-inline: 0; background: none; padding-inline: 0; grid-template-columns: 1fr 1fr; }
+[data-layout="revista"] .hero .searchbar .q, [data-layout="revista"] .hero .searchbar .btn { grid-column: 1 / -1; }
+/* Portada: destacados a la izquierda + índice de secciones a la derecha, agenda en dos columnas */
+@media (min-width: 901px) {
+  [data-layout="revista"] .site-main:has(> .home-featured) { display: grid; grid-template-columns: minmax(0, 1fr) 270px; column-gap: 40px; width: min(1120px, 100% - 40px); margin-inline: auto; }
+  [data-layout="revista"] .site-main > .site-hero, [data-layout="revista"] .site-main > .home-week, [data-layout="revista"] .site-main > .home-why { grid-column: 1 / -1; }
+  [data-layout="revista"] .site-main:has(> .home-featured) > section > .container { width: 100%; }
+  [data-layout="revista"] .site-main > .home-featured { grid-column: 1; }
+  [data-layout="revista"] .site-main > .home-cats { grid-column: 2; grid-row: 2; padding-top: 32px !important; border-left: 1px solid var(--line); padding-left: 20px; }
+}
+[data-layout="revista"] .home-cats .cat-tiles { grid-template-columns: 1fr; gap: 0; }
+[data-layout="revista"] .home-cats .cat-tile { flex-direction: row; align-items: center; gap: 12px; padding: 12px 0; background: none; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; box-shadow: none; }
+[data-layout="revista"] .home-cats .cat-tile .muted { margin-left: auto; }
+[data-layout="revista"] .home-cats .cat-tile .ico { font-size: 22px; }
+[data-layout="revista"] .home-featured .grid-3 > :first-child .media { aspect-ratio: auto; flex: 1; min-height: 260px; }
+[data-layout="revista"] .home-featured .grid-3 > :first-child h3 { font-size: clamp(22px, 2.6vw, 32px); }
+[data-layout="revista"] .site-main .week-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+[data-layout="revista"] .site-main .week-list > :first-child { grid-column: auto; grid-row: auto; }
+[data-layout="revista"] .week-list .ev-card, [data-layout="revista"] .explore-page #results .ev-card { flex-direction: row; }
+[data-layout="revista"] .week-list .ev-card .media { width: 38%; flex: none; aspect-ratio: auto; min-height: 130px; }
+[data-layout="revista"] .home-why .grid-3 > * { background: none; border: 0; border-left: 4px solid var(--primary); border-radius: 0; box-shadow: none; }
+[data-layout="revista"] .home-why .grid-3 > :first-child { grid-column: auto; grid-row: auto; }
+@media (min-width: 761px) { [data-layout="revista"] .home-why .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) { [data-layout="revista"] .site-main .week-list { grid-template-columns: 1fr; } }
+/* Cartelera: filtros a la derecha, resultados como listado de diario */
+[data-layout="revista"] .explore { grid-template-columns: minmax(0, 1fr) 270px; }
+[data-layout="revista"] .explore .filters { order: 2; top: 16px; background: none; box-shadow: none; border-radius: 0; border: 0; border-left: 3px double var(--line); }
+[data-layout="revista"] .explore-page #results { grid-template-columns: 1fr; gap: 0; }
+[data-layout="revista"] .explore-page #results > * { grid-column: auto; grid-row: auto; }
+[data-layout="revista"] .explore-page #results .ev-card { border-radius: 0; border-inline: 0; border-top: 0; box-shadow: none; background: none; padding-block: 14px; gap: 18px; }
+[data-layout="revista"] .explore-page #results .ev-card .media { width: 240px; flex: none; border-radius: var(--radius-sm); }
+[data-layout="revista"] .explore-page #results .ev-card h3 { font-size: 22px; }
+@media (max-width: 900px) { [data-layout="revista"] .explore { grid-template-columns: 1fr; } [data-layout="revista"] .explore .filters { order: 0; border-left: 0; border-block: 3px double var(--line); } }
+@media (max-width: 600px) { [data-layout="revista"] .explore-page #results .ev-card .media { width: 112px; } [data-layout="revista"] .explore-page #results .ev-card .datebox { transform: scale(.8); transform-origin: top left; } [data-layout="revista"] .explore-page #results .ev-card .flags { display: none; } }
+/* Evento: portada partida con afiche enmarcado, banda de compra, texto a dos columnas */
+[data-layout="revista"] .ev-hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(20px, 4vw, 48px); align-items: center; width: min(1120px, 100% - 40px); margin-inline: auto; min-height: 0; padding-block: 32px; border-bottom: 3px double var(--line); overflow: visible; }
+[data-layout="revista"] .ev-hero .bg { position: relative; inset: auto; order: 2; aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
+[data-layout="revista"] .ev-hero .scrim { display: none; }
+[data-layout="revista"] .ev-hero .container { width: auto; padding: 0 0 0 clamp(16px, 2.5vw, 28px); border-left: 4px solid var(--primary); }
+[data-layout="revista"] .ev-hero h1 { font-size: clamp(28px, 4.2vw, 56px); line-height: 1.05; overflow-wrap: anywhere; }
+[data-layout="revista"] .ev-layout { grid-template-columns: 1fr; }
+[data-layout="revista"] .buy-box { order: -1; position: static; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); grid-auto-flow: row dense; gap: 10px 36px; align-items: start; border-radius: 0; border-inline: 0; box-shadow: none; background: none; }
+[data-layout="revista"] .buy-box > * { grid-column: 2; }
+[data-layout="revista"] .buy-box > h3 { grid-column: 1 / -1; }
+[data-layout="revista"] .buy-box > div:first-of-type { grid-column: 1; grid-row: span 4; }
+[data-layout="revista"] .ev-info { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; }
+[data-layout="revista"] .ev-info > .ev-cd, [data-layout="revista"] .ev-info > .ev-about, [data-layout="revista"] .ev-info > .ev-resale { grid-column: 1 / -1; }
+[data-layout="revista"] .ev-about > p:first-of-type { column-count: 2; column-gap: 40px; font-size: 17px; }
+[data-layout="revista"] .ev-cd .countdown div { background: none; border-radius: 0; border-width: 0 0 0 1px; }
+[data-layout="revista"] .ev-related { border-top: 3px double var(--line); }
+@media (max-width: 760px) {
+  [data-layout="revista"] .ev-hero, [data-layout="revista"] .ev-info, [data-layout="revista"] .buy-box { grid-template-columns: 1fr; }
+  [data-layout="revista"] .buy-box > *, [data-layout="revista"] .buy-box > div:first-of-type { grid-column: 1; grid-row: auto; }
+  [data-layout="revista"] .ev-about > p:first-of-type { column-count: 1; }
+}
+/* Asientos y pago: resumen a la izquierda */
+[data-layout="revista"] .seat-layout, [data-layout="revista"] .checkout { grid-template-columns: 340px minmax(0, 1fr); }
+[data-layout="revista"] .seat-sum, [data-layout="revista"] .co-sum { order: -1; position: sticky; top: 16px; border-top: 4px solid var(--primary); }
+[data-layout="revista"] .timer-bar { top: 8px; }
+@media (max-width: 960px) { [data-layout="revista"] .seat-layout, [data-layout="revista"] .checkout { grid-template-columns: 1fr; } [data-layout="revista"] .seat-sum, [data-layout="revista"] .co-sum { position: static; } }
+/* Mis entradas: boletos horizontales en lista */
+[data-layout="revista"] .wallet-grid { grid-template-columns: 1fr; }
+@media (min-width: 701px) {
+  [data-layout="revista"] .wallet-grid .ticket { display: grid; grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "top info kv" "top actions actions"; align-items: center; }
+  [data-layout="revista"] .wallet-grid .ticket .top { grid-area: top; height: 100%; min-height: 150px; }
+  [data-layout="revista"] .wallet-grid .ticket .info { grid-area: info; }
+  [data-layout="revista"] .wallet-grid .ticket .kv { grid-area: kv; border-left: 2px dashed var(--line); }
+  [data-layout="revista"] .wallet-grid .ticket .actions { grid-area: actions; padding-top: 0; }
+  [data-layout="revista"] .wallet-grid .ticket .cut { display: none; }
+}
+
+/* ---------- APP ---------- */
+@media (min-width: 901px) { [data-layout="app"] .site-header .bar { display: contents; } }
+[data-layout="app"] .site-header .mobile-nav { display: none; }
+[data-layout="app"] .week-list .ev-card .price { flex-wrap: wrap; }
+[data-layout="app"] .main-nav .nav-ico { width: 26px; }
+@media (min-width: 901px) {
+  [data-layout="app"] .site-header { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  [data-layout="app"] .site-header .mobile-nav { display: none; }
+  [data-layout="app"] .main-nav { margin-left: 0; }
+  [data-layout="app"] .header-actions { margin-left: 0; }
+  [data-layout="app"] .header-actions > .hide-sm { display: none; }
+  [data-layout="app"] .header-actions .rel > .btn { width: 100%; justify-content: flex-start; }
+  [data-layout="app"] .header-actions .menu-pop { position: static; width: auto; margin-top: 6px; box-shadow: none; }
+  [data-layout="app"] .header-actions:has(#bell) { flex-direction: row !important; flex-wrap: wrap; }
+  [data-layout="app"] .header-actions .rel:has(#userBtn) { flex: 1; min-width: 0; }
+  [data-layout="app"] .header-actions .rel:has(.menu-pop:not([hidden])) { flex-basis: 100%; order: 2; }
+  [data-layout="app"] .site-brand { white-space: normal; font-size: 17px; line-height: 1.15; }
+}
+@media (max-width: 900px) {
+  [data-layout="app"] .main-nav .nav-cat { display: none; }
+  [data-layout="app"] .main-nav a { flex-direction: column; gap: 2px; font-size: 11px; line-height: 1.1; background: none; }
+  [data-layout="app"] .main-nav .nav-ico { width: auto; font-size: 20px; }
+  [data-layout="app"] .main-nav a.active { color: var(--primary); }
+}
+/* Portada: categorías como accesos rápidos arriba, agenda de la semana y carrusel de destacados */
+[data-layout="app"] .site-main:has(> .home-featured) { display: flex; flex-direction: column; }
+[data-layout="app"] .site-main > .home-cats { order: -1; padding-top: 14px !important; }
+[data-layout="app"] .site-main > .home-week { order: 1; }
+[data-layout="app"] .site-main > .home-featured { order: 2; }
+[data-layout="app"] .site-main > .home-why { order: 3; }
+[data-layout="app"] .home-cats .container > h2 { display: none; }
+[data-layout="app"] .home-cats .cat-tiles { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+[data-layout="app"] .home-cats .cat-tile { flex: 1 0 auto; flex-direction: row; align-items: center; gap: 10px; padding: 10px 16px; }
+[data-layout="app"] .home-cats .cat-tile .ico { font-size: 22px; }
+[data-layout="app"] .home-cats .cat-tile b { font-size: 15px; }
+[data-layout="app"] .hero { background-image: none; }
+[data-layout="app"] .hero .searchbar { box-shadow: none; grid-template-columns: 1fr 1fr; }
+[data-layout="app"] .hero .searchbar .q { grid-column: 1 / -1; }
+[data-layout="app"] .site-footer .brand { white-space: normal; }
+[data-layout="app"] .site-main .week-list { grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr)); gap: 8px; }
+[data-layout="app"] .site-main .week-list > * { grid-column: auto !important; }
+[data-layout="app"] .week-list .ev-card { flex-direction: row; align-items: stretch; }
+[data-layout="app"] .week-list .ev-card .media { width: 112px; flex: none; aspect-ratio: auto; }
+[data-layout="app"] .week-list .ev-card .flags { display: none; }
+[data-layout="app"] .week-list .ev-card .datebox { left: 6px; top: 6px; min-width: 44px; padding: 4px 6px; }
+[data-layout="app"] .week-list .ev-card h3 { font-size: 16px; }
+[data-layout="app"] .home-featured .grid-3 { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: thin; }
+[data-layout="app"] .home-featured .grid-3 > * { flex: 0 0 min(300px, 78%); scroll-snap-align: start; }
+[data-layout="app"] .home-why .grid-3 > * { grid-column: auto !important; }
+[data-layout="app"] .home-why .grid-3 h3 { font-size: 16px; }
+[data-layout="app"] .home-why .grid-3 p { font-size: 14px; margin: 0; }
+/* Cartelera: filtros como barra superior fija, resultados en bento */
+[data-layout="app"] .explore { grid-template-columns: 1fr; }
+[data-layout="app"] .explore .filters { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); align-items: end; gap: 10px 14px; top: 8px; z-index: 20; }
+[data-layout="app"] .explore .filters > .field:has(#fcat) { grid-column: 1 / 3; grid-row: 2; }
+[data-layout="app"] .explore .filters > .check { grid-row: 2; }
+[data-layout="app"] .explore .filters > #fclear { grid-row: 2; justify-self: end; }
+@media (max-width: 900px) {
+  [data-layout="app"] .explore .filters { grid-template-columns: 1fr 1fr; position: static; }
+  [data-layout="app"] .explore .filters > * { grid-column: auto !important; grid-row: auto !important; }
+  [data-layout="app"] .explore .filters > .field:first-child, [data-layout="app"] .explore .filters > .field:has(#fcat), [data-layout="app"] .explore .filters > .grid-2 { grid-column: 1 / -1 !important; }
+  [data-layout="app"] .explore .filters .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  [data-layout="app"] .explore .filters .chip { flex: none; }
+}
+/* Evento: ficha compacta, compra en columna izquierda fija, información en paneles */
+[data-layout="app"] .ev-hero { display: grid; grid-template-columns: 240px minmax(0, 1fr); width: min(1360px, 100% - 32px); margin: 16px auto 0; min-height: 0; align-items: stretch; background: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+[data-layout="app"] .ev-hero .bg { position: relative; inset: auto; min-height: 180px; }
+[data-layout="app"] .ev-hero .scrim { display: none; }
+[data-layout="app"] .ev-hero .container { width: auto; padding: clamp(16px, 2.4vw, 28px); align-self: center; }
+[data-layout="app"] .ev-hero h1 { font-size: clamp(24px, 3vw, 38px); }
+[data-layout="app"] .ev-layout { grid-template-columns: 320px minmax(0, 1fr); gap: 16px; }
+[data-layout="app"] .buy-box { order: -1; top: 16px; }
+[data-layout="app"] .ev-info { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px !important; }
+[data-layout="app"] .ev-info > * { padding: var(--pad); background: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius); min-width: 0; }
+[data-layout="app"] .ev-info > .ev-venue, [data-layout="app"] .ev-info > .ev-resale { grid-column: 1 / -1; }
+[data-layout="app"] .ev-info > .ev-lineup:last-child { grid-column: 1 / -1; }
+[data-layout="app"] .ev-info h2 { font-size: 18px; }
+[data-layout="app"] .ev-info .ev-venue > .card { box-shadow: none; padding: 0; border: 0; background: none; }
+[data-layout="app"] .ev-info .countdown { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 960px) { [data-layout="app"] .ev-layout { grid-template-columns: 1fr; } [data-layout="app"] .buy-box { position: static; } }
+@media (max-width: 700px) {
+  [data-layout="app"] .ev-hero { grid-template-columns: 1fr; }
+  [data-layout="app"] .ev-hero .bg { min-height: 0; height: 140px; }
+  [data-layout="app"] .ev-info { grid-template-columns: 1fr; }
+  [data-layout="app"] .ev-info > * { grid-column: auto !important; }
+  [data-layout="app"] .ev-info .countdown { grid-template-columns: repeat(4, 1fr); }
+}
+/* Asientos: mapa a todo el ancho y el carrito como cajón pegado abajo */
+[data-layout="app"] .seat-layout { grid-template-columns: 1fr; }
+[data-layout="app"] .seat-sum { position: sticky; bottom: 8px; z-index: 25; max-height: 46vh; overflow: auto; box-shadow: var(--shadow-lg); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); align-items: start; }
+[data-layout="app"] .seat-sum > h3 { grid-column: 1 / -1; }
+[data-layout="app"] .timer-bar { top: 8px; }
+@media (max-width: 900px) { [data-layout="app"] .seat-sum { bottom: 76px; } [data-layout="app"] .timer-bar { top: 70px; } }
+/* Pago: columna única centrada con el resumen arriba */
+[data-layout="app"] .checkout { grid-template-columns: 1fr; max-width: 760px; width: 100%; margin-inline: auto; }
+[data-layout="app"] .co-sum { order: -1; position: static; display: grid; grid-template-columns: 160px minmax(0, 1fr); align-items: start; }
+[data-layout="app"] .co-sum > * { grid-column: 2; }
+[data-layout="app"] .co-sum > :first-child { grid-column: 1; grid-row: 1 / span 6; aspect-ratio: 1 !important; }
+@media (max-width: 520px) { [data-layout="app"] .co-sum { grid-template-columns: 1fr; } [data-layout="app"] .co-sum > *, [data-layout="app"] .co-sum > :first-child { grid-column: 1; grid-row: auto; aspect-ratio: 16 / 7 !important; } }
+/* Mis entradas: rejilla densa de pases */
+[data-layout="app"] .wallet-grid { grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr)); gap: 12px; }
+[data-layout="app"] .wallet-grid .ticket .top { height: 76px; }
+[data-layout="app"] .wallet-grid .ticket .info h3 { font-size: 15px; }
+[data-layout="app"] .site-footer { padding-bottom: 32px; }
+[data-layout="app"] .site-footer .footer-grid { grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); }
+@media (max-width: 900px) { [data-layout="app"] .site-footer { padding-bottom: 100px; } }
+
+/* ---------- Dashboards (admin y productor) ---------- */
+[data-layout="revista"] .dash .grid-2, [data-layout="app"] .dash .grid-2 { display: contents; }
+.dash > .d-kpis { grid-area: kpis; } .dash .d-alert { grid-area: alert; } .dash .d-gmv { grid-area: gmv; } .dash .d-daily { grid-area: daily; }
+.dash .d-city { grid-area: city; } .dash .d-cat { grid-area: cat; } .dash .d-top { grid-area: top; } .dash .d-act { grid-area: act; } .dash .d-pend { grid-area: pend; }
+@media (min-width: 1000px) {
+  /* revista: KPIs en columna como sumario, gráficos a dos columnas */
+  [data-layout="revista"] .dash { display: grid; gap: 20px 28px; grid-template-columns: 250px minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "alert alert alert" "kpis gmv gmv" "kpis daily city" "top top cat" "act act act" "pend pend pend"; }
+  [data-layout="revista"] .dash:not(:has(.d-daily)) { grid-template-areas: "kpis gmv gmv" "kpis cat top" "kpis cat top"; }
+  [data-layout="revista"] .dash > .d-kpis { grid-template-columns: 1fr; align-content: start; border-right: 3px double var(--line); padding-right: 24px; }
+  [data-layout="revista"] .dash > .d-kpis > * { box-shadow: none; border-radius: 0; border-inline: 0; border-top: 0; background: none; }
+  /* app: actividad como feed lateral, bento de gráficos */
+  [data-layout="app"] .dash { display: grid; gap: 12px; grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-areas: "alert alert alert alert" "kpis kpis kpis kpis" "act gmv gmv cat" "act daily daily city" "top top pend pend"; }
+  [data-layout="app"] .dash:not(:has(.d-pend)) { grid-template-areas: "alert alert alert alert" "kpis kpis kpis kpis" "act gmv gmv cat" "act daily daily city" "top top top top"; }
+  [data-layout="app"] .dash:not(:has(.d-daily)) { grid-template-areas: "kpis kpis kpis kpis" "top top gmv gmv" "top top cat cat"; }
+  [data-layout="app"] .dash > .d-kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  [data-layout="app"] .dash .d-act .act-list li { padding: 8px 0; font-size: 13px; }
+  [data-layout="app"] .dash:has(.d-daily) { grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); }
+  [data-layout="app"] .dash > .d-kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  [data-layout="app"] .dash .d-act { height: 0; min-height: 100%; overflow: auto; }
+  [data-layout="revista"] .dash { grid-template-columns: 280px minmax(0, 1fr) minmax(0, 1fr); }
+  [data-layout="revista"] .dash > .d-kpis .stat .value { font-size: clamp(20px, 1.9vw, 26px); }
+}
+@media (max-width: 999px) { [data-layout="app"] .dash .d-act { order: -1; } [data-layout="app"] .dash > .d-kpis { order: -2; } [data-layout="revista"] .dash > .d-kpis { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- App de control de acceso ---------- */
+.acc-app > * { min-width: 0; }
+@media (min-width: 901px) {
+  [data-layout="revista"] .acc-app { max-width: 1100px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 18px 40px; align-content: start;
+    grid-template-areas: "head head" "ev ev" "meta meta" "view counter" "view prog" "form hist" "form hist"; }
+  [data-layout="revista"] .acc-app .acc-head { grid-area: head; border-bottom: 3px double var(--line); padding-bottom: 12px; }
+  [data-layout="revista"] .acc-app .acc-ev { grid-area: ev; } [data-layout="revista"] .acc-app .acc-meta { grid-area: meta; }
+  [data-layout="revista"] .acc-app .viewfinder { grid-area: view; } [data-layout="revista"] .acc-app .acc-counter { grid-area: counter; }
+  [data-layout="revista"] .acc-app .acc-prog { grid-area: prog; } [data-layout="revista"] .acc-app .acc-form { grid-area: form; }
+  [data-layout="revista"] .acc-app .acc-hist { grid-area: hist; border-left: 1px solid var(--line); padding-left: 24px; }
+  [data-layout="app"] .acc-app { max-width: none; display: grid; grid-template-columns: 220px minmax(0, 1fr) 340px; gap: 16px; align-content: start; padding: 0 0 90px;
+    grid-template-areas: "head head head" "counter ev hist" "counter meta hist" "counter view hist" "prog form hist"; }
+  [data-layout="app"] .acc-app .acc-head { grid-area: head; padding: 12px 20px; background: var(--surface); border-bottom: var(--border-w) solid var(--line); }
+  [data-layout="app"] .acc-app .acc-ev { grid-area: ev; } [data-layout="app"] .acc-app .acc-meta { grid-area: meta; }
+  [data-layout="app"] .acc-app .viewfinder { grid-area: view; aspect-ratio: 21 / 9; }
+  [data-layout="app"] .acc-app .acc-counter { grid-area: counter; grid-template-columns: 1fr; align-content: start; margin-left: 16px; }
+  [data-layout="app"] .acc-app .acc-prog { grid-area: prog; margin-left: 16px; align-self: start; }
+  [data-layout="app"] .acc-app .acc-form { grid-area: form; }
+  [data-layout="app"] .acc-app .acc-hist { grid-area: hist; margin-right: 16px; padding: 14px; background: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius); max-height: calc(100vh - 110px); overflow: auto; }
+}
+@media (max-width: 900px) {
+  [data-layout="revista"] .acc-app .acc-form { order: 1; } [data-layout="revista"] .acc-app .viewfinder { order: 2; }
+  [data-layout="revista"] .acc-app .acc-counter, [data-layout="revista"] .acc-app .acc-prog { order: 3; } [data-layout="revista"] .acc-app .acc-hist { order: 4; }
+  [data-layout="app"] .acc-app .viewfinder { display: none; }
+  [data-layout="app"] .acc-app .acc-counter { order: -1; }
+  [data-layout="app"] .acc-app .acc-head { order: -2; }
+}
+@media (min-width: 901px) {
+  [data-layout="revista"] .site-main > .home-cats h2 { font-size: 20px; }
+  [data-layout="revista"] .home-cats .cat-tile b { font-size: 14px; overflow-wrap: normal; }
+  [data-layout="revista"] .home-cats .cat-tile .muted { white-space: nowrap; }
+}
+[data-layout="app"] .site-main > .ev-hero > .container { background: none; border: 0; border-radius: 0; }
+@media (max-width: 760px) {
+  [data-layout="revista"] .site-brand { white-space: normal; font-size: clamp(20px, 6.4vw, 30px) !important; text-align: center; }
+  [data-layout="revista"] .site-actions { justify-self: center; margin: 0 0 10px; }
+  [data-layout="revista"] .explore-page #results .ev-card h3 { font-size: 17px; overflow-wrap: anywhere; }
+  [data-layout="app"] .explore .filters > .check, [data-layout="app"] .explore .filters > #fclear { grid-column: 1 / -1 !important; justify-self: stretch; }
+}
+[data-layout="revista"] .acc-app .acc-counter, [data-layout="revista"] .acc-app .acc-prog { align-self: start; }

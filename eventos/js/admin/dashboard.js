@@ -24,24 +24,26 @@ export function render(el, { isAdmin }) {
   const us = usersById();
 
   el.innerHTML = html`${raw(pageHead('Dashboard', 'Resumen de la plataforma · últimos 30 días'))}
-    <div class="kpis">
+    <div class="dash">
+    <div class="kpis d-kpis">
       ${raw(kpi('GMV (30 días)', money(gmv30), pctDelta(gmv30, gmvPrev)))}
       ${raw(kpi('Entradas vendidas (30 días)', num(tk30), pctDelta(tk30, tkPrev)))}
       ${raw(kpi('Ingresos por cargos', money(fees30), pctDelta(fees30, feesPrev)))}
       ${raw(kpi('Eventos activos', num(upcoming.length), null))}
     </div>
-    ${pending.length || refunds.length ? raw(html`<div class="card row between"><span>⚠️ ${pending.length} evento(s) esperan aprobación · ${refunds.length} solicitud(es) de reembolso</span><span class="row" style="gap:8px">${pending.length ? raw('<a class="btn btn-sm btn-primary" href="#/eventos?status=pendiente">Revisar eventos</a>') : ''}${refunds.length ? raw('<a class="btn btn-sm" href="#/pedidos?status=reembolso_solicitado">Ver reembolsos</a>') : ''}</span></div>`) : ''}
+    ${pending.length || refunds.length ? raw(html`<div class="card row between d-alert"><span>⚠️ ${pending.length} evento(s) esperan aprobación · ${refunds.length} solicitud(es) de reembolso</span><span class="row" style="gap:8px">${pending.length ? raw('<a class="btn btn-sm btn-primary" href="#/eventos?status=pendiente">Revisar eventos</a>') : ''}${refunds.length ? raw('<a class="btn btn-sm" href="#/pedidos?status=reembolso_solicitado">Ver reembolsos</a>') : ''}</span></div>`) : ''}
     <div class="grid-2">
-      <div class="card chart-card"><h3>GMV mensual (millones CLP)</h3>${raw(lineChart(monthly(orders, { value: o => o.total / 1e6 }).map(d => ({ ...d, value: Math.round(d.value * 10) / 10 })), { format: v => `$${v} M` }))}</div>
-      <div class="card chart-card"><h3>Entradas vendidas por día (30 días)</h3>${raw(barChart(daily(tickets).map((d, i) => ({ ...d, label: i % 5 === 0 ? d.label : '' })), { format: v => `${v} entradas` }))}</div>
+      <div class="card chart-card d-gmv"><h3>GMV mensual (millones CLP)</h3>${raw(lineChart(monthly(orders, { value: o => o.total / 1e6 }).map(d => ({ ...d, value: Math.round(d.value * 10) / 10 })), { format: v => `$${v} M` }))}</div>
+      <div class="card chart-card d-daily"><h3>Entradas vendidas por día (30 días)</h3>${raw(barChart(daily(tickets).map((d, i) => ({ ...d, label: i % 5 === 0 ? d.label : '' })), { format: v => `${v} entradas` }))}</div>
     </div>
     <div class="grid-2">
-      <div class="card chart-card"><h3>Ventas por ciudad (millones CLP)</h3>${raw(barChart(byCity, { format: v => `$${v} M` }))}</div>
-      <div class="card chart-card"><h3>Entradas por categoría</h3>${raw(donutChart(byCat, { label: num(tickets.length) }))}</div>
+      <div class="card chart-card d-city"><h3>Ventas por ciudad (millones CLP)</h3>${raw(barChart(byCity, { format: v => `$${v} M` }))}</div>
+      <div class="card chart-card d-cat"><h3>Entradas por categoría</h3>${raw(donutChart(byCat, { label: num(tickets.length) }))}</div>
     </div>
     <div class="grid-2">
-      <div class="card"><h3>Top eventos próximos</h3><ul class="mini-list">${top.map(({ e, s }) => raw(html`<li><a href="#/eventos/${e.id}" style="flex:1;min-width:0">${e.title}<br><small class="muted">${fmtDay(e.date)} · ${e.city}</small></a><div class="progress" title="${Math.round(s.pct)}%"><i style="--v:${Math.min(100, s.pct)}%"></i></div><b style="min-width:90px;text-align:right">${money(s.revenue)}</b></li>`))}</ul></div>
-      <div class="card"><div class="row between"><h3 style="margin:0">Actividad reciente</h3><a class="btn btn-sm btn-ghost" href="#/actividad">Ver todo</a></div>${raw(activityList(db.all('_log').slice(0, 7), us))}</div>
+      <div class="card d-top"><h3>Top eventos próximos</h3><ul class="mini-list">${top.map(({ e, s }) => raw(html`<li><a href="#/eventos/${e.id}" style="flex:1;min-width:0">${e.title}<br><small class="muted">${fmtDay(e.date)} · ${e.city}</small></a><div class="progress" title="${Math.round(s.pct)}%"><i style="--v:${Math.min(100, s.pct)}%"></i></div><b style="min-width:90px;text-align:right">${money(s.revenue)}</b></li>`))}</ul></div>
+      <div class="card d-act"><div class="row between"><h3 style="margin:0">Actividad reciente</h3><a class="btn btn-sm btn-ghost" href="#/actividad">Ver todo</a></div>${raw(activityList(db.all('_log').slice(0, 7), us))}</div>
     </div>
-    ${isAdmin && pending.length ? raw(html`<div class="card"><h3>Pendientes de aprobación</h3><ul class="mini-list">${pending.map(e => raw(html`<li><span>${e.title}<br><small class="muted">${db.get('organizers', e.organizerId)?.name}</small></span>${raw(badge(e.status))}<a class="btn btn-sm" href="#/eventos/${e.id}">Revisar</a></li>`))}</ul></div>`) : ''}`;
+    ${isAdmin && pending.length ? raw(html`<div class="card d-pend"><h3>Pendientes de aprobación</h3><ul class="mini-list">${pending.map(e => raw(html`<li><span>${e.title}<br><small class="muted">${db.get('organizers', e.organizerId)?.name}</small></span>${raw(badge(e.status))}<a class="btn btn-sm" href="#/eventos/${e.id}">Revisar</a></li>`))}</ul></div>`) : ''}
+    </div>`;
 }

@@ -15,7 +15,7 @@ export function renderBrowse(el, ctx, type, q = {}) {
     el.innerHTML = html`<section class="section" style="padding-top:24px"><div class="container stack">
       <div class="row between"><h1 style="margin:0">${type === 'serie' ? 'Series' : 'Películas'}</h1>
         <select class="select" id="sort" style="width:auto" aria-label="Ordenar"><option value="popular">Más populares</option><option value="nuevo">Más recientes</option><option value="score">Mejor valoradas</option><option value="az">A–Z</option></select></div>
-      <div class="row" style="gap:6px" id="gchips"><button class="chip ${st.genre ? '' : 'active'}" data-g="">Todos</button>${genres.map(g => raw(`<button class="chip ${st.genre === g ? 'active' : ''}" data-g="${g}">${g}</button>`))}</div>
+      <div class="row genre-chips" style="gap:6px" id="gchips"><button class="chip ${st.genre ? '' : 'active'}" data-g="">Todos</button>${genres.map(g => raw(`<button class="chip ${st.genre === g ? 'active' : ''}" data-g="${g}">${g}</button>`))}</div>
       <div class="title-grid">${items.length ? raw(items.map(t => tile(t, `<span class="sub">${t.year} · ${t.genres.join(', ')}</span>`)).join('')) : raw('<div class="empty">No hay títulos en este género.</div>')}</div>
     </div></section>`;
     $('#sort', el).value = st.sort;

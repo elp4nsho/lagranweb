@@ -16,12 +16,12 @@ export function renderHeader(el, { user, profile, active = '' }) {
   const staff = STAFF.includes(user.role);
   const notes = db.query('notifications', n => n.userId === user.id && !n.read);
   const others = staff ? [] : profilesOf(user).filter(p => p.id !== profile?.id);
-  const links = [['app.html#/', 'Inicio', 'inicio'], ['app.html#/series', 'Series', 'series'], ['app.html#/peliculas', 'Películas', 'peliculas'], ['app.html#/mi-lista', 'Mi lista', 'lista']];
+  const links = [['app.html#/', 'Inicio', 'inicio', '🏠'], ['app.html#/series', 'Series', 'series', '📺'], ['app.html#/peliculas', 'Películas', 'peliculas', '🎬'], ['app.html#/mi-lista', 'Mi lista', 'lista', '＋']];
   el.innerHTML = `<div class="container"><div class="bar">
-      <a class="logo-word" href="app.html#/">Andes<b>+</b></a>
-      <nav class="st-nav" aria-label="Principal">${links.map(([h, l, k]) => `<a href="${h}" class="${active === k ? 'active' : ''}">${l}</a>`).join('')}</nav>
-      <div class="st-actions">
-        <a class="btn btn-ghost btn-icon" href="app.html#/buscar" aria-label="Buscar">🔍</a>
+      <a class="logo-word site-brand" href="app.html#/">Andes<b>+</b></a>
+      <nav class="st-nav site-nav" aria-label="Principal">${links.map(([h, l, k, i]) => `<a href="${h}" class="${active === k ? 'active' : ''}"><span class="nav-ico" aria-hidden="true">${i}</span>${l}</a>`).join('')}<a href="app.html#/buscar" class="nav-search ${active === 'buscar' ? 'active' : ''}"><span class="nav-ico" aria-hidden="true">🔍</span>Buscar</a></nav>
+      <div class="st-actions site-actions">
+        <a class="btn btn-ghost btn-icon st-search" href="app.html#/buscar" aria-label="Buscar">🔍</a>
         ${notes.length ? `<a class="btn btn-ghost btn-sm hide-sm" href="cuenta.html#soporte" title="${escape(notes[0].text)}">🔔 ${notes.length}</a>` : ''}
         <div class="rel"><button class="prof-btn" id="profBtn" aria-expanded="false" aria-label="Menú de perfil"><span class="p-ava" style="--av:${profile?.color || 'var(--primary)'}">${profile?.avatar || '👤'}</span><span class="hide-sm">${escape(profile?.name || user.name)}</span> ▾</button>
           <div class="menu-pop" id="profPop" hidden>

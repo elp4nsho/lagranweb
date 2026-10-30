@@ -73,7 +73,7 @@ export function renderHome(el) {
 
     <section class="section band cta-rem"><div class="container grid-2" style="align-items:center">
       <div data-anim><span class="eyebrow">Recordatorios</span><h2>Te avisamos cuando le toque a tu auto</h2><p class="muted">Por WhatsApp, SMS o correo, según kilometraje o fecha. Sin spam, te das de baja cuando quieras.</p><a class="btn btn-primary" href="#/recordatorios">Activar recordatorio</a></div>
-      <div class="card stack" style="gap:8px"><b>¿Ya estás en la sucursal?</b><p class="muted small" style="margin:0">Toca "Llegué", ingresa tu patente y te ubicamos en la fila sin bajarte del auto.</p><a class="btn btn-accent" href="#/llegue">📍 Llegué</a><a class="btn btn-ghost" href="#/estado">🔎 Seguir el estado de mi auto</a></div>
+      <div class="card stack" style="gap:8px"><b>¿Ya estás en la sucursal?</b><p class="muted small" style="margin:0">Toca "Llegué", ingresa tu patente y te ubicamos en la fila sin bajarte del auto.</p><a class="btn btn-primary" href="#/llegue">📍 Llegué</a><a class="btn btn-ghost" href="#/estado">🔎 Seguir el estado de mi auto</a></div>
     </div></section>`;
     plateForm(el.querySelector('[data-pf]'));
   };

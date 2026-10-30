@@ -20,47 +20,47 @@ export function renderHome(el) {
   const posts = publishedPosts().slice(0, 3);
 
   el.innerHTML = `
-  <section class="hero">
+  <section class="hero site-hero">
     <div class="hero-orbs" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="container hero-inner">
-      <div class="hero-copy" data-anim>
+      <div class="hero-copy hero-text" data-anim>
         <span class="eyebrow">${escape(hero.eyebrow)}</span>
         <h1 class="hero-title">${escape(hero.title)} <span class="rotator" aria-live="polite"><em data-rot>${escape((hero.words || [''])[0])}</em></span></h1>
         <p class="lead">${escape(hero.lead)}</p>
         <div class="row hero-cta"><a class="btn btn-primary btn-lg" href="#/cotizar">${escape(hero.ctaPrimary)} →</a><a class="btn btn-lg" href="#/trabajos">${escape(hero.ctaSecondary)}</a></div>
       </div>
-      <div class="hero-art" data-anim="zoomIn">${featured[0] ? art(featured[0].art, { ratio: '1/1', cls: 'hero-art-main' }) : ''}
+      <div class="hero-art hero-media" data-anim="zoomIn">${featured[0] ? art(featured[0].art, { ratio: '1/1', cls: 'hero-art-main' }) : ''}
         ${featured[1] ? `<a class="hero-chip card" href="#/trabajos/${escape(featured[1].slug)}"><b>${escape(featured[1].title)}</b><small class="muted">Proyecto destacado →</small></a>` : ''}</div>
     </div>
   </section>
 
   ${on.clients && clients.length ? `<section class="clients-band" aria-label="Clientes"><div class="container"><p class="small muted">Confían en nosotros</p><div class="marquee"><div class="marquee-track">${[...clients, ...clients].map(c => `<span class="client-logo">${escape(c.name)}</span>`).join('')}</div></div></div></section>` : ''}
 
-  ${on.services ? `<section class="section" id="servicios"><div class="container">
+  ${on.services ? `<section class="section home-services" id="servicios"><div class="container">
     ${sectionHead('01 — Servicios', 'Todo lo que tu marca necesita para brillar', 'Equipos multidisciplinarios que acompañan desde la estrategia hasta el lanzamiento.')}
     <div class="grid-3 services">${services.map(s => `<article class="card hover service">
       <span class="service-ico" aria-hidden="true">${escape(s.icon)}</span><h3>${escape(s.title)}</h3><p class="muted">${escape(s.desc)}</p>
       <div class="row" style="gap:6px">${(s.tags || []).map(t => `<span class="badge plain">${escape(t)}</span>`).join('')}</div></article>`).join('')}</div>
   </div></section>` : ''}
 
-  ${on.stats ? `<section class="stats-band" aria-label="Cifras del estudio"><div class="container grid-4">${(h.stats || []).map(s => `<div class="big-stat" data-anim><span class="big-num" data-count="${Number(s.value) || 0}">${num(Number(s.value) || 0)}</span><span class="big-suf">${escape(s.suffix)}</span><p class="muted">${escape(s.label)}</p></div>`).join('')}</div></section>` : ''}
+  ${on.stats ? `<section class="stats-band home-stats" aria-label="Cifras del estudio"><div class="container grid-4">${(h.stats || []).map(s => `<div class="big-stat" data-anim><span class="big-num" data-count="${Number(s.value) || 0}">${num(Number(s.value) || 0)}</span><span class="big-suf">${escape(s.suffix)}</span><p class="muted">${escape(s.label)}</p></div>`).join('')}</div></section>` : ''}
 
-  ${on.work ? `<section class="section alt" id="trabajos"><div class="container">
+  ${on.work ? `<section class="section alt home-work" id="trabajos"><div class="container">
     ${sectionHead('02 — Trabajos seleccionados', 'Proyectos de los que presumimos', '', '<a class="btn" href="#/trabajos">Ver todo el portafolio →</a>')}
     <div class="grid-3">${featured.map(projectCard).join('')}</div>
   </div></section>` : ''}
 
-  ${on.about ? `<section class="section"><div class="container about">
-    <div data-anim><span class="eyebrow">03 — El estudio</span><h2>${escape(h.about?.title)}</h2>${String(h.about?.text || '').split(/\n+/).map(p => `<p>${escape(p)}</p>`).join('')}<a class="btn" href="#/estudio">Conoce al equipo →</a></div>
+  ${on.about ? `<section class="section home-about"><div class="container about">
+    <div data-anim><span class="eyebrow"><span class="sec-n">03 — </span>El estudio</span><h2>${escape(h.about?.title)}</h2>${String(h.about?.text || '').split(/\n+/).map(p => `<p>${escape(p)}</p>`).join('')}<a class="btn" href="#/estudio">Conoce al equipo →</a></div>
     <div class="grid-2 team-mini">${team.map(teamCard).join('')}</div>
   </div></section>` : ''}
 
-  ${on.process ? `<section class="section alt"><div class="container">
+  ${on.process ? `<section class="section alt home-process"><div class="container">
     ${sectionHead('04 — Proceso', 'Cómo trabajamos, sin misterios')}
     <ol class="process">${(h.process || []).map((p, i) => `<li class="card process-step"><span class="step-n">${String(i + 1).padStart(2, '0')}</span><h3>${escape(p.title)}</h3><p class="muted">${escape(p.text)}</p><span class="badge badge-primary">${escape(p.duration)}</span></li>`).join('')}</ol>
   </div></section>` : ''}
 
-  ${on.testimonials && tms.length ? `<section class="section"><div class="container">
+  ${on.testimonials && tms.length ? `<section class="section home-testi"><div class="container">
     ${sectionHead('05 — Testimonios', 'Lo que dicen de nosotros')}
     <div class="carousel" data-anim aria-roledescription="carrusel" aria-label="Testimonios">
       <div class="carousel-track">${tms.map((t, i) => `<figure class="card quote" aria-label="${i + 1} de ${tms.length}" ${i ? 'hidden' : ''}>
@@ -70,12 +70,12 @@ export function renderHome(el) {
     </div>
   </div></section>` : ''}
 
-  ${on.blog && posts.length ? `<section class="section alt"><div class="container">
+  ${on.blog && posts.length ? `<section class="section alt home-blog"><div class="container">
     ${sectionHead('06 — Blog y noticias', 'Ideas desde el estudio', '', '<a class="btn" href="#/blog">Ir al blog →</a>')}
     <div class="grid-3">${posts.map(postCard).join('')}</div>
   </div></section>` : ''}
 
-  ${on.cta ? `<section class="section"><div class="container"><div class="card cta-band" data-anim>
+  ${on.cta ? `<section class="section home-cta"><div class="container"><div class="card cta-band" data-anim>
     <div><h2>${escape(h.cta?.title)}</h2><p class="muted">${escape(h.cta?.text)}</p></div>
     <div class="row"><a class="btn btn-primary btn-lg" href="#/cotizar">Calcular presupuesto</a><a class="btn btn-lg" href="#/contacto">Escribirnos</a></div>
   </div></div></section>` : ''}`;

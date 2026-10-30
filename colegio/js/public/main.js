@@ -16,15 +16,16 @@ function layout() {
     ${st.announcement ? `<div class="announce">${escape(st.announcement)} · <a href="#/admision">Ver más</a></div>` : ''}
     <header class="site-header">
       <div class="container">
-        <a class="brand" href="#/">${seal(40)}<span>${escape(st.name)}<small>${escape(st.city || '')}</small></span></a>
+        <a class="brand site-brand" href="#/">${seal(40)}<span>${escape(st.name)}<small>${escape(st.city || '')}</small></span></a>
         <button class="btn btn-ghost btn-icon nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
         <nav class="site-nav" aria-label="Principal">
           ${NAV.map(([h, l]) => `<a href="${h}">${l}</a>`).join('')}
-          ${u ? `<a class="btn btn-primary btn-sm" href="${HOME_BY_ROLE[u.role] || 'login.html'}">Mi ${escape(st.platform)}</a>` : `<a class="btn btn-primary btn-sm" href="login.html">Ingresar a ${escape(st.platform)}</a>`}
+          <a class="nav-cta" href="${u ? HOME_BY_ROLE[u.role] || 'login.html' : 'login.html'}">${u ? 'Mi ' + escape(st.platform) : 'Ingresar a ' + escape(st.platform)}</a>
         </nav>
+        <div class="site-actions">${u ? `<a class="btn btn-primary btn-sm" href="${HOME_BY_ROLE[u.role] || 'login.html'}">Mi ${escape(st.platform)}</a>` : `<a class="btn btn-primary btn-sm" href="login.html">Ingresar a ${escape(st.platform)}</a>`}</div>
       </div>
     </header>
-    <main id="view" tabindex="-1"></main>
+    <main class="site-main" id="view" tabindex="-1"></main>
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="stack" style="gap:10px">

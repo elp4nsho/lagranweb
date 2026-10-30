@@ -79,3 +79,6 @@ export const UPSELLS = [
 
 export const PAY_METHODS = [['debito', 'Tarjeta de débito'], ['credito', 'Tarjeta de crédito'], ['efectivo', 'Efectivo'], ['transferencia', 'Transferencia'], ['plan', 'Plan prepagado']];
 export const COLORS = ['#0074cc', '#d9534f', '#5cb85c', '#f0ad4e', '#5bc0de', '#8e44ad', '#16a085', '#c0392b', '#2c3e50', '#e67e22'];
+
+// Días de historial con detalle completo (antes de eso, estadística diaria agregada).
+export const DETAIL_DAYS = 8;

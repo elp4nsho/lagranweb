@@ -1,7 +1,7 @@
 // Lógica de negocio de Pits Rápido: precios por vehículo, fila en vivo, agenda, flujo de la atención,
 // recomendaciones, cobro (cupones / planes), stock y recordatorios.
 import { db } from '../data/db.js';
-import { MODELS, SEG, modelById } from '../data/catalog.js';
+import { MODELS, SEG, modelById, DETAIL_DAYS } from '../data/catalog.js';
 import { servicePrice, iso, addDays, today, normPlate, fmtPlate, validPlate, pad } from './pricing.js';
 export { iso, addDays, today, normPlate, fmtPlate, validPlate, pad };
 
@@ -252,7 +252,7 @@ export function dailySeries(days = 30, bid = '') {
   for (let k = days - 1; k >= 0; k--) {
     const d = addDays(T, -k);
     const js = byDay[d];
-    if (js || k < 13) {
+    if (js || k <= DETAIL_DAYS) {
       const list = js || [];
       const ups = list.flatMap(j => j.upsells);
       out.push({ d, cars: list.length, rev: list.reduce((s, j) => s + j.total, 0), wait: list.length ? list.reduce((s, j) => s + Math.max(0, mins(j.arrivedAt, j.startedAt)), 0) / list.length : 0, upO: ups.length, upA: ups.filter(u => u.st === 'aprobado').length, bayMin: list.reduce((s, j) => s + mins(j.startedAt, j.doneAt), 0), live: true });

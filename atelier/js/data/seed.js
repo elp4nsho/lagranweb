@@ -324,9 +324,13 @@ export function seed() {
     heroTitle: 'Tu auto, atendido como una pieza de colección.', heroText: 'Mantenciones según el plan de fábrica, performance medida en dinamómetro y especialistas en eléctricos. Retiramos y devolvemos tu auto donde estés.',
     announcement: 'Nuevo: diagnóstico de batería SOH con informe certificado para venta de tu eléctrico.',
     phone: '+56 2 2940 7100', whatsapp: '+56 9 4410 7100', email: 'concierge@ateliertorque.cl', address: 'Av. Las Hualtatas 9450, Vitacura, Santiago', hours: 'Lun a vie 08:00–19:00 · Sáb 09:00–14:00',
-    conciergeFee: 35000, conciergeRadiusKm: 25, courtesyEnabled: true, showDyno: true, showMemberships: true, showTestimonials: true, stats: [['+2.400', 'autos atendidos'], ['4,9', 'calificación promedio'], ['38%', 'eléctricos e híbridos'], ['72 h', 'tiempo promedio en taller']]
+    conciergeFee: 35000, conciergeRadiusKm: 25, heroCar: { body: 'coupe', color: '#8a8f93', label: 'Porsche 911 Carrera S en Gris Nardo' }, courtesyEnabled: true, showDyno: true, showMemberships: true, showTestimonials: true, stats: [['+2.400', 'autos atendidos'], ['4,9', 'calificación promedio'], ['38%', 'eléctricos e híbridos'], ['72 h', 'tiempo promedio en taller']]
   };
 
-  return { users, customers, vehicles, programs: PROGRAMS, services: SERVICES, tiers: TIERS, workOrders, inspections, concierge, dyno, fleet, parts, specialOrders, testimonials, faqs, settings };
+  // Bitácora inicial
+  const LOG = [['ordenes', 'u-asesor', w => `${w.code}: Recepción`], ['concierge', 'u-ch1', w => `${w.code}: Vehículo retirado`], ['ordenes', 'u-tec1', w => `${w.code}: inspección digital enviada al cliente`], ['ordenes', 'u-asesor2', w => `${w.code}: Lista para entrega`], ['agenda', null, w => `Nueva agenda ${w.code} desde el sitio web`], ['repuestos', 'u-gerente', () => 'Pedido especial actualizado: Faro Matrix LED derecho RS 6 · En tránsito'], ['login', 'u-admin', () => 'Camila Bascuñán inició sesión']];
+  const _log = workOrders.slice(-28).map((w, i) => { const [action, user, f] = LOG[i % LOG.length]; return { id: 'lg' + i, at: new Date(NOW - (28 - i) * 3 * 3600e3).toISOString(), action, detail: f(w), user }; }).reverse();
+
+  return { _log, users, customers, vehicles, programs: PROGRAMS, services: SERVICES, tiers: TIERS, workOrders, inspections, concierge, dyno, fleet, parts, specialOrders, testimonials, faqs, settings };
 }
 const WO_AFTER_INSPECTION = ['aprobacion', 'en-proceso', 'control', 'lista'];

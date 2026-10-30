@@ -33,23 +33,25 @@ export function render(el, { user }) {
   const maxTop = top[0]?.[1] || 1;
   const planMix = db.all('plans').map(p => ({ label: p.name, value: paying.filter(u => u.plan === p.id).length }));
   el.innerHTML = html`${raw(pageHead('Dashboard', `Hola, ${user.name.split(' ')[0]} · métricas de los últimos 30 días`))}
-    <div class="kpis">
+    <div class="dash">
+    <div class="kpis d-kpis">
       ${raw(kpi('Suscriptores activos', num(active.length), pctDelta(active.length, subs.filter(u => activeAt(u, now - M)).length)))}
       ${raw(kpi('MRR', money(mrr), pctDelta(mrr, mrrPrev)))}
       ${raw(kpi('Churn mensual', `${churn.toFixed(1)}%`, churnPrev ? -(churn - churnPrev) / churnPrev * 100 : null, 'mejora vs. mes anterior'))}
       ${raw(kpi('Horas vistas (30 días)', num(Math.round(hrs(M, 0))), pctDelta(hrs(M, 0), hrs(2 * M, M))))}
     </div>
     <div class="grid-2">
-      <div class="card chart-card"><h3>Suscriptores activos</h3>${raw(lineChart(months.map(m => ({ label: m.label, value: m.subs })), { format: v => `${v} suscriptores` }))}</div>
-      <div class="card chart-card"><h3>MRR mensual (miles CLP)</h3>${raw(barChart(months.map(m => ({ label: m.label, value: Math.round(m.mrr / 1000) })), { format: v => `$${num(v)} mil` }))}</div>
+      <div class="card chart-card d-a"><h3>Suscriptores activos</h3>${raw(lineChart(months.map(m => ({ label: m.label, value: m.subs })), { format: v => `${v} suscriptores` }))}</div>
+      <div class="card chart-card d-b"><h3>MRR mensual (miles CLP)</h3>${raw(barChart(months.map(m => ({ label: m.label, value: Math.round(m.mrr / 1000) })), { format: v => `$${num(v)} mil` }))}</div>
     </div>
     <div class="grid-2">
-      <div class="card chart-card"><h3>Horas vistas por mes</h3>${raw(barChart(monthly(views, { value: v => v.minutes / 60 }).map(d => ({ ...d, value: Math.round(d.value) })), { format: v => `${v} h` }))}</div>
-      <div class="card chart-card"><h3>Horas por dispositivo</h3>${raw(donutChart(byDevice, { label: `${num(byDevice.reduce((s, d) => s + d.value, 0))} h` }))}</div>
+      <div class="card chart-card d-c"><h3>Horas vistas por mes</h3>${raw(barChart(monthly(views, { value: v => v.minutes / 60 }).map(d => ({ ...d, value: Math.round(d.value) })), { format: v => `${v} h` }))}</div>
+      <div class="card chart-card d-d"><h3>Horas por dispositivo</h3>${raw(donutChart(byDevice, { label: `${num(byDevice.reduce((s, d) => s + d.value, 0))} h` }))}</div>
     </div>
     <div class="grid-2">
-      <div class="card"><h3>Top títulos (90 días)</h3><ul class="mini-list">${top.map(([id, m]) => { const t = db.get('titles', id); return raw(html`<li><span class="thumb">${raw(artCard(t, { title: false }))}</span><a href="#/catalogo/${id}" style="flex:1;min-width:0">${t?.title}<br><small class="muted">${t?.type === 'serie' ? 'Serie' : 'Película'} · ${t?.genres[0]}</small></a><div class="progress"><i style="--v:${m / maxTop * 100}%"></i></div><b style="min-width:60px;text-align:right">${num(Math.round(m / 60))} h</b></li>`); })}</ul></div>
-      <div class="stack"><div class="card chart-card"><h3>Mix de planes (pagando)</h3>${raw(donutChart(planMix, { label: num(paying.length) }))}</div>
-        <div class="card"><div class="row between"><h3 style="margin:0">Actividad reciente</h3><a class="btn btn-sm btn-ghost" href="#/actividad">Ver todo</a></div>${raw(activityList(db.all('_log').slice(0, 5), usersById()))}</div></div>
+      <div class="card d-top"><h3>Top títulos (90 días)</h3><ul class="mini-list">${top.map(([id, m]) => { const t = db.get('titles', id); return raw(html`<li><span class="thumb">${raw(artCard(t, { title: false }))}</span><a href="#/catalogo/${id}" style="flex:1;min-width:0">${t?.title}<br><small class="muted">${t?.type === 'serie' ? 'Serie' : 'Película'} · ${t?.genres[0]}</small></a><div class="progress"><i style="--v:${m / maxTop * 100}%"></i></div><b style="min-width:60px;text-align:right">${num(Math.round(m / 60))} h</b></li>`); })}</ul></div>
+      <div class="stack d-side"><div class="card chart-card d-mix"><h3>Mix de planes (pagando)</h3>${raw(donutChart(planMix, { label: num(paying.length) }))}</div>
+        <div class="card d-act"><div class="row between"><h3 style="margin:0">Actividad reciente</h3><a class="btn btn-sm btn-ghost" href="#/actividad">Ver todo</a></div>${raw(activityList(db.all('_log').slice(0, 5), usersById()))}</div></div>
+    </div>
     </div>`;
 }

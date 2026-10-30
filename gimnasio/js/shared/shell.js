@@ -66,7 +66,7 @@ export function mountShell({ root = document.getElementById('app'), brand, sub =
     denied() {
       view.innerHTML = `<div class="card empty">${icon('lock', 40)}<h2>Acceso restringido</h2><p>Tu rol (<b>${escape(auth.roleName(user.role))}</b>) no tiene permiso para ver esta sección.</p><a class="btn btn-primary" href="#/">Volver al inicio</a></div>`;
     },
-    crumb(t) { root.querySelector('[data-crumb]').textContent = t; document.title = `${t} · ${brand}`; },
+    crumb(t) { root.querySelector('[data-crumb]').textContent = t; view.dataset.page = t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); document.title = `${t} · ${brand}`; },
     refreshCounts
   };
 }

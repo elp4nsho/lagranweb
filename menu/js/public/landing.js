@@ -15,9 +15,9 @@ export function renderLanding(el) {
   const avg = all.length ? (all.reduce((s, r) => s + r.stars, 0) / all.length) : 0;
   const tables = db.all('tables').sort((a, b) => a.number - b.number);
   el.innerHTML = `
-    <section class="hero section">
+    <section class="hero section site-hero">
       <div class="container hero-grid">
-        <div class="stack" data-anim>
+        <div class="stack hero-text" data-anim>
           <span class="eyebrow">${escape(tr(cfg.tagline))}</span>
           <h1>${escape(tr(cfg.heroTitle))}</h1>
           <p class="lead">${escape(tr(cfg.heroText))}</p>
@@ -30,7 +30,7 @@ export function renderLanding(el) {
             <a class="btn btn-lg" href="reservas.html">${en ? 'Book a table' : 'Reservar mesa'}</a>
           </div>
         </div>
-        <div class="hero-art" data-anim="zoomIn" aria-hidden="true">
+        <div class="hero-art hero-media" data-anim="zoomIn" aria-hidden="true">
           <svg viewBox="0 0 320 300" class="fire-svg">
             <ellipse cx="160" cy="262" rx="130" ry="18" class="f-shadow"/>
             <path class="f-wood" d="M60 250 L260 220 L266 236 L66 266 Z"/><path class="f-wood" d="M58 222 L262 258 L256 272 L52 236 Z"/>
@@ -42,14 +42,14 @@ export function renderLanding(el) {
       </div>
     </section>
 
-    <section class="section alt-band">
+    <section class="section alt-band land-feat">
       <div class="container stack">
         <div class="row between"><div><span class="eyebrow">${en ? 'House favourites' : 'Favoritos de la casa'}</span><h2>${en ? 'What everyone orders' : 'Lo que todos piden'}</h2></div><a class="btn" href="#/carta">${en ? 'Full menu' : 'Carta completa'} →</a></div>
-        <div class="grid-3">${featured.map(d => `<article class="card hover feat">${dishArt(d)}<h3>${escape(tr(d.name))}</h3><p class="muted small clamp2">${escape(tr(d.desc))}</p><div class="row between"><b>${money(d.price)}</b>${d.available === false ? `<span class="badge badge-danger">${escape(t('soldOut'))}</span>` : ''}</div></article>`).join('')}</div>
+        <div class="grid-3 feat-grid">${featured.map(d => `<article class="card hover feat">${dishArt(d)}<h3>${escape(tr(d.name))}</h3><p class="muted small clamp2">${escape(tr(d.desc))}</p><div class="row between"><b>${money(d.price)}</b>${d.available === false ? `<span class="badge badge-danger">${escape(t('soldOut'))}</span>` : ''}</div></article>`).join('')}</div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section land-visit">
       <div class="container grid-2">
         <div class="card stack" data-anim>
           <span class="eyebrow">${en ? 'Already at the restaurant?' : '¿Ya estás en el local?'}</span>
@@ -65,11 +65,11 @@ export function renderLanding(el) {
       </div>
     </section>
 
-    ${reviews.length ? `<section class="section alt-band"><div class="container stack">
+    ${reviews.length ? `<section class="section alt-band land-reviews"><div class="container stack">
       <span class="eyebrow">${en ? 'Guests say' : 'Dicen nuestros comensales'}</span>
-      <div class="grid-3">${reviews.map(r => `<blockquote class="card quote"><div class="stars-static">${'★'.repeat(r.stars)}${'☆'.repeat(5 - r.stars)}</div><p>“${escape(r.comment)}”</p><small class="muted">${escape(t('table'))} ${r.tableNumber}</small></blockquote>`).join('')}</div>
+      <div class="grid-3 rev-grid">${reviews.map(r => `<blockquote class="card quote"><div class="stars-static">${'★'.repeat(r.stars)}${'☆'.repeat(5 - r.stars)}</div><p>“${escape(r.comment)}”</p><small class="muted">${escape(t('table'))} ${r.tableNumber}</small></blockquote>`).join('')}</div>
     </div></section>` : ''}
 
-    <footer class="site-foot"><div class="container row between small muted"><span>© ${new Date().getFullYear()} ${escape(cfg.name)} · ${en ? 'Fictional restaurant (demo)' : 'Restaurante ficticio (demo)'}</span><span class="row" style="gap:12px"><a href="reservas.html">${en ? 'Bookings' : 'Reservas'}</a><a href="login.html">${en ? 'Staff' : 'Equipo'}</a></span></div></footer>`;
+    <footer class="site-foot site-footer"><div class="container row between small muted"><span>© ${new Date().getFullYear()} ${escape(cfg.name)} · ${en ? 'Fictional restaurant (demo)' : 'Restaurante ficticio (demo)'}</span><span class="row" style="gap:12px"><a href="reservas.html">${en ? 'Bookings' : 'Reservas'}</a><a href="login.html">${en ? 'Staff' : 'Equipo'}</a></span></div></footer>`;
   el.querySelector('#goTable').onclick = () => { location.href = `index.html?mesa=${el.querySelector('#pickTable').value}`; };
 }

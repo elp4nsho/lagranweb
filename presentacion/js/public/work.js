@@ -10,7 +10,7 @@ export function renderWork(el, query = {}) {
   const cats = db.all('categories');
   const all = publishedProjects();
   let cat = query.cat || 'all', q = '';
-  el.innerHTML = `<section class="section page-top"><div class="container">
+  el.innerHTML = `<section class="section page-top work-page"><div class="container">
     ${sectionHead('Portafolio', 'Trabajos seleccionados', `${all.length} proyectos de branding, producto digital, motion y packaging.`)}
     <div class="row between work-tools" data-anim>
       <div class="row filters" role="group" aria-label="Filtrar por categoría" style="gap:8px">
@@ -38,7 +38,7 @@ export function renderProject(el, slugId) {
   if (!p) { el.innerHTML = `<section class="section page-top"><div class="container empty"><span class="icon">?</span><h2>Proyecto no encontrado</h2><p>Puede que haya sido despublicado.</p><a class="btn btn-primary" href="#/trabajos">Volver al portafolio</a></div></section>`; return null; }
   const prev = all[(i - 1 + all.length) % all.length], next = all[(i + 1) % all.length];
   const tm = db.find('testimonials', t => t.projectId === p.id && t.published);
-  el.innerHTML = `<article class="page-top">
+  el.innerHTML = `<article class="page-top project-page">
     <section class="section project-hero"><div class="container">
       <a class="small" href="#/trabajos">← Portafolio</a>
       <div class="project-head" data-anim>

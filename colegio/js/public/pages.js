@@ -32,8 +32,8 @@ export function renderHome(el) {
   const nStudents = db.count('students', s => s.status === 'activo');
   const nTeachers = db.count('users', u => u.role === 'profesor' && u.active !== false);
   el.innerHTML = `
-  <section class="hero"><div class="container hero-grid">
-    <div data-anim>
+  <section class="hero site-hero"><div class="container hero-grid">
+    <div class="hero-text" data-anim>
       <span class="eyebrow">${escape(st.name)} · ${escape(st.city)}</span>
       <h1>${escape(st.heroTitle)}</h1>
       <p class="lead">${escape(st.heroSubtitle)}</p>
@@ -48,7 +48,7 @@ export function renderHome(el) {
         <div><b>${Math.round(nStudents / Math.max(1, db.count('courses')))}</b><span>estudiantes por curso</span></div>
       </div>` : ''}
     </div>
-    <div class="hero-art" data-anim="zoomIn">${heroArt()}</div>
+    <div class="hero-art hero-media" data-anim="zoomIn">${heroArt()}</div>
   </div></section>
 
   <section class="section alt"><div class="container">

@@ -16,13 +16,13 @@ function layout() {
   document.getElementById('app').innerHTML = `
     ${st.announcement ? `<div class="announce">${escape(st.announcement)}</div>` : ''}
     <header class="site-header"><div class="container">
-      <a class="brand" href="#/">${logo()}<span>${escape(st.name)}<small>Freelancers de Chile</small></span></a>
+      <a class="brand site-brand" href="#/">${logo()}<span>${escape(st.name)}<small>Freelancers de Chile</small></span></a>
       <button class="btn btn-ghost btn-icon nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
       <nav class="site-nav" aria-label="Principal">
-        <a href="#/servicios">Explorar servicios</a><a href="#/proyectos">Proyectos</a><a href="#/proyectos/nuevo">Publicar proyecto</a>
-        ${u ? `<a class="btn btn-primary btn-sm" href="${HOME_BY_ROLE[u.role]}">Mi panel · ${escape(u.name.split(' ')[0])}</a>` : `<a href="login.html?modo=freelancer">Vende tus servicios</a><a class="btn btn-primary btn-sm" href="login.html">Ingresar</a>`}
-      </nav></div></header>
-    <main id="view" tabindex="-1"></main>
+        <a href="#/">Inicio</a><a href="#/servicios">Explorar servicios</a><a href="#/proyectos">Proyectos</a><a href="#/proyectos/nuevo">Publicar proyecto</a>${u ? '' : '<a href="login.html?modo=freelancer">Vende tus servicios</a>'}
+      </nav>
+      <div class="site-actions">${u ? `<a class="btn btn-primary btn-sm" href="${HOME_BY_ROLE[u.role]}">Mi panel · ${escape(u.name.split(' ')[0])}</a>` : '<a class="btn btn-primary btn-sm" href="login.html">Ingresar</a>'}</div></div></header>
+    <main id="view" class="site-main" tabindex="-1"></main>
     <footer class="site-footer"><div class="container footer-grid">
       <div class="stack" style="gap:10px"><a class="brand" href="#/">${logo(30)}<span>${escape(st.name)}</span></a><p class="small muted">${escape(st.tagline)}. Pagos protegidos: el dinero se libera al freelancer solo cuando apruebas la entrega.</p></div>
       <div><h4>Categorías</h4><ul>${db.query('categories', c => c.active !== false).sort((a, b) => a.order - b.order).map(c => `<li><a href="#/servicios?cat=${c.id}">${escape(c.name)}</a></li>`).join('')}</ul></div>

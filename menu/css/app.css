@@ -308,3 +308,168 @@ html, body { overflow-x: clip; }
 .grid-2 > *, .grid-3 > *, .grid-4 > *, .grid-auto > *, .kpi-grid > * { min-width: 0; }
 .demo-account small { word-break: break-word; }
 .demo-account > span:last-child { min-width: 0; }
+
+/* =====================================================================
+   Disposiciones (clásica = diseño base; revista y app reorganizan)
+   ===================================================================== */
+.site-actions { display: flex; align-items: center; gap: 8px; }
+
+/* ---------- REVISTA: carta impresa de bistró ---------- */
+[data-layout="revista"] .g-header { position: relative; box-shadow: none; }
+[data-layout="revista"] .g-header > .subnav.container { display: flex !important; justify-content: center; gap: 4px 26px; padding-block: 0; border-block: 0; }
+[data-layout="revista"] .g-header .hdr-row { justify-items: center; }
+[data-layout="revista"] .g-header .hdr-row > .grow { display: none; }
+[data-layout="revista"] .g-header .subnav a { text-transform: uppercase; letter-spacing: .12em; font-size: 12px; }
+[data-layout="revista"] .g-header .mesa-chip { order: -1; }
+[data-layout="revista"] .site-main > div:has(> .site-hero) { display: flex; flex-direction: column; }
+[data-layout="revista"] .site-hero .fire-svg { max-width: 260px; }
+/* Orden: opiniones como cita grande tras la portada, luego favoritos y visita */
+[data-layout="revista"] .land-reviews { order: 1; background: none; border-block: 3px double var(--line); }
+[data-layout="revista"] .land-feat { order: 2; background: none; border: 0; }
+[data-layout="revista"] .land-visit { order: 3; }
+[data-layout="revista"] .site-footer { order: 9; text-align: center; }
+[data-layout="revista"] .rev-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 0; }
+[data-layout="revista"] .rev-grid > .quote { grid-column: auto !important; grid-row: auto !important; background: none; border: 0; border-left: 1px solid var(--line); border-radius: 0; box-shadow: none; }
+[data-layout="revista"] .rev-grid > .quote:first-child { grid-column: 1 / -1 !important; border: 0; text-align: center; align-items: center; }
+[data-layout="revista"] .rev-grid > .quote:first-child p { font: var(--head-weight) clamp(22px, 3.2vw, 36px)/1.25 var(--font-head); }
+[data-layout="revista"] .rev-grid > .quote:nth-child(2) { border-left: 0; }
+/* Favoritos como carta impresa: nombre ···· precio, sin fotos */
+[data-layout="revista"] .feat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 0 48px; }
+[data-layout="revista"] .feat-grid > .feat { grid-column: auto !important; grid-row: auto !important; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; background: none; border: 0; border-bottom: 1px dotted var(--line); border-radius: 0; box-shadow: none; padding: 14px 0; transform: none !important; }
+[data-layout="revista"] .feat-grid .dish-art { display: none; }
+[data-layout="revista"] .feat-grid .feat > h3 { grid-column: 1; grid-row: 1; font-size: 19px; }
+[data-layout="revista"] .feat-grid .feat > p { grid-column: 1 / -1; grid-row: 2; }
+[data-layout="revista"] .feat-grid .feat > .row { grid-column: 2; grid-row: 1; }
+[data-layout="revista"] .land-visit .grid-2 > :first-child { order: 2; }
+[data-layout="revista"] .land-visit .grid-2 > .card { border-radius: 0; box-shadow: none; background: none; border-width: 3px 0 0; border-style: double; }
+/* Carta: índice centrado y platos como lista de carta impresa a dos columnas */
+[data-layout="revista"] .cat-bar { top: 0; background: var(--bg); border-block: 1px solid var(--line); }
+[data-layout="revista"] .cat-track { justify-content: center; flex-wrap: wrap; gap: 4px 18px; }
+[data-layout="revista"] .cat-tab { background: none; border: 0; border-radius: 0; padding: 6px 2px; text-transform: uppercase; letter-spacing: .1em; font-size: 12px; }
+[data-layout="revista"] .cat-tab.active { background: none; color: var(--primary); box-shadow: inset 0 -2px 0 var(--primary); }
+[data-layout="revista"] .menu-wrap { max-width: 1000px; }
+[data-layout="revista"] .menu-wrap .filters { justify-content: center; }
+[data-layout="revista"] .menu-sec { scroll-margin-top: 70px; }
+[data-layout="revista"] .menu-sec h2 { text-align: center; font-size: clamp(28px, 4vw, 42px); border-bottom: 3px double var(--line); padding-bottom: 10px; }
+[data-layout="revista"] .dish-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
+[data-layout="revista"] .card.dish { background: none; border: 0; border-bottom: 1px dotted var(--line); border-radius: 0; box-shadow: none; padding: 14px 0; transform: none !important; }
+[data-layout="revista"] .card.dish:hover { box-shadow: none; background: color-mix(in srgb, var(--primary) 6%, transparent); }
+[data-layout="revista"] .card.dish .dish-art { display: none; }
+[data-layout="revista"] .card.dish .dish-body { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; }
+[data-layout="revista"] .card.dish .dish-body > h3 { grid-column: 1; grid-row: 1; }
+[data-layout="revista"] .card.dish .dish-foot { grid-column: 2; grid-row: 1; margin: 0; gap: 8px; }
+[data-layout="revista"] .card.dish .dish-body > :not(h3):not(.dish-foot) { grid-column: 1 / -1; }
+/* Reservas: datos del local arriba en franja, formulario centrado */
+[data-layout="revista"] .hero-sm .container { text-align: center; border-bottom: 3px double var(--line); padding-bottom: 18px; }
+[data-layout="revista"] .res-grid { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin-inline: auto; }
+[data-layout="revista"] .res-grid > :last-child { order: -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: var(--gap); }
+/* Cocina: estados como franjas horizontales con comandas en fila */
+[data-layout="revista"] .kds-board { grid-template-columns: minmax(0, 1fr); }
+[data-layout="revista"] .kds-col { min-height: 0; display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 16px; align-items: start; border-radius: 0; border-width: 0 0 3px; border-style: double; background: none; }
+[data-layout="revista"] .kds-col-head { flex-direction: column; align-items: flex-start; font-size: 24px; }
+[data-layout="revista"] .kds-stack { display: flex; overflow-x: auto; padding-bottom: 8px; }
+[data-layout="revista"] .kds-stack > .ticket { flex: 0 0 250px; }
+[data-layout="revista"] .waiter-wrap .floor-card { margin-inline: auto; }
+[data-layout="revista"] .waiter-wrap > .tabs { justify-content: center; }
+[data-layout="revista"] .live-grid { border-block: 3px double var(--line); }
+@media (max-width: 760px) {
+  [data-layout="revista"] .feat-grid, [data-layout="revista"] .dish-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  [data-layout="revista"] .rev-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  [data-layout="revista"] .rev-grid > .quote { border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 900px) {
+  [data-layout="revista"] .kds-col { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="revista"] .kds-col-head { flex-direction: row; }
+}
+
+/* ---------- APP: carta como aplicación de pedidos ---------- */
+[data-layout="app"] .site-main > div:has(> .site-hero) { display: flex; flex-direction: column; }
+[data-layout="app"] .land-visit { order: 1; }
+[data-layout="app"] .land-feat { order: 2; background: none; border: 0; }
+[data-layout="app"] .land-reviews { order: 3; background: none; border: 0; }
+[data-layout="app"] .site-footer { order: 9; }
+[data-layout="app"] .site-hero .fire-svg { max-width: 180px; }
+/* Visita/pedir en mesa como dos paneles de acción */
+[data-layout="app"] .land-visit .grid-2 { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+/* Favoritos en carrusel horizontal */
+[data-layout="app"] .feat-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 8px; }
+[data-layout="app"] .feat-grid > .feat { flex: 0 0 min(240px, 74%); scroll-snap-align: start; }
+[data-layout="app"] .rev-grid { grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)) !important; }
+[data-layout="app"] .rev-grid > * { grid-column: auto !important; }
+/* Carta: categorías como menú lateral fijo y platos en filas compactas */
+[data-layout="app"] .card.dish { padding: 8px; gap: 10px; align-items: center; }
+[data-layout="app"] .card.dish .dish-art { width: 64px; }
+[data-layout="app"] .card.dish .dish-art span { font-size: 30px; }
+[data-layout="app"] .card.dish .dish-body { gap: 2px; }
+[data-layout="app"] .card.dish .dish-body h3 { font-size: 15px; }
+[data-layout="app"] .card.dish .dish-tags { display: none; }
+[data-layout="app"] .dish-grid { grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 8px; }
+[data-layout="app"] .menu-sec h2 { font-size: 20px; }
+@media (min-width: 901px) {
+  [data-layout="app"] .g-header > .subnav.container { padding: 0 16px 90px !important; }
+  [data-layout="app"] .g-header > .hdr-row { padding-bottom: 8px !important; }
+  [data-layout="app"] .g-header .hdr-row > .grow { display: none; }
+  [data-layout="app"] .g-header .subnav a { border-bottom: 0; }
+  [data-layout="app"] .site-main > div:has(> .cat-bar) { display: grid; grid-template-columns: 210px minmax(0, 1fr); align-items: start; width: min(1360px, 100% - 32px); margin-inline: auto; column-gap: 20px; }
+  [data-layout="app"] .site-main > div:has(> .cat-bar) > * { grid-column: 2; width: auto; }
+  [data-layout="app"] .site-main > div:has(> .cat-bar) > .cat-bar { grid-column: 1; grid-row: 1 / span 3; position: sticky; top: 12px; margin-top: 16px; border: var(--border-w) solid var(--line); border-radius: var(--radius); background: var(--surface); }
+  [data-layout="app"] .cat-bar .cat-track { flex-direction: column; width: auto; padding: 8px; }
+  [data-layout="app"] .cat-tab { border-radius: var(--radius-sm); border-color: transparent; background: none; }
+  [data-layout="app"] .menu-sec { scroll-margin-top: 16px; }
+  [data-layout="app"] .fab { right: 24px; bottom: 24px; }
+}
+@media (max-width: 900px) {
+  [data-layout="app"] .cat-bar { top: 0; margin-top: 0; }
+  [data-layout="app"] .menu-sec { scroll-margin-top: 60px; }
+  [data-layout="app"] .g-header { position: sticky; }
+  [data-layout="app"] .g-header .site-actions { gap: 4px; }
+  [data-layout="app"] .fab { bottom: 80px; }
+  [data-layout="app"] .site-footer { padding-bottom: 150px; }
+  [data-layout="app"] .menu-wrap { padding-bottom: 160px; }
+  [data-layout="app"] .land-visit .grid-2 { grid-template-columns: minmax(0, 1fr); }
+}
+/* Reservas: info del local a la izquierda, formulario a la derecha */
+[data-layout="app"] .hero-sm { padding-block: 18px 8px; }
+[data-layout="app"] .hero-sm h1 { font-size: clamp(24px, 3vw, 32px); }
+[data-layout="app"] .res-grid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+[data-layout="app"] .res-grid > :last-child { order: -1; position: sticky; top: 16px; }
+@media (max-width: 820px) { [data-layout="app"] .res-grid { grid-template-columns: minmax(0, 1fr); } [data-layout="app"] .res-grid > :last-child { position: static; order: 2; } }
+/* Cocina: tablero kanban denso a pantalla completa con columnas de comandas desplazables */
+[data-layout="app"] .kds-top { padding: 6px 12px; }
+[data-layout="app"] .kds-board { gap: 10px; padding: 10px; }
+@media (min-width: 901px) {
+  [data-layout="app"] .kds-col { height: calc(100vh - 80px); min-height: 360px; overflow-y: auto; padding: 8px; }
+  [data-layout="app"] .kds-col-head { position: sticky; top: -8px; z-index: 1; background: var(--surface-2); padding: 6px 0; margin-bottom: 6px; font-size: 15px; }
+  [data-layout="app"] .kds-stack { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  [data-layout="app"] .waiter-wrap { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: var(--gap); align-items: start; }
+  [data-layout="app"] .waiter-wrap > .tabs { grid-column: 1; flex-direction: column; position: sticky; top: 80px; border: var(--border-w) solid var(--line); border-radius: var(--radius); padding: 6px; background: var(--surface); }
+  [data-layout="app"] .waiter-wrap > :not(.tabs) { grid-column: 2; }
+  [data-layout="app"] .waiter-wrap > .tabs { grid-row: 1 / span 5; }
+}
+/* Las pestañas de cocina/salón como barra inferior en celular */
+@media (max-width: 900px) {
+  [data-layout="app"] .kds-mobile-tabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; background: var(--surface); border-top: var(--border-w) solid var(--line); padding: 4px 8px; box-shadow: 0 -6px 20px rgba(0, 0, 0, .12); }
+  [data-layout="app"] .kds-mobile-tabs .tab { flex: 1; }
+  [data-layout="app"] .kds-page .kds-board { padding-bottom: 150px; }
+  [data-layout="app"] .kds-page .lgw-dock { bottom: 80px; }
+}
+/* Panel: KPIs en columna lateral */
+@media (min-width: 1200px) {
+  [data-layout="app"] .admin-content:has(> .kpi-grid) { display: grid; grid-template-columns: 250px minmax(0, 1fr) minmax(0, 1fr); align-content: start; }
+  [data-layout="app"] .admin-content:has(> .kpi-grid) > * { grid-column: 2 / -1; }
+  [data-layout="app"] .admin-content:has(> .kpi-grid) > .page-head { grid-column: 1 / -1; }
+  [data-layout="app"] .admin-content > .kpi-grid { grid-column: 1; grid-row: 2 / span 5; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 8px; }
+  [data-layout="app"] .admin-content:has(> .kpi-grid) > .grid-2 { display: contents; }
+  [data-layout="app"] .admin-content:has(> .kpi-grid) > .grid-2 > .card { grid-column: auto; }
+}
+@media (max-width: 900px) {
+  [data-layout="app"] .admin-content > .kpi-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+  [data-layout="app"] .admin-content > .kpi-grid > * { flex: 0 0 62%; scroll-snap-align: start; }
+}
+/* Panel en revista: cifras en franja con filetes y paneles 1-2 */
+[data-layout="revista"] .admin-content > .kpi-grid { gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .admin-content > .kpi-grid > .card { border-radius: 0; background: none; box-shadow: none; border: 0; border-right: 1px solid var(--line); }
+[data-layout="revista"] .admin-content > .grid-2 { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+[data-layout="revista"] .admin-content > .dash-3 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+[data-layout="revista"] .admin-content > .dash-3 > :last-child { grid-column: 1 / -1; order: -1; }
+@media (max-width: 900px) { [data-layout="revista"] .admin-content > .grid-2, [data-layout="revista"] .admin-content > .dash-3 { grid-template-columns: minmax(0, 1fr); } }

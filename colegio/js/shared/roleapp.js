@@ -19,9 +19,9 @@ export function bootRoleApp({ roles, sub, pages, extraRoutes = {}, before }) {
   ctx.shell = shell;
   wireAdminShell();
   const routes = {};
-  const wrap = (label, fn) => (params, query) => { shell.setTitle(label); return fn(shell.view, ctx, params, query); };
-  pages.forEach(p => { routes[p.path] = wrap(p.label, p.render); });
-  Object.entries(extraRoutes).forEach(([path, { label, render }]) => { routes[path] = wrap(label, render); });
+  const wrap = (label, fn, page) => (params, query) => { shell.setTitle(label); shell.view.dataset.page = page; return fn(shell.view, ctx, params, query); };
+  pages.forEach(p => { routes[p.path] = wrap(p.label, p.render, p.path === '/' ? 'home' : p.path.slice(1)); });
+  Object.entries(extraRoutes).forEach(([path, { label, render }]) => { routes[path] = wrap(label, render, path.split('/')[1] + '-detail'); });
   let last = null;
   const router = createRouter(routes, {
     notFound: () => { shell.view.innerHTML = empty('Página no encontrada'); },

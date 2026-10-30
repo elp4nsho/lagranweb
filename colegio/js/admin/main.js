@@ -67,12 +67,14 @@ function start() {
   SECTIONS.forEach(s => {
     const handler = params => {
       shell.setTitle(s.label);
+      shell.view.dataset.page = s.key;
       if (!can(s.key)) { shell.view.innerHTML = denied(`La sección "${s.label}" es solo para Dirección.`); return; }
       return s.mod.render(shell.view, { ...ctx, params });
     };
     routes[s.path] = handler;
     if (s.mod.detail) routes[s.path + '/:id'] = params => {
       shell.setTitle(s.label);
+      shell.view.dataset.page = s.key + '-detail';
       if (!can(s.key)) { shell.view.innerHTML = denied(); return; }
       return s.mod.detail(shell.view, { ...ctx, params }, params.id);
     };

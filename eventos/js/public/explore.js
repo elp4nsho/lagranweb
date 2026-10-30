@@ -18,7 +18,7 @@ function matchWhen(ev, when, from, to) {
 
 export function renderExplore(app, q = {}) {
   const st = { cat: q.cat || '', city: q.city || '', when: q.when || '', q: q.q || '', from: q.from || '', to: q.to || '', sort: q.sort || 'fecha', avail: q.avail === '1' };
-  app.innerHTML = html`<section class="section" style="padding-top:28px"><div class="container stack">
+  app.innerHTML = html`<section class="section explore-page" style="padding-top:28px"><div class="container stack">
     <div><span class="eyebrow">Cartelera</span><h1 style="margin:0">${st.cat ? CATEGORIES[st.cat] : 'Todos los eventos'}</h1></div>
     <div class="explore">
       <aside class="filters card stack" aria-label="Filtros">

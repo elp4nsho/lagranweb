@@ -319,5 +319,5 @@ export function seed() {
   };
   const leadRules = { mode: 'round_robin', autoAssign: true, preferBrandSpecialist: true, maxOpen: 30, slaHours: 2, rrIndex: {} };
 
-  return { users, brands, models, campaigns, units, sales, leads, testdrives, quotes, configs, finProducts, finApps, tradeins, servicePlans, vehicles, appointments, workorders, recalls, parts, accessories, requests, settings, cms, leadRules, workshopHistory, seededOn: today };
+  return { users, brands, showrooms: SHOWROOMS.map(s => ({ ...s, active: true })), models, campaigns, units, sales, leads, testdrives, quotes, configs, finProducts, finApps, tradeins, servicePlans, vehicles, appointments, workorders, recalls, parts, accessories, requests, settings, cms, leadRules, workshopHistory, seededOn: today };
 }

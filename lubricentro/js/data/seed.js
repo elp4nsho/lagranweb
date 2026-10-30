@@ -1,6 +1,6 @@
 // Datos semilla de Pits Rápido (cadena ficticia de lubricentros express). Reproducibles con rng().
 import { rng } from '../../../assets/core/db.js';
-import { MODELS, TASKS, UPSELLS, COLORS } from './catalog.js';
+import { MODELS, TASKS, UPSELLS, COLORS, DETAIL_DAYS } from './catalog.js';
 import { servicePrice, iso, addDays, fmtRut } from '../shared/pricing.js';
 
 const OILS = [
@@ -125,7 +125,7 @@ export function seed() {
   const rav = MODELS.find(m => m.model === 'RAV4'), swift = MODELS.find(m => m.model === 'Swift');
   vehicles.push(vehFrom(rav, 2019, 'KJTR-45', 'c-demo', 68400));
   vehicles.push(vehFrom(swift, 2017, 'BBCL-12', 'c-demo', 92100));
-  for (let i = 0; i < 118; i++) {
+  for (let i = 0; i < 96; i++) {
     const name = `${r.pick(FIRST)} ${r.pick(LAST)} ${r.pick(LAST)}`.split(' ').slice(0, r.bool(.6) ? 2 : 3).join(' ');
     const id = 'c' + i;
     const mail = name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').split(' ').slice(0, 2).join('.') + (i % 7 ? '' : i) + '@' + r.pick(['gmail.com', 'outlook.com', 'yahoo.es', 'icloud.com', 'empresa.cl']);
@@ -139,7 +139,7 @@ export function seed() {
   let folio = 184200;
   const oilOf = id => OILS.find(o => o.id === id);
   vehicles.forEach(v => {
-    const n = v.customerId === 'c-demo' ? 5 : r.int(1, 3);
+    const n = v.customerId === "c-demo" ? 5 : r.int(1, 2);
     let km = v.km;
     let days = r.int(60, 160);
     const h = [];
@@ -185,7 +185,7 @@ export function seed() {
   };
   const baseCars = { b1: 11, b2: 13, b3: 8, b4: 9 };
   // Últimos 12 días con detalle
-  for (let d = 12; d >= 1; d--) {
+  for (let d = DETAIL_DAYS; d >= 1; d--) {
     const day = addDays(T, -d), dow = new Date(day + 'T12:00').getDay();
     if (dow === 0) continue;
     BRANCHES.forEach(b => {
@@ -243,7 +243,7 @@ export function seed() {
   // Swift de la clienta demo: reserva en 3 días
   makeJob({ vehicle: demoSwift, services: ['aceite', 'alineacion'], branchId: 'b1', source: 'web', status: 'reservado', bookedFor: atMin(addDays(T, 3), 600), createdAt: ago(1500) });
   // Últimos servicios de la clienta (pagados dentro del detalle)
-  { const d = addDays(T, -9); makeJob({ vehicle: demoSwift, services: ['lavado'], branchId: 'b1', bayId: 'b1-y2', techId: 'u-t2', source: 'walkin', status: 'pagado', arrivedAt: atMin(d, 660), startedAt: atMin(d, 668), doneAt: atMin(d, 700), paidAt: atMin(d, 706), km: 91800 }); }
+  { const d = addDays(T, -6); makeJob({ vehicle: demoSwift, services: ['lavado'], branchId: 'b1', bayId: 'b1-y2', techId: 'u-t2', source: 'walkin', status: 'pagado', arrivedAt: atMin(d, 660), startedAt: atMin(d, 668), doneAt: atMin(d, 700), paidAt: atMin(d, 706), km: 91800 }); }
 
   // Vehículos: próximo mantenimiento según último servicio
   vehicles.forEach(v => {
@@ -257,7 +257,7 @@ export function seed() {
 
   // ---------- Historial agregado (meses anteriores) ----------
   const dailyStats = [];
-  for (let d = 180; d >= 13; d--) {
+  for (let d = 180; d > DETAIL_DAYS; d--) {
     const day = addDays(T, -d), dt = new Date(day + 'T12:00'), dow = dt.getDay();
     if (dow === 0) continue;
     const season = 1 + .12 * Math.sin((dt.getMonth() + 2) / 12 * Math.PI * 2) + (180 - d) / 1400;
@@ -348,5 +348,7 @@ export function seed() {
     reminderMsg: 'Hola {nombre}, a tu {auto} ({patente}) le toca su mantención. Reserva en pitsrapido.cl'
   };
 
+  // Compactar: quitar campos vacíos opcionales de las atenciones cerradas.
+  jobs.forEach(j => { ['notes', 'coupon', 'bookedFor', 'doneAt'].forEach(k => { if (j[k] === '') delete j[k]; }); if (!j.discount) delete j.discount; });
   return { _anchor: now, settings, oils: OILS, services: SERVICES, branches: BRANCHES.map(({ bays: _, ...b }) => b), bays, users, customers, vehicles, jobs, dailyStats, products, suppliers: SUPPLIERS, purchaseOrders: pos, plans, planPurchases, coupons, signups, campaigns, messages };
 }

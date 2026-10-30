@@ -16,9 +16,9 @@ export function renderHome(app) {
   const thisWeek = list.filter(e => Date.parse(e.date) < weekEnd);
   const counts = Object.fromEntries(Object.keys(CATEGORIES).map(c => [c, list.filter(e => e.category === c).length]));
   app.innerHTML = html`
-  <section class="hero hero-parallax">
+  <section class="hero hero-parallax site-hero">
     <div class="container hero-grid">
-      <div data-anim>
+      <div class="hero-text" data-anim>
         <span class="eyebrow">${list.length} eventos en ${new Set(list.map(e => e.city)).size} ciudades</span>
         <h1 id="heroTitle">${s.heroTitle}</h1>
         <p class="lead">${s.heroSubtitle}</p>
@@ -29,32 +29,32 @@ export function renderHome(app) {
           <button class="btn btn-primary">${s.heroCta || 'Buscar'}</button>
         </form>
       </div>
-      <div class="hero-art" data-anim data-anim-delay="200">${raw(volcano())}</div>
+      <div class="hero-art hero-media" data-anim data-anim-delay="200">${raw(volcano())}</div>
     </div>
   </section>
 
-  <section class="section" style="padding-top:32px">
+  <section class="section home-featured" style="padding-top:32px">
     <div class="container stack">
       <div class="row between" data-anim><h2 style="margin:0">Destacados</h2><a class="btn btn-ghost btn-sm" href="#/explorar">Ver todo →</a></div>
       <div class="grid-3" id="featured">${featured.length ? raw(featured.map(eventCard).join('')) : raw('<div class="empty">Pronto anunciaremos nuevos eventos</div>')}</div>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <section class="section home-cats" style="padding-top:0">
     <div class="container stack">
       <h2 data-anim>Explora por categoría</h2>
       <div class="cat-tiles">${Object.entries(CATEGORIES).map(([k, l]) => raw(html`<a class="card hover cat-tile" href="#/explorar?cat=${k}"><span class="ico">${CAT_ICON[k]}</span><b>${l}</b><span class="muted small">${counts[k]} próximos</span></a>`))}</div>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <section class="section home-week" style="padding-top:0">
     <div class="container stack">
       <div class="row between" data-anim><h2 style="margin:0">Esta semana</h2><a class="btn btn-ghost btn-sm" href="#/explorar?when=semana">Ver semana →</a></div>
-      <div class="grid-auto">${thisWeek.length ? raw(thisWeek.map(eventCard).join('')) : raw('<div class="empty">No hay eventos esta semana</div>')}</div>
+      <div class="grid-auto week-list">${thisWeek.length ? raw(thisWeek.map(eventCard).join('')) : raw('<div class="empty">No hay eventos esta semana</div>')}</div>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <section class="section home-why" style="padding-top:0">
     <div class="container grid-3">
       <div class="card" data-anim><h3>🪑 Elige tu asiento</h3><p class="muted">Mapa interactivo por sectores con precios por zona. Te guardamos los asientos por 10 minutos mientras pagas.</p></div>
       <div class="card" data-anim data-anim-delay="100"><h3>📱 Entrada en tu celular</h3><p class="muted">Entradas con código QR en formato wallet. Muéstralas en la puerta, sin imprimir.</p></div>

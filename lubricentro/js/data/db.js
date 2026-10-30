@@ -5,7 +5,7 @@ import { timeshift } from '../shared/timeshift.js';
 import { seed } from './seed.js';
 
 timeshift('lubricentro');
-export const db = createDB('lubricentro', { version: 2, seed });
+export const db = createDB('lubricentro', { version: 3, seed });
 export const auth = createAuth(db, {
   roles: { admin: 'Administrador', jefe: 'Jefe de sucursal', recepcion: 'Recepcionista', tecnico: 'Técnico', cliente: 'Cliente' }
 });

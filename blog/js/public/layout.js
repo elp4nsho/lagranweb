@@ -15,17 +15,17 @@ export function renderHeader(el) {
   el.innerHTML = `
     <div class="topbar"><div class="container row between">
       <span class="small muted top-date">${escape(today.charAt(0).toUpperCase() + today.slice(1))} · ${escape(s.city)} 18°</span>
-      <span class="row" style="gap:8px">
+      <span class="row site-actions" style="gap:8px">
         ${u ? `<a class="small user-link" href="${STAFF.includes(u.role) ? 'admin.html' : '#/cuenta'}"><span class="avatar" style="--av:${escape(u.color || 'var(--primary)')};--size:24px">${escape(initials(u.name))}</span><span class="hide-sm">${escape(u.name.split(' ')[0])}</span></a>${STAFF.includes(u.role) ? '<a class="small" href="#/cuenta">Mi cuenta</a>' : ''}<button class="btn btn-ghost btn-sm" data-logout>Salir</button>`
           : `<a class="small" href="login.html">Iniciar sesión</a><a class="small hide-sm" href="login.html#registro">Crear cuenta</a>`}
         ${sub ? '<span class="badge badge-success plain">Suscriptor</span>' : '<a class="btn btn-primary btn-sm" href="#/planes">Suscríbete</a>'}
       </span></div></div>
     <div class="masthead"><div class="container masthead-inner">
       <button class="btn btn-ghost btn-icon nav-burger" aria-label="Secciones" aria-expanded="false" aria-controls="sec-nav">☰</button>
-      <a class="brand" href="#/" aria-label="${escape(s.name)}, portada">${logo(s.name)}</a>
+      <a class="brand site-brand" href="#/" aria-label="${escape(s.name)}, portada">${logo(s.name)}</a>
       <form class="search-mini" data-search role="search"><input class="input" type="search" name="q" placeholder="Buscar noticias…" aria-label="Buscar noticias"><button class="btn btn-ghost btn-icon" aria-label="Buscar">⌕</button></form>
     </div><p class="tagline container small muted">${escape(s.tagline)}</p></div>
-    <nav class="sec-nav" id="sec-nav" aria-label="Secciones"><div class="container sec-nav-inner">
+    <nav class="sec-nav site-nav" id="sec-nav" aria-label="Secciones"><div class="container sec-nav-inner">
       <a href="#/">Portada</a>${cats.map(c => `<a href="#/seccion/${escape(c.id)}">${escape(c.name)}</a>`).join('')}<a href="#/planes">Planes</a>
     </div></nav>
     ${tick ? `<div class="ticker" role="region" aria-label="Último minuto"><div class="container ticker-inner"><span class="ticker-label">Último minuto</span><div class="ticker-viewport"><div class="ticker-track">${[...Array(2)].map(() => (s.ticker.manual ? `<span>${escape(s.ticker.manual)}</span>` : '') + breaking.map(a => `<a href="#/articulo/${escape(a.slug)}">${escape(a.title)}</a>`).join('')).join('')}</div></div></div></div>` : ''}`;

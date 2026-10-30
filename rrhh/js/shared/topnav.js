@@ -16,10 +16,10 @@ export function userMenu(auth, u) {
 
 export function mountTopbar(el, { auth, links = [], extra = () => '', brandHref = 'index.html', brand = 'Grupo Cordillera' }) {
   const draw = () => {
-    el.innerHTML = `<header class="topbar"><div class="container topbar-row">
-      <a class="brand" href="${brandHref}"><span class="logo">${LOGO}</span><span class="brand-name">${escape(brand)}</span></a>
-      <nav class="topnav" aria-label="Secciones">${links.map(l => `<a href="${l.href}" class="topnav-link">${l.ico ? `<span aria-hidden="true">${l.ico}</span>` : ''}${escape(l.label)}</a>`).join('')}</nav>
-      <div class="topbar-end">${extra()}${userMenu(auth, auth.current())}</div></div></header>`;
+    el.innerHTML = `<header class="topbar site-header"><div class="container topbar-row">
+      <a class="brand site-brand" href="${brandHref}"><span class="logo">${LOGO}</span><span class="brand-name">${escape(brand)}</span></a>
+      <nav class="topnav site-nav" aria-label="Secciones">${links.map(l => `<a href="${l.href}" class="topnav-link">${l.ico ? `<span aria-hidden="true">${l.ico}</span>` : ''}${escape(l.label)}</a>`).join('')}</nav>
+      <div class="topbar-end site-actions">${extra()}${userMenu(auth, auth.current())}</div></div></header>`;
   };
   draw();
   el.addEventListener('click', e => { if (e.target.closest('[data-logout]')) { auth.logout(); location.href = 'index.html'; } });

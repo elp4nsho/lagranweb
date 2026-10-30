@@ -31,8 +31,8 @@ export function renderHome(el) {
   const s = settings(), specs = activeSpecialties(), docs = activeDoctors();
   const attended = db.count('appointments', a => a.status === 'atendida');
   el.innerHTML = `
-  <section class="hero"><div class="container hero-grid">
-    <div data-anim>
+  <section class="hero site-hero"><div class="container hero-grid">
+    <div class="hero-text" data-anim>
       <span class="eyebrow">${escape(s.tagline)}</span>
       <h1>${escape(s.heroTitle)}</h1>
       <p class="lead">${escape(s.heroText)}</p>
@@ -42,7 +42,7 @@ export function renderHome(el) {
       </div>
       <div class="hero-badges"><span class="badge badge-success">Convenio Fonasa</span><span class="badge badge-primary">Isapres</span><span class="badge badge-info">Bono electrónico IMED</span></div>
     </div>
-    <div class="hero-art" data-anim data-anim-delay="150">${heroArt()}</div>
+    <div class="hero-art hero-media" data-anim data-anim-delay="150">${heroArt()}</div>
   </div></section>
 
   <section class="container quick" aria-label="Accesos rápidos">

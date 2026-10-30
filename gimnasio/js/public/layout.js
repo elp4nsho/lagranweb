@@ -12,10 +12,10 @@ export function header(el) {
   el.innerHTML = `
     ${s.promo ? `<div class="announce">${icon('fire', 14)} ${escape(s.promo)}</div>` : ''}
     <div class="container bar">
-      <a class="brand" href="#/"><span class="logo">${icon('dumbbell', 22)}</span><span>${escape(s.name)}<small>${escape(s.tagline)}</small></span></a>
+      <a class="brand site-brand" href="#/"><span class="logo">${icon('dumbbell', 22)}</span><span>${escape(s.name)}<small>${escape(s.tagline)}</small></span></a>
       <button class="btn btn-icon btn-ghost nav-toggle" aria-label="Abrir menú" aria-expanded="false">${icon('menu')}</button>
       <nav class="site-nav" aria-label="Principal">${NAV.map(([h, l]) => `<a href="${h}">${l}</a>`).join('')}</nav>
-      <div class="header-cta">
+      <div class="header-cta site-actions">
         <a class="btn btn-ghost btn-sm" href="${u ? HOME_BY_ROLE[u.role] : 'login.html'}">${u ? `<span class="avatar" style="--size:24px;--av:${u.color || 'var(--primary)'}">${escape(initials(u.name))}</span>` : icon('user', 18)}<span class="hide-sm">${u ? (u.role === 'socio' ? 'Mi app' : 'Mi panel') : 'Ingresar'}</span></a>
         <a class="btn btn-primary btn-sm" href="#/planes">${icon('fire', 16)} <span class="hide-xs">Inscríbete</span></a>
       </div>
@@ -35,6 +35,7 @@ export function fitHeader(el) {
     const again = () => requestAnimationFrame(() => fitHeader(el));
     addEventListener('resize', again);
     addEventListener('lgw:theme', () => setTimeout(again, 60));
+    addEventListener('lgw:layout', () => setTimeout(again, 60));
     document.fonts?.ready.then(again);
     document.fonts?.addEventListener?.('loadingdone', again);
   }

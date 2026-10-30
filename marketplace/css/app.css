@@ -255,3 +255,172 @@ th.sortable { cursor: pointer; user-select: none; }
 .kpi-row .stat .value { font-size: clamp(20px, 2.1vw, 28px); overflow-wrap: anywhere; min-width: 0; }
 .kpi-row > .card { min-width: 0; }
 @media (max-width: 600px) { .card .row > .btn, .card .actions .btn { white-space: normal; max-width: 100%; text-align: center; height: auto; padding-block: 8px; } }
+
+/* =====================================================================
+   Disposiciones (clásica = diseño base; revista y app reorganizan)
+   ===================================================================== */
+.cat-grid { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fill, minmax(min(190px, 100%), 1fr)); }
+
+/* ---------- REVISTA: diario editorial ---------- */
+[data-layout="revista"] .nav-toggle { display: none !important; }
+[data-layout="revista"] .site-header { position: relative; }
+[data-layout="revista"] .site-header .container { min-height: 0; }
+[data-layout="revista"] .site-nav { position: static !important; flex-direction: row !important; margin: 0; background: none !important; box-shadow: none !important; padding-inline: 0 !important; }
+[data-layout="revista"] .site-nav a:not(.btn) { text-transform: uppercase; letter-spacing: .08em; font-size: 12px; padding: 6px 4px; border-radius: 0; }
+[data-layout="revista"] .site-nav a.active:not(.btn) { background: none; box-shadow: inset 0 -2px 0 var(--primary); }
+/* Portada: buscador ancho debajo del titular, cifras como columna con filetes */
+[data-layout="revista"] .site-hero .hero-stats { border-block: 1px solid var(--line); padding-block: 12px; justify-content: space-between; }
+[data-layout="revista"] .site-hero .hero-art { max-width: 380px; border: 1px solid var(--line); padding: 14px; background: var(--surface); }
+/* Orden editorial: destacados primero, luego índice de categorías, comunidad y método */
+[data-layout="revista"] .site-main { display: flex; flex-direction: column; }
+[data-layout="revista"] .home-feat { order: 1; }
+[data-layout="revista"] .home-cats { order: 2; background: none; }
+[data-layout="revista"] .home-top { order: 3; }
+[data-layout="revista"] .home-how { order: 4; }
+[data-layout="revista"] .site-footer { order: 9; }
+[data-layout="revista"] .site-main > .section.alt { background: none; border-bottom: 0; }
+[data-layout="revista"] .section-head { border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+/* Categorías como índice a dos columnas, sin tarjetas */
+[data-layout="revista"] .cat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(18px, 4vw, 48px); }
+[data-layout="revista"] .cat-card { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; align-items: baseline; column-gap: 12px; row-gap: 2px; background: none; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; box-shadow: none; padding: 12px 0; transform: none !important; }
+[data-layout="revista"] .cat-card .cat-ico { grid-row: span 2; font-size: 24px; }
+[data-layout="revista"] .cat-card h3 { margin: 0; font-size: 17px; }
+[data-layout="revista"] .cat-card > span.small:not(.muted) { grid-column: 3; grid-row: 1; }
+[data-layout="revista"] .cat-card > .muted { grid-column: 2 / -1; }
+/* Servicios: grilla de revista con pieza principal grande */
+[data-layout="revista"] .gig-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-flow: dense; }
+[data-layout="revista"] .gig-grid > .gig-card:first-child { grid-column: span 2; grid-row: span 2; }
+[data-layout="revista"] .gig-grid > .gig-card:first-child .gig-cover { aspect-ratio: 16 / 10; flex: 1; }
+[data-layout="revista"] .gig-grid > .gig-card:first-child .gig-title { font-family: var(--font-head); font-size: clamp(20px, 2.2vw, 28px); -webkit-line-clamp: 3; }
+[data-layout="revista"] .gig-card { border-radius: 0; box-shadow: none; border-width: 0 0 1px; background: none; }
+[data-layout="revista"] .gig-card .gig-cover { border: 1px solid var(--line); }
+[data-layout="revista"] .gig-card .gig-body, [data-layout="revista"] .gig-card .gig-foot { padding-inline: 0; }
+/* Comunidad: perfiles en fila de columnas con filete */
+[data-layout="revista"] .top-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 0; }
+[data-layout="revista"] .top-grid > * { grid-column: auto !important; grid-row: auto !important; border-radius: 0; box-shadow: none; background: none; border: 0; border-left: 1px solid var(--line); }
+[data-layout="revista"] .top-grid > :first-child { border-left: 0; }
+[data-layout="revista"] .home-how .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; }
+[data-layout="revista"] .home-how .step { border-radius: 0; box-shadow: none; background: none; border: 0; border-left: 1px solid var(--line); }
+[data-layout="revista"] .home-how .step::before { width: auto; height: auto; background: none; color: var(--primary); font-size: 44px; border-radius: 0; place-items: start; }
+[data-layout="revista"] .sell-cta { border-radius: 0; border-width: 3px 0; border-style: double; box-shadow: none; background: none; }
+/* Listado: titular grande y filtros a la DERECHA */
+[data-layout="revista"] .page-hero { border-bottom: 3px double var(--line); text-align: center; }
+[data-layout="revista"] .page-hero h1 { font-size: clamp(30px, 5vw, 58px); }
+[data-layout="revista"] .browse { grid-template-columns: minmax(0, 1fr) 260px; }
+[data-layout="revista"] .browse > .filters { order: 2; background: none; box-shadow: none; border-radius: 0; border-width: 0 0 0 1px; padding: 0 0 0 20px; }
+/* Detalle: foto a todo el ancho arriba, compra en franja horizontal, lectura en una columna */
+[data-layout="revista"] .gig-detail { grid-template-columns: minmax(0, 1fr); max-width: 900px; margin-inline: auto; }
+[data-layout="revista"] .gig-detail > .stack { display: contents; }
+[data-layout="revista"] .gig-detail .gig-hero { order: -2; border-radius: 0; }
+[data-layout="revista"] .gig-detail h1 { order: -1; text-align: center; font-size: clamp(30px, 5vw, 54px) !important; }
+[data-layout="revista"] .gig-detail > .stack > .row { order: -1; justify-content: center; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+[data-layout="revista"] .gig-detail .buybox { position: static; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: var(--gap); }
+[data-layout="revista"] .gig-detail > .stack > .card { order: 1; border-radius: 0; box-shadow: none; background: none; border-width: 1px 0 0; padding-inline: 0; }
+/* Checkout: resumen como recibo horizontal ARRIBA, formulario debajo */
+[data-layout="revista"] .split:has(#co) { grid-template-columns: minmax(0, 1fr); }
+[data-layout="revista"] .split:has(#co) > aside { order: -1; display: grid; grid-template-columns: 160px minmax(0, 1fr) minmax(0, 1fr); gap: 4px 20px; align-items: center; border-style: dashed; }
+[data-layout="revista"] .split:has(#co) > aside > .gig-cover { grid-row: span 3; }
+[data-layout="revista"] .split:has(#co) > aside > .escrow-box { grid-column: 1 / -1; }
+@media (max-width: 900px) {
+  [data-layout="revista"] .browse { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="revista"] .browse > .filters { order: -1; border-width: 0 0 1px; padding: 0 0 16px; position: static; }
+  [data-layout="revista"] .gig-detail .buybox { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  [data-layout="revista"] .gig-grid { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="revista"] .gig-grid > .gig-card:first-child { grid-column: auto; grid-row: auto; }
+  [data-layout="revista"] .cat-grid { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="revista"] .top-grid, [data-layout="revista"] .home-how .steps { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  [data-layout="revista"] .top-grid > :nth-child(3) { border-left: 0; }
+  [data-layout="revista"] .home-how .step:nth-child(3) { border-left: 0; }
+  [data-layout="revista"] .split:has(#co) > aside { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="revista"] .split:has(#co) > aside > .gig-cover { grid-row: auto; }
+}
+
+/* ---------- APP: aplicación con paneles ---------- */
+[data-layout="app"] .nav-toggle { display: none !important; }
+[data-layout="app"] .site-header .brand small { display: none; }
+[data-layout="app"] .site-main { display: flex; flex-direction: column; }
+[data-layout="app"] .site-hero .hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+[data-layout="app"] .site-hero .hero-stats div { background: var(--surface-2); border: var(--border-w) solid var(--line); border-radius: var(--radius-sm); padding: 10px 12px; }
+[data-layout="app"] .site-hero .hero-art { max-width: 260px; }
+/* Orden tipo app: categorías como carrusel, comunidad, luego destacados en filas y método al final */
+[data-layout="app"] .home-cats { order: 1; background: none; border: 0; }
+[data-layout="app"] .home-top { order: 2; }
+[data-layout="app"] .home-feat { order: 3; }
+[data-layout="app"] .home-how { order: 4; background: none; border: 0; }
+[data-layout="app"] .section-head { margin-bottom: 12px; }
+[data-layout="app"] .section-head h2 { font-size: 20px; }
+[data-layout="app"] .cat-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; padding-bottom: 6px; }
+[data-layout="app"] .cat-card { flex: 0 0 150px; scroll-snap-align: start; padding: 12px; gap: 2px; }
+[data-layout="app"] .cat-card .muted { display: none; }
+[data-layout="app"] .cat-card h3 { font-size: 15px; }
+/* Servicios como filas densas: miniatura | datos | precio */
+[data-layout="app"] .gig-grid { grid-template-columns: repeat(auto-fill, minmax(min(460px, 100%), 1fr)); gap: 10px; }
+[data-layout="app"] .gig-card { display: grid; grid-template-columns: 132px minmax(0, 1fr) auto; align-items: center; }
+[data-layout="app"] .gig-card .gig-cover { height: 100%; aspect-ratio: auto; min-height: 84px; border-bottom: 0; border-right: var(--border-w) solid var(--line); }
+[data-layout="app"] .gig-card .gig-body { padding: 10px 12px; gap: 4px; }
+[data-layout="app"] .gig-card .gig-foot { flex-direction: column; align-items: flex-end; border-top: 0; padding: 10px 44px 10px 6px; }
+[data-layout="app"] .gig-card .fav-btn { top: 50%; transform: translateY(-50%); right: 6px; left: auto; }
+/* Comunidad como fila de avatares compactos */
+[data-layout="app"] .top-grid { grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr)) !important; }
+[data-layout="app"] .top-grid > .card { grid-column: auto !important; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 12px; text-align: left !important; align-items: center; }
+[data-layout="app"] .top-grid > .card > .avatar { --size: 44px !important; grid-row: span 4; }
+[data-layout="app"] .top-grid > .card > * { margin: 0 !important; }
+[data-layout="app"] .home-how .steps { grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 10px; }
+[data-layout="app"] .home-how .step { display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 12px; }
+[data-layout="app"] .home-how .step::before { grid-row: span 2; margin: 0; }
+/* Listado: filtros como barra superior pegajosa con chips en carrusel */
+[data-layout="app"] .page-hero { padding-block: 18px 6px; }
+[data-layout="app"] .page-hero h1 { font-size: clamp(22px, 3vw, 30px); }
+[data-layout="app"] .browse { grid-template-columns: minmax(0, 1fr); }
+[data-layout="app"] .browse > .filters { position: sticky; top: 0; z-index: 20; flex-direction: row; align-items: flex-end; gap: 12px; overflow-x: auto; padding: 10px 12px; box-shadow: var(--shadow); }
+[data-layout="app"] .browse > .filters > * { flex: 0 0 auto; }
+[data-layout="app"] .browse > .filters .chips { flex-wrap: nowrap; }
+[data-layout="app"] .browse > .filters .input { min-width: 120px; }
+[data-layout="app"] .browse > .filters .label { white-space: nowrap; }
+/* Detalle: compra fija a la IZQUIERDA, contenido a la derecha con portada en banda */
+[data-layout="app"] .gig-detail { grid-template-columns: 340px minmax(0, 1fr); }
+[data-layout="app"] .gig-detail .buybox { order: -1; top: 16px; }
+[data-layout="app"] .gig-detail .gig-hero { aspect-ratio: 21 / 8; }
+[data-layout="app"] .gig-detail > .stack { gap: 12px; }
+[data-layout="app"] .gig-detail > .stack > .card { padding: calc(var(--pad) * .8); }
+/* Checkout: resumen a la IZQUIERDA en escritorio; barra de total pegada abajo en celular */
+[data-layout="app"] .split:has(#co) { grid-template-columns: 300px minmax(0, 1fr); }
+[data-layout="app"] .split:has(#co) > aside { order: -1; position: sticky; top: 16px; align-self: start; }
+/* Panel: KPIs en columna lateral y gráficos a la derecha */
+@media (min-width: 1100px) {
+  [data-layout="app"] .admin-content:has(> .kpi-row) { display: grid; grid-template-columns: 280px minmax(0, 1fr); align-content: start; }
+  [data-layout="app"] .admin-content:has(> .kpi-row) > * { grid-column: 2; }
+  [data-layout="app"] .admin-content:has(> .kpi-row) > .page-head { grid-column: 1 / -1; }
+  [data-layout="app"] .admin-content > .kpi-row { grid-column: 1; grid-row: 2 / span 8; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 8px; }
+  [data-layout="app"] .admin-content > .kpi-row > .card { padding: 12px 14px; }
+}
+[data-layout="app"] .admin-content > .grid-3 { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
+/* Revista en el panel: cifras como franja con filetes y gráficos a todo el ancho */
+[data-layout="revista"] .admin-content > .kpi-row { gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .admin-content > .kpi-row > .card { border-radius: 0; box-shadow: none; background: none; border: 0; border-right: 1px solid var(--line); }
+[data-layout="revista"] .admin-content > .grid-2 { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+[data-layout="revista"] .admin-content > .kpi-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (min-width: 1200px) { [data-layout="revista"] .admin-content > .kpi-row { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+[data-layout="revista"] .admin-content > .grid-3 { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+[data-layout="revista"] .admin-content > .grid-3 > :first-child { grid-row: span 2; }
+@media (max-width: 900px) {
+  [data-layout="app"] .gig-detail { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="app"] .gig-detail .buybox { position: static; }
+  [data-layout="app"] .split:has(#co) { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="app"] .split:has(#co) > aside { order: 2; position: sticky; top: auto; bottom: 72px; z-index: 30; box-shadow: var(--shadow-lg); padding: 10px 14px; }
+  [data-layout="app"] .split:has(#co) > aside > :not(.summary-row.total) { display: none; }
+  [data-layout="app"] .split:has(#co) > aside > .total { margin: 0; border: 0; padding: 0; }
+  [data-layout="app"] .admin-content > .kpi-row { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+  [data-layout="app"] .admin-content > .kpi-row > .card { flex: 0 0 72%; scroll-snap-align: start; }
+  [data-layout="revista"] .admin-content > .grid-3, [data-layout="revista"] .admin-content > .grid-2, [data-layout="revista"] .admin-content > .kpi-row { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="revista"] .admin-content > .kpi-row > .card { border-right: 0; border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 560px) {
+  [data-layout="app"] .gig-card { grid-template-columns: 96px minmax(0, 1fr); }
+  [data-layout="app"] .gig-card .gig-foot { grid-column: 2; flex-direction: row; align-items: center; padding: 0 12px 10px; }
+  [data-layout="app"] .gig-card .gig-cover { grid-row: span 2; }
+  [data-layout="app"] .gig-card .fav-btn { top: 8px; transform: none; }
+  [data-layout="app"] .site-hero .hero-stats { grid-template-columns: minmax(0, 1fr); }
+}

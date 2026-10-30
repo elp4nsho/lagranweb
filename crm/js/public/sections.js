@@ -8,7 +8,7 @@ export const announcement = s => s.announcement?.on && s.announcement.text ? `<d
 export const header = (user) => `
   <header class="site-header">
     <div class="container row between">
-      <a class="brand" href="#top"><span class="logo">${icon('bolt', 18)}</span> Pulso <span class="brand-sub">CRM</span></a>
+      <a class="brand site-brand" href="#top"><span class="logo">${icon('bolt', 18)}</span> Pulso <span class="brand-sub">CRM</span></a>
       <button class="btn btn-ghost btn-icon nav-toggle" aria-label="Abrir menú" aria-expanded="false" data-navtoggle>${icon('menu')}</button>
       <nav class="site-nav" data-sitenav>
         <a href="#funciones">Funciones</a><a href="#precios">Precios</a><a href="#clientes">Clientes</a><a href="#faq">Preguntas</a>
@@ -31,16 +31,16 @@ const mock = () => `
 
 export const hero = s => {
   const h = s.hero || {};
-  return `<section class="hero section" id="top">
+  return `<section class="hero section site-hero" id="top">
     <div class="container hero-grid">
-      <div class="stack hero-copy" data-anim>
+      <div class="stack hero-copy hero-text" data-anim>
         <span class="eyebrow">${escape(h.eyebrow)}</span>
         <h1>${escape(h.title)}</h1>
         <p class="lead">${escape(h.subtitle)}</p>
         <div class="row"><a class="btn btn-primary btn-lg" href="#demo">${escape(h.cta || 'Solicitar demo')}</a><a class="btn btn-lg" href="#precios">${escape(h.cta2 || 'Ver planes')}</a></div>
         <small class="muted">14 días gratis · sin tarjeta · soporte en español</small>
       </div>
-      <div data-anim="fadeInRight" data-anim-delay="150">${mock()}</div>
+      <div class="hero-media" data-anim="fadeInRight" data-anim-delay="150">${mock()}</div>
     </div>
   </section>`;
 };

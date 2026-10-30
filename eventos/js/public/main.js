@@ -24,11 +24,11 @@ function header() {
   const panel = u && u.role !== 'cliente' ? HOME_BY_ROLE[u.role] : '';
   $('#header').innerHTML = html`<div class="container">
     <div class="bar">
-      <a class="brand" href="#/"><span class="logo">${raw(LOGO)}</span><span>Tiquetera Volcán</span></a>
-      <nav class="main-nav" aria-label="Principal">
-        <a href="#/explorar">Explorar</a><a href="#/explorar?cat=conciertos">Conciertos</a><a href="#/explorar?cat=teatro">Teatro</a><a href="#/explorar?cat=deportes">Deportes</a><a href="#/explorar?cat=conferencias">Conferencias</a>
+      <a class="brand site-brand" href="#/"><span class="logo">${raw(LOGO)}</span><span>Tiquetera Volcán</span></a>
+      <nav class="main-nav site-nav" aria-label="Principal">
+        <a href="#/" class="nav-home"><span class="nav-ico" aria-hidden="true">🌋</span>Inicio</a><a href="#/explorar"><span class="nav-ico" aria-hidden="true">🔎</span>Explorar</a><a class="nav-cat" href="#/explorar?cat=conciertos"><span class="nav-ico" aria-hidden="true">🎸</span>Conciertos</a><a class="nav-cat" href="#/explorar?cat=teatro"><span class="nav-ico" aria-hidden="true">🎭</span>Teatro</a><a class="nav-cat" href="#/explorar?cat=deportes"><span class="nav-ico" aria-hidden="true">🏆</span>Deportes</a><a class="nav-cat" href="#/explorar?cat=conferencias"><span class="nav-ico" aria-hidden="true">🎤</span>Conferencias</a>${u ? raw('<a href="#/mis-entradas" class="nav-tickets"><span class="nav-ico" aria-hidden="true">🎟️</span>Mis entradas</a>') : ''}
       </nav>
-      <div class="header-actions">
+      <div class="header-actions site-actions">
         ${u ? raw(html`
           <a class="btn btn-sm btn-ghost hide-sm" href="#/mis-entradas">🎟️ Mis entradas</a>
           <div class="rel"><button class="btn btn-ghost btn-icon icon-btn" id="bell" aria-label="Notificaciones" aria-expanded="false">🔔${unread ? raw(`<span class="dot">${unread}</span>`) : ''}</button>

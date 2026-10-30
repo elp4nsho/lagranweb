@@ -34,14 +34,16 @@ function paintHeader() {
   const activeOrders = s ? db.count('orders', o => o.sessionId === s.id && !['entregado', 'pagado', 'cancelado'].includes(o.status)) : 0;
   document.title = `${cfg.name} · ${mesaMode ? `${t('table')} ${mesaNum}` : tr(cfg.tagline)}`;
   header.innerHTML = `<div class="container hdr-row">
-      <a class="brand" href="${mesaMode ? '#/' : 'index.html'}"><span class="brand-mark" aria-hidden="true">🔥</span><span class="brand-name">${escape(cfg.name)}</span></a>
+      <a class="brand site-brand" href="${mesaMode ? '#/' : 'index.html'}"><span class="brand-mark" aria-hidden="true">🔥</span><span class="brand-name">${escape(cfg.name)}</span></a>
       ${mesaMode ? `<span class="badge badge-primary plain mesa-chip">${escape(t('table'))} ${mesaNum}</span>` : ''}
       <span class="grow"></span>
+      <div class="site-actions">
       <button class="btn btn-sm btn-ghost lang" id="lang" aria-label="Idioma / Language">${getLang() === 'es' ? 'EN' : 'ES'}</button>
       ${mesaMode ? `<button class="btn btn-sm ${tb.calling ? 'btn-accent' : ''}" id="callW" title="${escape(t('callWaiter'))}">🛎️<span class="hide-xs"> ${escape(tb.calling ? t('waiterCalled') : t('callWaiter'))}</span></button>
         <button class="btn btn-sm btn-primary cart-btn" id="cartBtn" aria-label="${escape(t('cart'))}">🛒 <b>${cart.count()}</b></button>` : `<a class="btn btn-sm" href="reservas.html">${getLang() === 'en' ? 'Book' : 'Reservar'}</a>`}
+      </div>
     </div>
-    <nav class="container subnav">${mesaMode
+    <nav class="container subnav site-nav" aria-label="Principal">${mesaMode
       ? `<a href="#/">${escape(t('menu'))}</a><a href="#/pedido">${escape(t('myOrder'))}${activeOrders ? ` <span class="pill">${activeOrders}</span>` : ''}</a><a href="#/cuenta">${escape(t('bill'))}</a>`
       : `<a href="#/">${getLang() === 'en' ? 'Home' : 'Inicio'}</a><a href="#/carta">${escape(t('menu'))}</a><a href="reservas.html">${getLang() === 'en' ? 'Bookings' : 'Reservas'}</a>`}</nav>`;
   router.highlight(header);

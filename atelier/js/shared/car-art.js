@@ -39,10 +39,10 @@ export function carArt({ body = 'sedan', color = '#5b6474', label = '', ev = fal
     <defs><linearGradient id="${id}h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/></linearGradient>
     <linearGradient id="${id}g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a4656"/><stop offset="1" stop-color="#11161d"/></linearGradient></defs>
     <ellipse cx="200" cy="150" rx="178" ry="7" class="car-shadow"/>
-    <path d="${s.body}" fill="${color}"/>
+    <path d="${s.body}" style="fill:${color}"/>
     <path d="${s.body}" fill="url(#${id}h)"/>
     <path d="${s.glass}" fill="url(#${id}g)"/>
-    <line x1="${s.pillar}" y1="${(s.yroof ?? 36) + 2}" x2="${s.pillar}" y2="${doorY1}" stroke="${color}" stroke-width="7"/>
+    <line x1="${s.pillar}" y1="${(s.yroof ?? 36) + 2}" x2="${s.pillar}" y2="${doorY1}" style="stroke:${color}" stroke-width="7"/>
     ${s.extra || ''}
     <path d="M${s.pillar} ${doorY1} L${s.pillar} 118 M${s.wr + 40} ${doorY1 + 2} L${s.wr + 36} 116" stroke="rgba(0,0,0,.22)" stroke-width="1.6" fill="none"/>
     <rect x="${s.pillar + 18}" y="${doorY1 + 8}" width="16" height="3.5" rx="1.5" fill="rgba(0,0,0,.35)"/>

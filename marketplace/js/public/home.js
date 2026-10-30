@@ -32,8 +32,8 @@ export function renderHome(el) {
   const avg = (() => { const r = db.all('reviews'); return r.length ? r.reduce((a, x) => a + x.rating, 0) / r.length : 0; })();
   const u = auth.current();
   el.innerHTML = `
-  <section class="hero"><div class="container hero-grid">
-    <div data-anim>
+  <section class="hero site-hero"><div class="container hero-grid">
+    <div class="hero-text" data-anim>
       <span class="eyebrow">${escape(st.tagline)}</span>
       <h1>${escape(st.heroTitle)}</h1>
       <p class="lead">${escape(st.heroSubtitle)}</p>
@@ -41,17 +41,17 @@ export function renderHome(el) {
       <div class="pop-tags"><span class="muted">Populares:</span>${['Logo', 'WordPress', 'Reels', 'SEO', 'Traducción'].map(t => `<a class="chip" href="#/servicios?q=${encodeURIComponent(t)}">${t}</a>`).join('')}</div>
       ${st.showStats ? `<div class="hero-stats"><div><b>${nF}</b><span>freelancers verificados</span></div><div><b>${num(done)}</b><span>pedidos completados</span></div><div><b>${avg.toFixed(1).replace('.', ',')}★</b><span>valoración promedio</span></div></div>` : ''}
     </div>
-    <div class="hero-art" data-anim="zoomIn">${heroArt()}</div>
+    <div class="hero-art hero-media" data-anim="zoomIn">${heroArt()}</div>
   </div></section>
-  <section class="section alt"><div class="container">
+  <section class="section alt home-cats"><div class="container">
     <div class="section-head" data-anim><div><span class="eyebrow">Categorías</span><h2>¿Qué necesitas hoy?</h2></div><a class="btn btn-ghost" href="#/servicios">Ver todo →</a></div>
-    <div class="grid-auto" style="grid-template-columns:repeat(auto-fill,minmax(min(190px,100%),1fr))">${cats.map(c => `<a class="card hover cat-card" href="#/servicios?cat=${c.id}"><span class="cat-ico" aria-hidden="true">${c.icon}</span><h3>${escape(c.name)}</h3><span class="small muted">${escape(c.description)}</span><span class="small"><b>${db.count('gigs', g => g.categoryId === c.id && g.status === 'activo')}</b> servicios</span></a>`).join('')}</div>
+    <div class="cat-grid">${cats.map(c => `<a class="card hover cat-card" href="#/servicios?cat=${c.id}"><span class="cat-ico" aria-hidden="true">${c.icon}</span><h3>${escape(c.name)}</h3><span class="small muted">${escape(c.description)}</span><span class="small"><b>${db.count('gigs', g => g.categoryId === c.id && g.status === 'activo')}</b> servicios</span></a>`).join('')}</div>
   </div></section>
-  <section class="section"><div class="container">
+  <section class="section home-feat"><div class="container">
     <div class="section-head" data-anim><div><span class="eyebrow">Destacados</span><h2>Servicios recomendados por Gremio</h2></div></div>
     <div class="gig-grid" data-favs>${feat.map(g => gigCard(g, { fav: fav ? fav.includes(g.id) : null })).join('')}</div>
   </div></section>
-  <section class="section alt"><div class="container">
+  <section class="section alt home-how"><div class="container">
     <div class="section-head" data-anim><div><span class="eyebrow">Cómo funciona</span><h2>Contrata con tranquilidad</h2></div></div>
     <div class="steps">
       <div class="card step"><h3>Elige o publica</h3><p class="muted mb-0">Compra un servicio con precio cerrado o publica tu proyecto y recibe propuestas.</p></div>
@@ -60,10 +60,10 @@ export function renderHome(el) {
       <div class="card step"><h3>Aprueba y libera</h3><p class="muted mb-0">Cuando estés conforme, liberas los fondos. Si algo sale mal, mediamos.</p></div>
     </div>
   </div></section>
-  <section class="section"><div class="container">
+  <section class="section home-top"><div class="container">
     <div class="section-head" data-anim><div><span class="eyebrow">Comunidad</span><h2>Freelancers destacados</h2></div><a class="btn btn-ghost" href="#/proyectos">Ver proyectos abiertos →</a></div>
-    <div class="grid-4">${top.map(({ f, st: s, lv }) => `<a class="card hover" href="#/freelancer/${f.id}" style="text-decoration:none;color:inherit;text-align:center"><span class="avatar" style="--size:64px;--av:${escape(f.color)}">${escape(f.name.split(' ').map(w => w[0]).join(''))}</span><h3 style="margin:10px 0 2px">${escape(f.name)}</h3><p class="small muted">${escape(f.title)}</p><div class="small">${stars(s.rating, s.reviews)}</div><div style="margin-top:8px">${levelBadge(lv)}</div></a>`).join('')}</div>
-    <div class="card" style="margin-top:24px" data-anim><div class="row between"><div><h3 class="mb-0">¿Tienes talento? Vende tus servicios en ${escape(st.name)}</h3><p class="muted mb-0">Publica gratis. Solo cobramos ${st.commissionPct}% cuando vendes.</p></div><a class="btn btn-primary" href="${u?.role === 'freelancer' ? 'freelancer.html' : 'login.html?modo=freelancer'}">Empezar a vender</a></div></div>
+    <div class="grid-4 top-grid">${top.map(({ f, st: s, lv }) => `<a class="card hover" href="#/freelancer/${f.id}" style="text-decoration:none;color:inherit;text-align:center"><span class="avatar" style="--size:64px;--av:${escape(f.color)}">${escape(f.name.split(' ').map(w => w[0]).join(''))}</span><h3 style="margin:10px 0 2px">${escape(f.name)}</h3><p class="small muted">${escape(f.title)}</p><div class="small">${stars(s.rating, s.reviews)}</div><div style="margin-top:8px">${levelBadge(lv)}</div></a>`).join('')}</div>
+    <div class="card sell-cta" style="margin-top:24px" data-anim><div class="row between"><div><h3 class="mb-0">¿Tienes talento? Vende tus servicios en ${escape(st.name)}</h3><p class="muted mb-0">Publica gratis. Solo cobramos ${st.commissionPct}% cuando vendes.</p></div><a class="btn btn-primary" href="${u?.role === 'freelancer' ? 'freelancer.html' : 'login.html?modo=freelancer'}">Empezar a vender</a></div></div>
   </div></section>`;
   el.querySelector('[data-search]').addEventListener('submit', e => { e.preventDefault(); location.hash = '#/servicios?q=' + encodeURIComponent(e.currentTarget.q.value.trim()); });
   wireFavs(el);
