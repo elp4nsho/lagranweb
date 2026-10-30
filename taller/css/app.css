@@ -334,3 +334,8 @@ button.photo { font: inherit; font-size: 22px; }
 .cv-chip { width: 40px; height: 30px; border-radius: 6px; background: color-mix(in srgb, var(--on-primary) 45%, transparent); }
 .track-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--gap); align-items: start; }
 @media (max-width: 860px) { .track-grid { grid-template-columns: minmax(0, 1fr); } }
+.ins-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--gap); align-items: start; }
+@media (max-width: 900px) { .ins-grid { grid-template-columns: minmax(0, 1fr); } }
+.claim-card.sel { outline: 2px solid var(--primary); outline-offset: -2px; }
+.ops-top { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 10px; padding: 10px 16px; background: var(--surface); border-bottom: var(--border-w) solid var(--line); box-shadow: var(--shadow); flex-wrap: wrap; }
+.builder .card { padding: 14px; }

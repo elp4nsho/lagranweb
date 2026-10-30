@@ -6,7 +6,7 @@ import { db } from '../data/db.js';
 import { STAGES, OT_TYPES } from '../data/catalog.js';
 import { openOTs, totals, mechanics, stageHours, taskMin, userName, ST_OF } from '../shared/domain.js';
 
-const short = n => n >= 1e6 ? `$${(n / 1e6).toFixed(1).replace('.', ',')} M` : money(n);
+const short = n => n >= 1e6 ? `$${(n / 1e6).toFixed(1).replace('.', ',')} M` : n >= 1e4 ? `$${Math.round(n / 1000)} mil` : money(n);
 // Barras apiladas / agrupadas con tokens del tema.
 function multiBars(data, series, { stacked = true, height = 190, format = v => v } = {}) {
   const w = 600, pad = 30, max = Math.max(1, ...data.map(d => stacked ? series.reduce((s, k) => s + d[k.key], 0) : Math.max(...series.map(k => d[k.key]))));
@@ -28,7 +28,7 @@ export default {
       const last = ms.at(-1), prev = ms.at(-2);
       const mechs = mechanics();
       // Horas reales del mes en curso (tareas de OT del sistema)
-      const live = {}; db.all('ots').forEach(o => o.tasks.forEach(t => { if (!t.mech) return; const m = (live[t.mech] ||= { worked: 0, std: 0 }); m.worked += taskMin(t) / 60; if (t.done) m.std += t.std; }));
+      const live = {}; open.forEach(o => o.tasks.forEach(t => { if (!t.mech) return; const m = (live[t.mech] ||= { worked: 0, std: 0 }); m.worked += taskMin(t) / 60; if (t.done) m.std += t.std; }));
       const eff = mechs.map(m => { const s = last.mech[m.id] || { billed: 0, worked: 1 }; return { m, eff: s.billed / Math.max(1, s.worked) * 100, billed: s.billed, worked: s.worked, live: live[m.id] }; });
       const effAvg = eff.reduce((s, x) => s + x.eff, 0) / Math.max(1, eff.length);
       const ticket = inv30.reduce((s, i) => s + i.total, 0) / Math.max(1, inv30.length);
@@ -46,8 +46,8 @@ export default {
       el.innerHTML = `${pageHead('Dashboard del taller', 'Indicadores de productividad, ventas y tiempos · últimos 12 meses + mes en curso')}
         <div class="kpi-grid">
           ${kpi('OT abiertas', num(open.length), late.length ? `${late.length} atrasadas` : 'al día', !late.length)}
-          ${kpi('Ticket promedio (30 días)', money(ticket), `${ticket >= prevTicket ? '▲' : '▼'} vs. ${money(prevTicket)}`, ticket >= prevTicket)}
-          ${kpi('Horas facturadas / disponibles', `${last.hoursBilled} / ${last.hoursAvail}`, `${Math.round(last.hoursBilled / last.hoursAvail * 100)}% de ocupación`, last.hoursBilled / last.hoursAvail > .7)}
+          ${kpi('Ticket promedio (30 días)', short(ticket), `${ticket >= prevTicket ? '▲' : '▼'} vs. ${short(prevTicket)} mes ant.`, ticket >= prevTicket)}
+          ${kpi('Horas facturadas / disponibles', `${Math.round(last.hoursBilled / last.hoursAvail * 100)}%`, `${last.hoursBilled} de ${last.hoursAvail} h (mes anterior)`, last.hoursBilled / last.hoursAvail > .7)}
           ${kpi('Eficiencia promedio', `${Math.round(effAvg)}%`, 'horas estándar / reales', effAvg >= 95)}
           ${kpi('Facturado este mes', short(invM.reduce((s, i) => s + i.total, 0)), `${invM.length} documentos`)}
           ${kpi('Aprobación de presupuestos', `${Math.round(apprRate)}%`, 'del monto ofertado')}
@@ -58,8 +58,8 @@ export default {
         </div>
         <div class="grid-2">
           <div class="card stack"><h3 style="margin:0">Eficiencia por mecánico (mes anterior)</h3>
-            ${eff.map(x => `<div class="load-row"><span><b>${escape(x.m.name)}</b><small class="muted d-block">${escape(x.m.specialty)}</small></span><div><div class="progress"><i style="--v:${Math.min(100, x.eff / 1.3)}%"></i></div><small class="muted">${x.billed} h facturadas / ${x.worked} h trabajadas${x.live ? ` · ahora ${x.live.worked.toFixed(1)} h en OT abiertas` : ''}</small></div><b class="${x.eff < 85 ? 'text-warning' : 'text-success'}">${Math.round(x.eff)}%</b></div>`).join('')}</div>
-          <div class="card"><h3>Tiempo promedio por etapa (horas)</h3>${barChart(STAGES.slice(0, 7).map(([s, l]) => ({ label: l.split(' ')[0], value: Math.round(stageAvg[s] * 10) / 10 })), { format: v => `${v} h` })}<small class="muted">La etapa "Presupuesto" mide cuánto tarda el cliente o la aseguradora en aprobar.</small></div>
+            ${eff.map(x => `<div class="load-row"><span><b>${escape(x.m.name)}</b><small class="muted d-block">${escape(x.m.specialty)}</small></span><div><div class="progress"><i style="--v:${Math.min(100, x.eff / 1.3)}%"></i></div><small class="muted">${x.billed} h facturadas / ${x.worked} h trabajadas${x.live ? ` · ahora ${x.live.worked.toFixed(1).replace('.', ',')} h en OT abiertas` : ''}</small></div><b class="${x.eff < 85 ? 'text-warning' : 'text-success'}">${Math.round(x.eff)}%</b></div>`).join('')}</div>
+          <div class="card"><h3>Tiempo promedio por etapa (horas)</h3>${barChart(STAGES.slice(0, 7).map(([s, l]) => ({ label: l.replace('En reparación', 'Reparación').replace('Control de calidad', 'Control'), value: Math.round(stageAvg[s] * 10) / 10 })), { format: v => `${v} h` })}<small class="muted">La etapa "Presupuesto" mide cuánto tarda el cliente o la aseguradora en aprobar.</small></div>
         </div>
         <div class="grid-3">
           <div class="card"><h3>OT abiertas por etapa</h3>${donutChart(byStage, { label: String(open.length), format: v => `${v} OT` })}</div>

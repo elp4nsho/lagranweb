@@ -579,3 +579,6 @@ input[type=range] { width: 100%; accent-color: var(--primary); }
 .view-host { display: contents; }
 .step-btn { all: unset; cursor: pointer; flex: 1; } .step-btn:disabled { cursor: default; } .step-btn:focus-visible { outline: 2px solid var(--primary); }
 .seg-tab input[hidden] { display: none; }
+.mc-body { min-width: 0; } .mc-head { flex-wrap: wrap; }
+[data-layout="app"] .model-grid.grid-3 .mc-body { flex: 1; }
+@media (max-width: 520px) { [data-layout="app"] .model-grid.grid-3 .mc-art { width: 96px; padding: 6px; } [data-layout="app"] .model-grid.grid-3 .mc-body { padding: 10px; } [data-layout="app"] .model-grid.grid-3 .mc-actions .btn { padding: 0 10px; } }

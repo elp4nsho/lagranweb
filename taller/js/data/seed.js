@@ -101,8 +101,8 @@ export function seed() {
 
   // Entregadas (últimas 5 semanas)
   for (let i = 0; i < 38; i++) {
-    const v = r.pick(vehicles.slice(2)), s = r.pick(SCEN);
-    const o = mkOT(v, s, 'entregado', { start: r.int(30, 34 * 24) });
+    const v = i < 2 ? [vTuc, vMaz][i] : r.pick(vehicles.slice(2)), s = i < 2 ? [SCEN[1], SCEN[8]][i] : r.pick(SCEN);
+    const o = mkOT(v, s, 'entregado', { start: i < 2 ? [20 * 24, 28 * 24][i] : r.int(30, 34 * 24) });
     o.km = v.km - r.int(100, 3000);
     if (s.type === 'siniestro') o.claimId = 'cl' + claims.length;
     const parts = o.budget.filter(i => i.kind === 'repuesto' && i.st === 'aprobado').reduce((a, i) => a + i.qty * i.price, 0), labor = tot(o.budget) - parts;
@@ -116,13 +116,14 @@ export function seed() {
   const pool = vehicles.slice(2).filter(v => !ots.some(o => o.vehicleId === v.id));
   let pi = 0;
   plan.forEach(([st, n]) => { for (let k = 0; k < n; k++) mkOT(pool[pi++ % pool.length], r.pick(SCEN), st, { start: r.int(4, 90) }); });
+  ots.filter(o => ['reparacion', 'control', 'aprobado'].includes(o.status)).slice(0, 3).forEach((o, i) => { o.promisedAt = hrs(3 + i * 20); });
   // OT de la clienta demo: presupuesto esperando aprobación online (Tucson) y siniestro en evaluación (Mazda)
   const demoOT = mkOT(vTuc, SCEN[4], 'presupuesto', { start: 26 });
   demoOT.budget.forEach((i, k) => { i.photo = k % 2 === 0; if (k === 0) i.note = 'Ver foto: amortiguador con fuga de aceite.'; });
   demoOT.photos = 6; demoOT.advisorId = 'u-asesor';
   const sinOT = mkOT(vMaz, SCEN[9], 'presupuesto', { start: 50 }); sinOT.type = 'siniestro';
   const carOT = ots.filter(o => o.status === 'reparacion')[0]; if (carOT) { carOT.mechanicId = 'u-mec'; carOT.tasks.forEach(t => { t.mech = 'u-mec'; }); }
-  const ctrlOT = ots.find(o => o.status === 'aprobado'); if (ctrlOT) { ctrlOT.mechanicId = 'u-mec'; ctrlOT.tasks.forEach(t => { t.mech = 'u-mec'; }); }
+  const ctrlOT = ots.find(o => o.status === 'aprobado' && ['mecanica', 'mantencion'].includes(o.type)); if (ctrlOT) { ctrlOT.mechanicId = 'u-mec'; ctrlOT.tasks.forEach(t => { t.mech = 'u-mec'; }); }
   // Bahías / elevadores
   const bays = [['E1', 'Elevador 1', 'Elevador 2 columnas'], ['E2', 'Elevador 2', 'Elevador 2 columnas'], ['E3', 'Elevador 3', 'Elevador 2 columnas'], ['E4', 'Elevador 4', 'Elevador tijera + alineadora'], ['B1', 'Box diagnóstico', 'Box con escáner'], ['BE', 'Banco de enderezado', 'Carrocería'], ['C1', 'Cabina de pintura', 'Cabina presurizada'], ['PT', 'Patio de espera', 'Estacionamiento']].map(([id, name, type]) => ({ id: 'bay-' + id, name, type, active: true }));
   const bodyBays = ['bay-BE', 'bay-C1'], mechBays = ['bay-E1', 'bay-E2', 'bay-E3', 'bay-E4', 'bay-B1'];
@@ -139,7 +140,7 @@ export function seed() {
   const UF = 39800;
   const sinOTs = ots.filter(o => o.type === 'siniestro');
   sinOTs.forEach((o, i) => {
-    const ins = o === sinOT ? insurers[0] : r.pick(insurers);
+    const ins = o === sinOT || r.bool(.6) ? insurers[0] : r.pick(insurers);
     const amount = tot(o.budget);
     const st = o.status === 'entregado' ? 'pagado' : o === sinOT ? 'en-evaluacion' : ['recepcion', 'diagnostico'].includes(o.status) ? 'denunciado' : o.status === 'presupuesto' ? 'en-evaluacion' : 'aprobado';
     const c = { id: 'cl' + claims.length, number: `SIN-2026-${r.int(10000, 99999)}`, insurerId: ins.id, otId: o.id, otCode: o.code, plate: o.plate, customerId: o.customerId, policy: 'POL-' + r.int(100000, 999999), deductibleUF: ins.deductible, deductible: ins.deductible * UF, amount, approved: ['aprobado', 'pagado'].includes(st) ? Math.round(amount * (0.92 + r() * .08)) : 0, status: st, liquidator: ins.id === 'ins1' ? 'Marcela Ibáñez' : 'Tomás Riquelme', event: r.pick(['Colisión por alcance en Av. Kennedy', 'Choque en estacionamiento de mall', 'Colisión lateral en intersección', 'Daño por portón eléctrico']), eventAt: iso(Date.parse(o.createdAt) - r.int(1, 6) * 864e5), notes: [], createdAt: o.createdAt };
