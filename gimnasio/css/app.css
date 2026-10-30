@@ -361,7 +361,7 @@ button.cls { cursor: pointer; }
 [data-layout="revista"] .summary { background: none; box-shadow: none; border: 0; border-block: 3px double var(--line); border-radius: 0; }
 @media (max-width: 900px) { [data-layout="revista"] .booking-layout { grid-template-columns: 1fr; } [data-layout="revista"] .steps li + li { border-left: 0; } }
 [data-layout="revista"] .site-footer .cols { text-align: center; }
-[data-layout="revista"] .site-footer .brand { justify-content: center; }
+[data-layout="revista"] .site-footer .brand { display: flex; flex-direction: column; align-items: center; justify-content: center; }
 
 /* ---------- APP: app de entrenamiento ---------- */
 [data-layout="app"] .site-header.compact .site-nav { position: static; display: flex; box-shadow: none; background: none; }
@@ -467,8 +467,8 @@ button.cls { cursor: pointer; }
 [data-layout="app"] .admin-content:is([data-page="dashboard"], [data-page="inicio"], [data-page="mis-clases"]) { grid-template-columns: minmax(0, 1fr) 230px; column-gap: 16px; row-gap: 0; align-items: start; }
 [data-layout="app"] .admin-content:is([data-page="dashboard"], [data-page="inicio"], [data-page="mis-clases"]) > * { grid-column: 1; margin-bottom: 14px; min-width: 0; }
 [data-layout="app"] .admin-content:is([data-page="dashboard"], [data-page="inicio"], [data-page="mis-clases"]) > .page-head { grid-column: 1 / -1; }
-[data-layout="app"] .admin-content:is([data-page="dashboard"], [data-page="inicio"], [data-page="mis-clases"]) > .grid-4 { grid-column: 2; grid-row: 2 / span 3; grid-template-columns: minmax(0, 1fr); gap: 10px; }
-[data-layout="app"] .admin-content[data-page="dashboard"] > .grid-3 { grid-column: 2; grid-row: 5 / span 2; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+[data-layout="app"] .admin-content:is([data-page="dashboard"], [data-page="inicio"], [data-page="mis-clases"]) > .grid-4 { grid-column: 2; grid-row: 2 / span 2; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+[data-layout="app"] .admin-content[data-page="dashboard"] > .grid-3 { grid-column: 2; grid-row: 4 / span 2; grid-template-columns: minmax(0, 1fr); gap: 10px; }
 [data-layout="app"] .admin-content[data-page] > :is(.grid-4, .grid-3) > .card { padding: 12px 14px; border-left: 4px solid var(--primary); }
 [data-layout="app"] .admin-content[data-page="dashboard"] > .card { order: -1; grid-row: 2; }
 @media (max-width: 1100px) {
@@ -485,3 +485,8 @@ button.cls { cursor: pointer; }
   [data-layout="app"] .admin-sidebar :is(.admin-brand, .user-chip) > :first-child { flex: none; }
   [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .foot-btns { visibility: hidden; }
 }
+
+/* decoraciones ::before de algunos estilos (iOS 6, Aqua) ocupan toda la fila en las tarjetas convertidas en grilla */
+:is([data-layout="revista"], [data-layout="app"]) .card::before { grid-column: 1 / -1; }
+[data-layout="revista"] .site-main .grid-3 > .cls > small:first-child, [data-layout="app"] .site-main .grid-3 > .cls > small:first-child { grid-column: 1; }
+[data-layout="revista"] .site-main .grid-3 > .cls > :not(:first-child), [data-layout="app"] .site-main .grid-3 > .cls > :not(:first-child) { grid-column: 2; }

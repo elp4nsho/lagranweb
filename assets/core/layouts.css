@@ -129,6 +129,13 @@
   [data-layout="app"] .nav-link, [data-layout="app"] .admin-brand { white-space: nowrap; }
   [data-layout="app"] .nav-link .ico { flex: none; width: 32px; font-size: 18px; }
   [data-layout="app"] .admin-brand { padding-inline: 4px; }
+  /* Riel cerrado: solo íconos; los textos aparecen al expandir */
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .nav-link,
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .admin-brand { font-size: 0; gap: 0; }
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .nav-link .ico { font-size: 18px; }
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .admin-brand .logo { font-size: 16px; }
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .nav-link .count,
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) > :not(.admin-brand):not(nav):not(.nav-link):not(.nav-section) { display: none; }
 }
 [data-layout="app"] .admin-content { padding: 18px; gap: 14px; }
 [data-layout="app"] .admin-content .grid-4, [data-layout="app"] .admin-content .grid-3 { gap: 12px; }

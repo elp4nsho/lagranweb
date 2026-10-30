@@ -14,19 +14,19 @@ import { renderPublish } from './publish.js';
 import { renderAccount } from './account.js';
 
 const app = document.getElementById('app');
-app.innerHTML = `<header class="site-head"><div class="container">
-    <a class="brand" href="#/"><span class="mark">${icon('building', 22)}</span><span><span data-brand></span><small>Propiedades</small></span></a>
+app.innerHTML = `<header class="site-head site-header"><div class="container">
+    <a class="brand site-brand" href="#/"><span class="mark">${icon('building', 22)}</span><span><span data-brand></span><small>Propiedades</small></span></a>
     <button class="btn btn-ghost btn-icon nav-toggle" aria-label="Menú" aria-expanded="false">☰</button>
     <nav class="site-nav" aria-label="Principal">
       <a class="nl" href="#/buscar?op=venta">Comprar</a>
       <a class="nl" href="#/buscar?op=arriendo">Arrendar</a>
       <a class="nl" href="#/proyectos">Proyectos nuevos</a>
       <a class="nl" href="#/publicar">Publicar</a>
-      <div class="head-actions" data-actions></div>
     </nav>
+    <div class="head-actions site-actions" data-actions></div>
   </div></header>
-  <main id="view"></main>
-  <footer class="site-foot"><div class="container grid-4" data-foot></div></footer>
+  <main class="site-main" id="view"></main>
+  <footer class="site-foot site-footer"><div class="container grid-4" data-foot></div></footer>
   <div data-cbar></div>`;
 const view = $('#view'), head = $('.site-head');
 wireCardActions(app);
@@ -42,7 +42,7 @@ function renderChrome() {
     <a class="btn btn-ghost btn-sm icon-btn" href="#/comparar" title="Comparar">${icon('compare')}<span class="lbl">Comparar</span>${n ? `<span class="dot-count">${n}</span>` : ''}</a>
     ${u ? `<a class="btn btn-ghost btn-sm icon-btn" href="#/cuenta/alertas" title="Alertas">${icon('bell')}${unread ? `<span class="dot-count">${unread}</span>` : ''}</a>
       <a class="btn btn-sm" href="${['admin', 'editor', 'corredor'].includes(u.role) ? homeFor(u) : '#/cuenta'}"><span class="avatar" style="--av:${escape(u.color || 'var(--primary)')};--size:24px">${escape(initials(u.name))}</span><span class="lbl">${escape(u.name.split(' ')[0])}</span></a>`
-      : `<a class="btn btn-primary btn-sm" href="login.html?next=${encodeURIComponent('index.html' + location.hash)}">${icon('user', 16)} Ingresar</a>`}`;
+      : `<a class="btn btn-primary btn-sm" aria-label="Ingresar" href="login.html?next=${encodeURIComponent('index.html' + location.hash)}">${icon('user', 16)}<span class="lbl"> Ingresar</span></a>`}`;
   $('[data-foot]').innerHTML = `
     <div><a class="brand" href="#/"><span class="mark">${icon('building', 20)}</span>${escape(s.brand || 'Hogar Austral')}</a><p class="muted small" style="margin-top:12px">Corredora de propiedades ficticia creada como demo. Datos simulados en tu navegador.</p></div>
     <div><h4>Explorar</h4><a href="#/buscar?op=venta">Propiedades en venta</a><a href="#/buscar?op=arriendo">Propiedades en arriendo</a><a href="#/proyectos">Proyectos nuevos</a><a href="#/buscar?view=mapa">Mapa de precios</a></div>

@@ -414,11 +414,11 @@ th.sortable { cursor: pointer; user-select: none; }
 [data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(5) .grid-4 { grid-template-columns: minmax(0, 1fr) !important; gap: 8px; }
 [data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(2) .grid-3 > .card,
 [data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(5) .grid-4 > .card { grid-column: auto !important; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; align-items: start; padding: 12px; }
-[data-layout="app"] .site-main:has(> .site-hero) .grid-3 > .card > .tile-icon,
-[data-layout="app"] .site-main:has(> .site-hero) .grid-4 > .card > .pill-num { grid-row: span 3; margin: 0; }
-[data-layout="app"] .site-main:has(> .site-hero) .grid-3 > .card > *:not(.tile-icon),
-[data-layout="app"] .site-main:has(> .site-hero) .grid-4 > .card > *:not(.pill-num) { grid-column: 2; margin: 0 !important; }
-[data-layout="app"] .site-main:has(> .site-hero) .grid-3 > .card > p:last-child { font-size: 14px; color: var(--muted); }
+[data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(2) .grid-3 > .card > .tile-icon,
+[data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(5) .grid-4 > .card > .pill-num { grid-row: span 3; margin: 0; }
+[data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(2) .grid-3 > .card > *:not(.tile-icon),
+[data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(5) .grid-4 > .card > *:not(.pill-num) { grid-column: 2; margin: 0 !important; }
+[data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(2) .grid-3 > .card > p:last-child { font-size: 14px; color: var(--muted); }
 /* noticias como filas: miniatura a la izquierda */
 [data-layout="app"] .site-main .grid-3:has(> .news-card) { grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr)); }
 [data-layout="app"] .site-main .grid-3 > .news-card { grid-column: auto !important; display: grid; grid-template-columns: 120px minmax(0, 1fr); grid-template-rows: auto auto 1fr; gap: 4px 14px; align-content: start; }
@@ -480,3 +480,8 @@ th.sortable { cursor: pointer; user-select: none; }
   [data-layout="app"] .admin-sidebar :is(.admin-brand, .user-chip) > :first-child { flex: none; }
   [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .sidebar-foot > :not(.user-chip) { visibility: hidden; }
 }
+
+/* decoraciones ::before de algunos estilos (iOS 6, Aqua) ocupan toda la fila en las tarjetas convertidas en grilla */
+:is([data-layout="revista"], [data-layout="app"]) .card::before { grid-column: 1 / -1; }
+[data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(2) .grid-3 > .card > .tile-icon,
+[data-layout="app"] .site-main:has(> .site-hero) > section:nth-child(5) .grid-4 > .card > .pill-num { grid-column: 1; }

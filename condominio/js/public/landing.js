@@ -23,22 +23,22 @@ function render() {
   const anns = db.query('announcements', a => a.published && a.public).sort((a, b) => (b.pinned - a.pinned) || b.createdAt.localeCompare(a.createdAt)).slice(0, 3);
   const openPoll = db.find('polls', p => p.status === 'abierta');
   document.getElementById('app').innerHTML = `
-  <header class="site-head"><div class="container">
-    <a class="brand" href="#"><span class="mark">${icon('home', 22)}</span><span>Vecindario<small>Comunidades conectadas</small></span></a>
-    <nav class="site-nav" style="display:flex;position:static;flex-direction:row;padding:0;background:none;box-shadow:none;border:0">
-      <a class="nl hide-sm" href="#funciones">Funciones</a><a class="nl hide-sm" href="#planes">Planes</a>
-      ${u ? `<a class="btn btn-primary btn-sm" href="${homeFor(u)}">Ir a mi panel</a>` : '<a class="btn btn-primary btn-sm" href="login.html">Ingresar</a>'}
-    </nav></div></header>
-  <main>
-  <section class="l-hero"><div class="container">
-    <div data-anim>
+  <header class="site-head site-header"><div class="container">
+    <a class="brand site-brand" href="#"><span class="mark">${icon('home', 22)}</span><span>Vecindario<small>Comunidades conectadas</small></span></a>
+    <nav class="site-nav l-nav" aria-label="Principal">
+      <a class="nl hide-sm" href="#funciones">Funciones</a><a class="nl nl-extra" href="#avisos">Avisos</a><a class="nl hide-sm" href="#planes">Planes</a><a class="nl nl-extra" href="#faq">Preguntas</a>
+    </nav>
+    <div class="site-actions">${u ? `<a class="btn btn-primary btn-sm" href="${homeFor(u)}">Ir a mi panel</a>` : '<a class="btn btn-primary btn-sm" href="login.html">Ingresar</a>'}</div></div></header>
+  <main class="site-main">
+  <section class="l-hero site-hero"><div class="container">
+    <div class="hero-text" data-anim>
       <span class="eyebrow">Plataforma para condominios</span>
       <h1>${escape(s.heroTitle)}</h1>
       <p class="muted" style="font-size:1.12em;max-width:580px">${escape(s.heroSubtitle)}</p>
       <div class="row"><a class="btn btn-primary btn-lg" href="login.html">Probar la demo</a><a class="btn btn-lg" href="#funciones">Ver funciones</a></div>
       <p class="small muted" style="margin-top:14px">Demo en vivo: <b>${escape(s.community)}</b> · ${escape(s.address)}</p>
     </div>
-    <div class="phone" data-anim="zoomIn" aria-hidden="true"><div class="notch"><i></i></div><div class="scr">
+    <div class="phone hero-media" data-anim="zoomIn" aria-hidden="true"><div class="notch"><i></i></div><div class="scr">
       <div class="row between"><b>Hola, Fernanda</b><span class="badge badge-primary plain">B-302</span></div>
       <div class="card"><span class="muted small">Gasto común ${lastPer ? periodLabel(lastPer.period).toLowerCase() : ''}</span><div class="money-big" style="font-size:26px">${money(db.find('charges', c => c.unitId === 'B-302' && c.period === lastPer?.period)?.total || 0)}</div><span class="btn btn-primary btn-sm" style="margin-top:8px">Pagar ahora</span></div>
       <div class="card row" style="gap:10px;flex-wrap:nowrap"><span class="icon-tile">${icon('box')}</span><span class="small"><b>Encomienda en conserjería</b><br>Mercado Envíos · hace 5 h</span></div>
@@ -56,7 +56,7 @@ function render() {
     <div class="grid-4">${FEATURES.map(([ic, t, d]) => `<div class="card feature"><span class="icon-tile">${icon(ic, 22)}</span><h3 style="font-size:17px">${t}</h3><p class="muted small" style="margin:0">${d}</p></div>`).join('')}</div>
   </div></section>
 
-  ${s.showAnnouncements !== false && anns.length ? `<section class="section" style="padding-top:0"><div class="container stack">
+  ${s.showAnnouncements !== false && anns.length ? `<section class="section" id="avisos" style="padding-top:0"><div class="container stack">
     <div data-anim><span class="eyebrow">Así se ve un muro de avisos</span><h2>Últimos avisos de ${escape(s.community)}</h2></div>
     <div class="grid-3">${anns.map(a => `<article class="card ann ${a.pinned ? 'pinned' : ''}"><div class="row between"><span class="badge plain">${escape(a.category)}</span>${a.pinned ? '<span class="badge badge-warning">Destacado</span>' : ''}</div><h3 style="margin-top:10px">${escape(a.title)}</h3><p class="muted small">${escape(a.body)}</p><span class="small muted">${ago(a.createdAt)}</span></article>`).join('')}</div>
   </div></section>` : ''}
@@ -74,12 +74,12 @@ function render() {
       <ul class="small">${p.features.map(f => `<li>${escape(f)}</li>`).join('')}</ul><a class="btn ${p.highlight ? 'btn-primary' : ''} btn-block" href="login.html">Probar demo</a></div>`).join('')}</div>
   </div></section>
 
-  <section class="section" style="padding-top:0"><div class="container faq" style="max-width:820px" data-anim>
+  <section class="section" id="faq" style="padding-top:0"><div class="container faq" style="max-width:820px" data-anim>
     <h2>Preguntas frecuentes</h2>
     ${[['¿Cumple con la Ley de Copropiedad 21.442?', 'Sí: prorrateo por alícuota, fondo de reserva, rendición de cuentas mensual y actas disponibles para los copropietarios.'], ['¿Cómo pagan los residentes?', 'Con tarjeta o transferencia desde la app. En esta demo los pagos son simulados.'], ['¿Qué pasa con los vecinos sin smartphone?', 'La conserjería y la administración pueden registrar pagos, visitas y encomiendas por ellos.'], ['¿Puedo probarlo ahora?', 'Sí, entra a la demo con cualquiera de los cuatro roles: administrador, comité, conserje o residente.']].map(([q, a]) => `<details><summary>${q}</summary><p class="muted" style="margin:8px 0 0">${a}</p></details>`).join('')}
   </div></section>
   </main>
-  <footer class="site-foot"><div class="container grid-3">
+  <footer class="site-foot site-footer"><div class="container grid-3">
     <div><a class="brand" href="#"><span class="mark">${icon('home', 20)}</span>Vecindario</a><p class="small muted" style="margin-top:10px">Plataforma ficticia creada como demo. Datos simulados en tu navegador.</p></div>
     <div><h4>Demo</h4><a href="login.html">Ingresar con un rol</a><a href="residente.html">App residentes</a><a href="conserjeria.html">Conserjería</a><a href="admin.html">Administración</a></div>
     <div><h4>Comunidad demo</h4><span class="small">${escape(s.community)}</span><br><span class="small muted">${escape(s.address)}</span><br><span class="small muted">Administra: ${escape(s.adminCompany)}</span></div>

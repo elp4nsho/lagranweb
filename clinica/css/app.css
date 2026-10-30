@@ -335,7 +335,7 @@
 [data-layout="revista"] .summary { background: none; box-shadow: none; border: 0; border-block: 3px double var(--line); border-radius: 0; }
 @media (max-width: 900px) { [data-layout="revista"] .booking-layout { grid-template-columns: 1fr; } [data-layout="revista"] .steps li + li { border-left: 0; } }
 [data-layout="revista"] .site-footer .cols { text-align: center; }
-[data-layout="revista"] .site-footer .brand { justify-content: center; }
+[data-layout="revista"] .site-footer .brand { display: flex; flex-direction: column; align-items: center; justify-content: center; }
 
 /* ---------- APP: centro médico como aplicación ---------- */
 [data-layout="app"] .site-header.compact .site-nav { position: static; display: flex; box-shadow: none; background: none; }
@@ -476,3 +476,7 @@
 }
 [data-layout="app"] .quick { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 640px) { [data-layout="app"] .quick { grid-template-columns: repeat(2, minmax(0, 1fr)); } [data-layout="app"] .quick .card { flex-direction: column; align-items: flex-start; } }
+
+/* decoraciones ::before de algunos estilos (iOS 6, Aqua) ocupan toda la fila en las tarjetas convertidas en grilla */
+:is([data-layout="revista"], [data-layout="app"]) .card::before { grid-column: 1 / -1; }
+[data-layout="app"] .doc-card .top { grid-column: 1; }

@@ -200,3 +200,138 @@ a.banner, a.brand, a.comuna-tile, a.list-row, a.admin-brand { text-decoration: n
 .admin-sidebar .side-sub { color: inherit; opacity: .75; }
 .admin-sidebar .side-foot .muted, .admin-sidebar .nav-section { color: inherit; opacity: .72; }
 @media (max-width: 700px) { .cal-d .small { display: none; } }
+
+/* =====================================================================
+   Disposiciones (clásica / revista / app) — ver assets/core/layouts.css
+   ===================================================================== */
+/* Menú de la landing: siempre en línea en clásica (antes era un estilo en línea) */
+:where(.site-head) .l-nav { display: flex; position: static; flex-direction: row; padding: 0; background: none; box-shadow: none; border: 0; }
+.l-nav .nl-extra { display: none; }
+.site-head .site-actions { display: flex; gap: 8px; align-items: center; }
+
+/* ---------- REVISTA: folleto editorial ---------- */
+[data-layout="revista"] .l-nav .nl-extra, [data-layout="revista"] .l-nav .hide-sm { display: inline-block; }
+[data-layout="revista"] .site-head { position: relative; background: var(--bg); }
+[data-layout="revista"] .site-head .brand { flex-direction: column; text-align: center; gap: 6px; }
+[data-layout="revista"] .site-head .brand small { letter-spacing: .3em; }
+[data-layout="revista"] .site-nav a.nl { text-transform: uppercase; letter-spacing: .12em; font-size: 12px; border-radius: 0; padding: 6px 8px; }
+@media (max-width: 760px) { [data-layout="revista"] .site-head .site-actions { justify-content: center; padding-bottom: 10px; } }
+[data-layout="revista"] .l-hero::before { display: none; }
+[data-layout="revista"] .phone { transform: rotate(-4deg); }
+/* cifras como franja con filetes */
+[data-layout="revista"] .stat-strip { gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .stat-strip > * { background: none !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important; text-align: center; border-left: 1px solid var(--line) !important; }
+[data-layout="revista"] .stat-strip > :first-child { border-left: 0 !important; }
+[data-layout="revista"] #funciones .stack > div:first-child, [data-layout="revista"] #avisos .stack > div:first-child, [data-layout="revista"] .faq > h2 { text-align: center; }
+/* funciones como índice numerado a dos columnas */
+[data-layout="revista"] #funciones .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; counter-reset: feat; }
+[data-layout="revista"] #funciones .grid-4 > .feature { grid-column: auto; grid-row: auto; display: grid; grid-template-columns: 56px minmax(0, 1fr); column-gap: 14px; background: none; box-shadow: none; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 16px 0; counter-increment: feat; }
+[data-layout="revista"] #funciones .grid-4 > .feature::before { content: counter(feat, decimal-leading-zero); grid-row: span 3; font: var(--head-weight) 34px/1 var(--font-head); color: var(--primary); }
+[data-layout="revista"] #funciones .feature .icon-tile { display: none; }
+[data-layout="revista"] #funciones .feature > * { grid-column: 2; margin: 0 0 4px; }
+@media (max-width: 760px) { [data-layout="revista"] #funciones .grid-4 { grid-template-columns: minmax(0, 1fr); } }
+[data-layout="revista"] #avisos .ann { background: none; box-shadow: none; border-width: 0 0 0 4px; border-radius: 0; }
+[data-layout="revista"] .site-main > section:has(> .container > .card > div > h3) .card { background: none; box-shadow: none; border: 0; border-block: 3px double var(--line); border-radius: 0; text-align: center; }
+/* planes: columnas comparativas separadas por filetes */
+[data-layout="revista"] #planes .stack > div:first-child { text-align: center; }
+[data-layout="revista"] #planes .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-block: 1px solid var(--line); }
+[data-layout="revista"] #planes .grid-3 > .plan-card { grid-column: auto; grid-row: auto; background: none; box-shadow: none; border: 0; border-radius: 0; text-align: center; }
+[data-layout="revista"] #planes .grid-3 > .plan-card + .plan-card { border-left: 1px solid var(--line); }
+[data-layout="revista"] #planes .plan-card.hl { box-shadow: inset 0 6px 0 var(--primary); }
+[data-layout="revista"] #planes .plan-card .row { justify-content: center; gap: 8px; }
+[data-layout="revista"] #planes .plan-card ul { text-align: left; }
+@media (max-width: 760px) { [data-layout="revista"] #planes .grid-3 { grid-template-columns: minmax(0, 1fr); } [data-layout="revista"] #planes .grid-3 > .plan-card + .plan-card { border-left: 0; border-top: 1px solid var(--line); } }
+/* preguntas frecuentes a dos columnas */
+@media (min-width: 761px) { [data-layout="revista"] .faq { max-width: none !important; column-count: 2; column-gap: 48px; } [data-layout="revista"] .faq > h2 { column-span: all; } [data-layout="revista"] .faq details { break-inside: avoid; } }
+[data-layout="revista"] .site-foot .container { text-align: center; }
+[data-layout="revista"] .site-foot .brand { justify-content: center; }
+
+/* ---------- APP: la landing como app ---------- */
+[data-layout="app"] .l-nav .nl-extra, [data-layout="app"] .l-nav .hide-sm { display: inline-block; }
+@media (min-width: 901px) {
+  [data-layout="app"] .site-head .site-actions { flex-direction: column; align-items: stretch; margin-top: auto; }
+  [data-layout="app"] .site-foot { padding-bottom: 40px; }
+}
+@media (max-width: 900px) { [data-layout="app"] .site-head .site-actions { margin-left: auto; } }
+[data-layout="app"] .l-hero::before { display: none; }
+[data-layout="app"] .phone { width: min(260px, 100%); }
+/* tablero: cifras arriba, funciones bento, avisos y preguntas lado a lado, planes en filas */
+[data-layout="app"] .site-main { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding-inline: max(16px, (100% - 1360px) / 2); }
+[data-layout="app"] .site-main > * { grid-column: 1 / -1; min-width: 0; }
+[data-layout="app"] .site-main > section > .container { width: auto; margin-inline: 6px; }
+[data-layout="app"] .site-main > section.container { width: auto; margin: 0 6px 14px; }
+[data-layout="app"] .stat-strip { grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 10px; }
+[data-layout="app"] .stat-strip > * { border-top: 4px solid var(--primary) !important; }
+[data-layout="app"] .site-main > #avisos { grid-column: 1; order: 2; }
+[data-layout="app"] .site-main > #faq { grid-column: 2; order: 2; }
+[data-layout="app"] .site-main > #planes { order: 3; }
+[data-layout="app"] .site-main > section:has(> .container > .card > div > h3) { order: 4; }
+@media (max-width: 900px) { [data-layout="app"] .site-main > #avisos, [data-layout="app"] .site-main > #faq { grid-column: 1 / -1; } }
+[data-layout="app"] .site-main > #faq > .container { max-width: none !important; }
+[data-layout="app"] #avisos .grid-3 { grid-template-columns: minmax(0, 1fr) !important; gap: 8px; }
+[data-layout="app"] #avisos .grid-3 > .ann { grid-column: auto !important; }
+[data-layout="app"] #planes .grid-3 { grid-template-columns: minmax(0, 1fr) !important; gap: 8px; }
+@media (min-width: 761px) {
+  [data-layout="app"] #planes .grid-3 > .plan-card { grid-column: auto !important; display: grid; grid-template-columns: 200px 180px minmax(0, 1fr) 160px; column-gap: 18px; align-items: center; }
+  [data-layout="app"] #planes .plan-card > div { margin: 0 !important; }
+  [data-layout="app"] #planes .plan-card > ul { margin: 0; display: flex; flex-wrap: wrap; gap: 2px 18px; }
+}
+[data-layout="app"] .site-main h2 { font-size: 20px; }
+[data-layout="app"] .site-foot .container { font-size: 13px; }
+
+/* ---------- Paneles: resumen (admin / residente / conserjería) ---------- */
+:is([data-layout="revista"], [data-layout="app"]) .admin-content:is([data-page="dashboard"], [data-page="inicio"], [data-page="turno"]) { display: grid; grid-template-columns: minmax(0, 1fr); }
+[data-layout="revista"] .admin-content[data-page] > .page-head { flex-direction: column; align-items: center; text-align: center; }
+[data-layout="revista"] .admin-content[data-page] > .kpis { gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .admin-content[data-page] > .kpis > .card { background: none; border: 0; border-radius: 0; box-shadow: none; text-align: center; border-left: 1px solid var(--line); }
+[data-layout="revista"] .admin-content[data-page] > .kpis > .card:first-child { border-left: 0; }
+[data-layout="revista"] .admin-content[data-page="dashboard"] > .split { order: 1; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
+[data-layout="revista"] .admin-content[data-page="dashboard"] > .grid-2 { order: 2; }
+[data-layout="revista"] .admin-content[data-page="dashboard"] > .grid-2 > :first-child { order: 2; }
+[data-layout="revista"] .admin-content[data-page="dashboard"] > .card:last-child { order: 3; column-count: 2; column-gap: 32px; }
+[data-layout="revista"] .admin-content[data-page="dashboard"] > .card:last-child > h3 { column-span: all; }
+[data-layout="revista"] .admin-content[data-page="turno"] > .split > :first-child { order: 2; }
+[data-layout="revista"] .admin-content[data-page="inicio"] > .tile-grid { order: -1; gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .admin-content[data-page="inicio"] > .page-head { order: -2; }
+[data-layout="revista"] .admin-content[data-page="inicio"] > .tile-grid > * { background: none; box-shadow: none; border: 0; border-radius: 0; border-left: 1px solid var(--line); }
+[data-layout="revista"] .admin-content[data-page="inicio"] > .grid-2 > :first-child { order: 2; }
+@media (max-width: 960px) {
+  [data-layout="revista"] .admin-content[data-page] > :is(.split, .grid-2) { grid-template-columns: minmax(0, 1fr) !important; }
+  [data-layout="revista"] .admin-content[data-page="dashboard"] > .card:last-child { column-count: 1; }
+}
+
+[data-layout="app"] .admin-content:is([data-page="dashboard"], [data-page="turno"]) { grid-template-columns: minmax(0, 1fr) 260px; column-gap: 16px; row-gap: 0; align-items: start; }
+[data-layout="app"] .admin-content:is([data-page="dashboard"], [data-page="turno"]) > * { grid-column: 1; margin-bottom: 14px; min-width: 0; }
+[data-layout="app"] .admin-content:is([data-page="dashboard"], [data-page="turno"]) > .page-head { grid-column: 1 / -1; }
+[data-layout="app"] .admin-content:is([data-page="dashboard"], [data-page="turno"]) > .kpis { grid-column: 2; grid-row: 2 / span 2; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+[data-layout="app"] .admin-content[data-page] > .kpis > .card { padding: 12px 14px; border-left: 4px solid var(--primary); }
+[data-layout="app"] .admin-content[data-page="dashboard"] > .card:last-child { grid-column: 2; grid-row: 4 / span 3; font-size: 13px; }
+/* residente: accesos como barra de íconos arriba y saldo destacado */
+[data-layout="app"] .admin-content[data-page="inicio"] > .tile-grid { order: -1; display: flex; overflow-x: auto; gap: 8px; scroll-snap-type: x mandatory; padding-bottom: 4px; }
+[data-layout="app"] .admin-content[data-page="inicio"] > .page-head { order: -2; }
+[data-layout="app"] .admin-content[data-page="inicio"] > .tile-grid > * { flex: 0 0 auto; scroll-snap-align: start; flex-direction: column; text-align: center; padding: 12px 16px; min-width: 120px; }
+[data-layout="app"] .admin-content[data-page="inicio"] > .grid-2:first-of-type { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+@media (max-width: 1100px) {
+  [data-layout="app"] .admin-content:is([data-page="dashboard"], [data-page="turno"]) { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="app"] .admin-content[data-page] > .kpis { grid-column: 1; grid-row: 2; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 4px; }
+  [data-layout="app"] .admin-content[data-page] > .kpis > .card { flex: 0 0 min(190px, 70%); scroll-snap-align: start; }
+  [data-layout="app"] .admin-content[data-page="dashboard"] > .card:last-child { grid-column: 1; grid-row: auto; }
+  [data-layout="app"] .admin-content[data-page="inicio"] > .grid-2:first-of-type { grid-template-columns: minmax(0, 1fr); }
+}
+/* app: riel del panel plegado: las etiquetas quedan fuera del riel (no asoman cortadas) */
+@media (min-width: 901px) {
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) :is(.nav-link, .admin-brand, .side-foot > .row) { gap: 48px; }
+  [data-layout="app"] .admin-sidebar :is(.admin-brand, .side-foot > .row) > :first-child { flex: none; }
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .side-foot > :not(.row),
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .side-foot > .row > :not(:first-child) { visibility: hidden; }
+}
+
+/* decoraciones ::before de algunos estilos (iOS 6, Aqua) ocupan toda la fila en las tarjetas convertidas en grilla */
+:is([data-layout="revista"], [data-layout="app"]) .card::before { grid-column: 1 / -1; }
+[data-layout="app"] .l-nav { margin-left: 0; }
+@media (min-width: 761px) {
+  [data-layout="app"] #planes .plan-card > .row { grid-column: 1; grid-row: 1; }
+  [data-layout="app"] #planes .plan-card > div:not(.row) { grid-column: 2; grid-row: 1; }
+  [data-layout="app"] #planes .plan-card > ul { grid-column: 3; grid-row: 1; }
+  [data-layout="app"] #planes .plan-card > .btn { grid-column: 4; grid-row: 1; }
+}

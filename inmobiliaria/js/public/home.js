@@ -47,15 +47,15 @@ export function renderHome() {
   const projects = db.query('projects', p => p.published).sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0)).slice(0, 3);
   const heroP = featured[0] || pub[0];
   view.innerHTML = `
-  <section class="hero"><div class="container">
-    <div data-anim>
+  <section class="hero site-hero"><div class="container">
+    <div class="hero-text" data-anim>
       <span class="eyebrow">Corredora de propiedades · Santiago</span>
       <h1 data-hero-title>${escape(s.heroTitle)}</h1>
       <p class="muted" style="font-size:1.1em;max-width:560px" data-hero-sub>${escape(s.heroSubtitle)}</p>
       ${searchForm({})}
       <div class="hero-stats"><div><b>${num(pub.length)}</b><span>propiedades publicadas</span></div><div><b>${db.count('agents', a => a.active)}</b><span>corredores certificados</span></div><div><b>${db.count('projects', p => p.published)}</b><span>proyectos nuevos</span></div><div><b>${fmtUF(1).replace('UF 1', 'UF')} $${Math.round(uf()).toLocaleString('es-CL')}</b><span>valor UF hoy</span></div></div>
     </div>
-    ${heroP ? `<a class="hero-art" href="#/propiedad/${heroP.id}" data-anim="zoomIn" aria-label="Ver ${escape(heroP.title)}">${propertyArt(heroP, 'vista', { label: false })}</a>` : ''}
+    ${heroP ? `<a class="hero-art hero-media" href="#/propiedad/${heroP.id}" data-anim="zoomIn" aria-label="Ver ${escape(heroP.title)}">${propertyArt(heroP, 'vista', { label: false })}</a>` : ''}
   </div></section>
 
   ${banners.length ? `<section class="container" data-anim><div class="banners">${banners.map(b => `<a class="banner tone-${escape(b.tone || 'primary')}" href="${escape(b.link || '#/')}"><div><h3>${escape(b.title)}</h3><p>${escape(b.text)}</p></div><span class="btn btn-sm">Ver</span></a>`).join('')}</div></section>` : ''}

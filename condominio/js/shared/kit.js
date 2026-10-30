@@ -51,6 +51,7 @@ export function mountShell({ root = document.getElementById('app'), auth, db, br
     title.textContent = s.label;
     document.title = `${s.label} · ${brand}`;
     freshView();
+    view.dataset.page = s.id;
     if (!allowed(s)) { view.innerHTML = forbidden(); toast('No tienes permiso para esa sección', 'warning'); return; }
     try { s.render(view, params || {}, query || {}, ctx); } catch (e) { console.error(e); view.innerHTML = `<div class="card empty">Error al cargar la sección: ${escape(e.message)}</div>`; }
   }
