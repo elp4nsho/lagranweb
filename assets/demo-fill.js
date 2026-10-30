@@ -83,7 +83,8 @@
     if (has(d, /asunto|titulo|title|subject/)) return 'Solicitud de prueba';
     if (has(d, /\bkm\b|kilometraje/)) return '45000';
     if (has(d, /\bano\b|year/)) return '2021';
-    if (has(d, /monto|precio|valor|amount|presupuesto|renta|sueldo/)) return '250000';
+    if (has(d, /renta|sueldo|ingreso|remuneracion/)) return '1800000';
+    if (has(d, /monto|precio|valor|amount|presupuesto/)) return '250000';
     if (has(d, /cantidad|qty|personas|huespedes|invitados/)) return '2';
     var ph = (el.placeholder || '').trim();
     var ej = ph.match(/^(?:ej(?:emplo)?\.?:?|p\. ?ej\.?:?|e\.g\.)\s*(.+)$/i);
@@ -93,7 +94,8 @@
   }
   function numberFor(el, d) {
     var min = el.min !== '' ? Number(el.min) : null, max = el.max !== '' ? Number(el.max) : null, v;
-    if (has(d, /monto|precio|valor|amount|presupuesto|renta|sueldo|pie|abono/)) v = 250000;
+    if (has(d, /renta|sueldo|ingreso|remuneracion/)) v = 1800000;
+    else if (has(d, /monto|precio|valor|amount|presupuesto|pie|abono/)) v = 250000;
     else if (has(d, /\bkm\b|kilometraje/)) v = 45000;
     else if (has(d, /\bano\b|year/)) v = 2021;
     else if (has(d, /plazo|cuotas|meses/)) v = 24;
