@@ -28,7 +28,7 @@ export function list(el) {
   el.innerHTML = `<section class="page-hero"><div class="container stack" data-anim>
       <span class="eyebrow">Campañas</span><h1>Elige dónde sembrar</h1>
       <p class="muted lead">Cada campaña financia un proyecto concreto, con metas y avances públicos.</p></div></section>
-    <section class="section pt0"><div class="container stack">
+    <section class="section pt0 camp-list"><div class="container stack">
       <div class="filters card">
         <input class="input" type="search" id="cq" placeholder="Buscar campaña o región…" value="${escape(filter.q)}" aria-label="Buscar campaña">
         <div class="row chips">${['', ...CATEGORIES].map(c => `<button class="chip ${filter.cat === c ? 'active' : ''}" data-cat="${escape(c)}" type="button">${c || 'Todas'}</button>`).join('')}</div>

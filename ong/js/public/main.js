@@ -40,7 +40,7 @@ const router = createRouter({
 function chrome() {
   const s = site(), u = auth.current();
   const acc = $('#accountLink');
-  acc.textContent = u ? (STAFF.includes(u.role) ? 'Panel' : `Hola, ${u.name.split(' ')[0]}`) : 'Mi cuenta';
+  acc.innerHTML = `<span class="nav-ico" aria-hidden="true">👤</span>${escape(u ? (STAFF.includes(u.role) ? 'Panel' : `Hola, ${u.name.split(' ')[0]}`) : 'Mi cuenta')}`;
   acc.href = u && STAFF.includes(u.role) ? 'admin.html' : 'cuenta.html';
   $('#foot').innerHTML = `
     <div class="stack"><a href="#/" class="logo"><span class="logo-mark" aria-hidden="true">🌱</span>Raíces del Sur</a>

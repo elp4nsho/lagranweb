@@ -402,7 +402,7 @@ details summary { cursor: pointer; color: var(--primary); }
 @media (max-width: 900px) {
   [data-layout="app"] .room-layout, [data-layout="app"] .book-grid { grid-template-columns: minmax(0, 1fr); }
   [data-layout="app"] .room-layout > .book-box { position: static; }
-  [data-layout="app"] .book-grid > .sum-box { order: 2; position: sticky; top: auto; bottom: 72px; z-index: 30; box-shadow: var(--shadow-lg); padding: 10px 14px; }
+  [data-layout="app"] .book-grid > .sum-box { order: 2; position: sticky; top: auto; bottom: 128px; z-index: 30; box-shadow: var(--shadow-lg); padding: 10px 14px; }
   [data-layout="app"] .book-grid > .sum-box > :not(.total-row):not(h3) { display: none; }
   [data-layout="app"] .book-grid > .sum-box:has(.total-row) > h3 { display: none; }
   [data-layout="app"] .result { grid-template-columns: 110px minmax(0, 1fr); gap: 10px; }

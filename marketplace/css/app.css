@@ -409,7 +409,7 @@ th.sortable { cursor: pointer; user-select: none; }
   [data-layout="app"] .gig-detail { grid-template-columns: minmax(0, 1fr); }
   [data-layout="app"] .gig-detail .buybox { position: static; }
   [data-layout="app"] .split:has(#co) { grid-template-columns: minmax(0, 1fr); }
-  [data-layout="app"] .split:has(#co) > aside { order: 2; position: sticky; top: auto; bottom: 72px; z-index: 30; box-shadow: var(--shadow-lg); padding: 10px 14px; }
+  [data-layout="app"] .split:has(#co) > aside { order: 2; position: sticky; top: auto; bottom: 128px; z-index: 30; box-shadow: var(--shadow-lg); padding: 10px 14px; }
   [data-layout="app"] .split:has(#co) > aside > :not(.summary-row.total) { display: none; }
   [data-layout="app"] .split:has(#co) > aside > .total { margin: 0; border: 0; padding: 0; }
   [data-layout="app"] .admin-content > .kpi-row { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }

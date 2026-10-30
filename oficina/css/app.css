@@ -408,7 +408,7 @@ body.kiosk .kiosk-exit { display: inline-flex !important; }
   [data-layout="app"] .topbar .co-pick .select { width: 100%; max-width: none; }
   [data-layout="app"] .topbar .menu { width: 100%; position: relative; }
   [data-layout="app"] .topbar .menu > summary { width: 100%; justify-content: flex-start; }
-  [data-layout="app"] .topbar .menu-pop { left: 0; right: auto; top: auto; bottom: calc(100% + 8px); width: 100%; }
+  [data-layout="app"] .topbar .menu-pop { left: 0; right: auto; top: calc(100% + 6px); width: 100%; }
 }
 [data-layout="app"] .site-hero > .container { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; }
 [data-layout="app"] .site-hero .hero-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); box-shadow: none; background: var(--surface-2); }

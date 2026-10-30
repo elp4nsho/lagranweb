@@ -577,3 +577,5 @@ input[type=range] { width: 100%; accent-color: var(--primary); }
 [data-layout="revista"] .board { grid-auto-flow: row; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); overflow: visible; }
 [data-layout="revista"] .admin-content .stat-card { box-shadow: none; border-width: 0 0 3px; border-radius: 0; }
 .view-host { display: contents; }
+.step-btn { all: unset; cursor: pointer; flex: 1; } .step-btn:disabled { cursor: default; } .step-btn:focus-visible { outline: 2px solid var(--primary); }
+.seg-tab input[hidden] { display: none; }

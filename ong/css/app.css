@@ -263,3 +263,156 @@
 .seg-inline { display: inline-flex; }
 .camp-layout > *, .vol-layout > *, .acc-wrap > * { min-width: 0; }
 .acc-wrap { grid-template-columns: minmax(0, 1fr); }
+
+/* =====================================================================
+   Disposiciones (data-layout): clásica = diseño original.
+   revista = memoria anual / periódico comunitario · app = app de donaciones con barra lateral y paneles.
+   ===================================================================== */
+html:not([data-layout="app"]) .head-nav .nav-ico { display: none; }
+.dash { display: flex; flex-direction: column; gap: var(--gap); }
+/* El núcleo oculta en "revista" el pie del menú del panel (incluye "Cerrar sesión"): lo recuperamos en línea. */
+[data-layout="revista"] .admin-sidebar > .nav-foot { display: flex !important; flex-direction: row; align-items: center; flex: none; gap: 2px; margin: 0 0 0 12px; padding: 0 0 0 12px; border-top: 0; border-left: 1px solid var(--line); }
+[data-layout="revista"] .admin-sidebar > .nav-foot .nav-user { display: none; }
+[data-layout="revista"] .admin-sidebar > .nav-foot .nav-btn { width: auto; }
+
+/* ---------- REVISTA ---------- */
+[data-layout="revista"] .site-head { position: relative; backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--bg); box-shadow: none; }
+[data-layout="revista"] .head-in { min-height: 0; }
+[data-layout="revista"] .head-nav { position: static; flex-direction: row; background: none; border: 0; box-shadow: none; padding: 10px 0; }
+[data-layout="revista"] .head-nav a { padding: 4px 0; text-transform: uppercase; letter-spacing: .08em; font-size: 12px; font-weight: 700; }
+[data-layout="revista"] .menu-btn { display: none !important; }
+[data-layout="revista"] .site-brand .logo-mark { width: 48px; height: 48px; font-size: 26px; }
+@media (max-width: 760px) { [data-layout="revista"] .site-head .site-actions { justify-self: center; margin-bottom: 10px; } [data-layout="revista"] .site-brand { font-size: 28px !important; } }
+/* Portada: cifras de impacto como tabla de memoria anual, campañas en revista, noticias en columnas */
+[data-layout="revista"] .hero { border-bottom: 3px double var(--line); }
+[data-layout="revista"] .h-impact { padding-top: 24px; }
+[data-layout="revista"] .site-main .h-impact .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-block: 1px solid var(--line); }
+[data-layout="revista"] .site-main .h-impact .grid-4 > * { grid-column: auto; grid-row: auto; background: none; box-shadow: none; border: 0; border-radius: 0; border-left: 1px solid var(--line); text-align: center; align-items: center; }
+[data-layout="revista"] .site-main .h-impact .grid-4 > :first-child { border-left: 0; }
+[data-layout="revista"] .h-impact .live-strip { font-style: italic; }
+[data-layout="revista"] .h-camps .camp-grid > :first-child .camp-cover { aspect-ratio: auto; flex: 1; min-height: 220px; }
+[data-layout="revista"] .h-camps .camp-grid > :first-child h3 { font-size: clamp(22px, 2.6vw, 32px); }
+[data-layout="revista"] .tint { background: none; }
+[data-layout="revista"] .h-transp .split-2 > :first-child, [data-layout="revista"] .h-monthly .split-2 > :first-child { order: 2; }
+[data-layout="revista"] .h-transp .split-2 > :first-child { border-left: 4px solid var(--primary); padding-left: 24px; }
+[data-layout="revista"] .site-main .news-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
+[data-layout="revista"] .site-main .news-grid > * { grid-column: auto; grid-row: auto; background: none; box-shadow: none; border: 0; border-radius: 0; border-left: 1px solid var(--line); padding: 4px 20px; }
+[data-layout="revista"] .site-main .news-grid > :first-child { border-left: 0; padding-left: 0; }
+[data-layout="revista"] .site-main .news-grid h3 { font-size: 22px; }
+[data-layout="revista"] .donor-ticker .badge { background: none; border: 0; padding: 0 10px 0 0; font-style: italic; }
+@media (max-width: 760px) {
+  [data-layout="revista"] .site-main .h-impact .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  [data-layout="revista"] .site-main .h-impact .grid-4 > :nth-child(odd) { border-left: 0; }
+  [data-layout="revista"] .site-main .news-grid { grid-template-columns: 1fr; }
+  [data-layout="revista"] .site-main .news-grid > * { border-left: 0; border-top: 1px solid var(--line); padding: 14px 0; }
+}
+/* Campañas: filtros como índice lateral, campañas como listado con portada a la izquierda */
+@media (min-width: 901px) {
+  [data-layout="revista"] .camp-list > .container { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 28px; align-items: start; }
+  [data-layout="revista"] .camp-list .filters { grid-template-columns: 1fr; position: sticky; top: 16px; background: none; box-shadow: none; border-radius: 0; border: 0; border-right: 3px double var(--line); padding: 0 20px 0 0; }
+  [data-layout="revista"] .camp-list .filters .chips { flex-direction: column; align-items: stretch; }
+  [data-layout="revista"] .camp-list .filters .chip { justify-content: flex-start; }
+}
+[data-layout="revista"] .camp-list .camp-grid { grid-template-columns: 1fr; gap: 0; }
+[data-layout="revista"] .camp-list .camp-grid > * { grid-column: auto !important; grid-row: auto !important; }
+[data-layout="revista"] .camp-list .camp-card { flex-direction: row; background: none; box-shadow: none; border-radius: 0; border: 0; border-bottom: 1px solid var(--line); padding: 18px 0; gap: 20px; }
+[data-layout="revista"] .camp-list .camp-cover { width: 34%; flex: none; aspect-ratio: auto; min-height: 170px; border: 0; border-radius: var(--radius-sm); }
+[data-layout="revista"] .camp-list .camp-body { padding: 0; }
+[data-layout="revista"] .camp-list .camp-body .btn-block { width: auto; align-self: flex-start; }
+@media (max-width: 600px) { [data-layout="revista"] .camp-list .camp-card { flex-direction: column; } [data-layout="revista"] .camp-list .camp-cover { width: 100%; min-height: 0; aspect-ratio: 5 / 2; } }
+/* Detalle de campaña y donación: recaudación / resumen a la izquierda */
+[data-layout="revista"] .camp-layout { grid-template-columns: 330px minmax(0, 1fr); }
+[data-layout="revista"] .camp-side { order: -1; top: 16px; }
+[data-layout="revista"] .camp-side > .card:first-child { border-top: 4px solid var(--primary); border-radius: 0; }
+[data-layout="revista"] .camp-title { font-size: clamp(32px, 4.6vw, 58px); line-height: 1.04; }
+[data-layout="revista"] .camp-detail [data-pane="historia"] > p:first-child { font-size: 18px; }
+[data-layout="revista"] .don-layout { grid-template-columns: 320px minmax(0, 1fr); }
+[data-layout="revista"] .don-side { order: -1; top: 16px; border-top: 4px solid var(--primary); border-radius: 0; }
+@media (max-width: 900px) { [data-layout="revista"] .camp-layout, [data-layout="revista"] .don-layout { grid-template-columns: 1fr; } }
+/* Voluntariado: lista a la izquierda, calendario a la derecha */
+[data-layout="revista"] .vol-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
+[data-layout="revista"] .vol-layout > :first-child { order: 2; }
+@media (max-width: 900px) { [data-layout="revista"] .vol-layout { grid-template-columns: 1fr; } }
+
+/* ---------- APP ---------- */
+[data-layout="app"] .menu-btn { display: none !important; }
+@media (min-width: 901px) {
+  [data-layout="app"] .site-head { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  [data-layout="app"] .head-nav { position: static; background: none; border: 0; box-shadow: none; padding: 0; }
+  [data-layout="app"] .head-nav .nav-ico { display: inline-block; width: 26px; }
+  [data-layout="app"] .head-in { min-height: 0; }
+}
+@media (max-width: 900px) {
+  [data-layout="app"] .head-nav { border-radius: 0; }
+  [data-layout="app"] .head-nav a { flex-direction: column; gap: 2px; font-size: 11px; line-height: 1.1; padding: 6px 6px !important; }
+  [data-layout="app"] .head-nav .nav-ico { font-size: 19px; }
+}
+/* Portada: socio mensual y actividades arriba, impacto en bento, campañas en carrusel, noticias en lista */
+[data-layout="app"] .site-main:has(> .h-impact) { display: flex; flex-direction: column; }
+[data-layout="app"] .site-main > .h-monthly { order: 1; }
+[data-layout="app"] .site-main > .h-impact { order: 2; }
+[data-layout="app"] .site-main > .h-camps { order: 3; }
+[data-layout="app"] .site-main > .h-news { order: 4; }
+[data-layout="app"] .site-main > .h-transp { order: 5; }
+[data-layout="app"] .site-main > .h-donors { order: 6; }
+[data-layout="app"] .tint { background: none; }
+[data-layout="app"] .h-impact { padding-block: 14px; }
+[data-layout="app"] .h-impact .live-strip { text-align: left; }
+[data-layout="app"] .h-monthly .split-2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 14px; align-items: start; }
+[data-layout="app"] .h-camps .camp-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 8px; }
+[data-layout="app"] .h-camps .camp-grid > * { flex: 0 0 min(320px, 82%); scroll-snap-align: start; }
+[data-layout="app"] .site-main .news-grid { grid-template-columns: 1fr; gap: 8px; }
+[data-layout="app"] .site-main .news-grid > * { grid-column: auto !important; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 6px 14px; padding: 12px 14px; }
+[data-layout="app"] .site-main .news-grid > * > p { grid-column: 2; }
+[data-layout="app"] .site-main .news-grid > * > h3 { font-size: 16px; }
+[data-layout="app"] .site-main .news-grid > * > .small:last-child { grid-column: 3; grid-row: 1; }
+[data-layout="app"] .h-transp .split-2 { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+@media (max-width: 760px) {
+  [data-layout="app"] .h-monthly .split-2, [data-layout="app"] .h-transp .split-2 { grid-template-columns: 1fr; }
+  [data-layout="app"] .site-main .news-grid > * { grid-template-columns: 1fr; }
+  [data-layout="app"] .site-main .news-grid > * > * { grid-column: 1 !important; grid-row: auto !important; }
+}
+/* Campañas: filtros como barra fija arriba */
+[data-layout="app"] .camp-list .filters { position: sticky; top: 8px; z-index: 10; }
+@media (max-width: 900px) { [data-layout="app"] .camp-list .filters { position: static; } [data-layout="app"] .camp-list .filters .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } [data-layout="app"] .camp-list .filters .chip { flex: none; } }
+/* Detalle de campaña: recaudación y compartir como tarjetas arriba, historia debajo */
+[data-layout="app"] .camp-layout { grid-template-columns: 1fr; gap: 14px; }
+[data-layout="app"] .camp-side { order: -1; position: static; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; }
+[data-layout="app"] .camp-detail .camp-layout > .stack { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px 20px; align-items: start; }
+[data-layout="app"] .camp-detail .camp-layout > .stack > * { grid-column: 1 / -1; }
+[data-layout="app"] .camp-detail .camp-hero-art { grid-column: 2 !important; grid-row: 1 / span 4; }
+[data-layout="app"] .camp-detail .camp-layout > .stack > :is(.eyebrow, .camp-title, .lead) { grid-column: 1; }
+[data-layout="app"] .camp-title { font-size: clamp(24px, 3vw, 36px); }
+@media (max-width: 760px) {
+  [data-layout="app"] .camp-side, [data-layout="app"] .camp-detail .camp-layout > .stack { grid-template-columns: 1fr; }
+  [data-layout="app"] .camp-detail .camp-layout > .stack > * { grid-column: 1 !important; grid-row: auto !important; }
+}
+/* Donar: una columna centrada con el resumen pegado arriba */
+[data-layout="app"] .don-layout { grid-template-columns: 1fr; max-width: 760px; margin-inline: auto; }
+[data-layout="app"] .don-side { order: -1; position: sticky; top: 8px; z-index: 10; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 4px 16px; box-shadow: var(--shadow-lg); }
+[data-layout="app"] .don-side > :is(b, p, .progress) { grid-column: 1 / -1; }
+[data-layout="app"] .steps { max-width: 760px; margin-inline: auto; }
+@media (max-width: 900px) { [data-layout="app"] .don-side { top: 8px; } }
+/* Voluntariado: calendario arriba a todo el ancho */
+[data-layout="app"] .vol-layout { grid-template-columns: 1fr; }
+[data-layout="app"] .site-foot { padding-bottom: 32px; }
+@media (max-width: 900px) { [data-layout="app"] .site-foot { padding-bottom: 100px; } }
+/* Cuenta del donante */
+[data-layout="app"] .acc-wrap { padding-top: 16px; }
+
+/* ---------- Dashboard del panel ---------- */
+[data-layout="revista"] .dash .dash-grid, [data-layout="app"] .dash .dash-grid { display: contents; }
+.dash > .d-kpis { grid-area: kpis; } .dash .d-line { grid-area: line; } .dash .d-type { grid-area: type; } .dash .d-camps { grid-area: camps; }
+.dash .d-cause { grid-area: cause; } .dash .d-last { grid-area: last; } .dash .d-act { grid-area: act; }
+@media (min-width: 1000px) {
+  [data-layout="revista"] .dash { display: grid; gap: 20px 28px; grid-template-columns: 250px minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "kpis line line" "kpis camps cause" "type last last" "act act act"; align-items: start; }
+  [data-layout="revista"] .dash > .d-kpis { grid-template-columns: 1fr; border-right: 3px double var(--line); padding-right: 24px; }
+  [data-layout="revista"] .dash > .d-kpis > * { box-shadow: none; border-radius: 0; border-inline: 0; border-top: 0; background: none; }
+  [data-layout="app"] .dash { display: grid; gap: 12px; grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, 1fr)); grid-template-areas: "kpis kpis kpis kpis" "act line line type" "act camps cause cause" "last last last last"; }
+  [data-layout="app"] .dash > .d-kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  [data-layout="app"] .dash .d-act { height: 0; min-height: 100%; overflow: auto; }
+}
+@media (max-width: 999px) { [data-layout="app"] .dash > .d-kpis { order: -2; } [data-layout="app"] .dash .d-act { order: -1; } }
+[data-layout="app"] .site-main .h-impact .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+[data-layout="app"] .site-main .h-impact .grid-4 > * { grid-column: auto !important; }
+@media (max-width: 700px) { [data-layout="app"] .site-main .h-impact .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

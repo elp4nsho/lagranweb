@@ -584,7 +584,7 @@ a.admin-brand { text-decoration: none; color: var(--text); }
   [data-layout="app"] .cov-grid, [data-layout="app"] .track-grid, [data-layout="app"] .req-grid { grid-template-columns: minmax(0, 1fr); }
   [data-layout="app"] .track-grid > .track-side { order: 2; }
   [data-layout="app"] .track-grid .track-map { height: 52vh; min-height: 300px; }
-  [data-layout="app"] .req-summary { order: 2; position: sticky; top: auto; bottom: 72px; z-index: 30; box-shadow: var(--shadow-lg); }
+  [data-layout="app"] .req-summary { order: 2; position: sticky; top: auto; bottom: 128px; z-index: 30; box-shadow: var(--shadow-lg); }
   [data-layout="app"] .req-summary [data-sum] .kv, [data-layout="app"] .req-summary > b, [data-layout="app"] .req-summary > small { display: none; }
   [data-layout="app"] .stats-strip .grid-4, [data-layout="app"] .steps { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   [data-layout="app"] .admin-content > .kpis { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
