@@ -7,7 +7,7 @@
   "demo": "../condominio/index.html",
   "theme": "skeuo",
   "layout": "clasica",
-  "generatedAt": "2026-10-30T23:42:59.503Z",
+  "generatedAt": "2026-10-30T23:45:42.070Z",
   "viewport": {
     "width": 1440,
     "height": 900
@@ -18,12 +18,228 @@
   },
   "sections": [
     {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Landing de la plataforma e ingreso, sin iniciar sesión."
+    },
+    {
       "id": "residente",
       "label": "Residente",
       "desc": "App del departamento: gastos comunes, reservas, visitas, encomiendas, incidencias y comunidad."
+    },
+    {
+      "id": "conserje",
+      "label": "Conserje",
+      "desc": "App de conserjería: turno, visitas, encomiendas, libro de novedades y búsqueda de residentes."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Panel completo: finanzas, unidades, espacios, mantención, personal, participación y sistema."
+    },
+    {
+      "id": "comite",
+      "label": "Comité",
+      "desc": "El panel en modo comité: finanzas, mantención y participación, sin configuración del edificio."
     }
   ],
   "views": [
+    {
+      "id": "portada",
+      "title": "Landing de la plataforma",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página pública de la plataforma con sus funciones, los últimos avisos publicados por la comunidad demo, planes por departamento y preguntas frecuentes. Los textos se editan desde la configuración del panel.",
+      "actions": [
+        "Conocer las funciones para administración, conserjería y residentes",
+        "Ver los avisos que la comunidad marcó como públicos",
+        "Comparar los planes por departamento",
+        "Leer las preguntas frecuentes",
+        "Ingresar a la plataforma"
+      ],
+      "img": "img/condominio/portada.webp",
+      "thumb": "img/condominio/portada-thumb.webp",
+      "mobile": "img/condominio/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portada-planes",
+      "title": "Planes y preguntas frecuentes",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Sección de precios por departamento y preguntas frecuentes de la landing.",
+      "actions": [
+        "Ver el precio por departamento de cada plan",
+        "Revisar qué incluye cada uno",
+        "Resolver dudas frecuentes antes de contratar"
+      ],
+      "img": "img/condominio/portada-planes.webp",
+      "thumb": "img/condominio/portada-planes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso a la plataforma con cuentas de demostración para entrar con un clic a cada rol.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic como administración, comité, conserjería o residente",
+        "Volver a la landing"
+      ],
+      "img": "img/condominio/login.webp",
+      "thumb": "img/condominio/login-thumb.webp",
+      "mobile": "img/condominio/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "res-inicio",
+      "title": "Inicio del residente",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/inicio",
+      "capturedUrl": "residente.html#/inicio",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inicio del departamento con el saldo de gastos comunes, encomiendas por retirar, próximas reservas, votaciones abiertas, avisos y sus solicitudes.",
+      "actions": [
+        "Ver cuánto debe y pagar",
+        "Saber si tiene encomiendas en conserjería",
+        "Revisar sus próximas reservas",
+        "Votar en las votaciones abiertas",
+        "Leer los avisos para su unidad"
+      ],
+      "img": "img/condominio/res-inicio.webp",
+      "thumb": "img/condominio/res-inicio-thumb.webp",
+      "mobile": "img/condominio/res-inicio-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "res-gastos",
+      "title": "Gastos comunes",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/gastos",
+      "capturedUrl": "residente.html#/gastos",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Estado de cuenta del mes con el detalle del prorrateo por alícuota (gasto común, fondo de reserva, agua, reservas y multas) y cómo se calcula.",
+      "actions": [
+        "Ver el detalle del cobro del mes",
+        "Entender el cálculo por alícuota",
+        "Pagar en línea",
+        "Descargar el comprobante",
+        "Ver los datos para transferencia"
+      ],
+      "img": "img/condominio/res-gastos.webp",
+      "thumb": "img/condominio/res-gastos-thumb.webp",
+      "mobile": "img/condominio/res-gastos-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "res-pagar",
+      "title": "Pago de gastos comunes",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/gastos",
+      "capturedUrl": "residente.html#/gastos",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Pagar este mes\" en Gastos comunes",
+      "description": "Pago simulado con tarjeta del gasto común. Al pagar, la unidad queda al día en el panel de administración.",
+      "actions": [
+        "Revisar el monto a pagar",
+        "Ingresar los datos de la tarjeta",
+        "Pagar y descargar el comprobante"
+      ],
+      "img": "img/condominio/res-pagar.webp",
+      "thumb": "img/condominio/res-pagar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "res-pagos",
+      "title": "Historial de pagos",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/pagos",
+      "capturedUrl": "residente.html#/pagos",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Historial de cobros mensuales con su estado de pago y el porcentaje de meses al día.",
+      "actions": [
+        "Ver los pagos de cada mes",
+        "Detectar meses pendientes",
+        "Exportar el historial a CSV"
+      ],
+      "img": "img/condominio/res-pagos.webp",
+      "thumb": "img/condominio/res-pagos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
     {
       "id": "res-reservas",
       "title": "Reservas de espacios comunes",
@@ -87,7 +303,1254 @@
       "mobile": null,
       "w": 1440,
       "h": 900
+    },
+    {
+      "id": "res-visitas",
+      "title": "Visitas",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/visitas",
+      "capturedUrl": "residente.html#/visitas",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Visitas pre-autorizadas con su código de ingreso y el historial de ingresos registrados por conserjería.",
+      "actions": [
+        "Autorizar una visita nueva",
+        "Ver y compartir el código QR",
+        "Cancelar una autorización",
+        "Revisar quién ingresó y cuándo"
+      ],
+      "img": "img/condominio/res-visitas.webp",
+      "thumb": "img/condominio/res-visitas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "res-visita-autorizar",
+      "title": "Autorizar visita",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/visitas",
+      "capturedUrl": "residente.html#/visitas",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Autorizar visita\"",
+      "description": "Formulario de pre-autorización con nombre, RUT, patente y fecha de la visita. Genera un código que conserjería valida al llegar.",
+      "actions": [
+        "Ingresar nombre y RUT de la visita",
+        "Indicar patente si viene en auto",
+        "Elegir la fecha",
+        "Generar el pase"
+      ],
+      "img": "img/condominio/res-visita-autorizar.webp",
+      "thumb": "img/condominio/res-visita-autorizar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "res-pase",
+      "title": "Pase de visita",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/visitas",
+      "capturedUrl": "residente.html#/visitas",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Ver QR\" de una visita autorizada",
+      "description": "Pase con código QR y código de 6 caracteres para enviar a la visita.",
+      "actions": [
+        "Mostrar el QR",
+        "Copiar el mensaje con el código para enviarlo",
+        "Cerrar el pase"
+      ],
+      "img": "img/condominio/res-pase.webp",
+      "thumb": "img/condominio/res-pase-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "res-encomiendas",
+      "title": "Encomiendas",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/encomiendas",
+      "capturedUrl": "residente.html#/encomiendas",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Encomiendas recibidas en conserjería que esperan retiro, más el historial de entregas con quién retiró.",
+      "actions": [
+        "Ver qué paquetes esperan retiro",
+        "Revisar remitente y fecha de recepción",
+        "Consultar el historial de entregas"
+      ],
+      "img": "img/condominio/res-encomiendas.webp",
+      "thumb": "img/condominio/res-encomiendas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "res-incidencias",
+      "title": "Incidencias y mantención",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/incidencias",
+      "capturedUrl": "residente.html#/incidencias",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Solicitudes de mantención del residente, en su depto o en áreas comunes, con su estado.",
+      "actions": [
+        "Reportar una incidencia nueva",
+        "Ver el estado de sus solicitudes",
+        "Abrir el seguimiento de una solicitud"
+      ],
+      "img": "img/condominio/res-incidencias.webp",
+      "thumb": "img/condominio/res-incidencias-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "res-incidencia",
+      "title": "Seguimiento de incidencia",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/incidencias/tk-demo",
+      "capturedUrl": "residente.html#/incidencias/tk-demo",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Detalle de una solicitud con su línea de tiempo, el proveedor asignado y la opción de confirmar si quedó resuelta.",
+      "actions": [
+        "Ver el avance paso a paso",
+        "Agregar un comentario",
+        "Conocer el proveedor asignado",
+        "Cerrar o reabrir la solicitud"
+      ],
+      "img": "img/condominio/res-incidencia.webp",
+      "thumb": "img/condominio/res-incidencia-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "res-incidencia-nueva",
+      "title": "Reportar incidencia",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/incidencias",
+      "capturedUrl": "residente.html#/incidencias",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Reportar incidencia\"",
+      "description": "Formulario para reportar un problema; llega al módulo de mantención de la administración.",
+      "actions": [
+        "Elegir categoría y lugar",
+        "Describir el problema",
+        "Indicar la prioridad"
+      ],
+      "img": "img/condominio/res-incidencia-nueva.webp",
+      "thumb": "img/condominio/res-incidencia-nueva-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "res-avisos",
+      "title": "Avisos de la comunidad",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/avisos",
+      "capturedUrl": "residente.html#/avisos",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Muro de avisos publicados por la administración, con los destacados primero.",
+      "actions": [
+        "Leer los avisos",
+        "Filtrar por categoría",
+        "Ver los destacados"
+      ],
+      "img": "img/condominio/res-avisos.webp",
+      "thumb": "img/condominio/res-avisos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "res-votaciones",
+      "title": "Votaciones",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/votaciones",
+      "capturedUrl": "residente.html#/votaciones",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Votaciones de la comunidad con un voto por departamento y resultados por unidades y ponderados por alícuota.",
+      "actions": [
+        "Votar en las votaciones abiertas",
+        "Ver resultados por unidades",
+        "Ver resultados ponderados por alícuota"
+      ],
+      "img": "img/condominio/res-votaciones.webp",
+      "thumb": "img/condominio/res-votaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "res-documentos",
+      "title": "Documentos",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/documentos",
+      "capturedUrl": "residente.html#/documentos",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Reglamentos, actas de asamblea, presupuestos y contratos de la comunidad.",
+      "actions": [
+        "Ver los documentos por categoría",
+        "Abrir un documento",
+        "Descargarlo"
+      ],
+      "img": "img/condominio/res-documentos.webp",
+      "thumb": "img/condominio/res-documentos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "res-documento",
+      "title": "Documento de la comunidad",
+      "section": "residente",
+      "roles": [
+        "Residente",
+        "Comité"
+      ],
+      "url": "residente.html#/documentos",
+      "capturedUrl": "residente.html#/documentos",
+      "login": {
+        "id": "u-res",
+        "name": "Fernanda Soto",
+        "role": "Residente",
+        "email": "residente@plazanunoa.cl",
+        "password": "residente123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Ver\" de un documento",
+      "description": "Vista de un documento oficial con su categoría y contenido.",
+      "actions": [
+        "Leer el documento",
+        "Ver categoría y fecha",
+        "Descargarlo"
+      ],
+      "img": "img/condominio/res-documento.webp",
+      "thumb": "img/condominio/res-documento-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "con-turno",
+      "title": "Mi turno",
+      "section": "conserje",
+      "roles": [
+        "Conserje",
+        "Administrador"
+      ],
+      "url": "conserjeria.html#/turno",
+      "capturedUrl": "conserjeria.html#/turno",
+      "login": {
+        "id": "u-conserje",
+        "name": "Luis Carrasco",
+        "role": "Conserje",
+        "email": "conserje@plazanunoa.cl",
+        "password": "conserje123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pantalla principal de conserjería: validación rápida del código de una visita, visitas esperadas hoy, personas dentro del edificio y encomiendas por entregar.",
+      "actions": [
+        "Validar el código de una visita pre-autorizada",
+        "Dar ingreso a las visitas esperadas",
+        "Registrar la salida de quienes están dentro",
+        "Ver las encomiendas pendientes"
+      ],
+      "img": "img/condominio/con-turno.webp",
+      "thumb": "img/condominio/con-turno-thumb.webp",
+      "mobile": "img/condominio/con-turno-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "con-visitas",
+      "title": "Registro de visitas",
+      "section": "conserje",
+      "roles": [
+        "Conserje",
+        "Administrador"
+      ],
+      "url": "conserjeria.html#/visitas",
+      "capturedUrl": "conserjeria.html#/visitas",
+      "login": {
+        "id": "u-conserje",
+        "name": "Luis Carrasco",
+        "role": "Conserje",
+        "email": "conserje@plazanunoa.cl",
+        "password": "conserje123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de ingresos y salidas con las visitas pre-autorizadas y el historial.",
+      "actions": [
+        "Registrar una visita sin aviso",
+        "Dar ingreso o salida",
+        "Buscar en el historial de visitas"
+      ],
+      "img": "img/condominio/con-visitas.webp",
+      "thumb": "img/condominio/con-visitas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "con-visita-nueva",
+      "title": "Visita sin aviso",
+      "section": "conserje",
+      "roles": [
+        "Conserje",
+        "Administrador"
+      ],
+      "url": "conserjeria.html#/visitas",
+      "capturedUrl": "conserjeria.html#/visitas",
+      "login": {
+        "id": "u-conserje",
+        "name": "Luis Carrasco",
+        "role": "Conserje",
+        "email": "conserje@plazanunoa.cl",
+        "password": "conserje123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Registrar visita sin aviso\"",
+      "description": "Registro de una visita que llega sin pre-autorización.",
+      "actions": [
+        "Elegir el departamento de destino",
+        "Anotar nombre, RUT y patente",
+        "Dejar el motivo u observación"
+      ],
+      "img": "img/condominio/con-visita-nueva.webp",
+      "thumb": "img/condominio/con-visita-nueva-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "con-encomiendas",
+      "title": "Encomiendas",
+      "section": "conserje",
+      "roles": [
+        "Conserje",
+        "Administrador"
+      ],
+      "url": "conserjeria.html#/encomiendas",
+      "capturedUrl": "conserjeria.html#/encomiendas",
+      "login": {
+        "id": "u-conserje",
+        "name": "Luis Carrasco",
+        "role": "Conserje",
+        "email": "conserje@plazanunoa.cl",
+        "password": "conserje123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Paquetes en conserjería por departamento, con recepción (que avisa al residente) y entrega con registro de quién retira.",
+      "actions": [
+        "Recibir una encomienda y avisar al residente",
+        "Entregarla registrando quién retira",
+        "Filtrar por tamaño y estado"
+      ],
+      "img": "img/condominio/con-encomiendas.webp",
+      "thumb": "img/condominio/con-encomiendas-thumb.webp",
+      "mobile": "img/condominio/con-encomiendas-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "con-recibir",
+      "title": "Recibir encomienda",
+      "section": "conserje",
+      "roles": [
+        "Conserje",
+        "Administrador"
+      ],
+      "url": "conserjeria.html#/encomiendas",
+      "capturedUrl": "conserjeria.html#/encomiendas",
+      "login": {
+        "id": "u-conserje",
+        "name": "Luis Carrasco",
+        "role": "Conserje",
+        "email": "conserje@plazanunoa.cl",
+        "password": "conserje123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Recibir encomienda\"",
+      "description": "Formulario de recepción de un paquete; el residente recibe el aviso en su app.",
+      "actions": [
+        "Elegir el departamento",
+        "Anotar remitente o courier",
+        "Indicar tamaño y número de seguimiento"
+      ],
+      "img": "img/condominio/con-recibir.webp",
+      "thumb": "img/condominio/con-recibir-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "con-novedades",
+      "title": "Novedades y rondas",
+      "section": "conserje",
+      "roles": [
+        "Conserje",
+        "Administrador"
+      ],
+      "url": "conserjeria.html#/bitacora",
+      "capturedUrl": "conserjeria.html#/bitacora",
+      "login": {
+        "id": "u-conserje",
+        "name": "Luis Carrasco",
+        "role": "Conserje",
+        "email": "conserje@plazanunoa.cl",
+        "password": "conserje123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Libro de novedades digital: rondas con puntos de control, novedades e incidentes del turno.",
+      "actions": [
+        "Registrar una ronda, novedad o incidente",
+        "Marcar los puntos de control revisados",
+        "Revisar los registros anteriores"
+      ],
+      "img": "img/condominio/con-novedades.webp",
+      "thumb": "img/condominio/con-novedades-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "con-buscar",
+      "title": "Buscar residente",
+      "section": "conserje",
+      "roles": [
+        "Conserje",
+        "Administrador"
+      ],
+      "url": "conserjeria.html#/residentes",
+      "capturedUrl": "conserjeria.html#/residentes",
+      "login": {
+        "id": "u-conserje",
+        "name": "Luis Carrasco",
+        "role": "Conserje",
+        "email": "conserje@plazanunoa.cl",
+        "password": "conserje123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Búsqueda rápida de residentes por nombre, departamento, RUT o patente, con sus teléfonos y vehículos.",
+      "actions": [
+        "Buscar por nombre, depto, RUT o patente",
+        "Ver los residentes de un departamento",
+        "Consultar teléfonos y patentes registradas"
+      ],
+      "img": "img/condominio/con-buscar.webp",
+      "thumb": "img/condominio/con-buscar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-dashboard",
+      "title": "Dashboard",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Comité"
+      ],
+      "url": "admin.html#/dashboard",
+      "capturedUrl": "admin.html#/dashboard",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen del edificio con recaudación por mes, gasto mensual, gastos por categoría, morosidad por torre, reservas por espacio, incidencias por estado y actividad reciente.",
+      "actions": [
+        "Seguir la recaudación mes a mes",
+        "Ver en qué se gasta el presupuesto",
+        "Detectar la morosidad por torre",
+        "Revisar reservas e incidencias"
+      ],
+      "img": "img/condominio/admin-dashboard.webp",
+      "thumb": "img/condominio/admin-dashboard-thumb.webp",
+      "mobile": "img/condominio/admin-dashboard-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-gastos",
+      "title": "Gastos comunes",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Comité"
+      ],
+      "url": "admin.html#/gastos",
+      "capturedUrl": "admin.html#/gastos",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Períodos mensuales de gastos comunes con su estado (borrador o publicado), total y recaudación.",
+      "actions": [
+        "Crear un período nuevo con los gastos recurrentes",
+        "Ver el estado de cada mes",
+        "Abrir el cálculo de un período"
+      ],
+      "img": "img/condominio/admin-gastos.webp",
+      "thumb": "img/condominio/admin-gastos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-periodo",
+      "title": "Cálculo del período",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Comité"
+      ],
+      "url": "admin.html#/gastos/2026-10",
+      "capturedUrl": "admin.html#/gastos/2026-10",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cálculo mensual: gastos del edificio, fondo de reserva y prorrateo por alícuota de cada unidad, listo para generar los cobros y publicarlos a los residentes.",
+      "actions": [
+        "Agregar, editar o quitar gastos del mes",
+        "Ajustar el porcentaje del fondo de reserva",
+        "Revisar el prorrateo por unidad",
+        "Publicar los gastos a los residentes",
+        "Registrar pagos manuales"
+      ],
+      "img": "img/condominio/admin-periodo.webp",
+      "thumb": "img/condominio/admin-periodo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-morosidad",
+      "title": "Morosidad",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Comité"
+      ],
+      "url": "admin.html#/morosos",
+      "capturedUrl": "admin.html#/morosos",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Unidades con gastos vencidos, meses adeudados, intereses por mora y último recordatorio enviado.",
+      "actions": [
+        "Ver deuda e intereses por unidad",
+        "Enviar un recordatorio individual o masivo",
+        "Registrar un pago manual"
+      ],
+      "img": "img/condominio/admin-morosidad.webp",
+      "thumb": "img/condominio/admin-morosidad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-pago-manual",
+      "title": "Registrar pago",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Comité"
+      ],
+      "url": "admin.html#/morosos",
+      "capturedUrl": "admin.html#/morosos",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Pago\" en Morosidad",
+      "description": "Registro de un pago recibido por transferencia o en oficina para una unidad morosa.",
+      "actions": [
+        "Ver el monto adeudado",
+        "Elegir medio de pago y fecha",
+        "Dejar la unidad al día"
+      ],
+      "img": "img/condominio/admin-pago-manual.webp",
+      "thumb": "img/condominio/admin-pago-manual-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-unidades",
+      "title": "Unidades y residentes",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/unidades",
+      "capturedUrl": "admin.html#/unidades",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Departamentos por torre y piso con superficie, estacionamientos, bodegas y alícuota, más los residentes de cada uno.",
+      "actions": [
+        "Crear o editar unidades",
+        "Recalcular las alícuotas por superficie",
+        "Abrir la ficha de una unidad",
+        "Gestionar residentes"
+      ],
+      "img": "img/condominio/admin-unidades.webp",
+      "thumb": "img/condominio/admin-unidades-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-unidad",
+      "title": "Ficha de unidad",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/unidades",
+      "capturedUrl": "admin.html#/unidades",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "modal",
+      "from": "Clic en una unidad",
+      "description": "Ficha de un departamento con sus residentes, deuda, cobros y solicitudes.",
+      "actions": [
+        "Ver quiénes viven en la unidad",
+        "Revisar su deuda y cobros",
+        "Ver sus solicitudes de mantención"
+      ],
+      "img": "img/condominio/admin-unidad.webp",
+      "thumb": "img/condominio/admin-unidad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-espacios",
+      "title": "Espacios comunes",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/espacios",
+      "capturedUrl": "admin.html#/espacios",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Configuración de quinchos, salas y otros espacios (turnos, precio, garantía, capacidad y límite mensual) y la lista de reservas.",
+      "actions": [
+        "Crear o editar espacios",
+        "Definir turnos, precio y garantía",
+        "Limitar reservas por depto al mes",
+        "Cancelar una reserva"
+      ],
+      "img": "img/condominio/admin-espacios.webp",
+      "thumb": "img/condominio/admin-espacios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-mantencion",
+      "title": "Mantención",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Comité"
+      ],
+      "url": "admin.html#/mantencion",
+      "capturedUrl": "admin.html#/mantencion",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tablero de tickets por estado (abierto, asignado, en progreso, resuelto, cerrado) con prioridad, proveedor y costo. También se puede ver como tabla.",
+      "actions": [
+        "Ver los tickets por estado en el tablero",
+        "Crear un ticket de mantención",
+        "Abrir un ticket para asignarlo o avanzarlo",
+        "Cambiar a vista de tabla"
+      ],
+      "img": "img/condominio/admin-mantencion.webp",
+      "thumb": "img/condominio/admin-mantencion-thumb.webp",
+      "mobile": "img/condominio/admin-mantencion-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-ticket",
+      "title": "Detalle de ticket",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Comité"
+      ],
+      "url": "admin.html#/mantencion",
+      "capturedUrl": "admin.html#/mantencion",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "modal",
+      "from": "Clic en un ticket del tablero",
+      "description": "Ticket con su descripción, unidad o área, estado, proveedor asignado, costo y comentarios. El residente ve los cambios en su app.",
+      "actions": [
+        "Cambiar el estado del ticket",
+        "Asignar un proveedor",
+        "Registrar el costo",
+        "Agregar un comentario de seguimiento"
+      ],
+      "img": "img/condominio/admin-ticket.webp",
+      "thumb": "img/condominio/admin-ticket-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-proveedores",
+      "title": "Proveedores",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/proveedores",
+      "capturedUrl": "admin.html#/proveedores",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Empresas y técnicos que prestan servicios a la comunidad, con rubro, evaluación y trabajos asignados.",
+      "actions": [
+        "Crear o editar proveedores",
+        "Evaluarlos de 1 a 5",
+        "Ver los trabajos asignados a cada uno"
+      ],
+      "img": "img/condominio/admin-proveedores.webp",
+      "thumb": "img/condominio/admin-proveedores-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-personal",
+      "title": "Personal y turnos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/personal",
+      "capturedUrl": "admin.html#/personal",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Personal del edificio con una grilla semanal editable de turnos (mañana, tarde, noche o libre).",
+      "actions": [
+        "Asignar el turno de cada persona por día",
+        "Moverse entre semanas",
+        "Crear o editar personal"
+      ],
+      "img": "img/condominio/admin-personal.webp",
+      "thumb": "img/condominio/admin-personal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-avisos",
+      "title": "Avisos",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Comité"
+      ],
+      "url": "admin.html#/comunicaciones",
+      "capturedUrl": "admin.html#/comunicaciones",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Avisos para los residentes con categoría, destacado y opción de mostrarlos también en la landing pública.",
+      "actions": [
+        "Crear, editar o eliminar avisos",
+        "Publicar un borrador",
+        "Destacar un aviso",
+        "Mostrarlo en el sitio público"
+      ],
+      "img": "img/condominio/admin-avisos.webp",
+      "thumb": "img/condominio/admin-avisos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-votaciones",
+      "title": "Votaciones",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Comité"
+      ],
+      "url": "admin.html#/comunicaciones?tab=votaciones",
+      "capturedUrl": "admin.html#/comunicaciones?tab=votaciones",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Votaciones de la comunidad con sus opciones, estado y resultados ponderados por alícuota.",
+      "actions": [
+        "Crear una votación",
+        "Abrirla o cerrarla",
+        "Ver resultados por unidades y ponderados",
+        "Editar o eliminar"
+      ],
+      "img": "img/condominio/admin-votaciones.webp",
+      "thumb": "img/condominio/admin-votaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-asambleas",
+      "title": "Asambleas",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Comité"
+      ],
+      "url": "admin.html#/asambleas",
+      "capturedUrl": "admin.html#/asambleas",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Asambleas programadas y realizadas, con citación a los residentes, quórum y acta.",
+      "actions": [
+        "Programar una asamblea",
+        "Enviar la citación",
+        "Registrar realización, quórum y acta",
+        "Abrir los documentos asociados"
+      ],
+      "img": "img/condominio/admin-asambleas.webp",
+      "thumb": "img/condominio/admin-asambleas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-documentos",
+      "title": "Documentos",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Comité"
+      ],
+      "url": "admin.html#/asambleas?tab=documentos",
+      "capturedUrl": "admin.html#/asambleas?tab=documentos",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Documentos oficiales de la comunidad que los residentes ven en su app.",
+      "actions": [
+        "Subir o editar documentos",
+        "Clasificarlos por categoría",
+        "Eliminar documentos"
+      ],
+      "img": "img/condominio/admin-documentos.webp",
+      "thumb": "img/condominio/admin-documentos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas de acceso con su rol y unidad, más la matriz de permisos por rol.",
+      "actions": [
+        "Crear o editar usuarios",
+        "Asignar rol y unidad",
+        "Desactivar una cuenta o restablecer la clave",
+        "Consultar los permisos por rol"
+      ],
+      "img": "img/condominio/admin-usuarios.webp",
+      "thumb": "img/condominio/admin-usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-configuracion",
+      "title": "Configuración",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/configuracion",
+      "capturedUrl": "admin.html#/configuracion",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos de la comunidad, parámetros financieros (vencimiento, interés por mora, fondo de reserva) y contenido de la landing pública.",
+      "actions": [
+        "Editar nombre y datos de la comunidad",
+        "Fijar día de vencimiento e interés por mora",
+        "Editar los textos de la landing",
+        "Restablecer los datos de demostración"
+      ],
+      "img": "img/condominio/admin-configuracion.webp",
+      "thumb": "img/condominio/admin-configuracion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-bitacora",
+      "title": "Bitácora",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/bitacora",
+      "capturedUrl": "admin.html#/bitacora",
+      "login": {
+        "id": "u-admin",
+        "name": "Patricia Lagos",
+        "role": "Administrador",
+        "email": "admin@vecindario.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de las últimas 300 acciones de usuarios y del sistema.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Filtrar por acción y buscar",
+        "Exportar a CSV"
+      ],
+      "img": "img/condominio/admin-bitacora.webp",
+      "thumb": "img/condominio/admin-bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "comite-panel",
+      "title": "Panel del comité",
+      "section": "comite",
+      "roles": [
+        "Comité"
+      ],
+      "url": "admin.html#/gastos",
+      "capturedUrl": "admin.html#/gastos",
+      "login": {
+        "id": "u-comite",
+        "name": "Jorge Muñoz",
+        "role": "Comité",
+        "email": "comite@plazanunoa.cl",
+        "password": "comite123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "El comité entra al mismo panel con un menú reducido: dashboard, gastos comunes, morosidad, mantención, avisos, votaciones y asambleas. Revisa los gastos pero no crea períodos.",
+      "actions": [
+        "Revisar los gastos comunes de cada mes",
+        "Controlar la morosidad",
+        "Seguir la mantención",
+        "Publicar avisos y llevar votaciones y asambleas"
+      ],
+      "img": "img/condominio/comite-panel.webp",
+      "thumb": "img/condominio/comite-panel-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "comite-restringido",
+      "title": "Sección restringida",
+      "section": "comite",
+      "roles": [
+        "Comité"
+      ],
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-comite",
+        "name": "Jorge Muñoz",
+        "role": "Comité",
+        "email": "comite@plazanunoa.cl",
+        "password": "comite123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Si el comité abre una sección reservada a la administración (como Usuarios y roles), el panel muestra un aviso de permiso insuficiente.",
+      "actions": [
+        "Ver que la sección no está permitida para su rol",
+        "Volver a una sección permitida desde el menú",
+        "Pedir el cambio a la administración"
+      ],
+      "img": "img/condominio/comite-restringido.webp",
+      "thumb": "img/condominio/comite-restringido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
     }
   ],
-  "looks": null
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Skeuomórfico\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/condominio/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/condominio/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/condominio/look-app.webp"
+      },
+      {
+        "id": "nordic",
+        "group": "Estilo",
+        "label": "Nórdico",
+        "desc": "Minimalista, blanco y aire.",
+        "img": "img/condominio/look-nordic.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/condominio/look-editorial.webp"
+      },
+      {
+        "id": "noir",
+        "group": "Estilo",
+        "label": "Noir Neón",
+        "desc": "Oscuro con acentos brillantes.",
+        "img": "img/condominio/look-noir.webp"
+      }
+    ]
+  }
 }
