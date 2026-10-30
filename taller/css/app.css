@@ -404,3 +404,5 @@ button.photo { font: inherit; font-size: 22px; }
 [data-layout="app"] .ins-grid { grid-template-columns: 320px minmax(0, 1fr); }
 @media (max-width: 900px) { [data-layout="app"] .ins-grid { grid-template-columns: minmax(0, 1fr); } }
 [data-layout="app"] .ins-grid > :first-child { max-height: calc(100vh - 260px); overflow-y: auto; }
+[data-layout] .site-main .hero-media .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+[data-layout] .site-main .hero-media .grid-3 > * { grid-column: auto !important; grid-row: auto !important; }

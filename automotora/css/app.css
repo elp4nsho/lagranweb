@@ -589,3 +589,4 @@ input[type=range] { width: 100%; accent-color: var(--primary); }
 .stat-card .value { font-size: clamp(18px, 1.9vw, 26px); }
 .kanban { grid-auto-columns: minmax(210px, 1fr); }
 .kcard { border-left-width: var(--border-w); box-shadow: inset 4px 0 0 var(--kc, var(--primary)), var(--shadow); padding-left: 14px; }
+@media (min-width: 901px) { [data-layout="app"] .site-nav a { display: flex !important; gap: 10px; align-items: center; } }

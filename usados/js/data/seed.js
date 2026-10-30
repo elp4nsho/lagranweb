@@ -131,12 +131,12 @@ export function seed() {
   });
   // Leads abiertos y perdidos (últimos 90 días)
   const live = cars.filter(c => ['publicado', 'reservado'].includes(c.status));
-  for (let i = 0; i < 70; i++) {
-    const age = r.int(0, 90), c = r.pick(live), p = person(), type = r.pick(['visita', 'test-drive', 'test-drive', 'contacto', 'financiamiento', 'reserva']);
-    const status = age > 30 ? r.pick(['perdido', 'perdido', 'ganado', 'contactado']) : age > 7 ? r.pick(['contactado', 'negociacion', 'perdido', 'nuevo']) : r.pick(['nuevo', 'nuevo', 'contactado']);
-    const l = { id: 'ld' + ln++, type, carId: c.id, ...p, status, sellerId: status === 'nuevo' && r.bool(.5) ? null : r.pick(sellers), createdAt: at(age), source: r.pick(['web', 'web', 'whatsapp', 'portal', 'sucursal']), notes: status === 'nuevo' ? [] : [{ at: at(Math.max(0, age - 1)), by: r.pick(sellers), text: r.pick(NOTES) }] };
+  for (let i = 0; i < 150; i++) {
+    const age = r.int(0, 90), c = r.pick(live), p = person(), type = r.pick(['visita', 'test-drive', 'test-drive', 'contacto', 'contacto', 'financiamiento', 'tasacion']);
+    const status = age > 30 ? r.pick(['perdido', 'perdido', 'perdido', 'contactado']) : age > 7 ? r.pick(['contactado', 'negociacion', 'perdido', 'nuevo']) : r.pick(['nuevo', 'nuevo', 'contactado']);
+    const l = { id: 'ld' + ln++, type, carId: type === 'tasacion' ? null : c.id, ...p, status, sellerId: status === 'nuevo' && r.bool(.5) ? null : r.pick(sellers), createdAt: at(age), source: r.pick(['web', 'web', 'whatsapp', 'portal', 'sucursal']), notes: status === 'nuevo' ? [] : [{ at: at(Math.max(0, age - 1)), by: r.pick(sellers), text: r.pick(NOTES) }] };
     if (['visita', 'test-drive'].includes(type)) { const d = addDays(new Date(), r.int(-age, Math.min(8, 8 - age))); l.scheduledAt = `${ymd(d)}T${r.pick(SLOTS)}`; l.branchId = c.branchId; }
-    if (type === 'financiamiento' || r.bool(.15)) { const pie = Math.round(c.price * .25 / 10000) * 10000, n = r.pick([24, 36, 48, 60]); financing.push({ id: 'fin' + ln, carId: c.id, ...p, price: c.price, pie, cuotas: n, tasa: 1.59, cuota: Math.round(pmt(c.price - pie, .0159, n)), cae: 25.1, income: r.int(8, 25) * 100000, status: age > 5 ? r.pick(['aprobada', 'rechazada', 'condicionada', 'aprobada']) : 'pendiente', createdAt: at(age), leadId: l.id, bank: r.pick(['Financiera Ruta', 'Banco Austral', 'Crédito Andino']) }); }
+    if (type === 'financiamiento' || r.bool(.06)) { const pie = Math.round(c.price * .25 / 10000) * 10000, n = r.pick([24, 36, 48, 60]); financing.push({ id: 'fin' + ln, carId: c.id, ...p, price: c.price, pie, cuotas: n, tasa: 1.59, cuota: Math.round(pmt(c.price - pie, .0159, n)), cae: 25.1, income: r.int(8, 25) * 100000, status: age > 5 ? r.pick(['aprobada', 'rechazada', 'condicionada', 'aprobada']) : 'pendiente', createdAt: at(age), leadId: l.id, bank: r.pick(['Financiera Ruta', 'Banco Austral', 'Crédito Andino']) }); }
     leads.push(l);
   }
   // Reservas de autos reservados
