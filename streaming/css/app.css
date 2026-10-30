@@ -439,3 +439,4 @@ html:not([data-layout="app"]):not([data-layout="revista"]) :is(.st-nav .nav-sear
 [data-layout="revista"] .admin-sidebar > div.stack:has(.nav-link) { display: flex !important; flex-direction: row; align-items: center; flex: none; gap: 2px; margin: 0 0 0 12px !important; padding: 0 0 0 12px !important; border-left: 1px solid var(--line); }
 /* Barra de pestañas (app, celular): fondo opaco aunque el estilo use superficies translúcidas. */
 @media (max-width: 900px) { [data-layout="app"] .site-header .site-nav { background: linear-gradient(var(--surface), var(--surface)), var(--bg) !important; } }
+[data-layout="app"] :is(.genre-chips, .filters-bar, .acct nav) { background: linear-gradient(var(--surface), var(--surface)), var(--bg); }

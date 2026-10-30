@@ -324,3 +324,5 @@ html:not([data-layout="app"]) .site-nav .nav-ico { display: none; }
 @media (max-width: 999px) { [data-layout="app"] .dash > .d-kpis { order: -2; } [data-layout="app"] .dash .d-act { order: -1; } [data-layout="revista"] .dash > .d-kpis { grid-template-columns: 1fr 1fr; } }
 /* Barra de pestañas (app, celular): fondo opaco aunque el estilo use superficies translúcidas. */
 @media (max-width: 900px) { [data-layout="app"] .site-header .site-nav { background: linear-gradient(var(--surface), var(--surface)), var(--bg) !important; } }
+[data-layout="app"] .mv .mv-list > .filters { background: linear-gradient(var(--surface-2), var(--surface-2)), var(--bg); }
+[data-layout="app"] .onb-main .steps { background: linear-gradient(var(--surface-2), var(--surface-2)), var(--bg); }

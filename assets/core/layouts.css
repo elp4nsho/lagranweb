@@ -60,7 +60,8 @@
 [data-layout="revista"] .admin-shell { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; }
 [data-layout="revista"] .admin-sidebar { position: sticky; top: 0; height: auto; width: auto; transform: none !important; flex-direction: row; align-items: center; flex-wrap: nowrap; overflow-x: auto; gap: 2px; padding: 8px 16px; border-right: 0; border-bottom: var(--border-w) solid var(--line); box-shadow: none; scrollbar-width: thin; }
 [data-layout="revista"] .admin-sidebar .nav-section { display: none; }
-[data-layout="revista"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { display: none; }
+/* Pie del menú (salir, restablecer demo…) queda al final de la barra, en línea */
+[data-layout="revista"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { flex: none; display: flex; align-items: center; gap: 6px; margin: 0 0 0 auto; padding: 0; border: 0; white-space: nowrap; }
 [data-layout="revista"] .admin-sidebar nav { display: contents; }
 [data-layout="revista"] .admin-brand { padding: 0 14px 0 0; margin-right: 6px; border-right: 1px solid var(--line); white-space: nowrap; flex: none; }
 [data-layout="revista"] .nav-link { flex: none; white-space: nowrap; padding: 8px 12px; }

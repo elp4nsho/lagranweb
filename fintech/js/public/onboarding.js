@@ -2,7 +2,7 @@
 // Crea un cliente con KYC "pendiente" que aparece en la cola de revisión del back-office.
 import { db, auth } from '../data/db.js';
 import { $, toast, sleep, money } from '../../../assets/core/ui.js';
-import { h } from '../shared/h.js';
+import { h, raw } from '../shared/h.js';
 import { publicHeader, wirePublicHeader } from '../shared/layout.js';
 import { validRut, normalizeRut } from '../shared/bank.js';
 
@@ -21,7 +21,7 @@ function paint() {
   el.querySelector('input, select')?.focus();
   BIND[step]?.(el);
 }
-const head = (n, title, sub) => h`<div style="margin-bottom:16px"><span class="small muted">Paso ${n} de 5</span><h2 style="margin:4px 0">${title}</h2><p class="muted" style="margin:0">${sub}</p></div>`;
+const head = (n, title, sub) => raw(h`<div style="margin-bottom:16px"><span class="small muted">Paso ${n} de 5</span><h2 style="margin:4px 0">${title}</h2><p class="muted" style="margin:0">${sub}</p></div>`);
 const err = (el, msg) => { const p = el.querySelector('[data-err]'); p.textContent = msg; if (msg) toast(msg, 'warning'); return !msg; };
 
 const VIEWS = [
