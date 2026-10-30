@@ -47,8 +47,10 @@ export function contact(view) {
   </div></section>`;
   const f = view.querySelector('[data-contact]');
   const showDeflect = debounce(() => {
+    const box = view.querySelector('[data-deflect]');
+    if (!box || !view.contains(f)) return;
     const res = searchArticles(`${f.subject.value} ${f.body.value}`, { limit: 3 });
-    view.querySelector('[data-deflect]').hidden = !res.length;
+    box.hidden = !res.length;
     view.querySelector('[data-deflect-list]').innerHTML = res.map(a => `<a href="#/articulo/${a.id}" target="_blank" rel="noopener">${escape(a.title)} →</a>`).join('');
   }, 250);
   f.subject.addEventListener('input', showDeflect);
