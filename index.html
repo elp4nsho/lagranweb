@@ -48,19 +48,39 @@
     .how .card::before { counter-increment: s; content: '0' counter(s); display: block; font: var(--head-weight) 14px var(--font-head); color: var(--primary); margin-bottom: 8px; }
     .cta-box { text-align: center; }
     footer { padding: 40px 0 100px; text-align: center; color: var(--muted); font-size: 14px; }
+    /* Disposiciones de la landing */
+    @media (max-width: 720px) { [data-layout="app"] .top nav { display: flex; } }
+    [data-layout="revista"] .numbers, [data-layout="app"] .numbers { margin-top: 0; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    .site-main .numbers > * { grid-column: auto !important; grid-row: auto !important; }
+    [data-layout="revista"] .hero .row, [data-layout="app"] .hero .row { justify-content: flex-start; }
+    [data-layout="revista"] .projects { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-flow: dense; }
+    [data-layout="revista"] .projects > .proj:nth-child(7n + 1) { grid-column: span 2; }
+    [data-layout="revista"] .projects > .proj:nth-child(7n + 1) .thumb { height: 240px; }
+    [data-layout="revista"] .filters { justify-content: center; border-block: 1px solid var(--line); padding: 10px 0; }
+    @media (max-width: 860px) { [data-layout="revista"] .projects { grid-template-columns: minmax(0, 1fr); } [data-layout="revista"] .projects > .proj { grid-column: auto !important; } }
+    [data-layout="app"] .projects { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+    [data-layout="app"] .proj { display: grid; grid-template-columns: 120px minmax(0, 1fr) auto; grid-template-areas: "t h l" "t s l" "t p l"; column-gap: 18px; row-gap: 2px; align-items: center; padding: 12px 16px; }
+    [data-layout="app"] .proj .thumb { grid-area: t; height: 84px; margin: 0; border-radius: var(--radius-sm); border: 0; }
+    [data-layout="app"] .proj .thumb span { font-size: 36px; } [data-layout="app"] .proj .thumb .badge, [data-layout="app"] .proj .thumb .num { display: none; }
+    [data-layout="app"] .proj h3 { grid-area: h; font-size: 17px; } [data-layout="app"] .proj small { grid-area: s; }
+    [data-layout="app"] .proj p { grid-area: p; } [data-layout="app"] .proj .tags { display: none; }
+    [data-layout="app"] .proj .links { grid-area: l; flex-direction: column; }
+    @media (max-width: 640px) { [data-layout="app"] .proj { grid-template-columns: 64px minmax(0, 1fr); grid-template-areas: "t h" "t s" "p p" "l l"; } [data-layout="app"] .proj .thumb { height: 64px; } [data-layout="app"] .proj .links { flex-direction: row; } }
+    [data-layout="app"] .how { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   </style>
 </head>
 <body>
-  <header class="top">
+  <header class="top site-header">
     <div class="container">
-      <a class="brand" href="#"><b>✦</b>La Gran Web</a>
-      <nav><a href="#proyectos">Proyectos</a><a href="#estilos">Estilos</a><a href="#como">Cómo funciona</a><a href="#contacto">Contacto</a></nav>
-      <a class="btn btn-primary btn-sm" href="#proyectos">Ver demos</a>
+      <a class="brand site-brand" href="#"><b>✦</b>La Gran Web</a>
+      <nav class="site-nav"><a href="#proyectos">Proyectos</a><a href="#estilos">Estilos</a><a href="#como">Cómo funciona</a><a href="#contacto">Contacto</a></nav>
+      <div class="site-actions"><a class="btn btn-primary btn-sm" href="#proyectos">Ver demos</a></div>
     </div>
   </header>
 
-  <main>
-    <section class="hero container">
+  <main class="site-main">
+    <section class="hero site-hero"><div class="container">
+      <div class="hero-text">
       <span class="badge badge-success">30 sistemas · 30 estilos · todo funcionando</span>
       <h1>Sistemas web <em>completos</em>, listos para probar</h1>
       <p class="lead">Cada proyecto tiene sitio público, login por roles y panel de administración. Los datos son ficticios y viven en tu navegador: crea, edita y borra lo que quieras.</p>
@@ -68,13 +88,14 @@
         <a class="btn btn-primary btn-lg" href="#proyectos">Explorar proyectos →</a>
         <a class="btn btn-lg" href="#estilos">Cambiar estilo 🎨</a>
       </div>
-      <div class="grid-4 numbers">
+      </div>
+      <div class="grid-4 numbers hero-media">
         <div class="card"><div class="stat"><span class="value">30</span><span class="label">Sistemas</span></div></div>
         <div class="card"><div class="stat"><span class="value">30</span><span class="label">Estilos por web</span></div></div>
         <div class="card"><div class="stat"><span class="value">900</span><span class="label">Combinaciones</span></div></div>
         <div class="card"><div class="stat"><span class="value">100%</span><span class="label">Simulado en el navegador</span></div></div>
       </div>
-    </section>
+    </div></section>
 
     <section id="estilos" class="section container" style="padding-top:40px">
       <span class="eyebrow">Estilos</span>
@@ -112,7 +133,7 @@
       </div>
     </section>
   </main>
-  <footer>© <span id="y"></span> La Gran Web · Todas las marcas y datos de las demos son ficticios.</footer>
+  <footer class="site-footer">© <span id="y"></span> La Gran Web · Todas las marcas y datos de las demos son ficticios.</footer>
 
   <script src="projects.js"></script>
   <script>
