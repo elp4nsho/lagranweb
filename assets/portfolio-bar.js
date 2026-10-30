@@ -22,7 +22,9 @@
 
   var dock = document.createElement('div');
   dock.className = 'lgw-dock';
-  dock.innerHTML = '<a href="../index.html" title="Volver al portafolio"><i>←</i>La Gran Web</a>';
+  // En la landing no hace falta el botón de volver.
+  if (document.documentElement.getAttribute('data-app') !== 'portal')
+    dock.innerHTML = '<a href="../index.html" title="Volver al portafolio"><i>←</i>La Gran Web</a>';
   document.body.appendChild(dock);
 
   var T = window.LGWTheme;
