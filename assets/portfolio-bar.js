@@ -22,6 +22,8 @@
     '.lgw-pal .sw{flex:none;width:34px;height:34px;border-radius:9px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;box-shadow:inset 0 0 0 1px rgba(255,255,255,.15)}' +
     '.lgw-pal .sw span:first-child{grid-row:span 2}.lgw-pal b{display:block;font-size:13px}.lgw-pal small{color:#9a9ab0;font-size:11px}' +
     '.lgw-pal .top{display:flex;justify-content:space-between;align-items:center;gap:8px}.lgw-pal .top span{color:#9a9ab0;font-size:11px}' +
+    '.lgw-pal .lay{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.lgw-pal .lay button{flex-direction:column;align-items:stretch;text-align:center;gap:6px}' +
+    '.lgw-pal .lay svg{width:100%;height:46px;display:block;border-radius:6px;background:rgba(255,255,255,.06)}' +
     '@media print{.lgw-dock,.lgw-pal{display:none!important}}';
   var style = document.createElement('style');
   style.textContent = css;
@@ -41,6 +43,7 @@
   btn.type = 'button';
   btn.setAttribute('aria-expanded', 'false');
   btn.innerHTML = '<i>🎨</i><span>Estilo</span>';
+  btn.title = 'Estilo y disposición';
   dock.appendChild(btn);
 
   var pal = document.createElement('div');
@@ -55,10 +58,22 @@
       '<span class="sw"><span style="background:' + t.sw[0] + '"></span><span style="background:' + t.sw[1] + '"></span><span style="background:' + t.sw[2] + '"></span></span>' +
       '<span><b>' + (i + 1) + '. ' + t.name + '</b><small>' + t.desc + '</small></span></button>';
   }
+  // Miniaturas de cada disposición.
+  var WIRE = {
+    clasica: '<rect x="4" y="4" width="72" height="6" rx="2"/><rect x="14" y="14" width="52" height="12" rx="2" opacity=".6"/><rect x="4" y="30" width="22" height="12" rx="2" opacity=".4"/><rect x="29" y="30" width="22" height="12" rx="2" opacity=".4"/><rect x="54" y="30" width="22" height="12" rx="2" opacity=".4"/>',
+    revista: '<rect x="26" y="3" width="28" height="5" rx="1"/><rect x="4" y="11" width="72" height="1.5"/><rect x="4" y="16" width="38" height="14" rx="2" opacity=".6"/><rect x="45" y="16" width="31" height="14" rx="2" opacity=".35"/><rect x="4" y="33" width="46" height="10" rx="2" opacity=".4"/><rect x="53" y="33" width="23" height="10" rx="2" opacity=".4"/>',
+    app: '<rect x="4" y="4" width="16" height="38" rx="2"/><rect x="24" y="4" width="52" height="11" rx="2" opacity=".6"/><rect x="24" y="18" width="33" height="11" rx="2" opacity=".4"/><rect x="60" y="18" width="16" height="11" rx="2" opacity=".4"/><rect x="24" y="32" width="16" height="10" rx="2" opacity=".4"/><rect x="43" y="32" width="33" height="10" rx="2" opacity=".4"/>'
+  };
   function render() {
+    var L = window.LGWLayout, lay = '';
+    if (L) L.list.forEach(function (l) {
+      lay += '<button type="button" data-l="' + l.id + '" aria-pressed="' + (l.id === L.current) + '" title="' + l.desc + '">' +
+        '<svg viewBox="0 0 80 46" fill="currentColor">' + (WIRE[l.id] || '') + '</svg><b>' + l.name + '</b></button>';
+    });
     var modern = '', html5 = '';
     T.list.forEach(function (t, i) { if (t.group === 'html5') html5 += item(t, i); else modern += item(t, i); });
-    pal.innerHTML = '<div class="top"><b>30 estilos</b><span>Atajo: Alt + ← / →</span></div>' +
+    pal.innerHTML = (lay ? '<h4 style="margin-top:2px">Disposición · Alt + ↑ / ↓</h4><div class="lay">' + lay + '</div>' : '') +
+      '<div class="top" style="margin-top:12px"><b>30 estilos</b><span>Atajo: Alt + ← / →</span></div>' +
       '<h4>Modernos</h4><div class="g">' + modern + '</div>' +
       '<h4>Era HTML5 · animate.css</h4><div class="g">' + html5 + '</div>';
     var cur = T.list.find(function (t) { return t.id === T.current; });
@@ -73,10 +88,17 @@
   pal.addEventListener('click', function (e) {
     var b = e.target.closest('[data-t]');
     if (b) T.set(b.getAttribute('data-t'));
+    var l = e.target.closest('[data-l]');
+    if (l && window.LGWLayout) { LGWLayout.set(l.getAttribute('data-l')); render(); }
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !pal.hidden) { pal.hidden = true; btn.focus(); }
     if (e.altKey && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) { e.preventDefault(); T.next(e.key === 'ArrowRight' ? 1 : -1); }
+    if (e.altKey && (e.key === 'ArrowUp' || e.key === 'ArrowDown') && window.LGWLayout) {
+      e.preventDefault();
+      var ids = LGWLayout.list.map(function (x) { return x.id; }), i = ids.indexOf(LGWLayout.current);
+      LGWLayout.set(ids[(i + (e.key === 'ArrowDown' ? 1 : -1) + ids.length) % ids.length]); render();
+    }
   });
   document.addEventListener('click', function (e) {
     if (!pal.hidden && !pal.contains(e.target) && !dock.contains(e.target)) pal.hidden = true;

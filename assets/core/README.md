@@ -69,3 +69,29 @@ export const auth = createAuth(db, { roles: { admin: 'Administrador', editor: 'E
 - `db.subscribe(fn)` para refrescar la vista cuando cambian datos (también desde otra pestaña).
 - `db.log(acción, detalle, userId)` alimenta la bitácora de actividad del panel.
 - Ofrece en el panel un botón "Restablecer datos demo" (`db.reset()`).
+
+## Disposiciones (3 layouts)
+
+Además del estilo, cada web tiene 3 **disposiciones** que reorganizan la página completa:
+`html[data-layout="clasica" | "revista" | "app"]` (por defecto `clasica`, o `data-default-layout`).
+Se eligen en el selector 🎨 de la barra flotante o con Alt + ↑ / ↓. API: `window.LGWLayout.set(id)`,
+evento `lgw:layout`.
+
+`layouts.css` (lo carga `theme-boot.js`) ya resuelve:
+
+- **Panel admin** (`.admin-shell`): clásica = menú lateral; revista = menú horizontal arriba;
+  app = riel de íconos que se expande al pasar el mouse. Para que el riel funcione, cada
+  `.nav-link` debe tener su ícono en `<span class="ico">`.
+- **Sitio público**, si marcas la estructura con estas clases-gancho:
+  - `header.site-header` con `.site-brand`, `nav.site-nav` (enlaces directos `a`/`button`) y `.site-actions`
+  - `main.site-main` con las secciones; la portada es `section.site-hero > .container > .hero-text + .hero-media`
+  - `footer.site-footer`
+
+  revista = cabecera centrada tipo diario, portada partida, secciones numeradas, grillas con
+  pieza destacada; app = cabecera convertida en barra lateral fija (pestañas abajo en celular),
+  portada tipo tarjeta, secciones como paneles y grillas bento.
+
+Lo específico de cada web va en su CSS con `[data-layout="revista"] …` y `[data-layout="app"] …`:
+orden de secciones (`order`, `grid-template-areas`), columnas del detalle de producto o del
+checkout, listas vs. tarjetas, posición de filtros y resúmenes, etc. Las 3 disposiciones deben
+verse claramente distintas y funcionar con los 30 estilos, a 375 px y en escritorio.

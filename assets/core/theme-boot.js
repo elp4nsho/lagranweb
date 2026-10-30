@@ -49,6 +49,9 @@
     var l = document.createElement('link');
     l.rel = 'stylesheet'; l.href = base + 'themes.css'; l.setAttribute('data-lgw-themes', '');
     document.head.appendChild(l);
+    var lay = document.createElement('link');
+    lay.rel = 'stylesheet'; lay.href = base + 'layouts.css'; lay.setAttribute('data-lgw-layouts', '');
+    document.head.appendChild(lay);
   }
 
   function loadFonts(t) {
@@ -101,6 +104,30 @@
       .observe(document.body, { childList: true, subtree: true });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', startWatch); else startWatch();
+
+  // ---------- Disposiciones: reorganizan la página completa (independiente del estilo) ----------
+  var LAYOUTS = [
+    { id: 'clasica', name: 'Clásica', desc: 'Barra superior, secciones apiladas y menú lateral en el panel' },
+    { id: 'revista', name: 'Revista', desc: 'Cabecera centrada, columnas asimétricas y menú superior en el panel' },
+    { id: 'app',     name: 'App',     desc: 'Navegación lateral fija, mosaicos bento y pestañas abajo en el celular' }
+  ];
+  var lkey = 'lgw:layout:' + app;
+  function applyLayout(id, persist) {
+    var l = LAYOUTS.filter(function (x) { return x.id === id; })[0] ||
+      LAYOUTS.filter(function (x) { return x.id === root.getAttribute('data-default-layout'); })[0] || LAYOUTS[0];
+    root.setAttribute('data-layout', l.id);
+    if (persist) { try { localStorage.setItem(lkey, l.id); } catch (e) {} }
+    try { window.dispatchEvent(new CustomEvent('lgw:layout', { detail: l })); } catch (e) {}
+    return l;
+  }
+  var savedLayout = null;
+  try { savedLayout = localStorage.getItem(lkey); } catch (e) {}
+  applyLayout(savedLayout);
+  window.LGWLayout = {
+    list: LAYOUTS,
+    get current() { return root.getAttribute('data-layout'); },
+    set: function (id) { return applyLayout(id, true); }
+  };
 
   apply(read());
   window.LGWTheme = {

@@ -1,0 +1,137 @@
+/* =====================================================================
+   La Gran Web · 3 disposiciones
+   html[data-layout="clasica" | "revista" | "app"]
+   Reorganizan la estructura (no los colores: eso lo hace el estilo).
+   Las webs marcan su estructura pública con estas clases-gancho:
+     header.site-header > .site-brand + nav.site-nav (+ .site-actions)
+     main.site-main
+     section.site-hero > .hero-text + .hero-media
+     footer.site-footer
+   y añaden sus propias reglas [data-layout="..."] para lo específico.
+   ===================================================================== */
+
+/* ---------- Clásica (por defecto): no cambia nada ---------- */
+
+/* =====================================================================
+   REVISTA
+   ===================================================================== */
+[data-layout="revista"] .container { width: min(1120px, 100% - 40px); }
+
+/* Cabecera tipo diario: marca centrada grande, navegación debajo entre filetes */
+[data-layout="revista"] .site-header { position: relative; }
+[data-layout="revista"] .site-header > .container,
+[data-layout="revista"] .site-header.container { display: grid !important; grid-template-columns: 1fr; justify-items: center; gap: 10px; padding-block: 18px 0; min-height: 0; }
+[data-layout="revista"] .site-brand { font-size: clamp(26px, 4vw, 44px) !important; letter-spacing: var(--head-spacing); }
+[data-layout="revista"] .site-nav { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 4px 22px; width: 100%; padding: 10px 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .site-actions { position: absolute; top: 18px; right: 20px; }
+
+/* Portada partida: texto a la izquierda alineado a un filete, imagen a la derecha */
+[data-layout="revista"] .site-hero { text-align: left !important; }
+[data-layout="revista"] .site-hero > .container,
+[data-layout="revista"] .site-hero.container { display: grid !important; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+[data-layout="revista"] .site-hero .hero-text { border-left: 4px solid var(--primary); padding-left: clamp(16px, 2.5vw, 32px); }
+[data-layout="revista"] .site-hero .hero-text > * { margin-left: 0 !important; margin-right: 0 !important; justify-content: flex-start !important; text-align: left !important; }
+[data-layout="revista"] .site-hero h1 { font-size: clamp(36px, 6vw, 76px); line-height: 1.02; }
+@media (max-width: 760px) {
+  [data-layout="revista"] .site-hero > .container, [data-layout="revista"] .site-hero.container { grid-template-columns: 1fr; }
+  [data-layout="revista"] .site-actions { position: static; }
+}
+
+/* Secciones numeradas con filete superior */
+[data-layout="revista"] .site-main { counter-reset: lgw-sec; }
+[data-layout="revista"] .site-main > .section,
+[data-layout="revista"] .site-main > section:not(.site-hero) { border-top: 1px solid var(--line); }
+[data-layout="revista"] .site-main > section:not(.site-hero) h2:first-of-type::before { counter-increment: lgw-sec; content: counter(lgw-sec, decimal-leading-zero) '  '; color: var(--primary); font-size: .6em; vertical-align: .35em; }
+
+/* Grillas tipo revista: la primera pieza ocupa el doble */
+[data-layout="revista"] .site-main .grid-auto,
+[data-layout="revista"] .site-main .grid-3,
+[data-layout="revista"] .site-main .grid-4 { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-flow: dense; }
+[data-layout="revista"] .site-main .grid-auto > :first-child,
+[data-layout="revista"] .site-main .grid-3 > :first-child,
+[data-layout="revista"] .site-main .grid-4 > :first-child { grid-column: span 2; grid-row: span 2; }
+@media (max-width: 760px) {
+  [data-layout="revista"] .site-main .grid-auto, [data-layout="revista"] .site-main .grid-3, [data-layout="revista"] .site-main .grid-4 { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="revista"] .site-main .grid-auto > :first-child, [data-layout="revista"] .site-main .grid-3 > :first-child, [data-layout="revista"] .site-main .grid-4 > :first-child { grid-column: auto; grid-row: auto; }
+}
+[data-layout="revista"] .site-footer { text-align: center; border-top: 3px double var(--line); }
+
+/* Panel: el menú lateral pasa a ser una barra superior horizontal */
+[data-layout="revista"] .admin-shell { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; }
+[data-layout="revista"] .admin-sidebar { position: sticky; top: 0; height: auto; width: auto; transform: none !important; flex-direction: row; align-items: center; flex-wrap: nowrap; overflow-x: auto; gap: 2px; padding: 8px 16px; border-right: 0; border-bottom: var(--border-w) solid var(--line); box-shadow: none; scrollbar-width: thin; }
+[data-layout="revista"] .admin-sidebar .nav-section { display: none; }
+[data-layout="revista"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { display: none; }
+[data-layout="revista"] .admin-sidebar nav { display: contents; }
+[data-layout="revista"] .admin-brand { padding: 0 14px 0 0; margin-right: 6px; border-right: 1px solid var(--line); white-space: nowrap; flex: none; }
+[data-layout="revista"] .nav-link { flex: none; white-space: nowrap; padding: 8px 12px; }
+[data-layout="revista"] .admin-topbar { position: static; }
+[data-layout="revista"] .admin-burger { display: none !important; }
+[data-layout="revista"] .admin-content { width: min(1240px, 100%); margin-inline: auto; }
+[data-layout="revista"] .admin-content .page-head { border-bottom: 3px double var(--line); padding-bottom: 12px; }
+
+/* =====================================================================
+   APP
+   ===================================================================== */
+/* Sitio público como aplicación: la cabecera se vuelve barra lateral fija */
+@media (min-width: 901px) {
+  [data-layout="app"] body:has(.site-header) { padding-left: 248px; }
+  [data-layout="app"] .site-header { position: fixed !important; inset: 0 auto 0 0; width: 248px; height: 100vh; z-index: 60; overflow-y: auto; border-right: var(--border-w) solid var(--line); border-bottom: 0 !important; background: var(--surface) !important; backdrop-filter: blur(var(--blur)); }
+  [data-layout="app"] .site-header > .container,
+  [data-layout="app"] .site-header.container { width: auto !important; display: flex !important; flex-direction: column; align-items: stretch !important; justify-content: flex-start !important; gap: 18px; padding: 22px 16px 90px; min-height: 0; }
+  [data-layout="app"] .site-nav { display: flex !important; flex-direction: column; align-items: stretch; gap: 2px; }
+  [data-layout="app"] .site-nav a, [data-layout="app"] .site-nav button { display: block; padding: 10px 12px; border-radius: var(--radius-sm); text-align: left; }
+  [data-layout="app"] .site-nav a:hover, [data-layout="app"] .site-nav a.active, [data-layout="app"] .site-nav a[aria-current] { background: var(--surface-2); }
+  [data-layout="app"] .site-actions { display: flex !important; flex-direction: column; align-items: stretch; gap: 8px; margin-top: auto; }
+  [data-layout="app"] .site-header [class*="burger"], [data-layout="app"] .site-header .menu-toggle { display: none !important; }
+}
+/* En celular: cabecera compacta arriba y navegación como barra de pestañas abajo */
+@media (max-width: 900px) {
+  [data-layout="app"] body:has(.site-nav) { padding-bottom: 72px; }
+  [data-layout="app"] .site-nav { position: fixed !important; left: 0; right: 0; bottom: 0; top: auto !important; z-index: 70; display: flex !important; flex-direction: row !important; justify-content: space-around; gap: 0; height: 64px; padding: 6px 4px; overflow-x: auto; background: var(--surface) !important; border-top: var(--border-w) solid var(--line); box-shadow: 0 -6px 20px rgba(0, 0, 0, .12); transform: none !important; visibility: visible !important; opacity: 1 !important; }
+  [data-layout="app"] .site-nav a, [data-layout="app"] .site-nav button { flex: 1 0 auto; display: flex; align-items: center; justify-content: center; padding: 6px 10px; font-size: 12px; white-space: nowrap; }
+  [data-layout="app"] .site-header [class*="burger"], [data-layout="app"] .site-header .menu-toggle { display: none !important; }
+  [data-layout="app"] .lgw-dock { bottom: 80px; }
+  [data-layout="app"] .lgw-pal, [data-layout="app"] .lgw-tip { bottom: 128px; }
+}
+[data-layout="app"] .container { width: min(1360px, 100% - 32px); }
+
+/* Portada compacta tipo tarjeta-banner */
+[data-layout="app"] .site-hero { padding-block: clamp(20px, 3vw, 36px) !important; min-height: 0 !important; }
+[data-layout="app"] .site-hero > .container,
+[data-layout="app"] .site-hero.container { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, .7fr); gap: 24px; align-items: center; padding: clamp(20px, 3vw, 36px); background: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); text-align: left !important; }
+[data-layout="app"] .site-hero .hero-text > * { margin-left: 0 !important; justify-content: flex-start !important; text-align: left !important; }
+[data-layout="app"] .site-hero h1 { font-size: clamp(26px, 3.4vw, 42px); }
+@media (max-width: 760px) { [data-layout="app"] .site-hero > .container, [data-layout="app"] .site-hero.container { grid-template-columns: 1fr; } [data-layout="app"] .site-hero .hero-media { display: none; } }
+
+/* Secciones como paneles y grillas bento */
+[data-layout="app"] .site-main > .section,
+[data-layout="app"] .site-main > section:not(.site-hero) { padding-block: 14px; }
+[data-layout="app"] .site-main > section:not(.site-hero) > .container { padding: clamp(16px, 2.4vw, 28px); background: color-mix(in srgb, var(--surface) 70%, transparent); border: var(--border-w) solid var(--line); border-radius: var(--radius); }
+[data-layout="app"] .site-main .grid-auto,
+[data-layout="app"] .site-main .grid-3,
+[data-layout="app"] .site-main .grid-4 { grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); grid-auto-flow: dense; gap: 12px; }
+[data-layout="app"] .site-main .grid-auto > :nth-child(6n + 1),
+[data-layout="app"] .site-main .grid-3 > :nth-child(6n + 1),
+[data-layout="app"] .site-main .grid-4 > :nth-child(6n + 1) { grid-column: span 2; }
+@media (max-width: 520px) { [data-layout="app"] .site-main .grid-auto > *, [data-layout="app"] .site-main .grid-3 > *, [data-layout="app"] .site-main .grid-4 > * { grid-column: auto !important; } }
+[data-layout="app"] .site-main .card { padding: calc(var(--pad) * .8); }
+[data-layout="app"] .site-footer { font-size: 13px; }
+
+/* Panel: riel de íconos que se expande al pasar el mouse */
+@media (min-width: 901px) {
+  [data-layout="app"] .admin-shell { grid-template-columns: 76px minmax(0, 1fr); }
+  [data-layout="app"] .admin-sidebar { width: 76px; padding: 14px 10px; overflow-x: hidden; transition: width .25s var(--ease), box-shadow .25s; z-index: 60; }
+  [data-layout="app"] .admin-sidebar:hover, [data-layout="app"] .admin-sidebar:focus-within { width: 260px; box-shadow: var(--shadow-lg); }
+  [data-layout="app"] .admin-sidebar .nav-section { height: 1px; padding: 0; margin: 8px 6px; overflow: hidden; color: transparent; background: var(--line); }
+  [data-layout="app"] .admin-sidebar:hover .nav-section, [data-layout="app"] .admin-sidebar:focus-within .nav-section { height: auto; padding: 14px 12px 6px; margin: 0; color: var(--muted); background: none; }
+  [data-layout="app"] .nav-link, [data-layout="app"] .admin-brand { white-space: nowrap; }
+  [data-layout="app"] .nav-link .ico { flex: none; width: 32px; font-size: 18px; }
+  [data-layout="app"] .admin-brand { padding-inline: 4px; }
+}
+[data-layout="app"] .admin-content { padding: 18px; gap: 14px; }
+[data-layout="app"] .admin-content .grid-4, [data-layout="app"] .admin-content .grid-3 { gap: 12px; }
+[data-layout="app"] .admin-content .page-head h1 { font-size: 22px; }
+[data-layout="app"] .admin-topbar { min-height: 54px; }
+
+/* La landing del portafolio no usa la barra de pestañas */
+[data-app="portal"][data-layout="app"] body { padding-bottom: 0; }

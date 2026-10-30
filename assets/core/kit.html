@@ -7,10 +7,19 @@
   <script src="theme-boot.js"></script>
 </head>
 <body>
+  <header class="site-header" style="border-bottom:var(--border-w) solid var(--line)"><div class="container row between" style="min-height:60px">
+    <b class="site-brand h">Kit</b>
+    <nav class="site-nav row"><a href="#">Inicio</a><a href="#">Componentes</a><a href="#">Panel</a><a href="#">Contacto</a></nav>
+    <div class="site-actions"><a class="btn btn-primary btn-sm" href="#">Entrar</a></div>
+  </div></header>
+  <main class="site-main">
+  <section class="section site-hero"><div class="container">
+    <div class="hero-text stack"><span class="eyebrow">Kit La Gran Web</span><h1>Un kit, treinta estilos, tres disposiciones</h1>
+    <p class="muted">Cambia el estilo con Alt + ← / → y la disposición con Alt + ↑ / ↓.</p></div>
+    <div class="hero-media card" style="min-height:180px;display:grid;place-items:center;font-size:64px">🧩</div>
+  </div></section>
   <section class="section"><div class="container stack">
-    <span class="eyebrow">Kit La Gran Web</span>
-    <h1>Un kit, treinta estilos</h1>
-    <p class="muted">Todos los componentes compartidos. Cambia el estilo con el botón 🎨 o con Alt + ← / →.</p>
+    <h2>Componentes</h2>
     <div class="row">
       <button class="btn btn-primary" id="t1">Botón primario</button>
       <button class="btn">Normal</button>
@@ -47,6 +56,8 @@
       </tbody></table></div>
     <div class="tabs"><button class="tab active">Resumen</button><button class="tab">Pedidos</button><button class="tab">Clientes</button></div>
   </div></section>
+  </main>
+  <footer class="site-footer section"><div class="container muted small">Pie de página del kit</div></footer>
   <script type="module">
     import { toast, modal, barChart } from './ui.js';
     document.getElementById('chart').innerHTML = '<h3>Ventas semana</h3>' + barChart([['Lu',12],['Ma',18],['Mi',9],['Ju',22],['Vi',30],['Sá',26],['Do',14]].map(([label, value]) => ({ label, value })));
