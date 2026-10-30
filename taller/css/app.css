@@ -406,3 +406,5 @@ button.photo { font: inherit; font-size: 22px; }
 [data-layout="app"] .ins-grid > :first-child { max-height: calc(100vh - 260px); overflow-y: auto; }
 [data-layout] .site-main .hero-media .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 [data-layout] .site-main .hero-media .grid-3 > * { grid-column: auto !important; grid-row: auto !important; }
+[data-layout="revista"] .ot-card > div:has(> .task-row) { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); column-gap: 24px; }
+.kpi .value { font-size: clamp(18px, 1.9vw, 26px); }
