@@ -42,7 +42,7 @@ export function render(view, { user, params }) {
         ${t.status === 'cerrado' ? '<div class="card notice">Ticket cerrado. Para reabrir, cambia el estado en el panel lateral.</div>' : `
         <section class="card composer ${ui.mode}" data-composer>
           <div class="row between"><div class="seg"><button class="seg-btn ${ui.mode === 'public' ? 'active' : ''}" data-mode="public">${icon('mail', 14)} Respuesta pública</button><button class="seg-btn ${ui.mode === 'internal' ? 'active' : ''}" data-mode="internal">${icon('lock', 14)} Nota interna</button></div>
-            <select class="select select-sm" data-macro aria-label="Aplicar macro"><option value="">${icon('macro', 0) && ''}Aplicar macro…</option>${macros.map(m => opt(m.id, m.name)).join('')}</select></div>
+            <select class="select select-sm" data-macro aria-label="Aplicar macro"><option value="">Aplicar macro…</option>${macros.map(m => opt(m.id, m.name)).join('')}</select></div>
           <textarea class="textarea" data-body placeholder="${ui.mode === 'public' ? `Responder a ${escape(r?.name?.split(' ')[0] || 'el cliente')}…` : 'Nota visible solo para el equipo…'}">${escape(draft)}</textarea>
           <div class="row between composer-foot">
             <label class="attach">${icon('paperclip', 16)} <span data-fname>Adjuntar</span><input type="file" multiple hidden data-files></label>

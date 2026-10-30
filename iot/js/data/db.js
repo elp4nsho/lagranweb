@@ -3,7 +3,7 @@ import { createDB } from '../../../assets/core/db.js';
 import { createAuth } from '../../../assets/core/auth.js';
 import { seed } from './seed.js';
 
-export const db = createDB('iot', { version: 2, seed });
+export const db = createDB('iot', { version: 3, seed });
 export const ROLES = { admin: 'Administrador', ingeniero: 'Ingeniero', operador: 'Operador', lectura: 'Solo lectura' };
 export const auth = createAuth(db, { roles: ROLES });
 const ALL = Object.keys(ROLES);

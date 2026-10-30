@@ -66,6 +66,14 @@ export function seed() {
   add({ type: 'energia', zoneId: 'z-elec', name: 'Tablero general planta', tag: 'general', base: 310, amp: 45, noise: 9, anomaly: null });
   add({ type: 'ph', zoneId: 'z-riles', name: 'pH efluente RILes', tag: 'riles', base: 7.2, amp: .25, noise: .08, anomaly: null });
   add({ type: 'temperatura', zoneId: 'z-desp', name: 'Andén de despacho', tag: 'linea', base: 3.8, amp: .7, noise: .2, anomaly: null });
+  // Distribuye los sensores de cada zona para que no se superpongan en el mapa.
+  zones.forEach(z => {
+    const list = devices.filter(d => d.zoneId === z.id);
+    list.forEach((d, i) => {
+      if (z.shape === 'circle') { const a = (i / list.length) * Math.PI * 2 - Math.PI / 2; const rr = list.length > 1 ? 30 : 0; d.x = Math.round(z.x + Math.cos(a) * rr); d.y = Math.round(z.y + Math.sin(a) * rr); }
+      else { const cols = Math.min(list.length, 4); d.x = Math.round(z.x + z.w * (i % cols + 1) / (cols + 1)); d.y = Math.round(z.y + z.h * .62 + Math.floor(i / cols) * 34); }
+    });
+  });
   // Un par de equipos con problemas para que la vista luzca real.
   devices.find(d => d.name === 'pH agua J7').offline = true;
   devices.find(d => d.name === 'pH agua J7').lastSeen = iso(now - 7.5 * 36e5);

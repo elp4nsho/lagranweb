@@ -28,11 +28,23 @@ export function render(el, ctx) {
     const devs = db.query('devices', d => d.siteId === site.id && (!st.type || d.type === st.type));
     const now = Date.now();
     const sts = Object.fromEntries(devs.map(d => [d.id, status(d, value(d, now))]));
-    el.querySelector('[data-map]').innerHTML = siteMap(site, db.query('zones', z => z.siteId === site.id), devs, d => sts[d.id], { selected: st.sel });
+    // Repinta el plano solo si cambia la estructura; si no, actualiza colores en el lugar (clics estables).
+    const mapEl = el.querySelector('[data-map]');
+    const sig = devs.map(d => d.id + d.x + d.y).join() + '|' + st.sel;
+    if (mapEl.dataset.sig !== sig) { mapEl.innerHTML = siteMap(site, db.query('zones', z => z.siteId === site.id), devs, d => sts[d.id], { selected: st.sel }); mapEl.dataset.sig = sig; }
+    else mapEl.querySelectorAll('[data-dev]').forEach(g => { const s2 = sts[g.dataset.dev]; g.setAttribute('class', `dot ${s2} ${st.sel === g.dataset.dev ? 'sel' : ''}`); g.querySelectorAll('circle').forEach(c => c.setAttribute('fill', STATUS_COLOR[s2])); });
     const c = {}; Object.values(sts).forEach(s => c[s] = (c[s] || 0) + 1);
     el.querySelector('[data-counts]').textContent = `· ${devs.length} sensores · ${c.alarm || 0} en alarma · ${c.warn || 0} en precaución`;
     const d = db.get('devices', st.sel);
     const panel = el.querySelector('[data-panel]');
+    // El panel se reconstruye al cambiar la selección o cada 5 s; entre medio solo se actualiza la lectura.
+    const key = String(st.sel), slot = Math.floor(now / 5000);
+    if (panel.dataset.key === key && panel.dataset.slot === String(slot)) {
+      const pv = panel.querySelector('[data-pv]'), dd = db.get('devices', st.sel);
+      if (pv && dd) { pv.textContent = fmt(dd, value(dd, now)); pv.style.color = STATUS_COLOR[sts[dd.id]]; }
+      return;
+    }
+    panel.dataset.key = key; panel.dataset.slot = slot;
     if (!d || d.siteId !== site.id) {
       const hot = devs.filter(x => ['alarm', 'warn', 'offline'].includes(sts[x.id]));
       panel.innerHTML = h`<h3 style="margin:0">Selecciona un sensor</h3><p class="muted small" style="margin:0">Haz clic en un punto del mapa para ver su lectura en vivo.</p>
@@ -41,7 +53,7 @@ export function render(el, ctx) {
       const v = value(d, now);
       panel.innerHTML = h`<div class="row between"><span class="ic">${TYPES[d.type].icon}</span><button class="btn btn-sm btn-ghost" data-close-panel aria-label="Cerrar">✕</button></div>
         <h3 style="margin:0">${d.name}</h3><span class="small muted">${d.code} · ${zoneName(d.zoneId)}</span>
-        <div class="big-value" style="color:${STATUS_COLOR[sts[d.id]]}">${fmt(d, v)}</div>${raw(stBadge(sts[d.id]))}
+        <div class="big-value" data-pv style="color:${STATUS_COLOR[sts[d.id]]}">${fmt(d, v)}</div>${raw(stBadge(sts[d.id]))}
         <div>${raw(sparkline(history(d, now - 300000, now, 60), { w: 280, h: 50 }))}<div class="small muted">Últimos 5 minutos</div></div>
         <dl class="kv"><dt>Modelo</dt><dd>${d.model}</dd><dt>Firmware</dt><dd>${d.firmware}</dd><dt>Batería</dt><dd>${d.battery == null ? 'Red eléctrica' : d.battery + '%'}</dd><dt>Última lectura</dt><dd>${d.offline ? ago(d.lastSeen) : 'hace 1 s'}</dd></dl>
         <a class="btn btn-primary btn-sm" href="#/dispositivos/${d.id}">Ver historial y detalle</a>`;
@@ -51,7 +63,7 @@ export function render(el, ctx) {
   ctx.every(paint);
   el.querySelectorAll('[data-site]').forEach(b => b.onclick = () => { st.site = b.dataset.site; st.sel = null; ctx.refresh(); });
   el.querySelectorAll('[data-type]').forEach(b => b.onclick = () => { st.type = b.dataset.type; ctx.refresh(); });
-  const pick = id => { st.sel = id; paint(); };
+  const pick = id => { st.sel = id; el.querySelector('[data-panel]').dataset.key = ''; paint(); };
   el.querySelector('.map-layout').addEventListener('click', e => {
     const dot = e.target.closest('[data-dev]'); if (dot) return pick(dot.dataset.dev);
     const p = e.target.closest('[data-pick]'); if (p) return pick(p.dataset.pick);

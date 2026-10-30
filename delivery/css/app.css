@@ -429,3 +429,7 @@ a.admin-brand { text-decoration: none; color: var(--text); }
 .faq-edit { gap: 6px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
 .admin-sidebar .nav-link { padding-top: 8px; padding-bottom: 8px; }
 .admin-sidebar .nav-section { padding-top: 12px; }
+/* Evita que contenidos intrínsecos (selects largos, tablas) ensanchen las grillas */
+.grid-2 > *, .grid-3 > *, .grid-4 > *, .panel-grid > *, .detail-grid > *, .ops-grid > *, .req-grid > *, .track-grid > *, .login-grid > *, .hero-grid > *, .heat-grid-wrap > *, .stack > * { min-width: 0; }
+.select, .input, .textarea { max-width: 100%; }
+.select:not(.select-sm) { min-width: 0; }
