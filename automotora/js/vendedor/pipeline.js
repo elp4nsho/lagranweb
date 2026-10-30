@@ -30,7 +30,7 @@ export function renderPipeline(v, _p, query, { user, mine }) {
     const l = db.get('leads', id); if (!l || l.stage === stage) return draw();
     if (stage === 'vendido') { const ok = await closeSale(l); if (!ok) draw(); return; }
     if (stage === 'perdido') { const ok = await askLost(l); if (!ok) draw(); return; }
-    moveLead(id, stage); db.log('pipeline', `${l.name}: ${STAGE_LABEL[l.stage]} → ${STAGE_LABEL[stage]}`, user.id); toast(`${l.name} → ${STAGE_LABEL[stage]}`, 'success', 1600);
+    const from = l.stage; moveLead(id, stage); db.log('pipeline', `${l.name}: ${STAGE_LABEL[from]} → ${STAGE_LABEL[stage]}`, user.id); toast(`${l.name} → ${STAGE_LABEL[stage]}`, 'success', 1600);
   }
   let dragId = null;
   board.addEventListener('dragstart', e => { const c = e.target.closest('.kcard'); if (!c) return; dragId = c.dataset.lead; c.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', dragId); });

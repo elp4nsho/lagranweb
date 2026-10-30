@@ -270,7 +270,8 @@ export function seed() {
     { id: 'cfg-cam2', code: 'ev6~ev6-2~c6~w3~p-adas~acc-wallbox', userId: cam.id, modelId: 'ev6', name: 'Sueño eléctrico', createdAt: isoAgo(30) }
   ];
   const camPlan = planFor('kia', 20000);
-  appointments.unshift({ id: 'a-cam', number: 'CT-9299', vehicleId: v1.id, customerId: cam.id, patente: v1.patente, owner: cam.name, phone: cam.phone, email: cam.email, brandId: 'kia', modelId: 'sportage', modelName: 'Sportage', year: 2025, showroomId: 'scl', date: workday(3), slot: '09:30', type: 'mantencion', km: 19200, planId: camPlan.id, notes: 'Aprovechar de revisar el recall de frenos.', status: 'agendada', advisorId: 'u-pv1', createdAt: isoAgo(4) });
+  // Su Sportage entra hoy al taller: el asesor la recepciona y ella sigue el avance (y aprueba adicionales) en su cuenta.
+  appointments.unshift({ id: 'a-cam', number: 'CT-9299', vehicleId: v1.id, customerId: cam.id, patente: v1.patente, owner: cam.name, phone: cam.phone, email: cam.email, brandId: 'kia', modelId: 'sportage', modelName: 'Sportage', year: 2025, showroomId: 'scl', date: workday(0), slot: '09:30', type: 'mantencion', km: 19200, planId: camPlan.id, notes: 'Aprovechar de revisar el recall de frenos.', status: 'agendada', advisorId: 'u-pv1', createdAt: isoAgo(4) });
   const camPrev = { id: 'a-cam0', number: 'CT-8812', vehicleId: v2.id, customerId: cam.id, patente: v2.patente, owner: cam.name, phone: cam.phone, email: cam.email, brandId: 'toyota', modelId: 'yaris', modelName: 'Yaris Hatchback', year: 2023, showroomId: 'scl', date: addDays(today, -40), slot: '09:00', type: 'mantencion', km: 40000, planId: 'sp-toyota-40', notes: '', status: 'entregada', advisorId: 'u-pv1', otId: 'o-cam0', createdAt: isoAgo(48) };
   appointments.unshift(camPrev);
   const p40 = servicePlans.find(p => p.id === 'sp-toyota-40');

@@ -179,7 +179,7 @@ input[type=range] { width: 100%; accent-color: var(--primary); }
 .check-opt input { accent-color: var(--primary); width: 18px; height: 18px; flex: none; }
 .opt-list.compact .opt { padding: 9px 12px; }
 .opt-cat { margin: 14px 0 8px; font-size: 13px; color: var(--muted); font-family: var(--font-body); text-transform: uppercase; letter-spacing: .08em; }
-.wheel-thumb { width: 110px; flex: none; overflow: hidden; } .wheel-thumb .car-svg { width: 200%; margin-left: -94%; }
+.wheel-thumb { width: 110px; flex: none; overflow: hidden; } .wheel-thumb .car-svg { width: 200%; max-width: none; margin-left: -94%; }
 .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); gap: 10px; }
 .swatch { display: flex; align-items: center; gap: 10px; padding: 10px; font: inherit; color: var(--text); text-align: left; background: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius-sm); cursor: pointer; }
 .swatch i { width: 34px; height: 34px; border-radius: 50%; flex: none; box-shadow: inset 0 -6px 10px rgba(0, 0, 0, .25), inset 0 4px 8px rgba(255, 255, 255, .35), 0 0 0 1px var(--line); }
@@ -581,7 +581,9 @@ input[type=range] { width: 100%; accent-color: var(--primary); }
 .seg-tab input[hidden] { display: none; }
 .mc-body { min-width: 0; } .mc-head { flex-wrap: wrap; }
 [data-layout="app"] .model-grid.grid-3 .mc-body { flex: 1; }
-@media (max-width: 520px) { [data-layout="app"] .model-grid.grid-3 .mc-art { width: 96px; padding: 6px; } [data-layout="app"] .model-grid.grid-3 .mc-body { padding: 10px; } [data-layout="app"] .model-grid.grid-3 .mc-actions .btn { padding: 0 10px; } }
+@media (max-width: 520px) { [data-layout="app"] .model-grid.grid-3 .mc-art { width: 96px; padding: 6px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
+  /* El aviso de bono no cabe sobre una miniatura de 96 px: va debajo del auto, sin tapar la marca */
+  [data-layout="app"] .model-grid.grid-3 .mc-flag { position: static; max-width: 100%; white-space: normal; text-align: center; font-size: 11px; line-height: 1.25; padding: 3px 6px; } [data-layout="app"] .model-grid.grid-3 .mc-body { padding: 10px; } [data-layout="app"] .model-grid.grid-3 .mc-actions .btn { padding: 0 10px; } }
 .funnel-step { grid-template-columns: 92px minmax(0, 1fr) 40px 38px !important; }
 .funnel-lbl { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .funnel-track { height: 22px; border-radius: var(--radius-sm); background: var(--surface-2); overflow: hidden; }
@@ -590,3 +592,10 @@ input[type=range] { width: 100%; accent-color: var(--primary); }
 .kanban { grid-auto-columns: minmax(210px, 1fr); }
 .kcard { border-left-width: var(--border-w); box-shadow: inset 4px 0 0 var(--kc, var(--primary)), var(--shadow); padding-left: 14px; }
 @media (min-width: 901px) { [data-layout="app"] .site-nav a { display: flex !important; gap: 10px; align-items: center; } }
+/* Estilo Aqua: la barra de ventana (.card::before) no debe quedar como una celda más en tarjetas grid o flex en fila */
+[data-theme="aqua"] .card:is(.preeval-card, .stock-filters, .showroom-row, .my-car)::before { grid-column: 1 / -1; }
+[data-theme="aqua"] .card:is(.tool, .filters.row, .legal, .list-item, .appt-row)::before { display: none; }
+/* Aqua e iOS 6 pintan todos los .btn con un gel claro y el texto blanco de .btn-danger queda ilegible
+   (el núcleo no define la variante de peligro para esos estilos): gel rojo con los tokens. */
+[data-theme="aqua"] .btn.btn-danger { background: linear-gradient(180deg, rgba(255,255,255,.55) 0, rgba(255,255,255,.15) 50%, rgba(0,0,0,.08) 51%, rgba(255,255,255,.2) 100%), var(--danger); color: #fff; border-color: var(--danger); text-shadow: 0 -1px 0 rgba(0,0,0,.3); }
+[data-theme="skeuo"] .btn.btn-danger { background: linear-gradient(180deg, rgba(255,255,255,.3), rgba(0,0,0,.12)), var(--danger); color: #fff; border-color: var(--danger); text-shadow: 0 -1px 0 rgba(0,0,0,.35); }

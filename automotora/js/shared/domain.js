@@ -118,8 +118,9 @@ export function addTimeline(leadId, kind, text, by = auth.current()?.id) {
 }
 export function moveLead(leadId, stage, extra = {}) {
   const l = db.get('leads', leadId); if (!l || l.stage === stage) return;
+  const from = l.stage; // db.update modifica el registro en su lugar: guardar la etapa anterior antes
   db.update('leads', leadId, { stage, maxStage: Math.max(l.maxStage || 0, stage === 'perdido' ? 0 : STAGES.indexOf(stage)), ...extra });
-  addTimeline(leadId, 'etapa', `Etapa: ${STAGE_LABEL[l.stage]} → ${STAGE_LABEL[stage]}${extra.lostReason ? ` (${extra.lostReason})` : ''}`);
+  addTimeline(leadId, 'etapa', `Etapa: ${STAGE_LABEL[from]} → ${STAGE_LABEL[stage]}${extra.lostReason ? ` (${extra.lostReason})` : ''}`);
 }
 
 // ---------- Estados con badge ----------

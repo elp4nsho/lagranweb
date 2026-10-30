@@ -56,7 +56,8 @@ export function renderFinance(el, _p, query) {
 
   const $ = q => pageEl.querySelector(q);
   const u = auth.current();
-  if (u?.role === 'cliente') { $('#p-name').value = u.name; $('#p-email').value = u.email; if (u.rut) $('#p-rut').value = u.rut; if (u.phone) $('#p-phone').value = u.phone; }
+  const prefill = () => { if (u?.role === 'cliente') { $('#p-name').value = u.name; $('#p-email').value = u.email; if (u.rut) $('#p-rut').value = u.rut; if (u.phone) $('#p-phone').value = u.phone; } };
+  prefill();
   const m = () => model(s.modelId);
   const prodsFor = kind => products.filter(p => p.type === kind && (!p.onlyFuel || p.onlyFuel.includes(m().fuel)));
   const product = () => s.kind === 'contado' ? null : (products.find(p => p.id === s.productId && p.type === s.kind && (!p.onlyFuel || p.onlyFuel.includes(m().fuel))) || prodsFor(s.kind)[0]);
@@ -96,9 +97,9 @@ export function renderFinance(el, _p, query) {
       <div class="fin-kpis"><div><small>CAE</small><b>${nf1(r.cae, 2)}%</b></div><div><small>Costo total del crédito</small><b>${money(r.kind === 'leasing' ? r.totalIva : r.total)}</b></div>${r.vfmg ? `<div><small>Cuota final (VFMG)</small><b>${money(r.vfmg)}</b></div>` : ''}${r.kind === 'leasing' ? `<div><small>IVA recuperable</small><b>${money(r.ivaRecuperable)}</b></div>` : ''}</div>
       <div class="sum-lines">${r.rows.map(([l, n]) => `<div class="line"><span>${l}</span><span>${money(n)}</span></div>`).join('')}${r.seguro ? `<div class="line"><span>Seguro de desgravamen (mensual)</span><span>${money(r.seguro)}</span></div>` : ''}</div>
       ${r.vfmg ? `<div class="vfmg-box"><b>Al terminar las ${r.n} cuotas puedes:</b><ul><li>${icon('refresh', 14)} <b>Renovar</b>: entregas el auto y su valor cubre la cuota final; el excedente va de pie para uno nuevo.</li><li>${icon('key', 14)} <b>Quedártelo</b>: pagas o refinancias la cuota final de ${money(r.vfmg)}.</li><li>${icon('back', 14)} <b>Devolverlo</b>: Autoplaza garantiza ese valor si cumples km y mantenciones.</li></ul></div>` : ''}`}
-      <a class="btn btn-primary btn-block" href="#preeval" data-goeval>${icon('shield', 16)} Solicitar este crédito</a>
+      ${r.kind === 'contado' ? '' : `<a class="btn btn-primary btn-block" href="#preeval" data-goeval>${icon('shield', 16)} Solicitar este crédito</a>`}
       <p class="small muted">Simulación referencial. CAE calculado según flujo de cuotas, gastos y seguros. Sujeto a evaluación crediticia.</p>`;
-    $('[data-goeval]').onclick = e => { e.preventDefault(); document.getElementById('preeval').scrollIntoView({ behavior: 'smooth' }); };
+    $('[data-goeval]') && ($('[data-goeval]').onclick = e => { e.preventDefault(); document.getElementById('preeval').scrollIntoView({ behavior: 'smooth' }); });
     $('[data-tbl-sub]').textContent = p ? p.name : '';
     $('[data-tbl]').innerHTML = p ? pl.map(n => { const x = simulate({ product: p, price: P, pie, plazo: n, tradeIn: trade }); return `<tr class="${n === s.plazo ? 'sel-row' : ''}"><td>${n} meses</td><td><b>${money(x.cuota)}</b></td><td>${nf1(x.cae, 2)}%</td><td>${money(x.kind === 'leasing' ? x.totalIva : x.total)}</td></tr>`; }).join('') : '<tr><td colspan="4" class="muted">Elige una opción de crédito para comparar plazos.</td></tr>';
     s.last = { r, P, pie, trade, p };
@@ -123,6 +124,8 @@ export function renderFinance(el, _p, query) {
     if (!f.elements.ok.checked) { bad = true; toast('Debes autorizar la consulta de antecedentes', 'warning'); }
     if (bad) return toast('Revisa los campos marcados (RUT válido, correo y renta).', 'warning');
     const { r, P, pie, trade, p } = s.last;
+    // Pagando al contado no hay crédito que evaluar
+    if (r.kind === 'contado') return toast('Elige una forma de pago con crédito (convencional, Compra Inteligente o leasing) para pre-evaluarte.', 'warning');
     const cuota = r.cuota || 0;
     const ev = preEvaluate({ rut: v.rut, renta: +v.renta, cuota: r.kind === 'leasing' ? r.cuotaIva : cuota, otherDebt: +v.otherDebt || 0, employment: v.employment, seniority: +v.seniority || 0, piePct: (pie + trade) / P * 100 });
     const mm = m(), vv = version(mm, s.versionId) || mm.versions[0];
@@ -134,7 +137,7 @@ export function renderFinance(el, _p, query) {
     $('[data-pre-res]').innerHTML = `<div class="pre-result tone-${tone}">${gauge(ev.score, { label: 'Puntaje', tone })}<div><h3>${title}</h3><p>Carga financiera estimada: <b>${Math.round(ev.load * 100)}%</b> de tu renta.${ev.conditions ? ` Condición: <b>${escape(ev.conditions)}</b>.` : ''}</p>
       <p class="small muted">Solicitud <b class="mono">${app.number}</b> enviada al área de crédito. ${ev.decision === 'rechazada' ? 'Un ejecutivo te propondrá alternativas (más pie, otro plazo o un codeudor).' : 'Un analista confirmará la aprobación en menos de 24 horas hábiles.'}</p>
       ${auth.current()?.role === 'cliente' ? `<a class="btn btn-sm" href="#/cuenta/financiamiento">Seguir mi solicitud</a>` : `<a class="btn btn-sm" href="login.html?next=index.html%23%2Fcuenta%2Ffinanciamiento">Ingresa para seguir el estado</a>`}</div></div>`;
-    f.reset();
+    f.reset(); prefill();
     toast(`Solicitud ${app.number} enviada`, 'success');
   };
 }

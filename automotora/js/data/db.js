@@ -4,7 +4,7 @@ import { createAuth } from '../../../assets/core/auth.js';
 import { seed } from './seed.js';
 import { ymd } from '../shared/util.js';
 
-export const db = createDB('automotora', { version: 3, seed });
+export const db = createDB('automotora', { version: 4, seed });
 // Las agendas (taller, test drives) dependen del día: si la semilla es de otro día se regenera.
 if (db.getValue('seededOn') !== ymd()) db.reset();
 
