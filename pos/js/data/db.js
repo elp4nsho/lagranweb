@@ -3,7 +3,7 @@ import { createDB } from '../../../assets/core/db.js';
 import { createAuth } from '../../../assets/core/auth.js';
 import { seed } from './seed.js';
 
-export const db = createDB('pos', { version: 2, seed });
+export const db = createDB('pos', { version: 4, seed });
 export const auth = createAuth(db, { roles: { admin: 'Administrador', supervisor: 'Supervisor', cajero: 'Cajero', bodeguero: 'Bodeguero' } });
 
 export const PERMS = {

@@ -16,7 +16,7 @@ export function renderDebtors(el, p, q, ctx) {
     }).sort((a, b) => b.debt - a.debt);
   };
   const list = rows();
-  el.innerHTML = `${pageHead('Morosidad', `Interés por mora ${s.interestPct}% mensual · vencimiento día ${s.dueDay}`, `<button class="btn btn-primary" data-bulk ${list.length ? '' : 'disabled'}>✉ Recordar a todos (${list.length})</button>`)}
+  el.innerHTML = `${pageHead('Morosidad', `Interés por mora ${String(s.interestPct).replace(".", ",")}% mensual · vencimiento día ${s.dueDay}`, `<button class="btn btn-primary" data-bulk ${list.length ? '' : 'disabled'}>✉ Recordar a todos (${list.length})</button>`)}
     <div class="kpis">${kpi('Deptos morosos', list.length, `${(list.length / db.count('units') * 100).toFixed(1)}% de la comunidad`, false)}${kpi('Deuda vencida', money(list.reduce((t, r) => t + r.base, 0)))}${kpi('Intereses acumulados', money(list.reduce((t, r) => t + r.interest, 0)))}${kpi('3 o más meses', list.filter(r => r.months >= 3).length, 'candidatos a cobranza judicial', false)}</div>
     <div data-t></div>`;
   const tbl = crudTable(el.querySelector('[data-t]'), {

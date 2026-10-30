@@ -78,7 +78,7 @@ export function seed() {
   const tecEmp = employees.find(e => e.deptId === 'd-tec' && e.managerId === tecHead.id && e.status === 'activo' && e.hireDate < addDays(T, -400));
   const perHead = employees.find(e => e.deptId === 'd-per' && e.level === 1);
   const recruiter = employees.find(e => e.deptId === 'd-per' && /Reclutador/.test(e.position));
-  [tecHead, tecEmp, perHead, recruiter].forEach(e => { e.status = 'activo'; });
+  [tecHead, tecEmp, perHead, recruiter].forEach(e => { e.status = 'activo'; e.vacCarry = 10; });
 
   // Remuneraciones: últimos 6 meses cerrados.
   const payslips = [], payrollRuns = [];

@@ -26,8 +26,8 @@ export default {
       el.innerHTML = `${pageHead('Tarifas y temporadas', `Temporada actual: <b>${escape(cs?.name || 'Regular')}</b>. Cualquier cambio actualiza los precios del sitio y del motor de reservas.`, '<button class="btn btn-primary btn-sm" data-newseason>+ Temporada</button>')}
         <div class="grid-2">
           <form class="card stack" id="base"><h3 style="margin:0">Tarifa base por tipo</h3>
-            ${types.map(t => `<div class="row between nowrap"><label for="br-${t.id}">${escape(t.name)}</label><input class="input sm" style="width:140px" type="number" step="1000" min="0" id="br-${t.id}" data-base="${t.id}" value="${t.baseRate}"></div>`).join('')}
-            <div class="row between nowrap"><label for="wm">Recargo viernes y sábado (×)</label><input class="input sm" style="width:140px" type="number" step="0.05" min="1" id="wm" value="${settings().weekendMult}"></div>
+            ${types.map(t => `<div class="row between"><label for="br-${t.id}">${escape(t.name)}</label><input class="input sm" style="width:140px" type="number" step="1000" min="0" id="br-${t.id}" data-base="${t.id}" value="${t.baseRate}"></div>`).join('')}
+            <div class="row between"><label for="wm">Recargo viernes y sábado (×)</label><input class="input sm" style="width:140px" type="number" step="0.05" min="1" id="wm" value="${settings().weekendMult}"></div>
             <button class="btn btn-primary">Guardar tarifas</button></form>
           <div class="card stack"><h3 style="margin:0">Temporadas</h3>
             <div class="table-wrap"><table class="table"><thead><tr><th>Temporada</th><th>Fechas</th><th>×</th><th>Activa</th><th></th></tr></thead><tbody>

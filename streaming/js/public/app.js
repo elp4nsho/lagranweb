@@ -18,7 +18,7 @@ function mount(fn, key) {
     active = key;
     renderHeader($('#header'), { ...ctx, active });
     // Si solo se abre/cierra el modal de detalle no se vuelve a pintar la página.
-    if (base !== lastBase || !handle) { handle?.destroy?.(); const fresh = main.cloneNode(false); main.replaceWith(fresh); mainRef.el = fresh; handle = fn(fresh, ctx, query) || null; lastBase = base; window.scrollTo(0, 0); }
+    if (base !== lastBase || !handle) { handle?.destroy?.(); const fresh = mainRef.el.cloneNode(false); mainRef.el.replaceWith(fresh); mainRef.el = fresh; handle = fn(fresh, ctx, query) || null; lastBase = base; window.scrollTo(0, 0); }
   };
 }
 const mainRef = { el: main };

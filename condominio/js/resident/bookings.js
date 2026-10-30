@@ -13,6 +13,8 @@ export function renderBookings(el, p, q, ctx, { unit }) {
   const sp = db.get('spaces', st.space);
   const today = dayKey(new Date());
   const minDay = dayKey(new Date(Date.now() + (sp?.price ? 2 : 0) * 864e5));
+  // Si el mes visible ya no tiene días reservables, salta al siguiente.
+  if (dayKey(new Date(st.y, st.m + 1, 0)) < minDay) { st.m++; if (st.m > 11) { st.m = 0; st.y++; } }
   const taken = (day, slot) => db.count('bookings', b => b.spaceId === sp.id && b.date === day && b.slot === slot && b.status !== 'cancelada');
   const free = day => sp.slots.filter(s => taken(day, s) < sp.perSlot).length;
   const mine = db.query('bookings', b => b.unitId === unit.id).sort((a, b) => b.date.localeCompare(a.date));

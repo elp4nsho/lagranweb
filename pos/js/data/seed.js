@@ -110,8 +110,9 @@ export function seed() {
     ['Pablo Núñez', 'b2', 'Tarde'], ['Fabiola Mena', 'b3', 'Mañana'], ['Héctor Salinas', 'b3', 'Tarde'], ['Gabriela Ulloa', 'b4', 'Mañana'], ['Marcelo Ibáñez', 'b4', 'Tarde'], ['Tamara Quiroz', 'b1', 'Mañana']];
   staffNames.forEach(([name, branchId, shift], i) => {
     const em = name.split(' ')[0].toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
-    users.push({ id: `u-e${i}`, name, email: `${em}${i}@pampa.cl`, password: 'pampa123', role: 'cajero', branchId, shift, pin: String(5000 + i * 37), color: AV[i % AV.length], demo: false, active: i !== 10, createdAt: iso(now - r.int(60, 600) * DAY) });
+    users.push({ id: `u-e${i}`, name, email: `${em}${i}@pampa.cl`, password: 'pampa123', role: 'cajero', branchId, shift, pin: String(5000 + i * 37), color: AV[i % AV.length], demo: false, active: true, createdAt: iso(now - r.int(60, 600) * DAY) });
   });
+  users.push({ id: 'u-ex1', name: 'Rocío Fuentes', email: 'rocio@pampa.cl', password: 'pampa123', role: 'cajero', branchId: 'b3', shift: 'Tarde', pin: '8080', color: '#9333ea', demo: false, active: false, createdAt: iso(now - 420 * DAY) });
   users.push({ id: 'u-sup2', name: 'Verónica Saavedra', email: 'veronica@pampa.cl', password: 'pampa123', role: 'supervisor', branchId: 'b2', shift: 'Completo', pin: '6262', color: '#059669', demo: false, active: true, createdAt: iso(now - 480 * DAY) });
   users.push({ id: 'u-bod2', name: 'Arturo Peña', email: 'arturo@pampa.cl', password: 'pampa123', role: 'bodeguero', branchId: 'b4', shift: 'Mañana', pin: '7171', color: '#2563eb', demo: false, active: true, createdAt: iso(now - 330 * DAY) });
   // Cajeros por registradora y turno (M: mañana, T: tarde)
@@ -209,7 +210,7 @@ export function seed() {
   }
   sales.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
   // Clientes históricos: aproximan visitas anteriores al detalle
-  customers.forEach(c => { const extra = r.int(0, 40); c.visits += extra; c.pointsEarned += extra * 45; c.points += Math.round(extra * 45 * .6); c.totalSpent += extra * 4500; });
+  customers.forEach(c => { const extra = Math.round(Math.pow(r(), 1.5) * 170); c.visits += extra; c.pointsEarned += extra * 45; c.points += Math.round(extra * 45 * .6); c.totalSpent += extra * 4500; });
 
   // Cierra turnos: arqueo con diferencias realistas
   const shiftRows = Object.values(shifts).map(s => {
@@ -273,7 +274,7 @@ export function seed() {
 
   const LOGS = [
     ['u-admin', 'login', 'Carolina Vidal inició sesión'], ['u-super', 'caja', 'Cerró turno Caja 2 · Pampa Centro (sin diferencias)'], ['u-bodega', 'compra', 'Recibió OC #3208 de Distribuidora Andina'],
-    ['u-super', 'producto', 'Cambió precio de Cappuccino: $2.700 → $2.900'], ['u-bodega', 'inventario', 'Merma de 3 Medialuna en Pampa Ñuñoa (sobrante del día)'], ['u-admin', 'usuarios', 'Desactivó a Tamara Quiroz'],
+    ['u-super', 'producto', 'Cambió precio de Cappuccino: $2.700 → $2.900'], ['u-bodega', 'inventario', 'Merma de 3 Medialuna en Pampa Ñuñoa (sobrante del día)'], ['u-admin', 'usuarios', 'Desactivó a Rocío Fuentes'],
     ['u-super', 'cliente', 'Ajustó +500 puntos a Matías Rojas Fuentes (compensación)'], ['u-bodega', 'inventario', 'Transferencia de 10 Leche entera 1 L de Pampa Centro a Pampa Valparaíso'], ['u-admin', 'ajustes', 'Actualizó programa de puntos: 1 punto cada $100']
   ];
 

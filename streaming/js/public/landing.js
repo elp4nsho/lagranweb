@@ -9,7 +9,7 @@ const luhn = n => { let s = 0, alt = false; for (let i = n.length - 1; i >= 0; i
 function render() {
   const s = settings(), u = auth.current();
   const plans = db.query('plans', p => p.active).sort((a, b) => a.price - b.price);
-  const cat = db.query('titles', isAvailable);
+  const cat = db.query('titles', t => isAvailable(t));
   const top = cat.slice().sort((a, b) => b.trending - a.trending).slice(0, 10);
   $('#header').innerHTML = `<div class="container"><div class="bar"><a class="logo-word" href="index.html">Andes<b>+</b></a>
     <div class="st-actions">${u ? `<a class="btn btn-primary btn-sm" href="${HOME_BY_ROLE[u.role]}">${u.role === 'suscriptor' ? 'Ir a Andes+' : 'Ir al CMS'}</a>` : '<a class="btn btn-ghost btn-sm" href="#planes">Planes</a><a class="btn btn-primary btn-sm" href="login.html">Ingresar</a>'}</div></div></div>`;

@@ -127,7 +127,7 @@ const router = createRouter({
   '/actividad': guard('activity', activity.render)
 }, {
   notFound: () => { currentRender = el => { el.innerHTML = '<div class="empty card"><span class="icon">🧭</span><h2>Sección no encontrada</h2><a class="btn btn-primary" href="#/">Ir al inicio</a></div>'; }; mount(); },
-  after: () => { router.highlight($('#sidebar')); window.scrollTo(0, 0); $('.admin-shell').classList.remove('nav-open'); }
+  after: () => { document.querySelectorAll('.modal-backdrop').forEach(m => m.dispatchEvent(new MouseEvent('click', { bubbles: true }))); router.highlight($('#sidebar')); window.scrollTo(0, 0); $('.admin-shell').classList.remove('nav-open'); }
 });
 
 function globalSearch(q) {

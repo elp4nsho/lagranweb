@@ -3,7 +3,7 @@ import { createDB } from '../../../assets/core/db.js';
 import { createAuth } from '../../../assets/core/auth.js';
 import { seed } from './seed.js';
 
-export const db = createDB('hotel', { version: 2, seed });
+export const db = createDB('hotel', { version: 3, seed });
 export const auth = createAuth(db, {
   roles: { admin: 'Administrador', recepcion: 'Recepción', housekeeping: 'Housekeeping', revenue: 'Revenue manager', guest: 'Huésped' }
 });

@@ -64,11 +64,11 @@ export function mountRuta(el, ctx) {
     if (cur.status === 'asignado' && !hasLeg(cur)) h = '<button class="btn btn-block btn-lg" disabled>Esperando inicio de ruta…</button>';
     else if (cur.status === 'asignado') { const arrived = preFrac(cur, t) >= 1; h = `<button class="btn btn-primary btn-block btn-lg" data-do="pick">${arrived ? '📦 Confirmar retiro' : '📦 Llegué al retiro'}</button>${arrived ? '' : '<small class="muted">Vas en camino al punto de retiro.</small>'}`; }
     else if (cur.status === 'retirado') h = '<button class="btn btn-primary btn-block btn-lg" data-do="go">🛵 Iniciar viaje a destino</button>';
-    else if (cur.status === 'en_camino') { const f = transitFrac(cur, t); h = `<div class="row" style="flex-wrap:nowrap"><button class="btn btn-ghost" data-do="fail">No entregado</button><button class="btn btn-primary btn-lg grow" data-do="pod">✍ ${f >= 1 ? 'Entregar ahora' : 'Entregar'}</button></div>${f < 1 ? `<small class="muted">Faltan ~${fmtEta(ops.etaOf(cur))} para llegar.</small>` : '<small class="muted">Llegaste al destino.</small>'}`; }
-    const sig = cur.status + (cur.status === 'asignado' ? preFrac(cur, t) >= 1 : '') + (cur.status === 'en_camino' ? Math.round(ops.etaOf(cur) / 5000) : '');
-    if (box.dataset.sig === sig) return;
-    box.dataset.sig = sig;
-    box.innerHTML = h;
+    else if (cur.status === 'en_camino') { const f = transitFrac(cur, t); h = `<div class="row" style="flex-wrap:nowrap"><button class="btn btn-ghost" data-do="fail">No entregado</button><button class="btn btn-primary btn-lg grow" data-do="pod">✍ ${f >= 1 ? 'Entregar ahora' : 'Entregar'}</button></div><small class="muted" data-left></small>`; }
+    const sig = cur.id + cur.status + (cur.status === 'asignado' ? preFrac(cur, t) >= 1 : '') + (cur.status === 'en_camino' ? transitFrac(cur, t) >= 1 : '') + hasLeg(cur);
+    if (box.dataset.sig !== sig) { box.dataset.sig = sig; box.innerHTML = h; }
+    const left = box.querySelector('[data-left]');
+    if (left) left.textContent = transitFrac(cur, t) >= 1 ? 'Llegaste al destino.' : `Faltan ~${fmtEta(ops.etaOf(cur))} para llegar.`;
   }
   body.addEventListener('click', async e => {
     const b = e.target.closest('[data-do]'); if (!b) return;

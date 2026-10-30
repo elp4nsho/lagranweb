@@ -16,7 +16,7 @@ export function watchOffers(ctx) {
     const c = ctx.courier();
     const dist = haversine(ops.posOf(c), s.pickup);
     box = document.createElement('div');
-    box.className = 'offer-backdrop';
+    box.className = 'modal-backdrop offer-backdrop';
     box.innerHTML = html`<div class="offer card" role="alertdialog" aria-modal="true" aria-labelledby="offer-t">
       <div class="offer-ring"><svg viewBox="0 0 100 100"><circle class="ring-bg" cx="50" cy="50" r="44"/><circle class="ring-fg" cx="50" cy="50" r="44" pathLength="100"/></svg><b data-secs></b></div>
       <span class="eyebrow">Nueva oferta</span><h2 id="offer-t">${money(earningOf(s))}</h2>

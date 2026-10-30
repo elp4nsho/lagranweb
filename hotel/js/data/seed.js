@@ -141,8 +141,8 @@ export function seed() {
   rooms.forEach(room => {
     let d = -120 + r.int(0, 3);
     while (d < 75) {
-      const ahead = d > 0 ? Math.floor(d / 9) : 0;
-      d += r.bool(.35) ? 0 : r.int(0, 2 + ahead);
+      const ahead = d > 0 ? Math.floor(d / 8) : 0;
+      d += d > 0 ? r.int(1, 3 + ahead) : r.bool(.35) ? 0 : r.int(0, 2);
       const nights = r.pick([1, 2, 2, 2, 3, 3, 3, 4, 5, 7]);
       const ci = addDays(T, d), co = addDays(T, d + nights);
       if (room.number === '304' && d + nights > -2) break; // fuera de servicio

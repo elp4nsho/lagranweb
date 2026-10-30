@@ -236,7 +236,7 @@ mark { background: color-mix(in srgb, var(--warning) 35%, transparent); color: i
 
 /* ---------- ATS (kanban) ---------- */
 .kanban { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(250px, 1fr); gap: 12px; overflow-x: auto; padding-bottom: 8px; align-items: start; }
-.kcol { background: var(--surface-2); border: var(--border-w) solid var(--line); border-radius: var(--radius); padding: 10px; display: flex; flex-direction: column; gap: 8px; min-height: 240px; }
+.kcol { background: var(--surface-2); border: var(--border-w) solid var(--line); border-radius: var(--radius); padding: 10px; display: flex; flex-direction: column; gap: 8px; min-height: 240px; max-height: 72vh; overflow-y: auto; }
 .kcol.over { border-color: var(--primary); box-shadow: var(--focus); }
 .kcol-h { display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 14px; padding: 2px 4px 6px; }
 .kcard { background: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius-sm); padding: 10px; cursor: grab; display: flex; flex-direction: column; gap: 6px; box-shadow: var(--shadow); font-size: 13px; }

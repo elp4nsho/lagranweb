@@ -64,7 +64,7 @@ export function article(view, id) {
     <article class="stack" style="min-width:0">
       ${crumbs([[c?.name, `#/categoria/${a.categoryId}`], [a.title]])}
       <h1 class="art-title">${escape(a.title)}</h1>
-      <p class="muted small">Actualizado el ${date(a.updatedAt)} · ${a.views.toLocaleString('es-CL')} lecturas${total ? ` · a ${Math.round(a.helpfulYes / total * 100)}% le resultó útil` : ''}</p>
+      <p class="muted small">Actualizado el ${date(a.editedAt || a.createdAt)} · ${a.views.toLocaleString('es-CL')} lecturas${total ? ` · a ${Math.round(a.helpfulYes / total * 100)}% le resultó útil` : ''}</p>
       <div class="card prose">${md(a.body)}</div>
       <div class="card vote-box" data-vote>
         ${vote ? `<p style="margin:0">${vote.value ? '¡Gracias! Nos alegra que te sirviera.' : 'Gracias por contarnos. ¿Quieres que te ayudemos directamente?'}</p>${vote.value ? '' : '<a class="btn btn-primary btn-sm" href="#/contacto">Crear un ticket</a>'}`

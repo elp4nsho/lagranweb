@@ -17,7 +17,7 @@ export function header(el) {
       <nav class="site-nav" aria-label="Principal">${NAV.map(([h, l]) => `<a href="${h}">${l}</a>`).join('')}</nav>
       <div class="header-cta">
         <a class="btn btn-ghost btn-sm" href="${u ? HOME_BY_ROLE[u.role] : 'login.html'}">${u ? `<span class="avatar" style="--size:24px;--av:${u.color || 'var(--primary)'}">${escape(initials(u.name))}</span>` : icon('user', 18)}<span class="hide-sm">${u ? (u.role === 'socio' ? 'Mi app' : 'Mi panel') : 'Ingresar'}</span></a>
-        <a class="btn btn-primary btn-sm" href="#/planes">${icon('fire', 16)} <span>Inscríbete</span></a>
+        <a class="btn btn-primary btn-sm" href="#/planes">${icon('fire', 16)} <span class="hide-xs">Inscríbete</span></a>
       </div>
     </div>`;
   const t = el.querySelector('.nav-toggle');

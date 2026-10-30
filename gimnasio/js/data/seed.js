@@ -79,7 +79,7 @@ export function seed() {
     const b = rnd(branches);
     members.push({ id: 'm' + i, code: 'TF-' + (10001 + i), name, rut: makeRut(r.int(12000000, 22000000)), email: name.split(' ').slice(0, 2).join('.').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase() + i + '@correo.cl', phone: `+56 9 ${r.int(5000, 9999)} ${r.int(1000, 9999)}`, birth: `${r.int(1965, 2006)}-${String(r.int(1, 12)).padStart(2, '0')}-${String(r.int(1, 28)).padStart(2, '0')}`, gender: f ? 'F' : 'M', planId, billing, branchId: b.id, status, since,
       nextDue: status === 'moroso' ? addDays(today, -r.int(3, 40)) : addDays(today, r.int(1, billing === 'anual' ? 300 : 30)),
-      freezeUntil: status === 'congelado' ? addDays(today, r.int(5, 25)) : '', leftAt: status === 'baja' ? addDays(today, -r.int(1, 120)) : '',
+      freezeUntil: status === 'congelado' ? addDays(today, r.int(5, 25)) : '', leftAt: status === 'baja' ? addDays(today, -r.int(1, 50)) : '',
       trainerId: planId !== 'basico' && r.bool(.5) ? rnd(trainers.filter(t => t.branchId === b.id)).id : '', goal: rnd(GOALS), color: COLORS[i % COLORS.length], createdAt: stamp(since) });
   }
   const planById = Object.fromEntries(plans.map(p => [p.id, p]));
@@ -107,7 +107,7 @@ export function seed() {
     const date = addDays(today, -off), wd = dow(date);
     const n = wd === 0 ? 8 : wd === 6 ? 18 : 30;
     for (let j = 0; j < n; j++) {
-      const m = r.bool(.08) ? members[0] : rnd(actives);
+      const m = r.bool(.035) ? members[0] : rnd(actives);
       const h = wd === 0 ? r.int(9, 13) : wd === 6 ? r.int(8, 18) : rnd(HOURS);
       if (off === 0 && h * 60 > toMin(nowHM())) continue;
       checkins.push({ id: 'k' + ki++, memberId: m.id, branchId: m.planId === 'black' && r.bool(.3) ? rnd(branches).id : m.branchId, at: stamp(date, `${String(h).padStart(2, '0')}:${String(r.int(0, 59)).padStart(2, '0')}`) });

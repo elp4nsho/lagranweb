@@ -40,7 +40,7 @@ export function render(el, ctx) {
       ${kpi('Dotación activa', act.length, `${hires.at(-1).value} ingresos este mes`)}
       ${kpi('Rotación 12 meses', `${String(turnover).replace('.', ',')} %`, `${exits12} egresos`, turnover > 15 ? 'down' : 'up')}
       ${kpi('Ausentismo (mes)', `${String(absM.at(-1).value).replace('.', ',')} %`, 'licencias y permisos sin goce')}
-      ${isAdmin ? kpi('Costo planilla', money(lastCost), runs.at(-1) ? `periodo ${runs.at(-1).period}` : '') : ''}
+      ${isAdmin ? kpi('Costo planilla', `$${String(Math.round(lastCost / 1e5) / 10).replace('.', ',')} MM`, runs.at(-1) ? `periodo ${runs.at(-1).period}` : '') : ''}
       ${kpi('Vacantes abiertas', db.count('jobs', j => j.status === 'publicada'), `${apps.length} candidatos en proceso`)}
       ${isAdmin ? kpi('Solicitudes pendientes', pend, 'vacaciones y permisos') : kpi('Nuevas postulaciones', db.count('applications', a => a.appliedAt >= addDays(T, -7)), 'últimos 7 días')}
     </div>

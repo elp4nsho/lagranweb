@@ -44,7 +44,7 @@ export function mountMasivo(el, ctx) {
     <div class="grid-2">
       <div class="card stack">
         <div class="field"><label for="b-from">Retirar en</label><select class="select" id="b-from">${addresses.map(a => raw(html`<option value="${a.id}">${a.label} · ${a.addr}, ${a.comuna}</option>`))}</select></div>
-        <div class="field"><label for="b-csv">Datos (nombre;telefono;direccion;comuna;tamano;servicio;notas)</label><textarea class="textarea csv-area" id="b-csv" placeholder="Pega aquí las filas de tu planilla"></textarea></div>
+        <div class="field"><label for="b-csv">Datos (nombre; teléfono; dirección; comuna; tamaño; servicio; notas)</label><textarea class="textarea csv-area" id="b-csv" placeholder="Pega aquí las filas de tu planilla"></textarea></div>
         <div class="row"><button class="btn" data-sample>Cargar ejemplo</button><label class="btn btn-ghost">Subir .csv<input type="file" accept=".csv,text/csv,text/plain" hidden data-file></label><button class="btn btn-primary" data-validate>Validar</button></div>
       </div>
       <div class="card stack"><b>Formato</b><p class="muted small">Una fila por envío, separada por punto y coma (;) o coma. La primera fila puede ser el encabezado. Tamaños: S, M, L, XL. Servicios: estandar, express, programado.</p>

@@ -284,3 +284,4 @@ a { text-decoration: none; }
   .admin-content { padding: 0; }
   .invoice { border: 0; box-shadow: none; max-width: none; }
 }
+@media (max-width: 600px) { .modal .modal-foot { padding-bottom: 64px; } }

@@ -139,7 +139,7 @@ export function seed() {
       const tot = common + reserve + water + bk + fine;
       let paid = (morosos[u.id] || 0) < age && (age > 1 ? r.bool(.985) : r.bool(.86));
       if (u.id === 'B-302') paid = age > 1;
-      const paidAt = paid ? iso(new Date(addM(per.period, 1) + `-${String(r.int(2, age > 1 ? 14 : 9)).padStart(2, '0')}T${r.int(9, 22)}:${r.int(10, 59)}`).getTime()) : null;
+      const paidAt = paid ? iso(new Date(addM(per.period, 1) + `-${String(r.int(2, age > 1 ? 14 : 9)).padStart(2, '0')}T${String(r.int(9, 22)).padStart(2, "0")}:${r.int(10, 59)}`).getTime()) : null;
       charges.push({ id: `ch-${per.period}-${u.id}`, period: per.period, unitId: u.id, alicuota: u.alicuota, common, reserve, water, m3, bookings: bk, fines: fine, total: tot, paid, paidAt, method: paid ? r.pick(['Webpay', 'Webpay', 'Transferencia', 'Transferencia', 'PAC', 'Caja vecina']) : null, folio: paid ? ++folio : null });
     });
   });

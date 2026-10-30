@@ -103,24 +103,26 @@ export function seed() {
   const CLOSERS = ['¡Listo! Gracias por la ayuda, ya funciona.', 'Perfecto, quedó solucionado.', 'Gracias, confirmo que ya está bien.', 'Ok, quedo atento.'];
   const tickets = [];
   let num = 10230;
-  for (let i = 0; i < 150; i++) {
+  const N = 560;
+  for (let i = 0; i < N; i++) {
     const cat = r.pick(['cat-int', 'cat-int', 'cat-int', 'cat-fac', 'cat-fac', 'cat-ins', 'cat-tv', 'cat-cta', 'cat-tel']);
     const [subject, body] = r.pick(POOL[cat]);
     const cust = i < 5 ? customers[0] : customers[r.int(1, customers.length - 1)];
-    const ageMin = i < 32 ? r.int(10, 4 * 1440) : r.int(4 * 1440, 182 * 1440);
+    // 5 tickets del cliente demo, ~20 abiertos recientes y el resto repartido en 6 meses.
+    let st, ageMin;
+    if (i < 5) { st = ['resuelto', 'pendiente', 'abierto', 'cerrado', 'nuevo'][i]; ageMin = [2 * 1440, 1500, 300, 40 * 1440, 25][i]; }
+    else if (i < 25) { st = r.pick(['nuevo', 'abierto', 'abierto', 'pendiente', 'espera', 'abierto']); ageMin = ['pendiente', 'espera'].includes(st) ? r.int(1440, 3 * 1440) : r.int(10, 640); }
+    else { ageMin = r.int(3 * 1440, 182 * 1440); st = ageMin < 14 * 1440 ? r.pick(['resuelto', 'cerrado']) : 'cerrado'; }
     const created = now - ageMin * MIN;
     const prio = /Sin internet|Cortes|no llegó/.test(subject) ? r.pick(['alta', 'urgente', 'alta']) : r.pick(['normal', 'normal', 'baja', 'alta']);
     const group = GROUP_OF[cat];
     const policy = slaOf(prio);
     const channel = r.pick(['web', 'portal', 'portal', 'email', 'chat', 'telefono']);
-    // Estado según antigüedad
-    let st = i < 32 ? r.pick(['nuevo', 'abierto', 'abierto', 'pendiente', 'espera', 'resuelto']) : r.pick(['cerrado', 'cerrado', 'resuelto', 'cerrado']);
-    if (i === 0) st = 'resuelto'; if (i === 1) st = 'pendiente'; if (i === 2) st = 'abierto'; if (i === 3) st = 'cerrado'; if (i === 4) st = 'nuevo';
     const assignee = st === 'nuevo' ? (r.bool(.3) ? r.pick(AGENT_OF[group]) : null) : r.pick(AGENT_OF[group]);
     const n = cust.name.split(' ')[0];
     const messages = [{ id: 'm' + i + 'a', authorId: cust.id, kind: 'public', body, at: iso(created), attachments: r.bool(.15) ? [{ name: r.pick(['boleta.pdf', 'foto_router.jpg', 'captura_speedtest.png']), size: r.int(80, 900) * 1024 }] : [] }];
     // Tiempo de primera respuesta: a veces fuera de SLA
-    const frt = Math.round(policy.first * (r.bool(.82) ? .15 + r() * .8 : 1.1 + r() * 1.5));
+    const frt = Math.round(policy.first * (r.bool(.86) ? .15 + r() * .8 : 1.1 + r() * 1.5));
     let firstResponseAt = null, resolvedAt = null;
     if (st !== 'nuevo' && created + frt * MIN < now) {
       firstResponseAt = created + frt * MIN;
@@ -135,7 +137,7 @@ export function seed() {
       }
     } else if (st !== 'nuevo') st = 'nuevo';
     const t = {
-      id: 't' + i, number: num + 150 - i, subject, categoryId: cat, priority: prio, status: st, channel, customerId: cust.id, assigneeId: st === 'nuevo' && !firstResponseAt ? (assignee && r.bool(.5) ? assignee : null) : assignee, groupId: group,
+      id: 't' + i, number: num + N - i, subject, categoryId: cat, priority: prio, status: st, channel, customerId: cust.id, assigneeId: st === 'nuevo' && !firstResponseAt ? (assignee && r.bool(.5) ? assignee : null) : assignee, groupId: group,
       tags: r.bool(.3) ? [r.pick(['reiterado', 'vip', 'masivo', 'fibra-cortada', 'facturacion'])] : [], messages, createdAt: iso(created), updatedAt: messages.at(-1).at,
       firstResponseDue: iso(created + policy.first * MIN), resolutionDue: iso(created + policy.resolution * MIN),
       firstResponseAt: firstResponseAt ? iso(firstResponseAt) : null, resolvedAt: resolvedAt ? iso(resolvedAt) : null
@@ -148,10 +150,10 @@ export function seed() {
   }
   // Ticket pensado para fusionar: duplicado del mismo cliente.
   const dup = tickets.find(t => t.status === 'abierto' && t.customerId !== 'u-cli');
-  if (dup) tickets.push({ ...JSON.parse(JSON.stringify(dup)), id: 't-dup', number: 10381, subject: dup.subject + ' (otra vez)', status: 'nuevo', assigneeId: null, firstResponseAt: null, messages: [{ ...dup.messages[0], id: 'mdup', body: 'Escribo de nuevo porque sigo con el mismo problema. ' + dup.messages[0].body, at: iso(now - 50 * MIN) }], createdAt: iso(now - 50 * MIN), updatedAt: iso(now - 50 * MIN), firstResponseDue: iso(now - 50 * MIN + slaOf(dup.priority).first * MIN), resolutionDue: iso(now - 50 * MIN + slaOf(dup.priority).resolution * MIN), tags: ['reiterado'] });
+  if (dup) tickets.push({ ...JSON.parse(JSON.stringify(dup)), id: 't-dup', number: num + N + 1, subject: dup.subject + ' (otra vez)', status: 'nuevo', assigneeId: null, firstResponseAt: null, messages: [{ ...dup.messages[0], id: 'mdup', body: 'Escribo de nuevo porque sigo con el mismo problema. ' + dup.messages[0].body, at: iso(now - 50 * MIN) }], createdAt: iso(now - 50 * MIN), updatedAt: iso(now - 50 * MIN), firstResponseDue: iso(now - 50 * MIN + slaOf(dup.priority).first * MIN), resolutionDue: iso(now - 50 * MIN + slaOf(dup.priority).resolution * MIN), tags: ['reiterado'] });
 
   // ---------- Base de conocimiento ----------
-  const articles = ARTICLES.map((a, i) => ({ ...a, authorId: r.pick(['u-sup', 'u-cam', 'u-roc', 'u-admin']), views: r.int(80, 4200), helpfulYes: r.int(10, 320), helpfulNo: r.int(1, 60), featured: ['a-lento', 'a-corte', 'a-boleta', 'a-traslado', 'a-router', 'a-pagos'].includes(a.id), createdAt: iso(now - r.int(60, 500) * DAY), updatedAt: iso(now - r.int(1, 60) * DAY) }));
+  const articles = ARTICLES.map((a, i) => ({ ...a, authorId: r.pick(['u-sup', 'u-cam', 'u-roc', 'u-admin']), views: r.int(80, 4200), helpfulYes: r.int(10, 320), helpfulNo: r.int(1, 60), featured: ['a-lento', 'a-corte', 'a-boleta', 'a-traslado', 'a-router', 'a-pagos'].includes(a.id), createdAt: iso(now - r.int(60, 500) * DAY), editedAt: iso(now - (i + 1) * 3 * DAY) }));
 
   // ---------- Macros ----------
   const macros = [
@@ -238,5 +240,5 @@ export function seed() {
     contactCategories: ['cat-int', 'cat-fac', 'cat-ins', 'cat-tv', 'cat-cta', 'cat-tel']
   };
 
-  return { users, groups, categories: CATEGORIES, articles, tickets, macros, slas, triggers, services, incidents, chats, notifications, subscribers: [{ id: 'sb1', email: 'vecinos.llanquihue@correo.cl', serviceIds: ['s-int'], createdAt: iso(now - 20 * DAY) }], votes: [], help, ticketSeq: 10382 };
+  return { users, groups, categories: CATEGORIES, articles, tickets, macros, slas, triggers, services, incidents, chats, notifications, subscribers: [{ id: 'sb1', email: 'vecinos.llanquihue@correo.cl', serviceIds: ['s-int'], createdAt: iso(now - 20 * DAY) }], votes: [], help, ticketSeq: 10230 + 562 };
 }

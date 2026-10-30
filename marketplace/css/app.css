@@ -12,7 +12,7 @@
 .hide { display: none !important; }
 @media (max-width: 640px) { .hide-sm { display: none !important; } }
 .lead { font-size: 1.12em; color: var(--muted); max-width: 62ch; }
-.kpi-row { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr)); }
+.kpi-row { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fill, minmax(min(215px, 100%), 1fr)); }
 .split { display: grid; gap: var(--gap); grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
 @media (max-width: 960px) { .split { grid-template-columns: minmax(0, 1fr); } }
 .card h3, .card h2 { margin-top: 0; }
@@ -249,3 +249,9 @@ th.sortable { cursor: pointer; user-select: none; }
 .trust { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; color: var(--muted); }
 .brief-card { display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: inherit; }
 .mini-stats { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+
+/* Títulos de página del panel: tamaño contenido aunque el estilo agrande los h1 */
+.admin-content .page-head h1 { font-size: clamp(24px, 3vw, 34px); line-height: 1.15; overflow-wrap: anywhere; }
+.kpi-row .stat .value { font-size: clamp(20px, 2.1vw, 28px); overflow-wrap: anywhere; min-width: 0; }
+.kpi-row > .card { min-width: 0; }
+@media (max-width: 600px) { .card .row > .btn, .card .actions .btn { white-space: normal; max-width: 100%; text-align: center; height: auto; padding-block: 8px; } }
