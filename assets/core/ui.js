@@ -88,7 +88,8 @@ export function modal({ title = '', body = '', foot = '', size = '', onClose } =
     prev && prev.focus && prev.focus();
     onClose && onClose();
   };
-  const onKey = e => { if (e.key === 'Escape') close(); };
+  // Escape cierra solo el modal de más arriba (si hay varios apilados).
+  const onKey = e => { if (e.key === 'Escape' && [...document.querySelectorAll('.modal-backdrop')].pop() === bd) close(); };
   document.addEventListener('keydown', onKey);
   bd.addEventListener('click', e => { if (e.target === bd || e.target.closest('[data-close]')) close(); });
   setTimeout(() => (bd.querySelector('[autofocus], input, select, textarea, .modal-foot .btn-primary') || bd.querySelector('[data-close]')).focus(), 30);
