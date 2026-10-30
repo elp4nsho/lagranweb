@@ -1,5 +1,5 @@
 // Ingreso: equipo (panel, vendedor, inspector) y clientes (mi cuenta), con cuentas demo de un clic.
-import { toast, escape } from '../../../assets/core/ui.js';
+import { toast, escape } from '../../assets/core/ui.js';
 import { db, auth, HOME, PAGE_ROLES } from './data/db.js';
 import { settings } from './shared/domain.js';
 
