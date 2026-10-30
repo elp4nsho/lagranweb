@@ -270,3 +270,152 @@ details summary { cursor: pointer; color: var(--primary); }
 .brand-text b { overflow: hidden; text-overflow: ellipsis; }
 .cal-title { text-transform: none; } .cal-title::first-letter { text-transform: uppercase; }
 @media (max-width: 480px) { .hdr-row { gap: 8px; } .hdr-row > .btn-primary { padding: 0 12px; letter-spacing: .06em; } }
+
+/* =====================================================================
+   Disposiciones (clásica = diseño base; revista y app reorganizan)
+   ===================================================================== */
+.hero-inner .hero-text { display: flex; flex-direction: column; }
+
+/* ---------- REVISTA: revista de viajes ---------- */
+[data-layout="revista"] .nav-toggle, [data-layout="app"] .nav-toggle { display: none !important; }
+[data-layout="revista"] .site-nav { position: static !important; flex-direction: row !important; background: none !important; box-shadow: none !important; padding-inline: 0 !important; }
+[data-layout="revista"] .site-nav a { text-transform: uppercase; letter-spacing: .1em; font-size: 12px; padding: 6px 2px; border-bottom: 0; }
+[data-layout="revista"] .site-nav a.active { box-shadow: inset 0 -2px 0 var(--primary); }
+[data-layout="revista"] .brand-text small { letter-spacing: .3em; text-transform: uppercase; }
+[data-layout="revista"] .site-header .hdr-row { position: relative; }
+/* Portada: titular arriba y la foto como gran imagen de portada debajo (no de fondo) */
+[data-layout="revista"] .site-hero { display: flex; flex-direction: column; min-height: 0; padding-bottom: 0; }
+[data-layout="revista"] .site-hero .hero-inner { padding: 48px 0 28px; }
+[data-layout="revista"] .site-hero .hero-bg { position: relative; order: 2; inset: auto; width: min(1120px, 100% - 40px); margin: 0 auto; height: clamp(240px, 34vw, 440px); border: 1px solid var(--line); }
+[data-layout="revista"] .site-hero .hero-bg .room-art { opacity: 1; }
+[data-layout="revista"] .site-hero .hero-bg::after { display: none; }
+[data-layout="revista"] .site-main > div:has(> .site-hero) { display: flex; flex-direction: column; }
+[data-layout="revista"] .search-wrap { order: 1; margin-top: 20px; }
+[data-layout="revista"] .search-wrap .search-bar { border-radius: 0; box-shadow: none; border-width: 3px 0; border-style: double; background: none; }
+[data-layout="revista"] .home-about { order: 2; background: none; }
+[data-layout="revista"] .home-rooms { order: 3; }
+[data-layout="revista"] .home-features { order: 4; }
+[data-layout="revista"] .home-offers { order: 5; background: none; }
+[data-layout="revista"] .about > :first-child { order: 2; }
+[data-layout="revista"] .about p:first-of-type::first-letter { float: left; font: var(--head-weight) 3.4em/0.9 var(--font-head); padding: 4px 8px 0 0; color: var(--primary); }
+[data-layout="revista"] .about .facts { border-block: 1px solid var(--line); padding-block: 10px; justify-content: space-between; }
+[data-layout="revista"] .about-art { border-radius: 0; box-shadow: none; }
+/* Habitaciones: pieza principal grande, resto como notas */
+[data-layout="revista"] .type-grid > .type-card { border-radius: 0; box-shadow: none; background: none; border: 0; border-top: 1px solid var(--line); padding-inline: 0; }
+[data-layout="revista"] .type-grid > .type-card:first-child .type-art .room-art { aspect-ratio: 4 / 3; }
+[data-layout="revista"] .type-grid > .type-card:first-child h3 { font-size: clamp(24px, 3vw, 34px); }
+[data-layout="revista"] .home-features .grid-2 { gap: 0; }
+[data-layout="revista"] .home-features .feature { border-radius: 0; box-shadow: none; border-width: 0 0 0 1px; background: none; }
+[data-layout="revista"] .home-features .feature:first-child { border-left: 0; }
+[data-layout="revista"] .offer-grid { grid-template-columns: minmax(0, 1fr) !important; gap: 0; }
+[data-layout="revista"] .offer-grid > .offer { grid-column: auto !important; grid-row: auto !important; display: grid; grid-template-columns: 120px minmax(0, 1fr) auto; align-items: center; gap: 4px 20px; border-radius: 0; box-shadow: none; background: none; border: 0; border-bottom: 1px solid var(--line); }
+[data-layout="revista"] .offer-grid .offer-pct { position: static; grid-row: span 2; font-size: 44px; }
+[data-layout="revista"] .offer-grid .offer > .row { grid-column: 3; grid-row: 1 / span 2; flex-direction: column; align-items: flex-end; }
+[data-layout="revista"] .page-top > .container > h1, [data-layout="revista"] .page-top h1 { font-size: clamp(34px, 5vw, 60px); }
+/* Habitación: galería a todo el ancho arriba, ficha de reserva como franja, texto a una columna */
+[data-layout="revista"] .room-layout { grid-template-columns: minmax(0, 1fr); max-width: 920px; margin-inline: auto; }
+[data-layout="revista"] .room-layout > .stack { display: contents; }
+[data-layout="revista"] .room-layout > .stack > * { order: 1; }
+[data-layout="revista"] .room-layout > .stack > a:first-child { order: -3; }
+[data-layout="revista"] .room-layout > .stack > .gallery { order: -2; border-radius: 0; }
+[data-layout="revista"] .room-layout > .stack > .thumbs { order: -1; }
+[data-layout="revista"] .room-layout > .book-box { order: 0; position: static; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.2fr); align-items: center; gap: 12px 20px; border-radius: 0; box-shadow: none; border-width: 3px 0; border-style: double; background: none; }
+[data-layout="revista"] .room-layout > .book-box > .eyebrow { grid-column: 1 / -1; }
+[data-layout="revista"] .room-layout > .book-box > .mini-list { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 4px 18px; }
+/* Reserva: resumen arriba como recibo horizontal */
+[data-layout="revista"] .stepper { border-block: 3px double var(--line); padding-block: 10px; }
+[data-layout="revista"] .book-grid { grid-template-columns: minmax(0, 1fr); max-width: 920px; }
+[data-layout="revista"] .book-grid > .sum-box { order: -1; position: static; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px 24px; border-style: dashed; }
+[data-layout="revista"] .book-grid > .sum-box > .sum-art { grid-row: span 3; }
+[data-layout="revista"] .book-grid > .sum-box > h3, [data-layout="revista"] .book-grid > .sum-box > small { grid-column: 1 / -1; }
+/* Panel */
+[data-layout="revista"] .sec-dashboard > .kpi-grid { gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .sec-dashboard > .kpi-grid > .card { border-radius: 0; background: none; box-shadow: none; border: 0; border-right: 1px solid var(--line); }
+[data-layout="revista"] .sec-dashboard > .grid-3 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+[data-layout="revista"] .sec-dashboard > .grid-3 > :last-child { grid-column: 1 / -1; order: -1; }
+[data-layout="revista"] .sec-dashboard > .grid-2 { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+[data-layout="revista"] .hk-top { justify-content: center; border-bottom: 3px double var(--line); }
+[data-layout="revista"] .hk-mobile { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); }
+[data-layout="revista"] .hk-mobile > .tabs, [data-layout="revista"] .hk-mobile > .progress { grid-column: 1 / -1; }
+[data-layout="revista"] .hk-mobile > .hk-m { border-radius: 0; box-shadow: none; border-width: 0 0 1px; background: none; }
+@media (max-width: 900px) {
+  [data-layout="revista"] .sec-dashboard > .grid-3, [data-layout="revista"] .sec-dashboard > .grid-2 { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="revista"] .room-layout > .book-box { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  [data-layout="revista"] .about > :first-child { order: 0; }
+  [data-layout="revista"] .home-features .feature { border-left: 0; border-top: 1px solid var(--line); }
+  [data-layout="revista"] .offer-grid > .offer { grid-template-columns: 80px minmax(0, 1fr); }
+  [data-layout="revista"] .offer-grid .offer > .row { grid-column: 1 / -1; grid-row: auto; flex-direction: row; }
+  [data-layout="revista"] .offer-grid .offer-pct { font-size: 32px; }
+  [data-layout="revista"] .book-grid > .sum-box { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="revista"] .book-grid > .sum-box > .sum-art { grid-row: auto; }
+}
+
+/* ---------- APP: reserva como aplicación ---------- */
+[data-layout="app"] .site-header .announce { display: none; }
+[data-layout="app"] .site-hero .hero-bg { display: none; }
+[data-layout="app"] .site-hero .hero-inner { padding: clamp(20px, 3vw, 36px); }
+[data-layout="app"] .site-hero .hero-text h1 { max-width: none; }
+[data-layout="app"] .site-main > div:has(> .site-hero) { display: flex; flex-direction: column; }
+[data-layout="app"] .search-wrap { margin-top: 0; }
+[data-layout="app"] .search-wrap .search-bar { box-shadow: var(--shadow); }
+[data-layout="app"] .home-offers { order: 1; background: none; border: 0; }
+[data-layout="app"] .home-rooms { order: 2; }
+[data-layout="app"] .home-features { order: 3; }
+[data-layout="app"] .home-about { order: 4; background: none; border: 0; }
+@media (min-width: 761px) { [data-layout="app"] .site-hero .hero-inner { display: block !important; } }
+/* Ofertas en carrusel de cupones */
+[data-layout="app"] .offer-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 6px; }
+[data-layout="app"] .offer-grid > .offer { flex: 0 0 min(300px, 82%); scroll-snap-align: start; border-top: 0; border-left: 6px solid var(--tone, var(--primary)); }
+/* Habitaciones como filas de resultados: foto | datos */
+[data-layout="app"] .type-grid { grid-template-columns: minmax(0, 1fr) !important; gap: 10px; }
+[data-layout="app"] .type-grid > .type-card { grid-column: auto !important; display: grid; grid-template-columns: 220px minmax(0, 1fr); align-items: center; gap: 16px; padding: 10px; }
+[data-layout="app"] .type-grid .type-art .room-art { aspect-ratio: 16 / 10; }
+[data-layout="app"] .home-features .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+[data-layout="app"] .home-features .feature-art .room-art { aspect-ratio: 21 / 9; }
+[data-layout="app"] .about { grid-template-columns: minmax(0, 1fr) 260px; }
+/* Habitación: ficha de reserva fija a la IZQUIERDA, galería y detalle a la derecha */
+[data-layout="app"] .room-layout { grid-template-columns: 320px minmax(0, 1fr); }
+[data-layout="app"] .room-layout > .book-box { order: -1; top: 16px; }
+[data-layout="app"] .room-layout .gallery-main .room-art { aspect-ratio: 21 / 9; }
+[data-layout="app"] .room-layout .thumbs { grid-template-columns: repeat(4, 90px); }
+/* Reserva: resumen a la izquierda (escritorio) o barra de total pegada abajo (celular) */
+[data-layout="app"] .book-grid { grid-template-columns: 300px minmax(0, 1fr); }
+[data-layout="app"] .book-grid > .sum-box { order: -1; top: 16px; }
+[data-layout="app"] .stepper { position: sticky; top: 0; z-index: 20; background: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius); padding: 8px; }
+/* Panel: KPIs en columna lateral, paneles en mosaico */
+@media (min-width: 1200px) {
+  [data-layout="app"] .sec-dashboard { display: grid; gap: var(--gap); grid-template-columns: 240px minmax(0, 1fr) minmax(0, 1fr); align-content: start; }
+  [data-layout="app"] .sec-dashboard > * { grid-column: 2 / -1; }
+  [data-layout="app"] .sec-dashboard > .page-head { grid-column: 1 / -1; }
+  [data-layout="app"] .sec-dashboard > .kpi-grid { grid-column: 1; grid-row: 2 / span 5; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 8px; }
+  [data-layout="app"] .sec-dashboard > .grid-2 { display: contents; }
+  [data-layout="app"] .sec-dashboard > .grid-2 > .card { grid-column: auto; }
+}
+/* Limpieza: pestañas como barra inferior y habitaciones en mosaico compacto */
+[data-layout="app"] .hk-mobile { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr)); gap: 10px; padding-bottom: 150px; }
+[data-layout="app"] .hk-mobile > .progress { grid-column: 1 / -1; }
+[data-layout="app"] .hk-mobile > .tabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; background: var(--surface); border-top: var(--border-w) solid var(--line); padding: 4px 8px; margin: 0; box-shadow: 0 -6px 20px rgba(0, 0, 0, .12); }
+[data-layout="app"] .hk-mobile > .tabs .tab { flex: 1; }
+[data-layout="app"] .hk-page .lgw-dock { bottom: 80px; }
+@media (max-width: 900px) {
+  [data-layout="app"] .room-layout, [data-layout="app"] .book-grid { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="app"] .room-layout > .book-box { position: static; }
+  [data-layout="app"] .book-grid > .sum-box { order: 2; position: sticky; top: auto; bottom: 72px; z-index: 30; box-shadow: var(--shadow-lg); padding: 10px 14px; }
+  [data-layout="app"] .book-grid > .sum-box > :not(.total-row):not(h3) { display: none; }
+  [data-layout="app"] .book-grid > .sum-box:has(.total-row) > h3 { display: none; }
+  [data-layout="app"] .result { grid-template-columns: 110px minmax(0, 1fr); gap: 10px; }
+  [data-layout="app"] .result-art .room-art { aspect-ratio: 1; min-height: 0; }
+  [data-layout="app"] .about { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="app"] .sec-dashboard > .kpi-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+  [data-layout="app"] .sec-dashboard > .kpi-grid > * { flex: 0 0 62%; scroll-snap-align: start; }
+}
+@media (max-width: 600px) {
+  [data-layout="app"] .type-grid > .type-card { grid-template-columns: 110px minmax(0, 1fr); gap: 10px; align-items: start; }
+  [data-layout="app"] .type-grid .type-card p, [data-layout="app"] .type-grid .type-card .row.small { display: none; }
+  [data-layout="app"] .home-features .grid-2 { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="app"] .room-layout .thumbs { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+[data-layout="revista"] .site-brand .brand-text b { font-size: clamp(26px, 4vw, 42px); }
+[data-layout="revista"] .site-brand .brand-mark { transform: scale(1.3); }

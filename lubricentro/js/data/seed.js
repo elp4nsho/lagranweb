@@ -263,14 +263,14 @@ export function seed() {
     const season = 1 + .12 * Math.sin((dt.getMonth() + 2) / 12 * Math.PI * 2) + (180 - d) / 1400;
     BRANCHES.forEach(b => {
       const cars = Math.max(2, Math.round(baseCars[b.id] * (dow === 6 ? .55 : dow === 1 ? 1.12 : 1) * season * (.78 + r() * .44)));
-      const ticket = 41000 + r.int(-4000, 9000) + (b.id === 'b2' ? 7000 : 0);
+      const ticket = 49000 + r.int(-5000, 8000) + (b.id === 'b2' ? 7000 : 0);
       const upO = Math.round(cars * (.3 + r() * .12)), upA = Math.round(upO * (.36 + r() * .2));
       dailyStats.push({ d: day, b: b.id, cars, rev: cars * ticket, wait: r.int(6, 24) + (b.id === 'b2' ? 3 : 0), upO, upA, bayMin: cars * r.int(34, 46) });
     });
   }
 
   // ---------- Stock ----------
-  const products = PRODUCTS.map(([sku, name, cat, unit, price, cost, min, base, supplierId, oil], i) => ({ id: 'p' + i, sku, name, cat, unit, price, cost, min, supplierId, oil: oil || '', active: true, stock: Object.fromEntries(BRANCHES.map(b => [b.id, Math.max(0, Math.round(base * (.25 + r() * 1.1)))])) }));
+  const products = PRODUCTS.map(([sku, name, cat, unit, price, cost, min, base, supplierId, oil], i) => ({ id: 'p' + i, sku, name, cat, unit, price, cost, min, supplierId, oil: oil || '', active: true, stock: Object.fromEntries(BRANCHES.map(b => [b.id, Math.max(0, Math.round(base * (.62 + r() * .9)))])) }));
   products.find(p => p.sku === 'BT-60').stock.b3 = 2;
   products.find(p => p.sku === 'AC-0020').stock.b2 = 38;
   products.find(p => p.sku === 'FL-OIL-E').stock.b1 = 5;
@@ -350,5 +350,16 @@ export function seed() {
 
   // Compactar: quitar campos vacíos opcionales de las atenciones cerradas.
   jobs.forEach(j => { ['notes', 'coupon', 'bookedFor', 'doneAt'].forEach(k => { if (j[k] === '') delete j[k]; }); if (!j.discount) delete j.discount; });
-  return { _anchor: now, settings, oils: OILS, services: SERVICES, branches: BRANCHES.map(({ bays: _, ...b }) => b), bays, users, customers, vehicles, jobs, dailyStats, products, suppliers: SUPPLIERS, purchaseOrders: pos, plans, planPurchases, coupons, signups, campaigns, messages };
+  const _log = [];
+  const L = (m, action, detail, user) => _log.push({ id: 'lg' + _log.length, at: new Date(now - m * 6e4).toISOString(), action, detail, user });
+  jobs.filter(j => j.status === 'pagado' && j.pay && j.paidAt > new Date(now - 864e5).toISOString()).slice(-12).forEach(j => L((now - Date.parse(j.paidAt)) / 6e4, 'caja', `${j.code} · boleta N° ${j.pay.folio} · $${j.total.toLocaleString('es-CL')}`, users.find(u => u.role === 'recepcion' && u.branchId === j.branchId)?.id));
+  L(14, 'upsell', 'PR recomendación: Pastillas de freno delanteras al 20% (KJTR-45)', 'u-tec');
+  L(48, 'precios', 'Matriz de precios actualizada (3 servicios)', 'u-admin');
+  L(95, 'compras', 'OC-3310 enviada a Lubricantes Cordillera SpA', 'u-j2');
+  L(130, 'turnos', 'Bastián Rojas: Sáb → Mañana 08:30–14:30', 'u-jefe');
+  L(220, 'campañas', '"Recordatorio cambio vencido" enviada a 412 contactos (whatsapp)', 'u-admin');
+  L(300, 'login', 'Carolina Fuentes inició sesión', 'u-admin');
+  L(1500, 'contenido', 'Contenido del sitio actualizado', 'u-admin');
+  _log.sort((a, b) => b.at.localeCompare(a.at));
+  return { _anchor: now, _log, settings, oils: OILS, services: SERVICES, branches: BRANCHES.map(({ bays: _, ...b }) => b), bays, users, customers, vehicles, jobs, dailyStats, products, suppliers: SUPPLIERS, purchaseOrders: pos, plans, planPurchases, coupons, signups, campaigns, messages };
 }

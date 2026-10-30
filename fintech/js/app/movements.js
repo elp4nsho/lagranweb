@@ -28,7 +28,8 @@ export function render(el, { user }) {
 
   el.innerHTML = h`
   ${raw(pageHead('Movimientos', 'Tus cargos y abonos de los últimos 6 meses.', '<button class="btn btn-sm" data-csv>⬇ Exportar CSV</button>'))}
-  <div class="grid-2" style="align-items:start">
+  <div class="mv">
+  <div class="grid-2 mv-charts" style="align-items:start">
     <section class="card"><h3>Gasto mensual por categoría</h3>${raw(stackedBars(groups, spendCats, { format: money }))}</section>
     <section class="card">
       <div class="row between"><h3 style="margin:0">Distribución</h3>
@@ -37,7 +38,7 @@ export function render(el, { user }) {
       ${donut.length ? raw(donutChart(donut.map(d => ({ ...d, label: `${CAT_ICON[d.label] || ''} ${d.label}`, value: d.value })), { label: money(selTotal).replace('$', '$ ') })) : raw('<div class="empty">Sin gastos en este mes</div>')}
     </section>
   </div>
-  <section class="card stack">
+  <section class="card stack mv-list">
     <div class="filters">
       <div class="field grow"><label for="mq">Buscar</label><input class="input" id="mq" type="search" placeholder="Comercio, descripción…" value="${state.q}"></div>
       <div class="field"><label for="macc">Cuenta</label><select class="select" id="macc"><option value="">Todas</option>${accs.map(a => h`<option value="${a.id}" ${state.account === a.id ? 'selected' : ''}>${a.type === 'vista' ? 'Cuenta Vista' : a.type === 'ahorro' ? 'Ahorro' : 'Tarjeta crédito'}</option>`)}</select></div>
@@ -51,7 +52,8 @@ export function render(el, { user }) {
     </div>
     <ul class="tx-list" data-list></ul>
     <div class="row" style="justify-content:center"><button class="btn btn-sm" data-more>Cargar más</button></div>
-  </section>`;
+  </section>
+  </div>`;
 
   const filtered = () => all.filter(t =>
     (!state.q || norm(t.desc + ' ' + t.category + ' ' + (t.counterpart || '')).includes(norm(state.q))) &&

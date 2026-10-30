@@ -31,6 +31,8 @@ function paintChrome() {
   const s = ctx.site, c = idx.company;
   document.getElementById('heroTitle').textContent = s.heroTitle || '¿Quién es quién?';
   document.getElementById('heroSub').textContent = s.heroSubtitle || '';
+  const st = idx.people.reduce((m, p) => { const k = idx.statusOf(p); m[k] = (m[k] || 0) + 1; return m; }, {});
+  document.getElementById('heroStats').innerHTML = `<div class="stat"><span class="label">Personas</span><span class="value">${idx.people.length}</span></div><div class="stat"><span class="label">En la oficina hoy</span><span class="value">${st.oficina || 0}</span></div><div class="stat"><span class="label">Áreas</span><span class="value">${idx.areas.length}</span></div><div class="stat"><span class="label">Pisos</span><span class="value">${idx.floors.length}</span></div>`;
   document.getElementById('coLine').textContent = c ? `${c.name} · ${c.tagline} · ${c.city}` : '';
   const ann = db.query('announcements', a => a.published && a.audience === 'todos' && (!a.companyId || a.companyId === c?.id))
     .sort((a, b) => (b.pinned - a.pinned) || b.date.localeCompare(a.date)).slice(0, 2);

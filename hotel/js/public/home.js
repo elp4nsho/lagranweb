@@ -42,36 +42,36 @@ export function renderHome(el) {
   const offers = db.query('offers', o => o.active);
   const season = currentSeason();
   el.innerHTML = `
-    <section class="hero">
-      <div class="hero-bg" aria-hidden="true">${roomArt('superior', 3, { label: 'Atardecer en la bahía' })}</div>
-      <div class="container hero-inner stack" data-anim>
+    <section class="hero site-hero">
+      <div class="hero-bg hero-media" aria-hidden="true">${roomArt('superior', 3, { label: 'Atardecer en la bahía' })}</div>
+      <div class="container hero-inner"><div class="hero-text stack" data-anim>
         <span class="eyebrow">${escape(c.tagline)}</span>
         <h1>${escape(c.heroTitle)}</h1>
         <p class="lead">${escape(c.heroText)}</p>
-      </div>
+      </div></div>
     </section>
     <div class="container search-wrap" data-search></div>
-    <section class="section">
+    <section class="section home-rooms">
       <div class="container stack">
         <div class="row between"><div><span class="eyebrow">Habitaciones y suites</span><h2>Cinco maneras de mirar el puerto</h2></div><a class="btn" href="#/habitaciones">Ver todas</a></div>
-        <div class="grid-3">${types.slice(0, 3).map(t => typeCard(t)).join('')}</div>
+        <div class="grid-3 type-grid">${types.slice(0, 3).map(t => typeCard(t)).join('')}</div>
       </div>
     </section>
-    <section class="section band">
+    <section class="section band home-about">
       <div class="container grid-2 about">
         <div class="stack" data-anim><span class="eyebrow">La casona</span><h2>Una casa de 1910 con alma porteña</h2><p>${escape(c.about)}</p>
           <div class="row facts"><div><b>21</b><small>habitaciones</small></div><div><b>1910</b><small>casona patrimonial</small></div><div><b>4,8★</b><small>en reseñas</small></div></div></div>
         <div class="about-art card" data-anim data-anim-delay="150">${roomArt('suite', 1, { label: 'Suite Lumen' })}</div>
       </div>
     </section>
-    <section class="section">
+    <section class="section home-features">
       <div class="container grid-2">
         <a class="card hover feature" href="#/spa"><div class="feature-art">${roomArt('deluxe', 2, { label: 'Spa' })}</div><span class="eyebrow">Marejada Spa</span><h3>Aguas temperadas frente al puerto</h3><p class="muted">${escape(c.spaText)}</p></a>
         <a class="card hover feature" href="#/restaurante"><div class="feature-art">${roomArt('panoramica', 0, { label: 'Restaurante' })}</div><span class="eyebrow">Marea Alta</span><h3>Cocina del Pacífico</h3><p class="muted">${escape(c.restaurantText)}</p></a>
       </div>
     </section>
-    ${offers.length ? `<section class="section band"><div class="container stack"><div class="row between"><div><span class="eyebrow">Ofertas</span><h2>Reserva directo y ahorra</h2></div>${season ? `<span class="badge plain">Ahora: ${escape(season.name)}</span>` : ''}</div>
-      <div class="grid-3">${offers.map(o => offerCard(o)).join('')}</div></div></section>` : ''}`;
+    ${offers.length ? `<section class="section band home-offers"><div class="container stack"><div class="row between"><div><span class="eyebrow">Ofertas</span><h2>Reserva directo y ahorra</h2></div>${season ? `<span class="badge plain">Ahora: ${escape(season.name)}</span>` : ''}</div>
+      <div class="grid-3 offer-grid">${offers.map(o => offerCard(o)).join('')}</div></div></section>` : ''}`;
   searchWidget(el.querySelector('[data-search]'));
 }
 

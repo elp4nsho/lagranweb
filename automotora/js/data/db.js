@@ -12,4 +12,4 @@ export const ROLES = { admin: 'Administrador', gerente: 'Gerente comercial', ven
 export const auth = createAuth(db, { roles: ROLES });
 export const HOME_BY_ROLE = { admin: 'admin.html', gerente: 'admin.html', vendedor: 'vendedor.html', analista: 'credito.html', asesor: 'posventa.html', cliente: 'index.html#/cuenta' };
 // Qué páginas puede abrir cada rol
-export const PAGE_ROLES = { 'admin.html': ['admin', 'gerente'], 'vendedor.html': ['vendedor', 'gerente', 'admin'], 'credito.html': ['analista', 'gerente', 'admin'], 'posventa.html': ['asesor', 'admin'] };
+export const PAGE_ROLES = { 'admin.html': ['admin', 'gerente', 'analista', 'asesor'], 'vendedor.html': ['vendedor', 'gerente', 'admin'], 'credito.html': ['analista', 'gerente', 'admin'], 'posventa.html': ['asesor', 'admin'] };

@@ -6,6 +6,7 @@ import { branches, branchById, dailySeries, branchLive, baysOf, waitLabel, waitT
 import { myBranch, branchSelect } from './common.js';
 
 let sel = null;
+const short = n => n >= 1e6 ? `$${(n / 1e6).toFixed(1).replace('.', ',')} M` : money(n);
 const sum = (a, k) => a.reduce((s, x) => s + x[k], 0);
 const pctD = (a, b) => b ? ((a - b) / b * 100) : 0;
 const delta = (a, b, inv = false) => { const d = pctD(a, b); return [`${d >= 0 ? '▲' : '▼'} ${Math.abs(d).toFixed(1).replace('.', ',')}% vs. período anterior`, inv ? d <= 0 : d >= 0]; };
@@ -50,7 +51,7 @@ export default {
       el.innerHTML = `${pageHead('Dashboard', `Operación ${sel ? 'de ' + escape(branchById(sel)?.name) : 'de toda la cadena'} · últimos 30 días`, branchSelect(sel))}
         <div class="kpi-grid">
           ${kpi('Autos hoy', num(todayJobs.length), `ayer: ${yest}`, todayJobs.length >= yest)}
-          ${kpi('Ingresos 30 días', money(sum(cur, 'rev')), ...delta(sum(cur, 'rev'), sum(prev, 'rev')))}
+          ${kpi('Ingresos 30 días', short(sum(cur, 'rev')), ...delta(sum(cur, 'rev'), sum(prev, 'rev')))}
           ${kpi('Ticket promedio', money(ticket), ...delta(ticket, ticketP))}
           ${kpi('Utilización bahías hoy', `${Math.round(utilToday(sel))}%`, '', true, 'minutos en bahía / capacidad')}
           ${kpi('Espera promedio', `${Math.round(waitAvg)} min`, ...delta(waitAvg, waitP, true))}
@@ -62,18 +63,18 @@ export default {
         </div>
         <div class="grid-2">
           <div class="card stack"><h3 style="margin:0">Comparativo por sucursal (30 días)</h3>
-            <div class="table-wrap"><table class="table"><thead><tr><th>Sucursal</th><th>Autos</th><th>Ingresos</th><th>Espera</th><th>Conv.</th><th>Uso</th></tr></thead><tbody>${per.map(p => `<tr><td><b>${escape(p.b.name)}</b></td><td>${num(p.cars)}</td><td>${money(p.rev)}</td><td>${Math.round(p.wait)}′</td><td>${p.conv.toFixed(0)}%</td><td>${Math.round(p.util)}%</td></tr>`).join('')}</tbody></table></div>
+            <div class="table-wrap"><table class="table"><thead><tr><th>Sucursal</th><th>Autos</th><th>Ingresos</th><th>Espera</th><th>Uso</th></tr></thead><tbody>${per.map(p => `<tr><td><b>${escape(p.b.name)}</b></td><td>${num(p.cars)}</td><td>${short(p.rev)}</td><td>${Math.round(p.wait)}′</td><td>${Math.round(p.util)}%</td></tr>`).join('')}</tbody></table></div>
             <b class="small">Autos</b>${per.map(p => `<div class="bar-row"><span>${escape(p.b.name)}</span><div class="progress"><i style="--v:${p.cars / maxCars * 100}%"></i></div><b>${p.cars}</b></div>`).join('')}
             <b class="small">Espera promedio</b>${per.map(p => `<div class="bar-row"><span>${escape(p.b.name)}</span><div class="progress"><i style="--v:${p.wait / maxWait * 100}%"></i></div><b>${Math.round(p.wait)} min</b></div>`).join('')}
           </div>
           <div class="stack">
             <div class="card"><h3>Mix de servicios (últimos días)</h3>${donutChart(Object.entries(mix).sort((a, b) => b[1] - a[1]).map(([label, value]) => ({ label, value })), { label: num(Object.values(mix).reduce((a, b) => a + b, 0)), format: v => `${v} servicios` })}</div>
-            <div class="card"><h3>Recomendaciones (upsell) por sucursal</h3>${barChart(per.map(p => ({ label: p.b.name.split(' ')[0], value: Math.round(p.conv) })), { height: 150, format: v => v + '% aprobadas' })}</div>
+            <div class="card"><h3>Recomendaciones (upsell) por sucursal</h3>${barChart(per.map(p => ({ label: p.b.name, value: Math.round(p.conv) })), { height: 150, format: v => v + '% aprobadas' })}</div>
           </div>
         </div>
         <div class="grid-3">
           <div class="card stack"><div class="row between"><h3 style="margin:0">Ahora en sucursales</h3><span class="live-dot"></span></div>${branches().filter(b => !sel || b.id === sel).map(b => { const l = branchLive(b.id); return `<div class="row between nowrap small"><span><b>${escape(b.name)}</b><small class="muted d-block">${l.inBay}/${l.bays} en bahía · ${l.queue} en fila</small></span><span class="badge badge-${waitTone(l.wait)}">${escape(waitLabel(l.wait))}</span></div>`; }).join('')}<a class="btn btn-sm" href="operario.html">Abrir tablero de bahías</a></div>
-          <div class="card stack"><div class="row between"><h3 style="margin:0">Stock crítico</h3><a class="small" href="#/inventario">Ver inventario</a></div>${low.slice(0, 6).map(p => `<div class="row between nowrap small"><span>${escape(p.name)}</span><span class="stock-low">${Object.entries(p.stock).filter(([b, n]) => (!sel || b === sel) && n < p.min).map(([b, n]) => `${escape(branchById(b)?.name.split(' ')[0] || b)}: ${n}`).join(' · ')}</span></div>`).join('') || '<p class="muted small">Todo sobre el mínimo 👍</p>'}</div>
+          <div class="card stack"><div class="row between"><h3 style="margin:0">Stock crítico</h3><a class="small" href="#/inventario">Ver inventario</a></div>${low.slice(0, 6).map(p => `<div class="row between nowrap small"><span>${escape(p.name)}</span><span class="stock-low">${Object.entries(p.stock).filter(([b, n]) => (!sel || b === sel) && n < p.min).map(([b, n]) => `${escape(branchById(b)?.name || b)}: ${n}`).join(' · ')}</span></div>`).join('') || '<p class="muted small">Todo sobre el mínimo 👍</p>'}</div>
           <div class="card stack"><h3 style="margin:0">Actividad reciente</h3>${logs.map(l => `<div class="small"><b>${escape(l.detail || l.action)}</b><small class="muted d-block">${escape(userName(l.user) === '—' ? 'Sistema / cliente' : userName(l.user))} · ${ago(l.at)}</small></div>`).join('') || '<p class="muted small">Sin actividad aún.</p>'}</div>
         </div>`;
       el.querySelector('[data-branch]').onchange = e => { sel = e.target.value; paint(); };

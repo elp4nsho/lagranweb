@@ -5,8 +5,8 @@ import { site } from '../data/db.js';
 
 export const LOGO = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 14c3-1 5-4 10-4s7 3 10 4"/><path d="M12 10V6l-2-2"/><path d="M12 6l2-2"/><path d="M7 17l5-3 5 3"/></svg>`;
 
-export function brand(href = 'index.html') {
-  return `<a class="brand" href="${href}"><span class="logo">${LOGO}</span><span class="txt">Cóndor Pay</span></a>`;
+export function brand(href = 'index.html', cls = '') {
+  return `<a class="brand${cls}" href="${href}"><span class="logo">${LOGO}</span><span class="txt">Cóndor Pay</span></a>`;
 }
 
 export function ribbon() {
@@ -16,10 +16,10 @@ export function ribbon() {
 export function publicHeader(active = '') {
   const link = (href, label) => `<a href="${href}" ${active === href ? 'aria-current="page"' : ''}>${label}</a>`;
   return `${ribbon()}
-  <header class="site-head"><div class="container">
-    ${brand()}
+  <header class="site-head site-header"><div class="container">
+    ${brand('index.html', ' site-brand')}
     <nav class="site-nav" aria-label="Principal">
-      ${link('index.html#beneficios', 'Beneficios')}${link('index.html#tarjetas', 'Tarjetas')}${link('index.html#tarifas', 'Tarifas')}${link('index.html#seguridad', 'Seguridad')}${link('index.html#faq', 'Preguntas')}
+      ${link('index.html#beneficios', '<span class="nav-ico" aria-hidden="true">✨</span>Beneficios')}${link('index.html#tarjetas', '<span class="nav-ico" aria-hidden="true">💳</span>Tarjetas')}${link('index.html#tarifas', '<span class="nav-ico" aria-hidden="true">💲</span>Tarifas')}${link('index.html#seguridad', '<span class="nav-ico" aria-hidden="true">🔐</span>Seguridad')}${link('index.html#faq', '<span class="nav-ico" aria-hidden="true">❓</span>Preguntas')}
     </nav>
     <div class="site-actions">
       <a class="btn btn-ghost" href="login.html">Ingresar</a>
@@ -30,7 +30,7 @@ export function publicHeader(active = '') {
 }
 
 export function publicFooter() {
-  return `<footer class="site-foot"><div class="container row between">
+  return `<footer class="site-foot site-footer"><div class="container row between">
     <div class="stack" style="gap:6px">${brand()}<span class="muted small">Proyecto de portafolio. Cóndor Pay es una marca ficticia; no capta dinero ni ofrece productos financieros reales.</span></div>
     <div class="row small"><a href="login.html">Ingresar</a><a href="abrir-cuenta.html">Abrir cuenta</a><a href="admin.html">Back-office</a></div>
   </div></footer>`;

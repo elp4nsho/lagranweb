@@ -1,7 +1,7 @@
 // Catálogo de modelos con filtros y comparador (hasta 3).
 import { escape, money, norm } from '../../../assets/core/ui.js';
 import { db } from '../data/db.js';
-import { activeModels, brand, model, fromPrice, maxBonus, SEGMENTS, FUELS, isGreen, stockFor, stockBadge, compareList, features } from '../shared/domain.js';
+import { showColor, activeModels, brand, model, fromPrice, maxBonus, SEGMENTS, FUELS, isGreen, stockFor, stockBadge, compareList, features } from '../shared/domain.js';
 import { carOf } from '../shared/car.js';
 import { modelCard, wireCompare, pageHero } from './cards.js';
 import { uiGet, uiSet, nf } from '../shared/util.js';
@@ -63,7 +63,7 @@ export function renderCompare(el) {
     el.innerHTML = `${pageHero('Comparador', 'Compara hasta 3 modelos', 'Precios, bonos, motorización, equipamiento y disponibilidad lado a lado. Lo mejor de cada fila queda destacado.', 'scale')}
     <section class="section tight"><div class="container stack">
       <div class="cmp-pickers">${[0, 1, 2].map(i => `<select class="select" data-slot="${i}" aria-label="Modelo ${i + 1}"><option value="">${i < 2 ? 'Elige un modelo' : '+ Agregar tercer modelo'}</option>${all.map(m => `<option value="${m.id}" ${ids[i] === m.id ? 'selected' : ''}>${escape(brand(m.brandId).name)} ${escape(m.name)}</option>`).join('')}</select>`).join('')}</div>
-      <div class="table-wrap"><table class="table cmp-table"><thead><tr><th></th>${ms.map(m => `<th><div class="cmp-art">${carOf(m, m.colors[1]?.hex)}</div><span class="eyebrow">${escape(brand(m.brandId).name)}</span><br><b class="cmp-name">${escape(m.name)}</b></th>`).join('')}</tr></thead><tbody>
+      <div class="table-wrap"><table class="table cmp-table"><thead><tr><th></th>${ms.map(m => `<th><div class="cmp-art">${carOf(m, showColor(m).hex)}</div><span class="eyebrow">${escape(brand(m.brandId).name)}</span><br><b class="cmp-name">${escape(m.name)}</b></th>`).join('')}</tr></thead><tbody>
         ${row('Precio desde', ms.map(m => money(fromPrice(m))), ms.map(fromPrice), false)}
         ${row('Bonos vigentes', ms.map(m => maxBonus(m) ? money(maxBonus(m)) : '—'), ms.map(maxBonus))}
         ${row('Precio con bonos', ms.map(m => `<b>${money(fromPrice(m) - maxBonus(m))}</b>`), ms.map(m => fromPrice(m) - maxBonus(m)), false)}

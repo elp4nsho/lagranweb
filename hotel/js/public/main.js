@@ -19,12 +19,12 @@ function paintChrome() {
   const c = settings();
   const u = auth.current();
   hdr.innerHTML = `<div class="container hdr-row">
-    <a class="brand" href="#/"><span class="brand-mark" aria-hidden="true">✦</span><span class="brand-text"><b>${escape(c.name)}</b><small>Valparaíso</small></span></a>
+    <a class="brand site-brand" href="#/"><span class="brand-mark" aria-hidden="true">✦</span><span class="brand-text"><b>${escape(c.name)}</b><small>Valparaíso</small></span></a>
     <nav class="site-nav" id="nav" aria-label="Principal">
-      <a href="#/habitaciones">Habitaciones</a><a href="#/spa">Spa</a><a href="#/restaurante">Restaurante</a><a href="#/ofertas">Ofertas</a><a href="#/mi-reserva">Mi reserva</a>
+      <a href="#/">Inicio</a><a href="#/habitaciones">Habitaciones</a><a href="#/spa">Spa</a><a href="#/restaurante">Restaurante</a><a href="#/ofertas">Ofertas</a><a href="#/mi-reserva">Mi reserva</a>
       ${u ? (u.role === 'guest' ? `<a href="#/portal">Mi cuenta</a>` : `<a href="admin.html">Panel</a>`) : '<a href="login.html">Ingresar</a>'}
     </nav>
-    <a class="btn btn-primary btn-sm" href="#/reservar">Reservar</a>
+    <div class="site-actions"><a class="btn btn-primary btn-sm" href="#/reservar">Reservar</a></div>
     <button class="btn btn-icon btn-sm btn-ghost nav-toggle" aria-label="Menú" aria-expanded="false" aria-controls="nav">☰</button>
   </div>${c.announcement ? `<div class="announce"><div class="container">${escape(c.announcement)}</div></div>` : ''}`;
   foot.innerHTML = `<div class="container foot-grid">

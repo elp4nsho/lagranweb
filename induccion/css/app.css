@@ -233,3 +233,177 @@ fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
 .q-opts { display: grid; gap: 8px; }
 .q-opts .row { flex-wrap: nowrap; gap: 8px; }
 .complete-box .btn, .reminder .btn { white-space: normal; height: auto; min-height: 32px; padding-block: 6px; text-align: center; line-height: 1.2; }
+
+/* =====================================================================
+   Disposiciones (revista / app). Clásica = diseño original.
+   ===================================================================== */
+[data-layout="revista"] .site-header { position: relative; background: var(--bg); backdrop-filter: none; }
+[data-layout="revista"] .site-header .brand b { font-size: clamp(24px, 3.6vw, 40px); }
+[data-layout="revista"] .site-nav { margin-left: 0; }
+@media (max-width: 860px) {
+  [data-layout="revista"] .site-nav { position: static; flex-direction: row; box-shadow: none; background: none; padding: 8px 0; }
+  [data-layout="revista"] .head-actions .burger { display: none; }
+}
+@media (min-width: 901px) { [data-layout="app"] .site-nav { margin-left: 0; } [data-layout="app"] .head-actions { flex-direction: column; align-items: stretch; } }
+@media (max-width: 900px) { [data-layout="app"] .site-nav { margin-left: 0; } }
+
+/* --- Portada revista --- */
+[data-layout="revista"] .site-main:has(> #modulos) { display: flex; flex-direction: column; }
+[data-layout="revista"] .site-main > #beneficios { order: 1; }
+[data-layout="revista"] .site-main > #modulos { order: 2; }
+[data-layout="revista"] .site-main > #programas { order: 3; }
+[data-layout="revista"] .site-main > #dispositivos { order: 4; }
+[data-layout="revista"] .site-main > #verificar { order: 5; }
+[data-layout="revista"] .site-main > .cta-band { order: 6; }
+[data-layout="revista"] .site-main > section.alt-band { background: none; border-bottom: 0; }
+[data-layout="revista"] .site-main > section#beneficios:not(.site-hero) h2:first-of-type::before { content: '01  '; }
+[data-layout="revista"] .site-main > section#modulos:not(.site-hero) h2:first-of-type::before { content: '02  '; }
+[data-layout="revista"] .site-main > section#programas:not(.site-hero) h2:first-of-type::before { content: '03  '; }
+[data-layout="revista"] .site-main > section#dispositivos:not(.site-hero) h2:first-of-type::before { content: '04  '; }
+[data-layout="revista"] .site-main > section#verificar:not(.site-hero) h2:first-of-type::before { content: '05  '; }
+[data-layout="revista"] .site-main > section.cta-band h2::before { content: none !important; }
+[data-layout="revista"] .section-head { max-width: none; border-bottom: 3px double var(--line); padding-bottom: 12px; }
+[data-layout="revista"] .section-head h2 { font-size: clamp(30px, 4.4vw, 52px); }
+[data-layout="revista"] .hero-stats { border-top: 1px solid var(--line); padding-top: 14px; }
+/* Beneficios: lista editorial en dos columnas con números grandes */
+[data-layout="revista"] .site-main #beneficios .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; counter-reset: ben; }
+[data-layout="revista"] .site-main #beneficios .grid-3 > * { grid-column: auto; grid-row: auto; }
+[data-layout="revista"] .benefit { counter-increment: ben; display: grid; grid-template-columns: 64px minmax(0, 1fr); column-gap: 14px; background: none; box-shadow: none; border: 0; border-radius: 0; border-bottom: 1px solid var(--line); padding: 18px 0; }
+[data-layout="revista"] .benefit::before { content: counter(ben, decimal-leading-zero); grid-row: span 3; font: var(--head-weight) 44px/1 var(--font-head); color: var(--primary); }
+[data-layout="revista"] .benefit .b-ico { display: none; }
+/* Módulos: la portada del núcleo destaca el 1.º; se añade filete */
+[data-layout="revista"] .mod-card { box-shadow: none; border-radius: 0; border-width: 0; border-top: 3px solid var(--text); background: none; }
+[data-layout="revista"] #mods > .mod-card:first-child h3 { font-size: clamp(28px, 3.4vw, 44px); }
+[data-layout="revista"] #mods > .mod-card:first-child p { font-size: 18px; }
+[data-layout="revista"] #mods > .mod-card:first-child .ico { width: 80px; height: 80px; }
+/* Planes: filas comparativas */
+[data-layout="revista"] .site-main #plans { grid-template-columns: minmax(0, 1fr); gap: 0; }
+[data-layout="revista"] .site-main #plans > * { grid-column: auto; grid-row: auto; }
+[data-layout="revista"] .plan-card { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto; gap: 6px 28px; background: none; box-shadow: none; border: 0; border-radius: 0; border-bottom: 1px solid var(--line); padding: 20px 0; }
+[data-layout="revista"] .plan-card > :is(.code, h3, p) { grid-column: 1; }
+[data-layout="revista"] .plan-card ol { grid-column: 2; grid-row: 1 / span 3; }
+[data-layout="revista"] .plan-card .tags { grid-column: 3; grid-row: 1 / span 3; flex-direction: column; align-items: flex-end; }
+[data-layout="revista"] .site-main #dispositivos .grid-3 { gap: 0; }
+[data-layout="revista"] .site-main #dispositivos .grid-3 > * { grid-column: auto; grid-row: auto; background: none; box-shadow: none; border: 0; border-radius: 0; text-align: center; }
+[data-layout="revista"] .site-main #dispositivos .grid-3 > * + * { border-left: 1px solid var(--line); }
+[data-layout="revista"] .site-main #dispositivos .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+[data-layout="revista"] .verify-box { margin-inline: auto; }
+[data-layout="revista"] #verificar .section-head { text-align: center; }
+[data-layout="revista"] .cta-band .card { flex-direction: column; text-align: center; background: none; box-shadow: none; border-width: 0; border-block: 3px double var(--line); border-radius: 0; }
+@media (max-width: 760px) {
+  [data-layout="revista"] .site-main #beneficios .grid-3, [data-layout="revista"] .site-main #dispositivos .grid-3 { grid-template-columns: 1fr; }
+  [data-layout="revista"] .site-main #dispositivos .grid-3 > * + * { border-left: 0; border-top: 1px solid var(--line); }
+  [data-layout="revista"] .plan-card { grid-template-columns: 1fr; }
+  [data-layout="revista"] .plan-card > * { grid-column: 1 !important; grid-row: auto !important; }
+  [data-layout="revista"] .plan-card .tags { flex-direction: row; align-items: center; }
+}
+
+/* --- Portada app: consola con columna de herramientas --- */
+[data-layout="app"] .site-main > section { padding-block: 0 !important; }
+[data-layout="app"] .site-main > section.alt-band { background: none; border: 0; }
+[data-layout="app"] .site-main:has(> #modulos) { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; width: min(1360px, 100% - 32px); margin-inline: auto; padding-block: 16px; }
+[data-layout="app"] .site-main:has(> #modulos) > section > .container { width: auto; margin: 0; }
+[data-layout="app"] .site-main:has(> #modulos) > section:not(.site-hero) > .container { padding: clamp(16px, 2.2vw, 24px); }
+[data-layout="app"] .section-head { margin-bottom: 14px; }
+[data-layout="app"] .section-head h2 { font-size: clamp(20px, 2.4vw, 26px); margin: 4px 0; }
+[data-layout="app"] .section-head p { display: none; }
+[data-layout="app"] .float-chip { display: none; }
+@media (min-width: 1100px) {
+  [data-layout="app"] .site-main:has(> #modulos) { grid-template-columns: minmax(0, 1fr) 340px; grid-template-areas: "hero hero" "mods verify" "mods cta" "mods dev" "plans plans" "ben ben"; align-items: start; }
+  [data-layout="app"] .site-main > .site-hero { grid-area: hero; }
+  [data-layout="app"] .site-main > #modulos { grid-area: mods; }
+  [data-layout="app"] .site-main > #verificar { grid-area: verify; }
+  [data-layout="app"] .site-main > .cta-band { grid-area: cta; }
+  [data-layout="app"] .site-main > #dispositivos { grid-area: dev; }
+  [data-layout="app"] .site-main > #programas { grid-area: plans; }
+  [data-layout="app"] .site-main > #beneficios { grid-area: ben; }
+  [data-layout="app"] .site-main #dispositivos .grid-3 { grid-template-columns: 1fr; gap: 8px; }
+  [data-layout="app"] .verify-box { grid-template-columns: 1fr; }
+}
+@media (max-width: 1099px) {
+  [data-layout="app"] .site-main > #verificar { order: 1; }
+  [data-layout="app"] .site-main > #modulos { order: 2; }
+  [data-layout="app"] .site-main > #programas { order: 3; }
+  [data-layout="app"] .site-main > section { order: 4; }
+  [data-layout="app"] .site-main > .site-hero { order: 0; }
+}
+/* módulos como filas densas */
+[data-layout="app"] .site-main #mods { grid-template-columns: 1fr; gap: 0; border: var(--border-w) solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+[data-layout="app"] .site-main #mods > * { grid-column: auto !important; }
+[data-layout="app"] .mod-card { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; column-gap: 14px; row-gap: 2px; align-items: center; border: 0; border-radius: 0; box-shadow: none; border-bottom: 1px solid var(--line); padding: 12px 14px; }
+[data-layout="app"] .mod-card .ico { grid-row: span 3; width: 34px; height: 34px; }
+[data-layout="app"] .mod-card .tags { grid-column: 3; grid-row: 1 / span 3; flex-direction: column; align-items: flex-end; }
+[data-layout="app"] .mod-card p { font-size: 13px; }
+[data-layout="app"] .mod-card h3 { font-size: 16px; }
+@media (max-width: 600px) { [data-layout="app"] .mod-card { grid-template-columns: 34px minmax(0, 1fr); } [data-layout="app"] .mod-card .tags { grid-column: 2; grid-row: auto; flex-direction: row; } }
+/* planes en carrusel horizontal */
+[data-layout="app"] .site-main #plans { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 6px; }
+[data-layout="app"] .site-main #plans > * { flex: 0 0 min(320px, 85%); scroll-snap-align: start; box-shadow: none; }
+/* beneficios como mosaico compacto */
+[data-layout="app"] .site-main #beneficios .grid-3 { grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); gap: 10px; }
+[data-layout="app"] .site-main #beneficios .grid-3 > * { grid-column: auto !important; padding: 14px; box-shadow: none; }
+[data-layout="app"] .benefit .b-ico { font-size: 20px; }
+[data-layout="app"] .benefit h3 { font-size: 16px; }
+[data-layout="app"] .benefit p { font-size: 13px; }
+[data-layout="app"] .site-main #dispositivos .grid-3 > * { grid-column: auto !important; display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 12px; align-items: center; padding: 12px; box-shadow: none; }
+[data-layout="app"] .device svg { width: 36px; height: 36px; margin: 0; grid-row: span 2; }
+[data-layout="app"] .device h3 { font-size: 15px; margin: 0; }
+[data-layout="app"] .device p { font-size: 13px; margin: 0; }
+[data-layout="app"] .cta-band .card { flex-direction: column; align-items: stretch; box-shadow: none; padding: 0; border: 0; background: none; }
+[data-layout="app"] .cta-band h2 { font-size: 20px; }
+
+/* --- App del trabajador (inicio y reproductor) --- */
+[data-layout="revista"] .lx-head { flex-direction: column; text-align: center; border-bottom: 3px double var(--line); padding-bottom: 18px; }
+[data-layout="revista"] .lx-head h1 { font-size: clamp(36px, 6vw, 64px); }
+[data-layout="revista"] .lx .grid-auto { grid-template-columns: minmax(0, 1fr); gap: 0; }
+[data-layout="revista"] .plan-tile { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 8px 24px; background: none; box-shadow: none; border: 0; border-radius: 0; border-bottom: 1px solid var(--line); }
+[data-layout="revista"] .plan-tile > :not(.btn):not(.row:last-of-type) { grid-column: 1; }
+[data-layout="revista"] .plan-tile > .btn { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+[data-layout="revista"] .plan-tile h3 { font-size: 26px; }
+@media (max-width: 700px) { [data-layout="revista"] .plan-tile { grid-template-columns: 1fr; } [data-layout="revista"] .plan-tile > * { grid-column: 1 !important; grid-row: auto !important; } }
+[data-layout="revista"] .player-grid { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1001px) {
+  [data-layout="app"] .player-grid { grid-template-columns: 320px minmax(0, 1fr); }
+  [data-layout="app"] .player-grid > aside { order: -1; position: sticky; top: 16px; }
+  [data-layout="app"] #view:has(> .lx-head) { display: grid; grid-template-columns: minmax(0, 1fr) 300px; column-gap: 20px; align-items: start; }
+  [data-layout="app"] #view:has(> .lx-head) > * { grid-column: 1; }
+  [data-layout="app"] #view > .lx-head { grid-column: 2; grid-row: 1 / span 6; flex-direction: column; align-items: center; text-align: center; position: sticky; top: 16px; padding: 20px; background: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius); }
+}
+[data-layout="app"] .lx .grid-auto { grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: 12px; }
+[data-layout="app"] .plan-tile { box-shadow: none; padding: 14px; }
+
+/* --- Paneles con el kit (.ak-view): dashboard --- */
+/* Revista: cifras como franja de diario; paneles alternan columnas asimétricas con filete */
+[data-layout="revista"] .ak-view > .ak-kpis { gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .ak-view > .ak-kpis > .card { background: none; box-shadow: none; border: 0; border-radius: 0; text-align: center; }
+[data-layout="revista"] .ak-view > .ak-kpis > .card + .card { border-left: 1px solid var(--line); }
+[data-layout="revista"] .ak-view > .ak-kpis .stat { align-items: center; }
+@media (max-width: 700px) { [data-layout="revista"] .ak-view > .ak-kpis > .card + .card { border-left: 0; border-top: 1px solid var(--line); } }
+@media (min-width: 900px) {
+  [data-layout="revista"] .ak-view > .ak-grid { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); }
+  [data-layout="revista"] .ak-view > .ak-grid:nth-of-type(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr); }
+}
+[data-layout="revista"] .ak-view > .ak-grid > .ak-panel { box-shadow: none; background: none; border-width: 0; border-top: 3px solid var(--text); border-radius: 0; padding-inline: 0; }
+[data-layout="revista"] .ak-view > .ak-grid .ak-panel-head h3 { font-size: 22px; }
+/* App: cifras en una columna fija a la izquierda y paneles en mosaico a la derecha */
+@media (min-width: 1000px) {
+  [data-layout="app"] .ak-view:has(> .ak-kpis + .ak-grid) { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 14px; align-items: start; }
+  [data-layout="app"] .ak-view:has(> .ak-kpis + .ak-grid) > :not(.ak-kpis):not(.ak-grid) { grid-column: 1 / -1; }
+  [data-layout="app"] .ak-view > .ak-kpis:has(+ .ak-grid) { grid-column: 1; grid-row: 2 / span 8; grid-template-columns: 1fr; gap: 0; position: sticky; top: 70px; border: var(--border-w) solid var(--line); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+  [data-layout="app"] .ak-view > .ak-kpis:has(+ .ak-grid) > .card { border: 0; border-bottom: 1px solid var(--line); border-radius: 0; box-shadow: none; padding: 12px 14px; }
+  [data-layout="app"] .ak-view > .ak-kpis:has(+ .ak-grid) > .card:last-child { border-bottom: 0; }
+  [data-layout="app"] .ak-view > .ak-kpis ~ .ak-grid { grid-column: 2; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+}
+@media (max-width: 999px) {
+  [data-layout="app"] .ak-view > .ak-kpis:has(+ .ak-grid) { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; padding-bottom: 4px; }
+  [data-layout="app"] .ak-view > .ak-kpis:has(+ .ak-grid) > .card { flex: 0 0 min(200px, 70%); scroll-snap-align: start; }
+}
+[data-layout="app"] .ak-view > .ak-grid > .ak-panel { padding: 14px; box-shadow: none; }
+[data-layout="app"] .ak-view { gap: 14px; }
+
+/* Riel de íconos (app): el núcleo recorta las etiquetas y dejaba 2-3 letras visibles; se ocultan hasta expandir */
+@media (min-width: 901px) {
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) :is(.nav-link, .admin-brand) { font-size: 0; gap: 0; }
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .nav-link .count { display: none; }
+  [data-layout="app"] .admin-brand .logo { font-size: 18px; }
+}

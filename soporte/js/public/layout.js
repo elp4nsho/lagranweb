@@ -10,7 +10,7 @@ export function header(active = '') {
   return `${help.banner?.on && help.banner.text ? `<div class="announce tone-${escape(help.banner.tone || 'info')}" role="note"><div class="container">${icon('activity', 14)} ${escape(help.banner.text)} <a href="estado.html">Ver estado →</a></div></div>` : ''}
   <header class="site-header">
     <div class="container row between">
-      <a class="brand" href="index.html"><span class="logo">${icon('wifi', 18)}</span><span>Fibra Austral <small class="brand-sub">Centro de ayuda</small></span></a>
+      <a class="brand site-brand" href="index.html"><span class="logo">${icon('wifi', 18)}</span><span>Fibra Austral <small class="brand-sub">Centro de ayuda</small></span></a>
       <button class="btn btn-ghost btn-icon nav-toggle" aria-label="Abrir menú" aria-expanded="false" data-navtoggle>${icon('menu')}</button>
       <nav class="site-nav" data-sitenav>
         <a href="index.html#/" class="${active === 'ayuda' ? 'on' : ''}">Ayuda</a>

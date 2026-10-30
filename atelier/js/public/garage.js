@@ -56,7 +56,7 @@ export function renderGarage(el) {
 
 function carDetail(v, cust, orders) {
   const delivered = orders.filter(w => w.status === 'entregada').sort((a, b) => b.deliveredAt.localeCompare(a.deliveredAt));
-  const ins = db.query('inspections', i => i.vehicleId === v.id).sort((a, b) => b.at.localeCompare(a.at));
+  const ins = db.query('inspections', i => i.vehicleId === v.id && !i.draft).sort((a, b) => b.at.localeCompare(a.at));
   const dy = db.query('dyno', d => d.vehicleId === v.id);
   const next = nextServices(v, 3, cust.tier);
   const tabs = [['resumen', 'Resumen'], ['libro', `Libro de mantenciones (${delivered.length})`], ['docs', `Documentos (${(v.docs || []).length})`], ['insp', `Inspecciones (${ins.length})`], ...(dy.length ? [['dyno', `Dyno (${dy.length})`]] : [])];

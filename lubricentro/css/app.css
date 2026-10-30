@@ -188,7 +188,7 @@ html, body { overflow-x: clip; }
 .side-user { margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 12px 8px 4px; border-top: var(--border-w) solid var(--line); }
 .side-user b { font-size: 14px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .top-title { font-family: var(--font-head); font-weight: var(--head-weight); text-transform: var(--head-transform); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.kpi-grid { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); }
+.kpi-grid { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); }
 .kpi .value { font-size: clamp(20px, 2.1vw, 28px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .table-tools { margin-bottom: 12px; gap: 8px; }
 .detail-grid > div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
@@ -240,3 +240,89 @@ html, body { overflow-x: clip; }
 button.photo { font: inherit; font-size: 22px; }
 .col-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin: 0 0 8px; }
 .col-head h2 { font-size: 20px; margin: 0; }
+.admin-content { padding-bottom: 96px; }
+.matrix td:first-child { min-width: 210px; }
+.svc-card.popular { outline: 2px solid var(--primary); outline-offset: -2px; }
+
+/* =====================================================================
+   Disposiciones propias de Pits Rápido (revista / app)
+   ===================================================================== */
+/* ---------- Revista: portada editorial, servicios destacados, pasos numerados en lista ---------- */
+[data-layout="revista"] .site-main .how .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 36px; }
+[data-layout="revista"] .site-main .how .grid-4 > * { grid-column: auto; grid-row: auto; }
+[data-layout="revista"] .how .step-card { background: none; border: 0; border-top: 1px solid var(--line); border-radius: 0; box-shadow: none; display: grid; grid-template-columns: 56px 1fr; column-gap: 14px; padding: 16px 0; }
+[data-layout="revista"] .how .step-card .step-num { grid-row: span 2; width: 48px; height: 48px; font-size: 24px; background: none; color: var(--primary); border: 2px solid var(--primary); }
+[data-layout="revista"] .how .step-card h3 { margin: 0; }
+[data-layout="revista"] .services .grid-3 > :first-child { justify-content: flex-end; padding: calc(var(--pad) * 1.6); background: var(--surface-2); }
+[data-layout="revista"] .services .grid-3 > :first-child h3 { font-size: clamp(24px, 3vw, 36px); }
+[data-layout="revista"] .services .grid-3 > :first-child .svc-ico { font-size: 64px; }
+[data-layout="revista"] .site-main .plans-teaser .grid-3, [data-layout="revista"] .site-main .plans-grid { grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); }
+[data-layout="revista"] .site-main .plans-teaser .grid-3 > *, [data-layout="revista"] .site-main .plans-grid > * { grid-column: auto; grid-row: auto; }
+[data-layout="revista"] .site-main .promos .grid-3 { grid-template-columns: minmax(0, 1fr); gap: 0; }
+[data-layout="revista"] .site-main .promos .grid-3 > * { grid-column: auto; grid-row: auto; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 16px; border: 0; border-bottom: 1px dashed var(--line); border-radius: 0; box-shadow: none; background: none; padding: 14px 0; }
+[data-layout="revista"] .site-main .branch-grid { grid-template-columns: minmax(0, 1fr); }
+[data-layout="revista"] .branch-card { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 8px 28px; }
+[data-layout="revista"] .branch-card > :first-child { grid-column: 1 / -1; border-bottom: 3px double var(--line); padding-bottom: 8px; }
+[data-layout="revista"] .finder { grid-template-columns: minmax(0, 1fr); }
+[data-layout="revista"] .finder > :last-child { order: -1; }
+[data-layout="revista"] .site-main .my-prices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+[data-layout="revista"] .book-grid { grid-template-columns: minmax(0, 1fr); }
+[data-layout="revista"] .book-grid .sum-box { order: -1; position: static; flex-direction: row; flex-wrap: wrap; align-items: center; border-left: 4px solid var(--primary); }
+[data-layout="revista"] .book-grid .sum-box .line-list { flex: 1 1 260px; }
+[data-layout="revista"] .rem-grid { grid-template-columns: minmax(0, 1fr); max-width: 760px; }
+@media (max-width: 760px) {
+  [data-layout="revista"] .site-main .how .grid-4, [data-layout="revista"] .site-main .my-prices, [data-layout="revista"] .branch-card { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 1080px) {
+  [data-layout="revista"] .site-nav { position: static; flex-direction: row; padding: 8px 0; box-shadow: none; background: none; max-height: none; }
+  [data-layout="revista"] .site-nav a { padding: 6px 4px; border-bottom: 0; }
+  [data-layout="revista"] .nav-toggle { display: none; }
+}
+/* Apps de equipo en revista: una columna, tarjetas anchas con checklist en dos columnas */
+[data-layout="revista"] .bay-board { grid-template-columns: minmax(0, 1fr); }
+[data-layout="revista"] .bay.busy, [data-layout="revista"] .bay.late { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+[data-layout="revista"] .bay.busy > *, [data-layout="revista"] .bay.late > * { grid-column: 1 / -1; }
+[data-layout="revista"] .bay .stack:has(> .task-btn) { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); }
+[data-layout="revista"] .ops-cols { grid-template-columns: minmax(0, 1fr); counter-reset: col; }
+[data-layout="revista"] .ops-cols .col-head h2::before { counter-increment: col; content: counter(col, decimal-leading-zero) ' · '; color: var(--primary); }
+[data-layout="revista"] .ops-cols > section { border-top: 3px double var(--line); padding-top: 12px; }
+[data-layout="revista"] .ops-top { justify-content: center; text-align: center; }
+
+/* ---------- App: portada tipo panel con espera en vivo, listas compactas ---------- */
+[data-layout="app"] .site-main { display: flex; flex-direction: column; }
+[data-layout="app"] .site-main > .site-hero { order: 0; }
+[data-layout="app"] .site-main > .cta-rem { order: 1; }
+[data-layout="app"] .site-main > .services { order: 2; }
+[data-layout="app"] .site-main > .plans-teaser { order: 3; }
+[data-layout="app"] .site-main > .promos { order: 4; }
+[data-layout="app"] .site-main > .how { order: 5; }
+[data-layout="app"] .site-main .how .grid-4 { grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); }
+[data-layout="app"] .site-main .how .grid-4 > * { grid-column: auto !important; }
+[data-layout="app"] .how .step-card { flex-direction: row; flex-wrap: wrap; align-items: center; }
+[data-layout="app"] .how .step-card h3 { margin: 0; font-size: 16px; }
+[data-layout="app"] .how .step-card p { flex-basis: 100%; }
+[data-layout="app"] .site-main .services .grid-3, [data-layout="app"] .site-main .my-prices { grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr)); gap: 8px; }
+[data-layout="app"] .site-main .services .grid-3 > *, [data-layout="app"] .site-main .my-prices > * { grid-column: auto !important; }
+[data-layout="app"] .svc-card { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; align-items: center; gap: 2px 12px; }
+[data-layout="app"] .svc-card > .svc-ico { grid-row: span 3; font-size: 28px; }
+[data-layout="app"] .svc-card h3 { font-size: 16px; }
+[data-layout="app"] .svc-card p { display: none; }
+[data-layout="app"] .svc-card > :last-child { grid-column: 2 / -1; }
+[data-layout="app"] .my-prices .svc-card > .row:first-child { grid-column: 1 / -1; }
+[data-layout="app"] .site-main .branch-grid { grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); }
+[data-layout="app"] .book-grid { grid-template-columns: 300px minmax(0, 1fr); }
+[data-layout="app"] .book-grid .sum-box { order: -1; top: 16px; }
+[data-layout="app"] .stepper { grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 10px; background: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius); }
+@media (max-width: 900px) { [data-layout="app"] .book-grid { grid-template-columns: minmax(0, 1fr); } [data-layout="app"] .book-grid .sum-box { position: static; } }
+[data-layout="app"] .veh-grid { grid-template-columns: minmax(0, 1fr); }
+[data-layout="app"] .phone-frame { max-width: 520px; }
+/* Apps de equipo en app: tablero denso tipo kanban con columnas de alto fijo */
+[data-layout="app"] .bay-board { grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr)); gap: 10px; }
+[data-layout="app"] .bay { padding: 12px; gap: 8px; }
+[data-layout="app"] .task-btn { min-height: 34px; padding: 6px 10px; font-size: 13px; }
+@media (min-width: 1101px) {
+  [data-layout="app"] .ops-cols > section { max-height: calc(100vh - 190px); overflow-y: auto; padding: 10px; background: var(--surface-2); border: var(--border-w) solid var(--line); border-radius: var(--radius); }
+  [data-layout="app"] .ops-cols .col-head { position: sticky; top: -10px; z-index: 2; background: var(--surface-2); padding: 6px 0; }
+}
+[data-layout="app"] .ops-main { width: min(1500px, 100% - 24px); }
+.wait-big b { white-space: nowrap; }

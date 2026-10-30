@@ -2,7 +2,7 @@
 // vistas lateral/frontal/trasera, resumen de precio con bonos, guardar / compartir / ficha imprimible.
 import { escape, money, toast, modal, formModal } from '../../../assets/core/ui.js';
 import { db, auth } from '../data/db.js';
-import { model, brand, version, features, priceConfig, encodeConfig, decodeConfig, accessoriesFor, stockFor, stockBadge, showrooms, SEGMENTS, FUELS, createLead, campaignsFor, CAMPAIGN_TYPES } from '../shared/domain.js';
+import { showColor, model, brand, version, features, priceConfig, encodeConfig, decodeConfig, accessoriesFor, stockFor, stockBadge, showrooms, SEGMENTS, FUELS, createLead, campaignsFor, CAMPAIGN_TYPES } from '../shared/domain.js';
 import { carSVG, carOf } from '../shared/car.js';
 import { simulate } from '../shared/finance.js';
 import { specSheetHTML } from '../shared/docs.js';
@@ -19,7 +19,7 @@ export function renderModel(el, params, query = {}) {
   if (!m || m.status === 'inactivo') { el.innerHTML = `<section class="section"><div class="container empty"><h1>Modelo no disponible</h1><a class="btn btn-primary" href="#/modelos">Ver modelos</a></div></section>`; return; }
   if (m.status === 'lanzamiento') return renderLaunch(el, m);
   const b = brand(m.brandId);
-  const cfg = fromCode || { modelId: m.id, versionId: m.versions[Math.min(1, m.versions.length - 1)].id, colorId: (m.colors[1] || m.colors[0]).id, wheelId: m.wheels[0].id, packIds: [], accIds: [] };
+  const cfg = fromCode || { modelId: m.id, versionId: m.versions[Math.min(1, m.versions.length - 1)].id, colorId: showColor(m).id, wheelId: m.wheels[0].id, packIds: [], accIds: [] };
   const st = { view: 'side', step: query.paso || 'version', fin: uiGet('cfgFin', true), trade: uiGet('cfgTrade', false), anim: false };
   let animT;
 

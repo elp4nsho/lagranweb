@@ -13,7 +13,7 @@ export function renderRooms(el) {
     <span class="eyebrow">Habitaciones y suites</span><h1>Elige tu vista</h1>
     <p class="lead">Todas con calefacción, Wi-Fi de alta velocidad, amenities de autor y la calma de la casona. Precios por noche, IVA incluido.</p>
     <div data-search></div>
-    <div class="grid-3">${types.map(typeCard).join('')}</div>
+    <div class="grid-3 type-grid">${types.map(typeCard).join('')}</div>
   </div></section>`;
   searchWidget(el.querySelector('[data-search]'), { compact: true });
 }

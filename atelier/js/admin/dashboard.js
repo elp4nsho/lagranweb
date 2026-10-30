@@ -10,6 +10,7 @@ import { woDetail } from './ordenes.js';
 import { CONC_STATES } from '../data/catalog.js';
 
 export const npsOf = list => { const n = list.filter(w => w.nps != null); if (!n.length) return 0; return Math.round((n.filter(w => w.nps >= 9).length - n.filter(w => w.nps <= 6).length) / n.length * 100); };
+export const mm = n => n >= 1e6 ? `$${(n / 1e6).toLocaleString('es-CL', { maximumFractionDigits: 1 })} M` : money(n);
 const inLast = (w, days, offset = 0) => { const t = Date.now() - new Date(w.deliveredAt || w.createdAt); return t >= offset * DAY && t < (days + offset) * DAY; };
 
 export default {
@@ -29,15 +30,15 @@ export default {
     const byMonth = (m, f) => done.filter(w => w.deliveredAt.slice(0, 7) === m && f(w));
     const lineSeries = Object.entries(LINES).map(([k, l]) => ({ name: l.short, color: l.color, values: months.map(m => Math.round(rev(byMonth(m, w => w.line === k)) / 1e6 * 10) / 10) }));
     const tList = techs();
-    const prod = tList.map(t => { const h = d30.filter(w => w.techId === t.id).reduce((a, w) => a + (w.laborHours || 0), 0); return { label: t.name.split(' ')[0] + ' ' + (t.name.split(' ')[1] || '')[0] + '.', value: Math.round(h / (22 * 7.5) * 100), color: 'var(--primary)' }; });
+    const prod = tList.map(t => { const h = d30.filter(w => w.techId === t.id).reduce((a, w) => a + (w.laborHours || 0), 0); return { label: t.name.split(' ')[0] + ' ' + (t.name.split(' ')[1] || '')[0] + '.', value: Math.round(h), color: 'var(--primary)' }; });
     const weeks = Array.from({ length: 12 }, (_, i) => 11 - i).map(i => { const from = ymd(new Date(Date.now() - (i + 1) * 7 * DAY)), to = ymd(new Date(Date.now() - i * 7 * DAY)); return { label: 'S' + (12 - i), value: db.count('concierge', c => c.date > from && c.date <= to && c.status !== 'cancelado') }; });
     const today = ymd(), runs = db.query('concierge', c => c.date === today && c.status !== 'cancelado');
     const appr = all.filter(w => w.status === 'aprobacion');
     const byLine30 = Object.entries(LINES).map(([k, l]) => ({ label: l.short, value: Math.round(rev(d30.filter(w => w.line === k)) / 1000), color: l.color }));
     el.innerHTML = `${pageHead('Dashboard', `Operación del atelier · ${new Date().toLocaleDateString('es-CL', { weekday: 'long', day: 'numeric', month: 'long' })}`, '<a class="btn btn-sm btn-primary" href="#/ordenes">Órdenes</a>')}
       <div class="kpi-grid">
-        ${kpi('Ingresos 30 días', money(rev(d30)), delta(rev(d30), rev(p30)), rev(d30) >= rev(p30))}
-        ${kpi('Ticket promedio', money(tk(d30)), delta(tk(d30), tk(p30)), tk(d30) >= tk(p30))}
+        ${kpi('Ingresos 30 días', mm(rev(d30)), delta(rev(d30), rev(p30)), rev(d30) >= rev(p30))}
+        ${kpi('Ticket promedio', mm(tk(d30)), delta(tk(d30), tk(p30)), tk(d30) >= tk(p30))}
         ${kpi('NPS (90 días)', (nps > 0 ? '+' : '') + nps, `${npsP > nps ? '▼' : '▲'} vs ${npsP} trimestre anterior`, nps >= npsP)}
         ${kpi('OT abiertas', num(open.length), `${appr.length} esperando aprobación`, true)}
         ${kpi('Participación EV/PHEV', ev30.toFixed(0) + '%', 'de las OT entregadas en 30 días')}
@@ -48,7 +49,7 @@ export default {
         <div class="card stack"><h3 style="margin:0">Mix últimos 30 días</h3><p class="muted small" style="margin:0">Miles de pesos por línea</p>${donutChart(byLine30, { size: 160, label: d30.length + ' OT', format: v => money(v * 1000) })}</div>
       </div>
       <div class="grid-3">
-        <div class="card"><h3>Productividad técnica</h3><p class="muted small">Horas facturadas / disponibles (30 días)</p>${hbars(prod, { format: v => v + '%', max: 100 })}</div>
+        <div class="card"><h3>Productividad técnica</h3><p class="muted small">Horas facturadas por técnico (30 días)</p>${hbars(prod, { format: v => v + ' h' })}</div>
         <div class="card"><h3>Participación EV</h3><p class="muted small">% de OT de eléctricos e híbridos</p>${lineChart(months.map(m => { const l = done.filter(w => w.deliveredAt.slice(0, 7) === m); return { label: monthLabel(m), value: l.length ? Math.round(l.filter(isEv).length / l.length * 100) : 0 }; }), { height: 160, format: v => v + '%' })}</div>
         <div class="card"><h3>Corridas concierge</h3><p class="muted small">Retiros por semana (12 semanas)</p>${barChart(weeks, { height: 160 })}</div>
       </div>

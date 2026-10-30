@@ -19,6 +19,7 @@ let lastPath = null;
 
 function mount(fn) {
   const el = document.createElement('div');
+  el.className = 'view-root';
   outlet.replaceChildren(el);
   current = fn;
   fn(el);
@@ -59,10 +60,10 @@ function renderChrome() {
   const count = cart.count(), wcount = wishlist.ids().length;
   $('.site-header').innerHTML = html`<div class="container bar">
     <button class="btn btn-ghost btn-icon icon-btn mobile-nav-btn" data-mnav aria-label="Menú">${raw(ICON.menu)}</button>
-    <a class="brand" href="#/"><span class="mark">${raw(ICON.logo)}</span>${s.storeName || 'Raíz'}</a>
-    <nav class="main-nav" aria-label="Principal">${navLinks.slice(0, 6).map(([h, l]) => raw(html`<a href="${h}">${l}</a>`))}</nav>
+    <a class="brand site-brand" href="#/"><span class="mark">${raw(ICON.logo)}</span>${s.storeName || 'Raíz'}</a>
+    <nav class="main-nav site-nav" aria-label="Principal">${navLinks.slice(0, 6).map(([h, l]) => raw(html`<a href="${h}">${l}</a>`))}</nav>
     <form class="header-search" role="search" data-search><input class="input" type="search" name="q" placeholder="Buscar prendas…" aria-label="Buscar productos" style="min-height:38px"></form>
-    <div class="header-actions">
+    <div class="header-actions site-actions">
       <a class="btn btn-ghost btn-icon icon-btn" href="#/favoritos" aria-label="Favoritos (${wcount})">${raw(ICON.heart)}${wcount ? raw(`<span class="bubble">${wcount}</span>`) : ''}</a>
       <a class="btn btn-ghost icon-btn" href="${acc[0]}" aria-label="Cuenta" style="padding:0 10px">${raw(ICON.user)}<span class="acc-label">${acc[1]}</span></a>
       <button class="btn btn-primary btn-icon icon-btn" data-cart aria-label="Abrir carro (${count})">${raw(ICON.cart)}${count ? raw(`<span class="bubble" data-cart-count>${count}</span>`) : ''}</button>

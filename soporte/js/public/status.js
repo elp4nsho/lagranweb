@@ -11,7 +11,7 @@ import { serviceHealth, LEVEL } from '../shared/health.js';
 
 const root = document.getElementById('site');
 if (root) {
-  root.innerHTML = `<div data-head></div><main id="main"></main><div data-foot></div>`;
+  root.innerHTML = `<div data-head></div><main id="main" class="site-main"></main><div data-foot></div>`;
   wireLayout(root);
   mountChat();
   render();

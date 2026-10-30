@@ -563,7 +563,7 @@ body.dragging { cursor: grabbing; }
 @media (min-width: 1101px) {
   [data-layout="revista"] .dash-grid > .span-2:first-child { grid-row: span 2; }
 }
-@media (max-width: 700px) { [data-layout="revista"] .admin-content > .grid-4 > .kpi:nth-child(odd) { border-left: 0; } }
+@media (max-width: 700px) { [data-layout="revista"] .admin-content > .grid-4 > .kpi + .kpi { border-left: 0; border-top: 1px solid var(--line); } }
 @media (min-width: 1000px) {
   [data-layout="app"] .admin-content:has(> .grid-4 + .dash-grid) { display: grid; grid-template-columns: 240px minmax(0, 1fr); align-items: start; }
   [data-layout="app"] .admin-content:has(> .grid-4 + .dash-grid) > :not(.grid-4):not(.dash-grid) { grid-column: 1 / -1; }
@@ -607,7 +607,7 @@ body.dragging { cursor: grabbing; }
 /* Riel de íconos (app): el núcleo recorta las etiquetas y dejaba 2-3 letras visibles; se ocultan hasta expandir */
 @media (min-width: 901px) {
   [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) :is(.nav-link, .admin-brand) { font-size: 0; gap: 0; }
-  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .nav-link .count { display: none; }
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) :is(.nav-link .count, .brand-area) { display: none; }
 }
 [data-layout="app"] .dash-grid { grid-auto-flow: dense; }
 @media (min-width: 1000px) { [data-layout="app"] .dash-grid > .card:has([data-acts]) { grid-row: span 2; } }

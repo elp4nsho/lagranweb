@@ -160,3 +160,165 @@
 .row:has(> svg.chart) { flex-wrap: wrap !important; }
 /* Algunos estilos (p. ej. HTML nativo) redefinen display de .btn: forzamos ocultar el burger en escritorio. */
 @media (min-width: 901px) { .admin-shell .admin-burger { display: none; } }
+
+/* =====================================================================
+   Disposiciones (data-layout): clásica = diseño original.
+   revista = informe financiero / diario económico · app = app bancaria con barra lateral y paneles.
+   ===================================================================== */
+html:not([data-layout="app"]) .site-nav .nav-ico { display: none; }
+.dash { display: flex; flex-direction: column; gap: 20px; }
+.fhome, .mv { display: flex; flex-direction: column; gap: 20px; }
+[data-layout="revista"] .admin-sidebar > div.stack:has(.nav-link) { display: flex !important; flex-direction: row; align-items: center; flex: none; gap: 6px; margin: 0 0 0 12px !important; padding: 0 0 0 12px !important; border-left: 1px solid var(--line); }
+
+/* ---------- REVISTA ---------- */
+[data-layout="revista"] .site-head { position: relative; backdrop-filter: none; background: var(--bg); }
+[data-layout="revista"] .site-head .nav-toggle { display: none !important; }
+[data-layout="revista"] .site-nav { position: static; margin-left: 0; flex-direction: row; background: none; box-shadow: none; }
+[data-layout="revista"] .site-nav a { text-transform: uppercase; letter-spacing: .08em; font-size: 12px; }
+[data-layout="revista"] .site-actions .btn-ghost { display: inline-flex; }
+@media (max-width: 900px) { [data-layout="revista"] .site-nav { padding: 10px 0; border-bottom: 0; } }
+@media (max-width: 760px) { [data-layout="revista"] .site-head .site-actions { justify-self: center; margin-bottom: 10px; } [data-layout="revista"] .site-brand { font-size: 26px !important; } }
+/* Landing: cifras como cinta bursátil, beneficios en revista, tarjetas como listado, tarifas invertidas */
+[data-layout="revista"] .land-stats .stats-band { gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .land-stats .stats-band > .card { background: none; box-shadow: none; border: 0; border-radius: 0; border-left: 1px solid var(--line); text-align: center; }
+[data-layout="revista"] .land-stats .stats-band > .card:first-child { border-left: 0; }
+[data-layout="revista"] .land-stats .stat .value { font-size: clamp(26px, 3.4vw, 40px); }
+[data-layout="revista"] #beneficios .grid-3 > :first-child .feature-ic { width: 80px; height: 80px; font-size: 40px; }
+[data-layout="revista"] #beneficios .grid-3 > :first-child h3 { font-size: clamp(24px, 3vw, 36px); }
+[data-layout="revista"] #tarjetas .grid-3 { grid-template-columns: 1fr; gap: 0; }
+[data-layout="revista"] #tarjetas .grid-3 > * { grid-column: auto !important; grid-row: auto !important; }
+[data-layout="revista"] #tarjetas .product-card { display: grid; grid-template-columns: 220px minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "card head price" "card desc perks" "card cta perks"; gap: 8px 32px; align-items: start; background: none; box-shadow: none; border-radius: 0; border: 0; border-bottom: 1px solid var(--line); padding-block: 20px; }
+[data-layout="revista"] #tarjetas .product-card.featured { border-left: 4px solid var(--primary); padding-left: 16px; }
+[data-layout="revista"] #tarjetas .product-card > .bank-card { grid-area: card; }
+[data-layout="revista"] #tarjetas .product-card > .row { grid-area: head; }
+[data-layout="revista"] #tarjetas .product-card > p { grid-area: desc; }
+[data-layout="revista"] #tarjetas .product-card > div:not(.row):not(.bank-card) { grid-area: price; justify-self: end; }
+[data-layout="revista"] #tarjetas .product-card > ul { grid-area: perks; }
+[data-layout="revista"] #tarjetas .product-card > .btn { grid-area: cta; width: auto; justify-self: start; margin-top: 0 !important; }
+[data-layout="revista"] #tarifas .grid-2 > :first-child { order: 2; }
+[data-layout="revista"] #tarifas .grid-2 > .card { border-top: 4px solid var(--primary); border-radius: 0; box-shadow: none; }
+[data-layout="revista"] #faq .grid-2 { grid-template-columns: 1fr; }
+[data-layout="revista"] #faq .faq { column-count: 2; column-gap: 40px; }
+[data-layout="revista"] #faq .faq details { break-inside: avoid; }
+[data-layout="revista"] .cta-band .card { text-align: left; background: none; box-shadow: none; border-radius: 0; border: 0; border-block: 3px double var(--line); display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px 32px; }
+[data-layout="revista"] .cta-band .card > .row { grid-column: 2; grid-row: 1 / span 2; justify-content: flex-end !important; }
+@media (max-width: 760px) {
+  [data-layout="revista"] #tarjetas .product-card { grid-template-columns: 1fr; grid-template-areas: "head" "card" "price" "desc" "perks" "cta"; }
+  [data-layout="revista"] #tarjetas .product-card > div:not(.row):not(.bank-card) { justify-self: start; }
+  [data-layout="revista"] #faq .faq { column-count: 1; }
+  [data-layout="revista"] .cta-band .card { grid-template-columns: 1fr; }
+  [data-layout="revista"] .cta-band .card > .row { grid-column: 1; grid-row: auto; justify-content: flex-start !important; }
+  [data-layout="revista"] .land-stats .stats-band > .card:nth-child(odd) { border-left: 0; }
+}
+/* Apertura de cuenta: titular y pasos a la izquierda, formulario a la derecha */
+@media (min-width: 901px) {
+  [data-layout="revista"] .onb-main .wizard { max-width: 1040px; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 10px 48px; align-items: start; }
+  [data-layout="revista"] .onb-main .wizard > :not(#step) { grid-column: 1; }
+  [data-layout="revista"] .onb-main .wizard > h1 { font-size: clamp(34px, 4.4vw, 56px) !important; line-height: 1.05; border-left: 4px solid var(--primary); padding-left: 20px; }
+  [data-layout="revista"] .onb-main .wizard > #step { grid-column: 2; grid-row: 1 / span 4; border-top: 4px solid var(--primary); }
+  [data-layout="revista"] .onb-main .steps { flex-direction: column; gap: 8px; width: 60%; }
+}
+/* App cliente: inicio tipo estado de cuenta */
+@media (min-width: 1000px) {
+  [data-layout="revista"] .fhome { display: grid; grid-template-columns: 280px minmax(0, 1.3fr) minmax(0, 1fr); gap: 20px 28px; grid-template-areas: "quick quick quick" "kpis tx spend" "kpis tx goals" "kpis tx bills"; align-items: start; }
+  [data-layout="revista"] .fhome :is(.h-grid, .h-side) { display: contents; }
+  [data-layout="revista"] .fhome .h-kpis { grid-area: kpis; grid-template-columns: 1fr; border-right: 3px double var(--line); padding-right: 24px; }
+  [data-layout="revista"] .fhome .h-kpis > .card { background: none; box-shadow: none; border-radius: 0; border: 0; border-bottom: 1px solid var(--line); padding-inline: 0; }
+  [data-layout="revista"] .fhome .h-tx { grid-area: tx; } [data-layout="revista"] .fhome .h-spend { grid-area: spend; } [data-layout="revista"] .fhome .h-goals { grid-area: goals; } [data-layout="revista"] .fhome .h-bills { grid-area: bills; }
+  [data-layout="revista"] .fhome .h-quick { grid-area: quick; }
+}
+[data-layout="revista"] .fhome .h-quick { background: none; box-shadow: none; border-radius: 0; border: 0; border-block: 3px double var(--line); padding-inline: 0; }
+[data-layout="revista"] .fhome .h-quick .quick { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+[data-layout="revista"] .fhome .h-quick .quick a { flex-direction: row; background: none; border: 0; padding: 6px 2px; text-transform: uppercase; letter-spacing: .06em; font-size: 12px; }
+[data-layout="revista"] .fhome .h-quick .quick .ic { font-size: 16px; }
+/* Movimientos: listado primero con filtros a la derecha, gráficos al final */
+[data-layout="revista"] .mv .mv-list { order: -1; }
+@media (min-width: 1000px) {
+  [data-layout="revista"] .mv .mv-list { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 14px 28px; align-items: start; }
+  [data-layout="revista"] .mv .mv-list > * { grid-column: 1; }
+  [data-layout="revista"] .mv .mv-list > .filters { grid-column: 2; grid-row: 1 / span 4; flex-direction: column; align-items: stretch; border-left: 3px double var(--line); padding-left: 18px; position: sticky; top: 70px; }
+  [data-layout="revista"] .mv .mv-list > .filters .field { flex: none; }
+}
+
+/* ---------- APP ---------- */
+@media (min-width: 901px) {
+  [data-layout="app"] .site-head { backdrop-filter: none; }
+  [data-layout="app"] .site-head .nav-toggle { display: none !important; }
+  [data-layout="app"] .site-nav { position: static; margin-left: 0; background: none; box-shadow: none; padding: 0; border: 0; }
+  [data-layout="app"] .site-nav .nav-ico { display: inline-block; width: 26px; }
+  [data-layout="app"] .site-actions .btn-ghost { display: inline-flex; }
+}
+@media (max-width: 900px) {
+  [data-layout="app"] .site-head .nav-toggle { display: none !important; }
+  [data-layout="app"] .site-nav { flex-direction: row !important; padding: 6px 4px !important; }
+  [data-layout="app"] .site-nav a { flex-direction: column; gap: 2px; font-size: 11px; line-height: 1.1; padding: 6px 4px; }
+  [data-layout="app"] .site-nav .nav-ico { font-size: 19px; }
+  [data-layout="app"] .site-head .container { justify-content: space-between; }
+}
+[data-layout="app"] .demo-ribbon { font-size: 12px; }
+/* Landing: tarjeta de portada, cifras en bento, tarjetas en carrusel antes que beneficios */
+[data-layout="app"] .site-main:has(> .land-stats) { display: flex; flex-direction: column; }
+[data-layout="app"] .land-stats { order: 0; }
+[data-layout="app"] #tarjetas { order: 1; padding-top: 14px !important; }
+[data-layout="app"] #tarifas { order: 2; padding-top: 14px !important; }
+[data-layout="app"] #beneficios { order: 3; }
+[data-layout="app"] #seguridad { order: 4; padding-top: 14px !important; }
+[data-layout="app"] #faq { order: 5; padding-top: 14px !important; }
+[data-layout="app"] #cta { order: 6; padding-top: 14px !important; }
+[data-layout="app"] .land-stats .stats-band { gap: 12px; }
+[data-layout="app"] .land-stats .stats-band > .card { padding: 14px; }
+[data-layout="app"] .hero .phone { transform: scale(.9); transform-origin: top center; }
+[data-layout="app"] #tarjetas .grid-3 { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+[data-layout="app"] #tarjetas .grid-3 > * { flex: 0 0 min(320px, 82%); scroll-snap-align: start; }
+[data-layout="app"] #tarjetas .grid-3 > .featured { order: -1; }
+[data-layout="app"] .section-head { margin-bottom: 14px; }
+[data-layout="app"] .section-head p { display: none; }
+[data-layout="app"] #seguridad .grid-4 > * { padding: 14px; }
+[data-layout="app"] #seguridad .feature-ic, [data-layout="app"] #beneficios .feature-ic { width: 36px; height: 36px; font-size: 18px; margin-bottom: 6px; }
+[data-layout="app"] #faq .grid-2 { grid-template-columns: 1fr; }
+[data-layout="app"] #faq .faq details { background: var(--surface-2); border: var(--border-w) solid var(--line); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 8px; }
+[data-layout="app"] .site-main > #cta > .container { text-align: left; }
+[data-layout="app"] .site-main > #cta .row { justify-content: flex-start !important; }
+[data-layout="app"] .site-foot { padding-bottom: 32px; }
+@media (max-width: 900px) { [data-layout="app"] .site-foot { padding-bottom: 100px; } }
+/* Apertura de cuenta: tarjeta centrada con pasos pegados arriba */
+[data-layout="app"] .onb-main .wizard { max-width: 760px; background: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius); padding: clamp(16px, 3vw, 28px); box-shadow: var(--shadow); }
+[data-layout="app"] .onb-main .wizard > h1 { font-size: 24px !important; }
+[data-layout="app"] .onb-main .steps { position: sticky; top: 8px; z-index: 5; padding: 10px; background: var(--surface-2); border-radius: var(--radius-pill); }
+[data-layout="app"] .onb-main #step { box-shadow: none; }
+@media (max-width: 900px) { [data-layout="app"] .onb-main .steps { top: 72px; } }
+/* App cliente: accesos rápidos como columna de íconos, saldos en fila, movimientos al centro */
+@media (min-width: 1000px) {
+  [data-layout="app"] .fhome { display: grid; grid-template-columns: 200px minmax(0, 1.3fr) minmax(0, 1fr); gap: 12px; grid-template-areas: "quick kpis kpis" "quick tx spend" "quick tx goals" "quick tx bills"; align-items: start; }
+  [data-layout="app"] .fhome :is(.h-grid, .h-side) { display: contents; }
+  [data-layout="app"] .fhome .h-kpis { grid-area: kpis; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  [data-layout="app"] .fhome .h-tx { grid-area: tx; } [data-layout="app"] .fhome .h-spend { grid-area: spend; } [data-layout="app"] .fhome .h-goals { grid-area: goals; } [data-layout="app"] .fhome .h-bills { grid-area: bills; }
+  [data-layout="app"] .fhome .h-quick { grid-area: quick; position: sticky; top: 70px; }
+  [data-layout="app"] .fhome .h-quick .quick { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  [data-layout="app"] .fhome .h-quick { padding: 12px; }
+  [data-layout="app"] .fhome .h-quick .quick a { padding: 12px 4px; overflow-wrap: anywhere; }
+}
+@media (max-width: 999px) {
+  [data-layout="app"] .fhome .h-kpis { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; padding-bottom: 6px; }
+  [data-layout="app"] .fhome .h-kpis > * { flex: 0 0 min(280px, 84%); scroll-snap-align: start; }
+  [data-layout="app"] .fhome .h-quick { order: -1; }
+  [data-layout="app"] .fhome .h-quick .quick { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+[data-layout="app"] .fhome .h-quick .quick a { border-radius: var(--radius); }
+/* Movimientos: filtros fijos arriba, gráficos lado a lado compactos */
+[data-layout="app"] .mv .mv-list > .filters { position: sticky; top: 64px; z-index: 5; padding: 10px; margin: -6px -6px 0; background: var(--surface-2); border-radius: var(--radius-sm); }
+[data-layout="app"] .mv .mv-list { order: -1; }
+[data-layout="app"] .mv .mv-charts .chart { max-height: 220px; }
+
+/* ---------- Dashboard del back-office ---------- */
+[data-layout="revista"] .dash .grid-2, [data-layout="app"] .dash .grid-2 { display: contents; }
+.dash > .d-kpis { grid-area: kpis; } .dash .d-vol { grid-area: vol; } .dash .d-new { grid-area: new; } .dash .d-alerts { grid-area: alerts; } .dash .d-dep { grid-area: dep; } .dash .d-act { grid-area: act; }
+@media (min-width: 1000px) {
+  [data-layout="revista"] .dash { display: grid; gap: 20px 28px; grid-template-columns: 260px minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "kpis vol vol" "kpis new alerts" "act act dep"; align-items: start; }
+  [data-layout="revista"] .dash > .d-kpis { grid-template-columns: 1fr; border-right: 3px double var(--line); padding-right: 24px; }
+  [data-layout="revista"] .dash > .d-kpis > * { box-shadow: none; border-radius: 0; border-inline: 0; border-top: 0; background: none; }
+  [data-layout="app"] .dash { display: grid; gap: 12px; grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, 1fr)); grid-template-areas: "kpis kpis kpis kpis" "act vol vol dep" "act new alerts dep"; }
+  [data-layout="app"] .dash > .d-kpis { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+  [data-layout="app"] .dash .d-act { height: 0; min-height: 100%; overflow: auto; }
+}
+@media (max-width: 999px) { [data-layout="app"] .dash > .d-kpis { order: -2; } [data-layout="app"] .dash .d-act { order: -1; } [data-layout="revista"] .dash > .d-kpis { grid-template-columns: 1fr 1fr; } }

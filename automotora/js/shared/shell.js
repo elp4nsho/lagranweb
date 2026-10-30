@@ -94,3 +94,6 @@ export function statCard(label, value, delta = '', ico = '') {
 }
 export const kv = pairs => `<dl class="kv">${pairs.filter(Boolean).map(([k, v]) => `<dt>${escape(k)}</dt><dd>${v ?? '—'}</dd>`).join('')}</dl>`;
 export const deltaTag = (cur, prev, txt = 'vs mes anterior', inv = false) => { if (!prev) return ''; const d = (cur - prev) / prev * 100; const up = d >= 0; return `<span class="delta ${up !== inv ? 'up' : 'down'}">${up ? '▲' : '▼'} ${Math.abs(d).toFixed(1).replace('.', ',')}% ${txt}</span>`; };
+
+// Cada vista se pinta en un contenedor nuevo (display: contents) para no acumular listeners.
+export function host(view) { const h = document.createElement('div'); h.className = 'view-host'; view.replaceChildren(h); return h; }

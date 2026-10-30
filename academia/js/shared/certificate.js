@@ -6,7 +6,7 @@ import { brandHTML } from './bits.js';
 export function certificateHTML(cert) {
   const c = getCourse(cert.courseId) || { title: 'Curso eliminado' }, u = getUser(cert.userId), inst = getUser(c.instructorId);
   return `<article class="certificate" aria-label="Certificado">
-    ${brandHTML()}
+    ${brandHTML(false)}
     <p class="k">Certificado de finalización</p>
     <p style="margin:6px 0">Se certifica que</p>
     <p class="name">${escape(u?.name || '—')}</p>

@@ -7,7 +7,7 @@ import { contact } from './contact.js';
 import { mountChat } from '../shared/chat-widget.js';
 
 const root = document.getElementById('site');
-root.innerHTML = `<div data-head></div><main id="main" tabindex="-1"></main><div data-foot></div>`;
+root.innerHTML = `<div data-head></div><main id="main" class="site-main" tabindex="-1"></main><div data-foot></div>`;
 const main = root.querySelector('#main');
 let active = 'ayuda', current = () => {};
 const paintChrome = () => { root.querySelector('[data-head]').innerHTML = header(active); root.querySelector('[data-foot]').innerHTML = footer(); };

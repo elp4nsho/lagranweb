@@ -33,7 +33,7 @@ export function renderProduct(view, id) {
   else if (v.stock <= (sett.lowStock || 5)) stockNote = `<span class="stock-note low">¡Últimas ${v.stock} unidades!</span>`;
   else stockNote = `<span class="stock-note ok">En stock · despacho en 24 h</span>`;
 
-  view.innerHTML = html`<section class="section tight"><div class="container">
+  view.innerHTML = html`<section class="section tight pdp-page"><div class="container">
     <nav class="small muted" aria-label="Migas"><a href="#/">Inicio</a> / <a href="#/catalogo?cat=${cat?.slug}">${cat?.name}</a> / ${p.name}</nav>
     <div class="pdp" style="margin-top:16px">
       <div class="gallery">

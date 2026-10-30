@@ -46,6 +46,7 @@ hdr.addEventListener('click', e => {
 
 function mount(name, fn, params, query, keepScroll = false) {
   if (current?.res?.destroy) current.res.destroy();
+  if (!keepScroll) { document.querySelectorAll('.modal-backdrop').forEach(m => m.remove()); document.body.style.overflow = ''; }
   const y = window.scrollY;
   // Un <main> nuevo por vista: así no se acumulan listeners y las secciones quedan como hijas directas (layouts).
   const fresh = document.createElement('main');

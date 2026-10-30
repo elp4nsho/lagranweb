@@ -39,7 +39,7 @@ export function renderHome(el) {
     <div class="grid-3 launch-grid">${launches.map(m => `<article class="card launch-card"><div class="launch-art">${carOf(m, m.colors[0].hex)}<span class="launch-veil"></span></div>
       <span class="eyebrow">${escape(brand(m.brandId)?.name)} · ${fdate(m.launchDate)}</span><h3>${escape(m.name)}</h3><p class="muted small">${escape(m.tagline)}</p>
       <div class="row between"><span>Desde <b>${money(fromPrice(m))}</b> <small class="muted">estimado</small></span><span class="badge badge-primary">${countdown(m.launchDate).replace('Quedan', 'En').replace('Termina mañana', 'Mañana')}</span></div>
-      <button class="btn btn-accent btn-sm" data-notify="${m.id}">${icon('bell', 15)} Avísame</button></article>`).join('')}</div></div></section>` : ''}
+      <button class="btn btn-primary btn-sm" data-notify="${m.id}">${icon('bell', 15)} Avísame</button></article>`).join('')}</div></div></section>` : ''}
   ${sec.showrooms !== false ? `<section class="section showrooms-sec"><div class="container">${sectionHead('Sucursales', 'Showroom y taller en 3 ciudades', `<a class="btn" href="#/sucursales">Ver mapas y horarios</a>`)}
     <div class="grid-3">${showrooms().map(s => `<article class="card showroom-card"><span class="icon-bubble accent">${icon('store', 22)}</span><h3>${escape(s.city)}</h3><p class="small">${escape(s.address)}<br><span class="muted">${escape(s.hours)}</span></p>
       <div class="tag-list">${s.brands.map(b => `<span class="chip-mini">${escape(brand(b)?.name || b)}</span>`).join('')}</div><p class="small muted">${icon('wrench', 14)} Taller de ${s.bays} bahías · ${icon('phone', 14)} ${escape(s.phone)}</p></article>`).join('')}</div></div></section>` : ''}

@@ -17,7 +17,7 @@ else if (me.role !== 'cliente') location.replace(homeFor(me));
 else start();
 
 function start() {
-  root.innerHTML = `<div data-head></div><main id="main" class="section"><div class="container portal" data-view></div></main><div data-foot></div>`;
+  root.innerHTML = `<div data-head></div><main id="main" class="section site-main"><div class="container portal" data-view></div></main><div data-foot></div>`;
   const view = root.querySelector('[data-view]');
   const state = { filter: 'abiertos' };
   let current = () => {};

@@ -32,8 +32,8 @@ function render() {
   $('#head').innerHTML = publicHeader();
   $('#foot').innerHTML = publicFooter();
   $('#landing').innerHTML = html`
-  <section class="hero"><div class="container hero-grid">
-    <div data-anim>
+  <section class="hero site-hero"><div class="container hero-grid">
+    <div class="hero-text" data-anim>
       <span class="eyebrow">${s.hero.eyebrow}</span>
       <h1>${s.hero.title}</h1>
       <p class="lead">${s.hero.subtitle}</p>
@@ -43,7 +43,7 @@ function render() {
       </div>
       <p class="small muted" style="margin-top:14px">⚠️ ${s.notice}</p>
     </div>
-    <div data-anim data-anim-delay="150">
+    <div class="hero-media" data-anim data-anim-delay="150">
       <div class="phone" aria-hidden="true">
         <div class="notch"></div>
         <div class="row between"><b>Hola, Camila 👋</b><span class="badge badge-success">Demo</span></div>
@@ -55,7 +55,7 @@ function render() {
     </div>
   </div></section>
 
-  <section class="container" data-anim>
+  <section class="container land-stats" data-anim>
     <div class="stats-band">${s.stats.map(([v, l]) => html`<div class="card"><div class="stat"><span class="value">${v}</span><span class="label">${l}</span></div></div>`)}</div>
   </section>
 
@@ -103,7 +103,7 @@ function render() {
     <div class="faq" data-anim>${s.faq.map((f, i) => html`<details ${i === 0 ? 'open' : ''}><summary>${f.q}</summary><p>${f.a}</p></details>`)}</div>
   </div></section>
 
-  <section class="section cta-band" style="padding-top:0"><div class="container card" data-anim>
+  <section class="section cta-band" id="cta" style="padding-top:0"><div class="container card" data-anim>
     <h2>Abre tu cuenta Cóndor en 5 minutos</h2>
     <p class="muted">Solo necesitas tu RUT, tu celular y una selfie (simulada).</p>
     <div class="row" style="justify-content:center"><a class="btn btn-primary btn-lg" href="abrir-cuenta.html">${s.hero.cta}</a><a class="btn btn-lg btn-ghost" href="login.html">Ver cuentas demo</a></div>

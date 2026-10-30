@@ -11,16 +11,19 @@
 </head>
 <body>
   <div id="topbar"></div>
-  <main id="main" class="app-main">
-    <section class="page-hero container" data-anim>
-      <span class="eyebrow" id="coLine"></span>
-      <h1 id="heroTitle">¿Quién es quién?</h1>
-      <p class="muted" id="heroSub"></p>
-    </section>
+  <main id="main" class="app-main site-main">
+    <section class="page-hero site-hero" data-anim><div class="container">
+      <div class="hero-text">
+        <span class="eyebrow" id="coLine"></span>
+        <h1 id="heroTitle">¿Quién es quién?</h1>
+        <p class="muted" id="heroSub"></p>
+      </div>
+      <div class="hero-media card hero-stats" id="heroStats" aria-live="polite"></div>
+    </div></section>
     <div class="container stack" id="announcements"></div>
     <div class="container" id="view" style="margin-top:var(--gap)"></div>
   </main>
-  <footer class="footer"><div class="container row between">
+  <footer class="footer site-footer"><div class="container row between">
     <span>Demo con empresas y personas ficticias · Datos guardados solo en tu navegador.</span>
     <span class="row gap-sm"><a href="empleado.html">Mi espacio</a><a href="recepcion.html">Recepción</a><a href="admin.html">Administración</a></span>
   </div></footer>

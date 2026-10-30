@@ -14,7 +14,7 @@ const PROGRAMS = [
     note: 'Según el plan del fabricante: servicio menor cada 15.000 km o 1 año, mayor cada 30.000 km y servicio integral (bujías, aceite PDK) cada 60.000 km. Usamos repuestos originales y no afecta tu garantía.',
     models: [{ name: '911 Carrera S', body: 'coupe', fuel: 'bencina', factor: 1.55, hp: 450 }, { name: 'Cayenne E-Hybrid', body: 'suv', fuel: 'hibrido', factor: 1.35, hp: 470 }, { name: 'Macan S', body: 'suv', fuel: 'bencina', factor: 1.15, hp: 380 }, { name: 'Taycan 4S', body: 'sedan', fuel: 'electrico', factor: 1.05, hp: 530 }, { name: 'Panamera 4', body: 'sedan', fuel: 'bencina', factor: 1.45, hp: 353 }],
     levels: ICE_LV('Servicio menor', 'Servicio mayor', 'Servicio integral') },
-  { id: 'pg-bmw', brand: 'BMW M', name: 'Programa BMW M', intervalKm: 15000, intervalMonths: 12, order: 2, active: true,
+  { id: 'pg-bmw', brand: 'BMW', name: 'Programa BMW M', intervalKm: 15000, intervalMonths: 12, order: 2, active: true,
     note: 'Intervalos según Condition Based Service (CBS): aceite cada 15.000 km, microfiltro y frenos cada 30.000 km, bujías y diferencial M cada 60.000 km.',
     models: [{ name: 'M3 Competition', body: 'sedan', fuel: 'bencina', factor: 1.2, hp: 510 }, { name: 'M4 Competition', body: 'coupe', fuel: 'bencina', factor: 1.25, hp: 510 }, { name: 'X5 M Competition', body: 'suv', fuel: 'bencina', factor: 1.4, hp: 625 }, { name: 'i4 M50', body: 'sedan', fuel: 'electrico', factor: .95, hp: 544 }, { name: 'iX M60', body: 'suv', fuel: 'electrico', factor: 1.15, hp: 619 }],
     levels: ICE_LV('Servicio de aceite', 'Servicio CBS mayor', 'Servicio M integral') },
@@ -22,7 +22,7 @@ const PROGRAMS = [
     note: 'Servicio A y Servicio B alternados cada 15.000 km o 1 año, con servicio ampliado (bujías, transmisión MCT) cada 60.000 km.',
     models: [{ name: 'C 63 S E Performance', body: 'sedan', fuel: 'hibrido', factor: 1.35, hp: 680 }, { name: 'GLE 53 Coupé', body: 'suv', fuel: 'bencina', factor: 1.3, hp: 435 }, { name: 'AMG GT 63', body: 'coupe', fuel: 'bencina', factor: 1.6, hp: 585 }, { name: 'G 63', body: 'suv', fuel: 'bencina', factor: 1.7, hp: 585 }, { name: 'EQS 580', body: 'sedan', fuel: 'electrico', factor: 1.2, hp: 524 }],
     levels: ICE_LV('Servicio A', 'Servicio B', 'Servicio B ampliado') },
-  { id: 'pg-audi', brand: 'Audi RS', name: 'Programa Audi RS', intervalKm: 15000, intervalMonths: 12, order: 4, active: true,
+  { id: 'pg-audi', brand: 'Audi', name: 'Programa Audi RS', intervalKm: 15000, intervalMonths: 12, order: 4, active: true,
     note: 'Inspección con cambio de aceite cada 15.000 km; inspección ampliada con filtros cada 30.000 km y servicio de transmisión S tronic cada 60.000 km.',
     models: [{ name: 'RS 3 Sportback', body: 'hatch', fuel: 'bencina', factor: 1.0, hp: 400 }, { name: 'RS 6 Avant', body: 'wagon', fuel: 'bencina', factor: 1.45, hp: 630 }, { name: 'RS Q8', body: 'suv', fuel: 'bencina', factor: 1.5, hp: 600 }, { name: 'RS e-tron GT', body: 'sedan', fuel: 'electrico', factor: 1.15, hp: 646 }],
     levels: ICE_LV('Inspección con aceite', 'Inspección ampliada', 'Servicio S tronic') },
@@ -72,11 +72,11 @@ const COMW = ['Vitacura', 'Vitacura', 'Las Condes', 'Las Condes', 'Las Condes', 
 const PARTS = [
   ['PO-99610722553', 'Filtro de aceite', 'Porsche', '911 / Cayenne / Macan', 18, 6, 21000, 38000, 'A1'], ['PO-9A110715300', 'Filtro de aire (par)', 'Porsche', '911 992', 6, 4, 64000, 112000, 'A1'],
   ['PO-9J1698151', 'Pastillas delanteras PCCB', 'Porsche', 'Taycan / 911', 2, 2, 690000, 1180000, 'B3'], ['PO-0W30-1L', 'Aceite Mobil 1 0W-40 (L)', 'Porsche', 'Motores bóxer', 64, 30, 9800, 18500, 'L1'],
-  ['BM-11428575211', 'Filtro de aceite', 'BMW M', 'S58 (M3/M4)', 14, 6, 17000, 32000, 'A2'], ['BM-34112284369', 'Pastillas delanteras M', 'BMW M', 'M3 / M4 G8x', 4, 3, 290000, 520000, 'B1'],
-  ['BM-12120039664', 'Bujía de encendido', 'BMW M', 'S58', 24, 12, 18000, 34000, 'A2'], ['BM-64119382886', 'Microfiltro de cabina', 'BMW M', 'G8x / iX', 9, 5, 39000, 72000, 'A2'],
+  ['BM-11428575211', 'Filtro de aceite', 'BMW', 'S58 (M3/M4)', 14, 6, 17000, 32000, 'A2'], ['BM-34112284369', 'Pastillas delanteras M', 'BMW', 'M3 / M4 G8x', 4, 3, 290000, 520000, 'B1'],
+  ['BM-12120039664', 'Bujía de encendido', 'BMW', 'S58', 24, 12, 18000, 34000, 'A2'], ['BM-64119382886', 'Microfiltro de cabina', 'BMW', 'G8x / iX', 9, 5, 39000, 72000, 'A2'],
   ['MB-A2761800009', 'Filtro de aceite', 'Mercedes-AMG', 'M177 / M139', 12, 6, 16000, 30000, 'A3'], ['MB-A0004209006', 'Pastillas traseras AMG', 'Mercedes-AMG', 'C 63 / GT', 3, 2, 240000, 430000, 'B2'],
-  ['MB-0W40-1L', 'Aceite AMG 0W-40 (L)', 'Mercedes-AMG', 'V8 biturbo', 40, 24, 10500, 19500, 'L1'], ['AU-06L115562B', 'Filtro de aceite', 'Audi RS', 'RS 3 / RS 6', 10, 5, 15000, 28000, 'A3'],
-  ['AU-4K0698151', 'Pastillas delanteras', 'Audi RS', 'RS 6 / RS Q8', 2, 2, 310000, 560000, 'B2'], ['AU-8W0819439', 'Filtro de cabina', 'Audi RS', 'RS 3 / e-tron GT', 7, 4, 28000, 52000, 'A3'],
+  ['MB-0W40-1L', 'Aceite AMG 0W-40 (L)', 'Mercedes-AMG', 'V8 biturbo', 40, 24, 10500, 19500, 'L1'], ['AU-06L115562B', 'Filtro de aceite', 'Audi', 'RS 3 / RS 6', 10, 5, 15000, 28000, 'A3'],
+  ['AU-4K0698151', 'Pastillas delanteras', 'Audi', 'RS 6 / RS Q8', 2, 2, 310000, 560000, 'B2'], ['AU-8W0819439', 'Filtro de cabina', 'Audi', 'RS 3 / e-tron GT', 7, 4, 28000, 52000, 'A3'],
   ['TS-1107681', 'Filtro HEPA de cabina', 'Tesla', 'Model Y / X', 11, 6, 38000, 69000, 'A4'], ['TS-1188343', 'Pastillas delanteras', 'Tesla', 'Model 3 / Y', 8, 4, 98000, 175000, 'B4'],
   ['TS-1129990', 'Refrigerante G-48 (5 L)', 'Tesla', 'Toda la gama', 6, 4, 42000, 79000, 'L2'], ['VO-32221188', 'Filtro de cabina', 'Volvo', 'XC40 / EX30', 9, 5, 26000, 49000, 'A4'],
   ['VO-31492265', 'Pastillas delanteras', 'Volvo', 'XC60 / XC90', 5, 3, 120000, 215000, 'B4'], ['VO-32211231', 'Batería 12 V AGM', 'Volvo', 'Recharge', 3, 2, 160000, 290000, 'C1'],
@@ -130,7 +130,7 @@ export function seed() {
   mkVehicle('c-martina', mm('Porsche', '911 Carrera S'), { year: 2022, km: 38400, color: '#8a8f93', colorName: 'Gris Nardo' });
   mkVehicle('c-martina', mm('Porsche', 'Taycan 4S'), { year: 2023, km: 29800, color: '#1f3d7a', colorName: 'Azul Gentian' });
   mkVehicle('c-rodrigo', mm('Tesla', 'Model Y'), { year: 2024, km: 21500, color: '#e9e9e4', colorName: 'Blanco Carrara' });
-  mkVehicle('c-rodrigo', mm('BMW M', 'M3 Competition'), { year: 2021, km: 44100, color: '#3f6b3a', colorName: 'Verde Python' });
+  mkVehicle('c-rodrigo', mm('BMW', 'M3 Competition'), { year: 2021, km: 44100, color: '#3f6b3a', colorName: 'Verde Python' });
   for (let i = 0; i < 40; i++) {
     const name = fullName(r);
     const c = { id: 'c' + (i + 1), name, rut: genRut(r), email: emailOf(name, r.pick(['gmail.com', 'outlook.com', 'empresa.cl', 'icloud.com'])), phone: phone(r), address: addr(), comuna: r.pick(COMW), tier: r.pick(tiers), since: at(r.int(60, 900)), notes: '' };
@@ -143,8 +143,8 @@ export function seed() {
   // ---------- Órdenes de trabajo ----------
   const programOf = v => PROGRAMS.find(p => p.brand === v.brand);
   const levelAt = (p, km) => { const n = Math.max(1, Math.round(km / p.intervalKm)); return { n, km: n * p.intervalKm, level: [...p.levels].sort((a, b) => b.every - a.every).find(l => n % l.every === 0) }; };
-  const techFor = (line, v) => line === 'estetica' ? 'u-tec5' : line === 'performance' ? r.pick(['u-tec6', 'u-tec6', 'u-tec3']) : line === 'ev' || v.fuel === 'electrico' ? 'u-tec2'
-    : line === 'diagnostico' ? r.pick(['u-tec4', 'u-tec4', 'u-tec3']) : ({ Porsche: 'u-tec1', 'BMW M': 'u-tec3', 'Mercedes-AMG': 'u-tec3', 'Audi RS': 'u-tec4', Tesla: 'u-tec2', Volvo: 'u-tec2' }[v.brand]);
+  const techFor = (line, v) => line === 'estetica' ? 'u-tec5' : line === 'performance' ? r.pick(['u-tec6', 'u-tec1', 'u-tec3']) : line === 'ev' || v.fuel === 'electrico' ? 'u-tec2'
+    : line === 'diagnostico' ? r.pick(['u-tec4', 'u-tec1', 'u-tec3']) : ({ Porsche: 'u-tec1', 'BMW': 'u-tec3', 'Mercedes-AMG': 'u-tec3', 'Audi': 'u-tec4', Tesla: 'u-tec2', Volvo: 'u-tec2' }[v.brand]);
   const pickLine = v => { const x = r(); return v.fuel === 'electrico' ? (x < .38 ? 'ev' : x < .7 ? 'mantencion' : x < .9 ? 'estetica' : 'diagnostico') : (x < .44 ? 'mantencion' : x < .58 ? 'performance' : x < .8 ? 'estetica' : x < .93 ? 'diagnostico' : v.fuel === 'hibrido' ? 'ev' : 'mantencion'); };
   const workOrders = [], concierge = [], inspections = [], dyno = [];
   let seq = 24001;
@@ -184,10 +184,10 @@ export function seed() {
   }
 
   // Historial: ~8 meses hábiles
-  for (let d = 240; d >= 6; d--) {
+  for (let d = 240; d >= 3; d--) {
     const day = new Date(NOW - d * DAY).getDay();
     if (day === 0) continue;
-    const n = day === 6 ? r.int(0, 1) : r.int(1, 2);
+    const n = day === 6 ? r.int(0, 1) : r.int(1, 2) + (r.bool(d < 70 ? .45 : .15) ? 1 : 0);
     for (let k = 0; k < n; k++) { const v = r.pick(vehicles.slice(4)); makeWO(v, at(d), { km: Math.max(1000, v.km - Math.round(d * r.int(20, 45))) }); }
   }
   // Historial garantizado para las cuentas demo (libro de mantenciones)
@@ -239,7 +239,7 @@ export function seed() {
     const v = vehicles.find(x => x.id === wo.vehicleId), isEv = v.fuel === 'electrico';
     const items = inspectionTemplate(isEv).map(({ cat, name }) => {
       const x = r();
-      let s = x < (forceIssues ? .7 : .8) ? 'ok' : x < .93 ? 'atencion' : 'urgente';
+      let s = x < (forceIssues ? .84 : .8) ? 'ok' : x < .93 ? 'atencion' : 'urgente';
       if (forceIssues && ['Pastillas delanteras', 'Filtro de cabina (polen)', 'Líquido de frenos'].includes(name)) s = name === 'Pastillas delanteras' ? 'urgente' : 'atencion';
       const it = { cat, name, s };
       if (name.startsWith('Neumático')) it.val = `${s === 'ok' ? r.int(5, 8) : s === 'atencion' ? 4 : 2} mm`;

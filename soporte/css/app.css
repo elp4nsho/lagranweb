@@ -494,3 +494,172 @@ button.tag { cursor: pointer; }
 @keyframes tdot { 50% { opacity: .2; transform: translateY(-3px); } }
 @media (max-width: 600px) { .chatw-fab span { display: none; } .chatw-fab { width: 52px; padding: 0; } }
 @media (max-width: 480px) { .site-header .brand-sub { display: none; } }
+
+/* =====================================================================
+   Disposiciones (revista / app). Clásica = diseño original.
+   ===================================================================== */
+[data-layout="revista"] [data-head], [data-layout="app"] [data-head] { display: contents; }
+[data-layout="revista"] .nav-toggle, [data-layout="app"] .nav-toggle { display: none !important; }
+[data-layout="revista"] .site-header { position: relative; background: var(--bg); backdrop-filter: none; }
+[data-layout="revista"] .site-header .brand { font-size: clamp(26px, 4vw, 42px); }
+@media (max-width: 860px) {
+  [data-layout="revista"] .site-nav { position: static; flex-direction: row; box-shadow: none; background: none; border-bottom: 0; padding: 8px 0; gap: 4px 14px; }
+  [data-layout="revista"] .site-nav > a:not(.btn) { padding: 4px; }
+}
+@media (min-width: 901px) { [data-layout="app"] .site-nav > .btn { margin-top: 8px; } [data-layout="app"] .site-header .brand { white-space: normal; } }
+@media (max-width: 900px) {
+  [data-layout="app"] .site-nav { border-bottom: 0; padding: 6px 4px; }
+  [data-layout="app"] .site-nav > .btn { flex: 0 0 auto !important; min-height: 0; }
+  [data-layout="app"] .chatw { bottom: 80px; }
+}
+
+/* --- Portada del centro de ayuda --- */
+/* Revista: portada partida (buscador a la izquierda, búsquedas frecuentes como índice a la derecha) */
+[data-layout="revista"] .kb-hero { background: none; }
+[data-layout="revista"] .kb-hero .center-stack { align-items: flex-start; text-align: left; }
+[data-layout="revista"] .kb-hero .hero-media { flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0; border-top: 4px solid var(--primary); }
+[data-layout="revista"] .kb-hero .hero-media::before { content: 'Búsquedas frecuentes'; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); padding: 10px 0; }
+[data-layout="revista"] .kb-hero .hero-media .chip { border-radius: 0; border-width: 0 0 1px; background: none; padding: 10px 0; font: var(--head-weight) 22px var(--font-head); justify-content: flex-start; text-transform: capitalize; }
+[data-layout="revista"] .site-main:has(> .kb-cats) { display: flex; flex-direction: column; }
+[data-layout="revista"] .site-main > .kb-featured { order: 1; background: none; }
+[data-layout="revista"] .site-main > .kb-cats { order: 2; }
+[data-layout="revista"] .site-main > .kb-ways { order: 3; }
+/* Destacados: «Más leídos» como columna numerada a la izquierda */
+[data-layout="revista"] .kb-featured .kb-two { grid-template-columns: 300px minmax(0, 1fr); }
+[data-layout="revista"] .kb-featured .kb-two > aside { order: -1; border-right: 1px solid var(--line); padding-right: 24px; }
+[data-layout="revista"] .popular { background: none; box-shadow: none; border: 0; padding: 0 !important; list-style: none; counter-reset: pop; gap: 0; }
+[data-layout="revista"] .popular li { counter-increment: pop; display: grid; grid-template-columns: 44px minmax(0, 1fr); padding: 12px 0; border-bottom: 1px solid var(--line); }
+[data-layout="revista"] .popular li::before { content: counter(pop); grid-row: span 2; font: var(--head-weight) 34px/1 var(--font-head); color: var(--primary); }
+[data-layout="revista"] .kb-featured .grid-2 { gap: 0; }
+[data-layout="revista"] .kb-featured .art-card { background: none; box-shadow: none; border: 0; border-radius: 0; border-bottom: 1px solid var(--line); }
+[data-layout="revista"] .kb-featured .art-card:first-child { grid-column: 1 / -1; border-top: 4px solid var(--primary); }
+[data-layout="revista"] .kb-featured .art-card:first-child b { font: var(--head-weight) clamp(26px, 3vw, 38px)/1.15 var(--font-head); }
+/* Categorías como índice a dos columnas */
+[data-layout="revista"] .site-main .kb-cats .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
+[data-layout="revista"] .site-main .kb-cats .grid-3 > * { grid-column: auto; grid-row: auto; }
+[data-layout="revista"] .cat-card { grid-template-columns: 46px minmax(0, 1fr) auto; column-gap: 14px; row-gap: 0; align-items: center; background: none; box-shadow: none; border: 0; border-radius: 0; border-bottom: 1px solid var(--line); padding: 14px 0; }
+[data-layout="revista"] .cat-card .cat-ico { grid-row: span 2; }
+[data-layout="revista"] .cat-card small { grid-column: 3; grid-row: 1 / span 2; }
+[data-layout="revista"] .site-main .help-ways { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
+[data-layout="revista"] .site-main .help-ways > * { grid-column: auto; grid-row: auto; background: none; box-shadow: none; border: 0; border-radius: 0; }
+[data-layout="revista"] .help-ways > * + * { border-left: 1px solid var(--line); }
+@media (max-width: 760px) {
+  [data-layout="revista"] .kb-featured .kb-two { grid-template-columns: 1fr; }
+  [data-layout="revista"] .kb-featured .kb-two > aside { border-right: 0; padding-right: 0; }
+  [data-layout="revista"] .site-main .kb-cats .grid-3, [data-layout="revista"] .site-main .help-ways { grid-template-columns: 1fr; }
+  [data-layout="revista"] .help-ways > * + * { border-left: 0; border-top: 1px solid var(--line); }
+}
+
+/* App: portada en panel con columnas */
+[data-layout="app"] .kb-hero { background: none; }
+[data-layout="app"] .kb-hero .center-stack { align-items: flex-start; text-align: left; }
+[data-layout="app"] .kb-hero .hero-media { display: flex !important; flex-direction: column; align-items: stretch; gap: 6px; }
+[data-layout="app"] .kb-hero .hero-media .chip { justify-content: flex-start; text-transform: capitalize; }
+@media (max-width: 760px) { [data-layout="app"] .kb-hero .hero-media { flex-direction: row; flex-wrap: wrap; } }
+@media (min-width: 1100px) {
+  [data-layout="app"] .site-main:has(> .kb-cats) { display: grid; grid-template-columns: minmax(0, 1fr) 340px; grid-template-areas: "hero hero" "status status" "cats ways" "feat ways"; grid-template-rows: auto auto auto 1fr; gap: 16px; width: min(1360px, 100% - 32px); margin-inline: auto; padding-block: 16px; align-items: start; }
+  [data-layout="app"] .site-main:has(> .kb-cats) > * { width: auto; margin: 0; padding: 0 !important; }
+  [data-layout="app"] .site-main > .site-hero { grid-area: hero; }
+  [data-layout="app"] .site-main > .status-wrap { grid-area: status; }
+  [data-layout="app"] .site-main > .kb-cats { grid-area: cats; }
+  [data-layout="app"] .site-main > .kb-featured { grid-area: feat; }
+  [data-layout="app"] .site-main > .kb-ways { grid-area: ways; position: sticky; top: 16px; }
+  [data-layout="app"] .site-main .help-ways { grid-template-columns: 1fr; }
+}
+[data-layout="app"] .site-main > .kb-featured { background: none; }
+[data-layout="app"] .site-main .kb-featured .kb-two { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+[data-layout="app"] .popular { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr)); gap: 10px 24px; }
+/* categorías como mosaico denso de íconos */
+[data-layout="app"] .site-main .kb-cats .grid-3 { grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); gap: 8px; }
+[data-layout="app"] .site-main .kb-cats .grid-3 > * { grid-column: auto !important; }
+[data-layout="app"] .cat-card { justify-items: center; text-align: center; padding: 14px 10px; box-shadow: none; }
+[data-layout="app"] .cat-card .muted.small { display: none; }
+[data-layout="app"] .kb-featured .grid-2 { grid-template-columns: 1fr; gap: 0; border: var(--border-w) solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+[data-layout="app"] .kb-featured .art-card { border: 0; border-radius: 0; box-shadow: none; border-bottom: 1px solid var(--line); padding: 10px 14px; gap: 2px; }
+[data-layout="app"] .kb-featured .art-card .muted.small { display: none; }
+[data-layout="app"] .site-main .help-ways > * { grid-column: auto !important; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px 12px; box-shadow: none; padding: 14px; }
+[data-layout="app"] .help-ways .cat-ico { width: 38px; height: 38px; }
+[data-layout="app"] .help-ways p { flex-basis: 100%; font-size: 13px; }
+
+/* --- Artículo --- */
+[data-layout="revista"] .kb-article .kb-two { grid-template-columns: minmax(0, 1fr); max-width: 780px; margin-inline: auto; }
+[data-layout="revista"] .kb-article .art-title { font-size: clamp(34px, 5vw, 58px); text-align: center; }
+[data-layout="revista"] .kb-article article > .muted.small { text-align: center; border-bottom: 3px double var(--line); padding-bottom: 12px; }
+[data-layout="revista"] .kb-article .prose { background: none; box-shadow: none; border: 0; padding-inline: 0; font-size: 18px; }
+[data-layout="revista"] .kb-article .prose > p:first-child::first-letter { float: left; font: var(--head-weight) 3.6em/.8 var(--font-head); padding: 6px 10px 0 0; color: var(--primary); }
+[data-layout="revista"] .kb-article aside { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 4px solid var(--primary); padding-top: 16px; }
+[data-layout="revista"] .kb-article aside > .card { box-shadow: none; background: none; border: 0; border-radius: 0; padding: 0; }
+@media (max-width: 700px) { [data-layout="revista"] .kb-article aside { grid-template-columns: 1fr; } }
+@media (min-width: 901px) {
+  [data-layout="app"] .kb-article .kb-two { grid-template-columns: 280px minmax(0, 1fr); }
+  [data-layout="app"] .kb-article aside { order: -1; position: sticky; top: 16px; }
+}
+[data-layout="app"] .kb-article .art-title { font-size: clamp(22px, 2.6vw, 30px); }
+
+/* --- Consola del agente: ficha del ticket --- */
+/* Revista: propiedades como franja horizontal arriba, conversación debajo a lo ancho */
+[data-layout="revista"] .ticket-grid { grid-template-columns: minmax(0, 1fr); }
+[data-layout="revista"] .ticket-grid > aside { order: -1; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr); gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .ticket-grid > aside > .card { box-shadow: none; background: none; border: 0; border-radius: 0; }
+[data-layout="revista"] .ticket-grid > aside > .card + .card { border-left: 1px solid var(--line); }
+[data-layout="revista"] .ticket-grid > aside .props { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+[data-layout="revista"] .ticket-grid > aside .props > h3 { grid-column: 1 / -1; }
+[data-layout="revista"] .thread { max-width: 860px; margin-inline: auto; width: 100%; }
+@media (max-width: 1000px) {
+  [data-layout="revista"] .ticket-grid > aside { grid-template-columns: 1fr; }
+  [data-layout="revista"] .ticket-grid > aside > .card + .card { border-left: 0; border-top: 1px solid var(--line); }
+  [data-layout="revista"] .ticket-grid > aside .props { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* App: propiedades en columna fija a la izquierda, conversación tipo chat con burbujas alternadas */
+@media (min-width: 1051px) {
+  [data-layout="app"] .ticket-grid { grid-template-columns: 290px minmax(0, 1fr); }
+  [data-layout="app"] .ticket-grid > aside { order: -1; position: sticky; top: 70px; max-height: calc(100vh - 86px); overflow-y: auto; }
+}
+[data-layout="app"] .ticket-grid > aside > .card { padding: 12px; box-shadow: none; }
+[data-layout="app"] .thread .msg { max-width: 82%; }
+[data-layout="app"] .thread .msg.staff { flex-direction: row-reverse; align-self: flex-end; }
+[data-layout="app"] .thread .msg-sys { align-self: center; }
+@media (max-width: 600px) { [data-layout="app"] .thread .msg { max-width: 100%; } }
+
+/* --- Bandeja del agente --- */
+[data-layout="app"] .inbox-table td, [data-layout="app"] .inbox-table th { padding-block: 6px; }
+[data-layout="app"] .view-chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+[data-layout="revista"] .view-chips { border-bottom: 3px double var(--line); padding-bottom: 10px; }
+[data-layout="revista"] .view-chips .chip { border-radius: 0; background: none; border-width: 0 0 2px; }
+[data-layout="revista"] .view-chips .chip.active { border-color: var(--primary); color: var(--primary); }
+
+/* --- Dashboard de administración --- */
+[data-layout="revista"] .admin-content > .kpis { gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .admin-content > .kpis > .kpi { background: none; box-shadow: none; border: 0; border-radius: 0; text-align: center; }
+[data-layout="revista"] .admin-content > .kpis > .kpi + .kpi { border-left: 1px solid var(--line); }
+[data-layout="revista"] .admin-content > .kpis .stat { align-items: center; }
+@media (max-width: 700px) { [data-layout="revista"] .admin-content > .kpis > .kpi + .kpi { border-left: 0; border-top: 1px solid var(--line); } }
+[data-layout="revista"] .dash-grid { grid-auto-flow: dense; }
+[data-layout="revista"] .dash-grid > .card { box-shadow: none; border-width: 0; border-top: 3px solid var(--text); border-radius: 0; background: none; }
+[data-layout="revista"] .dash-grid > .card h3 { font-size: 22px; }
+@media (min-width: 1101px) { [data-layout="revista"] .dash-grid > .span-2:first-child { grid-row: span 2; } }
+@media (min-width: 1000px) {
+  [data-layout="app"] .admin-content:has(> .kpis + .dash-grid) { display: grid; grid-template-columns: 240px minmax(0, 1fr); align-items: start; }
+  [data-layout="app"] .admin-content:has(> .kpis + .dash-grid) > :not(.kpis):not(.dash-grid) { grid-column: 1 / -1; }
+  [data-layout="app"] .admin-content > .kpis:has(+ .dash-grid) { grid-template-columns: 1fr; gap: 0; position: sticky; top: 70px; border: var(--border-w) solid var(--line); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+  [data-layout="app"] .admin-content > .kpis:has(+ .dash-grid) > .kpi { border: 0; border-bottom: 1px solid var(--line); border-radius: 0; box-shadow: none; padding: 12px 14px; }
+  [data-layout="app"] .admin-content > .kpis:has(+ .dash-grid) > .kpi:last-child { border-bottom: 0; }
+  [data-layout="app"] .dash-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-flow: dense; }
+  [data-layout="app"] .dash-grid > .span-2 { grid-column: 1 / -1; }
+}
+@media (max-width: 999px) {
+  [data-layout="app"] .admin-content > .kpis:has(+ .dash-grid) { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; padding-bottom: 4px; }
+  [data-layout="app"] .admin-content > .kpis:has(+ .dash-grid) > .kpi { flex: 0 0 min(210px, 72%); scroll-snap-align: start; }
+}
+[data-layout="app"] .dash-grid { gap: 12px; }
+[data-layout="app"] .dash-grid > .card { padding: 14px; }
+
+/* Riel de íconos (app): el núcleo recorta las etiquetas y dejaba 2-3 letras visibles; se ocultan hasta expandir */
+@media (min-width: 901px) {
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) :is(.nav-link, .admin-brand) { font-size: 0; gap: 0; }
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) :is(.nav-link .count, .brand-area) { display: none; }
+}
+/* Revista reordena Destacados antes que Temas: la numeración del núcleo sigue el orden del DOM, se fija a mano */
+[data-layout="revista"] .site-main > section.kb-featured:not(.site-hero) h2:first-of-type::before { content: '01  '; }
+[data-layout="revista"] .site-main > section.kb-cats:not(.site-hero) h2:first-of-type::before { content: '02  '; }
+[data-layout="revista"] .ticket-grid > aside .props { align-content: start; }

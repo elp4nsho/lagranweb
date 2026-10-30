@@ -17,22 +17,22 @@ export function home(view) {
   const popular = [...arts].sort((a, b) => b.views - a.views).slice(0, 5);
   const live = db.query('incidents', i => i.status !== 'resuelto');
   view.innerHTML = `
-    <section class="kb-hero"><div class="container stack center-stack" data-anim>
-      <h1>${escape(help.heroTitle)}</h1>
+    <section class="kb-hero site-hero"><div class="container stack center-stack" data-anim>
+      <div class="hero-text stack center-stack"><h1>${escape(help.heroTitle)}</h1>
       <p class="lead">${escape(help.heroSubtitle)}</p>
-      ${searchBox()}
-      <div class="row chips-row">${['velocidad', 'boleta', 'router', 'traslado', 'wifi'].map(t => `<a class="chip" href="#/buscar?q=${t}">${t}</a>`).join('')}</div>
+      ${searchBox()}</div>
+      <div class="row chips-row hero-media">${['velocidad', 'boleta', 'router', 'traslado', 'wifi'].map(t => `<a class="chip" href="#/buscar?q=${t}">${t}</a>`).join('')}</div>
     </div></section>
-    ${live.length ? `<div class="container"><a class="card status-strip" href="estado.html" data-anim>${icon('activity', 20)}<span><b>${live.length === 1 ? 'Hay 1 incidente activo' : `Hay ${live.length} incidentes activos`}:</b> ${escape(live[0].title)}</span><span class="btn btn-sm">Ver estado</span></a></div>` : ''}
-    <section class="section"><div class="container stack">
+    ${live.length ? `<div class="container status-wrap"><a class="card status-strip" href="estado.html" data-anim>${icon('activity', 20)}<span><b>${live.length === 1 ? 'Hay 1 incidente activo' : `Hay ${live.length} incidentes activos`}:</b> ${escape(live[0].title)}</span><span class="btn btn-sm">Ver estado</span></a></div>` : ''}
+    <section class="section kb-cats"><div class="container stack">
       <h2 data-anim>Explora por tema</h2>
       <div class="grid-3">${cats.map(c => `<a class="card hover cat-card" href="#/categoria/${c.id}"><span class="cat-ico">${icon(c.icon, 26)}</span><b>${escape(c.name)}</b><span class="muted small">${escape(c.description)}</span><small class="muted">${arts.filter(a => a.categoryId === c.id).length} artículos</small></a>`).join('')}</div>
     </div></section>
-    <section class="section alt"><div class="container kb-two">
+    <section class="section alt kb-featured"><div class="container kb-two">
       <div class="stack"><h2 data-anim>Guías destacadas</h2><div class="grid-2">${featured.map(artCard).join('')}</div></div>
       <aside class="stack"><h3 data-anim>Más leídos</h3><ol class="popular card">${popular.map(a => `<li><a href="#/articulo/${a.id}">${escape(a.title)}</a><small class="muted">${a.views.toLocaleString('es-CL')} lecturas</small></li>`).join('')}</ol></aside>
     </div></section>
-    <section class="section"><div class="container grid-3 help-ways">
+    <section class="section kb-ways"><div class="container grid-3 help-ways">
       <div class="card stack" data-anim><span class="cat-ico">${icon('chat', 24)}</span><h3>Chat en línea</h3><p class="muted">Nuestro asistente responde al instante y te deriva a un agente si lo necesitas.</p><button class="btn" data-openchat>Abrir chat</button></div>
       <div class="card stack" data-anim data-anim-delay="100"><span class="cat-ico">${icon('mail', 24)}</span><h3>Escríbenos</h3><p class="muted">Crea un ticket y sigue la respuesta desde tu portal de clientes.</p><a class="btn" href="#/contacto">Crear ticket</a></div>
       <div class="card stack" data-anim data-anim-delay="200"><span class="cat-ico">${icon('phone', 24)}</span><h3>Llámanos</h3><p class="muted"><b>${escape(help.phone)}</b><br>${escape(help.hours)}</p><a class="btn" href="estado.html">Estado del servicio</a></div>
@@ -60,7 +60,7 @@ export function article(view, id) {
   const vote = db.find('votes', v => v.articleId === id && v.visitorId === visitorId());
   const related = published().filter(x => x.categoryId === a.categoryId && x.id !== id).slice(0, 4);
   const total = a.helpfulYes + a.helpfulNo;
-  view.innerHTML = `<section class="section"><div class="container kb-two">
+  view.innerHTML = `<section class="section kb-article"><div class="container kb-two">
     <article class="stack" style="min-width:0">
       ${crumbs([[c?.name, `#/categoria/${a.categoryId}`], [a.title]])}
       <h1 class="art-title">${escape(a.title)}</h1>

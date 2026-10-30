@@ -2,7 +2,7 @@
 // vidrios, neumáticos y llantas son fijos dentro de la ilustración, el resto usa tokens.
 const P = {
   sedan: { x0: 24, x1: 378, ydeck: 88, cr: 116, rr: 168, rf: 248, wb: 292, ybelt: 86, yroof: 50, yhood: 92, wr: 104, wf: 304 },
-  coupe: { x0: 26, x1: 378, ydeck: 92, cr: 126, rr: 182, rf: 234, wb: 296, ybelt: 92, yroof: 58, yhood: 100, wr: 104, wf: 306 },
+  coupe: { x0: 26, x1: 378, ydeck: 90, cr: 74, rr: 172, rf: 226, wb: 292, ybelt: 92, yroof: 58, yhood: 102, wr: 100, wf: 304 },
   suv: { x0: 28, x1: 374, ydeck: 62, cr: 34, rr: 58, rf: 262, wb: 304, ybelt: 74, yroof: 34, yhood: 80, wr: 104, wf: 300 },
   wagon: { x0: 22, x1: 378, ydeck: 70, cr: 30, rr: 56, rf: 250, wb: 296, ybelt: 84, yroof: 48, yhood: 92, wr: 104, wf: 304 },
   hatch: { x0: 40, x1: 364, ydeck: 70, cr: 46, rr: 78, rf: 236, wb: 284, ybelt: 84, yroof: 48, yhood: 94, wr: 110, wf: 296 },

@@ -19,10 +19,10 @@ export function userMenu(auth, u) {
 export function mountTopbar(el, { db, auth, links = [], showCompany = true, onCompany, extra = '' }) {
   const draw = () => {
     const u = auth.current(), co = getCompanyId(db);
-    el.innerHTML = `<header class="topbar"><div class="container topbar-row">
-      <a class="brand" href="index.html"><span class="logo">${LOGO}</span><span class="brand-name">¿Quién es quién?</span></a>
-      <nav class="topnav" aria-label="Secciones">${links.map(l => `<a href="${l.href}" class="topnav-link">${l.ico ? `<span aria-hidden="true">${l.ico}</span>` : ''}${escape(l.label)}</a>`).join('')}</nav>
-      <div class="topbar-end">
+    el.innerHTML = `<header class="topbar site-header"><div class="container topbar-row">
+      <a class="brand site-brand" href="index.html"><span class="logo">${LOGO}</span><span class="brand-name">¿Quién es quién?</span></a>
+      <nav class="topnav site-nav" aria-label="Secciones">${links.map(l => `<a href="${l.href}" class="topnav-link">${l.ico ? `<span aria-hidden="true">${l.ico}</span>` : ''}${escape(l.label)}</a>`).join('')}</nav>
+      <div class="topbar-end site-actions">
         ${showCompany ? `<label class="co-pick"><span class="sr-only">Empresa</span><select class="select select-sm" data-co>${db.all('companies').filter(c => c.active !== false).map(c => `<option value="${c.id}" ${c.id === co ? 'selected' : ''}>${escape(c.name)}</option>`).join('')}</select></label>` : ''}
         ${extra}
         ${userMenu(auth, u)}

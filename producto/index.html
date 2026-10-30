@@ -12,21 +12,21 @@
 <body class="lp">
   <a class="skip" href="#main">Saltar al contenido</a>
   <div class="promo" id="promo" role="region" aria-label="Oferta"></div>
-  <header class="site-head" id="siteHead">
+  <header class="site-head site-header" id="siteHead">
     <div class="container head-in">
-      <a href="index.html" class="logo" aria-label="Aquilo, inicio"><span class="logo-mark" aria-hidden="true"></span>aquilo</a>
-      <nav class="head-nav" aria-label="Principal">
+      <a href="index.html" class="logo site-brand" aria-label="Aquilo, inicio"><span class="logo-mark" aria-hidden="true"></span>aquilo</a>
+      <nav class="head-nav site-nav" aria-label="Principal">
         <a href="#beneficios">Beneficios</a><a href="#colores">Colores</a><a href="#resenas">Reseñas</a><a href="#precios">Precios</a><a href="#faq">FAQ</a><a href="seguimiento.html">Seguir pedido</a>
       </nav>
-      <a class="btn btn-primary btn-sm" href="checkout.html" data-buy>Comprar</a>
+      <div class="site-actions"><a class="btn btn-primary btn-sm" href="checkout.html" data-buy>Comprar</a></div>
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" class="site-main">
     <div id="refBanner"></div>
-    <section class="hero" id="hero">
+    <section class="hero site-hero" id="hero">
       <div class="container hero-grid">
-        <div class="hero-copy" data-anim>
+        <div class="hero-copy hero-text" data-anim>
           <p class="badge plain hero-rating" id="heroRating"></p>
           <h1 id="heroTitle"></h1>
           <p class="lead" id="heroSub"></p>
@@ -37,7 +37,7 @@
           </div>
           <p class="micro muted" id="heroMicro"></p>
         </div>
-        <div class="hero-visual" data-anim="zoomIn">
+        <div class="hero-visual hero-media" data-anim="zoomIn">
           <div class="halo" aria-hidden="true"></div>
           <span class="bubble bubble-a" aria-hidden="true">💧 +250 ml</span>
           <span class="bubble bubble-b" aria-hidden="true">❄️ 24 h frío</span>
@@ -79,7 +79,7 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="cmpTitle">
+    <section class="section sec-compare" aria-labelledby="cmpTitle">
       <div class="container narrow">
         <header class="sec-head center" data-anim><span class="eyebrow">Comparativa</span><h2 id="cmpTitle">Aquilo vs. otras botellas</h2></header>
         <div class="table-wrap" data-anim><table class="table compare" id="compare"></table></div>
@@ -119,14 +119,14 @@
       </div>
     </section>
 
-    <section class="section final">
+    <section class="section final sec-final">
       <div class="container">
         <div class="card final-in" data-anim id="finalCta"></div>
       </div>
     </section>
   </main>
 
-  <footer class="site-foot">
+  <footer class="site-foot site-footer">
     <div class="container foot-grid">
       <div class="stack">
         <a href="index.html" class="logo"><span class="logo-mark" aria-hidden="true"></span>aquilo</a>

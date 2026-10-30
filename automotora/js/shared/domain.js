@@ -172,3 +172,5 @@ export const otTotal = ot => (ot.lines || []).reduce((s, l) => s + l.price * l.q
 export const tag = (t, tone = '') => `<span class="badge plain ${tone ? 'badge-' + tone : ''}">${escape(t)}</span>`;
 export const priceTag = n => `<span class="price">${money(n)}</span>`;
 export const compareList = () => uiGet('compare', []);
+// Color "de vitrina" de cada modelo (variado entre modelos, evita el blanco base)
+export function showColor(m) { let h = 0; for (const c of m.id) h = (h * 31 + c.charCodeAt(0)) >>> 0; const l = m.colors.length; return l > 1 ? m.colors[1 + h % (l - 1)] : m.colors[0]; }

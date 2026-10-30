@@ -1,6 +1,6 @@
 // Tarjetas y piezas reutilizables del sitio público.
 import { escape, money, toast } from '../../../assets/core/ui.js';
-import { brand, fromPrice, SEGMENTS, FUELS, maxBonus, stockFor, stockBadge, isGreen, compareList, campaignsFor } from '../shared/domain.js';
+import { showColor, brand, fromPrice, SEGMENTS, FUELS, maxBonus, stockFor, stockBadge, isGreen, compareList, campaignsFor } from '../shared/domain.js';
 import { carOf } from '../shared/car.js';
 import { uiSet } from '../shared/util.js';
 import { icon } from '../shared/icons.js';
@@ -9,7 +9,7 @@ export function modelCard(m, { compare = true } = {}) {
   const b = brand(m.brandId), bonus = maxBonus(m), st = stockFor(m.id), cmp = compareList().includes(m.id);
   const gift = campaignsFor(m).find(c => c.type === 'regalo');
   return `<article class="card hover model-card" data-model="${m.id}">
-    <a class="mc-art" href="#/modelo/${m.id}" aria-label="Configurar ${escape(m.name)}">${carOf(m, m.colors[Math.min(1, m.colors.length - 1)].hex)}
+    <a class="mc-art" href="#/modelo/${m.id}" aria-label="Configurar ${escape(m.name)}">${carOf(m, showColor(m).hex)}
       ${bonus ? `<span class="badge badge-danger mc-flag">Bono ${money(bonus)}</span>` : gift ? `<span class="badge badge-success mc-flag">${escape(gift.name)}</span>` : ''}</a>
     <div class="mc-body">
       <div class="mc-head"><span class="eyebrow">${escape(b?.name)}</span>${isGreen(m) ? `<span class="badge badge-success plain">${icon(m.fuel === 'electrico' ? 'bolt' : 'leaf', 13)} ${FUELS[m.fuel]}</span>` : ''}</div>

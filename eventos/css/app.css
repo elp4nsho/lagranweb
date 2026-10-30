@@ -313,7 +313,7 @@ html:not([data-layout="app"]) .main-nav :is(.nav-ico, .nav-home, .nav-tickets) {
 [data-layout="revista"] .ev-hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(20px, 4vw, 48px); align-items: center; width: min(1120px, 100% - 40px); margin-inline: auto; min-height: 0; padding-block: 32px; border-bottom: 3px double var(--line); overflow: visible; }
 [data-layout="revista"] .ev-hero .bg { position: relative; inset: auto; order: 2; aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
 [data-layout="revista"] .ev-hero .scrim { display: none; }
-[data-layout="revista"] .ev-hero .container { width: auto; padding: 0 0 0 clamp(16px, 2.5vw, 28px); border-left: 4px solid var(--primary); }
+[data-layout="revista"] .ev-hero .container { width: auto; margin: 0; padding: 0 0 0 clamp(16px, 2.5vw, 28px); border-left: 4px solid var(--primary); }
 [data-layout="revista"] .ev-hero h1 { font-size: clamp(28px, 4.2vw, 56px); line-height: 1.05; overflow-wrap: anywhere; }
 [data-layout="revista"] .ev-layout { grid-template-columns: 1fr; }
 [data-layout="revista"] .buy-box { order: -1; position: static; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); grid-auto-flow: row dense; gap: 10px 36px; align-items: start; border-radius: 0; border-inline: 0; box-shadow: none; background: none; }
@@ -414,7 +414,7 @@ html:not([data-layout="app"]) .main-nav :is(.nav-ico, .nav-home, .nav-tickets) {
 [data-layout="app"] .ev-hero { display: grid; grid-template-columns: 240px minmax(0, 1fr); width: min(1360px, 100% - 32px); margin: 16px auto 0; min-height: 0; align-items: stretch; background: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
 [data-layout="app"] .ev-hero .bg { position: relative; inset: auto; min-height: 180px; }
 [data-layout="app"] .ev-hero .scrim { display: none; }
-[data-layout="app"] .ev-hero .container { width: auto; padding: clamp(16px, 2.4vw, 28px); align-self: center; }
+[data-layout="app"] .ev-hero .container { width: auto; margin: 0; padding: clamp(16px, 2.4vw, 28px); align-self: center; }
 [data-layout="app"] .ev-hero h1 { font-size: clamp(24px, 3vw, 38px); }
 [data-layout="app"] .ev-layout { grid-template-columns: 320px minmax(0, 1fr); gap: 16px; }
 [data-layout="app"] .buy-box { order: -1; top: 16px; }
@@ -519,3 +519,5 @@ html:not([data-layout="app"]) .main-nav :is(.nav-ico, .nav-home, .nav-tickets) {
   [data-layout="app"] .explore .filters > .check, [data-layout="app"] .explore .filters > #fclear { grid-column: 1 / -1 !important; justify-self: stretch; }
 }
 [data-layout="revista"] .acc-app .acc-counter, [data-layout="revista"] .acc-app .acc-prog { align-self: start; }
+/* El núcleo oculta en "revista" todo lo que no sea enlace directo del menú; recuperamos los accesos del pie del menú. */
+[data-layout="revista"] .admin-sidebar > div.stack:has(.nav-link) { display: flex !important; flex-direction: row; align-items: center; flex: none; gap: 2px; margin: 0 0 0 12px !important; padding: 0 0 0 12px !important; border-left: 1px solid var(--line); }

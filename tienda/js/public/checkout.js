@@ -35,7 +35,7 @@ export function renderCheckout(view) {
   if (!rates.some(r => r.id === cart.raw().shippingId) && rates[0]) cart.setShipping(rates[0].id);
   const t = cart.totals();
 
-  view.innerHTML = html`<section class="section tight"><div class="container">
+  view.innerHTML = html`<section class="section tight checkout-page"><div class="container">
     <h1>Finalizar compra</h1>
     <ol class="steps">${STEPS.map((s, i) => raw(`<li class="${i < st.step ? 'done' : i === st.step ? 'current' : ''}">${s}</li>`))}</ol>
     <div class="checkout">

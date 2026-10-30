@@ -19,7 +19,7 @@ function chrome() {
   const s = site();
   document.getElementById('announce').innerHTML = s.announcementOn && s.announcement ? `<div class="announce"><div class="container"><span aria-hidden="true">🎁</span><span>${escape(s.announcement)}</span></div></div>` : '';
   document.getElementById('footer').innerHTML = `<div class="grid-4">
-    <div>${brandHTML()}<p style="margin-top:10px">Cursos online prácticos, hechos en Chile. Empresa ficticia (demo de portafolio).</p></div>
+    <div>${brandHTML(false)}<p style="margin-top:10px">Cursos online prácticos, hechos en Chile. Empresa ficticia (demo de portafolio).</p></div>
     <div><h4>Aprende</h4><a href="#/cursos">Todos los cursos</a><a href="#/cursos?precio=gratis">Cursos gratuitos</a><a href="#/categorias">Categorías</a></div>
     <div><h4>Comunidad</h4><a href="#/ensena">Enseña en Faro</a><a href="login.html">Ingresar</a><a href="login.html#registro">Crear cuenta</a></div>
     <div><h4>Ayuda</h4><a href="mailto:${escape(s.supportEmail)}">${escape(s.supportEmail)}</a><a href="#/certificado/">Verificar certificado</a><span>Reembolsos dentro de ${escape(s.refundDays)} días</span></div>

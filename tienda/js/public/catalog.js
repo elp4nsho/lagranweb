@@ -15,7 +15,7 @@ export function renderCatalog(view, query) {
   const maxPrice = Math.max(...all.map(p => p.price), 10000);
   if (!st.max || st.max > maxPrice) st.max = maxPrice;
 
-  view.innerHTML = html`<section class="section tight"><div class="container">
+  view.innerHTML = html`<section class="section tight catalog-page"><div class="container">
     <nav class="small muted" aria-label="Migas"><a href="#/">Inicio</a> / ${cat ? raw(html`<a href="#/catalogo">Catálogo</a> / ${cat.name}`) : 'Catálogo'}</nav>
     <div class="section-head" style="margin-top:8px"><div><h1 style="margin:0">${cat ? cat.name : q ? `Resultados para “${q}”` : 'Toda la colección'}</h1>${cat ? raw(html`<p class="muted" style="margin:4px 0 0">${cat.description}</p>`) : ''}</div></div>
     <div class="catalog">

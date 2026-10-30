@@ -26,7 +26,7 @@ function paintChrome() {
       <a href="#/programas">Programas</a><a href="#/servicios">Servicios</a>${c.showDyno ? '<a href="#/dyno">Dyno</a>' : ''}${c.showMemberships ? '<a href="#/membresias">Membresías</a>' : ''}<a href="#/seguimiento">Seguimiento</a>
       ${u ? (u.role === 'cliente' ? '<a href="#/garage">Mi garage</a>' : `<a href="login.html">Mi app</a>`) : '<a href="login.html">Ingresar</a>'}
     </nav>
-    <div class="site-actions"><a class="btn btn-primary btn-sm" href="#/agendar">Agendar concierge</a></div>
+    <div class="site-actions"><a class="btn btn-primary btn-sm" href="#/agendar">Agendar<span class="hide-xs"> concierge</span></a></div>
     <button class="btn btn-icon btn-sm btn-ghost nav-burger" aria-label="Menú" aria-expanded="false" aria-controls="nav">☰</button>
   </div>${c.announcement ? `<div class="announce"><div class="container">${escape(c.announcement)}</div></div>` : ''}`;
   foot.innerHTML = `<div class="container foot-grid">

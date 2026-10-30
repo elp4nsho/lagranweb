@@ -309,3 +309,153 @@
 .admin-sidebar { padding-bottom: 72px; }
 .kpi .value { font-size: clamp(18px, 2.1vw, 28px); overflow-wrap: anywhere; }
 .dash-grid > *, .split > *, .detail-grid > *, .co-grid > *, .showcase > * { min-width: 0; }
+
+/* =====================================================================
+   DISPOSICIONES · html[data-layout="clasica|revista|app"]
+   clásica = landing original (sin reglas). revista = reportaje de producto a dos columnas.
+   app = configurador: menú lateral, compra primero, paneles y carruseles.
+   ===================================================================== */
+[data-layout="revista"] .site-head, [data-layout="app"] .site-head { backdrop-filter: none; -webkit-backdrop-filter: none; }
+[data-layout="revista"] .site-head { background: var(--bg); background-image: var(--bg-image); }
+/* La franja de prensa vive dentro de la portada: no debe tomar la grilla de la portada */
+[data-layout="revista"] .site-hero > .press, [data-layout="app"] .site-hero > .press { display: flex !important; grid-template-columns: none; border: 0; box-shadow: none; background: none; padding: 0; }
+
+/* ---------- REVISTA ---------- */
+[data-layout="revista"] .head-nav a { text-transform: uppercase; letter-spacing: .12em; font-size: 12px; }
+@media (max-width: 900px) { [data-layout="revista"] .head-nav { flex-wrap: nowrap !important; justify-content: flex-start !important; overflow-x: auto; } [data-layout="revista"] .head-nav a { white-space: nowrap; } }
+[data-layout="revista"] .hero-visual .bubble { display: none; }
+[data-layout="revista"] .site-hero > .press { order: -1; margin: 0 auto 28px; padding-block: 10px; border-block: 3px double var(--line); width: min(1120px, 100% - 40px); }
+[data-layout="revista"] .site-hero { display: flex; flex-direction: column; }
+[data-layout="revista"] .section.tint { background: none; }
+[data-layout="revista"] .sec-head, [data-layout="revista"] .sec-head.center { max-width: none; align-items: flex-start; text-align: left; margin-inline: 0; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+[data-layout="revista"] .sec-head h2 { font-size: clamp(30px, 4.4vw, 54px); }
+/* Beneficios: índice a dos columnas sin tarjetas */
+[data-layout="revista"] .site-main #benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
+[data-layout="revista"] .site-main #benefits > * { grid-column: auto; grid-row: auto; background: none; box-shadow: none; border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: 18px 0; }
+/* Colores: texto a la izquierda, escenario a la derecha */
+[data-layout="revista"] .showcase { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); }
+[data-layout="revista"] .showcase > .stage { order: 2; box-shadow: none; border-radius: 0; }
+[data-layout="revista"] .specs div { background: none; border: 0; border-left: 1px solid var(--line); border-radius: 0; text-align: left; }
+/* Comparativa con filetes dobles */
+[data-layout="revista"] .compare { border-block: 3px double var(--line); }
+/* Reseñas: columnas de periódico (citas) */
+[data-layout="revista"] .site-main .reviews { display: block; columns: 3 260px; column-gap: 32px; column-rule: 1px solid var(--line); }
+[data-layout="revista"] .site-main .reviews > * { break-inside: avoid; margin: 0 0 22px; background: none; box-shadow: none; border: 0; border-radius: 0; padding: 0; }
+[data-layout="revista"] .review p { font: italic 400 1.08em/1.55 var(--font-head); text-transform: none; }
+[data-layout="revista"] .reviews-head { flex-direction: column; align-items: flex-start; }
+[data-layout="revista"] .score { box-shadow: none; background: none; border-width: 0; border-block: 3px double var(--line); border-radius: 0; }
+/* Precios: tres columnas iguales con filetes, sin pieza destacada gigante */
+[data-layout="revista"] .site-main .plans { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .site-main .plans > * { grid-column: auto; grid-row: auto; box-shadow: none; border-radius: 0; border-width: 0 0 0 1px; border-style: solid; border-color: var(--line); background: none; }
+[data-layout="revista"] .site-main .plans > :first-child { border-left: 0; }
+[data-layout="revista"] .plan.featured { background: color-mix(in srgb, var(--primary) 7%, transparent); }
+[data-layout="revista"] .guarantee { box-shadow: none; background: none; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; }
+/* FAQ a dos columnas, cierre centrado */
+[data-layout="revista"] .faq { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+[data-layout="revista"] #faq .container.narrow { max-width: none; }
+[data-layout="revista"] .faq details { box-shadow: none; border-radius: 0; border-width: 0 0 1px; background: none; }
+[data-layout="revista"] .final-in { flex-direction: column; text-align: center; box-shadow: none; background: none; border: 0; border-block: 3px double var(--line); border-radius: 0; }
+@media (max-width: 760px) {
+  [data-layout="revista"] .site-main #benefits, [data-layout="revista"] .site-main .plans, [data-layout="revista"] .faq, [data-layout="revista"] .showcase { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="revista"] .site-main .plans > * { border-left: 0; border-top: 1px solid var(--line); }
+  [data-layout="revista"] .site-main .plans > :first-child { border-top: 0; }
+}
+
+/* ---------- APP ---------- */
+[data-layout="app"] .hero-visual { min-height: 0; }
+[data-layout="app"] .bottle-hero { height: min(340px, 44vh); }
+[data-layout="app"] .site-hero > .press { margin-top: 14px; }
+/* Orden de configurador: comprar y elegir color primero */
+[data-layout="app"] .site-main { display: flex; flex-direction: column; }
+[data-layout="app"] #precios { order: 1; }
+[data-layout="app"] #colores { order: 2; }
+[data-layout="app"] #resenas { order: 3; }
+[data-layout="app"] #beneficios { order: 4; }
+[data-layout="app"] .sec-compare { order: 5; }
+[data-layout="app"] #faq { order: 6; }
+[data-layout="app"] .sec-final { order: 7; }
+[data-layout="app"] .section.tint { background: none; }
+[data-layout="app"] .site-main > section:not(.site-hero) > .container.narrow { width: min(1360px, 100% - 32px); max-width: none; }
+[data-layout="app"] .sec-head, [data-layout="app"] .sec-head.center { margin: 0 0 16px; max-width: none; align-items: flex-start; text-align: left; }
+[data-layout="app"] .sec-head h2, [data-layout="app"] .reviews-head h2 { font-size: clamp(20px, 2.2vw, 26px); }
+/* Precios: filas comparativas compactas con la garantía al costado */
+[data-layout="app"] .site-main .plans { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+[data-layout="app"] .site-main .plans > * { grid-column: auto !important; }
+[data-layout="app"] .plan-price b { font-size: 26px; }
+[data-layout="app"] .guarantee { margin-top: 12px; box-shadow: none; }
+[data-layout="app"] .seal { width: 72px; height: 72px; }
+[data-layout="app"] .seal b { font-size: 22px; }
+/* Colores: escenario pequeño + controles en panel */
+[data-layout="app"] .showcase { grid-template-columns: 300px minmax(0, 1fr); gap: 24px; }
+[data-layout="app"] .stage { max-width: 300px; }
+/* Reseñas: carrusel deslizable */
+[data-layout="app"] .site-main .reviews { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 8px; }
+[data-layout="app"] .site-main .reviews > * { flex: 0 0 min(80%, 320px); scroll-snap-align: start; }
+[data-layout="app"] .reviews-head { margin-bottom: 14px; }
+/* FAQ en dos columnas de acordeones */
+[data-layout="app"] .faq { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+[data-layout="app"] .final-in { padding: 18px; }
+[data-layout="app"] .bottle-final { height: 140px; }
+@media (max-width: 900px) {
+  [data-layout="app"] .float-buy { bottom: 80px; }
+  [data-layout="app"] .site-main .plans { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="app"] .showcase, [data-layout="app"] .faq { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="app"] .stage { max-width: 240px; }
+}
+
+/* ---------- Checkout ---------- */
+/* Revista: resumen arriba como franja, formulario centrado */
+[data-layout="revista"] .co-grid { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin-inline: auto; }
+[data-layout="revista"] .co-side { order: -1; position: static; border-block: 3px double var(--line); padding-block: 14px; }
+[data-layout="revista"] .steps { max-width: 760px; margin-inline: auto; }
+[data-layout="revista"] .steps li { align-items: center; text-align: center; }
+[data-layout="revista"] .steps li::before { height: 0; border-top: 3px double var(--line); background: none; width: 100%; }
+[data-layout="revista"] .steps li.done::before, [data-layout="revista"] .steps li.on::before { border-top-color: var(--primary); }
+/* App: resumen fijo a la izquierda y pasos como riel vertical */
+@media (min-width: 901px) {
+  [data-layout="app"] body:has(.co-grid) main.container { display: grid; grid-template-columns: 150px minmax(0, 1fr); column-gap: 20px; align-items: start; padding-top: 20px; }
+  [data-layout="app"] .steps { flex-direction: column; margin: 0; position: sticky; top: 16px; gap: 2px; overflow: visible; }
+  [data-layout="app"] .steps li { flex-direction: row; align-items: center; gap: 10px; padding: 10px 12px; border-radius: var(--radius-sm); min-width: 0; }
+  [data-layout="app"] .steps li::before { width: 4px; height: 18px; flex: none; }
+  [data-layout="app"] .steps li.on { background: var(--surface); box-shadow: var(--shadow); }
+  [data-layout="app"] .co-grid { grid-template-columns: 340px minmax(0, 1fr); gap: 20px; }
+  [data-layout="app"] .co-side { order: -1; }
+}
+@media (max-width: 900px) {
+  [data-layout="app"] .co-side { order: -1; }
+  [data-layout="app"] .steps { padding: 4px; background: var(--surface-2); border-radius: var(--radius-pill); gap: 2px; }
+  [data-layout="app"] .steps li { align-items: center; padding: 6px 4px; border-radius: var(--radius-pill); min-width: 60px; }
+  [data-layout="app"] .steps li::before { display: none; }
+  [data-layout="app"] .steps li.on { background: var(--surface); box-shadow: var(--shadow); }
+}
+
+/* ---------- Panel ---------- */
+[data-layout="revista"] .admin-content:has(> .kpis) > .kpis { gap: 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .admin-content:has(> .kpis) > .kpis > * { background: none; box-shadow: none; border: 0; border-radius: 0; border-left: 1px solid var(--line); }
+[data-layout="revista"] .admin-content:has(> .kpis) > .kpis > :first-child { border-left: 0; }
+[data-layout="revista"] .admin-content:has(> .kpis) > .dash-grid:last-child { order: 1; }
+[data-layout="revista"] .admin-content:has(> .kpis) > .dash-grid { order: 2; }
+[data-layout="revista"] .admin-content:has(> .kpis) > .dash-grid:not(.even) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr); }
+[data-layout="revista"] .admin-content:has(> .kpis) > .dash-grid:not(.even) > :first-child { order: 2; }
+@media (max-width: 1000px) { [data-layout="revista"] .admin-content:has(> .kpis) > .dash-grid:not(.even) { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) { [data-layout="revista"] .admin-content:has(> .kpis) > .kpis > * { border-left: 0; border-bottom: 1px solid var(--line); } }
+@media (min-width: 901px) {
+  [data-layout="app"] .admin-content:has(> .kpis) { display: grid; grid-template-columns: 260px minmax(0, 1fr); align-items: start; gap: 14px; }
+  [data-layout="app"] .admin-content:has(> .kpis) > * { grid-column: 2; }
+  [data-layout="app"] .admin-content:has(> .kpis) > .page-head { grid-column: 1 / -1; }
+  [data-layout="app"] .admin-content:has(> .kpis) > .kpis { grid-column: 1; grid-row: 2 / span 2; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+}
+@media (max-width: 900px) {
+  [data-layout="app"] .admin-content:has(> .kpis) > .kpis { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; padding-bottom: 6px; }
+  [data-layout="app"] .admin-content:has(> .kpis) > .kpis > * { flex: 0 0 min(72%, 260px); scroll-snap-align: start; }
+}
+
+/* Riel de íconos (app, escritorio): el núcleo deja ver el texto recortado de cada enlace
+   mientras el riel está colapsado; aquí se oculta hasta que se expande (hover/foco). */
+@media (min-width: 901px) {
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .nav-link,
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .admin-brand { font-size: 0; gap: 0; }
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .nav-link .count,
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .admin-brand > :not(.logo) { display: none; }
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) > :not(.admin-brand):not(nav):not(.nav-link):not(.nav-section) { visibility: hidden; }
+}

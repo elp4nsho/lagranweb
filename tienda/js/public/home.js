@@ -19,8 +19,8 @@ export function renderHome(view) {
   const customers = db.count('users', u => u.role === 'customer');
 
   view.innerHTML = html`
-  <section class="hero"><div class="container hero-grid">
-    <div data-anim>
+  <section class="hero site-hero"><div class="container hero-grid">
+    <div class="hero-text" data-anim>
       <span class="eyebrow">${h.eyebrow}</span>
       <h1 data-hero-title>${h.title}</h1>
       <p class="lead">${h.subtitle}</p>
@@ -34,10 +34,10 @@ export function renderHome(view) {
         <div><b>4,7 ★</b><span>valoración promedio</span></div>
       </div>
     </div>
-    ${heroP ? raw(html`<a class="hero-art" href="#/producto/${heroP.id}" data-anim="zoomIn" aria-label="${heroP.name}">${raw(productArt(heroP, heroP.colors[0]?.hex, { view: 2 }))}<span class="badge badge-primary">${heroP.name} · ${money(heroP.price)}</span></a>`) : ''}
+    ${heroP ? raw(html`<a class="hero-art hero-media" href="#/producto/${heroP.id}" data-anim="zoomIn" aria-label="${heroP.name}">${raw(productArt(heroP, heroP.colors[0]?.hex, { view: 2 }))}<span class="badge badge-primary">${heroP.name} · ${money(heroP.price)}</span></a>`) : ''}
   </div></section>
 
-  <section class="section tight"><div class="container">
+  <section class="section tight home-cats"><div class="container">
     <div class="section-head" data-anim><div><span class="eyebrow">Explora</span><h2>Categorías</h2></div><a class="btn btn-ghost" href="#/catalogo">Ver todo →</a></div>
     <div class="grid-4">${cats.map(c => {
       const p = all.find(x => x.categoryId === c.id);
@@ -46,19 +46,19 @@ export function renderHome(view) {
     })}</div>
   </div></section>
 
-  <section class="section tight"><div class="container">
+  <section class="section tight home-featured"><div class="container">
     <div class="section-head" data-anim><div><span class="eyebrow">Selección</span><h2>Destacados de la temporada</h2></div></div>
     <div class="products">${featured.map(p => raw(productCard(p)))}</div>
   </div></section>
 
-  <section class="section tight"><div class="container perks">
+  <section class="section tight home-perks"><div class="container perks">
     <div class="perk" data-anim><span class="ico">🚚</span><div><b>Envío gratis</b><small>${free ? 'En compras sobre ' + money(free) : 'En todo el país'}</small></div></div>
     <div class="perk" data-anim data-anim-delay="100"><span class="ico">↺</span><div><b>Cambios en 30 días</b><small>Sin preguntas, en tienda o por correo</small></div></div>
     <div class="perk" data-anim data-anim-delay="200"><span class="ico">🌱</span><div><b>Materiales trazables</b><small>Cada prenda dice de dónde viene</small></div></div>
     <div class="perk" data-anim data-anim-delay="300"><span class="ico">🔒</span><div><b>Pago seguro</b><small>Tarjetas y transferencia</small></div></div>
   </div></section>
 
-  <section class="section tight"><div class="container grid-2">
+  <section class="section tight home-duo"><div class="container grid-2">
     <div>
       <div class="section-head" data-anim><div><span class="eyebrow">Recién llegados</span><h2>Novedades</h2></div></div>
       <div class="grid-2">${fresh.map(p => raw(productCard(p)))}</div>
@@ -69,7 +69,7 @@ export function renderHome(view) {
     </div>
   </div></section>
 
-  <section class="section tight"><div class="container">
+  <section class="section tight home-reviews"><div class="container">
     <div class="section-head" data-anim><div><span class="eyebrow">Opiniones reales</span><h2>Lo que dicen de Raíz</h2></div></div>
     <div class="grid-3">${reviews.map(r => {
       const p = db.get('products', r.productId);
@@ -77,7 +77,7 @@ export function renderHome(view) {
     })}</div>
   </div></section>
 
-  <section class="section tight"><div class="container">
+  <section class="section tight home-story"><div class="container">
     <div class="card grid-2" data-anim style="align-items:center">
       <div><span class="eyebrow">Nuestra historia</span><h2>Hecho cerca, hecho bien</h2><p class="muted">${s.about}</p></div>
       <form class="stack" id="newsletter">

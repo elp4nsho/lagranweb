@@ -33,7 +33,8 @@ export function render(el, { user }) {
   const delta = ((volM.at(-1).value / (new Date().getDate() / 30)) / prevVol - 1) * 100;
 
   el.innerHTML = h`${raw(pageHead('Resumen', `Hola ${user.name.split(' ')[0]} · datos ficticios en tiempo real`))}
-  <div class="kpis">
+  <div class="dash">
+  <div class="kpis d-kpis">
     <div class="card"><div class="stat"><span class="label">Clientes activos</span><span class="value">${num(active.length)}</span><span class="small muted">${pendKyc} solicitudes por revisar</span></div></div>
     <div class="card"><div class="stat"><span class="label">Depósitos totales</span><span class="value">$${short(dep.vista + dep.ahorro)}</span><span class="small muted">Vista ${money(dep.vista)}</span></div></div>
     <div class="card"><div class="stat"><span class="label">Volumen 30 días</span><span class="value">$${short(vol30)}</span><span class="delta ${delta >= 0 ? 'up' : 'down'}">${delta >= 0 ? '▲' : '▼'} ${Math.abs(delta).toFixed(1).replace('.', ',')}% proyección mes</span></div></div>
@@ -41,13 +42,14 @@ export function render(el, { user }) {
     <div class="card"><div class="stat"><span class="label">Cartera de créditos</span><span class="value">$${short(portfolio)}</span><span class="small muted">${loans.filter(l => ['solicitado', 'en evaluación'].includes(l.status)).length} solicitudes en cola</span></div></div>
   </div>
   <div class="grid-2">
-    <section class="card"><h3>Volumen transaccional mensual</h3>${raw(lineChart(volM, { format: v => money(v) }))}</section>
-    <section class="card"><h3>Nuevos clientes por mes</h3>${raw(barChart(newC))}</section>
-    <section class="card"><h3>Alertas de fraude por semana</h3>${raw(stackedBars(alertW, ['alta', 'media', 'baja']))}</section>
-    <section class="card"><h3>Depósitos e inversiones</h3>${raw(donutChart([{ label: 'Cuenta vista (M$)', value: Math.round(dep.vista / 1e6) }, { label: 'Ahorro (M$)', value: Math.round(dep.ahorro / 1e6) }, { label: 'Fondos (M$)', value: Math.round(invested / 1e6) }], { label: '$' + short(dep.vista + dep.ahorro + invested) }))}
+    <section class="card d-vol"><h3>Volumen transaccional mensual</h3>${raw(lineChart(volM, { format: v => money(v) }))}</section>
+    <section class="card d-new"><h3>Nuevos clientes por mes</h3>${raw(barChart(newC))}</section>
+    <section class="card d-alerts"><h3>Alertas de fraude por semana</h3>${raw(stackedBars(alertW, ['alta', 'media', 'baja']))}</section>
+    <section class="card d-dep"><h3>Depósitos e inversiones</h3>${raw(donutChart([{ label: 'Cuenta vista (M$)', value: Math.round(dep.vista / 1e6) }, { label: 'Ahorro (M$)', value: Math.round(dep.ahorro / 1e6) }, { label: 'Fondos (M$)', value: Math.round(invested / 1e6) }], { label: '$' + short(dep.vista + dep.ahorro + invested) }))}
       <h3 class="mt">Operaciones 30 días por tipo</h3>${raw(donutChart(Object.entries(byType).map(([label, value]) => ({ label, value })), { size: 140 }))}</section>
   </div>
-  <section class="card"><div class="row between"><h3 style="margin:0">Actividad reciente</h3><a href="#/auditoria" class="small">Ver auditoría →</a></div>
+  <section class="card d-act"><div class="row between"><h3 style="margin:0">Actividad reciente</h3><a href="#/auditoria" class="small">Ver auditoría →</a></div>
     <ul class="tx-list mt">${log.map(l => h`<li><span class="tx-ic">📌</span><span class="tx-main"><b>${l.detail || l.action}</b><small>${l.action} · ${userName(l.user)} · ${ago(l.at)}</small></span></li>`)}</ul>${!log.length ? raw('<p class="muted">Sin actividad registrada.</p>') : ''}
-  </section>`;
+  </section>
+  </div>`;
 }

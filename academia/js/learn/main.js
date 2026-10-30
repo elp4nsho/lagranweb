@@ -19,7 +19,7 @@ function paintHeader() {
   header.className = 'site-header';
   header.innerHTML = `<div class="container bar">${brandHTML()}
     <nav class="site-nav" aria-label="Aula"><a href="#/">Mis cursos</a><a href="#/certificados">Certificados</a><a href="#/pedidos">Pedidos</a><a href="index.html#/cursos">Catálogo</a></nav>
-    <div class="head-actions"><a class="btn btn-ghost btn-icon bell" href="#/notificaciones" aria-label="Notificaciones (${unread} sin leer)">🔔${unread ? `<span class="dot">${unread}</span>` : ''}</a>
+    <div class="head-actions site-actions"><a class="btn btn-ghost btn-icon bell" href="#/notificaciones" aria-label="Notificaciones (${unread} sin leer)">🔔${unread ? `<span class="dot">${unread}</span>` : ''}</a>
       <span class="hide-m small muted">${escape(u.name.split(' ')[0])}</span><button class="btn btn-sm" data-logout>Salir</button>
       <button class="btn btn-ghost btn-icon burger" aria-label="Abrir menú">☰</button></div></div>`;
   header.querySelector('[data-logout]').onclick = () => { auth.logout(); location.href = 'index.html'; };

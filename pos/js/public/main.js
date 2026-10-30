@@ -13,15 +13,15 @@ function render() {
   const openShifts = db.count('shifts', x => x.status === 'abierto');
 
   $('#lp').innerHTML = html`
-  <section class="section"><div class="container lp-hero">
-    <div data-anim>
+  <section class="section site-hero"><div class="container lp-hero">
+    <div class="hero-text" data-anim>
       <span class="eyebrow">Punto de venta + inventario multi-sucursal</span>
       <h1>Vende rápido. Cuadra la caja. Nunca te quedes sin stock.</h1>
       <p class="lead">${s.businessName} usa este sistema en sus ${branches.length} sucursales de cafetería y minimarket: caja táctil con lector de código de barras, pagos mixtos, puntos de fidelización, arqueo de caja y back-office con compras a proveedores.</p>
       <div class="row"><a class="btn btn-primary btn-lg" href="pos.html">▶ Probar caja</a><a class="btn btn-lg" href="admin.html">Entrar al back-office</a></div>
       <p class="small muted" style="margin-top:14px">Cuentas demo listas en el login: cajero, supervisor, bodeguero y administrador.</p>
     </div>
-    <div class="mock" data-anim="zoomIn" aria-hidden="true">
+    <div class="mock hero-media" data-anim="zoomIn" aria-hidden="true">
       <div class="mock-top"><i></i><i></i><i></i><span style="margin-left:8px">Caja 1 · Pampa Centro</span><span class="badge badge-success" style="margin-left:auto">En línea</span></div>
       <div class="mock-body">
         <div class="mock-grid">${fav.map(p => raw(html`<div class="mock-tile"><b>${p.emoji}</b><span>${p.name}</span><strong>${money(p.price)}</strong></div>`))}</div>
@@ -31,14 +31,14 @@ function render() {
     </div>
   </div></section>
 
-  <section class="section" style="padding-top:0"><div class="container kpis">
+  <section class="section lp-kpis" style="padding-top:0"><div class="container kpis">
     <div class="card stat" data-anim><span class="label">Ventas últimos 7 días</span><span class="value">${money(weekTotal)}</span></div>
     <div class="card stat" data-anim data-anim-delay="100"><span class="label">Transacciones</span><span class="value">${num(weekTx)}</span></div>
     <div class="card stat" data-anim data-anim-delay="200"><span class="label">Ventas de hoy</span><span class="value">${num(today.length)}</span></div>
     <div class="card stat" data-anim data-anim-delay="300"><span class="label">Cajas abiertas ahora</span><span class="value">${openShifts}</span></div>
   </div></section>
 
-  <section class="section" id="funciones" style="padding-top:0"><div class="container stack">
+  <section class="section lp-features" id="funciones" style="padding-top:0"><div class="container stack">
     <div data-anim><span class="eyebrow">Funciones</span><h2>Todo lo que pasa entre el mesón y la bodega</h2></div>
     <div class="grid-3">
       ${[['⚡', 'Caja ultrarrápida', 'Grilla táctil por categoría, búsqueda y lector de código de barras. Atajos de teclado F2 / F9.'],
@@ -51,7 +51,7 @@ function render() {
     </div>
   </div></section>
 
-  <section class="section" id="sucursales" style="padding-top:0"><div class="container stack">
+  <section class="section lp-branches" id="sucursales" style="padding-top:0"><div class="container stack">
     <div data-anim><span class="eyebrow">En vivo</span><h2>Sucursales de ${s.businessName}</h2><p class="muted">Estos datos salen de la misma base que usan la caja y el back-office.</p></div>
     <div class="grid-4">${branches.map(b => {
       const ts = today.filter(x => x.branchId === b.id);
@@ -61,7 +61,7 @@ function render() {
     })}</div>
   </div></section>
 
-  <section class="section" id="planes" style="padding-top:0"><div class="container stack">
+  <section class="section lp-plans" id="planes" style="padding-top:0"><div class="container stack">
     <div data-anim><span class="eyebrow">Planes</span><h2>Precios simples, por caja</h2></div>
     <div class="grid-3">
       ${[['Esencial', 19990, ['1 sucursal, 1 caja', 'Boleta y arqueo', 'Inventario básico']], ['Pro', 34990, ['Hasta 5 sucursales', 'Compras y proveedores', 'Fidelización con puntos', 'Modo sin conexión']], ['Cadena', 0, ['Sucursales ilimitadas', 'Integraciones contables', 'Soporte prioritario']]]
