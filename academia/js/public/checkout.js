@@ -4,15 +4,15 @@ import { api } from '../../../assets/core/db.js';
 import { db, auth } from '../data/db.js';
 import { getCourse, getUser, priceOf, isPublic, enrollment, validateCoupon, checkout, site } from '../data/model.js';
 import { cover, starRow } from '../shared/bits.js';
-import { getCart, removeFromCart, clearCart } from '../shared/cart.js';
+import { getCart, removeFromCart, clearCart, getCoupon, setCoupon } from '../shared/cart.js';
 
-let coupon = null; // { code, discount }
+let coupon = getCoupon(); // { code }
 const items = () => getCart().map(getCourse).filter(isPublic);
 function totals(list) {
   const its = list.map(c => ({ courseId: c.id, price: priceOf(c) }));
   const subtotal = its.reduce((t, x) => t + x.price, 0);
   let discount = 0;
-  if (coupon) { const v = validateCoupon(coupon.code, its); if (v.ok) discount = v.discount; else coupon = null; }
+  if (coupon) { const v = validateCoupon(coupon.code, its); if (v.ok) discount = v.discount; else { coupon = null; setCoupon(null); } }
   return { subtotal, discount, total: subtotal - discount, its };
 }
 const summary = (t, cta) => `<div class="card summary"><h3>Resumen</h3><dl><dt>Subtotal</dt><dd>${money(t.subtotal)}</dd>${t.discount ? `<dt>Cupón ${escape(coupon.code)}</dt><dd style="color:var(--success)">− ${money(t.discount)}</dd>` : ''}<dt class="total">Total</dt><dd class="total">${money(t.total)}</dd></dl>
@@ -25,12 +25,13 @@ function wireCoupon(view, rerender) {
     if (!code) return;
     const v = validateCoupon(code, items().map(c => ({ courseId: c.id, price: priceOf(c) })));
     if (!v.ok) return toast(v.error, 'error');
-    coupon = { code: v.coupon.code }; toast(`Cupón aplicado: −${money(v.discount)}`, 'success'); rerender();
+    coupon = { code: v.coupon.code }; setCoupon(coupon); toast(`Cupón aplicado: −${money(v.discount)}`, 'success'); rerender();
   });
-  view.querySelector('[data-uncoupon]')?.addEventListener('click', () => { coupon = null; rerender(); });
+  view.querySelector('[data-uncoupon]')?.addEventListener('click', () => { coupon = null; setCoupon(null); rerender(); });
 }
 
 export function renderCart(view) {
+  coupon = getCoupon();
   const u = auth.current();
   const list = items();
   const owned = u ? list.filter(c => enrollment(u.id, c.id)) : [];
@@ -51,6 +52,7 @@ export function renderCart(view) {
 const luhn = n => { const d = n.replace(/\D/g, ''); let s = 0; for (let i = 0; i < d.length; i++) { let x = +d[d.length - 1 - i]; if (i % 2) { x *= 2; if (x > 9) x -= 9; } s += x; } return d.length >= 13 && s % 10 === 0; };
 
 export function renderCheckout(view) {
+  coupon = getCoupon();
   const u = auth.current();
   const ls = items().filter(c => !u || !enrollment(u.id, c.id));
   if (!ls.length) { location.hash = '#/carrito'; return; }
@@ -95,7 +97,7 @@ export function renderCheckout(view) {
     const btn = view.querySelector('[data-submit]'); btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Procesando pago…';
     try {
       const o = await api(() => checkout(u, ls.map(c => c.id), coupon?.code, f.method.value), { latency: [700, 1100] });
-      clearCart(); coupon = null;
+      clearCart(); coupon = null; setCoupon(null);
       location.hash = `#/gracias/${o.id}`;
     } catch (ex) { toast(ex.message, 'error'); btn.disabled = false; btn.textContent = 'Reintentar pago'; }
   });

@@ -31,6 +31,6 @@ export function renderOrders(el, _p, ctx) {
     resolveRefund(o.id, v.decision === 'ok', ctx.user.id, v.note);
     toast(v.decision === 'ok' ? 'Reembolso aprobado' : 'Solicitud rechazada', 'success');
   });
-  el.querySelector('[data-csv]').onclick = () => { const l = t.filtered(); downloadCSV('pedidos.csv', l.map(o => ({ numero: o.number, fecha: date(o.createdAt), cliente: o._u.name, correo: o._u.email, cursos: o.items.map(x => x.title).join(' | '), subtotal: o.subtotal, descuento: o.discount, cupon: o.couponCode || '', total: o.total, medio: o.method, estado: ORDER[o.status][0] }))); toast(`${l.length} pedidos exportados`, 'success'); };
+  el.querySelector('[data-csv]').onclick = () => { const l = t.filtered(); if (!l.length) return toast('No hay pedidos con esos filtros', 'warning'); downloadCSV('pedidos.csv', l.map(o => ({ numero: o.number, fecha: date(o.createdAt), cliente: o._u.name, correo: o._u.email, cursos: o.items.map(x => x.title).join(' | '), subtotal: o.subtotal, descuento: o.discount, cupon: o.couponCode || '', total: o.total, medio: o.method, estado: ORDER[o.status][0] }))); toast(`${l.length} pedidos exportados`, 'success'); };
 }
 const raw2 = s => ({ __raw: true, value: s });

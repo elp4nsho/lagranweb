@@ -199,3 +199,4 @@ a.banner, a.brand, a.comuna-tile, a.list-row, a.admin-brand { text-decoration: n
 [data-theme="pixel"] .kpis .stat .value { font-size: clamp(15px, 1.6vw, 20px); }
 .admin-sidebar .side-sub { color: inherit; opacity: .75; }
 .admin-sidebar .side-foot .muted, .admin-sidebar .nav-section { color: inherit; opacity: .72; }
+@media (max-width: 700px) { .cal-d .small { display: none; } }

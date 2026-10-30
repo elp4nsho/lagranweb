@@ -10,3 +10,6 @@ export const removeFromCart = id => save(getCart().filter(x => x !== id));
 export const clearCart = () => save([]);
 export const onCart = fn => { listeners.add(fn); return () => listeners.delete(fn); };
 window.addEventListener('storage', e => { if (e.key === KEY) listeners.forEach(f => f(getCart())); });
+// Cupón aplicado al carrito (se conserva al ir a iniciar sesión).
+export function getCoupon() { try { return JSON.parse(localStorage.getItem('faro:coupon')); } catch (e) { return null; } }
+export function setCoupon(v) { try { v ? localStorage.setItem('faro:coupon', JSON.stringify(v)) : localStorage.removeItem('faro:coupon'); } catch (e) { /* sin almacenamiento */ } }
