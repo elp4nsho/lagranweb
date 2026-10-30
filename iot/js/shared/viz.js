@@ -35,7 +35,7 @@ export function gauge(v, { min = 0, max = 100, label = '', text = '', state = 'o
   return `<svg class="gauge" viewBox="0 0 200 120" role="img" aria-label="${escape(label)} ${escape(text)}">
     <path d="${arc}" fill="none" stroke="var(--surface-3)" stroke-width="16" stroke-linecap="round"/>
     <path d="${arc}" fill="none" stroke="${STATUS_COLOR[state] || 'var(--primary)'}" stroke-width="16" stroke-linecap="round" stroke-dasharray="${(len * f).toFixed(1)} ${len.toFixed(1)}" class="gauge-val"/>
-    <text x="100" y="86" text-anchor="middle" class="gauge-text">${escape(text)}</text>
+    <text x="100" y="86" text-anchor="middle" class="gauge-text" style="font-size:${Math.min(22, 130 / Math.max(1, String(text).length)).toFixed(1)}px">${escape(text)}</text>
     <text x="${cx - R}" y="116" text-anchor="middle" class="gauge-mm">${min}</text><text x="${cx + R}" y="116" text-anchor="middle" class="gauge-mm">${max}</text>
   </svg>`;
 }

@@ -8,13 +8,19 @@ export function escape(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 // Plantillas con escape automático: html`<b>${nombre}</b>`. Usa raw(x) para no escapar.
+// Recordamos lo que produjo html`` para no volver a escaparlo al anidarlo (directo o en arrays).
+const produced = new Set();
 export function html(strings, ...vals) {
-  return strings.reduce((out, s, i) => out + s + (i < vals.length ? fmtVal(vals[i]) : ''), '');
+  const out = strings.reduce((acc, s, i) => acc + s + (i < vals.length ? fmtVal(vals[i]) : ''), '');
+  produced.add(out);
+  if (produced.size > 5000) produced.delete(produced.values().next().value);
+  return out;
 }
 function fmtVal(v) {
   if (v == null || v === false) return '';
   if (Array.isArray(v)) return v.map(fmtVal).join('');
   if (v && v.__raw) return v.value;
+  if (typeof v === 'string' && produced.has(v)) return v;
   return escape(v);
 }
 export const raw = value => ({ __raw: true, value: String(value ?? '') });
@@ -141,6 +147,8 @@ export function formModal({ title, fields, submit = 'Guardar', size = '' }) {
   });
 }
 
+const cell = v => (v && v.__raw ? v.value : v ?? '');
+
 // ---------- Tabla de datos con búsqueda, orden y paginación ----------
 // dataTable(el, { rows, columns: [{ key, label, render?(row), sort?: true }], pageSize, search: (row)=>string, onRow?(row) })
 export function dataTable(el, { rows, columns, pageSize = 10, search, onRow, empty = 'Sin resultados' }) {
@@ -155,7 +163,7 @@ export function dataTable(el, { rows, columns, pageSize = 10, search, onRow, emp
     const pages = Math.max(1, Math.ceil(list.length / pageSize));
     page = Math.min(page, pages - 1);
     const slice = list.slice(page * pageSize, page * pageSize + pageSize);
-    tbody.innerHTML = slice.length ? slice.map((r, i) => `<tr data-i="${i}" ${onRow ? 'style="cursor:pointer"' : ''}>${columns.map(c => `<td>${c.render ? c.render(r) : escape(r[c.key])}</td>`).join('')}</tr>`).join('')
+    tbody.innerHTML = slice.length ? slice.map((r, i) => `<tr data-i="${i}" ${onRow ? 'style="cursor:pointer"' : ''}>${columns.map(c => `<td>${c.render ? cell(c.render(r)) : escape(r[c.key])}</td>`).join('')}</tr>`).join('')
       : `<tr><td colspan="${columns.length}"><div class="empty">${escape(empty)}</div></td></tr>`;
     tbody.querySelectorAll('tr[data-i]').forEach(tr => onRow && tr.addEventListener('click', e => { if (!e.target.closest('button, a, input, select')) onRow(slice[+tr.dataset.i]); }));
     pager.innerHTML = `<span>${list.length} registro${list.length === 1 ? '' : 's'}</span><span class="row" style="gap:6px"><button class="btn btn-sm btn-ghost" data-p="-1" ${page === 0 ? 'disabled' : ''}>←</button><span>${page + 1} / ${pages}</span><button class="btn btn-sm btn-ghost" data-p="1" ${page >= pages - 1 ? 'disabled' : ''}>→</button></span>`;
@@ -194,7 +202,7 @@ export function donutChart(data, { size = 180, label = '' } = {}) {
   const palette = ['var(--primary)', 'var(--accent)', 'var(--success)', 'var(--warning)', 'var(--danger)', 'var(--info)', 'var(--muted)'];
   let off = 0;
   const arcs = data.map((d, i) => { const len = (d.value / total) * c; const s = `<circle r="${r}" cx="90" cy="90" fill="none" stroke="${d.color || palette[i % palette.length]}" stroke-width="22" stroke-dasharray="${len} ${c - len}" stroke-dashoffset="${-off}" transform="rotate(-90 90 90)"><title>${escape(d.label)}: ${d.value}</title></circle>`; off += len; return s; }).join('');
-  return `<div class="row" style="gap:20px;flex-wrap:nowrap"><svg class="chart" viewBox="0 0 180 180" style="width:${size}px;flex:none">${arcs}<text x="90" y="96" text-anchor="middle" style="font-size:20px;font-weight:700;fill:var(--text)">${escape(label)}</text></svg>
+  return `<div class="row" style="gap:20px"><svg class="chart" viewBox="0 0 180 180" style="width:min(${size}px,100%);flex:none">${arcs}<text x="90" y="96" text-anchor="middle" style="font-size:20px;font-weight:700;fill:var(--text)">${escape(label)}</text></svg>
     <ul style="list-style:none;padding:0;margin:0;display:grid;gap:6px;font-size:13px">${data.map((d, i) => `<li class="row" style="gap:8px;flex-wrap:nowrap"><i style="width:10px;height:10px;border-radius:2px;background:${d.color || palette[i % palette.length]}"></i>${escape(d.label)} <b>${d.value}</b></li>`).join('')}</ul></div>`;
 }
 

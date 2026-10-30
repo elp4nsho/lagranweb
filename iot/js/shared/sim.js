@@ -70,7 +70,13 @@ export function dailyKwh(d, dayStart) {
 }
 
 // ---------- Motor de alarmas (corre en cada página operativa, 1 vez por segundo) ----------
-const since = new Map();
+// La condición se evalúa sobre la serie determinista de los últimos `duration` segundos, así cualquier
+// pestaña que abra la consola detecta de inmediato una alarma en curso.
+function sustained(d, r, now) {
+  const n = Math.min(15, Math.max(1, r.duration));
+  for (let k = 0; k <= n; k++) { const v = value(d, now - (r.duration * 1000 * k) / n); if (v == null || !breached(r, v)) return false; }
+  return true;
+}
 export function tick(onAlarm) {
   const now = Date.now();
   const rules = db.query('rules', r => r.active);
@@ -79,19 +85,15 @@ export function tick(onAlarm) {
   for (const d of devices) {
     const v = value(d, now);
     for (const r of rulesFor(d, rules)) {
-      const key = r.id + '|' + d.id;
       const existing = open.find(a => a.ruleId === r.id && a.deviceId === d.id);
       if (breached(r, v)) {
-        if (!since.has(key)) since.set(key, now);
-        if (!existing && now - since.get(key) >= r.duration * 1000) {
+        if (!existing && sustained(d, r, now)) {
           const a = db.insert('alarms', { code: `AL-${3200 + db.count('alarms')}`, ruleId: r.id, ruleName: r.name, deviceId: d.id, siteId: d.siteId, value: Math.round(v * 100) / 100, threshold: r.threshold, op: r.op, severity: r.severity, status: 'activa', assignee: null, comments: [], cleared: false, notify: r.notify });
+          open.push(a);
           db.log('alarma', `${a.code} ${r.name} · ${d.name} = ${fmt(d, v)} (umbral ${r.op} ${r.threshold})`, null);
           onAlarm && onAlarm(a, d);
         } else if (existing && existing.cleared) db.update('alarms', existing.id, { cleared: false });
-      } else {
-        since.delete(key);
-        if (existing && !existing.cleared) db.update('alarms', existing.id, { cleared: true, clearedAt: new Date().toISOString() });
-      }
+      } else if (existing && !existing.cleared) db.update('alarms', existing.id, { cleared: true, clearedAt: new Date().toISOString() });
     }
   }
 }

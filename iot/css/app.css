@@ -105,7 +105,8 @@
 .tv-clock { font: var(--head-weight) clamp(28px, 4vw, 54px)/1 var(--font-mono); }
 .tv-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(10px, 1.4vw, 20px); }
 @media (max-width: 800px) { .tv-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.tv-kpi .value { font: var(--head-weight) clamp(36px, 6vw, 84px)/1 var(--font-head); letter-spacing: var(--head-spacing); }
+.tv-kpi { min-width: 0; overflow: hidden; }
+.tv-kpi .value { font: var(--head-weight) clamp(26px, 5.5vw, 84px)/1 var(--font-head); overflow-wrap: anywhere; letter-spacing: var(--head-spacing); }
 .tv-kpi .label { font-size: clamp(13px, 1.2vw, 18px); color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
 .tv-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(10px, 1.4vw, 20px); flex: 1; }
 @media (max-width: 1000px) { .tv-grid { grid-template-columns: 1fr; } }

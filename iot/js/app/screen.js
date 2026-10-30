@@ -1,7 +1,7 @@
 // Modo pantalla (TV / muro de la sala de control): KPIs gigantes, gráfico en vivo, mapa rotativo y alarmas.
 import { db, guard, ROLES } from '../data/db.js';
 import { ago, toast } from '../../../assets/core/ui.js';
-import { h } from '../shared/h.js';
+import { h, raw } from '../shared/h.js';
 import { tick, value, fmt, status, history, TYPES, rulesFor } from '../shared/sim.js';
 import { lineSvg, siteMap } from '../shared/viz.js';
 import { sevBadge, siteName } from '../shared/common.js';
@@ -12,7 +12,7 @@ const tv = document.getElementById('tv');
 let siteIdx = 0, rotateAt = Date.now() + 15000;
 
 function layout() {
-  tv.innerHTML = h`<div class="tv-head"><div class="row">${brand('app.html')}<span class="live-pill">EN VIVO · ACUÍCOLA FIORDO</span></div>
+  tv.innerHTML = h`<div class="tv-head"><div class="row">${raw(brand('app.html'))}<span class="live-pill">EN VIVO · ACUÍCOLA FIORDO</span></div>
     <div class="row"><span class="tv-clock" data-clock></span><a class="btn btn-sm" href="app.html">Salir</a><button class="btn btn-sm" data-fs>⛶ Pantalla completa</button></div></div>
   <div class="tv-kpis">
     <div class="card tv-kpi" data-k="alarms"><span class="label">Alarmas activas</span><div class="value"></div></div>
