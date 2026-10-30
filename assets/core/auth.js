@@ -10,6 +10,12 @@
 import { api } from './db.js';
 import { escape } from './ui.js';
 
+// auth.require() corta la ejecución lanzando 'auth-redirect' mientras redirige al login;
+// no es un error real, así que no lo dejamos llegar a la consola.
+const isRedirect = r => r && (r === 'auth-redirect' || r.message === 'auth-redirect');
+window.addEventListener('error', e => { if (isRedirect(e.error)) e.preventDefault(); });
+window.addEventListener('unhandledrejection', e => { if (isRedirect(e.reason)) e.preventDefault(); });
+
 export function createAuth(db, { roles = {}, collection = 'users' } = {}) {
   const key = `lgw:session:${db.name}`;
   const read = () => { try { return localStorage.getItem(key); } catch (e) { return sessionMem; } };
