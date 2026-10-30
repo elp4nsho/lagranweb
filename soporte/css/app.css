@@ -270,6 +270,7 @@ a.tab { text-decoration: none; }
 
 /* ---------- Login ---------- */
 .auth-wrap { min-height: 100vh; display: grid; grid-template-columns: 1fr minmax(0, 460px); gap: clamp(24px, 6vw, 80px); align-items: center; width: min(1100px, 100% - 32px); margin: 0 auto; padding: 32px 0 88px; }
+.auth-wrap > * { min-width: 0; }
 .auth-side { display: grid; gap: 14px; align-content: center; }
 .auth-side h1 { margin: 0; }
 .auth-side .brand { margin-bottom: 12px; }
@@ -492,3 +493,4 @@ button.tag { cursor: pointer; }
 .typing i:nth-child(2) { animation-delay: .15s; } .typing i:nth-child(3) { animation-delay: .3s; }
 @keyframes tdot { 50% { opacity: .2; transform: translateY(-3px); } }
 @media (max-width: 600px) { .chatw-fab span { display: none; } .chatw-fab { width: 52px; padding: 0; } }
+@media (max-width: 480px) { .site-header .brand-sub { display: none; } }

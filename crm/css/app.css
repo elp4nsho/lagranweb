@@ -349,6 +349,7 @@ body.dragging { cursor: grabbing; }
 
 /* ---------- Login ---------- */
 .auth-wrap { min-height: 100vh; display: grid; grid-template-columns: 1fr minmax(0, 460px); gap: clamp(24px, 6vw, 80px); align-items: center; width: min(1100px, 100% - 32px); margin: 0 auto; padding: 32px 0 88px; }
+.auth-wrap > * { min-width: 0; }
 .auth-side { display: grid; gap: 14px; align-content: center; }
 .auth-side h1 { margin: 0; }
 .auth-side .brand { margin-bottom: 12px; }

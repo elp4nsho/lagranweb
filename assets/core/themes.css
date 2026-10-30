@@ -1051,3 +1051,5 @@ hr { border: 0; border-top: var(--border-w, 1px) solid var(--line); margin: var(
 [hidden] { display: none !important; }
 /* En celular el modal es una hoja inferior: dejamos espacio para la barra del portafolio */
 @media (max-width: 600px) { .modal-foot { padding-bottom: 64px; } }
+/* Las animaciones de entrada (slideIn, turnIn…) no deben provocar scroll horizontal. clip no rompe position: sticky. */
+html, body { overflow-x: clip; }
