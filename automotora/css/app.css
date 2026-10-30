@@ -582,3 +582,10 @@ input[type=range] { width: 100%; accent-color: var(--primary); }
 .mc-body { min-width: 0; } .mc-head { flex-wrap: wrap; }
 [data-layout="app"] .model-grid.grid-3 .mc-body { flex: 1; }
 @media (max-width: 520px) { [data-layout="app"] .model-grid.grid-3 .mc-art { width: 96px; padding: 6px; } [data-layout="app"] .model-grid.grid-3 .mc-body { padding: 10px; } [data-layout="app"] .model-grid.grid-3 .mc-actions .btn { padding: 0 10px; } }
+.funnel-step { grid-template-columns: 92px minmax(0, 1fr) 40px 38px !important; }
+.funnel-lbl { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.funnel-track { height: 22px; border-radius: var(--radius-sm); background: var(--surface-2); overflow: hidden; }
+.funnel-bar { width: var(--w); height: 100%; padding: 0 !important; }
+.stat-card .value { font-size: clamp(18px, 1.9vw, 26px); }
+.kanban { grid-auto-columns: minmax(210px, 1fr); }
+.kcard { border-left-width: var(--border-w); box-shadow: inset 4px 0 0 var(--kc, var(--primary)), var(--shadow); padding-left: 14px; }

@@ -28,7 +28,7 @@ export function stackedBars(rows, keys, { height = 220, format = v => v } = {}) 
 // Embudo de conversión
 export function funnel(steps) {
   const top = Math.max(1, steps[0]?.value || 1);
-  return `<div class="funnel">${steps.map((s, i) => `<div class="funnel-step"><div class="funnel-bar" style="--w:${Math.max(6, s.value / top * 100).toFixed(1)}%"><span>${escape(s.label)}</span></div><b>${s.value}</b><small class="muted">${i ? Math.round(s.value / Math.max(1, steps[i - 1].value) * 100) + '%' : '100%'}</small></div>`).join('')}</div>`;
+  return `<div class="funnel">${steps.map((s, i) => `<div class="funnel-step"><span class="funnel-lbl">${escape(s.label)}</span><div class="funnel-track"><div class="funnel-bar" style="--w:${Math.max(3, s.value / top * 100).toFixed(1)}%"></div></div><b>${s.value}</b><small class="muted">${i ? Math.round(s.value / Math.max(1, steps[i - 1].value) * 100) + '%' : '100%'}</small></div>`).join('')}</div>`;
 }
 // Medidor semicircular (score crediticio, ocupación…)
 export function gauge(value, { min = 300, max = 950, label = '', tone = 'primary' } = {}) {

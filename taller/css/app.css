@@ -339,3 +339,68 @@ button.photo { font: inherit; font-size: 22px; }
 .claim-card.sel { outline: 2px solid var(--primary); outline-offset: -2px; }
 .ops-top { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 10px; padding: 10px 16px; background: var(--surface); border-bottom: var(--border-w) solid var(--line); box-shadow: var(--shadow); flex-wrap: wrap; }
 .builder .card { padding: 14px; }
+
+/* =====================================================================
+   Disposiciones propias del taller (revista / app)
+   ===================================================================== */
+/* ---------- Revista: portada editorial, proceso numerado, columnas invertidas ---------- */
+@media (max-width: 1080px) {
+  [data-layout="revista"] .site-nav { position: static; flex-direction: row; padding: 8px 0; box-shadow: none; background: none; max-height: none; }
+  [data-layout="revista"] .site-nav a { padding: 6px 4px; border-bottom: 0; }
+  [data-layout="revista"] .nav-toggle { display: none; }
+}
+[data-layout="revista"] .site-main .process { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 36px; }
+[data-layout="revista"] .process .step-card { background: none; border: 0; border-top: 1px solid var(--line); border-radius: 0; box-shadow: none; padding: 16px 0; display: grid; grid-template-columns: 56px 1fr; column-gap: 12px; }
+[data-layout="revista"] .process .step-card .svc-ico { grid-row: span 2; font-size: 40px; }
+[data-layout="revista"] .site-main .services .grid-4 > :first-child { justify-content: flex-end; background: var(--surface-2); padding: calc(var(--pad) * 1.6); }
+[data-layout="revista"] .site-main .services .grid-4 > :first-child h3 { font-size: clamp(24px, 3vw, 36px); }
+[data-layout="revista"] .site-main .services .grid-4 > :first-child .svc-ico { font-size: 64px; }
+[data-layout="revista"] .track-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); }
+[data-layout="revista"] .track-grid > :first-child { order: 2; }
+[data-layout="revista"] .book-grid { grid-template-columns: minmax(0, 1fr); max-width: 820px; }
+[data-layout="revista"] .book-grid .sum-box { order: -1; position: static; border-left: 4px solid var(--primary); }
+[data-layout="revista"] .ot-timeline:not(.h) { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; }
+[data-layout="revista"] .ot-timeline:not(.h) li::before { display: none; }
+[data-layout="revista"] .warranty { border-left: 0; border-top: 3px double var(--line); border-radius: 0; box-shadow: none; }
+@media (max-width: 760px) { [data-layout="revista"] .site-main .process, [data-layout="revista"] .track-grid, [data-layout="revista"] .ot-timeline:not(.h) { grid-template-columns: minmax(0, 1fr); } }
+/* Kanban en revista: columnas apiladas como secciones con tarjetas en fila */
+[data-layout="revista"] .kanban { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: minmax(0, 1fr); overflow: visible; }
+[data-layout="revista"] .kcol { grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); min-height: 0; border-top-width: 0; border-left: 5px solid var(--kc, var(--line)); }
+[data-layout="revista"] .kcol h3 { grid-column: 1 / -1; border-bottom: 3px double var(--line); }
+[data-layout="revista"] .mech-main { max-width: 980px; }
+[data-layout="revista"] .ot-card { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+[data-layout="revista"] .ot-card > * { grid-column: 1 / -1; }
+[data-layout="revista"] .ins-grid { grid-template-columns: minmax(0, 1fr); }
+[data-layout="revista"] .ins-grid > :first-child { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); }
+[data-layout="revista"] .ops-top, [data-layout="revista"] .mech-top { justify-content: center; }
+
+/* ---------- App: listas compactas, paneles laterales y kanban denso ---------- */
+[data-layout="app"] .site-main { display: flex; flex-direction: column; }
+[data-layout="app"] .site-main > .site-hero { order: 0; }
+[data-layout="app"] .site-main > .cta { order: 1; }
+[data-layout="app"] .site-main > .services { order: 2; }
+[data-layout="app"] .site-main > .insurers-band { order: 3; }
+[data-layout="app"] .site-main > .how { order: 4; }
+[data-layout="app"] .site-main .services .grid-4, [data-layout="app"] .site-main .grid-2:has(> .svc-card) { grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr)); gap: 8px; }
+[data-layout="app"] .site-main .services .grid-4 > *, [data-layout="app"] .site-main .grid-2 > .svc-card { grid-column: auto !important; }
+[data-layout="app"] .svc-card { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; align-items: center; gap: 2px 12px; }
+[data-layout="app"] .svc-card > .svc-ico { grid-row: span 2; font-size: 28px; }
+[data-layout="app"] .svc-card h3 { font-size: 16px; }
+[data-layout="app"] .svc-card p, [data-layout="app"] .svc-card .bullets { display: none; }
+[data-layout="app"] .svc-card > .row:first-child { display: contents; }
+[data-layout="app"] .site-main .process { grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); }
+[data-layout="app"] .track-grid { grid-template-columns: 340px minmax(0, 1fr); }
+[data-layout="app"] .track-grid > :first-child { position: sticky; top: 16px; }
+[data-layout="app"] .book-grid { grid-template-columns: 300px minmax(0, 1fr); }
+[data-layout="app"] .book-grid .sum-box { order: -1; top: 16px; }
+@media (max-width: 900px) { [data-layout="app"] .track-grid, [data-layout="app"] .book-grid { grid-template-columns: minmax(0, 1fr); } [data-layout="app"] .track-grid > :first-child, [data-layout="app"] .book-grid .sum-box { position: static; } }
+[data-layout="app"] .approve-bar { bottom: 80px; }
+[data-layout="app"] .kanban { grid-auto-columns: minmax(200px, 1fr); gap: 6px; }
+[data-layout="app"] .kcol { padding: 6px; gap: 6px; max-height: calc(100vh - 220px); overflow-y: auto; }
+[data-layout="app"] .kcard { padding: 8px; font-size: 12px; }
+[data-layout="app"] .kcard > small { display: none; }
+[data-layout="app"] .mech-main { max-width: 1200px; }
+@media (min-width: 900px) { [data-layout="app"] .mech-main { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } [data-layout="app"] .mech-main > .callout, [data-layout="app"] .mech-main > .tabs, [data-layout="app"] .mech-main > .empty { grid-column: 1 / -1; } }
+[data-layout="app"] .ins-grid { grid-template-columns: 320px minmax(0, 1fr); }
+@media (max-width: 900px) { [data-layout="app"] .ins-grid { grid-template-columns: minmax(0, 1fr); } }
+[data-layout="app"] .ins-grid > :first-child { max-height: calc(100vh - 260px); overflow-y: auto; }

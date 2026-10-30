@@ -76,7 +76,7 @@ export function seed() {
   const weight = { morning: 9, i10: 7, yaris: 7, onix: 9, accent: 5, mazda2: 4, corolla: 6, mazda3: 3, sonet: 6, tracker: 7, sportage: 8, tucson: 7, cx5: 5, rav4: 5, hilux: 8, colorado: 5, shark: 2, ev6: 1.5, ioniq5: 1.5, dolphin: 3, seal: 1.5, serie3: 1.5, x3: 1, ix1: .8, xc40: 1.5, ex30: 2 };
   const pool = []; active.forEach(m => { for (let i = 0; i < Math.round((weight[m.id] || 1) * 2); i++) pool.push(m); });
   const sales = [], vehicles = [], units = [];
-  const FIN = ['contado', 'convencional', 'convencional', 'inteligente', 'inteligente', 'leasing'];
+  const FIN = ['contado', 'contado', 'contado', 'convencional', 'convencional', 'inteligente', 'inteligente', 'leasing'];
   let saleNo = 0;
   for (let d = 360; d >= 0; d--) {
     const dt = new Date(now - d * DAY);
@@ -97,7 +97,7 @@ export function seed() {
       if (d < 60) { s.vin = vin(m.brandId); s.rut = p.rut; }
       sales.push(s);
       if (status !== 'entregado') units.push({ id: id('u'), vin: s.vin, modelId: m.id, versionId: v.id, colorId: c.id, showroomId: sr.id, status: status === 'por_entregar' ? 'vendido' : 'vendido', arrivedAt: addDays(date, -s.daysInStock), cost: s.cost, saleId: s.id, customer: p.name, deliveryDate: addDays(today, r.int(1, 9)), deliverySlot: r.pick(['10:00', '11:30', '12:30', '16:00', '17:30']), createdAt: isoAgo(d + s.daysInStock) });
-      if (d < 75 && r.bool(.5)) vehicles.push({ id: id('h'), owner: p.name, phone: p.phone, patente: makePatente(r), vin: s.vin, brandId: m.brandId, modelId: m.id, modelName: m.name, year: dt.getFullYear(), colorName: c.name, hex: c.hex, km: Math.round(d * r.int(28, 55)), purchaseDate: date, showroomId: sr.id, saleId: s.id });
+      if (d < 75 && r.bool(.4)) vehicles.push({ id: id('h'), owner: p.name, phone: p.phone, patente: makePatente(r), vin: s.vin, brandId: m.brandId, modelId: m.id, modelName: m.name, year: dt.getFullYear(), colorName: c.name, hex: c.hex, km: Math.round(d * r.int(28, 55)), purchaseDate: date, showroomId: sr.id, saleId: s.id });
     }
   }
   // Algunas ventas recientes ya entregadas: unidades en estado "entregado"
@@ -125,9 +125,9 @@ export function seed() {
   const LOST = ['Compró en otra marca', 'Precio fuera de presupuesto', 'Crédito rechazado', 'No responde', 'Posterga la compra', 'Tasación baja de su usado'];
   let qNo = 3400;
   const tl = (at, kind, text, by = null) => ({ at, kind, text, by });
-  for (let i = 0; i < 175; i++) {
+  for (let i = 0; i < 160; i++) {
     const d = Math.floor(Math.pow(r(), 1.25) * 120);
-    const m = r.pick(pool), v = r.pick(m.versions), sr = r.pick(brandShowrooms(m.brandId)), seller = r.pick(sellersOf(sr.id)), p = person();
+    const m = r.pick(pool), v = r.pick(m.versions), sr = r.pick(brandShowrooms(m.brandId)), seller = sr.id === 'scl' && r.bool(.7) ? users.find(u => u.id === 'u-v1') : r.pick(sellersOf(sr.id)), p = person();
     let maxStage, stage;
     if (d > 35) { const won = r.bool(.24); maxStage = won ? 6 : r.int(0, 5); stage = won ? 'vendido' : 'perdido'; }
     else { maxStage = Math.min(5, Math.floor(r() * r() * 7 + (d > 10 ? 1 : 0))); stage = STAGES[maxStage]; if (d > 15 && r.bool(.25)) stage = 'perdido'; if (d > 8 && r.bool(.12)) { stage = 'vendido'; maxStage = 6; } }
