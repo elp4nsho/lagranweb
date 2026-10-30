@@ -1,0 +1,1180 @@
+{
+  "app": "pos",
+  "dir": "pos",
+  "name": "Almacén Pampa",
+  "kind": "Punto de venta multi-sucursal",
+  "description": "Sistema de punto de venta para una cadena de cafeterías y minimarkets: caja táctil con turnos y arqueo, pagos mixtos, puntos de fidelización y modo sin conexión, más un back-office de inventario, compras, caja, clientes y personal.",
+  "demo": "../pos/index.html",
+  "theme": "graphite",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:37:10.084Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Presentación del sistema e ingreso, sin iniciar sesión."
+    },
+    {
+      "id": "cajero",
+      "label": "Cajero",
+      "desc": "La caja: turno, venta, cobro, boleta, retiros y cierre con arqueo."
+    },
+    {
+      "id": "bodeguero",
+      "label": "Bodeguero",
+      "desc": "Productos, stock por sucursal, movimientos, órdenes de compra y proveedores."
+    },
+    {
+      "id": "supervisor",
+      "label": "Supervisor",
+      "desc": "Dashboard, reportes de caja, clientes y puntos, empleados y turnos; autoriza descuentos en caja."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Todo lo anterior más sucursales, usuarios, ajustes y actividad."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Presentación del sistema",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página pública que presenta el punto de venta con cifras en vivo de la base demo (ventas de la semana, transacciones, cajas abiertas), funciones, sucursales con su actividad del día y planes.",
+      "actions": [
+        "Ver las cifras de ventas en vivo",
+        "Revisar las funciones de caja e inventario",
+        "Ver cada sucursal con sus cajas y ventas de hoy",
+        "Comparar los planes por caja",
+        "Entrar a probar la caja o al back-office"
+      ],
+      "img": "img/pos/portada.webp",
+      "thumb": "img/pos/portada-thumb.webp",
+      "mobile": "img/pos/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso único para la caja y el back-office. Incluye cuentas de prueba para entrar con un clic a cada rol.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic como cajero, supervisor, bodeguero o administrador",
+        "Ir a la caja o al back-office según el rol"
+      ],
+      "img": "img/pos/login.webp",
+      "thumb": "img/pos/login-thumb.webp",
+      "mobile": "img/pos/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "caja-abrir-turno",
+      "title": "Apertura de turno",
+      "section": "cajero",
+      "roles": null,
+      "url": "pos.html",
+      "capturedUrl": "pos.html",
+      "login": {
+        "id": "u-cajero",
+        "name": "Daniela Pérez",
+        "role": "Cajero",
+        "email": "cajero@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Antes de vender, el cajero elige sucursal y caja y cuenta el fondo inicial, en total o por denominación. Si la caja está tomada por otra persona, se avisa.",
+      "actions": [
+        "Elegir sucursal y caja",
+        "Ingresar el fondo inicial",
+        "Contar billetes y monedas por denominación",
+        "Abrir el turno"
+      ],
+      "img": "img/pos/caja-abrir-turno.webp",
+      "thumb": "img/pos/caja-abrir-turno-thumb.webp",
+      "mobile": "img/pos/caja-abrir-turno-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "caja",
+      "title": "Caja: venta en curso",
+      "section": "cajero",
+      "roles": null,
+      "url": "pos.html",
+      "capturedUrl": "pos.html",
+      "login": {
+        "id": "u-cajero",
+        "name": "Daniela Pérez",
+        "role": "Cajero",
+        "email": "cajero@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pantalla de venta con grilla táctil de productos por categoría (con stock de la sucursal en cada botón), buscador, lector de código de barras y la venta en curso con totales e IVA.",
+      "actions": [
+        "Agregar productos tocando, buscando o escaneando",
+        "Cambiar cantidades y aplicar descuentos por línea o generales",
+        "Asociar un cliente para sumar puntos",
+        "Retener la venta y recuperarla después",
+        "Cobrar con F9"
+      ],
+      "img": "img/pos/caja.webp",
+      "thumb": "img/pos/caja-thumb.webp",
+      "mobile": "img/pos/caja-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "caja-cliente",
+      "title": "Cliente de la venta",
+      "section": "cajero",
+      "roles": null,
+      "url": "pos.html",
+      "capturedUrl": "pos.html",
+      "login": {
+        "id": "u-cajero",
+        "name": "Daniela Pérez",
+        "role": "Cajero",
+        "email": "cajero@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "modal",
+      "from": "Botón de cliente en la venta en curso (F4)",
+      "description": "Búsqueda de cliente por RUT, nombre, teléfono o correo, con su nivel y puntos, y registro rápido de un cliente nuevo con validación de RUT.",
+      "actions": [
+        "Buscar un cliente frecuente",
+        "Ver su nivel y saldo de puntos",
+        "Registrar un cliente nuevo y asociarlo",
+        "Quitar el cliente de la venta"
+      ],
+      "img": "img/pos/caja-cliente.webp",
+      "thumb": "img/pos/caja-cliente-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "caja-descuento",
+      "title": "Autorización de supervisor",
+      "section": "cajero",
+      "roles": null,
+      "url": "pos.html",
+      "capturedUrl": "pos.html",
+      "login": {
+        "id": "u-cajero",
+        "name": "Daniela Pérez",
+        "role": "Cajero",
+        "email": "cajero@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "modal",
+      "from": "Descuento de línea mayor al permitido al cajero",
+      "description": "Si el cajero aplica un descuento mayor a su máximo (10 % en la demo), la caja pide el PIN de un supervisor antes de aplicarlo.",
+      "actions": [
+        "Elegir un porcentaje de descuento rápido o escribirlo",
+        "Pedir autorización con PIN de supervisor",
+        "Aplicar el descuento autorizado"
+      ],
+      "img": "img/pos/caja-descuento.webp",
+      "thumb": "img/pos/caja-descuento-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "caja-cobro",
+      "title": "Cobro con pagos mixtos",
+      "section": "cajero",
+      "roles": null,
+      "url": "pos.html",
+      "capturedUrl": "pos.html",
+      "login": {
+        "id": "u-cajero",
+        "name": "Daniela Pérez",
+        "role": "Cajero",
+        "email": "cajero@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Cobrar\" (F9)",
+      "description": "Ventana de cobro que combina efectivo (con montos rápidos y cálculo de vuelto), tarjeta, transferencia y canje de puntos en una misma venta.",
+      "actions": [
+        "Elegir medio de pago y monto",
+        "Usar montos rápidos en efectivo y ver el vuelto",
+        "Combinar varios medios de pago",
+        "Canjear puntos del cliente",
+        "Confirmar la venta"
+      ],
+      "img": "img/pos/caja-cobro.webp",
+      "thumb": "img/pos/caja-cobro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "caja-boleta",
+      "title": "Venta registrada y boleta",
+      "section": "cajero",
+      "roles": null,
+      "url": "pos.html",
+      "capturedUrl": "pos.html",
+      "login": {
+        "id": "u-cajero",
+        "name": "Daniela Pérez",
+        "role": "Cajero",
+        "email": "cajero@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "modal",
+      "from": "Al confirmar el cobro",
+      "description": "Boleta de la venta recién registrada con número, detalle, IVA, medios de pago y vuelto, lista para imprimir.",
+      "actions": [
+        "Revisar la boleta",
+        "Imprimirla",
+        "Empezar una venta nueva"
+      ],
+      "img": "img/pos/caja-boleta.webp",
+      "thumb": "img/pos/caja-boleta-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "caja-ventas",
+      "title": "Ventas del turno",
+      "section": "cajero",
+      "roles": null,
+      "url": "pos.html",
+      "capturedUrl": "pos.html",
+      "login": {
+        "id": "u-cajero",
+        "name": "Daniela Pérez",
+        "role": "Cajero",
+        "email": "cajero@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Ventas\" de la barra superior",
+      "description": "Listado de las boletas del turno con hora, total y medio de pago. Desde aquí se reimprime o se anula una boleta con motivo.",
+      "actions": [
+        "Ver las ventas del turno",
+        "Reabrir una boleta para reimprimirla",
+        "Anular una boleta indicando el motivo"
+      ],
+      "img": "img/pos/caja-ventas.webp",
+      "thumb": "img/pos/caja-ventas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "caja-movimiento",
+      "title": "Retiro o ingreso de efectivo",
+      "section": "cajero",
+      "roles": null,
+      "url": "pos.html",
+      "capturedUrl": "pos.html",
+      "login": {
+        "id": "u-cajero",
+        "name": "Daniela Pérez",
+        "role": "Cajero",
+        "email": "cajero@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Caja\" de la barra superior",
+      "description": "Registro de retiros (depósito a caja fuerte, pago a proveedor) o ingresos de efectivo durante el turno, que se descuentan o suman en el arqueo.",
+      "actions": [
+        "Elegir retiro o ingreso",
+        "Indicar monto y motivo",
+        "Dejarlo registrado para el cierre"
+      ],
+      "img": "img/pos/caja-movimiento.webp",
+      "thumb": "img/pos/caja-movimiento-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "caja-sin-conexion",
+      "title": "Modo sin conexión",
+      "section": "cajero",
+      "roles": null,
+      "url": "pos.html",
+      "capturedUrl": "pos.html",
+      "login": {
+        "id": "u-cajero",
+        "name": "Daniela Pérez",
+        "role": "Cajero",
+        "email": "cajero@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Simulación de corte de internet: la caja sigue vendiendo, las ventas quedan en cola (se ve el contador junto al indicador) y se sincronizan al reconectar.",
+      "actions": [
+        "Simular un corte de conexión",
+        "Seguir vendiendo sin internet",
+        "Ver cuántas ventas quedan en cola",
+        "Reconectar y sincronizar"
+      ],
+      "img": "img/pos/caja-sin-conexion.webp",
+      "thumb": "img/pos/caja-sin-conexion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "caja-retenidas",
+      "title": "Ventas retenidas",
+      "section": "cajero",
+      "roles": null,
+      "url": "pos.html",
+      "capturedUrl": "pos.html",
+      "login": {
+        "id": "u-cajero",
+        "name": "Daniela Pérez",
+        "role": "Cajero",
+        "email": "cajero@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Retenidas\" (F7)",
+      "description": "Ventas puestas en espera (por ejemplo, un cliente que fue a buscar algo) para atender a otro y recuperarlas después.",
+      "actions": [
+        "Ver las ventas en espera con hora y monto",
+        "Recuperar una venta",
+        "Descartar una venta retenida"
+      ],
+      "img": "img/pos/caja-retenidas.webp",
+      "thumb": "img/pos/caja-retenidas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "caja-cierre",
+      "title": "Arqueo y cierre de turno",
+      "section": "cajero",
+      "roles": null,
+      "url": "pos.html",
+      "capturedUrl": "pos.html",
+      "login": {
+        "id": "u-cajero",
+        "name": "Daniela Pérez",
+        "role": "Cajero",
+        "email": "cajero@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Cerrar turno\"",
+      "description": "Cierre del turno con el resumen de ventas por medio de pago, fondo, retiros y efectivo esperado, conteo por denominación y diferencia.",
+      "actions": [
+        "Revisar ventas por medio de pago",
+        "Contar el efectivo por denominación",
+        "Ver la diferencia contra lo esperado",
+        "Dejar observaciones y cerrar el turno",
+        "Imprimir el reporte de cierre"
+      ],
+      "img": "img/pos/caja-cierre.webp",
+      "thumb": "img/pos/caja-cierre-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "stock",
+      "title": "Stock por sucursal",
+      "section": "bodeguero",
+      "roles": [
+        "Bodeguero",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/inventario",
+      "capturedUrl": "admin.html#/inventario",
+      "login": {
+        "id": "u-bodega",
+        "name": "Luis Herrera",
+        "role": "Bodeguero",
+        "email": "bodega@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inventario valorizado a costo con una columna por sucursal; las celdas bajo el mínimo se marcan en color. El bodeguero entra directo aquí.",
+      "actions": [
+        "Ver el stock de cada producto en cada sucursal",
+        "Filtrar por categoría o productos bajo mínimo",
+        "Registrar entradas, mermas o transferencias",
+        "Exportar a CSV"
+      ],
+      "img": "img/pos/stock.webp",
+      "thumb": "img/pos/stock-thumb.webp",
+      "mobile": "img/pos/stock-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "stock-movimiento",
+      "title": "Movimiento de inventario",
+      "section": "bodeguero",
+      "roles": [
+        "Bodeguero",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/inventario",
+      "capturedUrl": "admin.html#/inventario",
+      "login": {
+        "id": "u-bodega",
+        "name": "Luis Herrera",
+        "role": "Bodeguero",
+        "email": "bodega@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Mover\" en Stock por sucursal",
+      "description": "Registro de entrada, merma, ajuste o transferencia entre sucursales para un producto, con cantidad y nota.",
+      "actions": [
+        "Elegir el tipo de movimiento",
+        "Indicar sucursal de origen y destino",
+        "Ingresar cantidad y motivo"
+      ],
+      "img": "img/pos/stock-movimiento.webp",
+      "thumb": "img/pos/stock-movimiento-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "movimientos",
+      "title": "Movimientos de stock",
+      "section": "bodeguero",
+      "roles": [
+        "Bodeguero",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/movimientos",
+      "capturedUrl": "admin.html#/movimientos",
+      "login": {
+        "id": "u-bodega",
+        "name": "Luis Herrera",
+        "role": "Bodeguero",
+        "email": "bodega@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Historial de entradas, ventas, mermas, ajustes, transferencias y recepciones de compra, con sucursal, usuario y nota.",
+      "actions": [
+        "Filtrar por tipo, sucursal o producto",
+        "Registrar un movimiento nuevo",
+        "Exportar a CSV"
+      ],
+      "img": "img/pos/movimientos.webp",
+      "thumb": "img/pos/movimientos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "productos",
+      "title": "Productos",
+      "section": "bodeguero",
+      "roles": [
+        "Bodeguero",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/productos",
+      "capturedUrl": "admin.html#/productos",
+      "login": {
+        "id": "u-bodega",
+        "name": "Luis Herrera",
+        "role": "Bodeguero",
+        "email": "bodega@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Catálogo con SKU, código de barras, categoría, costo, precio, margen y stock total.",
+      "actions": [
+        "Buscar por nombre, SKU o código de barras",
+        "Filtrar por categoría",
+        "Abrir la ficha de un producto",
+        "Exportar a CSV"
+      ],
+      "img": "img/pos/productos.webp",
+      "thumb": "img/pos/productos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "producto-ficha",
+      "title": "Ficha del producto",
+      "section": "bodeguero",
+      "roles": [
+        "Bodeguero",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/productos/pr37",
+      "capturedUrl": "admin.html#/productos/pr37",
+      "login": {
+        "id": "u-bodega",
+        "name": "Luis Herrera",
+        "role": "Bodeguero",
+        "email": "bodega@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha con precio, margen y ventas, unidades vendidas por día, stock en cada sucursal (con su mínimo) y los últimos movimientos del producto.",
+      "actions": [
+        "Ver las ventas diarias",
+        "Revisar el stock por sucursal",
+        "Registrar un movimiento desde la ficha",
+        "Ver los últimos movimientos"
+      ],
+      "img": "img/pos/producto-ficha.webp",
+      "thumb": "img/pos/producto-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "compras",
+      "title": "Órdenes de compra",
+      "section": "bodeguero",
+      "roles": [
+        "Bodeguero",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/compras",
+      "capturedUrl": "admin.html#/compras",
+      "login": {
+        "id": "u-bodega",
+        "name": "Luis Herrera",
+        "role": "Bodeguero",
+        "email": "bodega@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Órdenes de compra a proveedores con lo pendiente por recibir, borradores y compras del mes.",
+      "actions": [
+        "Crear una orden de compra",
+        "Filtrar por estado o sucursal",
+        "Abrir una orden",
+        "Exportar a CSV"
+      ],
+      "img": "img/pos/compras.webp",
+      "thumb": "img/pos/compras-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "compra-nueva",
+      "title": "Nueva orden de compra",
+      "section": "bodeguero",
+      "roles": [
+        "Bodeguero",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/compras",
+      "capturedUrl": "admin.html#/compras",
+      "login": {
+        "id": "u-bodega",
+        "name": "Luis Herrera",
+        "role": "Bodeguero",
+        "email": "bodega@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva orden de compra\"",
+      "description": "Formulario de orden de compra con proveedor, sucursal de destino, fecha de entrega y líneas de productos con cantidad y costo.",
+      "actions": [
+        "Elegir proveedor y sucursal",
+        "Agregar líneas con cantidad y costo",
+        "Guardar como borrador o enviar al proveedor"
+      ],
+      "img": "img/pos/compra-nueva.webp",
+      "thumb": "img/pos/compra-nueva-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "compra-detalle",
+      "title": "Orden de compra",
+      "section": "bodeguero",
+      "roles": [
+        "Bodeguero",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/compras/oc11",
+      "capturedUrl": "admin.html#/compras/oc11",
+      "login": {
+        "id": "u-bodega",
+        "name": "Luis Herrera",
+        "role": "Bodeguero",
+        "email": "bodega@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Documento de la orden con proveedor, destino, líneas, neto, IVA y total, con las acciones según su estado.",
+      "actions": [
+        "Imprimir la orden",
+        "Registrar la recepción",
+        "Cancelar o duplicar la orden"
+      ],
+      "img": "img/pos/compra-detalle.webp",
+      "thumb": "img/pos/compra-detalle-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "compra-recepcion",
+      "title": "Recepción de mercadería",
+      "section": "bodeguero",
+      "roles": [
+        "Bodeguero",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/compras/oc11",
+      "capturedUrl": "admin.html#/compras/oc11",
+      "login": {
+        "id": "u-bodega",
+        "name": "Luis Herrera",
+        "role": "Bodeguero",
+        "email": "bodega@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Registrar recepción\" en una orden enviada",
+      "description": "Recepción total o parcial de una orden: se indica cuánto llegó de cada línea y el stock de la sucursal se actualiza al instante.",
+      "actions": [
+        "Indicar las unidades recibidas por línea",
+        "Registrar una recepción parcial",
+        "Sumar lo recibido al stock de la sucursal"
+      ],
+      "img": "img/pos/compra-recepcion.webp",
+      "thumb": "img/pos/compra-recepcion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "proveedores",
+      "title": "Proveedores",
+      "section": "bodeguero",
+      "roles": [
+        "Bodeguero",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/proveedores",
+      "capturedUrl": "admin.html#/proveedores",
+      "login": {
+        "id": "u-bodega",
+        "name": "Luis Herrera",
+        "role": "Bodeguero",
+        "email": "bodega@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Proveedores con RUT, contacto, plazo de entrega y órdenes asociadas.",
+      "actions": [
+        "Crear o editar proveedores",
+        "Ver sus datos de contacto",
+        "Revisar sus órdenes de compra"
+      ],
+      "img": "img/pos/proveedores.webp",
+      "thumb": "img/pos/proveedores-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dashboard",
+      "title": "Dashboard",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-super",
+        "name": "Jorge Ramírez",
+        "role": "Supervisor",
+        "email": "supervisor@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen del negocio por período: ventas por día y por sucursal, venta promedio por hora, medios de pago, productos más vendidos, margen por categoría, cajas abiertas ahora y productos bajo mínimo.",
+      "actions": [
+        "Cambiar el período del análisis",
+        "Comparar sucursales y horas punta",
+        "Ver medios de pago y margen por categoría",
+        "Revisar cajas abiertas y alertas de stock"
+      ],
+      "img": "img/pos/dashboard.webp",
+      "thumb": "img/pos/dashboard-thumb.webp",
+      "mobile": "img/pos/dashboard-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reportes-caja",
+      "title": "Reportes de caja",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/caja",
+      "capturedUrl": "admin.html#/caja",
+      "login": {
+        "id": "u-super",
+        "name": "Jorge Ramírez",
+        "role": "Supervisor",
+        "email": "supervisor@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Turnos de todas las cajas con apertura, cierre, ventas, efectivo esperado, contado y diferencia.",
+      "actions": [
+        "Ver cajas abiertas y cierres de la semana",
+        "Detectar cierres con diferencia",
+        "Filtrar por estado o sucursal",
+        "Abrir el detalle de un turno"
+      ],
+      "img": "img/pos/reportes-caja.webp",
+      "thumb": "img/pos/reportes-caja-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "turno-detalle",
+      "title": "Detalle de turno",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/caja",
+      "capturedUrl": "admin.html#/caja",
+      "login": {
+        "id": "u-super",
+        "name": "Jorge Ramírez",
+        "role": "Supervisor",
+        "email": "supervisor@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "modal",
+      "from": "Fila de Reportes de caja",
+      "description": "Reporte de un turno con ventas por medio de pago, movimientos de efectivo, arqueo y la lista de boletas, que se pueden abrir o anular.",
+      "actions": [
+        "Revisar el arqueo y su diferencia",
+        "Ver retiros e ingresos",
+        "Abrir o anular boletas",
+        "Imprimir el reporte",
+        "Cerrar a distancia un turno abierto"
+      ],
+      "img": "img/pos/turno-detalle.webp",
+      "thumb": "img/pos/turno-detalle-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "clientes",
+      "title": "Clientes y puntos",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/clientes",
+      "capturedUrl": "admin.html#/clientes",
+      "login": {
+        "id": "u-super",
+        "name": "Jorge Ramírez",
+        "role": "Supervisor",
+        "email": "supervisor@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Clientes del programa de fidelización con RUT, nivel, puntos, visitas y total comprado.",
+      "actions": [
+        "Buscar por nombre, RUT o teléfono",
+        "Filtrar por nivel",
+        "Crear un cliente",
+        "Abrir la ficha de un cliente",
+        "Exportar a CSV"
+      ],
+      "img": "img/pos/clientes.webp",
+      "thumb": "img/pos/clientes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-ficha",
+      "title": "Ficha del cliente",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/clientes/cl52",
+      "capturedUrl": "admin.html#/clientes/cl52",
+      "login": {
+        "id": "u-super",
+        "name": "Jorge Ramírez",
+        "role": "Supervisor",
+        "email": "supervisor@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha del cliente con compras recientes, contacto, lo que más compra y los ajustes manuales de puntos.",
+      "actions": [
+        "Ver sus compras recientes y productos favoritos",
+        "Ajustar puntos manualmente con motivo",
+        "Editar o eliminar el cliente"
+      ],
+      "img": "img/pos/cliente-ficha.webp",
+      "thumb": "img/pos/cliente-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empleados",
+      "title": "Empleados y turnos",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/empleados",
+      "capturedUrl": "admin.html#/empleados",
+      "login": {
+        "id": "u-super",
+        "name": "Jorge Ramírez",
+        "role": "Supervisor",
+        "email": "supervisor@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Personal agrupado por jornada (mañana, tarde, completo) y tabla con sucursal, turnos de caja, ventas y diferencia acumulada en los arqueos de cada persona.",
+      "actions": [
+        "Ver quién trabaja en cada jornada",
+        "Comparar ventas y diferencias de caja por persona",
+        "Asignar sucursal, jornada y PIN",
+        "Filtrar por sucursal, rol o jornada",
+        "Exportar a CSV"
+      ],
+      "img": "img/pos/empleados.webp",
+      "thumb": "img/pos/empleados-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empleado-asignar",
+      "title": "Asignar sucursal y jornada",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/empleados",
+      "capturedUrl": "admin.html#/empleados",
+      "login": {
+        "id": "u-super",
+        "name": "Jorge Ramírez",
+        "role": "Supervisor",
+        "email": "supervisor@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Asignar\" en Empleados y turnos",
+      "description": "Ventana para asignar a una persona su sucursal, su jornada y el PIN de 4 dígitos que usa en la caja.",
+      "actions": [
+        "Cambiar la sucursal",
+        "Elegir jornada mañana, tarde o completa",
+        "Definir el PIN de caja"
+      ],
+      "img": "img/pos/empleado-asignar.webp",
+      "thumb": "img/pos/empleado-asignar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "supervisor-caja",
+      "title": "Caja en uso (supervisor)",
+      "section": "supervisor",
+      "roles": null,
+      "url": "pos.html",
+      "capturedUrl": "pos.html",
+      "login": {
+        "id": "u-super",
+        "name": "Jorge Ramírez",
+        "role": "Supervisor",
+        "email": "supervisor@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Un supervisor que abre una caja con turno ajeno puede tomarla o cerrar ese turno a distancia; un cajero solo vería el aviso.",
+      "actions": [
+        "Ver quién tiene abierta la caja y desde qué hora",
+        "Tomar la caja",
+        "Cerrar el turno de otra persona con arqueo"
+      ],
+      "img": "img/pos/supervisor-caja.webp",
+      "thumb": "img/pos/supervisor-caja-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sucursales",
+      "title": "Sucursales",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/sucursales",
+      "capturedUrl": "admin.html#/sucursales",
+      "login": {
+        "id": "u-admin",
+        "name": "Carolina Vidal",
+        "role": "Administrador",
+        "email": "admin@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Sucursales con dirección, horario y sus cajas. Se pueden agregar o quitar cajas y desactivar locales.",
+      "actions": [
+        "Crear o editar una sucursal",
+        "Agregar o quitar cajas",
+        "Activar o desactivar un local"
+      ],
+      "img": "img/pos/sucursales.webp",
+      "thumb": "img/pos/sucursales-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Carolina Vidal",
+        "role": "Administrador",
+        "email": "admin@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas con rol, sucursal y estado, más la tabla de permisos por rol. El rol se cambia directo en la tabla.",
+      "actions": [
+        "Crear una cuenta nueva",
+        "Cambiar el rol desde la tabla",
+        "Asignar una contraseña nueva",
+        "Desactivar usuarios",
+        "Revisar los permisos de cada rol"
+      ],
+      "img": "img/pos/usuarios.webp",
+      "thumb": "img/pos/usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuario-modal",
+      "title": "Nuevo usuario",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Carolina Vidal",
+        "role": "Administrador",
+        "email": "admin@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo usuario\" en Usuarios y roles",
+      "description": "Formulario de cuenta con nombre, correo, rol y contraseña inicial, con opción de mostrarla como cuenta de demostración en el login. La sucursal, jornada y PIN se asignan en Empleados y turnos.",
+      "actions": [
+        "Ingresar nombre y correo",
+        "Asignar rol (administrador, supervisor, cajero o bodeguero)",
+        "Definir la contraseña inicial"
+      ],
+      "img": "img/pos/usuario-modal.webp",
+      "thumb": "img/pos/usuario-modal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ajustes",
+      "title": "Ajustes",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/ajustes",
+      "capturedUrl": "admin.html#/ajustes",
+      "login": {
+        "id": "u-admin",
+        "name": "Carolina Vidal",
+        "role": "Administrador",
+        "email": "admin@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos de la empresa y la boleta con vista previa, reglas de caja (fondo inicial, descuento máximo del cajero), programa de puntos con niveles y restablecimiento de los datos demo.",
+      "actions": [
+        "Editar razón social, RUT y pie de boleta",
+        "Fijar fondo inicial y descuento máximo del cajero",
+        "Configurar el programa de puntos y sus niveles",
+        "Ver la vista previa de la boleta",
+        "Restablecer los datos demo"
+      ],
+      "img": "img/pos/ajustes.webp",
+      "thumb": "img/pos/ajustes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "actividad",
+      "title": "Actividad",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/actividad",
+      "capturedUrl": "admin.html#/actividad",
+      "login": {
+        "id": "u-admin",
+        "name": "Carolina Vidal",
+        "role": "Administrador",
+        "email": "admin@pampa.cl",
+        "password": "pampa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de lo que pasa en las cajas y el back-office: aperturas y cierres de turno, anulaciones, movimientos de stock, compras y cambios de configuración.",
+      "actions": [
+        "Filtrar por tipo de acción o usuario",
+        "Buscar en el detalle",
+        "Exportar a CSV"
+      ],
+      "img": "img/pos/actividad.webp",
+      "thumb": "img/pos/actividad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Grafito\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/pos/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/pos/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/pos/look-app.webp"
+      },
+      {
+        "id": "aurora",
+        "group": "Estilo",
+        "label": "Aurora",
+        "desc": "SaaS limpio y luminoso.",
+        "img": "img/pos/look-aurora.webp"
+      },
+      {
+        "id": "terminal",
+        "group": "Estilo",
+        "label": "Terminal",
+        "desc": "Pantalla de consola monoespaciada.",
+        "img": "img/pos/look-terminal.webp"
+      },
+      {
+        "id": "metro",
+        "group": "Estilo",
+        "label": "Metro",
+        "desc": "Bloques planos de color.",
+        "img": "img/pos/look-metro.webp"
+      }
+    ]
+  }
+}

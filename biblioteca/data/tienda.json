@@ -1,0 +1,1448 @@
+{
+  "app": "tienda",
+  "dir": "tienda",
+  "name": "Raíz",
+  "kind": "Tienda de ropa online",
+  "description": "Tienda de ropa con catálogo filtrable, ficha de producto con tallas y colores, carro, checkout en cuatro pasos, seguimiento de pedidos y cuenta del cliente, más un panel para pedidos, productos, inventario, clientes y marketing.",
+  "demo": "../tienda/index.html",
+  "theme": "brutal",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:31:28.183Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Lo que ve cualquier visitante, sin iniciar sesión."
+    },
+    {
+      "id": "cliente",
+      "label": "Cliente",
+      "desc": "Compra con sesión iniciada y cuenta personal: pedidos, direcciones, favoritos y perfil."
+    },
+    {
+      "id": "bodega",
+      "label": "Bodega",
+      "desc": "Preparación y despacho de pedidos y control de stock."
+    },
+    {
+      "id": "gestor",
+      "label": "Gestor de tienda",
+      "desc": "Catálogo, pedidos, clientes, inventario, cupones, reseñas y contenido del sitio."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Todo lo anterior más ajustes de la tienda, usuarios y actividad."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Portada de la tienda con producto protagonista, categorías, destacados de la temporada, novedades, más vendidos, opiniones de clientes y la historia de la marca. El hero y la barra promocional se editan desde el panel.",
+      "actions": [
+        "Entrar al catálogo o a una categoría",
+        "Ver destacados, novedades y más vendidos",
+        "Marcar productos como favoritos",
+        "Leer reseñas de clientes",
+        "Buscar prendas desde la cabecera"
+      ],
+      "img": "img/tienda/portada.webp",
+      "thumb": "img/tienda/portada-thumb.webp",
+      "mobile": "img/tienda/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "catalogo",
+      "title": "Catálogo",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/catalogo",
+      "capturedUrl": "index.html#/catalogo",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Listado de productos con filtros combinables en una barra lateral y orden configurable. El conteo de resultados se actualiza al instante.",
+      "actions": [
+        "Filtrar por categoría, talla y color",
+        "Ajustar el precio máximo",
+        "Ver solo ofertas o solo productos con stock",
+        "Buscar dentro del catálogo y ordenar",
+        "Limpiar todos los filtros"
+      ],
+      "img": "img/tienda/catalogo.webp",
+      "thumb": "img/tienda/catalogo-thumb.webp",
+      "mobile": "img/tienda/catalogo-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "catalogo-filtrado",
+      "title": "Catálogo filtrado",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/catalogo",
+      "capturedUrl": "index.html#/catalogo",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "El mismo catálogo con los filtros de ofertas y talla M activos: el listado y el conteo se actualizan al instante y los filtros se pueden limpiar de una vez.",
+      "actions": [
+        "Combinar varios filtros a la vez",
+        "Ver cuántos productos cumplen los filtros",
+        "Limpiar los filtros con un clic"
+      ],
+      "img": "img/tienda/catalogo-filtrado.webp",
+      "thumb": "img/tienda/catalogo-filtrado-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "producto",
+      "title": "Ficha de producto",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/producto/p07",
+      "capturedUrl": "index.html#/producto/p07",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ficha con galería de vistas, precio, colores, tallas con disponibilidad por variante, cantidad, detalles de la prenda, reseñas y productos relacionados.",
+      "actions": [
+        "Cambiar color y ver la prenda recoloreada",
+        "Elegir talla (las agotadas aparecen deshabilitadas)",
+        "Agregar al carro o a favoritos",
+        "Leer reseñas y dejar una nueva",
+        "Ver productos relacionados"
+      ],
+      "img": "img/tienda/producto.webp",
+      "thumb": "img/tienda/producto-thumb.webp",
+      "mobile": "img/tienda/producto-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "producto-resena",
+      "title": "Reseñas del producto",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/producto/p07",
+      "capturedUrl": "index.html#/producto/p07",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Sección de reseñas de la ficha con promedio, opiniones aprobadas (las de compradores llevan el sello de compra verificada) y el formulario para escribir una nueva, que queda pendiente de moderación.",
+      "actions": [
+        "Leer opiniones con nota y fecha",
+        "Escribir una reseña con nota de 1 a 5",
+        "Ver cuáles son de compradores verificados"
+      ],
+      "img": "img/tienda/producto-resena.webp",
+      "thumb": "img/tienda/producto-resena-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "carro",
+      "title": "Carro lateral",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/producto/p07",
+      "capturedUrl": "index.html#/producto/p07",
+      "login": null,
+      "kind": "modal",
+      "from": "Botón \"Agregar al carro\" o ícono del carro en la cabecera",
+      "description": "Carro deslizable con las prendas agregadas, barra de avance hacia el envío gratis, cupón de descuento y resumen con envío y total.",
+      "actions": [
+        "Cambiar cantidades o quitar prendas",
+        "Ver cuánto falta para el envío gratis",
+        "Aplicar o quitar un cupón",
+        "Ir a pagar"
+      ],
+      "img": "img/tienda/carro.webp",
+      "thumb": "img/tienda/carro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "checkout-invitado",
+      "title": "Checkout como invitado",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/checkout",
+      "capturedUrl": "index.html#/checkout",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Primer paso del checkout sin cuenta: datos de contacto, con el resumen del carro al costado. Se puede comprar sin registrarse.",
+      "actions": [
+        "Ingresar correo, nombre y teléfono",
+        "Revisar el resumen del pedido",
+        "Avanzar a despacho, pago y revisión"
+      ],
+      "img": "img/tienda/checkout-invitado.webp",
+      "thumb": "img/tienda/checkout-invitado-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "seguimiento",
+      "title": "Seguimiento de pedido",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/seguimiento",
+      "capturedUrl": "index.html#/seguimiento",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Formulario para seguir un pedido con su número y el correo de la compra, sin necesidad de iniciar sesión.",
+      "actions": [
+        "Ingresar número de pedido y correo",
+        "Ir al estado del pedido",
+        "Entrar a su cuenta para ver todos sus pedidos"
+      ],
+      "img": "img/tienda/seguimiento.webp",
+      "thumb": "img/tienda/seguimiento-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "seguimiento-pedido",
+      "title": "Estado del pedido",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/pedido/o-1415?e=javiera.gonzalez35%40correo.cl",
+      "capturedUrl": "index.html#/pedido/o-1415?e=javiera.gonzalez35%40correo.cl",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Estado de un pedido con la línea de tiempo (pagado, preparando, enviado, entregado), número de seguimiento, productos, despacho y totales.",
+      "actions": [
+        "Ver en qué etapa va el pedido",
+        "Revisar el número de seguimiento del courier",
+        "Ver productos, dirección y totales"
+      ],
+      "img": "img/tienda/seguimiento-pedido.webp",
+      "thumb": "img/tienda/seguimiento-pedido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso para clientes y equipo: los clientes van a su cuenta y el equipo al panel. Incluye cuentas de prueba para entrar con un clic a cada rol.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic como cliente, bodega, gestor o administrador",
+        "Pasar a crear una cuenta",
+        "Volver a la tienda"
+      ],
+      "img": "img/tienda/login.webp",
+      "thumb": "img/tienda/login-thumb.webp",
+      "mobile": "img/tienda/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "registro",
+      "title": "Crear cuenta",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html?tab=registro",
+      "capturedUrl": "login.html?tab=registro",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Registro de clientes con nombre, correo, teléfono y contraseña, y opción de recibir novedades.",
+      "actions": [
+        "Crear una cuenta de cliente",
+        "Suscribirse a las novedades",
+        "Entrar directo a su cuenta"
+      ],
+      "img": "img/tienda/registro.webp",
+      "thumb": "img/tienda/registro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "checkout-despacho",
+      "title": "Checkout: despacho",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/checkout",
+      "capturedUrl": "index.html#/checkout",
+      "login": {
+        "id": "u-camila",
+        "name": "Camila Soto",
+        "role": "Cliente",
+        "email": "camila@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Paso de despacho con las tarifas configuradas en el panel (incluido retiro en tienda) y las direcciones guardadas del cliente, o una nueva.",
+      "actions": [
+        "Elegir el tipo de despacho y ver su costo",
+        "Usar una dirección guardada o ingresar otra",
+        "Guardar la dirección nueva en su cuenta"
+      ],
+      "img": "img/tienda/checkout-despacho.webp",
+      "thumb": "img/tienda/checkout-despacho-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "checkout-pago",
+      "title": "Checkout: pago",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/checkout",
+      "capturedUrl": "index.html#/checkout",
+      "login": {
+        "id": "u-camila",
+        "name": "Camila Soto",
+        "role": "Cliente",
+        "email": "camila@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Paso de pago con tarjeta (simulada) o transferencia bancaria. Las tarjetas terminadas en 0000 simulan un pago rechazado.",
+      "actions": [
+        "Pagar con tarjeta de crédito o débito",
+        "Elegir transferencia y recibir los datos bancarios",
+        "Volver a corregir el despacho"
+      ],
+      "img": "img/tienda/checkout-pago.webp",
+      "thumb": "img/tienda/checkout-pago-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "checkout-revision",
+      "title": "Checkout: revisión",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/checkout",
+      "capturedUrl": "index.html#/checkout",
+      "login": {
+        "id": "u-camila",
+        "name": "Camila Soto",
+        "role": "Cliente",
+        "email": "camila@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Último paso con el resumen de contacto, despacho y pago antes de confirmar. Al pagar se descuenta el stock y el pedido aparece en el panel.",
+      "actions": [
+        "Revisar todos los datos del pedido",
+        "Aceptar términos y política de cambios",
+        "Confirmar y pagar"
+      ],
+      "img": "img/tienda/checkout-revision.webp",
+      "thumb": "img/tienda/checkout-revision-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "pedido-confirmado",
+      "title": "Pedido confirmado",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/pedido/o-1431?nuevo=1",
+      "capturedUrl": "index.html#/pedido/o-1431?nuevo=1",
+      "login": {
+        "id": "u-camila",
+        "name": "Camila Soto",
+        "role": "Cliente",
+        "email": "camila@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Confirmación de compra con número de pedido, estado, productos, despacho y totales.",
+      "actions": [
+        "Ver el número y el estado del pedido",
+        "Revisar productos y montos",
+        "Seguir el pedido desde su cuenta"
+      ],
+      "img": "img/tienda/pedido-confirmado.webp",
+      "thumb": "img/tienda/pedido-confirmado-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta",
+      "title": "Mi cuenta: resumen",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta",
+      "capturedUrl": "index.html#/cuenta",
+      "login": {
+        "id": "u-camila",
+        "name": "Camila Soto",
+        "role": "Cliente",
+        "email": "camila@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inicio de la cuenta del cliente con sus últimos pedidos, total comprado, dirección principal y accesos a cada sección.",
+      "actions": [
+        "Ver sus pedidos recientes y su estado",
+        "Ir a direcciones, favoritos o perfil",
+        "Cerrar sesión"
+      ],
+      "img": "img/tienda/cuenta.webp",
+      "thumb": "img/tienda/cuenta-thumb.webp",
+      "mobile": "img/tienda/cuenta-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-pedidos",
+      "title": "Mis pedidos",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta/pedidos",
+      "capturedUrl": "index.html#/cuenta/pedidos",
+      "login": {
+        "id": "u-camila",
+        "name": "Camila Soto",
+        "role": "Cliente",
+        "email": "camila@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Historial de pedidos del cliente con número, fecha, total y estado.",
+      "actions": [
+        "Revisar todos sus pedidos",
+        "Abrir el detalle y seguimiento de cada uno",
+        "Volver a comprar"
+      ],
+      "img": "img/tienda/cuenta-pedidos.webp",
+      "thumb": "img/tienda/cuenta-pedidos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-pedido",
+      "title": "Detalle de mi pedido",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta/pedidos/o-1401",
+      "capturedUrl": "index.html#/cuenta/pedidos/o-1401",
+      "login": {
+        "id": "u-camila",
+        "name": "Camila Soto",
+        "role": "Cliente",
+        "email": "camila@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Detalle de un pedido dentro de la cuenta, con la línea de tiempo, el seguimiento, los productos y los totales.",
+      "actions": [
+        "Seguir el avance del pedido",
+        "Ver el número de seguimiento",
+        "Revisar productos, dirección y pago"
+      ],
+      "img": "img/tienda/cuenta-pedido.webp",
+      "thumb": "img/tienda/cuenta-pedido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-direcciones",
+      "title": "Mis direcciones",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta/direcciones",
+      "capturedUrl": "index.html#/cuenta/direcciones",
+      "login": {
+        "id": "u-camila",
+        "name": "Camila Soto",
+        "role": "Cliente",
+        "email": "camila@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Direcciones de despacho guardadas, con una marcada como principal, que se ofrecen en el checkout.",
+      "actions": [
+        "Agregar una dirección nueva",
+        "Editar o eliminar direcciones",
+        "Elegir la dirección principal"
+      ],
+      "img": "img/tienda/cuenta-direcciones.webp",
+      "thumb": "img/tienda/cuenta-direcciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-favoritos",
+      "title": "Favoritos",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta/favoritos",
+      "capturedUrl": "index.html#/cuenta/favoritos",
+      "login": {
+        "id": "u-camila",
+        "name": "Camila Soto",
+        "role": "Cliente",
+        "email": "camila@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Prendas guardadas como favoritas para comprarlas después.",
+      "actions": [
+        "Ver sus prendas favoritas",
+        "Quitar favoritos",
+        "Ir a la ficha para comprar"
+      ],
+      "img": "img/tienda/cuenta-favoritos.webp",
+      "thumb": "img/tienda/cuenta-favoritos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-perfil",
+      "title": "Perfil",
+      "section": "cliente",
+      "roles": null,
+      "url": "index.html#/cuenta/perfil",
+      "capturedUrl": "index.html#/cuenta/perfil",
+      "login": {
+        "id": "u-camila",
+        "name": "Camila Soto",
+        "role": "Cliente",
+        "email": "camila@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos personales del cliente, preferencia de novedades y cambio de contraseña.",
+      "actions": [
+        "Editar nombre, correo y teléfono",
+        "Activar o desactivar las novedades",
+        "Cambiar la contraseña"
+      ],
+      "img": "img/tienda/cuenta-perfil.webp",
+      "thumb": "img/tienda/cuenta-perfil-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bodega-pedidos",
+      "title": "Pedidos por preparar",
+      "section": "bodega",
+      "roles": [
+        "Bodega",
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/pedidos",
+      "capturedUrl": "admin.html#/pedidos",
+      "login": {
+        "id": "u-bodega",
+        "name": "Rosa Contreras",
+        "role": "Bodega",
+        "email": "bodega@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "La bodega entra directo a los pedidos: ve el menú reducido a Pedidos e Inventario y avanza cada pedido por sus etapas.",
+      "actions": [
+        "Filtrar pedidos por estado",
+        "Abrir un pedido para prepararlo",
+        "Marcarlo como preparado o enviado",
+        "Ver cuántos pedidos esperan en el menú"
+      ],
+      "img": "img/tienda/bodega-pedidos.webp",
+      "thumb": "img/tienda/bodega-pedidos-thumb.webp",
+      "mobile": "img/tienda/bodega-pedidos-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bodega-restringido",
+      "title": "Ruta protegida por rol",
+      "section": "bodega",
+      "roles": null,
+      "url": "admin.html#/clientes",
+      "capturedUrl": "admin.html#/clientes",
+      "login": {
+        "id": "u-bodega",
+        "name": "Rosa Contreras",
+        "role": "Bodega",
+        "email": "bodega@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve la bodega si intenta abrir una sección que no le corresponde (en este caso, Clientes).",
+      "actions": [
+        "Ver el aviso de acceso restringido",
+        "Volver a Pedidos o Inventario",
+        "Confirmar que cada rol solo ve sus menús"
+      ],
+      "img": "img/tienda/bodega-restringido.webp",
+      "thumb": "img/tienda/bodega-restringido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dashboard",
+      "title": "Dashboard",
+      "section": "gestor",
+      "roles": [
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen de la tienda en 7, 30 o 90 días: ventas, pedidos, ticket promedio y conversión, curva de ventas, embudo de conversión, ventas por mes, pedidos por estado, unidades por categoría, más vendidos, últimos pedidos y alertas de inventario.",
+      "actions": [
+        "Cambiar el rango entre 7, 30 y 90 días",
+        "Ver ventas, ticket promedio y conversión contra el período anterior",
+        "Revisar el embudo y los pedidos por estado",
+        "Ver los productos más vendidos y los últimos pedidos",
+        "Atender las alertas de stock bajo"
+      ],
+      "img": "img/tienda/dashboard.webp",
+      "thumb": "img/tienda/dashboard-thumb.webp",
+      "mobile": "img/tienda/dashboard-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "pedidos",
+      "title": "Pedidos",
+      "section": "gestor",
+      "roles": [
+        "Bodega",
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/pedidos",
+      "capturedUrl": "admin.html#/pedidos",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todos los pedidos con número, cliente, fecha, total, pago y estado.",
+      "actions": [
+        "Buscar por número, cliente o correo",
+        "Filtrar por estado y forma de pago",
+        "Abrir el detalle de un pedido",
+        "Exportar a CSV"
+      ],
+      "img": "img/tienda/pedidos.webp",
+      "thumb": "img/tienda/pedidos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "pedido-detalle",
+      "title": "Detalle del pedido",
+      "section": "gestor",
+      "roles": [
+        "Bodega",
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/pedidos/o-1430",
+      "capturedUrl": "admin.html#/pedidos/o-1430",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha del pedido con productos, cliente, despacho, historial de estados y notas internas.",
+      "actions": [
+        "Avanzar el pedido a la siguiente etapa",
+        "Registrar el número de seguimiento",
+        "Agregar notas internas",
+        "Cancelar o reembolsar",
+        "Imprimir la boleta"
+      ],
+      "img": "img/tienda/pedido-detalle.webp",
+      "thumb": "img/tienda/pedido-detalle-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "pedido-seguimiento",
+      "title": "Número de seguimiento",
+      "section": "gestor",
+      "roles": [
+        "Bodega",
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/pedidos/o-1430",
+      "capturedUrl": "admin.html#/pedidos/o-1430",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "modal",
+      "from": "Botón de seguimiento en el detalle del pedido",
+      "description": "Ventana para registrar el courier y el número de seguimiento, que luego ve el cliente en su pedido.",
+      "actions": [
+        "Ingresar el número de seguimiento",
+        "Dejarlo visible para el cliente",
+        "Registrar el cambio en el historial"
+      ],
+      "img": "img/tienda/pedido-seguimiento.webp",
+      "thumb": "img/tienda/pedido-seguimiento-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "pedido-reembolso",
+      "title": "Reembolso",
+      "section": "gestor",
+      "roles": [
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/pedidos/o-1409",
+      "capturedUrl": "admin.html#/pedidos/o-1409",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Reembolsar\" en el detalle del pedido",
+      "description": "Ventana para reembolsar un pedido total o parcialmente (hasta el monto pagado), con motivo y opción de reingresar las prendas al inventario.",
+      "actions": [
+        "Indicar el monto a reembolsar",
+        "Escribir el motivo",
+        "Reponer el stock de las prendas devueltas"
+      ],
+      "img": "img/tienda/pedido-reembolso.webp",
+      "thumb": "img/tienda/pedido-reembolso-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "boleta",
+      "title": "Boleta del pedido",
+      "section": "gestor",
+      "roles": [
+        "Bodega",
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/pedidos/o-1430/boleta",
+      "capturedUrl": "admin.html#/pedidos/o-1430/boleta",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Boleta electrónica simulada del pedido lista para imprimir, con datos de la tienda, del cliente, detalle y totales con IVA.",
+      "actions": [
+        "Revisar el detalle y los totales",
+        "Imprimir o guardar en PDF",
+        "Volver al pedido"
+      ],
+      "img": "img/tienda/boleta.webp",
+      "thumb": "img/tienda/boleta-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "productos",
+      "title": "Productos",
+      "section": "gestor",
+      "roles": [
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/productos",
+      "capturedUrl": "admin.html#/productos",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Catálogo con categoría, precio, stock total, ventas y estado de cada producto.",
+      "actions": [
+        "Buscar y filtrar por categoría o estado",
+        "Crear un producto nuevo",
+        "Abrir la ficha de un producto",
+        "Exportar a CSV"
+      ],
+      "img": "img/tienda/productos.webp",
+      "thumb": "img/tienda/productos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "producto-ficha",
+      "title": "Ficha del producto",
+      "section": "gestor",
+      "roles": [
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/productos/p07",
+      "capturedUrl": "admin.html#/productos/p07",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha interna del producto con unidades vendidas por semana, variantes con su stock, pedidos recientes que lo incluyen y sus reseñas.",
+      "actions": [
+        "Ver las ventas semanales",
+        "Revisar y ajustar el stock de cada variante",
+        "Ver los pedidos recientes con el producto",
+        "Editar o eliminar el producto"
+      ],
+      "img": "img/tienda/producto-ficha.webp",
+      "thumb": "img/tienda/producto-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "producto-editar",
+      "title": "Editar producto",
+      "section": "gestor",
+      "roles": [
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/productos/p07",
+      "capturedUrl": "admin.html#/productos/p07",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Editar\" en la ficha o \"Nuevo producto\"",
+      "description": "Formulario del producto con nombre, categoría, precio, precio anterior, costo y margen, descripción, colores, tallas y matriz de variantes con stock, más vista previa.",
+      "actions": [
+        "Editar nombre, descripción y categoría",
+        "Definir precio, oferta y costo (con el margen calculado)",
+        "Agregar colores y tallas",
+        "Cargar el stock de cada variante",
+        "Marcar como destacado o cambiar su estado"
+      ],
+      "img": "img/tienda/producto-editar.webp",
+      "thumb": "img/tienda/producto-editar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "categorias",
+      "title": "Categorías",
+      "section": "gestor",
+      "roles": [
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/categorias",
+      "capturedUrl": "admin.html#/categorias",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Categorías de la tienda con orden, cantidad de productos y visibilidad en el menú.",
+      "actions": [
+        "Crear o editar una categoría",
+        "Cambiar su orden en el menú",
+        "Ocultar una categoría completa",
+        "Eliminar las que no tengan productos"
+      ],
+      "img": "img/tienda/categorias.webp",
+      "thumb": "img/tienda/categorias-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "categoria-modal",
+      "title": "Nueva categoría",
+      "section": "gestor",
+      "roles": [
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/categorias",
+      "capturedUrl": "admin.html#/categorias",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva categoría\" en Categorías",
+      "description": "Formulario de categoría con nombre, descripción y orden en el menú. La visibilidad se cambia con el interruptor de la tabla.",
+      "actions": [
+        "Definir el nombre",
+        "Escribir la descripción",
+        "Elegir el orden en el menú"
+      ],
+      "img": "img/tienda/categoria-modal.webp",
+      "thumb": "img/tienda/categoria-modal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inventario",
+      "title": "Inventario",
+      "section": "gestor",
+      "roles": [
+        "Bodega",
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/inventario",
+      "capturedUrl": "admin.html#/inventario",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Stock por variante (talla y color) con unidades en bodega, valor a costo, variantes con stock bajo y agotadas.",
+      "actions": [
+        "Filtrar por estado de stock o categoría",
+        "Sumar o restar unidades con un clic",
+        "Ajustar el stock con un motivo",
+        "Exportar a CSV"
+      ],
+      "img": "img/tienda/inventario.webp",
+      "thumb": "img/tienda/inventario-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inventario-ajuste",
+      "title": "Ajustar stock",
+      "section": "gestor",
+      "roles": [
+        "Bodega",
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/inventario",
+      "capturedUrl": "admin.html#/inventario",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Ajustar\" en Inventario",
+      "description": "Ventana para fijar o corregir el stock de una variante con un motivo (recepción, merma, conteo), que queda en los movimientos.",
+      "actions": [
+        "Indicar la nueva cantidad o la diferencia",
+        "Elegir el motivo del ajuste",
+        "Dejar el movimiento registrado"
+      ],
+      "img": "img/tienda/inventario-ajuste.webp",
+      "thumb": "img/tienda/inventario-ajuste-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inventario-movimientos",
+      "title": "Movimientos de stock",
+      "section": "gestor",
+      "roles": [
+        "Bodega",
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/inventario",
+      "capturedUrl": "admin.html#/inventario",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Historial de entradas y salidas de stock: ventas, ajustes, reembolsos y recepciones, con usuario y motivo.",
+      "actions": [
+        "Ver cada movimiento con fecha y usuario",
+        "Filtrar los movimientos",
+        "Buscar por producto o SKU"
+      ],
+      "img": "img/tienda/inventario-movimientos.webp",
+      "thumb": "img/tienda/inventario-movimientos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "clientes",
+      "title": "Clientes",
+      "section": "gestor",
+      "roles": [
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/clientes",
+      "capturedUrl": "admin.html#/clientes",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Base de clientes con pedidos, total gastado, último pedido y estado de la cuenta.",
+      "actions": [
+        "Buscar por nombre o correo",
+        "Ordenar por total gastado",
+        "Crear un cliente nuevo",
+        "Abrir la ficha de un cliente",
+        "Exportar a CSV"
+      ],
+      "img": "img/tienda/clientes.webp",
+      "thumb": "img/tienda/clientes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-ficha",
+      "title": "Ficha del cliente",
+      "section": "gestor",
+      "roles": [
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/clientes/u-camila",
+      "capturedUrl": "admin.html#/clientes/u-camila",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha del cliente con sus pedidos, datos de contacto, direcciones, favoritos y reseñas.",
+      "actions": [
+        "Ver el historial de pedidos",
+        "Revisar direcciones y favoritos",
+        "Editar los datos del cliente",
+        "Activar o bloquear la cuenta"
+      ],
+      "img": "img/tienda/cliente-ficha.webp",
+      "thumb": "img/tienda/cliente-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cupones",
+      "title": "Cupones y descuentos",
+      "section": "gestor",
+      "roles": [
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/cupones",
+      "capturedUrl": "admin.html#/cupones",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cupones con tipo (porcentaje, monto fijo o envío gratis), mínimo de compra, usos, vencimiento y estado.",
+      "actions": [
+        "Crear un cupón nuevo",
+        "Ver cuántas veces se usó cada uno",
+        "Activar o desactivar cupones",
+        "Exportar a CSV"
+      ],
+      "img": "img/tienda/cupones.webp",
+      "thumb": "img/tienda/cupones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cupon-modal",
+      "title": "Nuevo cupón",
+      "section": "gestor",
+      "roles": [
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/cupones",
+      "capturedUrl": "admin.html#/cupones",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo cupón\" en Cupones",
+      "description": "Formulario del cupón con código, tipo, valor, compra mínima, límite de usos, vencimiento y descripción.",
+      "actions": [
+        "Definir código y tipo de descuento",
+        "Fijar compra mínima y límite de usos",
+        "Poner fecha de vencimiento",
+        "Activarlo o dejarlo inactivo"
+      ],
+      "img": "img/tienda/cupon-modal.webp",
+      "thumb": "img/tienda/cupon-modal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "resenas",
+      "title": "Reseñas",
+      "section": "gestor",
+      "roles": [
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/resenas",
+      "capturedUrl": "admin.html#/resenas",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Moderación de reseñas de productos en pestañas (pendientes, aprobadas, rechazadas), con la valoración promedio publicada.",
+      "actions": [
+        "Aprobar o rechazar reseñas",
+        "Aprobar de una vez todas las de 4 estrellas o más",
+        "Filtrar por número de estrellas",
+        "Buscar por producto o autor"
+      ],
+      "img": "img/tienda/resenas.webp",
+      "thumb": "img/tienda/resenas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "contenido",
+      "title": "Contenido del sitio",
+      "section": "gestor",
+      "roles": [
+        "Gestor de tienda",
+        "Administrador"
+      ],
+      "url": "admin.html#/contenido",
+      "capturedUrl": "admin.html#/contenido",
+      "login": {
+        "id": "u-gestor",
+        "name": "Diego Morales",
+        "role": "Gestor de tienda",
+        "email": "gestor@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor de la portada de la tienda con vista previa: hero, producto protagonista, barra promocional y texto de la historia.",
+      "actions": [
+        "Editar el título, bajada y botón del hero",
+        "Elegir el producto protagonista",
+        "Mostrar u ocultar la barra promocional",
+        "Publicar o restaurar los textos originales"
+      ],
+      "img": "img/tienda/contenido.webp",
+      "thumb": "img/tienda/contenido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ajustes",
+      "title": "Ajustes de tienda",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/ajustes",
+      "capturedUrl": "admin.html#/ajustes",
+      "login": {
+        "id": "u-admin",
+        "name": "Antonia Fuentes",
+        "role": "Administrador",
+        "email": "admin@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos de la tienda, tarifas de despacho, envío gratis desde cierto monto, alerta de stock bajo y restablecimiento de los datos demo.",
+      "actions": [
+        "Editar nombre, lema, contacto y dirección de la tienda física",
+        "Crear y editar tarifas de despacho",
+        "Definir el monto para envío gratis",
+        "Fijar la alerta de stock bajo",
+        "Restablecer los datos demo"
+      ],
+      "img": "img/tienda/ajustes.webp",
+      "thumb": "img/tienda/ajustes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Antonia Fuentes",
+        "role": "Administrador",
+        "email": "admin@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas del equipo con rol, último acceso y estado, más la tabla de permisos por rol.",
+      "actions": [
+        "Crear una cuenta del equipo",
+        "Cambiar rol o datos",
+        "Desactivar usuarios",
+        "Asignar una contraseña nueva",
+        "Revisar los permisos de cada rol"
+      ],
+      "img": "img/tienda/usuarios.webp",
+      "thumb": "img/tienda/usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuario-modal",
+      "title": "Nuevo usuario",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Antonia Fuentes",
+        "role": "Administrador",
+        "email": "admin@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo usuario\" en Usuarios y roles",
+      "description": "Formulario de cuenta con nombre, correo, rol y contraseña inicial, con opción de mostrarla como cuenta de demostración en el login.",
+      "actions": [
+        "Ingresar nombre y correo",
+        "Asignar rol (administrador, gestor o bodega)",
+        "Definir la contraseña inicial"
+      ],
+      "img": "img/tienda/usuario-modal.webp",
+      "thumb": "img/tienda/usuario-modal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "actividad",
+      "title": "Actividad",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/actividad",
+      "capturedUrl": "admin.html#/actividad",
+      "login": {
+        "id": "u-admin",
+        "name": "Antonia Fuentes",
+        "role": "Administrador",
+        "email": "admin@raiz.cl",
+        "password": "raiz123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de lo que pasa en la tienda: pedidos, cambios de estado, ajustes de stock, reseñas y cambios del equipo.",
+      "actions": [
+        "Filtrar por tipo de acción o usuario",
+        "Buscar en el detalle",
+        "Ver quién hizo cada cambio"
+      ],
+      "img": "img/tienda/actividad.webp",
+      "thumb": "img/tienda/actividad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Brutal\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/tienda/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/tienda/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/tienda/look-app.webp"
+      },
+      {
+        "id": "nordic",
+        "group": "Estilo",
+        "label": "Nórdico",
+        "desc": "Minimalista, blanco y aire.",
+        "img": "img/tienda/look-nordic.webp"
+      },
+      {
+        "id": "forest",
+        "group": "Estilo",
+        "label": "Bosque",
+        "desc": "Verdes naturales y tonos tierra.",
+        "img": "img/tienda/look-forest.webp"
+      },
+      {
+        "id": "synthwave",
+        "group": "Estilo",
+        "label": "Synthwave",
+        "desc": "Oscuro retro con neón.",
+        "img": "img/tienda/look-synthwave.webp"
+      }
+    ]
+  }
+}

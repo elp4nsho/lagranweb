@@ -1,0 +1,1371 @@
+{
+  "app": "blog",
+  "dir": "blog",
+  "name": "Brújula Noticias",
+  "kind": "Medio digital",
+  "description": "Diario digital con portada, secciones, buscador, comentarios, newsletter y muro de pago con suscripciones, más un CMS de redacción con flujo editorial, moderación, publicidad e ingresos.",
+  "demo": "../blog/index.html",
+  "theme": "nordic",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:20:59.155Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Lo que ve cualquier visitante, sin iniciar sesión."
+    },
+    {
+      "id": "lector",
+      "label": "Lector/a",
+      "desc": "Cuenta del lector: artículos guardados, comentarios, newsletter y suscripción."
+    },
+    {
+      "id": "periodista",
+      "label": "Periodista",
+      "desc": "CMS limitado a sus propios artículos: escribir borradores y enviarlos a revisión."
+    },
+    {
+      "id": "editora",
+      "label": "Editor/a jefe",
+      "desc": "Flujo editorial completo, secciones, autores, comentarios, newsletter y publicidad."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Todo lo anterior más suscripciones e ingresos, usuarios, ajustes y bitácora."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Portada del diario con la nota principal, notas secundarias, \"Lo último\", bloques por sección, franja para suscriptores, más leídos, publicidad y newsletter. El ticker de último minuto se alimenta de las notas marcadas en el CMS.",
+      "actions": [
+        "Leer la nota principal y las secundarias",
+        "Seguir \"Lo último\" con su hora de publicación",
+        "Entrar a cada sección desde su bloque",
+        "Ver los más leídos y las notas premium",
+        "Suscribirse al newsletter diario o semanal"
+      ],
+      "img": "img/blog/portada.webp",
+      "thumb": "img/blog/portada-thumb.webp",
+      "mobile": "img/blog/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "seccion",
+      "title": "Sección",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/seccion/economia",
+      "capturedUrl": "index.html#/seccion/economia",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Portada de una sección con su descripción, etiquetas frecuentes, nota principal y el resto de las notas paginadas.",
+      "actions": [
+        "Leer las notas de la sección",
+        "Filtrar por una etiqueta frecuente",
+        "Cargar más notas",
+        "Ver los más leídos en la barra lateral"
+      ],
+      "img": "img/blog/seccion.webp",
+      "thumb": "img/blog/seccion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "etiqueta",
+      "title": "Etiqueta",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/tag/cobre",
+      "capturedUrl": "index.html#/tag/cobre",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Listado de todas las notas publicadas con una etiqueta, con su conteo.",
+      "actions": [
+        "Ver todas las notas de un tema",
+        "Saber cuántas notas hay",
+        "Abrir cualquiera de ellas"
+      ],
+      "img": "img/blog/etiqueta.webp",
+      "thumb": "img/blog/etiqueta-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "autor",
+      "title": "Página de autor",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/autor/rodrigo-saavedra",
+      "capturedUrl": "index.html#/autor/rodrigo-saavedra",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Perfil de un periodista o columnista con su área, biografía y todas sus notas publicadas.",
+      "actions": [
+        "Conocer el área y la biografía del autor",
+        "Ver todas sus notas",
+        "Seguirlo en redes"
+      ],
+      "img": "img/blog/autor.webp",
+      "thumb": "img/blog/autor-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "buscar",
+      "title": "Buscador",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/buscar?q=cobre",
+      "capturedUrl": "index.html#/buscar?q=cobre",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Buscador en titulares, bajadas, etiquetas y texto de las notas, con resultados ordenados por relevancia y filtro por sección.",
+      "actions": [
+        "Buscar por palabras clave",
+        "Filtrar los resultados por sección",
+        "Abrir una nota desde los resultados"
+      ],
+      "img": "img/blog/buscar.webp",
+      "thumb": "img/blog/buscar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "articulo",
+      "title": "Artículo",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/articulo/copa-chile-los-cruces-de-semifinales-quedaron-definidos",
+      "capturedUrl": "index.html#/articulo/copa-chile-los-cruces-de-semifinales-quedaron-definidos",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de lectura con titular, bajada, autor, tiempo de lectura, cuerpo con citas y destacados, caja del autor, comentarios y notas relacionadas.",
+      "actions": [
+        "Leer la nota completa",
+        "Copiar el enlace o guardar la nota en su cuenta",
+        "Ver la caja del autor",
+        "Leer y dar \"me gusta\" a los comentarios",
+        "Seguir con notas relacionadas"
+      ],
+      "img": "img/blog/articulo.webp",
+      "thumb": "img/blog/articulo-thumb.webp",
+      "mobile": "img/blog/articulo-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "articulo-muro",
+      "title": "Artículo premium (muro de pago)",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/articulo/ciclista-nacional-gana-etapa-reina-de-la-vuelta-a-colombia",
+      "capturedUrl": "index.html#/articulo/ciclista-nacional-gana-etapa-reina-de-la-vuelta-a-colombia",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Una nota premium vista sin suscripción: se muestra el comienzo y luego el muro con la invitación a suscribirse. El muro se activa o desactiva en los ajustes.",
+      "actions": [
+        "Leer el inicio de la nota",
+        "Ver los planes de suscripción",
+        "Ingresar si ya es suscriptor"
+      ],
+      "img": "img/blog/articulo-muro.webp",
+      "thumb": "img/blog/articulo-muro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "planes",
+      "title": "Planes de suscripción",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/planes",
+      "capturedUrl": "index.html#/planes",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de planes digitales con precio, período y beneficios, más preguntas frecuentes. Los planes se editan en el CMS.",
+      "actions": [
+        "Comparar los planes y sus beneficios",
+        "Elegir un plan y pagar (simulado)",
+        "Leer las preguntas frecuentes"
+      ],
+      "img": "img/blog/planes.webp",
+      "thumb": "img/blog/planes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso para lectores y redacción. Los lectores van a su cuenta y la redacción al CMS. Incluye cuentas de prueba para entrar con un clic a cada rol.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic como lector, periodista, editora o administradora",
+        "Pasar a crear una cuenta gratis",
+        "Volver a la portada"
+      ],
+      "img": "img/blog/login.webp",
+      "thumb": "img/blog/login-thumb.webp",
+      "mobile": "img/blog/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "registro",
+      "title": "Crear cuenta",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html#registro",
+      "capturedUrl": "login.html#registro",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Registro gratuito de lectores con la opción de quedar suscrito al newsletter diario.",
+      "actions": [
+        "Crear una cuenta con nombre, correo y contraseña",
+        "Suscribirse al newsletter diario",
+        "Aceptar los términos y entrar a su cuenta"
+      ],
+      "img": "img/blog/registro.webp",
+      "thumb": "img/blog/registro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-sin-sesion",
+      "title": "Mi cuenta (sin sesión)",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/cuenta",
+      "capturedUrl": "index.html#/cuenta",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve un visitante al abrir \"Mi cuenta\" sin haber ingresado.",
+      "actions": [
+        "Ir a iniciar sesión",
+        "Crear una cuenta",
+        "Volver a la portada"
+      ],
+      "img": "img/blog/cuenta-sin-sesion.webp",
+      "thumb": "img/blog/cuenta-sin-sesion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta",
+      "title": "Mi cuenta",
+      "section": "lector",
+      "roles": null,
+      "url": "index.html#/cuenta",
+      "capturedUrl": "index.html#/cuenta",
+      "login": {
+        "id": "u-lector",
+        "name": "Diego Fuentes",
+        "role": "Lector/a (suscriptor)",
+        "email": "lector@brujula.cl",
+        "password": "lector123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuenta del lector con su suscripción (plan, estado, renovación y pagos), newsletter, perfil, artículos guardados y sus comentarios.",
+      "actions": [
+        "Ver el plan, la renovación y los pagos",
+        "Cambiar de plan o cancelar la suscripción",
+        "Activar o desactivar el newsletter",
+        "Editar su nombre",
+        "Revisar artículos guardados y sus comentarios"
+      ],
+      "img": "img/blog/cuenta.webp",
+      "thumb": "img/blog/cuenta-thumb.webp",
+      "mobile": "img/blog/cuenta-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "articulo-suscriptor",
+      "title": "Artículo premium con suscripción",
+      "section": "lector",
+      "roles": null,
+      "url": "index.html#/articulo/ciclista-nacional-gana-etapa-reina-de-la-vuelta-a-colombia",
+      "capturedUrl": "index.html#/articulo/ciclista-nacional-gana-etapa-reina-de-la-vuelta-a-colombia",
+      "login": {
+        "id": "u-lector",
+        "name": "Diego Fuentes",
+        "role": "Lector/a (suscriptor)",
+        "email": "lector@brujula.cl",
+        "password": "lector123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "La misma nota premium vista por un suscriptor: se lee completa, sin muro, y puede guardarla o comentar.",
+      "actions": [
+        "Leer el contenido premium completo",
+        "Guardar la nota en su cuenta",
+        "Comentar con su nombre"
+      ],
+      "img": "img/blog/articulo-suscriptor.webp",
+      "thumb": "img/blog/articulo-suscriptor-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "comentarios",
+      "title": "Comentar una nota",
+      "section": "lector",
+      "roles": null,
+      "url": "index.html#/articulo/copa-chile-los-cruces-de-semifinales-quedaron-definidos",
+      "capturedUrl": "index.html#/articulo/copa-chile-los-cruces-de-semifinales-quedaron-definidos",
+      "login": {
+        "id": "u-lector",
+        "name": "Diego Fuentes",
+        "role": "Lector/a (suscriptor)",
+        "email": "lector@brujula.cl",
+        "password": "lector123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Zona de comentarios de una nota con la sesión iniciada. Según el modo de moderación, el comentario se publica al instante o queda pendiente de aprobación.",
+      "actions": [
+        "Escribir un comentario",
+        "Dar \"me gusta\" a otros comentarios",
+        "Ver si su comentario quedó pendiente de moderación"
+      ],
+      "img": "img/blog/comentarios.webp",
+      "thumb": "img/blog/comentarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "checkout",
+      "title": "Pago de la suscripción",
+      "section": "lector",
+      "roles": null,
+      "url": "index.html#/planes",
+      "capturedUrl": "index.html#/planes",
+      "login": {
+        "id": "u-lectora",
+        "name": "Fernanda Rojas",
+        "role": "Lector/a (sin suscripción)",
+        "email": "lectora@brujula.cl",
+        "password": "lectora123"
+      },
+      "kind": "modal",
+      "from": "Botón de un plan en la página de planes",
+      "description": "Pago simulado de un plan con tarjeta. Al pagar, la suscripción queda activa, se registra el pago y se desbloquean las notas premium.",
+      "actions": [
+        "Revisar el plan y su renovación",
+        "Ingresar los datos de la tarjeta (simulados)",
+        "Aceptar los términos y pagar",
+        "Volver a la nota que quería leer"
+      ],
+      "img": "img/blog/checkout.webp",
+      "thumb": "img/blog/checkout-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "escritorio-periodista",
+      "title": "Escritorio del periodista",
+      "section": "periodista",
+      "roles": null,
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-periodista",
+        "name": "Rodrigo Saavedra",
+        "role": "Periodista",
+        "email": "periodista@brujula.cl",
+        "password": "periodista123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen personal: lecturas totales, notas publicadas en 30 días, comentarios recibidos, sus notas más leídas, sus borradores y su estado.",
+      "actions": [
+        "Ver el desempeño de sus notas",
+        "Revisar sus borradores",
+        "Ver sus notas por estado",
+        "Crear un artículo nuevo"
+      ],
+      "img": "img/blog/escritorio-periodista.webp",
+      "thumb": "img/blog/escritorio-periodista-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "articulos-periodista",
+      "title": "Mis artículos",
+      "section": "periodista",
+      "roles": null,
+      "url": "admin.html#/articulos",
+      "capturedUrl": "admin.html#/articulos",
+      "login": {
+        "id": "u-periodista",
+        "name": "Rodrigo Saavedra",
+        "role": "Periodista",
+        "email": "periodista@brujula.cl",
+        "password": "periodista123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Listado de las notas del periodista con estado, sección, fecha y lecturas. Puede ver toda la redacción en modo lectura.",
+      "actions": [
+        "Filtrar por estado, sección o acceso",
+        "Cambiar a \"Toda la redacción\" en lectura",
+        "Abrir un borrador para seguir editando",
+        "Eliminar sus borradores"
+      ],
+      "img": "img/blog/articulos-periodista.webp",
+      "thumb": "img/blog/articulos-periodista-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "editor-periodista",
+      "title": "Editor de borrador",
+      "section": "periodista",
+      "roles": null,
+      "url": "admin.html#/articulos/ar-22",
+      "capturedUrl": "admin.html#/articulos/ar-22",
+      "login": {
+        "id": "u-periodista",
+        "name": "Rodrigo Saavedra",
+        "role": "Periodista",
+        "email": "periodista@brujula.cl",
+        "password": "periodista123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor por bloques de un borrador propio con vista previa en vivo. El periodista guarda y envía a revisión; no puede publicar.",
+      "actions": [
+        "Escribir titular, bajada y bloques (párrafo, subtítulo, cita, lista, destacado, imagen)",
+        "Reordenar, duplicar o borrar bloques",
+        "Elegir sección, etiquetas y si es premium",
+        "Enviar a revisión de la edición",
+        "Ver el historial de cambios"
+      ],
+      "img": "img/blog/editor-periodista.webp",
+      "thumb": "img/blog/editor-periodista-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "periodista-restringido",
+      "title": "Ruta protegida por rol",
+      "section": "periodista",
+      "roles": null,
+      "url": "admin.html#/comentarios",
+      "capturedUrl": "admin.html#/comentarios",
+      "login": {
+        "id": "u-periodista",
+        "name": "Rodrigo Saavedra",
+        "role": "Periodista",
+        "email": "periodista@brujula.cl",
+        "password": "periodista123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve un periodista si intenta abrir una sección reservada a la edición (en este caso, la moderación de comentarios).",
+      "actions": [
+        "Ver el aviso de acceso restringido",
+        "Volver a sus secciones desde el menú",
+        "Confirmar que cada rol solo ve sus menús"
+      ],
+      "img": "img/blog/periodista-restringido.webp",
+      "thumb": "img/blog/periodista-restringido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "escritorio-editora",
+      "title": "Escritorio de la edición",
+      "section": "editora",
+      "roles": null,
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen del medio: páginas vistas, visitantes únicos, notas por revisar, comentarios por moderar, lecturas por sección, flujo editorial y programados.",
+      "actions": [
+        "Ver páginas vistas diarias y lecturas por sección",
+        "Revisar lo que espera aprobación",
+        "Ver los artículos programados",
+        "Seguir la actividad reciente"
+      ],
+      "img": "img/blog/escritorio-editora.webp",
+      "thumb": "img/blog/escritorio-editora-thumb.webp",
+      "mobile": "img/blog/escritorio-editora-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "articulos",
+      "title": "Artículos",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/articulos",
+      "capturedUrl": "admin.html#/articulos",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todas las notas de la redacción con conteo por estado (borrador, revisión, programado, publicado, archivado), sección, autor y lecturas.",
+      "actions": [
+        "Filtrar por estado, sección, autor o acceso",
+        "Buscar por titular, etiqueta o autor",
+        "Ver la nota en el sitio",
+        "Abrir una nota para editarla",
+        "Exportar a CSV"
+      ],
+      "img": "img/blog/articulos.webp",
+      "thumb": "img/blog/articulos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "editor-revision",
+      "title": "Revisión de un artículo",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/articulos/ar-41",
+      "capturedUrl": "admin.html#/articulos/ar-41",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor de una nota enviada a revisión. La edición puede corregirla, aprobarla y publicarla, programarla o devolverla con una nota.",
+      "actions": [
+        "Corregir el texto y los bloques",
+        "Aprobar y publicar al instante",
+        "Programar la publicación",
+        "Devolver al periodista con una nota",
+        "Marcarla como último minuto o destacada en portada"
+      ],
+      "img": "img/blog/editor-revision.webp",
+      "thumb": "img/blog/editor-revision-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "editor-devolver",
+      "title": "Devolver a borrador",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/articulos/ar-41",
+      "capturedUrl": "admin.html#/articulos/ar-41",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Devolver con nota\" en una nota en revisión",
+      "description": "Ventana para devolver una nota al periodista con una nota de edición, que verá arriba del editor.",
+      "actions": [
+        "Escribir la nota para el periodista",
+        "Devolver la nota a borrador",
+        "Dejar el cambio en el historial"
+      ],
+      "img": "img/blog/editor-devolver.webp",
+      "thumb": "img/blog/editor-devolver-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "editor-nuevo",
+      "title": "Nuevo artículo",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/articulos/nuevo",
+      "capturedUrl": "admin.html#/articulos/nuevo",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor en blanco para una nota nueva, con la barra para agregar bloques y las opciones de publicación de la edición.",
+      "actions": [
+        "Agregar bloques de contenido",
+        "Elegir sección, autor, etiquetas y URL",
+        "Escribir la descripción SEO",
+        "Publicar ahora o programar"
+      ],
+      "img": "img/blog/editor-nuevo.webp",
+      "thumb": "img/blog/editor-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "secciones",
+      "title": "Secciones",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/secciones",
+      "capturedUrl": "admin.html#/secciones",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Secciones del diario con su color, descripción, orden y cantidad de notas.",
+      "actions": [
+        "Crear o editar una sección",
+        "Cambiar color, descripción y orden",
+        "Ver cuántas notas tiene cada una"
+      ],
+      "img": "img/blog/secciones.webp",
+      "thumb": "img/blog/secciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "seccion-modal",
+      "title": "Editar sección",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/secciones",
+      "capturedUrl": "admin.html#/secciones",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva sección\" o editar en Secciones",
+      "description": "Formulario de una sección con nombre, color, descripción y orden en el menú.",
+      "actions": [
+        "Editar nombre y descripción",
+        "Elegir el color de la sección",
+        "Cambiar su orden en el menú"
+      ],
+      "img": "img/blog/seccion-modal.webp",
+      "thumb": "img/blog/seccion-modal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "etiquetas",
+      "title": "Etiquetas",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/secciones",
+      "capturedUrl": "admin.html#/secciones",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Etiquetas usadas en las notas con su cantidad de usos.",
+      "actions": [
+        "Crear una etiqueta",
+        "Renombrar una etiqueta",
+        "Fusionar dos etiquetas en una",
+        "Eliminar etiquetas sin uso"
+      ],
+      "img": "img/blog/etiquetas.webp",
+      "thumb": "img/blog/etiquetas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "etiqueta-fusionar",
+      "title": "Fusionar etiquetas",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/secciones",
+      "capturedUrl": "admin.html#/secciones",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "modal",
+      "from": "Acción \"Fusionar\" en Etiquetas",
+      "description": "Ventana para fusionar una etiqueta en otra: todas las notas pasan a usar la etiqueta de destino.",
+      "actions": [
+        "Elegir la etiqueta de destino",
+        "Fusionar y actualizar todas las notas",
+        "Ordenar el archivo de temas"
+      ],
+      "img": "img/blog/etiqueta-fusionar.webp",
+      "thumb": "img/blog/etiqueta-fusionar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "autores",
+      "title": "Autores",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/autores",
+      "capturedUrl": "admin.html#/autores",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Periodistas, columnistas y firmas de la redacción con su área, usuario asociado y cantidad de notas.",
+      "actions": [
+        "Crear un autor o columnista invitado",
+        "Editar área y biografía",
+        "Asociarlo a una cuenta del CMS",
+        "Ver cuántas notas firma"
+      ],
+      "img": "img/blog/autores.webp",
+      "thumb": "img/blog/autores-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "autor-modal",
+      "title": "Editar autor",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/autores",
+      "capturedUrl": "admin.html#/autores",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "modal",
+      "from": "Fila de la tabla Autores",
+      "description": "Formulario del autor con nombre, área, biografía, color del avatar, cuenta de X y la cuenta de usuario del CMS asociada.",
+      "actions": [
+        "Editar nombre, área y biografía",
+        "Elegir color del avatar",
+        "Asociar la cuenta del CMS"
+      ],
+      "img": "img/blog/autor-modal.webp",
+      "thumb": "img/blog/autor-modal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "comentarios-moderacion",
+      "title": "Moderación de comentarios",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/comentarios",
+      "capturedUrl": "admin.html#/comentarios",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bandeja de comentarios pendientes, aprobados, rechazados y spam, con aviso en los que parecen spam y acciones masivas.",
+      "actions": [
+        "Aprobar, rechazar o marcar como spam",
+        "Seleccionar varios y moderar en bloque",
+        "Buscar en los comentarios",
+        "Ver en qué nota se escribió cada uno"
+      ],
+      "img": "img/blog/comentarios-moderacion.webp",
+      "thumb": "img/blog/comentarios-moderacion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "newsletter",
+      "title": "Newsletter: campañas",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/newsletter",
+      "capturedUrl": "admin.html#/newsletter",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen del newsletter con altas por mes y suscriptores por lista, y la tabla de campañas con destinatarios, aperturas y clics.",
+      "actions": [
+        "Ver altas por mes y tamaño de cada lista",
+        "Revisar aperturas y clics de cada campaña",
+        "Crear una campaña nueva",
+        "Pasar a la lista de suscriptores"
+      ],
+      "img": "img/blog/newsletter.webp",
+      "thumb": "img/blog/newsletter-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "newsletter-suscriptores",
+      "title": "Newsletter: suscriptores",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/newsletter",
+      "capturedUrl": "admin.html#/newsletter",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Suscriptores del newsletter con listas, origen (portada, registro, etc.) y estado.",
+      "actions": [
+        "Agregar un suscriptor a mano",
+        "Filtrar por lista o estado",
+        "Dar de baja o reactivar",
+        "Exportar a CSV"
+      ],
+      "img": "img/blog/newsletter-suscriptores.webp",
+      "thumb": "img/blog/newsletter-suscriptores-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "newsletter-campana",
+      "title": "Nueva campaña de newsletter",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/newsletter/nueva",
+      "capturedUrl": "admin.html#/newsletter/nueva",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor de campaña con asunto, lista, introducción y selección de notas, con vista previa del correo en vivo.",
+      "actions": [
+        "Escribir asunto e introducción",
+        "Elegir la lista de destino",
+        "Marcar las notas que incluye",
+        "Enviar una prueba o enviar ahora (simulado)"
+      ],
+      "img": "img/blog/newsletter-campana.webp",
+      "thumb": "img/blog/newsletter-campana-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "publicidad",
+      "title": "Publicidad",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/publicidad",
+      "capturedUrl": "admin.html#/publicidad",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Anuncios por ubicación (portada, barra lateral, dentro de la nota) con vigencia, impresiones, clics y CTR medidos en el sitio.",
+      "actions": [
+        "Crear un anuncio con anunciante y ubicación",
+        "Ver impresiones, clics y CTR",
+        "Activar o pausar anuncios",
+        "Editar o eliminar anuncios"
+      ],
+      "img": "img/blog/publicidad.webp",
+      "thumb": "img/blog/publicidad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "anuncio-modal",
+      "title": "Editar anuncio",
+      "section": "editora",
+      "roles": [
+        "Editor/a jefe",
+        "Administrador"
+      ],
+      "url": "admin.html#/publicidad",
+      "capturedUrl": "admin.html#/publicidad",
+      "login": {
+        "id": "u-editor",
+        "name": "Carolina Méndez",
+        "role": "Editor/a jefe",
+        "email": "editora@brujula.cl",
+        "password": "editora123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo anuncio\" o fila de Publicidad",
+      "description": "Formulario del anuncio con anunciante, ubicación, título, texto, llamado a la acción, fechas de vigencia y estado.",
+      "actions": [
+        "Elegir anunciante y ubicación",
+        "Escribir el texto y el botón",
+        "Definir fechas de inicio y término",
+        "Activarlo o pausarlo"
+      ],
+      "img": "img/blog/anuncio-modal.webp",
+      "thumb": "img/blog/anuncio-modal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "escritorio-admin",
+      "title": "Escritorio del administrador",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@brujula.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "El escritorio de la edición más el ingreso mensual recurrente (MRR) y las suscripciones activas.",
+      "actions": [
+        "Ver audiencia e ingresos en un solo lugar",
+        "Revisar el flujo editorial",
+        "Ir a cualquier sección del CMS"
+      ],
+      "img": "img/blog/escritorio-admin.webp",
+      "thumb": "img/blog/escritorio-admin-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "suscripciones",
+      "title": "Suscripciones e ingresos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/suscripciones",
+      "capturedUrl": "admin.html#/suscripciones",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@brujula.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "MRR, ARR, suscripciones activas, pagos atrasados y bajas, con ingresos por mes, mix de planes y crecimiento, más la tabla de suscriptores.",
+      "actions": [
+        "Ver MRR, ARR y tasa de bajas",
+        "Revisar ingresos por mes y mix de planes",
+        "Buscar suscriptores y filtrar por plan o estado",
+        "Pasar a pagos y planes"
+      ],
+      "img": "img/blog/suscripciones.webp",
+      "thumb": "img/blog/suscripciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "suscripciones-pagos",
+      "title": "Pagos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/suscripciones",
+      "capturedUrl": "admin.html#/suscripciones",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@brujula.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Historial de cobros de las suscripciones con fecha, lector, plan, monto y estado.",
+      "actions": [
+        "Revisar cada cobro",
+        "Filtrar por estado del pago",
+        "Exportar a CSV para contabilidad"
+      ],
+      "img": "img/blog/suscripciones-pagos.webp",
+      "thumb": "img/blog/suscripciones-pagos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "planes-admin",
+      "title": "Planes",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/suscripciones",
+      "capturedUrl": "admin.html#/suscripciones",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@brujula.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Planes de suscripción que se muestran en la página de planes, con precio, período y suscriptores activos.",
+      "actions": [
+        "Crear un plan nuevo",
+        "Editar precio, período y beneficios",
+        "Destacar un plan en la página pública"
+      ],
+      "img": "img/blog/planes-admin.webp",
+      "thumb": "img/blog/planes-admin-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "plan-modal",
+      "title": "Editar plan",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/suscripciones",
+      "capturedUrl": "admin.html#/suscripciones",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@brujula.cl",
+        "password": "admin123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo plan\" o editar en Planes",
+      "description": "Formulario del plan con nombre, precio, período, orden, beneficios, si se destaca y si está activo.",
+      "actions": [
+        "Definir nombre y precio",
+        "Elegir período mensual o anual",
+        "Escribir los beneficios",
+        "Marcarlo como destacado"
+      ],
+      "img": "img/blog/plan-modal.webp",
+      "thumb": "img/blog/plan-modal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@brujula.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas de la redacción y de lectores (en pestañas separadas) con su rol, último acceso, estado y la matriz de permisos por sección.",
+      "actions": [
+        "Crear una cuenta nueva",
+        "Cambiar el rol de un usuario",
+        "Activar o desactivar cuentas",
+        "Revisar la matriz de permisos"
+      ],
+      "img": "img/blog/usuarios.webp",
+      "thumb": "img/blog/usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuario-modal",
+      "title": "Nuevo usuario",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@brujula.cl",
+        "password": "admin123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo usuario\" en Usuarios y roles",
+      "description": "Formulario de cuenta con nombre, cargo, correo, rol, contraseña y estado.",
+      "actions": [
+        "Ingresar los datos de la persona",
+        "Asignar rol (administrador, editor/a jefe, periodista o lector)",
+        "Definir la contraseña",
+        "Activar o desactivar la cuenta"
+      ],
+      "img": "img/blog/usuario-modal.webp",
+      "thumb": "img/blog/usuario-modal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ajustes",
+      "title": "Ajustes del medio",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/ajustes",
+      "capturedUrl": "admin.html#/ajustes",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@brujula.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Identidad del medio, ticker de último minuto, muro de pago, modo de moderación de comentarios, contacto, SEO y texto del newsletter.",
+      "actions": [
+        "Editar nombre y lema",
+        "Activar el ticker y escribir un mensaje manual",
+        "Encender el muro de pago y elegir cuántos bloques se ven antes",
+        "Elegir pre o post-moderación de comentarios",
+        "Restablecer los datos demo"
+      ],
+      "img": "img/blog/ajustes.webp",
+      "thumb": "img/blog/ajustes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bitacora",
+      "title": "Bitácora",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/actividad",
+      "capturedUrl": "admin.html#/actividad",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@brujula.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de lo que pasa en el medio: publicaciones, cambios de estado, moderación, suscripciones y cambios de la redacción.",
+      "actions": [
+        "Filtrar por tipo de acción o usuario",
+        "Buscar en el detalle",
+        "Exportar a CSV"
+      ],
+      "img": "img/blog/bitacora.webp",
+      "thumb": "img/blog/bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Nórdico\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/blog/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/blog/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/blog/look-app.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/blog/look-editorial.webp"
+      },
+      {
+        "id": "noir",
+        "group": "Estilo",
+        "label": "Noir Neón",
+        "desc": "Oscuro con acentos brillantes.",
+        "img": "img/blog/look-noir.webp"
+      },
+      {
+        "id": "vintage",
+        "group": "Estilo",
+        "label": "Vintage",
+        "desc": "Papel envejecido y tipografía clásica.",
+        "img": "img/blog/look-vintage.webp"
+      }
+    ]
+  }
+}

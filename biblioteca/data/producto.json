@@ -1,0 +1,1309 @@
+{
+  "app": "producto",
+  "dir": "producto",
+  "name": "Aquilo Pulse",
+  "kind": "Landing de producto único",
+  "description": "Página de venta de un solo producto (una botella inteligente) con colores, reseñas, packs y cuenta regresiva, checkout en cinco pasos con order bump y upsell, seguimiento de pedidos y un panel con pedidos, inventario, CMS de la landing, pruebas A/B, cupones, afiliados y automatizaciones.",
+  "demo": "../producto/index.html",
+  "theme": "glass",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:43:52.879Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Landing, checkout y seguimiento, sin iniciar sesión."
+    },
+    {
+      "id": "soporte",
+      "label": "Soporte",
+      "desc": "Pedidos, carritos abandonados, reseñas e inventario."
+    },
+    {
+      "id": "marketing",
+      "label": "Marketing",
+      "desc": "CMS de la landing, pruebas A/B, cupones, afiliados y automatizaciones."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Todo lo anterior más usuarios, bitácora y ajustes."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Landing: portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Inicio de la página de venta con nota promedio, titular (que puede variar por prueba A/B), beneficios clave, precio desde y medios que hablaron del producto. Todo el contenido se edita en el CMS del panel.",
+      "actions": [
+        "Leer la propuesta y los beneficios principales",
+        "Ver el precio de lanzamiento",
+        "Ir directo a comprar",
+        "Bajar a colores, reseñas, precios o preguntas frecuentes"
+      ],
+      "img": "img/producto/portada.webp",
+      "thumb": "img/producto/portada-thumb.webp",
+      "mobile": "img/producto/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "beneficios",
+      "title": "Landing: beneficios",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Bloque de beneficios del producto con ícono y explicación breve. Se editan, agregan y reordenan desde el CMS.",
+      "actions": [
+        "Revisar los beneficios principales",
+        "Entender cómo funciona la botella",
+        "Seguir bajando a colores y reseñas"
+      ],
+      "img": "img/producto/beneficios.webp",
+      "thumb": "img/producto/beneficios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "comparativa",
+      "title": "Landing: comparativa",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Tabla que compara el producto con otras botellas punto por punto: recordatorio luminoso, medición del consumo, horas de frío, batería, lavavajillas, prueba sin riesgo y garantía.",
+      "actions": [
+        "Comparar característica por característica",
+        "Ver en qué se diferencia de una botella común",
+        "Pasar a las reseñas"
+      ],
+      "img": "img/producto/comparativa.webp",
+      "thumb": "img/producto/comparativa-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "colores",
+      "title": "Landing: colores",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Selector de color con la botella recoloreada, especificaciones y stock por color. Un color sin stock aparece como agotado y no se puede comprar.",
+      "actions": [
+        "Elegir un color y verlo en la botella",
+        "Ver si queda poco stock",
+        "Revisar capacidad, peso, batería y resistencia",
+        "Comprar en el color elegido"
+      ],
+      "img": "img/producto/colores.webp",
+      "thumb": "img/producto/colores-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "resenas",
+      "title": "Landing: reseñas",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Reseñas verificadas con puntaje promedio y distribución por estrellas; solo se muestran las aprobadas en el panel, las destacadas primero.",
+      "actions": [
+        "Ver el puntaje y la distribución de notas",
+        "Leer reseñas con su color y fecha",
+        "Cargar más reseñas",
+        "Escribir una reseña"
+      ],
+      "img": "img/producto/resenas.webp",
+      "thumb": "img/producto/resenas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "resena-modal",
+      "title": "Escribir una reseña",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "modal",
+      "from": "Botón \"Escribir una reseña\" en la landing",
+      "description": "Formulario para dejar una reseña con nota, color comprado, título y comentario. Queda pendiente hasta que el equipo la aprueba.",
+      "actions": [
+        "Elegir la nota de 1 a 5",
+        "Indicar el color de su botella",
+        "Escribir título y comentario",
+        "Enviarla a moderación"
+      ],
+      "img": "img/producto/resena-modal.webp",
+      "thumb": "img/producto/resena-modal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "precios",
+      "title": "Landing: packs y oferta",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Packs de 1, 2 o más botellas con precio de lanzamiento, ahorro, regalo, cuenta regresiva de la oferta y la garantía de devolución.",
+      "actions": [
+        "Comparar packs y su ahorro",
+        "Ver cuánto queda de la oferta",
+        "Elegir un pack e ir al checkout",
+        "Revisar la garantía"
+      ],
+      "img": "img/producto/precios.webp",
+      "thumb": "img/producto/precios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "faq",
+      "title": "Landing: preguntas frecuentes",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Preguntas frecuentes desplegables y el llamado final a comprar.",
+      "actions": [
+        "Abrir cada pregunta",
+        "Resolver dudas de envío, garantía y uso",
+        "Comprar desde el cierre de la página"
+      ],
+      "img": "img/producto/faq.webp",
+      "thumb": "img/producto/faq-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "afiliado-modal",
+      "title": "Postular como afiliado",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "modal",
+      "from": "Enlace \"Programa de afiliados\" del pie de página",
+      "description": "Formulario para postular al programa de afiliados con nombre, canal y correo. La postulación queda pendiente de aprobación en el panel.",
+      "actions": [
+        "Dejar nombre y correo",
+        "Indicar su canal (Instagram, blog, club)",
+        "Enviar la postulación"
+      ],
+      "img": "img/producto/afiliado-modal.webp",
+      "thumb": "img/producto/afiliado-modal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "referido",
+      "title": "Visita referida por un afiliado",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html?ref=FRAN",
+      "capturedUrl": "index.html?ref=FRAN",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve quien llega con el enlace de un afiliado (?ref=CÓDIGO): un aviso de quién lo recomendó. La visita y la compra quedan atribuidas al afiliado por 30 días.",
+      "actions": [
+        "Ver quién lo recomendó",
+        "Comprar con la atribución al afiliado",
+        "Seguir navegando la landing"
+      ],
+      "img": "img/producto/referido.webp",
+      "thumb": "img/producto/referido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "checkout-pack",
+      "title": "Checkout: pack y colores",
+      "section": "publico",
+      "roles": null,
+      "url": "checkout.html",
+      "capturedUrl": "checkout.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Primer paso del checkout: elegir el pack y el color de cada botella, con el resumen del pedido, cupón y totales al costado.",
+      "actions": [
+        "Cambiar de pack",
+        "Elegir el color de cada botella",
+        "Aplicar un cupón de descuento",
+        "Continuar al envío"
+      ],
+      "img": "img/producto/checkout-pack.webp",
+      "thumb": "img/producto/checkout-pack-thumb.webp",
+      "mobile": "img/producto/checkout-pack-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "checkout-envio",
+      "title": "Checkout: envío",
+      "section": "publico",
+      "roles": null,
+      "url": "checkout.html",
+      "capturedUrl": "checkout.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Datos de envío con región y comuna, y método estándar o express (gratis desde 2 botellas).",
+      "actions": [
+        "Ingresar nombre, correo y teléfono",
+        "Escribir la dirección",
+        "Elegir envío estándar o express"
+      ],
+      "img": "img/producto/checkout-envio.webp",
+      "thumb": "img/producto/checkout-envio-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "checkout-pago",
+      "title": "Checkout: pago y order bump",
+      "section": "publico",
+      "roles": null,
+      "url": "checkout.html",
+      "capturedUrl": "checkout.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Pago con tarjeta simulada (con vista previa de la tarjeta) y una oferta complementaria de un clic (order bump) antes de pagar.",
+      "actions": [
+        "Ingresar los datos de la tarjeta",
+        "Sumar el kit complementario con un clic",
+        "Ver el total actualizado y pagar"
+      ],
+      "img": "img/producto/checkout-pago.webp",
+      "thumb": "img/producto/checkout-pago-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "checkout-upsell",
+      "title": "Checkout: oferta posterior al pago",
+      "section": "publico",
+      "roles": null,
+      "url": "checkout.html",
+      "capturedUrl": "checkout.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Oferta de un clic que aparece después del pago aprobado (upsell), con elección de color. Se configura en el CMS.",
+      "actions": [
+        "Elegir el color de la unidad extra",
+        "Agregarla al pedido con un clic",
+        "Rechazar la oferta y terminar"
+      ],
+      "img": "img/producto/checkout-upsell.webp",
+      "thumb": "img/producto/checkout-upsell-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "checkout-listo",
+      "title": "Pedido confirmado",
+      "section": "publico",
+      "roles": null,
+      "url": "checkout.html",
+      "capturedUrl": "checkout.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Confirmación con número de pedido, detalle, envío y acceso al seguimiento. El pedido aparece al instante en el panel.",
+      "actions": [
+        "Ver el número del pedido",
+        "Revisar lo comprado y el envío",
+        "Ir al seguimiento del pedido"
+      ],
+      "img": "img/producto/checkout-listo.webp",
+      "thumb": "img/producto/checkout-listo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "seguimiento",
+      "title": "Seguimiento de pedido",
+      "section": "publico",
+      "roles": null,
+      "url": "seguimiento.html",
+      "capturedUrl": "seguimiento.html?n=AQ-10481&e=ignacio.silva40%40correo.cl",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Búsqueda de un pedido con su número y correo, con la línea de tiempo del envío, el historial y el detalle de la compra.",
+      "actions": [
+        "Buscar el pedido con número y correo",
+        "Ver en qué etapa va",
+        "Revisar el historial y el detalle",
+        "Probar con los pedidos de ejemplo"
+      ],
+      "img": "img/producto/seguimiento.webp",
+      "thumb": "img/producto/seguimiento-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Acceso del equipo",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso al panel para el equipo. Incluye cuentas de prueba para entrar con un clic a cada rol.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic como administrador, marketing o soporte",
+        "Volver a la landing"
+      ],
+      "img": "img/producto/login.webp",
+      "thumb": "img/producto/login-thumb.webp",
+      "mobile": "img/producto/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dashboard",
+      "title": "Dashboard",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/dashboard",
+      "capturedUrl": "admin.html#/dashboard",
+      "login": {
+        "id": "u-sop",
+        "name": "Javiera Soto",
+        "role": "Soporte",
+        "email": "soporte@aquilo.cl",
+        "password": "soporte123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen del negocio: ingresos, embudo de conversión de la landing, unidades por color, pedidos por pack, ingresos por mes, alertas, últimos pedidos y actividad reciente.",
+      "actions": [
+        "Ver ingresos y conversión",
+        "Revisar qué colores y packs se venden más",
+        "Atender las alertas de stock y moderación",
+        "Abrir los últimos pedidos"
+      ],
+      "img": "img/producto/dashboard.webp",
+      "thumb": "img/producto/dashboard-thumb.webp",
+      "mobile": "img/producto/dashboard-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "pedidos",
+      "title": "Pedidos",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Administrador"
+      ],
+      "url": "admin.html#/pedidos",
+      "capturedUrl": "admin.html#/pedidos",
+      "login": {
+        "id": "u-sop",
+        "name": "Javiera Soto",
+        "role": "Soporte",
+        "email": "soporte@aquilo.cl",
+        "password": "soporte123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pedidos con número, cliente, pack, total, origen (afiliado, cupón) y estado, con avance rápido de estado desde la tabla.",
+      "actions": [
+        "Filtrar por estado y buscar",
+        "Avanzar un pedido de etapa con un clic",
+        "Crear un pedido manual",
+        "Abrir el detalle de un pedido",
+        "Exportar a CSV"
+      ],
+      "img": "img/producto/pedidos.webp",
+      "thumb": "img/producto/pedidos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "pedido-detalle",
+      "title": "Detalle del pedido",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Administrador"
+      ],
+      "url": "admin.html#/pedidos/o10481",
+      "capturedUrl": "admin.html#/pedidos/o10481",
+      "login": {
+        "id": "u-sop",
+        "name": "Javiera Soto",
+        "role": "Soporte",
+        "email": "soporte@aquilo.cl",
+        "password": "soporte123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha del pedido con estado y siguiente paso, productos, historial, datos del cliente y acciones de soporte.",
+      "actions": [
+        "Avanzar el pedido a preparando, enviado o entregado",
+        "Cancelar o reembolsar",
+        "Editar los datos del cliente",
+        "Reenviar la confirmación por correo"
+      ],
+      "img": "img/producto/pedido-detalle.webp",
+      "thumb": "img/producto/pedido-detalle-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "pedido-manual",
+      "title": "Nuevo pedido manual",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Administrador"
+      ],
+      "url": "admin.html#/pedidos",
+      "capturedUrl": "admin.html#/pedidos",
+      "login": {
+        "id": "u-sop",
+        "name": "Javiera Soto",
+        "role": "Soporte",
+        "email": "soporte@aquilo.cl",
+        "password": "soporte123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Pedido manual\" en Pedidos",
+      "description": "Formulario para registrar un pedido tomado por teléfono o redes, con cliente, pack, color y dirección.",
+      "actions": [
+        "Ingresar los datos del cliente",
+        "Elegir pack y color",
+        "Registrar el pedido y descontar stock"
+      ],
+      "img": "img/producto/pedido-manual.webp",
+      "thumb": "img/producto/pedido-manual-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "carritos",
+      "title": "Carritos abandonados",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/carritos",
+      "capturedUrl": "admin.html#/carritos",
+      "login": {
+        "id": "u-sop",
+        "name": "Javiera Soto",
+        "role": "Soporte",
+        "email": "soporte@aquilo.cl",
+        "password": "soporte123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Checkouts que se empezaron y no se pagaron, con el paso en que quedaron, el monto y si se recuperaron.",
+      "actions": [
+        "Ver en qué paso se abandonó cada compra",
+        "Enviar un recordatorio (simulado)",
+        "Ver cuáles se recuperaron"
+      ],
+      "img": "img/producto/carritos.webp",
+      "thumb": "img/producto/carritos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "resenas-admin",
+      "title": "Reseñas",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/resenas",
+      "capturedUrl": "admin.html#/resenas",
+      "login": {
+        "id": "u-sop",
+        "name": "Javiera Soto",
+        "role": "Soporte",
+        "email": "soporte@aquilo.cl",
+        "password": "soporte123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Moderación de reseñas: solo las aprobadas aparecen en la landing y las destacadas van primero.",
+      "actions": [
+        "Aprobar o rechazar reseñas",
+        "Destacar una reseña",
+        "Responder públicamente",
+        "Agregar una reseña a mano"
+      ],
+      "img": "img/producto/resenas-admin.webp",
+      "thumb": "img/producto/resenas-admin-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "resena-responder",
+      "title": "Responder reseña",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/resenas",
+      "capturedUrl": "admin.html#/resenas",
+      "login": {
+        "id": "u-sop",
+        "name": "Javiera Soto",
+        "role": "Soporte",
+        "email": "soporte@aquilo.cl",
+        "password": "soporte123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Responder\" en Reseñas",
+      "description": "Respuesta pública de la marca a una reseña, que se muestra bajo ella en la landing.",
+      "actions": [
+        "Leer la reseña original",
+        "Escribir la respuesta de la marca",
+        "Publicarla en la landing"
+      ],
+      "img": "img/producto/resena-responder.webp",
+      "thumb": "img/producto/resena-responder-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inventario",
+      "title": "Inventario por color",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Administrador"
+      ],
+      "url": "admin.html#/inventario",
+      "capturedUrl": "admin.html#/inventario",
+      "login": {
+        "id": "u-sop",
+        "name": "Javiera Soto",
+        "role": "Soporte",
+        "email": "soporte@aquilo.cl",
+        "password": "soporte123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Stock de cada color con su punto de reposición. Si un color llega a 0 se muestra agotado en la landing.",
+      "actions": [
+        "Reponer stock de un color",
+        "Ajustar el stock con motivo",
+        "Ver qué colores están bajo el mínimo",
+        "Exportar a CSV"
+      ],
+      "img": "img/producto/inventario.webp",
+      "thumb": "img/producto/inventario-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inventario-reponer",
+      "title": "Reponer stock",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Administrador"
+      ],
+      "url": "admin.html#/inventario",
+      "capturedUrl": "admin.html#/inventario",
+      "login": {
+        "id": "u-sop",
+        "name": "Javiera Soto",
+        "role": "Soporte",
+        "email": "soporte@aquilo.cl",
+        "password": "soporte123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Reponer\" en Inventario",
+      "description": "Ingreso de unidades nuevas de un color, que quedan disponibles al instante en la landing.",
+      "actions": [
+        "Indicar las unidades recibidas",
+        "Dejar una nota de la reposición",
+        "Volver a habilitar un color agotado"
+      ],
+      "img": "img/producto/inventario-reponer.webp",
+      "thumb": "img/producto/inventario-reponer-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "soporte-restringido",
+      "title": "Ruta protegida por rol",
+      "section": "soporte",
+      "roles": null,
+      "url": "admin.html#/landing",
+      "capturedUrl": "admin.html#/landing",
+      "login": {
+        "id": "u-sop",
+        "name": "Javiera Soto",
+        "role": "Soporte",
+        "email": "soporte@aquilo.cl",
+        "password": "soporte123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve soporte si intenta abrir una sección de marketing (en este caso, el CMS de la landing).",
+      "actions": [
+        "Ver el aviso de acceso restringido",
+        "Volver a sus secciones desde el menú",
+        "Confirmar que cada rol solo ve sus menús"
+      ],
+      "img": "img/producto/soporte-restringido.webp",
+      "thumb": "img/producto/soporte-restringido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cms-hero",
+      "title": "Landing (CMS): hero",
+      "section": "marketing",
+      "roles": [
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/landing",
+      "capturedUrl": "admin.html#/landing",
+      "login": {
+        "id": "u-mkt",
+        "name": "Tomás Fuentes",
+        "role": "Marketing",
+        "email": "marketing@aquilo.cl",
+        "password": "marketing123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor de la landing por pestañas. En el hero se cambian titular, bajada, viñetas y medios; los cambios se ven al instante en la landing abierta en otra pestaña.",
+      "actions": [
+        "Editar titular, bajada y viñetas",
+        "Cambiar la barra promocional y los medios",
+        "Guardar y publicar",
+        "Pasar a beneficios, comparativa, FAQ, precios, oferta, garantía o checkout"
+      ],
+      "img": "img/producto/cms-hero.webp",
+      "thumb": "img/producto/cms-hero-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cms-precios",
+      "title": "Landing (CMS): precios y packs",
+      "section": "marketing",
+      "roles": [
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/landing",
+      "capturedUrl": "admin.html#/landing",
+      "login": {
+        "id": "u-mkt",
+        "name": "Tomás Fuentes",
+        "role": "Marketing",
+        "email": "marketing@aquilo.cl",
+        "password": "marketing123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Packs de la oferta con nombre, precio, precio de lista, insignia, regalo y descripción, y si están activos.",
+      "actions": [
+        "Cambiar precios y precio de lista",
+        "Editar insignia, regalo y descripción",
+        "Activar o desactivar un pack"
+      ],
+      "img": "img/producto/cms-precios.webp",
+      "thumb": "img/producto/cms-precios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cms-oferta",
+      "title": "Landing (CMS): oferta y cuenta regresiva",
+      "section": "marketing",
+      "roles": [
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/landing",
+      "capturedUrl": "admin.html#/landing",
+      "login": {
+        "id": "u-mkt",
+        "name": "Tomás Fuentes",
+        "role": "Marketing",
+        "email": "marketing@aquilo.cl",
+        "password": "marketing123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Fecha de término de la oferta de lanzamiento, con atajos para extenderla 24 horas, 3 o 7 días.",
+      "actions": [
+        "Definir cuándo termina la oferta",
+        "Extenderla con un clic",
+        "Ver la cuenta regresiva en la landing"
+      ],
+      "img": "img/producto/cms-oferta.webp",
+      "thumb": "img/producto/cms-oferta-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cms-checkout",
+      "title": "Landing (CMS): order bump y upsell",
+      "section": "marketing",
+      "roles": [
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/landing",
+      "capturedUrl": "admin.html#/landing",
+      "login": {
+        "id": "u-mkt",
+        "name": "Tomás Fuentes",
+        "role": "Marketing",
+        "email": "marketing@aquilo.cl",
+        "password": "marketing123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Configuración de la oferta complementaria del paso de pago (order bump) y de la oferta posterior al pago (upsell).",
+      "actions": [
+        "Activar o desactivar el order bump",
+        "Definir producto, precio y texto de cada oferta",
+        "Guardar los cambios del checkout"
+      ],
+      "img": "img/producto/cms-checkout.webp",
+      "thumb": "img/producto/cms-checkout-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "abtest",
+      "title": "Pruebas A/B",
+      "section": "marketing",
+      "roles": [
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/abtest",
+      "capturedUrl": "admin.html#/abtest",
+      "login": {
+        "id": "u-mkt",
+        "name": "Tomás Fuentes",
+        "role": "Marketing",
+        "email": "marketing@aquilo.cl",
+        "password": "marketing123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Prueba de dos titulares del hero con visitantes, compras, conversión y confianza estadística de cada variante, más el historial de pruebas.",
+      "actions": [
+        "Comparar la conversión de cada variante",
+        "Simular 500 visitas para ver avanzar la prueba",
+        "Declarar una variante ganadora",
+        "Pausar, editar o crear una prueba nueva"
+      ],
+      "img": "img/producto/abtest.webp",
+      "thumb": "img/producto/abtest-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "abtest-editar",
+      "title": "Editar prueba A/B",
+      "section": "marketing",
+      "roles": [
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/abtest",
+      "capturedUrl": "admin.html#/abtest",
+      "login": {
+        "id": "u-mkt",
+        "name": "Tomás Fuentes",
+        "role": "Marketing",
+        "email": "marketing@aquilo.cl",
+        "password": "marketing123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Editar\" en Pruebas A/B",
+      "description": "Formulario de la prueba con nombre, reparto de tráfico y el titular y bajada de cada variante.",
+      "actions": [
+        "Nombrar la prueba",
+        "Definir el porcentaje de tráfico de cada variante",
+        "Escribir titular y bajada de A y B"
+      ],
+      "img": "img/producto/abtest-editar.webp",
+      "thumb": "img/producto/abtest-editar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cupones",
+      "title": "Cupones",
+      "section": "marketing",
+      "roles": [
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/cupones",
+      "capturedUrl": "admin.html#/cupones",
+      "login": {
+        "id": "u-mkt",
+        "name": "Tomás Fuentes",
+        "role": "Marketing",
+        "email": "marketing@aquilo.cl",
+        "password": "marketing123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cupones que se aplican en el checkout con tipo, valor, usos, ingresos generados, vencimiento y estado.",
+      "actions": [
+        "Crear un cupón",
+        "Activar o desactivar con un interruptor",
+        "Ver usos e ingresos de cada cupón",
+        "Editar o eliminar cupones"
+      ],
+      "img": "img/producto/cupones.webp",
+      "thumb": "img/producto/cupones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cupon-modal",
+      "title": "Nuevo cupón",
+      "section": "marketing",
+      "roles": [
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/cupones",
+      "capturedUrl": "admin.html#/cupones",
+      "login": {
+        "id": "u-mkt",
+        "name": "Tomás Fuentes",
+        "role": "Marketing",
+        "email": "marketing@aquilo.cl",
+        "password": "marketing123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo cupón\" en Cupones",
+      "description": "Formulario del cupón con código, tipo de descuento, valor, mínimo, límite de usos y vencimiento.",
+      "actions": [
+        "Definir código y tipo de descuento",
+        "Fijar mínimo de compra y límite de usos",
+        "Poner fecha de vencimiento"
+      ],
+      "img": "img/producto/cupon-modal.webp",
+      "thumb": "img/producto/cupon-modal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "afiliados",
+      "title": "Afiliados",
+      "section": "marketing",
+      "roles": [
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/afiliados",
+      "capturedUrl": "admin.html#/afiliados",
+      "login": {
+        "id": "u-mkt",
+        "name": "Tomás Fuentes",
+        "role": "Marketing",
+        "email": "marketing@aquilo.cl",
+        "password": "marketing123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Afiliados con su código de enlace, clics, ventas atribuidas, comisión, saldo por pagar y estado, más los pagos registrados.",
+      "actions": [
+        "Aprobar postulaciones pendientes",
+        "Copiar el enlace de un afiliado",
+        "Ver ventas y comisión de cada uno",
+        "Registrar un pago de comisión"
+      ],
+      "img": "img/producto/afiliados.webp",
+      "thumb": "img/producto/afiliados-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "afiliado-pagar",
+      "title": "Pagar comisión",
+      "section": "marketing",
+      "roles": [
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/afiliados",
+      "capturedUrl": "admin.html#/afiliados",
+      "login": {
+        "id": "u-mkt",
+        "name": "Tomás Fuentes",
+        "role": "Marketing",
+        "email": "marketing@aquilo.cl",
+        "password": "marketing123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Pagar\" en Afiliados",
+      "description": "Registro del pago de comisión a un afiliado, con monto, medio y referencia; el saldo se descuenta.",
+      "actions": [
+        "Revisar el saldo pendiente",
+        "Indicar monto y referencia del pago",
+        "Dejar el pago registrado"
+      ],
+      "img": "img/producto/afiliado-pagar.webp",
+      "thumb": "img/producto/afiliado-pagar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "automatizaciones",
+      "title": "Automatizaciones de correo",
+      "section": "marketing",
+      "roles": [
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/automatizaciones",
+      "capturedUrl": "admin.html#/automatizaciones",
+      "login": {
+        "id": "u-mkt",
+        "name": "Tomás Fuentes",
+        "role": "Marketing",
+        "email": "marketing@aquilo.cl",
+        "password": "marketing123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Flujos de correo simulados (carrito abandonado, post compra, pedir reseña) con su disparador, demora, envíos y el registro de correos.",
+      "actions": [
+        "Activar o desactivar cada flujo",
+        "Ver la vista previa del correo",
+        "Enviar una prueba",
+        "Revisar el registro de envíos"
+      ],
+      "img": "img/producto/automatizaciones.webp",
+      "thumb": "img/producto/automatizaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "automatizacion-preview",
+      "title": "Vista previa del correo",
+      "section": "marketing",
+      "roles": [
+        "Marketing",
+        "Administrador"
+      ],
+      "url": "admin.html#/automatizaciones",
+      "capturedUrl": "admin.html#/automatizaciones",
+      "login": {
+        "id": "u-mkt",
+        "name": "Tomás Fuentes",
+        "role": "Marketing",
+        "email": "marketing@aquilo.cl",
+        "password": "marketing123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Vista previa\" en Automatizaciones",
+      "description": "Vista del correo tal como lo recibiría el cliente, con asunto y cuerpo personalizados.",
+      "actions": [
+        "Revisar asunto y texto",
+        "Ver los datos personalizados del cliente",
+        "Volver a editar el flujo"
+      ],
+      "img": "img/producto/automatizacion-preview.webp",
+      "thumb": "img/producto/automatizacion-preview-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "color-modal",
+      "title": "Nuevo color",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/inventario",
+      "capturedUrl": "admin.html#/inventario",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Ortega",
+        "role": "Administrador",
+        "email": "admin@aquilo.cl",
+        "password": "admin123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo color\" en Inventario",
+      "description": "Solo el administrador crea o edita colores: nombre, tonos de la botella, stock inicial, punto de reposición y orden.",
+      "actions": [
+        "Nombrar el color y elegir sus tonos",
+        "Definir stock inicial y mínimo",
+        "Ordenarlo en el selector de la landing"
+      ],
+      "img": "img/producto/color-modal.webp",
+      "thumb": "img/producto/color-modal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Ortega",
+        "role": "Administrador",
+        "email": "admin@aquilo.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas del equipo con rol, último acceso y estado, más la tabla de permisos por rol.",
+      "actions": [
+        "Crear una cuenta",
+        "Cambiar rol o datos",
+        "Asignar una clave nueva",
+        "Desactivar usuarios",
+        "Revisar los permisos por rol"
+      ],
+      "img": "img/producto/usuarios.webp",
+      "thumb": "img/producto/usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuario-modal",
+      "title": "Nuevo usuario",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Ortega",
+        "role": "Administrador",
+        "email": "admin@aquilo.cl",
+        "password": "admin123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo usuario\" en Usuarios y roles",
+      "description": "Formulario de cuenta con nombre, correo, rol, contraseña inicial y estado.",
+      "actions": [
+        "Ingresar nombre y correo",
+        "Asignar rol (administrador, marketing o soporte)",
+        "Definir la contraseña"
+      ],
+      "img": "img/producto/usuario-modal.webp",
+      "thumb": "img/producto/usuario-modal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bitacora",
+      "title": "Bitácora",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/actividad",
+      "capturedUrl": "admin.html#/actividad",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Ortega",
+        "role": "Administrador",
+        "email": "admin@aquilo.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de lo que pasa en la tienda: compras, reseñas, cambios de stock, del CMS y de las pruebas A/B.",
+      "actions": [
+        "Filtrar por tipo o usuario",
+        "Buscar en el detalle",
+        "Exportar a CSV"
+      ],
+      "img": "img/producto/bitacora.webp",
+      "thumb": "img/producto/bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ajustes",
+      "title": "Ajustes",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/ajustes",
+      "capturedUrl": "admin.html#/ajustes",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Ortega",
+        "role": "Administrador",
+        "email": "admin@aquilo.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos de la tienda (nombre comercial, correo y teléfono de soporte, transportista por defecto), simulador de tráfico para la demo y restablecimiento de los datos.",
+      "actions": [
+        "Editar los datos de contacto de la tienda",
+        "Elegir el transportista por defecto",
+        "Simular tráfico en la landing",
+        "Restablecer los datos demo"
+      ],
+      "img": "img/producto/ajustes.webp",
+      "thumb": "img/producto/ajustes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Cristal\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/producto/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/producto/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/producto/look-app.webp"
+      },
+      {
+        "id": "candy",
+        "group": "Estilo",
+        "label": "Caramelo",
+        "desc": "Colores dulces y formas redondeadas.",
+        "img": "img/producto/look-candy.webp"
+      },
+      {
+        "id": "luxury",
+        "group": "Estilo",
+        "label": "Lujo",
+        "desc": "Oscuro con dorados y serif elegante.",
+        "img": "img/producto/look-luxury.webp"
+      },
+      {
+        "id": "memphis",
+        "group": "Estilo",
+        "label": "Memphis",
+        "desc": "Formas geométricas y color pop.",
+        "img": "img/producto/look-memphis.webp"
+      }
+    ]
+  }
+}
