@@ -36,6 +36,9 @@ const mailOf = (n, l, dom) => `${n[0]}${l}`.toLowerCase().normalize('NFD').repla
 const rut = r => `${r.int(76, 78)}.${r.int(100, 999)}.${r.int(100, 999)}-${r.pick(['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'K'])}`;
 const phone = r => `+56 9 ${r.int(5000, 9999)} ${r.int(1000, 9999)}`;
 
+// Nombre corto de la empresa para el título del negocio (sin cortar en «Los», «&», «de»…).
+const shortName = n => { const w = n.split(' '); let k = 2; while (k < w.length && /^(los|las|la|el|de|del|y|&)$/i.test(w[k - 1])) k++; return w.slice(0, k).join(' '); };
+
 export const PRODUCTS = [
   { id: 'p-ini', name: 'Plan Inicial', sku: 'LIC-INI', category: 'Licencias', price: 180000, unit: 'usuario/año', description: 'Pipeline, contactos y tareas para equipos que comienzan.' },
   { id: 'p-cre', name: 'Plan Crecimiento', sku: 'LIC-CRE', category: 'Licencias', price: 348000, unit: 'usuario/año', description: 'Automatizaciones, secuencias de correo y reportes avanzados.' },
@@ -122,7 +125,7 @@ export function seed() {
     const history = path.map((s, k) => ({ stage: s, at: iso(k === 0 ? created : created + (end - created) * (k / (path.length - 1 || 1))) }));
     const id = 'd' + i;
     const deal = {
-      id, title: `${comp.name.split(' ').slice(0, 2).join(' ')} · ${r.pick(dealNames)}`, companyId: comp.id, contactId: cts.length ? r.pick(cts).id : null,
+      id, title: `${shortName(comp.name)} · ${r.pick(dealNames)}`, companyId: comp.id, contactId: cts.length ? r.pick(cts).id : null,
       ownerId: owner, stage: st, amount, items, history, source: r.pick(LEAD_SOURCES),
       closeDate: iso(['ganado', 'perdido'].includes(st) ? end : now + r.int(4, 95) * DAY),
       closedAt: ['ganado', 'perdido'].includes(st) ? iso(end) : null,

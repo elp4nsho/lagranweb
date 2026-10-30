@@ -1,0 +1,1263 @@
+{
+  "app": "academia",
+  "dir": "academia",
+  "name": "Academia Faro",
+  "kind": "Plataforma de cursos online",
+  "description": "Marketplace de cursos online con catálogo, ficha de curso, carrito con cupones y pago simulado, aula del estudiante con reproductor, quizzes y certificados, app del instructor para crear cursos y ver ganancias, y panel de administración con revisión de cursos, pedidos, reembolsos, pagos y moderación.",
+  "demo": "../academia/index.html",
+  "theme": "memphis",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:44:31.176Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Lo que ve cualquier visitante: catálogo, fichas de curso, instructores y verificación de certificados."
+    },
+    {
+      "id": "estudiante",
+      "label": "Estudiante",
+      "desc": "Compra de cursos y aula personal: progreso, reproductor, certificados y pedidos."
+    },
+    {
+      "id": "instructor",
+      "label": "Instructor",
+      "desc": "App para crear cursos, armar el currículo, atender estudiantes y ver ganancias."
+    },
+    {
+      "id": "soporte",
+      "label": "Soporte",
+      "desc": "Atención de pedidos, reembolsos, reseñas y preguntas de la comunidad."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Catálogo, revisión de cursos, cupones, pagos a instructores, usuarios y CMS."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Inicio de la academia con banners rotativos, categorías, cursos destacados y llamados a explorar el catálogo o enseñar. Todo se administra desde el CMS del panel.",
+      "actions": [
+        "Buscar un curso desde la portada",
+        "Recorrer los banners de campañas",
+        "Entrar a una categoría",
+        "Ver los cursos destacados y más populares"
+      ],
+      "img": "img/academia/portada.webp",
+      "thumb": "img/academia/portada-thumb.webp",
+      "mobile": "img/academia/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "catalogo",
+      "title": "Catálogo de cursos",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/cursos",
+      "capturedUrl": "index.html#/cursos",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Todos los cursos publicados con filtros combinables y orden. El estado de los filtros queda en la dirección, así que se puede compartir.",
+      "actions": [
+        "Buscar por título o tema",
+        "Filtrar por categoría, nivel, precio y valoración",
+        "Ordenar por popularidad, valoración o precio",
+        "Limpiar los filtros",
+        "Abrir la ficha de un curso"
+      ],
+      "img": "img/academia/catalogo.webp",
+      "thumb": "img/academia/catalogo-thumb.webp",
+      "mobile": "img/academia/catalogo-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "categorias",
+      "title": "Categorías",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/categorias",
+      "capturedUrl": "index.html#/categorias",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Las áreas temáticas del catálogo con la cantidad de cursos de cada una.",
+      "actions": [
+        "Ver todas las categorías",
+        "Comparar cuántos cursos tiene cada una",
+        "Entrar al catálogo filtrado por una categoría"
+      ],
+      "img": "img/academia/categorias.webp",
+      "thumb": "img/academia/categorias-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "curso",
+      "title": "Ficha del curso",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/curso/javascript-moderno",
+      "capturedUrl": "index.html#/curso/javascript-moderno",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de venta del curso con lo que se aprende, temario por secciones, instructor, reseñas, lecciones de muestra y precio.",
+      "actions": [
+        "Revisar el temario y la duración",
+        "Ver lecciones de muestra gratis",
+        "Leer las reseñas de estudiantes",
+        "Agregar al carrito o comprar ahora",
+        "Ver el perfil del instructor"
+      ],
+      "img": "img/academia/curso.webp",
+      "thumb": "img/academia/curso-thumb.webp",
+      "mobile": "img/academia/curso-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "curso-preview",
+      "title": "Lección de muestra",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/curso/javascript-moderno",
+      "capturedUrl": "index.html#/curso/javascript-moderno",
+      "login": null,
+      "kind": "modal",
+      "from": "Botón de lección de muestra en la ficha del curso",
+      "description": "Vista previa gratuita de una lección marcada como muestra, para conocer el estilo del curso antes de comprar.",
+      "actions": [
+        "Ver la lección de muestra",
+        "Decidir la compra",
+        "Volver al temario"
+      ],
+      "img": "img/academia/curso-preview.webp",
+      "thumb": "img/academia/curso-preview-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "instructor-perfil",
+      "title": "Perfil del instructor",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/instructor/i-diego",
+      "capturedUrl": "index.html#/instructor/i-diego",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Perfil público con biografía, cifras (estudiantes, valoración, cursos) y todos los cursos publicados del instructor.",
+      "actions": [
+        "Conocer la trayectoria del instructor",
+        "Ver su valoración y número de estudiantes",
+        "Explorar sus cursos"
+      ],
+      "img": "img/academia/instructor-perfil.webp",
+      "thumb": "img/academia/instructor-perfil-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ensena",
+      "title": "Enseña en Faro",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/ensena",
+      "capturedUrl": "index.html#/ensena",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página para captar instructores: cómo funciona, reparto de ingresos y pasos para publicar un curso.",
+      "actions": [
+        "Conocer el modelo de ingresos",
+        "Ver los pasos para publicar un curso",
+        "Postular como instructor"
+      ],
+      "img": "img/academia/ensena.webp",
+      "thumb": "img/academia/ensena-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "verificar",
+      "title": "Verificar certificado",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/certificado/FARO-SOJ3DA",
+      "capturedUrl": "index.html#/certificado/FARO-SOJ3DA",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Verificación pública de un certificado por su código: muestra a quién se emitió, el curso y la fecha.",
+      "actions": [
+        "Ingresar el código del certificado",
+        "Comprobar que es auténtico",
+        "Ver estudiante, curso y fecha de emisión"
+      ],
+      "img": "img/academia/verificar.webp",
+      "thumb": "img/academia/verificar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso y registro",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso para estudiantes, instructores y equipo, registro de estudiantes nuevos y cuentas demo para cada rol.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Crear una cuenta de estudiante",
+        "Entrar con un clic a cada rol demo",
+        "Volver a la página que pidió ingresar"
+      ],
+      "img": "img/academia/login.webp",
+      "thumb": "img/academia/login-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "carrito",
+      "title": "Carrito",
+      "section": "estudiante",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/carrito",
+      "login": {
+        "id": "u-sofia",
+        "name": "Sofía Muñoz",
+        "role": "Estudiante",
+        "email": "estudiante@faro.cl",
+        "password": "est123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Carrito con los cursos elegidos, cupón de descuento aplicado y resumen del total antes de pagar.",
+      "actions": [
+        "Revisar los cursos del carrito",
+        "Aplicar o quitar un cupón",
+        "Quitar cursos",
+        "Pasar al checkout"
+      ],
+      "img": "img/academia/carrito.webp",
+      "thumb": "img/academia/carrito-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "checkout",
+      "title": "Checkout",
+      "section": "estudiante",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/checkout",
+      "login": {
+        "id": "u-sofia",
+        "name": "Sofía Muñoz",
+        "role": "Estudiante",
+        "email": "estudiante@faro.cl",
+        "password": "est123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pago simulado con datos del comprador y elección de medio de pago (tarjeta, Webpay o transferencia). La tarjeta se valida con el algoritmo de Luhn y el resumen muestra el descuento del cupón.",
+      "actions": [
+        "Confirmar nombre y correo",
+        "Ingresar la tarjeta de prueba",
+        "Ver el total con el cupón aplicado",
+        "Aceptar los términos",
+        "Pagar y obtener acceso inmediato"
+      ],
+      "img": "img/academia/checkout.webp",
+      "thumb": "img/academia/checkout-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "compra-ok",
+      "title": "Compra confirmada",
+      "section": "estudiante",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/gracias/ma1jc8kjnb",
+      "login": {
+        "id": "u-sofia",
+        "name": "Sofía Muñoz",
+        "role": "Estudiante",
+        "email": "estudiante@faro.cl",
+        "password": "est123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Confirmación de la compra con el número de pedido y acceso directo a los cursos recién comprados.",
+      "actions": [
+        "Ver el número y detalle del pedido",
+        "Empezar el curso de inmediato",
+        "Seguir explorando el catálogo"
+      ],
+      "img": "img/academia/compra-ok.webp",
+      "thumb": "img/academia/compra-ok-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "aula",
+      "title": "Mi aprendizaje",
+      "section": "estudiante",
+      "roles": null,
+      "url": "aprender.html#/",
+      "capturedUrl": "aprender.html#/",
+      "login": {
+        "id": "u-sofia",
+        "name": "Sofía Muñoz",
+        "role": "Estudiante",
+        "email": "estudiante@faro.cl",
+        "password": "est123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Panel del estudiante con racha de estudio, puntos de experiencia, insignias, el curso para continuar y todos sus cursos con su avance.",
+      "actions": [
+        "Continuar el último curso",
+        "Ver su racha, XP e insignias",
+        "Revisar el avance de cada curso",
+        "Ir a certificados y pedidos"
+      ],
+      "img": "img/academia/aula.webp",
+      "thumb": "img/academia/aula-thumb.webp",
+      "mobile": "img/academia/aula-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reproductor",
+      "title": "Reproductor del curso",
+      "section": "estudiante",
+      "roles": null,
+      "url": "aprender.html#/curso/k14/l14-2",
+      "capturedUrl": "aprender.html#/curso/k14/l14-2",
+      "login": {
+        "id": "u-sofia",
+        "name": "Sofía Muñoz",
+        "role": "Estudiante",
+        "email": "estudiante@faro.cl",
+        "password": "est123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Aula del curso con video simulado y su progreso, temario lateral con lecciones completadas y pestañas de resumen, notas, preguntas, recursos y reseña.",
+      "actions": [
+        "Ver la lección y marcarla como completada",
+        "Navegar el temario por secciones",
+        "Tomar notas personales",
+        "Hacer preguntas al instructor",
+        "Descargar recursos y dejar una reseña"
+      ],
+      "img": "img/academia/reproductor.webp",
+      "thumb": "img/academia/reproductor-thumb.webp",
+      "mobile": "img/academia/reproductor-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reproductor-quiz",
+      "title": "Lección de quiz",
+      "section": "estudiante",
+      "roles": null,
+      "url": "aprender.html#/curso/k14/l14-6",
+      "capturedUrl": "aprender.html#/curso/k14/l14-6",
+      "login": {
+        "id": "u-sofia",
+        "name": "Sofía Muñoz",
+        "role": "Estudiante",
+        "email": "estudiante@faro.cl",
+        "password": "est123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Quiz dentro del curso con preguntas de alternativas y corrección inmediata, que cuenta para el avance.",
+      "actions": [
+        "Responder las preguntas",
+        "Ver las respuestas correctas",
+        "Repetir el quiz",
+        "Avanzar a la siguiente lección"
+      ],
+      "img": "img/academia/reproductor-quiz.webp",
+      "thumb": "img/academia/reproductor-quiz-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reproductor-tarea",
+      "title": "Lección de tarea",
+      "section": "estudiante",
+      "roles": null,
+      "url": "aprender.html#/curso/k14/l14-10",
+      "capturedUrl": "aprender.html#/curso/k14/l14-10",
+      "login": {
+        "id": "u-sofia",
+        "name": "Sofía Muñoz",
+        "role": "Estudiante",
+        "email": "estudiante@faro.cl",
+        "password": "est123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tarea práctica con enunciado y entrega, que el instructor revisa y califica desde su app.",
+      "actions": [
+        "Leer el enunciado",
+        "Escribir o adjuntar la entrega",
+        "Enviarla al instructor",
+        "Ver la nota y el comentario cuando la corrija"
+      ],
+      "img": "img/academia/reproductor-tarea.webp",
+      "thumb": "img/academia/reproductor-tarea-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reproductor-notas",
+      "title": "Notas del curso",
+      "section": "estudiante",
+      "roles": null,
+      "url": "aprender.html#/curso/k14/l14-2",
+      "capturedUrl": "aprender.html#/curso/k14/l14-2",
+      "login": {
+        "id": "u-sofia",
+        "name": "Sofía Muñoz",
+        "role": "Estudiante",
+        "email": "estudiante@faro.cl",
+        "password": "est123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pestaña de notas personales asociadas al curso, que se guardan en la cuenta del estudiante.",
+      "actions": [
+        "Escribir notas mientras estudia",
+        "Guardarlas para repasar después",
+        "Verlas junto a la lección"
+      ],
+      "img": "img/academia/reproductor-notas.webp",
+      "thumb": "img/academia/reproductor-notas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "certificados",
+      "title": "Mis certificados",
+      "section": "estudiante",
+      "roles": null,
+      "url": "aprender.html#/certificados",
+      "capturedUrl": "aprender.html#/certificados",
+      "login": {
+        "id": "u-sofia",
+        "name": "Sofía Muñoz",
+        "role": "Estudiante",
+        "email": "estudiante@faro.cl",
+        "password": "est123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Certificados obtenidos al completar cursos, con su código de verificación.",
+      "actions": [
+        "Ver los certificados obtenidos",
+        "Abrir la versión imprimible",
+        "Compartir el código de verificación"
+      ],
+      "img": "img/academia/certificados.webp",
+      "thumb": "img/academia/certificados-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "certificado",
+      "title": "Certificado imprimible",
+      "section": "estudiante",
+      "roles": null,
+      "url": "aprender.html#/certificado/cert-e-u-sofia-k0",
+      "capturedUrl": "aprender.html#/certificado/cert-e-u-sofia-k0",
+      "login": {
+        "id": "u-sofia",
+        "name": "Sofía Muñoz",
+        "role": "Estudiante",
+        "email": "estudiante@faro.cl",
+        "password": "est123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Certificado de finalización listo para imprimir o guardar en PDF, con código verificable en el sitio público.",
+      "actions": [
+        "Imprimir o guardar como PDF",
+        "Ver curso, horas y fecha de emisión",
+        "Copiar el código de verificación"
+      ],
+      "img": "img/academia/certificado.webp",
+      "thumb": "img/academia/certificado-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "pedidos",
+      "title": "Mis pedidos",
+      "section": "estudiante",
+      "roles": null,
+      "url": "aprender.html#/pedidos",
+      "capturedUrl": "aprender.html#/pedidos",
+      "login": {
+        "id": "u-sofia",
+        "name": "Sofía Muñoz",
+        "role": "Estudiante",
+        "email": "estudiante@faro.cl",
+        "password": "est123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Historial de compras con fecha, cursos, total y estado, y la opción de pedir reembolso dentro del plazo.",
+      "actions": [
+        "Ver cada pedido y su estado",
+        "Solicitar un reembolso",
+        "Seguir el estado de una solicitud"
+      ],
+      "img": "img/academia/pedidos.webp",
+      "thumb": "img/academia/pedidos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reembolso",
+      "title": "Solicitar reembolso",
+      "section": "estudiante",
+      "roles": null,
+      "url": "aprender.html#/pedidos",
+      "capturedUrl": "aprender.html#/pedidos",
+      "login": {
+        "id": "u-sofia",
+        "name": "Sofía Muñoz",
+        "role": "Estudiante",
+        "email": "estudiante@faro.cl",
+        "password": "est123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Solicitar reembolso\" en Mis pedidos",
+      "description": "Solicitud de reembolso con su motivo. Soporte la revisa en el panel y, si se aprueba, se pierde el acceso a los cursos del pedido.",
+      "actions": [
+        "Elegir el motivo",
+        "Agregar un comentario",
+        "Enviar la solicitud a soporte"
+      ],
+      "img": "img/academia/reembolso.webp",
+      "thumb": "img/academia/reembolso-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "notificaciones",
+      "title": "Notificaciones",
+      "section": "estudiante",
+      "roles": null,
+      "url": "aprender.html#/notificaciones",
+      "capturedUrl": "aprender.html#/notificaciones",
+      "login": {
+        "id": "u-sofia",
+        "name": "Sofía Muñoz",
+        "role": "Estudiante",
+        "email": "estudiante@faro.cl",
+        "password": "est123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Avisos del estudiante: respuestas del instructor, tareas corregidas, certificados y estado de reembolsos.",
+      "actions": [
+        "Leer los avisos",
+        "Ir al curso o pedido relacionado",
+        "Marcar todo como leído"
+      ],
+      "img": "img/academia/notificaciones.webp",
+      "thumb": "img/academia/notificaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inst-resumen",
+      "title": "Resumen del instructor",
+      "section": "instructor",
+      "roles": null,
+      "url": "instructor.html#/",
+      "capturedUrl": "instructor.html#/",
+      "login": {
+        "id": "i-diego",
+        "name": "Diego Fuentes",
+        "role": "Instructor",
+        "email": "instructor@faro.cl",
+        "password": "inst123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ingresos, matrículas, valoración promedio y actividad reciente de los cursos del instructor.",
+      "actions": [
+        "Ver ingresos y matrículas del periodo",
+        "Seguir la valoración de sus cursos",
+        "Revisar la actividad reciente",
+        "Saltar a preguntas sin responder"
+      ],
+      "img": "img/academia/inst-resumen.webp",
+      "thumb": "img/academia/inst-resumen-thumb.webp",
+      "mobile": "img/academia/inst-resumen-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inst-cursos",
+      "title": "Mis cursos",
+      "section": "instructor",
+      "roles": null,
+      "url": "instructor.html#/cursos",
+      "capturedUrl": "instructor.html#/cursos",
+      "login": {
+        "id": "i-diego",
+        "name": "Diego Fuentes",
+        "role": "Instructor",
+        "email": "instructor@faro.cl",
+        "password": "inst123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cursos del instructor con su estado (borrador, en revisión, publicado, archivado), estudiantes, valoración e ingresos.",
+      "actions": [
+        "Crear un curso nuevo",
+        "Abrir el editor de cada curso",
+        "Ver estado, estudiantes y valoración",
+        "Enviar un borrador a revisión"
+      ],
+      "img": "img/academia/inst-cursos.webp",
+      "thumb": "img/academia/inst-cursos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inst-editor",
+      "title": "Editor de curso",
+      "section": "instructor",
+      "roles": null,
+      "url": "instructor.html#/cursos/k23",
+      "capturedUrl": "instructor.html#/cursos/k23",
+      "login": {
+        "id": "i-diego",
+        "name": "Diego Fuentes",
+        "role": "Instructor",
+        "email": "instructor@faro.cl",
+        "password": "inst123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor con la información comercial del curso, su precio y el constructor de currículo por secciones y lecciones (video, lectura, quiz o tarea), con orden ajustable.",
+      "actions": [
+        "Editar título, descripción, nivel y categoría",
+        "Definir precio y precio promocional",
+        "Agregar secciones y lecciones de distintos tipos",
+        "Ordenar lecciones con flechas",
+        "Enviar a revisión o despublicar"
+      ],
+      "img": "img/academia/inst-editor.webp",
+      "thumb": "img/academia/inst-editor-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inst-estudiantes",
+      "title": "Estudiantes",
+      "section": "instructor",
+      "roles": null,
+      "url": "instructor.html#/estudiantes",
+      "capturedUrl": "instructor.html#/estudiantes",
+      "login": {
+        "id": "i-diego",
+        "name": "Diego Fuentes",
+        "role": "Instructor",
+        "email": "instructor@faro.cl",
+        "password": "inst123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Estudiantes matriculados en los cursos del instructor con su avance y las tareas por corregir.",
+      "actions": [
+        "Filtrar por curso",
+        "Ver el avance de cada estudiante",
+        "Corregir tareas entregadas",
+        "Exportar a CSV"
+      ],
+      "img": "img/academia/inst-estudiantes.webp",
+      "thumb": "img/academia/inst-estudiantes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inst-preguntas",
+      "title": "Preguntas de estudiantes",
+      "section": "instructor",
+      "roles": null,
+      "url": "instructor.html#/preguntas",
+      "capturedUrl": "instructor.html#/preguntas",
+      "login": {
+        "id": "i-diego",
+        "name": "Diego Fuentes",
+        "role": "Instructor",
+        "email": "instructor@faro.cl",
+        "password": "inst123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Preguntas hechas desde el reproductor, con las que aún no tienen respuesta destacadas.",
+      "actions": [
+        "Ver preguntas sin responder",
+        "Responder a cada estudiante",
+        "Filtrar por curso"
+      ],
+      "img": "img/academia/inst-preguntas.webp",
+      "thumb": "img/academia/inst-preguntas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inst-ganancias",
+      "title": "Ganancias",
+      "section": "instructor",
+      "roles": null,
+      "url": "instructor.html#/ganancias",
+      "capturedUrl": "instructor.html#/ganancias",
+      "login": {
+        "id": "i-diego",
+        "name": "Diego Fuentes",
+        "role": "Instructor",
+        "email": "instructor@faro.cl",
+        "password": "inst123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ventas del instructor con su parte de cada venta, ingresos por mes y pagos recibidos de la plataforma.",
+      "actions": [
+        "Ver ingresos por mes",
+        "Revisar cada venta y su comisión",
+        "Ver pagos recibidos y pendientes",
+        "Exportar ventas a CSV"
+      ],
+      "img": "img/academia/inst-ganancias.webp",
+      "thumb": "img/academia/inst-ganancias-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dashboard",
+      "title": "Dashboard",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Administrador"
+      ],
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-soporte",
+        "name": "Pablo Reyes",
+        "role": "Soporte",
+        "email": "soporte@faro.cl",
+        "password": "sop123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Indicadores de la plataforma: ingresos, matrículas, tasa de finalización y cursos más vendidos.",
+      "actions": [
+        "Ver ingresos y matrículas por mes",
+        "Seguir la tasa de finalización",
+        "Ver los cursos top"
+      ],
+      "img": "img/academia/dashboard.webp",
+      "thumb": "img/academia/dashboard-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "pedidos-admin",
+      "title": "Pedidos y reembolsos",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Administrador"
+      ],
+      "url": "admin.html#/pedidos",
+      "capturedUrl": "admin.html#/pedidos",
+      "login": {
+        "id": "u-soporte",
+        "name": "Pablo Reyes",
+        "role": "Soporte",
+        "email": "soporte@faro.cl",
+        "password": "sop123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todos los pedidos con estado (pagado, fallido, reembolso solicitado, reembolsado) y el flujo para aprobar o rechazar reembolsos.",
+      "actions": [
+        "Filtrar por estado y buscar",
+        "Abrir el detalle de un pedido",
+        "Aprobar o rechazar reembolsos",
+        "Exportar a CSV"
+      ],
+      "img": "img/academia/pedidos-admin.webp",
+      "thumb": "img/academia/pedidos-admin-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "pedido-detalle",
+      "title": "Detalle del pedido",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Administrador"
+      ],
+      "url": "admin.html#/pedidos",
+      "capturedUrl": "admin.html#/pedidos",
+      "login": {
+        "id": "u-soporte",
+        "name": "Pablo Reyes",
+        "role": "Soporte",
+        "email": "soporte@faro.cl",
+        "password": "sop123"
+      },
+      "kind": "modal",
+      "from": "Clic en un pedido",
+      "description": "Detalle del pedido con comprador, cursos, cupón, totales, pago y su historial.",
+      "actions": [
+        "Ver cursos, descuentos y total",
+        "Revisar el estado del pago",
+        "Gestionar un reembolso"
+      ],
+      "img": "img/academia/pedido-detalle.webp",
+      "thumb": "img/academia/pedido-detalle-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "resenas",
+      "title": "Moderación de reseñas",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Administrador"
+      ],
+      "url": "admin.html#/resenas",
+      "capturedUrl": "admin.html#/resenas",
+      "login": {
+        "id": "u-soporte",
+        "name": "Pablo Reyes",
+        "role": "Soporte",
+        "email": "soporte@faro.cl",
+        "password": "sop123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Reseñas pendientes y reportadas por la comunidad, para publicarlas u ocultarlas.",
+      "actions": [
+        "Ver reseñas pendientes y reportadas",
+        "Publicar u ocultar reseñas",
+        "Filtrar por curso y estrellas"
+      ],
+      "img": "img/academia/resenas.webp",
+      "thumb": "img/academia/resenas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "preguntas-admin",
+      "title": "Preguntas de la comunidad",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Administrador"
+      ],
+      "url": "admin.html#/preguntas",
+      "capturedUrl": "admin.html#/preguntas",
+      "login": {
+        "id": "u-soporte",
+        "name": "Pablo Reyes",
+        "role": "Soporte",
+        "email": "soporte@faro.cl",
+        "password": "sop123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Preguntas de todos los cursos, para responder las que el instructor no ha atendido u ocultar las inapropiadas.",
+      "actions": [
+        "Ver preguntas sin respuesta",
+        "Responder en nombre de la academia",
+        "Ocultar preguntas inapropiadas"
+      ],
+      "img": "img/academia/preguntas-admin.webp",
+      "thumb": "img/academia/preguntas-admin-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bitacora",
+      "title": "Bitácora",
+      "section": "soporte",
+      "roles": [
+        "Soporte",
+        "Administrador"
+      ],
+      "url": "admin.html#/actividad",
+      "capturedUrl": "admin.html#/actividad",
+      "login": {
+        "id": "u-soporte",
+        "name": "Pablo Reyes",
+        "role": "Soporte",
+        "email": "soporte@faro.cl",
+        "password": "sop123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de actividad de la plataforma: compras, reembolsos, publicaciones, moderación y cambios del CMS.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Filtrar por tipo de acción",
+        "Exportar a CSV"
+      ],
+      "img": "img/academia/bitacora.webp",
+      "thumb": "img/academia/bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "revision",
+      "title": "Revisión de cursos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/revision",
+      "capturedUrl": "admin.html#/revision",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@faro.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cola de cursos enviados por instructores para revisión antes de publicarse.",
+      "actions": [
+        "Ver el currículo completo del curso",
+        "Aprobar y publicar",
+        "Rechazar con comentarios para el instructor"
+      ],
+      "img": "img/academia/revision.webp",
+      "thumb": "img/academia/revision-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "revision-rechazar",
+      "title": "Rechazar curso",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/revision",
+      "capturedUrl": "admin.html#/revision",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@faro.cl",
+        "password": "admin123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Rechazar\" en Revisión de cursos",
+      "description": "Rechazo de un curso con el motivo, que el instructor recibe para corregir y volver a enviar.",
+      "actions": [
+        "Marcar los motivos (audio, descripción incompleta, lección de muestra…)",
+        "Escribir un comentario para el instructor",
+        "Devolver el curso a borrador y notificarlo"
+      ],
+      "img": "img/academia/revision-rechazar.webp",
+      "thumb": "img/academia/revision-rechazar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cursos-admin",
+      "title": "Cursos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/cursos",
+      "capturedUrl": "admin.html#/cursos",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@faro.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todos los cursos de la plataforma con instructor, estado, precio, estudiantes y valoración.",
+      "actions": [
+        "Filtrar por estado, categoría o instructor",
+        "Editar datos comerciales y precio",
+        "Destacar cursos en la portada",
+        "Archivar cursos"
+      ],
+      "img": "img/academia/cursos-admin.webp",
+      "thumb": "img/academia/cursos-admin-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "categorias-admin",
+      "title": "Categorías",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/categorias",
+      "capturedUrl": "admin.html#/categorias",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@faro.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Categorías que organizan el catálogo y los filtros del sitio.",
+      "actions": [
+        "Crear y editar categorías",
+        "Ver cuántos cursos tiene cada una",
+        "Eliminar categorías sin cursos"
+      ],
+      "img": "img/academia/categorias-admin.webp",
+      "thumb": "img/academia/categorias-admin-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cupones",
+      "title": "Cupones",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/cupones",
+      "capturedUrl": "admin.html#/cupones",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@faro.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cupones de descuento por porcentaje o monto fijo, con límite de usos, vigencia y alcance.",
+      "actions": [
+        "Crear cupones por porcentaje o monto",
+        "Limitar usos y fechas",
+        "Ver cuántas veces se usó cada uno",
+        "Activar o desactivar cupones"
+      ],
+      "img": "img/academia/cupones.webp",
+      "thumb": "img/academia/cupones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "pagos",
+      "title": "Pagos a instructores",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/pagos",
+      "capturedUrl": "admin.html#/pagos",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@faro.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Liquidación del mes para cada instructor, pagos pendientes y pagados.",
+      "actions": [
+        "Ver lo que corresponde a cada instructor",
+        "Pagar los pendientes en lote",
+        "Revisar pagos anteriores",
+        "Exportar a CSV"
+      ],
+      "img": "img/academia/pagos.webp",
+      "thumb": "img/academia/pagos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@faro.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Estudiantes, instructores, soporte y administradores con su rol y estado.",
+      "actions": [
+        "Buscar y filtrar por rol",
+        "Crear y editar usuarios",
+        "Cambiar el rol",
+        "Activar o desactivar cuentas"
+      ],
+      "img": "img/academia/usuarios.webp",
+      "thumb": "img/academia/usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sitio",
+      "title": "Sitio (CMS)",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/sitio",
+      "capturedUrl": "admin.html#/sitio",
+      "login": {
+        "id": "u-admin",
+        "name": "Ana Torres",
+        "role": "Administrador",
+        "email": "admin@faro.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor del sitio público: portada, banners rotativos, cursos destacados, aviso superior y parámetros comerciales como la comisión del instructor.",
+      "actions": [
+        "Editar los textos de la portada",
+        "Agregar y ordenar banners",
+        "Elegir los cursos destacados",
+        "Configurar el aviso y la comisión",
+        "Restaurar los textos por defecto"
+      ],
+      "img": "img/academia/sitio.webp",
+      "thumb": "img/academia/sitio-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Memphis\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/academia/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/academia/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/academia/look-app.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/academia/look-editorial.webp"
+      },
+      {
+        "id": "aurora",
+        "group": "Estilo",
+        "label": "Aurora",
+        "desc": "Degradados suaves y luminosos.",
+        "img": "img/academia/look-aurora.webp"
+      },
+      {
+        "id": "terminal",
+        "group": "Estilo",
+        "label": "Terminal",
+        "desc": "Monoespaciado sobre fondo oscuro.",
+        "img": "img/academia/look-terminal.webp"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1289 @@
+{
+  "app": "soporte",
+  "dir": "soporte",
+  "name": "Fibra Austral · Atiende",
+  "kind": "Mesa de ayuda y centro de soporte",
+  "description": "Mesa de ayuda para una empresa de internet y TV: centro de ayuda con base de conocimiento, chat en vivo y página de estado, portal de tickets para clientes, consola de agentes con SLA y macros, y una administración con métricas, artículos, incidentes, automatizaciones y usuarios.",
+  "demo": "../soporte/index.html",
+  "theme": "web2",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:31:13.319Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Centro de ayuda",
+      "desc": "Lo que ve cualquier visitante: base de conocimiento, contacto, chat y estado del servicio."
+    },
+    {
+      "id": "cliente",
+      "label": "Cliente",
+      "desc": "Portal donde el cliente sigue sus tickets, responde y califica la atención."
+    },
+    {
+      "id": "agente",
+      "label": "Agente",
+      "desc": "Consola de trabajo: bandeja de tickets de su grupo, detalle con SLA, chats en vivo y clientes."
+    },
+    {
+      "id": "supervisor",
+      "label": "Supervisor",
+      "desc": "Administración operativa: métricas, base de conocimiento, macros, incidentes, grupos y bitácora."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Configuración del sistema: SLA, automatizaciones, usuarios, centro de ayuda y datos."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada del centro de ayuda",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Inicio del centro de ayuda con buscador, estado del servicio, temas de la base de conocimiento, guías destacadas, artículos más leídos y vías de contacto. Los textos se editan desde la administración.",
+      "actions": [
+        "Buscar en la base de conocimiento con sugerencias al escribir",
+        "Entrar a un tema o a una guía destacada",
+        "Ver si hay incidentes activos",
+        "Abrir el chat, escribir o llamar"
+      ],
+      "img": "img/soporte/portada.webp",
+      "thumb": "img/soporte/portada-thumb.webp",
+      "mobile": "img/soporte/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "categoria",
+      "title": "Tema de ayuda",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/categoria/cat-int",
+      "capturedUrl": "index.html#/categoria/cat-int",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Listado de los artículos publicados de un tema, por ejemplo \"Internet y WiFi\".",
+      "actions": [
+        "Ver todos los artículos del tema",
+        "Abrir un artículo",
+        "Saltar a otros temas"
+      ],
+      "img": "img/soporte/categoria.webp",
+      "thumb": "img/soporte/categoria-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "articulo",
+      "title": "Artículo de ayuda",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/articulo/a-lento",
+      "capturedUrl": "index.html#/articulo/a-lento",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Artículo de la base de conocimiento con pasos, votación de utilidad, artículos relacionados y caminos de contacto si el problema sigue.",
+      "actions": [
+        "Leer la guía paso a paso",
+        "Votar si el artículo sirvió",
+        "Ir a artículos relacionados",
+        "Abrir el chat o escribir a soporte"
+      ],
+      "img": "img/soporte/articulo.webp",
+      "thumb": "img/soporte/articulo-thumb.webp",
+      "mobile": "img/soporte/articulo-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "busqueda",
+      "title": "Resultados de búsqueda",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/buscar?q=router",
+      "capturedUrl": "index.html#/buscar?q=router",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Resultados de la búsqueda en la base de conocimiento, ordenados por relevancia.",
+      "actions": [
+        "Ver los artículos que coinciden",
+        "Refinar la búsqueda",
+        "Escribir a soporte si no aparece la respuesta"
+      ],
+      "img": "img/soporte/busqueda.webp",
+      "thumb": "img/soporte/busqueda-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "contacto",
+      "title": "Formulario de contacto",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/contacto",
+      "capturedUrl": "index.html#/contacto",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Formulario para abrir un ticket sin iniciar sesión. Mientras se escribe el asunto sugiere artículos que podrían resolver el problema antes de enviar.",
+      "actions": [
+        "Escribir nombre, correo, asunto y detalle",
+        "Ver artículos sugeridos según lo que escribe",
+        "Indicar la urgencia",
+        "Adjuntar fotos o boletas",
+        "Crear el ticket y recibir su número"
+      ],
+      "img": "img/soporte/contacto.webp",
+      "thumb": "img/soporte/contacto-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "contacto-enviado",
+      "title": "Solicitud recibida",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/contacto",
+      "capturedUrl": "index.html#/contacto",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Confirmación con el número de ticket. Las automatizaciones lo asignan a un grupo y el cliente puede seguirlo en el portal con su correo.",
+      "actions": [
+        "Ver el número de ticket",
+        "Saber cuándo responderán según el SLA",
+        "Enviar otra consulta"
+      ],
+      "img": "img/soporte/contacto-enviado.webp",
+      "thumb": "img/soporte/contacto-enviado-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "chat",
+      "title": "Chat en vivo",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "modal",
+      "from": "Botón \"¿Necesitas ayuda?\" de las páginas públicas",
+      "description": "Chat que primero atiende un asistente con artículos de la base de conocimiento y, si el cliente lo pide, deriva a un agente que responde desde la consola.",
+      "actions": [
+        "Elegir una consulta rápida o escribir",
+        "Recibir artículos sugeridos por el asistente",
+        "Pedir hablar con una persona",
+        "Ver su posición en la fila",
+        "Conversar con el agente en tiempo real"
+      ],
+      "img": "img/soporte/chat.webp",
+      "thumb": "img/soporte/chat-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "estado",
+      "title": "Estado del servicio",
+      "section": "publico",
+      "roles": null,
+      "url": "estado.html",
+      "capturedUrl": "estado.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de estado con la situación general, disponibilidad de 90 días por servicio, incidentes activos con su bitácora de actualizaciones e historial.",
+      "actions": [
+        "Ver si hay una falla masiva activa",
+        "Revisar la disponibilidad de cada servicio",
+        "Leer las actualizaciones de un incidente",
+        "Suscribirse a avisos por correo"
+      ],
+      "img": "img/soporte/estado.webp",
+      "thumb": "img/soporte/estado-thumb.webp",
+      "mobile": "img/soporte/estado-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso común para clientes y equipo de soporte, con cuentas de prueba para entrar con un clic a cada rol.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar como administradora, supervisor, agente o cliente",
+        "Recuperar la contraseña (simulado)",
+        "Cambiar a la pestaña de registro"
+      ],
+      "img": "img/soporte/login.webp",
+      "thumb": "img/soporte/login-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "registro",
+      "title": "Crear cuenta de cliente",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Registro de clientes con datos del titular y del servicio. Si ya había escrito antes con ese correo, sus tickets aparecen en el portal.",
+      "actions": [
+        "Ingresar nombre, correo y contraseña",
+        "Agregar RUT y teléfono",
+        "Elegir plan contratado y comuna",
+        "Crear la cuenta y entrar al portal"
+      ],
+      "img": "img/soporte/registro.webp",
+      "thumb": "img/soporte/registro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal",
+      "title": "Mis tickets",
+      "section": "cliente",
+      "roles": null,
+      "url": "portal.html#/",
+      "capturedUrl": "portal.html#/",
+      "login": {
+        "id": "u-cli",
+        "name": "Daniela Pérez Soto",
+        "role": "Cliente",
+        "email": "cliente@correo.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Portal del cliente con todos sus tickets, su estado y la última respuesta, más un resumen de su servicio.",
+      "actions": [
+        "Filtrar tickets por estado",
+        "Abrir la conversación de un ticket",
+        "Crear un ticket nuevo",
+        "Ver los datos de su servicio"
+      ],
+      "img": "img/soporte/portal.webp",
+      "thumb": "img/soporte/portal-thumb.webp",
+      "mobile": "img/soporte/portal-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-ticket",
+      "title": "Ticket y calificación",
+      "section": "cliente",
+      "roles": null,
+      "url": "portal.html#/ticket/t0",
+      "capturedUrl": "portal.html#/ticket/t0",
+      "login": {
+        "id": "u-cli",
+        "name": "Daniela Pérez Soto",
+        "role": "Cliente",
+        "email": "cliente@correo.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Conversación de un ticket con las respuestas del equipo. Cuando el ticket queda resuelto, el cliente lo califica con estrellas y un comentario (CSAT).",
+      "actions": [
+        "Leer las respuestas del agente",
+        "Responder con texto y adjuntos",
+        "Marcar que el problema se resolvió",
+        "Calificar la atención de 1 a 5 estrellas"
+      ],
+      "img": "img/soporte/portal-ticket.webp",
+      "thumb": "img/soporte/portal-ticket-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-nuevo",
+      "title": "Nuevo ticket",
+      "section": "cliente",
+      "roles": null,
+      "url": "portal.html#/nuevo",
+      "capturedUrl": "portal.html#/nuevo",
+      "login": {
+        "id": "u-cli",
+        "name": "Daniela Pérez Soto",
+        "role": "Cliente",
+        "email": "cliente@correo.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Formulario de ticket para clientes con sesión: los datos de contacto ya vienen completos.",
+      "actions": [
+        "Escribir asunto y detalle",
+        "Indicar la urgencia",
+        "Adjuntar archivos",
+        "Enviar y seguir el ticket en el portal"
+      ],
+      "img": "img/soporte/portal-nuevo.webp",
+      "thumb": "img/soporte/portal-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-perfil",
+      "title": "Mi cuenta",
+      "section": "cliente",
+      "roles": null,
+      "url": "portal.html#/perfil",
+      "capturedUrl": "portal.html#/perfil",
+      "login": {
+        "id": "u-cli",
+        "name": "Daniela Pérez Soto",
+        "role": "Cliente",
+        "email": "cliente@correo.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos de contacto y dirección del cliente, que el equipo ve en la ficha de cada ticket.",
+      "actions": [
+        "Actualizar nombre y teléfono",
+        "Cambiar la dirección del servicio",
+        "Guardar los cambios"
+      ],
+      "img": "img/soporte/portal-perfil.webp",
+      "thumb": "img/soporte/portal-perfil-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bandeja",
+      "title": "Bandeja de tickets",
+      "section": "agente",
+      "roles": [
+        "Agente",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "agente.html#/",
+      "capturedUrl": "agente.html#/",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Oyarzún",
+        "role": "Agente",
+        "email": "agente@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bandeja ordenada por urgencia de SLA con vistas rápidas (mis tickets, sin asignar, urgentes, SLA en riesgo, esperando cliente, resueltos), filtros y paginación. El agente ve los tickets de su grupo.",
+      "actions": [
+        "Cambiar entre vistas con su contador",
+        "Filtrar por grupo y prioridad o buscar",
+        "Ver el tiempo restante del SLA de cada ticket",
+        "Crear un ticket a nombre de un cliente",
+        "Exportar a CSV"
+      ],
+      "img": "img/soporte/bandeja.webp",
+      "thumb": "img/soporte/bandeja-thumb.webp",
+      "mobile": "img/soporte/bandeja-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bandeja-masiva",
+      "title": "Acciones masivas",
+      "section": "agente",
+      "roles": [
+        "Agente",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "agente.html#/?vista=abiertos",
+      "capturedUrl": "agente.html#/?vista=abiertos",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Oyarzún",
+        "role": "Agente",
+        "email": "agente@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Al seleccionar varios tickets aparece la barra de acciones para trabajarlos juntos.",
+      "actions": [
+        "Asignarse los tickets seleccionados",
+        "Cambiar el estado de todos",
+        "Fusionar tickets duplicados",
+        "Limpiar la selección"
+      ],
+      "img": "img/soporte/bandeja-masiva.webp",
+      "thumb": "img/soporte/bandeja-masiva-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ticket-nuevo",
+      "title": "Nuevo ticket",
+      "section": "agente",
+      "roles": [
+        "Agente",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "agente.html#/",
+      "capturedUrl": "agente.html#/",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Oyarzún",
+        "role": "Agente",
+        "email": "agente@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo ticket\" de la bandeja",
+      "description": "Alta de un ticket recibido por teléfono u otro canal, a nombre de un cliente existente.",
+      "actions": [
+        "Elegir el cliente",
+        "Escribir asunto y detalle",
+        "Definir canal, prioridad y grupo",
+        "Crear el ticket con su SLA"
+      ],
+      "img": "img/soporte/ticket-nuevo.webp",
+      "thumb": "img/soporte/ticket-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ticket",
+      "title": "Detalle del ticket",
+      "section": "agente",
+      "roles": [
+        "Agente",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "agente.html#/ticket/t8",
+      "capturedUrl": "agente.html#/ticket/t8",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Oyarzún",
+        "role": "Agente",
+        "email": "agente@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Conversación completa con el cliente, editor de respuesta, propiedades del ticket, temporizadores de SLA y la ficha del cliente con su historial.",
+      "actions": [
+        "Responder al cliente con adjuntos",
+        "Aplicar una macro con respuesta y acciones",
+        "Cambiar estado, prioridad, grupo y responsable",
+        "Agregar o quitar etiquetas",
+        "Ver el SLA de primera respuesta y resolución"
+      ],
+      "img": "img/soporte/ticket.webp",
+      "thumb": "img/soporte/ticket-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ticket-nota",
+      "title": "Nota interna",
+      "section": "agente",
+      "roles": [
+        "Agente",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "agente.html#/ticket/t8",
+      "capturedUrl": "agente.html#/ticket/t8",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Oyarzún",
+        "role": "Agente",
+        "email": "agente@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "El mismo editor en modo nota interna: el texto queda en el ticket solo para el equipo y no se envía al cliente.",
+      "actions": [
+        "Dejar contexto para otros agentes",
+        "Diferenciar visualmente notas y respuestas",
+        "Mantener el historial interno del caso"
+      ],
+      "img": "img/soporte/ticket-nota.webp",
+      "thumb": "img/soporte/ticket-nota-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ticket-fusionar",
+      "title": "Fusionar tickets",
+      "section": "agente",
+      "roles": [
+        "Agente",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "agente.html#/ticket/t8",
+      "capturedUrl": "agente.html#/ticket/t8",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Oyarzún",
+        "role": "Agente",
+        "email": "agente@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Fusionar\" en el detalle del ticket",
+      "description": "Une un ticket duplicado con otro del mismo cliente: la conversación se traslada y el duplicado queda cerrado.",
+      "actions": [
+        "Indicar el número del ticket destino",
+        "Mover los mensajes al ticket principal",
+        "Cerrar el duplicado con referencia"
+      ],
+      "img": "img/soporte/ticket-fusionar.webp",
+      "thumb": "img/soporte/ticket-fusionar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "chats",
+      "title": "Chats en vivo",
+      "section": "agente",
+      "roles": [
+        "Agente",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "agente.html#/chats",
+      "capturedUrl": "agente.html#/chats",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Oyarzún",
+        "role": "Agente",
+        "email": "agente@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cola de chats que derivó el asistente del sitio. El agente toma uno y conversa en tiempo real con el visitante, que está en otra pestaña.",
+      "actions": [
+        "Ver los chats en espera y su tiempo",
+        "Atender un chat",
+        "Responder con textos rápidos",
+        "Cerrar el chat",
+        "Convertir la conversación en ticket"
+      ],
+      "img": "img/soporte/chats.webp",
+      "thumb": "img/soporte/chats-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "clientes",
+      "title": "Clientes",
+      "section": "agente",
+      "roles": [
+        "Agente",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "agente.html#/clientes",
+      "capturedUrl": "agente.html#/clientes",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Oyarzún",
+        "role": "Agente",
+        "email": "agente@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Listado de clientes con plan, comuna, tickets abiertos y satisfacción.",
+      "actions": [
+        "Buscar clientes",
+        "Ver tickets abiertos y CSAT de cada uno",
+        "Abrir la ficha del cliente",
+        "Exportar a CSV"
+      ],
+      "img": "img/soporte/clientes.webp",
+      "thumb": "img/soporte/clientes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cliente-ficha",
+      "title": "Ficha del cliente",
+      "section": "agente",
+      "roles": [
+        "Agente",
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "agente.html#/clientes/u-cli",
+      "capturedUrl": "agente.html#/clientes/u-cli",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Oyarzún",
+        "role": "Agente",
+        "email": "agente@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Historial de un cliente: datos del servicio, todos sus tickets, sus chats y los comentarios que dejó al calificar.",
+      "actions": [
+        "Ver datos de contacto y plan",
+        "Revisar todos sus tickets",
+        "Leer sus chats anteriores",
+        "Ver los comentarios de CSAT",
+        "Crear un ticket a su nombre"
+      ],
+      "img": "img/soporte/cliente-ficha.webp",
+      "thumb": "img/soporte/cliente-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "metricas",
+      "title": "Métricas de soporte",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-sup",
+        "name": "Jorge Mansilla",
+        "role": "Supervisor",
+        "email": "supervisor@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Indicadores de la mesa: volumen semanal, primera respuesta mediana, CSAT mensual, cumplimiento de SLA, tickets por canal y categoría, y desempeño por agente.",
+      "actions": [
+        "Seguir volumen y tiempos de respuesta",
+        "Ver CSAT y cumplimiento de SLA por mes",
+        "Comparar canales y categorías",
+        "Revisar el desempeño de cada agente",
+        "Exportar los datos"
+      ],
+      "img": "img/soporte/metricas.webp",
+      "thumb": "img/soporte/metricas-thumb.webp",
+      "mobile": "img/soporte/metricas-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bandeja-supervisor",
+      "title": "Bandeja de toda la mesa",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "agente.html#/?vista=sla",
+      "capturedUrl": "agente.html#/?vista=sla",
+      "login": {
+        "id": "u-sup",
+        "name": "Jorge Mansilla",
+        "role": "Supervisor",
+        "email": "supervisor@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "La supervisión ve los tickets de todos los grupos; aquí, la vista de tickets con SLA en riesgo o vencido.",
+      "actions": [
+        "Detectar tickets por vencer en cualquier grupo",
+        "Reasignar a otro agente o grupo",
+        "Filtrar por grupo y prioridad"
+      ],
+      "img": "img/soporte/bandeja-supervisor.webp",
+      "thumb": "img/soporte/bandeja-supervisor-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "articulos",
+      "title": "Artículos",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/articulos",
+      "capturedUrl": "admin.html#/articulos",
+      "login": {
+        "id": "u-sup",
+        "name": "Jorge Mansilla",
+        "role": "Supervisor",
+        "email": "supervisor@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Base de conocimiento con estado (publicado o borrador), tema, vistas y votos de utilidad.",
+      "actions": [
+        "Filtrar por tema y estado",
+        "Ver vistas y porcentaje de utilidad",
+        "Crear o editar artículos",
+        "Exportar a CSV"
+      ],
+      "img": "img/soporte/articulos.webp",
+      "thumb": "img/soporte/articulos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "articulo-editor",
+      "title": "Editor de artículo",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/articulos/a-lento",
+      "capturedUrl": "admin.html#/articulos/a-lento",
+      "login": {
+        "id": "u-sup",
+        "name": "Jorge Mansilla",
+        "role": "Supervisor",
+        "email": "supervisor@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor con barra de formato y vista previa en vivo. Al publicar, el artículo aparece al instante en el centro de ayuda.",
+      "actions": [
+        "Escribir con formato (títulos, listas, negritas)",
+        "Ver la vista previa mientras escribe",
+        "Elegir tema y etiquetas",
+        "Guardar como borrador o publicar"
+      ],
+      "img": "img/soporte/articulo-editor.webp",
+      "thumb": "img/soporte/articulo-editor-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "categorias",
+      "title": "Categorías",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/categorias",
+      "capturedUrl": "admin.html#/categorias",
+      "login": {
+        "id": "u-sup",
+        "name": "Jorge Mansilla",
+        "role": "Supervisor",
+        "email": "supervisor@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Temas de la base de conocimiento con su ícono, descripción, orden y cantidad de artículos.",
+      "actions": [
+        "Crear y editar categorías",
+        "Definir el orden en la portada",
+        "Elegir el ícono y la descripción"
+      ],
+      "img": "img/soporte/categorias.webp",
+      "thumb": "img/soporte/categorias-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "macros",
+      "title": "Macros",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/macros",
+      "capturedUrl": "admin.html#/macros",
+      "login": {
+        "id": "u-sup",
+        "name": "Jorge Mansilla",
+        "role": "Supervisor",
+        "email": "supervisor@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Respuestas predefinidas que además cambian estado, prioridad o etiquetas del ticket al aplicarlas.",
+      "actions": [
+        "Ver las macros y cuántas veces se usaron",
+        "Crear y editar macros",
+        "Definir las acciones que ejecuta cada una"
+      ],
+      "img": "img/soporte/macros.webp",
+      "thumb": "img/soporte/macros-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "macro-editar",
+      "title": "Nueva macro",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/macros",
+      "capturedUrl": "admin.html#/macros",
+      "login": {
+        "id": "u-sup",
+        "name": "Jorge Mansilla",
+        "role": "Supervisor",
+        "email": "supervisor@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva macro\"",
+      "description": "Formulario de macro con el texto de respuesta (con variables) y las acciones automáticas.",
+      "actions": [
+        "Escribir el nombre y el texto de respuesta",
+        "Usar variables como el nombre del cliente",
+        "Definir estado, prioridad y etiqueta a aplicar"
+      ],
+      "img": "img/soporte/macro-editar.webp",
+      "thumb": "img/soporte/macro-editar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "incidentes",
+      "title": "Incidentes y estado",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/incidentes",
+      "capturedUrl": "admin.html#/incidentes",
+      "login": {
+        "id": "u-sup",
+        "name": "Jorge Mansilla",
+        "role": "Supervisor",
+        "email": "supervisor@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Gestión de las fallas masivas que se publican en la página de estado: incidente activo con su bitácora y el historial.",
+      "actions": [
+        "Declarar un incidente nuevo",
+        "Publicar actualizaciones del avance",
+        "Marcar un incidente como resuelto",
+        "Ver el historial de incidentes"
+      ],
+      "img": "img/soporte/incidentes.webp",
+      "thumb": "img/soporte/incidentes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "incidente-actualizar",
+      "title": "Actualización de incidente",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/incidentes",
+      "capturedUrl": "admin.html#/incidentes",
+      "login": {
+        "id": "u-sup",
+        "name": "Jorge Mansilla",
+        "role": "Supervisor",
+        "email": "supervisor@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Publicar actualización\" de un incidente",
+      "description": "Nueva entrada en la bitácora pública del incidente, con cambio de etapa (investigando, identificado, monitoreando).",
+      "actions": [
+        "Cambiar la etapa del incidente",
+        "Escribir el mensaje para los clientes",
+        "Publicarlo al instante en la página de estado"
+      ],
+      "img": "img/soporte/incidente-actualizar.webp",
+      "thumb": "img/soporte/incidente-actualizar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "incidente-declarar",
+      "title": "Declarar incidente",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/incidentes",
+      "capturedUrl": "admin.html#/incidentes",
+      "login": {
+        "id": "u-sup",
+        "name": "Jorge Mansilla",
+        "role": "Supervisor",
+        "email": "supervisor@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Declarar incidente\"",
+      "description": "Alta de una falla masiva con título, servicios afectados, impacto y primer mensaje.",
+      "actions": [
+        "Escribir el título del incidente",
+        "Marcar los servicios afectados",
+        "Definir el impacto",
+        "Publicar el primer aviso"
+      ],
+      "img": "img/soporte/incidente-declarar.webp",
+      "thumb": "img/soporte/incidente-declarar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "grupos",
+      "title": "Grupos",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/grupos",
+      "capturedUrl": "admin.html#/grupos",
+      "login": {
+        "id": "u-sup",
+        "name": "Jorge Mansilla",
+        "role": "Supervisor",
+        "email": "supervisor@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Equipos de agentes (Soporte N1, Facturación, Terreno) con integrantes y carga actual de tickets.",
+      "actions": [
+        "Ver integrantes y tickets abiertos por grupo",
+        "Crear y editar grupos",
+        "Cambiar quién pertenece a cada grupo"
+      ],
+      "img": "img/soporte/grupos.webp",
+      "thumb": "img/soporte/grupos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bitacora",
+      "title": "Bitácora",
+      "section": "supervisor",
+      "roles": [
+        "Supervisor",
+        "Administrador"
+      ],
+      "url": "admin.html#/bitacora",
+      "capturedUrl": "admin.html#/bitacora",
+      "login": {
+        "id": "u-sup",
+        "name": "Jorge Mansilla",
+        "role": "Supervisor",
+        "email": "supervisor@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de actividad del sistema: tickets, respuestas, chats, artículos e incidentes, filtrable y exportable.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Filtrar por usuario y tipo",
+        "Exportar a CSV"
+      ],
+      "img": "img/soporte/bitacora.webp",
+      "thumb": "img/soporte/bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sla",
+      "title": "Políticas SLA",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/sla",
+      "capturedUrl": "admin.html#/sla",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Vidal",
+        "role": "Administrador",
+        "email": "admin@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Objetivos de primera respuesta y de resolución para cada prioridad, que alimentan los temporizadores y alertas de la consola.",
+      "actions": [
+        "Definir tiempos por prioridad (urgente, alta, normal, baja)",
+        "Ajustar primera respuesta y resolución",
+        "Guardar y aplicar a los tickets"
+      ],
+      "img": "img/soporte/sla.webp",
+      "thumb": "img/soporte/sla-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "automatizaciones",
+      "title": "Automatizaciones",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/automatizaciones",
+      "capturedUrl": "admin.html#/automatizaciones",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Vidal",
+        "role": "Administrador",
+        "email": "admin@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Reglas que se aplican al crear un ticket: si se cumple una condición (canal, texto, categoría), se ejecuta una acción (grupo, prioridad, etiqueta).",
+      "actions": [
+        "Ver las reglas activas y cuántas veces se aplicaron",
+        "Crear y editar reglas",
+        "Activar o pausar cada regla"
+      ],
+      "img": "img/soporte/automatizaciones.webp",
+      "thumb": "img/soporte/automatizaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "automatizacion-editar",
+      "title": "Nueva regla",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/automatizaciones",
+      "capturedUrl": "admin.html#/automatizaciones",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Vidal",
+        "role": "Administrador",
+        "email": "admin@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva regla\"",
+      "description": "Formulario de regla con su condición y su acción.",
+      "actions": [
+        "Elegir el campo y el valor de la condición",
+        "Elegir la acción a ejecutar",
+        "Activar la regla"
+      ],
+      "img": "img/soporte/automatizacion-editar.webp",
+      "thumb": "img/soporte/automatizacion-editar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Vidal",
+        "role": "Administrador",
+        "email": "admin@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Personal de soporte (administración, supervisión, agentes) y cuentas de clientes, con su rol, grupos y estado.",
+      "actions": [
+        "Crear y editar usuarios",
+        "Cambiar el rol y los grupos",
+        "Activar o desactivar cuentas",
+        "Exportar a CSV"
+      ],
+      "img": "img/soporte/usuarios.webp",
+      "thumb": "img/soporte/usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ajustes",
+      "title": "Centro de ayuda (CMS)",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/ajustes",
+      "capturedUrl": "admin.html#/ajustes",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Vidal",
+        "role": "Administrador",
+        "email": "admin@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Textos de la portada del centro de ayuda, aviso superior, datos de contacto y configuración del chat y su asistente.",
+      "actions": [
+        "Editar título y bajada de la portada",
+        "Activar un aviso superior",
+        "Cambiar teléfono, correo y horario",
+        "Activar el chat y editar el saludo del asistente",
+        "Publicar los cambios al instante"
+      ],
+      "img": "img/soporte/ajustes.webp",
+      "thumb": "img/soporte/ajustes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "datos",
+      "title": "Datos y respaldo",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/datos",
+      "capturedUrl": "admin.html#/datos",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Vidal",
+        "role": "Administrador",
+        "email": "admin@fibraustral.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Volumen de registros por colección, exportación a CSV o JSON y restablecimiento de los datos de demostración.",
+      "actions": [
+        "Ver cuántos registros hay por colección",
+        "Exportar colecciones a CSV",
+        "Descargar un respaldo JSON",
+        "Restablecer los datos demo"
+      ],
+      "img": "img/soporte/datos.webp",
+      "thumb": "img/soporte/datos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Web 2.0\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/soporte/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/soporte/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/soporte/look-app.webp"
+      },
+      {
+        "id": "glass",
+        "group": "Estilo",
+        "label": "Cristal",
+        "desc": "Paneles translúcidos sobre fondos suaves.",
+        "img": "img/soporte/look-glass.webp"
+      },
+      {
+        "id": "contrast",
+        "group": "Estilo",
+        "label": "Contraste",
+        "desc": "Alto contraste y máxima legibilidad.",
+        "img": "img/soporte/look-contrast.webp"
+      },
+      {
+        "id": "candy",
+        "group": "Estilo",
+        "label": "Caramelo",
+        "desc": "Colores alegres y bordes redondeados.",
+        "img": "img/soporte/look-candy.webp"
+      }
+    ]
+  }
+}

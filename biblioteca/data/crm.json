@@ -1,0 +1,1736 @@
+{
+  "app": "crm",
+  "dir": "crm",
+  "name": "Pulso CRM",
+  "kind": "CRM B2B",
+  "description": "CRM para equipos comerciales B2B con sitio público que captura leads, espacio de trabajo con pipeline, ficha de negocio, cotizador, correo y secuencias, reportes y metas, y una administración con usuarios, permisos, automatizaciones y CMS.",
+  "demo": "../crm/index.html",
+  "theme": "flatui",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:27:45.464Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Página de producto que ve cualquier visitante y que alimenta el CRM con leads."
+    },
+    {
+      "id": "ejecutivo",
+      "label": "Ejecutivo comercial",
+      "desc": "Espacio de trabajo diario: leads, negocios, cuentas, agenda, correo y cotizaciones (solo su cartera)."
+    },
+    {
+      "id": "gerente",
+      "label": "Gerente comercial",
+      "desc": "Vista de todo el equipo, reportes, metas y la parte de administración que le corresponde."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Usuarios, roles y permisos, sitio web, configuración y datos del sistema."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de producto con la propuesta de valor, prueba social y llamados a solicitar una demo. Todos los textos se editan desde el CMS de la administración y se actualizan en vivo.",
+      "actions": [
+        "Ir a funciones, precios, clientes o preguntas",
+        "Solicitar una demo",
+        "Ver logos de clientes y cifras de uso",
+        "Iniciar sesión en el CRM"
+      ],
+      "img": "img/crm/portada.webp",
+      "thumb": "img/crm/portada-thumb.webp",
+      "mobile": "img/crm/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "funciones",
+      "title": "Funciones y cómo funciona",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Bloque de características del producto y el recorrido en tres pasos: capturar, avanzar y cerrar.",
+      "actions": [
+        "Recorrer las características principales",
+        "Entender el flujo de captura, avance y cierre",
+        "Seguir hacia los planes"
+      ],
+      "img": "img/crm/funciones.webp",
+      "thumb": "img/crm/funciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "precios",
+      "title": "Planes y precios",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Tres planes por usuario al mes en pesos chilenos, con selector mensual/anual que aplica el descuento anual configurado en el CMS.",
+      "actions": [
+        "Comparar los planes Inicial, Crecimiento y Enterprise",
+        "Cambiar entre precio mensual y anual",
+        "Elegir un plan y saltar al formulario de demo con ese plan"
+      ],
+      "img": "img/crm/precios.webp",
+      "thumb": "img/crm/precios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "clientes",
+      "title": "Testimonios y guía descargable",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Testimonios de equipos que usan el producto y un formulario para descargar una guía, que también crea un lead en el CRM.",
+      "actions": [
+        "Leer testimonios de clientes",
+        "Pedir la guía \"10 claves para ordenar tu pipeline B2B\"",
+        "Quedar registrado como lead de formulario web"
+      ],
+      "img": "img/crm/clientes.webp",
+      "thumb": "img/crm/clientes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "demo",
+      "title": "Formulario de demo",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Formulario web-to-lead para agendar una demo: el lead entra al CRM con puntaje automático y pasa por las automatizaciones (asignación, tarea y correo de bienvenida).",
+      "actions": [
+        "Dejar nombre, correo, empresa y teléfono",
+        "Indicar tamaño de la empresa y plan de interés",
+        "Escribir un mensaje",
+        "Aceptar el tratamiento de datos y enviar"
+      ],
+      "img": "img/crm/demo.webp",
+      "thumb": "img/crm/demo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "demo-enviada",
+      "title": "Demo solicitada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Confirmación de la solicitud con el ejecutivo asignado por round-robin y una nota \"detrás de escena\" que muestra el puntaje del lead y las automatizaciones que se ejecutaron.",
+      "actions": [
+        "Ver qué ejecutivo lo contactará",
+        "Ver el puntaje con que entró el lead",
+        "Ver las automatizaciones disparadas",
+        "Saltar al CRM para ver el lead creado"
+      ],
+      "img": "img/crm/demo-enviada.webp",
+      "thumb": "img/crm/demo-enviada-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "faq",
+      "title": "Preguntas frecuentes",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Preguntas frecuentes desplegables y el pie del sitio con datos de contacto, administrables desde el CMS.",
+      "actions": [
+        "Abrir y cerrar cada pregunta",
+        "Ver los datos de contacto",
+        "Volver arriba o solicitar demo"
+      ],
+      "img": "img/crm/faq.webp",
+      "thumb": "img/crm/faq-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Inicio de sesión",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso al CRM con correo y contraseña, más cuentas de prueba para entrar con un clic como administradora, gerente o ejecutiva.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic a cada rol de prueba",
+        "Volver a la página que pidió el ingreso"
+      ],
+      "img": "img/crm/login.webp",
+      "thumb": "img/crm/login-thumb.webp",
+      "mobile": "img/crm/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inicio",
+      "title": "Inicio de la ejecutiva",
+      "section": "ejecutivo",
+      "roles": null,
+      "url": "app.html#/",
+      "capturedUrl": "app.html#/",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tablero personal con KPIs del pipeline propio, ingresos ganados por mes, actividades de hoy, pipeline por etapa, forecast, avance de la meta del mes, leads por fuente y negocios por cerrar.",
+      "actions": [
+        "Ver pipeline abierto, ponderado y tasa de cierre",
+        "Revisar y completar las actividades de hoy",
+        "Seguir el avance de su meta mensual",
+        "Ver los negocios que cierran en 30 días",
+        "Crear un negocio o agendar una actividad"
+      ],
+      "img": "img/crm/inicio.webp",
+      "thumb": "img/crm/inicio-thumb.webp",
+      "mobile": "img/crm/inicio-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "busqueda",
+      "title": "Búsqueda global",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/",
+      "capturedUrl": "app.html#/",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Buscador de la barra superior",
+      "description": "Buscador de la barra superior que encuentra negocios, empresas, contactos y leads mientras se escribe, respetando la cartera visible para cada rol.",
+      "actions": [
+        "Buscar por nombre de negocio, empresa o persona",
+        "Ver resultados agrupados por tipo",
+        "Saltar directo a la ficha"
+      ],
+      "img": "img/crm/busqueda.webp",
+      "thumb": "img/crm/busqueda-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "notificaciones",
+      "title": "Notificaciones",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/",
+      "capturedUrl": "app.html#/",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Campana de la barra superior",
+      "description": "Avisos del sistema: leads asignados, tareas por vencer, negocios ganados y resultados de automatizaciones.",
+      "actions": [
+        "Ver las notificaciones recientes",
+        "Abrir el registro relacionado",
+        "Marcar todas como leídas"
+      ],
+      "img": "img/crm/notificaciones.webp",
+      "thumb": "img/crm/notificaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "leads",
+      "title": "Leads",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/leads",
+      "capturedUrl": "app.html#/leads",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Listado de leads con puntaje automático, fuente, estado y responsable. La ejecutiva ve los suyos y los sin asignar; gerencia ve los de todo el equipo.",
+      "actions": [
+        "Filtrar por estado (nuevos, contactados, calificados…)",
+        "Ordenar por puntaje o fecha",
+        "Crear un lead a mano",
+        "Convertir un lead en negocio",
+        "Exportar a CSV"
+      ],
+      "img": "img/crm/leads.webp",
+      "thumb": "img/crm/leads-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "lead-ficha",
+      "title": "Ficha del lead",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/leads/l13",
+      "capturedUrl": "app.html#/leads/l13",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha del lead con su estado, actividad registrada, desglose del puntaje y datos de la empresa.",
+      "actions": [
+        "Cambiar el estado del lead",
+        "Registrar llamadas, correos o notas",
+        "Ver de dónde sale el puntaje",
+        "Editar los datos",
+        "Convertir en negocio"
+      ],
+      "img": "img/crm/lead-ficha.webp",
+      "thumb": "img/crm/lead-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "lead-actividad",
+      "title": "Registrar actividad del lead",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/leads/l13",
+      "capturedUrl": "app.html#/leads/l13",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Registrar\" en la ficha del lead",
+      "description": "Ventana para dejar registro de un contacto con el lead; cada actividad suma al puntaje.",
+      "actions": [
+        "Elegir el tipo de actividad",
+        "Escribir el detalle",
+        "Actualizar el puntaje del lead"
+      ],
+      "img": "img/crm/lead-actividad.webp",
+      "thumb": "img/crm/lead-actividad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "lead-convertir",
+      "title": "Convertir lead en negocio",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/leads/l13",
+      "capturedUrl": "app.html#/leads/l13",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Convertir en negocio\" en la ficha del lead",
+      "description": "Conversión del lead: crea (o reutiliza) la empresa y el contacto y abre un negocio en el pipeline con monto y fecha de cierre.",
+      "actions": [
+        "Confirmar la empresa y el contacto",
+        "Definir nombre, monto y cierre estimado del negocio",
+        "Crear el negocio en la etapa inicial"
+      ],
+      "img": "img/crm/lead-convertir.webp",
+      "thumb": "img/crm/lead-convertir-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "negocios",
+      "title": "Pipeline de negocios",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/negocios",
+      "capturedUrl": "app.html#/negocios",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tablero kanban por etapa con monto total y ponderado por columna. Al arrastrar una tarjeta se registra el cambio de etapa y se ejecutan las automatizaciones.",
+      "actions": [
+        "Arrastrar negocios entre etapas",
+        "Ver total y valor ponderado por etapa",
+        "Filtrar por nombre o empresa",
+        "Elegir cuántos días de cerrados mostrar",
+        "Cambiar a vista de lista"
+      ],
+      "img": "img/crm/negocios.webp",
+      "thumb": "img/crm/negocios-thumb.webp",
+      "mobile": "img/crm/negocios-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "negocios-lista",
+      "title": "Negocios en lista",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/negocios?vista=lista",
+      "capturedUrl": "app.html#/negocios?vista=lista",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Los mismos negocios en una tabla filtrable por etapa, con monto, cierre estimado y responsable.",
+      "actions": [
+        "Filtrar por etapa con chips",
+        "Ordenar por monto o fecha de cierre",
+        "Abrir la ficha de cada negocio"
+      ],
+      "img": "img/crm/negocios-lista.webp",
+      "thumb": "img/crm/negocios-lista-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "negocio-nuevo",
+      "title": "Nuevo negocio",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/negocios",
+      "capturedUrl": "app.html#/negocios",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo negocio\"",
+      "description": "Formulario de alta de negocio con empresa, contacto, monto, etapa, cierre estimado, origen y responsable.",
+      "actions": [
+        "Elegir empresa y contacto principal",
+        "Indicar monto y etapa",
+        "Definir la fecha de cierre estimada",
+        "Indicar el origen del negocio"
+      ],
+      "img": "img/crm/negocio-nuevo.webp",
+      "thumb": "img/crm/negocio-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "negocio",
+      "title": "Ficha del negocio",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/negocios/d6",
+      "capturedUrl": "app.html#/negocios/d6",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Centro de trabajo de cada negocio: barra de etapas, línea de tiempo con notas, llamadas, reuniones y correos, datos del contacto e historial de etapas.",
+      "actions": [
+        "Avanzar de etapa con un clic o marcar ganado / perdido",
+        "Registrar notas, llamadas y reuniones",
+        "Ver la línea de tiempo completa",
+        "Revisar contacto principal e historial de etapas",
+        "Editar o eliminar el negocio"
+      ],
+      "img": "img/crm/negocio.webp",
+      "thumb": "img/crm/negocio-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "negocio-tareas",
+      "title": "Negocio: tareas",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/negocios/d6?tab=tareas",
+      "capturedUrl": "app.html#/negocios/d6?tab=tareas",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pestaña de próximos pasos del negocio, con atajos para las tareas más comunes.",
+      "actions": [
+        "Crear una tarea con fecha y recordatorio",
+        "Usar atajos como \"Enviar propuesta\" o \"Agendar demo\"",
+        "Marcar tareas como hechas"
+      ],
+      "img": "img/crm/negocio-tareas.webp",
+      "thumb": "img/crm/negocio-tareas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "negocio-correo",
+      "title": "Negocio: correos",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/negocios/d6?tab=correo",
+      "capturedUrl": "app.html#/negocios/d6?tab=correo",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Redacción de correos al cliente desde el negocio, con plantillas y variables. El envío es simulado y queda en la línea de tiempo con su estado de apertura.",
+      "actions": [
+        "Elegir destinatario entre los contactos de la empresa",
+        "Aplicar una plantilla con variables",
+        "Enviar el correo",
+        "Ver los enviados y si se abrieron"
+      ],
+      "img": "img/crm/negocio-correo.webp",
+      "thumb": "img/crm/negocio-correo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "negocio-cotizacion",
+      "title": "Negocio: cotizador",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/negocios/d6?tab=cotizacion",
+      "capturedUrl": "app.html#/negocios/d6?tab=cotizacion",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cotizador con productos del catálogo, cantidades, precios y descuentos por línea, con neto, IVA y total. Al guardar se actualiza el monto del negocio.",
+      "actions": [
+        "Agregar y quitar productos",
+        "Ajustar cantidad, precio y descuento",
+        "Guardar el monto en el negocio",
+        "Generar una cotización numerada",
+        "Cambiar el estado de las cotizaciones emitidas"
+      ],
+      "img": "img/crm/negocio-cotizacion.webp",
+      "thumb": "img/crm/negocio-cotizacion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "negocio-archivos",
+      "title": "Negocio: archivos",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/negocios/d6?tab=archivos",
+      "capturedUrl": "app.html#/negocios/d6?tab=archivos",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Archivos adjuntos al negocio (propuestas, requerimientos, órdenes de compra) con zona para arrastrar nuevos.",
+      "actions": [
+        "Subir archivos arrastrándolos",
+        "Ver nombre, tamaño y quién lo subió",
+        "Eliminar adjuntos"
+      ],
+      "img": "img/crm/negocio-archivos.webp",
+      "thumb": "img/crm/negocio-archivos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "negocio-perdido",
+      "title": "Marcar negocio como perdido",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/negocios/d6",
+      "capturedUrl": "app.html#/negocios/d6",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Perdido\" en la ficha del negocio",
+      "description": "Cierre de un negocio perdido con su motivo, que alimenta el reporte de motivos de pérdida.",
+      "actions": [
+        "Elegir el motivo de pérdida de una lista",
+        "Cerrar el negocio y registrarlo en el historial",
+        "Sumar el caso al reporte de motivos de pérdida"
+      ],
+      "img": "img/crm/negocio-perdido.webp",
+      "thumb": "img/crm/negocio-perdido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cotizacion",
+      "title": "Cotización imprimible",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "quote.html?id=q3",
+      "capturedUrl": "quote.html?id=q3",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Documento de cotización con aspecto de PDF: datos del cliente, contacto y ejecutivo, detalle de productos, neto, IVA, total y condiciones.",
+      "actions": [
+        "Revisar el detalle y los totales",
+        "Imprimir o guardar como PDF",
+        "Enviarla por correo al contacto (simulado)",
+        "Ver la vigencia y el estado de la cotización"
+      ],
+      "img": "img/crm/cotizacion.webp",
+      "thumb": "img/crm/cotizacion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empresas",
+      "title": "Empresas",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/empresas",
+      "capturedUrl": "app.html#/empresas",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas cliente con industria, tamaño, ciudad, responsable y pipeline abierto.",
+      "actions": [
+        "Buscar y filtrar por industria, tamaño o ciudad",
+        "Crear y editar empresas",
+        "Abrir la ficha de la cuenta",
+        "Exportar a CSV"
+      ],
+      "img": "img/crm/empresas.webp",
+      "thumb": "img/crm/empresas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empresa-ficha",
+      "title": "Ficha de empresa",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/empresas/c6",
+      "capturedUrl": "app.html#/empresas/c6",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Vista de la cuenta con sus datos, contactos, negocios (abiertos y cerrados) y actividad reciente.",
+      "actions": [
+        "Ver datos de la empresa",
+        "Agregar contactos",
+        "Crear un negocio para la cuenta",
+        "Revisar la actividad reciente"
+      ],
+      "img": "img/crm/empresa-ficha.webp",
+      "thumb": "img/crm/empresa-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "contactos",
+      "title": "Contactos",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/contactos",
+      "capturedUrl": "app.html#/contactos",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Personas de las empresas cliente con cargo, etiquetas y secuencias activas.",
+      "actions": [
+        "Buscar y filtrar por etiqueta o empresa",
+        "Crear y editar contactos",
+        "Abrir la ficha con su historial",
+        "Exportar a CSV"
+      ],
+      "img": "img/crm/contactos.webp",
+      "thumb": "img/crm/contactos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "contacto-ficha",
+      "title": "Ficha de contacto",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/contactos/ct10",
+      "capturedUrl": "app.html#/contactos/ct10",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha de la persona con datos de contacto, negocios en los que participa, secuencias y su historial de actividades.",
+      "actions": [
+        "Ver datos y etiquetas",
+        "Agendar una actividad",
+        "Inscribirlo en una secuencia de correo",
+        "Ver sus negocios y su historial"
+      ],
+      "img": "img/crm/contacto-ficha.webp",
+      "thumb": "img/crm/contacto-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "calendario",
+      "title": "Calendario",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/calendario",
+      "capturedUrl": "app.html#/calendario",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Semana de llamadas, reuniones y tareas en un calendario por horas. En el celular se muestra como agenda.",
+      "actions": [
+        "Moverse entre semanas",
+        "Ver cada actividad por tipo y hora",
+        "Crear una actividad nueva",
+        "Abrir una actividad para editarla o completarla"
+      ],
+      "img": "img/crm/calendario.webp",
+      "thumb": "img/crm/calendario-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "actividad-nueva",
+      "title": "Nueva actividad",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/calendario",
+      "capturedUrl": "app.html#/calendario",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva actividad\" del calendario",
+      "description": "Formulario de actividad (llamada, reunión o tarea) vinculada a un negocio, con fecha, hora y recordatorio.",
+      "actions": [
+        "Elegir el tipo de actividad",
+        "Vincularla a un negocio",
+        "Definir fecha, hora y responsable",
+        "Activar un recordatorio"
+      ],
+      "img": "img/crm/actividad-nueva.webp",
+      "thumb": "img/crm/actividad-nueva-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "tareas",
+      "title": "Tareas",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/tareas",
+      "capturedUrl": "app.html#/tareas",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pendientes agrupados por vencimiento: vencidas, hoy, esta semana y más adelante.",
+      "actions": [
+        "Ver primero lo vencido",
+        "Marcar tareas como hechas",
+        "Crear tareas nuevas",
+        "Exportar a CSV"
+      ],
+      "img": "img/crm/tareas.webp",
+      "thumb": "img/crm/tareas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "correo-plantillas",
+      "title": "Plantillas de correo",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/correo/plantillas",
+      "capturedUrl": "app.html#/correo/plantillas",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Biblioteca de plantillas con variables como nombre, empresa o ejecutivo, usadas en los correos y las secuencias.",
+      "actions": [
+        "Ver cada plantilla con su asunto",
+        "Abrir una vista previa con datos reales",
+        "Crear y editar plantillas (con permiso)"
+      ],
+      "img": "img/crm/correo-plantillas.webp",
+      "thumb": "img/crm/correo-plantillas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "plantilla-preview",
+      "title": "Vista previa de plantilla",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/correo/plantillas",
+      "capturedUrl": "app.html#/correo/plantillas",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Vista previa\" de una plantilla",
+      "description": "La plantilla con sus variables reemplazadas por los datos de un contacto real.",
+      "actions": [
+        "Revisar el asunto y el cuerpo final",
+        "Comprobar que las variables se completan bien",
+        "Volver a la biblioteca para usarla en un correo o secuencia"
+      ],
+      "img": "img/crm/plantilla-preview.webp",
+      "thumb": "img/crm/plantilla-preview-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "correo-secuencias",
+      "title": "Secuencias de correo",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/correo/secuencias",
+      "capturedUrl": "app.html#/correo/secuencias",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cadencias de seguimiento con sus pasos y días de espera, contactos inscritos y envíos pendientes (envío simulado).",
+      "actions": [
+        "Ver los pasos de cada secuencia",
+        "Inscribir contactos",
+        "Procesar los envíos del día",
+        "Activar o pausar una secuencia (con permiso)"
+      ],
+      "img": "img/crm/correo-secuencias.webp",
+      "thumb": "img/crm/correo-secuencias-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "secuencia-inscribir",
+      "title": "Inscribir en secuencia",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/correo/secuencias",
+      "capturedUrl": "app.html#/correo/secuencias",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Inscribir contactos\" en Secuencias",
+      "description": "Selección de contactos para sumarlos a una secuencia de seguimiento.",
+      "actions": [
+        "Buscar y marcar contactos",
+        "Ver quiénes ya están inscritos",
+        "Inscribir a los seleccionados"
+      ],
+      "img": "img/crm/secuencia-inscribir.webp",
+      "thumb": "img/crm/secuencia-inscribir-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "correo-enviados",
+      "title": "Correos enviados",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/correo/enviados",
+      "capturedUrl": "app.html#/correo/enviados",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bandeja de correos enviados desde negocios y secuencias, con su estado de apertura.",
+      "actions": [
+        "Ver destinatario, asunto y fecha",
+        "Saber si el correo se abrió",
+        "Abrir el correo o ir al negocio"
+      ],
+      "img": "img/crm/correo-enviados.webp",
+      "thumb": "img/crm/correo-enviados-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "productos",
+      "title": "Productos",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/productos",
+      "capturedUrl": "app.html#/productos",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Catálogo de licencias y servicios con precio y unidad, usado por el cotizador.",
+      "actions": [
+        "Ver precios y unidades",
+        "Buscar productos",
+        "Crear y editar productos (con permiso)",
+        "Exportar a CSV"
+      ],
+      "img": "img/crm/productos.webp",
+      "thumb": "img/crm/productos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "importar",
+      "title": "Importar contactos",
+      "section": "ejecutivo",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/importar",
+      "capturedUrl": "app.html#/importar",
+      "login": {
+        "id": "u-val",
+        "name": "Valentina Rojas",
+        "role": "Ejecutivo",
+        "email": "ejecutiva@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Importador de contactos desde un CSV pegado o subido, con detección de columnas, validación de correos y control de duplicados antes de importar.",
+      "actions": [
+        "Pegar o subir un CSV",
+        "Revisar las columnas reconocidas",
+        "Ver filas listas, con error y duplicadas",
+        "Crear empresas que no existan",
+        "Importar en un paso"
+      ],
+      "img": "img/crm/importar.webp",
+      "thumb": "img/crm/importar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "inicio-gerente",
+      "title": "Inicio del gerente",
+      "section": "gerente",
+      "roles": null,
+      "url": "app.html#/",
+      "capturedUrl": "app.html#/",
+      "login": {
+        "id": "u-ger",
+        "name": "Rodrigo Fuentes",
+        "role": "Gerente",
+        "email": "gerente@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "El mismo tablero de inicio pero con los números de todo el equipo y el ganado por ejecutivo de los últimos 90 días.",
+      "actions": [
+        "Ver el pipeline de todo el equipo",
+        "Comparar lo ganado por ejecutivo",
+        "Revisar forecast y negocios por cerrar",
+        "Ver leads por fuente"
+      ],
+      "img": "img/crm/inicio-gerente.webp",
+      "thumb": "img/crm/inicio-gerente-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reportes",
+      "title": "Reportes",
+      "section": "gerente",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/reportes",
+      "capturedUrl": "app.html#/reportes",
+      "login": {
+        "id": "u-ger",
+        "name": "Rodrigo Fuentes",
+        "role": "Gerente",
+        "email": "gerente@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Análisis comercial: embudo de conversión, motivos de pérdida, ingresos y negocios creados por mes, ranking de ejecutivos y conversión por fuente de leads.",
+      "actions": [
+        "Ver el embudo de conversión por etapa",
+        "Analizar los motivos de pérdida",
+        "Seguir ingresos y negocios por mes",
+        "Ver el ranking del equipo y exportarlo"
+      ],
+      "img": "img/crm/reportes.webp",
+      "thumb": "img/crm/reportes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "metas",
+      "title": "Metas",
+      "section": "gerente",
+      "roles": [
+        "Ejecutivo",
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "app.html#/metas",
+      "capturedUrl": "app.html#/metas",
+      "login": {
+        "id": "u-ger",
+        "name": "Rodrigo Fuentes",
+        "role": "Gerente",
+        "email": "gerente@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Metas mensuales por ejecutivo con avance real y forecast del mes, más la comparación meta vs. ganado de los últimos 6 meses.",
+      "actions": [
+        "Definir la meta de cada ejecutivo (con permiso)",
+        "Ver avance y forecast del mes",
+        "Comparar meta y ganado en 6 meses"
+      ],
+      "img": "img/crm/metas.webp",
+      "thumb": "img/crm/metas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-resumen",
+      "title": "Resumen de administración",
+      "section": "gerente",
+      "roles": [
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-ger",
+        "name": "Rodrigo Fuentes",
+        "role": "Gerente",
+        "email": "gerente@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Adopción del sistema: actividad por usuario, leads que llegan desde el sitio web y uso general.",
+      "actions": [
+        "Ver cuánto usa el CRM cada persona",
+        "Revisar los leads del sitio web",
+        "Detectar usuarios inactivos"
+      ],
+      "img": "img/crm/admin-resumen.webp",
+      "thumb": "img/crm/admin-resumen-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "equipos",
+      "title": "Equipos",
+      "section": "gerente",
+      "roles": [
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "admin.html#/equipos",
+      "capturedUrl": "admin.html#/equipos",
+      "login": {
+        "id": "u-ger",
+        "name": "Rodrigo Fuentes",
+        "role": "Gerente",
+        "email": "gerente@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Equipos comerciales con su líder, integrantes y desempeño.",
+      "actions": [
+        "Crear y editar equipos",
+        "Asignar líder e integrantes",
+        "Comparar el desempeño entre equipos"
+      ],
+      "img": "img/crm/equipos.webp",
+      "thumb": "img/crm/equipos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "automatizaciones",
+      "title": "Automatizaciones",
+      "section": "gerente",
+      "roles": [
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "admin.html#/automatizaciones",
+      "capturedUrl": "admin.html#/automatizaciones",
+      "login": {
+        "id": "u-ger",
+        "name": "Rodrigo Fuentes",
+        "role": "Gerente",
+        "email": "gerente@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Reglas \"si pasa esto, entonces haz esto\" sobre leads y negocios (asignar, crear tareas, enviar correos, notificar), con su registro de ejecuciones.",
+      "actions": [
+        "Crear y editar reglas",
+        "Activar o pausar cada regla",
+        "Probar una regla en seco",
+        "Revisar las últimas ejecuciones"
+      ],
+      "img": "img/crm/automatizaciones.webp",
+      "thumb": "img/crm/automatizaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "automatizacion-prueba",
+      "title": "Prueba en seco",
+      "section": "gerente",
+      "roles": [
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "admin.html#/automatizaciones",
+      "capturedUrl": "admin.html#/automatizaciones",
+      "login": {
+        "id": "u-ger",
+        "name": "Rodrigo Fuentes",
+        "role": "Gerente",
+        "email": "gerente@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Probar\" de una regla",
+      "description": "Simulación de una regla sobre un registro real, mostrando qué acciones haría sin ejecutarlas.",
+      "actions": [
+        "Ver si el registro cumple la condición",
+        "Ver las acciones que se ejecutarían",
+        "Probar sin modificar datos"
+      ],
+      "img": "img/crm/automatizacion-prueba.webp",
+      "thumb": "img/crm/automatizacion-prueba-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bitacora",
+      "title": "Bitácora",
+      "section": "gerente",
+      "roles": [
+        "Gerente",
+        "Administrador"
+      ],
+      "url": "admin.html#/bitacora",
+      "capturedUrl": "admin.html#/bitacora",
+      "login": {
+        "id": "u-ger",
+        "name": "Rodrigo Fuentes",
+        "role": "Gerente",
+        "email": "gerente@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de actividad del sistema con filtros por usuario y tipo de evento.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Filtrar por usuario y tipo",
+        "Exportar a CSV"
+      ],
+      "img": "img/crm/bitacora.webp",
+      "thumb": "img/crm/bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuarios",
+      "title": "Usuarios",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas del equipo con rol, equipo, estado y fecha de alta.",
+      "actions": [
+        "Crear y editar usuarios",
+        "Cambiar rol y equipo",
+        "Desactivar con traspaso de cartera",
+        "Exportar a CSV"
+      ],
+      "img": "img/crm/usuarios.webp",
+      "thumb": "img/crm/usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuario-desactivar",
+      "title": "Desactivar usuario",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Desactivar\" de un usuario",
+      "description": "Desactivación de una cuenta que traspasa sus leads, negocios y tareas abiertas a otra persona del equipo.",
+      "actions": [
+        "Elegir a quién traspasar la cartera",
+        "Ver cuántos registros se moverán",
+        "Desactivar el acceso"
+      ],
+      "img": "img/crm/usuario-desactivar.webp",
+      "thumb": "img/crm/usuario-desactivar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "roles",
+      "title": "Roles y permisos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/roles",
+      "capturedUrl": "admin.html#/roles",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Matriz editable de permisos por rol (ventas, correo, análisis, datos, administración y sistema). El administrador conserva siempre todos.",
+      "actions": [
+        "Activar o quitar permisos a gerente y ejecutivo",
+        "Ver qué controla cada permiso",
+        "Restaurar los valores por defecto"
+      ],
+      "img": "img/crm/roles.webp",
+      "thumb": "img/crm/roles-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sitio",
+      "title": "Sitio web (CMS)",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/sitio",
+      "capturedUrl": "admin.html#/sitio",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor del sitio público por pestañas: portada, características, planes, testimonios, preguntas y contacto. Los cambios se ven al instante en la página.",
+      "actions": [
+        "Editar textos y botones de la portada",
+        "Agregar o quitar características",
+        "Ajustar planes, precios y descuento anual",
+        "Editar testimonios y preguntas frecuentes",
+        "Cambiar datos de contacto"
+      ],
+      "img": "img/crm/sitio.webp",
+      "thumb": "img/crm/sitio-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sitio-planes",
+      "title": "CMS: planes",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/sitio/planes",
+      "capturedUrl": "admin.html#/sitio/planes",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pestaña de planes del CMS con nombre, precio, nota, destacado y lista de características de cada plan.",
+      "actions": [
+        "Cambiar precios y nombres de planes",
+        "Marcar el plan destacado",
+        "Editar las características incluidas",
+        "Definir el descuento anual"
+      ],
+      "img": "img/crm/sitio-planes.webp",
+      "thumb": "img/crm/sitio-planes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "configuracion",
+      "title": "Configuración",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/configuracion",
+      "capturedUrl": "admin.html#/configuracion",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Parámetros del sistema: datos de la empresa, condiciones de las cotizaciones, probabilidad de cierre por etapa y pesos del scoring de leads.",
+      "actions": [
+        "Editar datos de la empresa",
+        "Definir vigencia y notas de las cotizaciones",
+        "Ajustar la probabilidad de cada etapa",
+        "Ajustar los pesos del puntaje de leads"
+      ],
+      "img": "img/crm/configuracion.webp",
+      "thumb": "img/crm/configuracion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "datos",
+      "title": "Datos y respaldo",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/datos",
+      "capturedUrl": "admin.html#/datos",
+      "login": {
+        "id": "u-admin",
+        "name": "Camila Herrera",
+        "role": "Administrador",
+        "email": "admin@pulsocrm.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Volumen de registros por colección, exportación a CSV o JSON y restablecimiento de los datos de demostración.",
+      "actions": [
+        "Ver cuántos registros hay por colección",
+        "Exportar colecciones a CSV",
+        "Descargar un respaldo JSON",
+        "Restablecer los datos demo"
+      ],
+      "img": "img/crm/datos.webp",
+      "thumb": "img/crm/datos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Flat UI\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/crm/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/crm/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/crm/look-app.webp"
+      },
+      {
+        "id": "aurora",
+        "group": "Estilo",
+        "label": "Aurora",
+        "desc": "Degradados suaves y luminosos.",
+        "img": "img/crm/look-aurora.webp"
+      },
+      {
+        "id": "noir",
+        "group": "Estilo",
+        "label": "Noir Neón",
+        "desc": "Oscuro con acentos brillantes.",
+        "img": "img/crm/look-noir.webp"
+      },
+      {
+        "id": "bauhaus",
+        "group": "Estilo",
+        "label": "Bauhaus",
+        "desc": "Geometría y colores primarios.",
+        "img": "img/crm/look-bauhaus.webp"
+      }
+    ]
+  }
+}

@@ -229,10 +229,10 @@ export function seed() {
     { employeeId: tecHead.id, text: 'Tienes solicitudes de tu equipo pendientes de aprobación.', at: ago(0.5), read: false }
   ];
   const users = [
-    { name: perHead.name, email: 'admin@grupocordillera.demo', password: 'demo123', role: 'admin', color: '#b45309', demo: true, active: true, employeeId: perHead.id },
-    { name: tecHead.name, email: 'jefatura@grupocordillera.demo', password: 'demo123', role: 'jefatura', color: '#4f46e5', demo: true, active: true, employeeId: tecHead.id },
-    { name: tecEmp.name, email: 'empleado@grupocordillera.demo', password: 'demo123', role: 'empleado', color: '#0284c7', demo: true, active: true, employeeId: tecEmp.id },
-    { name: recruiter.name, email: 'reclutador@grupocordillera.demo', password: 'demo123', role: 'reclutador', color: '#db2777', demo: true, active: true, employeeId: recruiter.id }
+    { id: 'u-admin', name: perHead.name, email: 'admin@grupocordillera.demo', password: 'demo123', role: 'admin', color: '#b45309', demo: true, active: true, employeeId: perHead.id },
+    { id: 'u-jef', name: tecHead.name, email: 'jefatura@grupocordillera.demo', password: 'demo123', role: 'jefatura', color: '#4f46e5', demo: true, active: true, employeeId: tecHead.id },
+    { id: 'u-emp', name: tecEmp.name, email: 'empleado@grupocordillera.demo', password: 'demo123', role: 'empleado', color: '#0284c7', demo: true, active: true, employeeId: tecEmp.id },
+    { id: 'u-rec', name: recruiter.name, email: 'reclutador@grupocordillera.demo', password: 'demo123', role: 'reclutador', color: '#db2777', demo: true, active: true, employeeId: recruiter.id }
   ];
   const site = {
     heroTitle: 'Construyamos juntos lo que mueve a Chile', heroSubtitle: 'En Grupo Cordillera trabajamos más de 60 personas en operaciones, tecnología y servicios. Súmate a un equipo que crece contigo.',

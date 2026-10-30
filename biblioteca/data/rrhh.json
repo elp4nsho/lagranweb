@@ -1,0 +1,1680 @@
+{
+  "app": "rrhh",
+  "dir": "rrhh",
+  "name": "Grupo Cordillera · Personas",
+  "kind": "Portal de empleos y RRHH",
+  "description": "Sistema de recursos humanos con sitio público de empleos y postulación, portal de autoservicio para colaboradores y jefaturas, y panel de RRHH con dotación, remuneraciones, vacaciones, reclutamiento (ATS), onboarding, desempeño y clima.",
+  "demo": "../rrhh/index.html",
+  "theme": "material",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:19:55.510Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio de empleos",
+      "desc": "Lo que ve cualquier postulante, sin iniciar sesión."
+    },
+    {
+      "id": "empleado",
+      "label": "Colaborador",
+      "desc": "Portal de autoservicio: vacaciones, liquidaciones, asistencia, documentos y desempeño."
+    },
+    {
+      "id": "jefatura",
+      "label": "Jefatura",
+      "desc": "Sección \"Mi equipo\" del portal para quien tiene personas a cargo."
+    },
+    {
+      "id": "reclutador",
+      "label": "Reclutador",
+      "desc": "Módulos de talento del panel: vacantes, candidatos (ATS) y onboarding."
+    },
+    {
+      "id": "admin",
+      "label": "Admin RRHH",
+      "desc": "Panel completo de Personas: colaboradores, estructura, remuneraciones, políticas, desempeño, clima y sistema."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada del sitio de empleos",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de inicio de \"Trabaja con nosotros\" con cifras de la empresa, empleos destacados, quiénes somos y beneficios. Los textos se editan desde el panel de RRHH.",
+      "actions": [
+        "Ver cuántas vacantes hay abiertas y entrar al listado",
+        "Revisar los 4 empleos publicados más recientes",
+        "Conocer los valores y beneficios de la empresa",
+        "Ir a revisar el estado de una postulación"
+      ],
+      "img": "img/rrhh/portada.webp",
+      "thumb": "img/rrhh/portada-thumb.webp",
+      "mobile": "img/rrhh/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empleos",
+      "title": "Listado de empleos",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/empleos",
+      "capturedUrl": "index.html#/empleos",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Todas las vacantes publicadas con área, ciudad, modalidad, tipo de jornada y rango de renta. Los filtros se combinan y la lista se actualiza al instante.",
+      "actions": [
+        "Buscar por cargo o palabra clave",
+        "Filtrar por área, ciudad y modalidad",
+        "Ver el rango de sueldo bruto de cada vacante",
+        "Abrir el detalle de un cargo para postular"
+      ],
+      "img": "img/rrhh/empleos.webp",
+      "thumb": "img/rrhh/empleos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "vacante",
+      "title": "Detalle de vacante y postulación",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/empleos/j1",
+      "capturedUrl": "index.html#/empleos/j1",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ficha del cargo con descripción, requisitos, beneficios y plazo, junto al formulario para postular con carga de CV.",
+      "actions": [
+        "Leer requisitos, beneficios y rango de renta",
+        "Completar datos de contacto (se valida el RUT)",
+        "Adjuntar el CV arrastrándolo o eligiendo el archivo (PDF o Word, máx. 5 MB)",
+        "Indicar pretensión de renta y una carta breve",
+        "Enviar la postulación al ATS del equipo de selección"
+      ],
+      "img": "img/rrhh/vacante.webp",
+      "thumb": "img/rrhh/vacante-thumb.webp",
+      "mobile": "img/rrhh/vacante-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "postulacion-enviada",
+      "title": "Postulación enviada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/empleos/j1",
+      "capturedUrl": "index.html#/empleos/j1",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Confirmación de la postulación con el código de seguimiento. El candidato entra de inmediato a la etapa \"Postulado\" del pipeline del reclutador.",
+      "actions": [
+        "Ver el código de seguimiento",
+        "Ir directo al estado de la postulación",
+        "Seguir viendo otras vacantes"
+      ],
+      "img": "img/rrhh/postulacion-enviada.webp",
+      "thumb": "img/rrhh/postulacion-enviada-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "estado",
+      "title": "Estado de postulación",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/estado",
+      "capturedUrl": "index.html#/estado",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Consulta pública con código y correo que muestra en qué etapa va el proceso, con la fecha de cada paso. Refleja los cambios que hace el reclutador en el ATS.",
+      "actions": [
+        "Consultar con el código y el correo de la postulación",
+        "Ver la línea de tiempo del proceso por etapa",
+        "Saber si el proceso se cerró",
+        "Cargar un código de ejemplo para probar"
+      ],
+      "img": "img/rrhh/estado.webp",
+      "thumb": "img/rrhh/estado-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso común al portal del colaborador y al panel de RRHH. Incluye cuentas de prueba para entrar con un clic a cada rol.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic como Admin RRHH, Jefatura, Empleado o Reclutador",
+        "Ir al portal o al panel según el rol",
+        "Volver al sitio de empleos"
+      ],
+      "img": "img/rrhh/login.webp",
+      "thumb": "img/rrhh/login-thumb.webp",
+      "mobile": "img/rrhh/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-inicio",
+      "title": "Inicio del portal",
+      "section": "empleado",
+      "roles": [
+        "Empleado",
+        "Jefatura",
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "portal.html#/",
+      "capturedUrl": "portal.html#/",
+      "login": {
+        "id": "u-emp",
+        "name": "Amanda Alarcón",
+        "role": "Empleado",
+        "email": "empleado@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen personal del colaborador: saldo de vacaciones, último sueldo líquido, solicitudes en curso, estado de la evaluación, marcaje del día, encuesta abierta, comunicados y cumpleaños del mes.",
+      "actions": [
+        "Marcar entrada y salida",
+        "Responder la encuesta eNPS anónima de 0 a 10",
+        "Ver saldo de vacaciones y último líquido",
+        "Revisar sus solicitudes recientes y crear una nueva",
+        "Leer comunicados y ver los cumpleaños del mes"
+      ],
+      "img": "img/rrhh/portal-inicio.webp",
+      "thumb": "img/rrhh/portal-inicio-thumb.webp",
+      "mobile": "img/rrhh/portal-inicio-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-notificaciones",
+      "title": "Notificaciones",
+      "section": "empleado",
+      "roles": [
+        "Empleado",
+        "Jefatura",
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "portal.html#/",
+      "capturedUrl": "portal.html#/",
+      "login": {
+        "id": "u-emp",
+        "name": "Amanda Alarcón",
+        "role": "Empleado",
+        "email": "empleado@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Campana de la barra superior del portal",
+      "description": "Avisos personales del colaborador: respuestas a sus solicitudes, liquidaciones disponibles, recordatorios de evaluación y mensajes de RRHH.",
+      "actions": [
+        "Ver los últimos 8 avisos con su antigüedad",
+        "Distinguir los no leídos",
+        "Marcar todos como leídos"
+      ],
+      "img": "img/rrhh/portal-notificaciones.webp",
+      "thumb": "img/rrhh/portal-notificaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-solicitudes",
+      "title": "Vacaciones y permisos",
+      "section": "empleado",
+      "roles": [
+        "Empleado",
+        "Jefatura",
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "portal.html#/solicitudes",
+      "capturedUrl": "portal.html#/solicitudes",
+      "login": {
+        "id": "u-emp",
+        "name": "Amanda Alarcón",
+        "role": "Empleado",
+        "email": "empleado@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Saldo de vacaciones con su desglose y formulario de solicitud que calcula los días hábiles y valida las reglas de la política antes de enviar a la jefatura.",
+      "actions": [
+        "Ver derecho anual, arrastre, devengado, usados y en trámite",
+        "Solicitar vacaciones, días administrativos (incluso medio día), licencia u otros permisos",
+        "Adjuntar el comprobante cuando el permiso lo exige",
+        "Ver sus ausencias en un calendario mensual",
+        "Revisar el historial y anular solicitudes pendientes"
+      ],
+      "img": "img/rrhh/portal-solicitudes.webp",
+      "thumb": "img/rrhh/portal-solicitudes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-liquidaciones",
+      "title": "Liquidaciones de sueldo",
+      "section": "empleado",
+      "roles": [
+        "Empleado",
+        "Jefatura",
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "portal.html#/liquidaciones",
+      "capturedUrl": "portal.html#/liquidaciones",
+      "login": {
+        "id": "u-emp",
+        "name": "Amanda Alarcón",
+        "role": "Empleado",
+        "email": "empleado@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Historial de liquidaciones con la evolución del líquido de los últimos meses y el detalle del último periodo (haberes, descuentos, AFP y salud).",
+      "actions": [
+        "Ver el gráfico de líquido de los últimos 6 meses",
+        "Revisar haberes y descuentos de cada mes",
+        "Abrir cualquier liquidación para verla o imprimirla"
+      ],
+      "img": "img/rrhh/portal-liquidaciones.webp",
+      "thumb": "img/rrhh/portal-liquidaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-liquidacion",
+      "title": "Liquidación de sueldo",
+      "section": "empleado",
+      "roles": [
+        "Empleado",
+        "Jefatura",
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "portal.html#/liquidaciones",
+      "capturedUrl": "portal.html#/liquidaciones",
+      "login": {
+        "id": "u-emp",
+        "name": "Amanda Alarcón",
+        "role": "Empleado",
+        "email": "empleado@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Ver liquidación\" en Liquidaciones",
+      "description": "Documento de liquidación del mes con haberes imponibles y no imponibles, cotizaciones de AFP, salud y seguro de cesantía, impuesto único y líquido a pago. El cálculo es simulado.",
+      "actions": [
+        "Revisar cada haber y descuento",
+        "Ver la AFP y el plan de salud aplicados",
+        "Imprimir o guardar como PDF"
+      ],
+      "img": "img/rrhh/portal-liquidacion.webp",
+      "thumb": "img/rrhh/portal-liquidacion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-asistencia",
+      "title": "Asistencia",
+      "section": "empleado",
+      "roles": [
+        "Empleado",
+        "Jefatura",
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "portal.html#/asistencia",
+      "capturedUrl": "portal.html#/asistencia",
+      "login": {
+        "id": "u-emp",
+        "name": "Amanda Alarcón",
+        "role": "Empleado",
+        "email": "empleado@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Reloj de marcaje con la jornada del colaborador, resumen de horas y atrasos y la lista de todas sus marcas.",
+      "actions": [
+        "Marcar entrada y salida del día",
+        "Ver días registrados, horas trabajadas y promedio",
+        "Revisar atrasos y horas sobre la jornada",
+        "Detectar días sin marca de salida"
+      ],
+      "img": "img/rrhh/portal-asistencia.webp",
+      "thumb": "img/rrhh/portal-asistencia-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-documentos",
+      "title": "Mis documentos",
+      "section": "empleado",
+      "roles": [
+        "Empleado",
+        "Jefatura",
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "portal.html#/documentos",
+      "capturedUrl": "portal.html#/documentos",
+      "login": {
+        "id": "u-emp",
+        "name": "Amanda Alarcón",
+        "role": "Empleado",
+        "email": "empleado@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Contratos, anexos, reglamentos y certificados del colaborador, con firma electrónica simulada de los pendientes.",
+      "actions": [
+        "Firmar documentos pendientes",
+        "Descargar cualquier documento",
+        "Generar al instante un certificado de antigüedad o de renta"
+      ],
+      "img": "img/rrhh/portal-documentos.webp",
+      "thumb": "img/rrhh/portal-documentos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-desempeno",
+      "title": "Desempeño",
+      "section": "empleado",
+      "roles": [
+        "Empleado",
+        "Jefatura",
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "portal.html#/evaluacion",
+      "capturedUrl": "portal.html#/evaluacion",
+      "login": {
+        "id": "u-emp",
+        "name": "Amanda Alarcón",
+        "role": "Empleado",
+        "email": "empleado@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Autoevaluación del ciclo abierto con una escala de 1 a 5 por competencia, más los resultados de ciclos anteriores.",
+      "actions": [
+        "Calificar cada competencia del ciclo",
+        "Escribir logros y objetivos de desarrollo",
+        "Enviar o actualizar la autoevaluación (se avisa a la jefatura)",
+        "Ver si la jefatura ya evaluó y los resultados anteriores"
+      ],
+      "img": "img/rrhh/portal-desempeno.webp",
+      "thumb": "img/rrhh/portal-desempeno-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-comunicados",
+      "title": "Comunicados",
+      "section": "empleado",
+      "roles": [
+        "Empleado",
+        "Jefatura",
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "portal.html#/anuncios",
+      "capturedUrl": "portal.html#/anuncios",
+      "login": {
+        "id": "u-emp",
+        "name": "Amanda Alarcón",
+        "role": "Empleado",
+        "email": "empleado@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Comunicados internos publicados por RRHH, con los fijados primero y su categoría.",
+      "actions": [
+        "Leer los comunicados vigentes",
+        "Ver primero los fijados",
+        "Identificar la categoría de cada aviso"
+      ],
+      "img": "img/rrhh/portal-comunicados.webp",
+      "thumb": "img/rrhh/portal-comunicados-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portal-celebraciones",
+      "title": "Cumpleaños y aniversarios",
+      "section": "empleado",
+      "roles": [
+        "Empleado",
+        "Jefatura",
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "portal.html#/celebraciones",
+      "capturedUrl": "portal.html#/celebraciones",
+      "login": {
+        "id": "u-emp",
+        "name": "Amanda Alarcón",
+        "role": "Empleado",
+        "email": "empleado@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Próximos cumpleaños, aniversarios laborales y nuevos ingresos de los siguientes 45 días.",
+      "actions": [
+        "Ver quién está de cumpleaños",
+        "Ver aniversarios con los años cumplidos",
+        "Conocer a las personas que ingresaron o ingresarán"
+      ],
+      "img": "img/rrhh/portal-celebraciones.webp",
+      "thumb": "img/rrhh/portal-celebraciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "equipo-aprobaciones",
+      "title": "Mi equipo: aprobaciones",
+      "section": "jefatura",
+      "roles": null,
+      "url": "portal.html#/equipo",
+      "capturedUrl": "portal.html#/equipo",
+      "login": {
+        "id": "u-jef",
+        "name": "Isabel Garrido",
+        "role": "Jefatura",
+        "email": "jefatura@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bandeja de solicitudes pendientes de las personas a cargo, con el saldo de vacaciones de cada una. Al decidir, el colaborador recibe una notificación.",
+      "actions": [
+        "Ver tipo, fechas, días y saldo de cada solicitud",
+        "Aprobar con un clic",
+        "Rechazar indicando el motivo",
+        "Saltar al calendario, evaluaciones o listado del equipo"
+      ],
+      "img": "img/rrhh/equipo-aprobaciones.webp",
+      "thumb": "img/rrhh/equipo-aprobaciones-thumb.webp",
+      "mobile": "img/rrhh/equipo-aprobaciones-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "equipo-rechazar",
+      "title": "Rechazar solicitud",
+      "section": "jefatura",
+      "roles": null,
+      "url": "portal.html#/equipo",
+      "capturedUrl": "portal.html#/equipo",
+      "login": {
+        "id": "u-jef",
+        "name": "Isabel Garrido",
+        "role": "Jefatura",
+        "email": "jefatura@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Rechazar\" en una solicitud del equipo",
+      "description": "Ventana para rechazar una solicitud con un motivo que se envía al colaborador.",
+      "actions": [
+        "Escribir el motivo del rechazo",
+        "Confirmar el rechazo",
+        "Notificar al colaborador con el comentario"
+      ],
+      "img": "img/rrhh/equipo-rechazar.webp",
+      "thumb": "img/rrhh/equipo-rechazar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "equipo-calendario",
+      "title": "Mi equipo: calendario",
+      "section": "jefatura",
+      "roles": null,
+      "url": "portal.html#/equipo",
+      "capturedUrl": "portal.html#/equipo",
+      "login": {
+        "id": "u-jef",
+        "name": "Isabel Garrido",
+        "role": "Jefatura",
+        "email": "jefatura@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Calendario mensual con las ausencias aprobadas, pendientes y licencias de todo el equipo.",
+      "actions": [
+        "Navegar mes a mes",
+        "Ver quién está ausente cada día",
+        "Distinguir aprobadas, pendientes y licencias por color"
+      ],
+      "img": "img/rrhh/equipo-calendario.webp",
+      "thumb": "img/rrhh/equipo-calendario-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "equipo-evaluaciones",
+      "title": "Mi equipo: evaluaciones",
+      "section": "jefatura",
+      "roles": null,
+      "url": "portal.html#/equipo",
+      "capturedUrl": "portal.html#/equipo",
+      "login": {
+        "id": "u-jef",
+        "name": "Isabel Garrido",
+        "role": "Jefatura",
+        "email": "jefatura@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Avance del ciclo de desempeño abierto para cada persona del equipo: autoevaluación recibida y evaluación de la jefatura.",
+      "actions": [
+        "Ver quién envió su autoevaluación",
+        "Ver el puntaje y nivel ya asignados",
+        "Abrir la evaluación de cada colaborador"
+      ],
+      "img": "img/rrhh/equipo-evaluaciones.webp",
+      "thumb": "img/rrhh/equipo-evaluaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "equipo-evaluar",
+      "title": "Evaluar a un colaborador",
+      "section": "jefatura",
+      "roles": null,
+      "url": "portal.html#/equipo",
+      "capturedUrl": "portal.html#/equipo",
+      "login": {
+        "id": "u-jef",
+        "name": "Isabel Garrido",
+        "role": "Jefatura",
+        "email": "jefatura@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Evaluar\" en la pestaña Evaluaciones",
+      "description": "Formulario de evaluación de la jefatura que muestra al lado la autoevaluación del colaborador, competencia por competencia.",
+      "actions": [
+        "Leer la autoevaluación, logros y objetivos",
+        "Calificar cada competencia de 1 a 5",
+        "Escribir la retroalimentación",
+        "Guardar y notificar al colaborador"
+      ],
+      "img": "img/rrhh/equipo-evaluar.webp",
+      "thumb": "img/rrhh/equipo-evaluar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "equipo-listado",
+      "title": "Mi equipo: personas",
+      "section": "jefatura",
+      "roles": null,
+      "url": "portal.html#/equipo",
+      "capturedUrl": "portal.html#/equipo",
+      "login": {
+        "id": "u-jef",
+        "name": "Isabel Garrido",
+        "role": "Jefatura",
+        "email": "jefatura@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Listado de las personas a cargo con fecha de ingreso, tipo de contrato, vacaciones disponibles y si están ausentes hoy.",
+      "actions": [
+        "Ver la antigüedad y el contrato de cada persona",
+        "Revisar el saldo de vacaciones",
+        "Saber quién está ausente hoy y por qué"
+      ],
+      "img": "img/rrhh/equipo-listado.webp",
+      "thumb": "img/rrhh/equipo-listado-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "rec-dashboard",
+      "title": "Dashboard del reclutador",
+      "section": "reclutador",
+      "roles": null,
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-rec",
+        "name": "Raúl Soto",
+        "role": "Reclutador",
+        "email": "reclutador@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Versión del dashboard para el rol de reclutamiento: dotación, ingresos, egresos, ausentismo, eNPS y pipeline de candidatos, sin costos de planilla ni bitácora.",
+      "actions": [
+        "Ver la dotación de los últimos 12 meses y por área",
+        "Revisar ingresos y egresos por mes",
+        "Ver cuántos candidatos hay en cada etapa del pipeline",
+        "Entrar a vacantes, candidatos u onboarding desde el menú"
+      ],
+      "img": "img/rrhh/rec-dashboard.webp",
+      "thumb": "img/rrhh/rec-dashboard-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "vacantes",
+      "title": "Vacantes",
+      "section": "reclutador",
+      "roles": [
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "admin.html#/vacantes",
+      "capturedUrl": "admin.html#/vacantes",
+      "login": {
+        "id": "u-rec",
+        "name": "Raúl Soto",
+        "role": "Reclutador",
+        "email": "reclutador@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Administración de las vacantes del sitio de empleos con su estado, plazo, reclutador y cantidad de postulantes.",
+      "actions": [
+        "Crear y editar vacantes",
+        "Publicar, pausar o cerrar una vacante",
+        "Ver postulantes por vacante",
+        "Filtrar y buscar",
+        "Abrir el sitio público para revisarla"
+      ],
+      "img": "img/rrhh/vacantes.webp",
+      "thumb": "img/rrhh/vacantes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "vacante-nueva",
+      "title": "Nueva vacante",
+      "section": "reclutador",
+      "roles": [
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "admin.html#/vacantes",
+      "capturedUrl": "admin.html#/vacantes",
+      "login": {
+        "id": "u-rec",
+        "name": "Raúl Soto",
+        "role": "Reclutador",
+        "email": "reclutador@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva vacante\"",
+      "description": "Formulario completo del aviso: cargo, área, ciudad, modalidad, jornada, rango de renta, descripción, requisitos, beneficios, plazo y estado de publicación.",
+      "actions": [
+        "Definir cargo, área, ciudad y modalidad",
+        "Fijar el rango de renta y el número de vacantes",
+        "Escribir descripción, requisitos y beneficios",
+        "Asignar reclutador y fecha límite",
+        "Guardar como borrador o publicar"
+      ],
+      "img": "img/rrhh/vacante-nueva.webp",
+      "thumb": "img/rrhh/vacante-nueva-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "candidatos",
+      "title": "Candidatos (ATS)",
+      "section": "reclutador",
+      "roles": [
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "admin.html#/candidatos",
+      "capturedUrl": "admin.html#/candidatos",
+      "login": {
+        "id": "u-rec",
+        "name": "Raúl Soto",
+        "role": "Reclutador",
+        "email": "reclutador@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pipeline de selección en tablero kanban por etapa (postulado, revisión, entrevista, prueba, oferta, contratado). Las tarjetas se arrastran entre columnas.",
+      "actions": [
+        "Mover candidatos entre etapas arrastrando",
+        "Filtrar por vacante",
+        "Ver puntaje y antigüedad de cada postulación",
+        "Agregar un candidato a mano",
+        "Abrir el perfil completo"
+      ],
+      "img": "img/rrhh/candidatos.webp",
+      "thumb": "img/rrhh/candidatos-thumb.webp",
+      "mobile": "img/rrhh/candidatos-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "candidato-perfil",
+      "title": "Perfil del candidato",
+      "section": "reclutador",
+      "roles": [
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "admin.html#/candidatos/a4830",
+      "capturedUrl": "admin.html#/candidatos/a4830",
+      "login": {
+        "id": "u-rec",
+        "name": "Raúl Soto",
+        "role": "Reclutador",
+        "email": "reclutador@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha del postulante con datos de contacto, etapa, entrevistas agendadas, scorecards del equipo, historial del proceso y notas internas.",
+      "actions": [
+        "Cambiar la etapa del proceso",
+        "Ver el CV adjunto",
+        "Agendar entrevistas y registrar scorecards",
+        "Dejar notas internas",
+        "Descartar o contratar"
+      ],
+      "img": "img/rrhh/candidato-perfil.webp",
+      "thumb": "img/rrhh/candidato-perfil-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "candidato-cv",
+      "title": "CV del candidato",
+      "section": "reclutador",
+      "roles": [
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "admin.html#/candidatos/a4830",
+      "capturedUrl": "admin.html#/candidatos/a4830",
+      "login": {
+        "id": "u-rec",
+        "name": "Raúl Soto",
+        "role": "Reclutador",
+        "email": "reclutador@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Ver CV\" en el perfil del candidato",
+      "description": "Vista previa del currículum adjunto en la postulación (simulada) con experiencia, formación y contacto.",
+      "actions": [
+        "Revisar experiencia y formación",
+        "Ver los datos de contacto y LinkedIn",
+        "Volver al perfil para decidir"
+      ],
+      "img": "img/rrhh/candidato-cv.webp",
+      "thumb": "img/rrhh/candidato-cv-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "candidato-entrevista",
+      "title": "Agendar entrevista",
+      "section": "reclutador",
+      "roles": [
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "admin.html#/candidatos/a4830",
+      "capturedUrl": "admin.html#/candidatos/a4830",
+      "login": {
+        "id": "u-rec",
+        "name": "Raúl Soto",
+        "role": "Reclutador",
+        "email": "reclutador@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Agendar\" en Entrevistas del perfil",
+      "description": "Formulario para agendar una entrevista con fecha, hora, entrevistador y modalidad.",
+      "actions": [
+        "Elegir fecha y hora",
+        "Asignar entrevistador entre las jefaturas",
+        "Definir la modalidad",
+        "Dejarla registrada en el perfil"
+      ],
+      "img": "img/rrhh/candidato-entrevista.webp",
+      "thumb": "img/rrhh/candidato-entrevista-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "candidato-scorecard",
+      "title": "Scorecard de entrevista",
+      "section": "reclutador",
+      "roles": [
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "admin.html#/candidatos/a4830",
+      "capturedUrl": "admin.html#/candidatos/a4830",
+      "login": {
+        "id": "u-rec",
+        "name": "Raúl Soto",
+        "role": "Reclutador",
+        "email": "reclutador@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Evaluar\" en Scorecards del perfil",
+      "description": "Pauta de evaluación estructurada después de una entrevista, con nota de 1 a 5 por criterio y una recomendación.",
+      "actions": [
+        "Calificar cada criterio de 1 a 5",
+        "Recomendar avanzar, con dudas o no avanzar",
+        "Dejar un comentario",
+        "Actualizar el promedio del candidato"
+      ],
+      "img": "img/rrhh/candidato-scorecard.webp",
+      "thumb": "img/rrhh/candidato-scorecard-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "candidato-contratar",
+      "title": "Contratar candidato",
+      "section": "reclutador",
+      "roles": [
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "admin.html#/candidatos/a4833",
+      "capturedUrl": "admin.html#/candidatos/a4833",
+      "login": {
+        "id": "u-rec",
+        "name": "Raúl Soto",
+        "role": "Reclutador",
+        "email": "reclutador@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Etapa \"Contratado\" en el perfil o el kanban",
+      "description": "Cierre del proceso: al contratar se crea la ficha del colaborador, su contrato pendiente de firma y el checklist de onboarding.",
+      "actions": [
+        "Definir fecha de ingreso y sueldo base",
+        "Elegir tipo de contrato y AFP",
+        "Crear la ficha del colaborador automáticamente",
+        "Generar el onboarding y cerrar la vacante si se completan los cupos"
+      ],
+      "img": "img/rrhh/candidato-contratar.webp",
+      "thumb": "img/rrhh/candidato-contratar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "candidato-descartar",
+      "title": "Descartar candidato",
+      "section": "reclutador",
+      "roles": [
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "admin.html#/candidatos/a4830",
+      "capturedUrl": "admin.html#/candidatos/a4830",
+      "login": {
+        "id": "u-rec",
+        "name": "Raúl Soto",
+        "role": "Reclutador",
+        "email": "reclutador@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Descartar\" en el perfil del candidato",
+      "description": "Cierre de una postulación con su motivo. El postulante ve el proceso como cerrado en la consulta pública.",
+      "actions": [
+        "Elegir el motivo del descarte",
+        "Decidir si se envía aviso al postulante",
+        "Mover la tarjeta a descartados"
+      ],
+      "img": "img/rrhh/candidato-descartar.webp",
+      "thumb": "img/rrhh/candidato-descartar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "onboarding",
+      "title": "Onboarding",
+      "section": "reclutador",
+      "roles": [
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "admin.html#/onboarding",
+      "capturedUrl": "admin.html#/onboarding",
+      "login": {
+        "id": "u-rec",
+        "name": "Raúl Soto",
+        "role": "Reclutador",
+        "email": "reclutador@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Procesos de ingreso de las nuevas personas con su avance y el checklist de tareas por responsable y fecha. Se crean solos al contratar desde el ATS.",
+      "actions": [
+        "Ver el avance de cada ingreso",
+        "Marcar tareas como hechas",
+        "Ver responsable y fecha de cada tarea",
+        "Crear un onboarding a mano",
+        "Editar la plantilla de tareas"
+      ],
+      "img": "img/rrhh/onboarding.webp",
+      "thumb": "img/rrhh/onboarding-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "onboarding-plantilla",
+      "title": "Plantilla de onboarding",
+      "section": "reclutador",
+      "roles": [
+        "Reclutador",
+        "Admin RRHH"
+      ],
+      "url": "admin.html#/onboarding",
+      "capturedUrl": "admin.html#/onboarding",
+      "login": {
+        "id": "u-rec",
+        "name": "Raúl Soto",
+        "role": "Reclutador",
+        "email": "reclutador@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Plantilla\" en Onboarding",
+      "description": "Editor de la lista base de tareas de ingreso: título, responsable y días desde la fecha de ingreso.",
+      "actions": [
+        "Agregar, quitar o reordenar tareas",
+        "Asignar el responsable de cada una",
+        "Definir el plazo en días desde el ingreso"
+      ],
+      "img": "img/rrhh/onboarding-plantilla.webp",
+      "thumb": "img/rrhh/onboarding-plantilla-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dashboard",
+      "title": "Dashboard de RRHH",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Indicadores de personas: dotación, rotación, ausentismo, costo de planilla, eNPS y pipeline de reclutamiento, más la actividad reciente.",
+      "actions": [
+        "Ver dotación de 12 meses y distribución por área",
+        "Revisar ingresos, egresos y rotación",
+        "Seguir el ausentismo y el costo empresa mensual",
+        "Ver la evolución del eNPS y el pipeline de candidatos",
+        "Revisar la actividad reciente del sistema"
+      ],
+      "img": "img/rrhh/dashboard.webp",
+      "thumb": "img/rrhh/dashboard-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "colaboradores",
+      "title": "Colaboradores",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/colaboradores",
+      "capturedUrl": "admin.html#/colaboradores",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Nómina completa con RUT, área, contrato, sueldo base y estado. Incluye a las personas desvinculadas.",
+      "actions": [
+        "Buscar y filtrar por área, estado y tipo de contrato",
+        "Crear y editar fichas",
+        "Registrar una desvinculación",
+        "Abrir la ficha completa",
+        "Exportar a CSV"
+      ],
+      "img": "img/rrhh/colaboradores.webp",
+      "thumb": "img/rrhh/colaboradores-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "colaborador-ficha",
+      "title": "Ficha del colaborador",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/colaboradores/e1",
+      "capturedUrl": "admin.html#/colaboradores/e1",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Vista 360° de una persona: datos personales, contrato, previsión, saldo de vacaciones, liquidaciones, solicitudes y documentos.",
+      "actions": [
+        "Ver datos personales, contrato y jornada",
+        "Revisar el saldo de vacaciones",
+        "Abrir sus liquidaciones",
+        "Ver sus solicitudes y documentos firmados o pendientes",
+        "Editar o desvincular"
+      ],
+      "img": "img/rrhh/colaborador-ficha.webp",
+      "thumb": "img/rrhh/colaborador-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "colaborador-nuevo",
+      "title": "Nuevo colaborador",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/colaboradores",
+      "capturedUrl": "admin.html#/colaboradores",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo colaborador\"",
+      "description": "Formulario de alta con datos personales, contrato y remuneración y previsión, en tres bloques.",
+      "actions": [
+        "Ingresar nombre, RUT, nacimiento y contacto",
+        "Definir cargo, área, jefatura, lugar y jornada",
+        "Elegir tipo de contrato y fechas",
+        "Fijar sueldo base, AFP, salud y plan Isapre",
+        "Registrar banco y contacto de emergencia"
+      ],
+      "img": "img/rrhh/colaborador-nuevo.webp",
+      "thumb": "img/rrhh/colaborador-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "colaborador-desvincular",
+      "title": "Desvincular colaborador",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/colaboradores",
+      "capturedUrl": "admin.html#/colaboradores",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Desvincular\" en Colaboradores",
+      "description": "Registro del egreso de una persona con fecha de término, causal y observaciones.",
+      "actions": [
+        "Indicar la fecha de término",
+        "Elegir la causal legal",
+        "Dejar observaciones",
+        "Pasar a la persona a desvinculados"
+      ],
+      "img": "img/rrhh/colaborador-desvincular.webp",
+      "thumb": "img/rrhh/colaborador-desvincular-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "estructura",
+      "title": "Estructura organizacional",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/organizacion",
+      "capturedUrl": "admin.html#/organizacion",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Organigrama por áreas con su jefatura y dotación, y la tabla de áreas con centro de costo.",
+      "actions": [
+        "Ver el organigrama por niveles",
+        "Crear, editar y eliminar áreas",
+        "Asignar jefatura y área superior",
+        "Revisar dotación y centro de costo por área"
+      ],
+      "img": "img/rrhh/estructura.webp",
+      "thumb": "img/rrhh/estructura-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-solicitudes",
+      "title": "Vacaciones y permisos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/solicitudes",
+      "capturedUrl": "admin.html#/solicitudes",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todas las solicitudes de la empresa con su estado. RRHH puede aprobar o rechazar en reemplazo de la jefatura.",
+      "actions": [
+        "Filtrar por estado, tipo y área",
+        "Aprobar o rechazar solicitudes pendientes",
+        "Ver el aprobador y el comentario",
+        "Exportar a CSV"
+      ],
+      "img": "img/rrhh/admin-solicitudes.webp",
+      "thumb": "img/rrhh/admin-solicitudes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-ausencias",
+      "title": "Calendario de ausencias",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/solicitudes",
+      "capturedUrl": "admin.html#/solicitudes",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Calendario mensual con las ausencias aprobadas y pendientes de toda la empresa.",
+      "actions": [
+        "Navegar mes a mes",
+        "Ver quién está ausente cada día",
+        "Distinguir pendientes y licencias médicas"
+      ],
+      "img": "img/rrhh/admin-ausencias.webp",
+      "thumb": "img/rrhh/admin-ausencias-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "politicas",
+      "title": "Políticas de vacaciones y permisos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/politicas",
+      "capturedUrl": "admin.html#/politicas",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Parámetros que usan el cálculo de saldos y las validaciones del portal, basados en el Código del Trabajo.",
+      "actions": [
+        "Definir días base y feriado progresivo",
+        "Fijar el máximo acumulable y la anticipación mínima",
+        "Elegir quién aprueba y si se permite medio día",
+        "Definir los días administrativos al año",
+        "Revisar los tipos de permiso y sus reglas"
+      ],
+      "img": "img/rrhh/politicas.webp",
+      "thumb": "img/rrhh/politicas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "remuneraciones",
+      "title": "Remuneraciones",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/remuneraciones",
+      "capturedUrl": "admin.html#/remuneraciones",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Procesos mensuales de sueldos con el costo empresa por mes y las liquidaciones de cada periodo. Usa parámetros simulados de UF, UTM e ingreso mínimo.",
+      "actions": [
+        "Procesar el mes siguiente",
+        "Revisar haberes, descuentos, líquido y costo empresa por persona",
+        "Marcar un proceso como pagado o reprocesarlo",
+        "Ver cada liquidación",
+        "Descargar el archivo Previred (simulado)"
+      ],
+      "img": "img/rrhh/remuneraciones.webp",
+      "thumb": "img/rrhh/remuneraciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "remuneraciones-procesar",
+      "title": "Procesar remuneraciones",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/remuneraciones",
+      "capturedUrl": "admin.html#/remuneraciones",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Procesar\" en Remuneraciones",
+      "description": "Previsualización del cálculo masivo del mes antes de emitir las liquidaciones, con totales y detalle por persona.",
+      "actions": [
+        "Ajustar horas extra y bonos de cada persona",
+        "Ver el líquido estimado de cada liquidación",
+        "Emitir todas las liquidaciones de una vez",
+        "Notificar a cada colaborador en su portal"
+      ],
+      "img": "img/rrhh/remuneraciones-procesar.webp",
+      "thumb": "img/rrhh/remuneraciones-procesar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "desempeno",
+      "title": "Desempeño",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/desempeno",
+      "capturedUrl": "admin.html#/desempeno",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ciclos de evaluación con la distribución de resultados, el avance de las jefaturas por área y el estado de cada evaluación.",
+      "actions": [
+        "Crear un ciclo con sus competencias",
+        "Ver la distribución de resultados",
+        "Seguir el avance por área",
+        "Enviar recordatorios a quienes faltan",
+        "Cerrar el ciclo y calcular resultados finales"
+      ],
+      "img": "img/rrhh/desempeno.webp",
+      "thumb": "img/rrhh/desempeno-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "encuestas",
+      "title": "Encuestas eNPS",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/encuestas",
+      "capturedUrl": "admin.html#/encuestas",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Encuestas de clima con la evolución del eNPS. Las respuestas llegan anónimas desde el portal del colaborador.",
+      "actions": [
+        "Crear una encuesta con su pregunta",
+        "Abrir o cerrar encuestas",
+        "Ver respuestas y eNPS de cada una",
+        "Seguir la tendencia entre trimestres"
+      ],
+      "img": "img/rrhh/encuestas.webp",
+      "thumb": "img/rrhh/encuestas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "encuesta-resultados",
+      "title": "Resultados de encuesta",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/encuestas/s4",
+      "capturedUrl": "admin.html#/encuestas/s4",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resultados de una encuesta eNPS: promotores, pasivos y detractores, distribución de puntajes, eNPS por área y comentarios anónimos.",
+      "actions": [
+        "Ver el eNPS y sus segmentos",
+        "Revisar la distribución de 0 a 10",
+        "Comparar el eNPS por área (con resguardo de anonimato)",
+        "Leer los comentarios"
+      ],
+      "img": "img/rrhh/encuesta-resultados.webp",
+      "thumb": "img/rrhh/encuesta-resultados-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-comunicados",
+      "title": "Comunicados",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/anuncios",
+      "capturedUrl": "admin.html#/anuncios",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Gestión de los comunicados internos que se muestran al instante en el portal del colaborador.",
+      "actions": [
+        "Crear, editar y eliminar comunicados",
+        "Fijar los importantes arriba",
+        "Publicar o dejar en borrador",
+        "Filtrar por categoría"
+      ],
+      "img": "img/rrhh/admin-comunicados.webp",
+      "thumb": "img/rrhh/admin-comunicados-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "comunicado-nuevo",
+      "title": "Nuevo comunicado",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/anuncios",
+      "capturedUrl": "admin.html#/anuncios",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo comunicado\"",
+      "description": "Formulario para redactar un comunicado interno con su categoría y opciones de publicación.",
+      "actions": [
+        "Escribir título y cuerpo",
+        "Elegir la categoría",
+        "Fijarlo y publicarlo",
+        "Notificar a todos los colaboradores"
+      ],
+      "img": "img/rrhh/comunicado-nuevo.webp",
+      "thumb": "img/rrhh/comunicado-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas de acceso con su rol, persona vinculada y estado. Define quién entra al panel y quién solo al portal.",
+      "actions": [
+        "Crear usuarios con contraseña",
+        "Cambiar el rol (Admin RRHH, Reclutador, Jefatura, Empleado)",
+        "Vincular la cuenta a la ficha de un colaborador",
+        "Activar o desactivar el acceso"
+      ],
+      "img": "img/rrhh/usuarios.webp",
+      "thumb": "img/rrhh/usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ajustes",
+      "title": "Sitio de empleos (CMS)",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/ajustes",
+      "capturedUrl": "admin.html#/ajustes",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Textos del sitio público de empleos que se publican al instante, y la opción de restablecer los datos de demostración.",
+      "actions": [
+        "Editar título y bajada de la portada",
+        "Editar quiénes somos, valores y beneficios",
+        "Cambiar el correo de contacto",
+        "Abrir el sitio para revisar",
+        "Restablecer los datos demo"
+      ],
+      "img": "img/rrhh/ajustes.webp",
+      "thumb": "img/rrhh/ajustes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bitacora",
+      "title": "Bitácora de actividad",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/bitacora",
+      "capturedUrl": "admin.html#/bitacora",
+      "login": {
+        "id": "u-admin",
+        "name": "Isidora Díaz",
+        "role": "Admin RRHH",
+        "email": "admin@grupocordillera.demo",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de las últimas 300 acciones hechas en el sitio de empleos, el portal y el panel.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Buscar y filtrar por tipo de acción",
+        "Exportar a CSV"
+      ],
+      "img": "img/rrhh/bitacora.webp",
+      "thumb": "img/rrhh/bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Material 14\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/rrhh/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/rrhh/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/rrhh/look-app.webp"
+      },
+      {
+        "id": "nordic",
+        "group": "Estilo",
+        "label": "Nórdico",
+        "desc": "Minimalista, blanco y aire.",
+        "img": "img/rrhh/look-nordic.webp"
+      },
+      {
+        "id": "graphite",
+        "group": "Estilo",
+        "label": "Grafito",
+        "desc": "Oscuro sobrio, de herramienta profesional.",
+        "img": "img/rrhh/look-graphite.webp"
+      },
+      {
+        "id": "forest",
+        "group": "Estilo",
+        "label": "Bosque",
+        "desc": "Tonos verdes y cálidos.",
+        "img": "img/rrhh/look-forest.webp"
+      }
+    ]
+  }
+}

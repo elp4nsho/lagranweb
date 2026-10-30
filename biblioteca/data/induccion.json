@@ -1,0 +1,1234 @@
+{
+  "app": "induccion",
+  "dir": "induccion",
+  "name": "Inducción XR · Minera Altiplano",
+  "kind": "Plataforma de inducción de seguridad",
+  "description": "Plataforma de inducción de seguridad para una minera con sitio público, app del trabajador con módulos 3D/VR, evaluación y certificado verificable, panel del supervisor para su equipo y panel de prevención con planes, módulos, banco de preguntas, asignaciones, evaluaciones prácticas y reportes.",
+  "demo": "../induccion/index.html",
+  "theme": "synthwave",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:36:33.147Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Presentación de la plataforma, ingreso y verificador público de certificados."
+    },
+    {
+      "id": "trabajador",
+      "label": "Trabajador",
+      "desc": "App donde cada persona hace sus inducciones, rinde la evaluación y descarga sus certificados."
+    },
+    {
+      "id": "supervisor",
+      "label": "Supervisor",
+      "desc": "Seguimiento de su equipo: avance, asignaciones, prácticas en terreno y vencimientos."
+    },
+    {
+      "id": "prevencion",
+      "label": "Prevencionista",
+      "desc": "Panel de contenidos y seguimiento: trabajadores, empresas, planes, módulos 3D, preguntas, evaluaciones y reportes."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Lo anterior más usuarios y roles, sitio público y configuración."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Presentación de la inducción en 3D con sus beneficios, los módulos interactivos, los planes por rol, los dispositivos compatibles (incluido visor VR) y un verificador de certificados. Los textos se editan desde el panel.",
+      "actions": [
+        "Conocer los beneficios de la inducción interactiva",
+        "Ver los módulos y los planes por rol",
+        "Revisar si el dispositivo es compatible con WebXR",
+        "Verificar un certificado por su código",
+        "Ir a ingresar"
+      ],
+      "img": "img/induccion/portada.webp",
+      "thumb": "img/induccion/portada-thumb.webp",
+      "mobile": "img/induccion/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "portada-modulos",
+      "title": "Módulos y planes",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Secciones de la portada con los módulos interactivos disponibles y los planes de inducción que combinan esos módulos para cada tipo de trabajador.",
+      "actions": [
+        "Ver qué enseña cada módulo",
+        "Ver los planes para personal propio y contratistas",
+        "Conocer duración y vigencia de cada plan"
+      ],
+      "img": "img/induccion/portada-modulos.webp",
+      "thumb": "img/induccion/portada-modulos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso con dos modos: los trabajadores entran con RUT y PIN, y el personal y supervisores con correo y clave. Incluye cuentas de demostración para cada rol.",
+      "actions": [
+        "Entrar como trabajador con RUT y PIN",
+        "Entrar como personal con correo y clave",
+        "Usar una cuenta de demostración con un clic",
+        "Ir directo al panel que corresponde al rol"
+      ],
+      "img": "img/induccion/login.webp",
+      "thumb": "img/induccion/login-thumb.webp",
+      "mobile": "img/induccion/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "verificar",
+      "title": "Verificador de certificados",
+      "section": "publico",
+      "roles": null,
+      "url": "verificar.html?c=MA-RAP-2025-7QX4K",
+      "capturedUrl": "verificar.html?c=MA-RAP-2025-7QX4K",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página pública donde cualquiera (por ejemplo, un mandante en portería) comprueba con el código si un certificado es válido, está vencido o fue revocado.",
+      "actions": [
+        "Ingresar el código impreso en el certificado",
+        "Ver si es válido, vencido o revocado",
+        "Ver nombre, plan y fechas de vigencia",
+        "Abrir el certificado"
+      ],
+      "img": "img/induccion/verificar.webp",
+      "thumb": "img/induccion/verificar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mis-inducciones",
+      "title": "Mis inducciones",
+      "section": "trabajador",
+      "roles": null,
+      "url": "app.html#/",
+      "capturedUrl": "app.html#/",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Rojas Soto",
+        "role": "Trabajador",
+        "email": "camila.rojas@altiplano.cl",
+        "password": "1234"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inicio del trabajador con recordatorios de plazo, las inducciones asignadas con su avance y el historial de las ya completadas.",
+      "actions": [
+        "Ver las inducciones asignadas y su plazo",
+        "Seguir el avance de cada una",
+        "Continuar donde quedó",
+        "Revisar el historial de inducciones completadas"
+      ],
+      "img": "img/induccion/mis-inducciones.webp",
+      "thumb": "img/induccion/mis-inducciones-thumb.webp",
+      "mobile": "img/induccion/mis-inducciones-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "plan",
+      "title": "Detalle de la inducción",
+      "section": "trabajador",
+      "roles": null,
+      "url": "app.html#/plan/a-cam-igs",
+      "capturedUrl": "app.html#/plan/a-cam-igs",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Rojas Soto",
+        "role": "Trabajador",
+        "email": "camila.rojas@altiplano.cl",
+        "password": "1234"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Módulos de una inducción en el orden definido, con su estado, los intentos de la evaluación y la evaluación práctica en terreno si el plan la exige.",
+      "actions": [
+        "Ver los módulos en orden y cuáles faltan",
+        "Abrir el siguiente módulo",
+        "Ver los intentos de evaluación",
+        "Saber si falta la práctica en terreno"
+      ],
+      "img": "img/induccion/plan.webp",
+      "thumb": "img/induccion/plan-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "modulo-recorrido",
+      "title": "Módulo: recorrido por la planta",
+      "section": "trabajador",
+      "roles": null,
+      "url": "app.html#/modulo/a-cam-igs/recorrido",
+      "capturedUrl": "app.html#/modulo/a-cam-igs/recorrido",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Rojas Soto",
+        "role": "Trabajador",
+        "email": "camila.rojas@altiplano.cl",
+        "password": "1234"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Recorrido por la planta con puntos de interés que explican cada riesgo. La vista real es una escena 3D navegable (y compatible con visores VR); si el motor 3D no carga, se muestra una vista 2D equivalente con los mismos puntos, que es la que aparece en esta captura.",
+      "actions": [
+        "Recorrer la planta y abrir cada punto de interés",
+        "Activar el recorrido guiado",
+        "Entrar en modo VR con un visor compatible",
+        "Avanzar el porcentaje del módulo al revisar cada punto"
+      ],
+      "img": "img/induccion/modulo-recorrido.webp",
+      "thumb": "img/induccion/modulo-recorrido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "modulo-epp",
+      "title": "Módulo: equipo de protección",
+      "section": "trabajador",
+      "roles": null,
+      "url": "app.html#/modulo/a-cam-igs/epp",
+      "capturedUrl": "app.html#/modulo/a-cam-igs/epp",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Rojas Soto",
+        "role": "Trabajador",
+        "email": "camila.rojas@altiplano.cl",
+        "password": "1234"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ejercicio para equipar al trabajador con el EPP correcto pieza por pieza. En la versión real el trabajador se viste sobre un modelo 3D; esta captura muestra la vista 2D que se usa cuando el motor 3D no está disponible.",
+      "actions": [
+        "Elegir cada elemento de protección",
+        "Ver para qué sirve cada pieza",
+        "Completar el equipamiento para avanzar"
+      ],
+      "img": "img/induccion/modulo-epp.webp",
+      "thumb": "img/induccion/modulo-epp-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "evaluacion",
+      "title": "Evaluación final",
+      "section": "trabajador",
+      "roles": null,
+      "url": "app.html#/evaluacion/a-cam-rap",
+      "capturedUrl": "app.html#/evaluacion/a-cam-rap",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Rojas Soto",
+        "role": "Trabajador",
+        "email": "camila.rojas@altiplano.cl",
+        "password": "1234"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Portada de la evaluación con la cantidad de preguntas, el puntaje mínimo para aprobar y los intentos anteriores.",
+      "actions": [
+        "Ver cuántas preguntas tiene y el puntaje para aprobar",
+        "Comenzar o volver a rendir la evaluación",
+        "Abrir el certificado si ya aprobó"
+      ],
+      "img": "img/induccion/evaluacion.webp",
+      "thumb": "img/induccion/evaluacion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "evaluacion-pregunta",
+      "title": "Evaluación: pregunta",
+      "section": "trabajador",
+      "roles": null,
+      "url": "app.html#/evaluacion/a-cam-rap",
+      "capturedUrl": "app.html#/evaluacion/a-cam-rap",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Rojas Soto",
+        "role": "Trabajador",
+        "email": "camila.rojas@altiplano.cl",
+        "password": "1234"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Preguntas de alternativas tomadas al azar del banco de los módulos del plan, con barra de avance y retroalimentación inmediata. El intento queda registrado y al aprobar se emite el certificado.",
+      "actions": [
+        "Responder cada pregunta de alternativas",
+        "Ver si la respuesta es correcta y por qué",
+        "Avanzar con la barra de progreso",
+        "Conocer el puntaje final y si aprobó"
+      ],
+      "img": "img/induccion/evaluacion-pregunta.webp",
+      "thumb": "img/induccion/evaluacion-pregunta-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "certificados",
+      "title": "Mis certificados",
+      "section": "trabajador",
+      "roles": null,
+      "url": "app.html#/certificados",
+      "capturedUrl": "app.html#/certificados",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Rojas Soto",
+        "role": "Trabajador",
+        "email": "camila.rojas@altiplano.cl",
+        "password": "1234"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Certificaciones del trabajador con su vigencia y código de verificación.",
+      "actions": [
+        "Ver los certificados vigentes y por vencer",
+        "Abrir el certificado imprimible",
+        "Copiar el código de verificación"
+      ],
+      "img": "img/induccion/certificados.webp",
+      "thumb": "img/induccion/certificados-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "certificado",
+      "title": "Certificado imprimible",
+      "section": "trabajador",
+      "roles": null,
+      "url": "app.html#/certificado/cert-a-cam-rap",
+      "capturedUrl": "app.html#/certificado/cert-a-cam-rap",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Rojas Soto",
+        "role": "Trabajador",
+        "email": "camila.rojas@altiplano.cl",
+        "password": "1234"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Certificado listo para imprimir o guardar en PDF con nombre, RUT, plan, puntaje, fechas de vigencia y código verificable en el sitio público.",
+      "actions": [
+        "Imprimir o guardar como PDF",
+        "Ver la vigencia del certificado",
+        "Compartir el código para verificarlo"
+      ],
+      "img": "img/induccion/certificado.webp",
+      "thumb": "img/induccion/certificado-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "notificaciones",
+      "title": "Notificaciones",
+      "section": "trabajador",
+      "roles": null,
+      "url": "app.html#/notificaciones",
+      "capturedUrl": "app.html#/notificaciones",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Rojas Soto",
+        "role": "Trabajador",
+        "email": "camila.rojas@altiplano.cl",
+        "password": "1234"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Avisos del trabajador: nuevas asignaciones, plazos por vencer, resultados de prácticas y certificados próximos a vencer.",
+      "actions": [
+        "Leer los avisos recientes",
+        "Ir a la inducción relacionada",
+        "Marcarlos como leídos"
+      ],
+      "img": "img/induccion/notificaciones.webp",
+      "thumb": "img/induccion/notificaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "perfil",
+      "title": "Mi perfil",
+      "section": "trabajador",
+      "roles": null,
+      "url": "app.html#/perfil",
+      "capturedUrl": "app.html#/perfil",
+      "login": {
+        "id": "u-cam",
+        "name": "Camila Rojas Soto",
+        "role": "Trabajador",
+        "email": "camila.rojas@altiplano.cl",
+        "password": "1234"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos del trabajador (empresa, área, cargo) y cambio del PIN de acceso.",
+      "actions": [
+        "Revisar sus datos laborales",
+        "Cambiar el PIN de ingreso",
+        "Ver su resumen de inducciones"
+      ],
+      "img": "img/induccion/perfil.webp",
+      "thumb": "img/induccion/perfil-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sup-resumen",
+      "title": "Resumen del equipo",
+      "section": "supervisor",
+      "roles": null,
+      "url": "supervisor.html#/",
+      "capturedUrl": "supervisor.html#/",
+      "login": {
+        "id": "u-sup",
+        "name": "Carolina Flores",
+        "role": "Supervisor",
+        "email": "supervisor@altiplano.cl",
+        "password": "super123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Indicadores del equipo a cargo: personas, finalización, prácticas por aprobar, asignaciones vencidas y certificados por vencer, con el estado de las inducciones.",
+      "actions": [
+        "Ver el avance general del equipo",
+        "Detectar asignaciones vencidas",
+        "Ver cuántas prácticas esperan su evaluación",
+        "Anticipar certificados por vencer"
+      ],
+      "img": "img/induccion/sup-resumen.webp",
+      "thumb": "img/induccion/sup-resumen-thumb.webp",
+      "mobile": "img/induccion/sup-resumen-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sup-equipo",
+      "title": "Mi equipo",
+      "section": "supervisor",
+      "roles": null,
+      "url": "supervisor.html#/equipo",
+      "capturedUrl": "supervisor.html#/equipo",
+      "login": {
+        "id": "u-sup",
+        "name": "Carolina Flores",
+        "role": "Supervisor",
+        "email": "supervisor@altiplano.cl",
+        "password": "super123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Integrantes del equipo (propios y contratistas) con avance, certificados vigentes y estado.",
+      "actions": [
+        "Filtrar por tipo y cumplimiento",
+        "Ver el avance de cada persona",
+        "Asignar una inducción",
+        "Abrir la ficha de un integrante"
+      ],
+      "img": "img/induccion/sup-equipo.webp",
+      "thumb": "img/induccion/sup-equipo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sup-asignar",
+      "title": "Asignar inducción",
+      "section": "supervisor",
+      "roles": null,
+      "url": "supervisor.html#/equipo",
+      "capturedUrl": "supervisor.html#/equipo",
+      "login": {
+        "id": "u-sup",
+        "name": "Carolina Flores",
+        "role": "Supervisor",
+        "email": "supervisor@altiplano.cl",
+        "password": "super123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Asignar\" en Mi equipo",
+      "description": "Asignación de un plan de inducción a una o varias personas con su plazo.",
+      "actions": [
+        "Elegir el plan",
+        "Definir el plazo para completarlo",
+        "Asignarlo y notificar al trabajador"
+      ],
+      "img": "img/induccion/sup-asignar.webp",
+      "thumb": "img/induccion/sup-asignar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sup-asignaciones",
+      "title": "Asignaciones del equipo",
+      "section": "supervisor",
+      "roles": null,
+      "url": "supervisor.html#/asignaciones",
+      "capturedUrl": "supervisor.html#/asignaciones",
+      "login": {
+        "id": "u-sup",
+        "name": "Carolina Flores",
+        "role": "Supervisor",
+        "email": "supervisor@altiplano.cl",
+        "password": "super123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Inducciones asignadas al equipo con su estado (pendiente, en curso, práctica, vencida, completada) y plazo.",
+      "actions": [
+        "Filtrar por estado",
+        "Ver el avance y el plazo de cada asignación",
+        "Enviar recordatorios o extender plazos"
+      ],
+      "img": "img/induccion/sup-asignaciones.webp",
+      "thumb": "img/induccion/sup-asignaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sup-practicas",
+      "title": "Evaluaciones prácticas",
+      "section": "supervisor",
+      "roles": null,
+      "url": "supervisor.html#/practicas",
+      "capturedUrl": "supervisor.html#/practicas",
+      "login": {
+        "id": "u-sup",
+        "name": "Carolina Flores",
+        "role": "Supervisor",
+        "email": "supervisor@altiplano.cl",
+        "password": "super123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Prácticas en terreno pendientes de evaluación para quienes ya aprobaron la parte teórica.",
+      "actions": [
+        "Ver quién espera su evaluación práctica",
+        "Aprobar o rechazar con observaciones",
+        "Revisar las prácticas ya resueltas"
+      ],
+      "img": "img/induccion/sup-practicas.webp",
+      "thumb": "img/induccion/sup-practicas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sup-practica",
+      "title": "Evaluación práctica en terreno",
+      "section": "supervisor",
+      "roles": null,
+      "url": "supervisor.html#/practicas",
+      "capturedUrl": "supervisor.html#/practicas",
+      "login": {
+        "id": "u-sup",
+        "name": "Carolina Flores",
+        "role": "Supervisor",
+        "email": "supervisor@altiplano.cl",
+        "password": "super123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Evaluar\" en Evaluaciones prácticas",
+      "description": "Pauta de la evaluación práctica: el supervisor aprueba o rechaza y deja sus observaciones. Al aprobar se completa la inducción y se emite el certificado.",
+      "actions": [
+        "Revisar la lista de verificación",
+        "Aprobar o rechazar la práctica",
+        "Dejar observaciones",
+        "Emitir el certificado al aprobar"
+      ],
+      "img": "img/induccion/sup-practica.webp",
+      "thumb": "img/induccion/sup-practica-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sup-certificados",
+      "title": "Certificados del equipo",
+      "section": "supervisor",
+      "roles": null,
+      "url": "supervisor.html#/vencimientos",
+      "capturedUrl": "supervisor.html#/vencimientos",
+      "login": {
+        "id": "u-sup",
+        "name": "Carolina Flores",
+        "role": "Supervisor",
+        "email": "supervisor@altiplano.cl",
+        "password": "super123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Vigencia de los certificados del equipo, con los próximos a vencer destacados.",
+      "actions": [
+        "Ver los certificados por vencer",
+        "Reasignar la reinducción a tiempo",
+        "Abrir cada certificado"
+      ],
+      "img": "img/induccion/sup-certificados.webp",
+      "thumb": "img/induccion/sup-certificados-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sup-avisos",
+      "title": "Avisos",
+      "section": "supervisor",
+      "roles": null,
+      "url": "supervisor.html#/avisos",
+      "capturedUrl": "supervisor.html#/avisos",
+      "login": {
+        "id": "u-sup",
+        "name": "Carolina Flores",
+        "role": "Supervisor",
+        "email": "supervisor@altiplano.cl",
+        "password": "super123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Avisos del supervisor: prácticas por evaluar, vencimientos y avances de su equipo.",
+      "actions": [
+        "Leer los avisos recientes",
+        "Marcarlos como leídos",
+        "Ir al registro relacionado"
+      ],
+      "img": "img/induccion/sup-avisos.webp",
+      "thumb": "img/induccion/sup-avisos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dashboard",
+      "title": "Dashboard",
+      "section": "prevencion",
+      "roles": [
+        "Prevencionista",
+        "Administrador"
+      ],
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-prev",
+        "name": "Rodrigo Mamani",
+        "role": "Prevencionista",
+        "email": "prevencion@altiplano.cl",
+        "password": "prev123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Indicadores de la inducción: finalización, aprobación, tiempos por módulo y cumplimiento por área y por empresa contratista.",
+      "actions": [
+        "Ver tasas de finalización y aprobación",
+        "Comparar el cumplimiento por área y contratista",
+        "Revisar el tiempo promedio por módulo",
+        "Detectar vencidas y certificados por vencer"
+      ],
+      "img": "img/induccion/dashboard.webp",
+      "thumb": "img/induccion/dashboard-thumb.webp",
+      "mobile": "img/induccion/dashboard-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "trabajadores",
+      "title": "Trabajadores",
+      "section": "prevencion",
+      "roles": [
+        "Prevencionista",
+        "Administrador"
+      ],
+      "url": "admin.html#/trabajadores",
+      "capturedUrl": "admin.html#/trabajadores",
+      "login": {
+        "id": "u-prev",
+        "name": "Rodrigo Mamani",
+        "role": "Prevencionista",
+        "email": "prevencion@altiplano.cl",
+        "password": "prev123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Personal propio y de empresas contratistas con su área, cargo, avance y estado.",
+      "actions": [
+        "Buscar y filtrar por empresa, área o tipo",
+        "Crear y editar trabajadores",
+        "Asignar inducciones una a una o en masa",
+        "Abrir la ficha con su historial"
+      ],
+      "img": "img/induccion/trabajadores.webp",
+      "thumb": "img/induccion/trabajadores-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "trabajador-ficha",
+      "title": "Ficha del trabajador",
+      "section": "prevencion",
+      "roles": [
+        "Prevencionista",
+        "Administrador"
+      ],
+      "url": "admin.html#/trabajadores/u-cam",
+      "capturedUrl": "admin.html#/trabajadores/u-cam",
+      "login": {
+        "id": "u-prev",
+        "name": "Rodrigo Mamani",
+        "role": "Prevencionista",
+        "email": "prevencion@altiplano.cl",
+        "password": "prev123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Historial completo de una persona: asignaciones, intentos de evaluación, certificados y acciones disponibles.",
+      "actions": [
+        "Ver todas sus inducciones y su avance",
+        "Extender plazos o cancelar asignaciones",
+        "Revisar intentos y certificados",
+        "Editar sus datos o asignar una inducción"
+      ],
+      "img": "img/induccion/trabajador-ficha.webp",
+      "thumb": "img/induccion/trabajador-ficha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empresas",
+      "title": "Empresas contratistas",
+      "section": "prevencion",
+      "roles": [
+        "Prevencionista",
+        "Administrador"
+      ],
+      "url": "admin.html#/empresas",
+      "capturedUrl": "admin.html#/empresas",
+      "login": {
+        "id": "u-prev",
+        "name": "Rodrigo Mamani",
+        "role": "Prevencionista",
+        "email": "prevencion@altiplano.cl",
+        "password": "prev123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Empresa mandante y contratistas con su dotación y el porcentaje de cumplimiento de inducciones.",
+      "actions": [
+        "Crear y editar empresas",
+        "Ver dotación por empresa",
+        "Comparar el cumplimiento entre contratistas"
+      ],
+      "img": "img/induccion/empresas.webp",
+      "thumb": "img/induccion/empresas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "planes",
+      "title": "Planes de inducción",
+      "section": "prevencion",
+      "roles": [
+        "Prevencionista",
+        "Administrador"
+      ],
+      "url": "admin.html#/planes",
+      "capturedUrl": "admin.html#/planes",
+      "login": {
+        "id": "u-prev",
+        "name": "Rodrigo Mamani",
+        "role": "Prevencionista",
+        "email": "prevencion@altiplano.cl",
+        "password": "prev123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Planes que combinan módulos en un orden, con plazos, vigencia y a quién aplican.",
+      "actions": [
+        "Ver los planes y sus módulos",
+        "Crear y editar planes",
+        "Abrir el constructor de cada plan"
+      ],
+      "img": "img/induccion/planes.webp",
+      "thumb": "img/induccion/planes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "plan-editor",
+      "title": "Constructor de plan",
+      "section": "prevencion",
+      "roles": [
+        "Prevencionista",
+        "Administrador"
+      ],
+      "url": "admin.html#/planes/p-igs",
+      "capturedUrl": "admin.html#/planes/p-igs",
+      "login": {
+        "id": "u-prev",
+        "name": "Rodrigo Mamani",
+        "role": "Prevencionista",
+        "email": "prevencion@altiplano.cl",
+        "password": "prev123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor del plan: módulos y su orden, plazo para completarlo, vigencia del certificado, áreas y tipos de trabajador a los que aplica y si exige práctica en terreno.",
+      "actions": [
+        "Agregar, quitar y ordenar módulos",
+        "Definir plazo y vigencia",
+        "Elegir a qué áreas y tipos aplica",
+        "Exigir evaluación práctica",
+        "Asignarlo en masa a quienes aplica"
+      ],
+      "img": "img/induccion/plan-editor.webp",
+      "thumb": "img/induccion/plan-editor-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "modulos",
+      "title": "Módulos 3D",
+      "section": "prevencion",
+      "roles": [
+        "Prevencionista",
+        "Administrador"
+      ],
+      "url": "admin.html#/modulos",
+      "capturedUrl": "admin.html#/modulos",
+      "login": {
+        "id": "u-prev",
+        "name": "Rodrigo Mamani",
+        "role": "Prevencionista",
+        "email": "prevencion@altiplano.cl",
+        "password": "prev123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Contenido de cada módulo (bienvenida, EPP, recorrido, emergencias, evaluación) con su tipo y cantidad de puntos de interés.",
+      "actions": [
+        "Ver los módulos y su tipo",
+        "Abrir el editor de un módulo",
+        "Previsualizar el módulo como trabajador"
+      ],
+      "img": "img/induccion/modulos.webp",
+      "thumb": "img/induccion/modulos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "modulo-editor",
+      "title": "Editor de módulo",
+      "section": "prevencion",
+      "roles": [
+        "Prevencionista",
+        "Administrador"
+      ],
+      "url": "admin.html#/modulos/recorrido",
+      "capturedUrl": "admin.html#/modulos/recorrido",
+      "login": {
+        "id": "u-prev",
+        "name": "Rodrigo Mamani",
+        "role": "Prevencionista",
+        "email": "prevencion@altiplano.cl",
+        "password": "prev123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor con los datos del módulo, los puntos de interés de la escena (título, texto y ubicación), los elementos de EPP y la configuración de la evaluación.",
+      "actions": [
+        "Editar título y descripción del módulo",
+        "Agregar o editar puntos de interés",
+        "Configurar los elementos de EPP",
+        "Guardar y verlo reflejado en la app del trabajador"
+      ],
+      "img": "img/induccion/modulo-editor.webp",
+      "thumb": "img/induccion/modulo-editor-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "preguntas",
+      "title": "Banco de preguntas",
+      "section": "prevencion",
+      "roles": [
+        "Prevencionista",
+        "Administrador"
+      ],
+      "url": "admin.html#/preguntas",
+      "capturedUrl": "admin.html#/preguntas",
+      "login": {
+        "id": "u-prev",
+        "name": "Rodrigo Mamani",
+        "role": "Prevencionista",
+        "email": "prevencion@altiplano.cl",
+        "password": "prev123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Preguntas de alternativas por módulo con su respuesta correcta; la evaluación final toma preguntas al azar de aquí.",
+      "actions": [
+        "Filtrar por módulo",
+        "Crear y editar preguntas con sus alternativas",
+        "Marcar la respuesta correcta",
+        "Previsualizar la pregunta"
+      ],
+      "img": "img/induccion/preguntas.webp",
+      "thumb": "img/induccion/preguntas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "asignaciones",
+      "title": "Asignaciones",
+      "section": "prevencion",
+      "roles": [
+        "Prevencionista",
+        "Administrador"
+      ],
+      "url": "admin.html#/asignaciones",
+      "capturedUrl": "admin.html#/asignaciones",
+      "login": {
+        "id": "u-prev",
+        "name": "Rodrigo Mamani",
+        "role": "Prevencionista",
+        "email": "prevencion@altiplano.cl",
+        "password": "prev123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Seguimiento de todas las inducciones asignadas con estado, avance y plazo.",
+      "actions": [
+        "Filtrar por estado, plan o empresa",
+        "Extender plazos y enviar recordatorios",
+        "Cancelar asignaciones",
+        "Asignar nuevas inducciones",
+        "Exportar a CSV"
+      ],
+      "img": "img/induccion/asignaciones.webp",
+      "thumb": "img/induccion/asignaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "asignar",
+      "title": "Asignar inducción",
+      "section": "prevencion",
+      "roles": [
+        "Prevencionista",
+        "Administrador"
+      ],
+      "url": "admin.html#/asignaciones",
+      "capturedUrl": "admin.html#/asignaciones",
+      "login": {
+        "id": "u-prev",
+        "name": "Rodrigo Mamani",
+        "role": "Prevencionista",
+        "email": "prevencion@altiplano.cl",
+        "password": "prev123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Asignar inducción\" en Asignaciones",
+      "description": "Asignación de un plan a uno o varios trabajadores con plazo, desde el panel de prevención.",
+      "actions": [
+        "Elegir el plan y las personas",
+        "Definir el plazo",
+        "Asignar y notificar"
+      ],
+      "img": "img/induccion/asignar.webp",
+      "thumb": "img/induccion/asignar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "evaluaciones",
+      "title": "Evaluaciones",
+      "section": "prevencion",
+      "roles": [
+        "Prevencionista",
+        "Administrador"
+      ],
+      "url": "admin.html#/evaluaciones",
+      "capturedUrl": "admin.html#/evaluaciones",
+      "login": {
+        "id": "u-prev",
+        "name": "Rodrigo Mamani",
+        "role": "Prevencionista",
+        "email": "prevencion@altiplano.cl",
+        "password": "prev123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Prácticas en terreno por aprobar y todos los intentos de evaluación teórica con su puntaje.",
+      "actions": [
+        "Aprobar o rechazar prácticas pendientes",
+        "Revisar los intentos y su puntaje",
+        "Abrir el detalle de un intento",
+        "Exportar los intentos a CSV"
+      ],
+      "img": "img/induccion/evaluaciones.webp",
+      "thumb": "img/induccion/evaluaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "certificados-admin",
+      "title": "Certificados",
+      "section": "prevencion",
+      "roles": [
+        "Prevencionista",
+        "Administrador"
+      ],
+      "url": "admin.html#/certificados",
+      "capturedUrl": "admin.html#/certificados",
+      "login": {
+        "id": "u-prev",
+        "name": "Rodrigo Mamani",
+        "role": "Prevencionista",
+        "email": "prevencion@altiplano.cl",
+        "password": "prev123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de certificados emitidos con vigencia, vencimientos y opción de revocar; todos se pueden comprobar en el verificador público.",
+      "actions": [
+        "Filtrar vigentes, por vencer y vencidos",
+        "Revocar un certificado con motivo",
+        "Abrir el verificador público",
+        "Exportar a CSV"
+      ],
+      "img": "img/induccion/certificados-admin.webp",
+      "thumb": "img/induccion/certificados-admin-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reportes",
+      "title": "Reportes",
+      "section": "prevencion",
+      "roles": [
+        "Prevencionista",
+        "Administrador"
+      ],
+      "url": "admin.html#/reportes",
+      "capturedUrl": "admin.html#/reportes",
+      "login": {
+        "id": "u-prev",
+        "name": "Rodrigo Mamani",
+        "role": "Prevencionista",
+        "email": "prevencion@altiplano.cl",
+        "password": "prev123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cumplimiento por área, por empresa y por plan, y tiempos por módulo, con exportaciones a CSV.",
+      "actions": [
+        "Ver el cumplimiento por área y empresa",
+        "Comparar planes",
+        "Analizar tiempos por módulo",
+        "Exportar a CSV"
+      ],
+      "img": "img/induccion/reportes.webp",
+      "thumb": "img/induccion/reportes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bitacora",
+      "title": "Bitácora",
+      "section": "prevencion",
+      "roles": [
+        "Prevencionista",
+        "Administrador"
+      ],
+      "url": "admin.html#/actividad",
+      "capturedUrl": "admin.html#/actividad",
+      "login": {
+        "id": "u-prev",
+        "name": "Rodrigo Mamani",
+        "role": "Prevencionista",
+        "email": "prevencion@altiplano.cl",
+        "password": "prev123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de actividad: asignaciones, intentos, prácticas, certificados y cambios de contenido.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Filtrar por tipo de acción",
+        "Exportar a CSV"
+      ],
+      "img": "img/induccion/bitacora.webp",
+      "thumb": "img/induccion/bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Valentina Quispe",
+        "role": "Administrador",
+        "email": "admin@altiplano.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Accesos de todo el personal: administradores, prevencionistas, supervisores y trabajadores, con su rol y estado.",
+      "actions": [
+        "Crear y editar usuarios",
+        "Cambiar el rol",
+        "Activar o desactivar accesos",
+        "Reiniciar el PIN de un trabajador"
+      ],
+      "img": "img/induccion/usuarios.webp",
+      "thumb": "img/induccion/usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "configuracion",
+      "title": "Sitio y configuración",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/configuracion",
+      "capturedUrl": "admin.html#/configuracion",
+      "login": {
+        "id": "u-admin",
+        "name": "Valentina Quispe",
+        "role": "Administrador",
+        "email": "admin@altiplano.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "CMS del sitio público, parámetros del sistema (como el puntaje de aprobación) y restablecimiento de los datos demo.",
+      "actions": [
+        "Editar los textos del sitio público",
+        "Ajustar los parámetros de evaluación y vigencia",
+        "Restaurar los textos por defecto",
+        "Restablecer los datos demo"
+      ],
+      "img": "img/induccion/configuracion.webp",
+      "thumb": "img/induccion/configuracion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Synthwave\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/induccion/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/induccion/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/induccion/look-app.webp"
+      },
+      {
+        "id": "blueprint",
+        "group": "Estilo",
+        "label": "Plano",
+        "desc": "Estética de plano técnico.",
+        "img": "img/induccion/look-blueprint.webp"
+      },
+      {
+        "id": "brutal",
+        "group": "Estilo",
+        "label": "Brutal",
+        "desc": "Bordes gruesos y contraste fuerte.",
+        "img": "img/induccion/look-brutal.webp"
+      },
+      {
+        "id": "nordic",
+        "group": "Estilo",
+        "label": "Nórdico",
+        "desc": "Minimalista, blanco y aire.",
+        "img": "img/induccion/look-nordic.webp"
+      }
+    ]
+  }
+}

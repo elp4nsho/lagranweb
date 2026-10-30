@@ -170,9 +170,10 @@ export async function changeStage(dealId, to) {
   }
   const now = new Date().toISOString();
   const closed = ['ganado', 'perdido'].includes(to);
+  const from = d.stage; // db.update modifica el mismo objeto: se guarda la etapa anterior para la bitácora
   const updated = db.update('deals', dealId, x => ({ stage: to, history: [...(x.history || []), { stage: to, at: now }], closedAt: closed ? now : null, lostReason: to === 'perdido' ? lostReason : null, closeDate: closed ? now : x.closeDate }));
   db.insert('activities', { type: 'sistema', subject: `Etapa cambiada a ${stage(to).name}${lostReason ? ` (${lostReason})` : ''}`, dealId, companyId: d.companyId, ownerId: user.id, done: true, dueAt: now, doneAt: now, reminded: true });
-  db.log('negocio', `Movió "${d.title}" de ${stage(d.stage).name} a ${stage(to).name}`, user.id);
+  db.log('negocio', `Movió "${d.title}" de ${stage(from).name} a ${stage(to).name}`, user.id);
   const fired = [...runAutomations('deal.stage', updated, 'deal'), ...(to === 'ganado' ? runAutomations('deal.won', updated, 'deal') : []), ...(to === 'perdido' ? runAutomations('deal.lost', updated, 'deal') : [])];
   if (to === 'ganado') { toast(`¡Negocio ganado! ${money(d.amount)}`, 'success', 4500); if (d.ownerId !== user.id) notify(d.ownerId, `¡${d.title} se marcó como ganado!`, `app.html#/negocios/${d.id}`); }
   else toast(`Movido a ${stage(to).name}`, to === 'perdido' ? 'warning' : 'info');
