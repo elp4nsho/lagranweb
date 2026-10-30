@@ -1,118 +1,19 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-app="menu" data-default-theme="vintage">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#1d1612">
-  <title>Fogón Andino — Carta digital</title>
-  <meta name="description" content="Carta digital de Fogón Andino: pide desde tu mesa. Demo de menú QR.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d1612'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle'%3E🔥%3C/text%3E%3C/svg%3E">
+  <title>Fogón Andino · Carta digital</title>
+  <meta name="description" content="Fogón Andino: carta digital, pedidos desde la mesa y reservas. Restaurante ficticio de demostración.">
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
 </head>
-<body>
-  <a class="skip" href="#carta" data-i18n="skip">Saltar a la carta</a>
-
-  <header class="hero">
-    <div class="hero__glow" aria-hidden="true"></div>
-    <svg class="hero__mountains" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 120V70l40-30 30 20 50-45 40 35 30-15 60 50 40-30 50 25 60-40v80z" fill="#2a1f19"/>
-      <path d="M0 120V90l60-25 50 25 70-35 60 30 50-20 60 25 50-15v45z" fill="#1d1612"/>
-    </svg>
-    <div class="hero__top">
-      <div class="lang" role="group" aria-label="Idioma / Language">
-        <button type="button" data-lang="es" aria-pressed="true">ES</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
-      </div>
-      <button type="button" class="table-chip" id="tableChip" aria-haspopup="dialog">
-        <span aria-hidden="true">🪑</span> <span id="tableLabel">Mesa 12</span>
-      </button>
-    </div>
-    <div class="hero__content">
-      <div class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#2a1f19" stroke="#f2b84b" stroke-width="2"/><path d="M32 14c4 8 12 12 12 22a12 12 0 0 1-24 0c0-6 4-9 6-14 1 4 3 6 5 6-1-5 0-10 1-14z" fill="#e8743b"/><path d="M32 30c2 4 6 6 6 10a6 6 0 0 1-12 0c0-3 2-5 3-7 0 2 2 3 3 3z" fill="#f2b84b"/></svg>
-      </div>
-      <h1>Fogón Andino</h1>
-      <p class="tagline" id="tagline">Cocina de fuego y montaña</p>
-      <div class="status" id="status" aria-live="polite"></div>
-      <ul class="meta">
-        <li><span aria-hidden="true">📍</span> Pasaje Los Copihues 482, Valparaíso</li>
-        <li><span aria-hidden="true">⭐</span> 4,8 · <span data-i18n="reviews">1.240 reseñas</span></li>
-      </ul>
-      <button type="button" class="btn-waiter" id="waiterBtn"><span aria-hidden="true">🛎️</span> <span data-i18n="callWaiter">Llamar al garzón</span></button>
-    </div>
-  </header>
-
-  <nav class="tabs" id="tabs" aria-label="Categorías de la carta">
-    <div class="tabs__track" id="tabsTrack"></div>
-  </nav>
-
-  <div class="order-track" id="orderTrack" hidden>
-    <button type="button" id="orderTrackBtn"></button>
-  </div>
-
-  <main id="carta" class="carta">
-    <div class="filters" role="group" aria-labelledby="filtersLbl">
-      <span id="filtersLbl" class="filters__lbl" data-i18n="filter">Filtrar:</span>
-      <div class="filters__chips" id="filterChips"></div>
-    </div>
-    <div id="sections"></div>
-    <p class="no-results" id="noResults" hidden></p>
-    <p class="legal" data-i18n="legal">Precios en pesos chilenos, IVA incluido. Propina sugerida 10% no incluida. Fogón Andino es un restaurante ficticio creado como demo.</p>
-  </main>
-
-  <button type="button" class="fab" id="fab" hidden>
-    <span class="fab__count" id="fabCount">0</span>
-    <span data-i18n="viewOrder">Ver pedido</span>
-    <strong id="fabTotal">$0</strong>
-  </button>
-
-  <!-- Hoja de detalle del plato -->
-  <dialog class="sheet" id="dishSheet" aria-labelledby="dsTitle">
-    <form method="dialog" class="sheet__inner" id="dishForm"></form>
-  </dialog>
-
-  <!-- Hoja del pedido -->
-  <dialog class="sheet" id="orderSheet" aria-labelledby="osTitle">
-    <div class="sheet__inner">
-      <div class="sheet__grab" aria-hidden="true"></div>
-      <div class="sheet__head">
-        <h2 id="osTitle" data-i18n="yourOrder">Tu pedido</h2>
-        <button type="button" class="close" data-close aria-label="Cerrar">✕</button>
-      </div>
-      <div id="orderBody"></div>
-    </div>
-  </dialog>
-
-  <!-- Hoja de estado del pedido -->
-  <dialog class="sheet" id="statusSheet" aria-labelledby="ssTitle">
-    <div class="sheet__inner">
-      <div class="sheet__grab" aria-hidden="true"></div>
-      <div class="sheet__head">
-        <h2 id="ssTitle" data-i18n="orderStatus">Estado del pedido</h2>
-        <button type="button" class="close" data-close aria-label="Cerrar">✕</button>
-      </div>
-      <div id="statusBody"></div>
-    </div>
-  </dialog>
-
-  <!-- Selector de mesa -->
-  <dialog class="sheet sheet--small" id="tableSheet" aria-labelledby="tsTitle">
-    <div class="sheet__inner">
-      <div class="sheet__head">
-        <h2 id="tsTitle" data-i18n="chooseTable">¿En qué mesa estás?</h2>
-        <button type="button" class="close" data-close aria-label="Cerrar">✕</button>
-      </div>
-      <div class="table-grid" id="tableGrid"></div>
-    </div>
-  </dialog>
-
-  <div class="toasts" id="toasts" role="status" aria-live="polite" popover="manual"></div>
-
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+<body class="guest">
+  <a class="skip" href="#view">Saltar al contenido</a>
+  <header class="g-header" id="hdr"></header>
+  <main id="view"></main>
+  <button class="fab" id="fab" hidden aria-label="Ver pedido"></button>
+  <script type="module" src="js/public/main.js"></script>
   <script src="../assets/portfolio-bar.js" defer></script>
 </body>
 </html>

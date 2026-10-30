@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es" data-app="delivery" data-default-theme="noir">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingresar · Rayo Express</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2300e5ff'/%3E%3Cpath d='M18 4 8 18h7l-2 10 11-15h-7z' fill='%2305060a'/%3E%3C/svg%3E">
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="site">
+  <header class="site-head" id="site-head"></header>
+  <main class="section login-wrap">
+    <div class="container login-grid">
+      <div class="card stack login-card" data-anim>
+        <div class="tabs" role="tablist">
+          <button class="tab active" role="tab" data-tab="in" aria-selected="true">Ingresar</button>
+          <button class="tab" role="tab" data-tab="up" aria-selected="false">Crear cuenta</button>
+        </div>
+        <form id="f-in" class="stack" novalidate>
+          <h1 class="h2">Bienvenido de vuelta</h1>
+          <div class="field"><label for="li-email">Correo</label><input class="input" id="li-email" type="email" autocomplete="username" required></div>
+          <div class="field"><label for="li-pass">Contraseña</label><input class="input" id="li-pass" type="password" autocomplete="current-password" required></div>
+          <div class="login-err" aria-live="assertive"></div>
+          <button class="btn btn-primary btn-lg btn-block">Ingresar</button>
+        </form>
+        <form id="f-up" class="stack" novalidate hidden>
+          <h1 class="h2">Crea tu cuenta</h1>
+          <div class="seg">
+            <label class="segopt"><input type="radio" name="type" value="persona" checked><span>Persona<small>Pago con tarjeta</small></span></label>
+            <label class="segopt"><input type="radio" name="type" value="empresa"><span>Empresa<small>Factura mensual · −10%</small></span></label>
+          </div>
+          <div class="field"><label for="ru-name">Nombre completo *</label><input class="input" id="ru-name" name="name" required></div>
+          <div class="field biz-only" hidden><label for="ru-company">Razón social *</label><input class="input" id="ru-company" name="company"></div>
+          <div class="grid-2"><div class="field"><label for="ru-rut">RUT</label><input class="input" id="ru-rut" name="rut" placeholder="12.345.678-9"></div>
+          <div class="field"><label for="ru-phone">Teléfono *</label><input class="input" id="ru-phone" name="phone" type="tel" required placeholder="+56 9 1234 5678"></div></div>
+          <div class="grid-2"><div class="field"><label for="ru-addr">Dirección *</label><input class="input" id="ru-addr" name="addr" required></div>
+          <div class="field"><label for="ru-comuna">Comuna *</label><select class="select" id="ru-comuna" name="comuna"></select></div></div>
+          <div class="field"><label for="ru-email">Correo *</label><input class="input" id="ru-email" name="email" type="email" required></div>
+          <div class="field"><label for="ru-pass">Contraseña * <small class="muted">(mín. 6)</small></label><input class="input" id="ru-pass" name="password" type="password" required minlength="6"></div>
+          <div class="login-err" aria-live="assertive"></div>
+          <button class="btn btn-primary btn-lg btn-block">Crear cuenta</button>
+        </form>
+      </div>
+      <div class="stack">
+        <div><span class="eyebrow">Cuentas de demostración</span><h2>Entra con un clic</h2><p class="muted">Cada rol abre su propia aplicación: consola de despacho, app del repartidor o portal de clientes.</p></div>
+        <div id="demo"></div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-foot" id="site-foot"></footer>
+  <script type="module" src="js/public/login.js"></script>
+  <script src="../assets/portfolio-bar.js" defer></script>
+</body>
+</html>

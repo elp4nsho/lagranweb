@@ -1,281 +1,113 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-app="induccion" data-default-theme="synthwave">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inducción XR · Minera Altiplano</title>
   <meta name="description" content="Plataforma de inducción corporativa en 3D y realidad virtual de Minera Altiplano (empresa ficticia, demo de portafolio).">
-  <meta name="theme-color" content="#070b14">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M3 26 13 8l5 9 3-5 8 14z' fill='%23ffc533'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script type="importmap">
-  {
-    "imports": {
-      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-    }
-  }
-  </script>
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
 </head>
-<body data-screen="landing">
+<body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
-
-  <header class="topbar">
-    <a class="brand" href="#inicio" aria-label="Minera Altiplano, inicio">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 26 13 8l5 9 3-5 8 14z" fill="currentColor"/></svg>
-      <span><strong>Minera Altiplano</strong><small>Inducción XR</small></span>
-    </a>
-    <nav class="nav" aria-label="Principal">
-      <a href="#modulos">Módulos</a>
-      <a href="#beneficios">Beneficios</a>
-      <a href="#dispositivos">Dispositivos</a>
-    </nav>
-    <div class="top-actions">
-      <span class="user-chip" id="user-chip" hidden></span>
-      <a class="btn btn-sm btn-primary" id="top-cta" href="#/ingresar">Ingresar</a>
-      <button class="btn btn-sm btn-ghost" id="logout" type="button" hidden>Salir</button>
-    </div>
-  </header>
-
-  <div id="contenido" tabindex="-1">
-  <!-- ================= LANDING ================= -->
-  <main id="landing" class="landing">
+  <header id="site-header"></header>
+  <div id="announce"></div>
+  <main id="contenido">
     <section class="hero" id="inicio">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="dot"></span>Inducción corporativa en 3D y realidad virtual</p>
-          <h1>Conoce la faena <span class="grad">antes de pisarla.</span></h1>
-          <p class="lead">Recorre una planta virtual, equípate con tu EPP sobre un modelo 3D y practica la evacuación sin riesgos. Desde tu navegador, tu celular o un visor Meta Quest.</p>
+      <div class="container hero-grid">
+        <div data-anim>
+          <span class="eyebrow" data-cms="heroEyebrow"></span>
+          <h1><span data-cms="heroTitle"></span> <span class="hl" data-cms="heroHighlight"></span></h1>
+          <p class="lead" data-cms="heroText"></p>
           <div class="hero-ctas">
-            <a class="btn btn-primary" href="#/ingresar">Comenzar mi inducción</a>
-            <a class="btn btn-ghost" href="#modulos">Ver módulos</a>
+            <a class="btn btn-primary btn-lg" href="login.html" data-cms="ctaText"></a>
+            <a class="btn btn-lg" href="#modulos">Ver módulos</a>
           </div>
-          <ul class="hero-stats" aria-label="Datos de la inducción">
-            <li><strong>5</strong><span>módulos interactivos</span></li>
-            <li><strong>~40</strong><span>minutos en total</span></li>
-            <li><strong>0</strong><span>instalaciones</span></li>
-          </ul>
+          <ul class="hero-stats" id="hero-stats" aria-label="Datos de la plataforma"></ul>
         </div>
-        <div class="hero-visual" aria-hidden="true">
+        <div class="hero-visual" aria-hidden="true" data-anim="zoomIn">
           <div class="holo">
-            <svg viewBox="0 0 400 320" class="iso">
-              <defs>
-                <linearGradient id="hg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#3ee6ff"/><stop offset="1" stop-color="#ffc533"/></linearGradient>
-              </defs>
-              <g fill="none" stroke="url(#hg)" stroke-width="1.4" stroke-linejoin="round">
+            <svg viewBox="0 0 400 320">
+              <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
                 <path d="M200 40 360 120 200 200 40 120Z" opacity=".9"/>
                 <path d="M40 120v60l160 80 160-80v-60" opacity=".55"/>
                 <path d="M200 200v60" opacity=".55"/>
-                <g opacity=".7">
-                  <path d="M90 120 170 80M110 130 190 90M130 140 210 100"/>
-                  <path d="M90 120v-30l80-40v30M110 130v-30l80-40v30M130 140v-30l80-40v30"/>
-                </g>
-                <g opacity=".9"><path d="M250 125l40-20 30 15-40 20z"/><path d="M250 125v-28l40-20v28M320 120V92l-30-15"/><circle cx="285" cy="80" r="14"/></g>
-                <path d="M120 160c40 20 90 30 150 10" stroke="#2bd47d" stroke-width="3" stroke-dasharray="8 8" class="route"/>
+                <g opacity=".7"><path d="M90 120 170 80M110 130 190 90M130 140 210 100"/><path d="M90 120v-30l80-40v30M110 130v-30l80-40v30M130 140v-30l80-40v30"/></g>
+                <g opacity=".9" style="stroke:var(--accent)"><path d="M250 125l40-20 30 15-40 20z"/><path d="M250 125v-28l40-20v28M320 120V92l-30-15"/><circle cx="285" cy="80" r="14"/></g>
+                <path d="M120 160c40 20 90 30 150 10" stroke-width="3" stroke-dasharray="8 8" class="route"/>
               </g>
-              <circle cx="270" cy="170" r="6" fill="#2bd47d"/>
-              <circle cx="120" cy="160" r="5" fill="#ff4d5e"/>
+              <circle cx="270" cy="170" r="6" style="fill:var(--success)"/>
+              <circle cx="120" cy="160" r="5" style="fill:var(--danger)"/>
             </svg>
             <div class="scan"></div>
           </div>
-          <div class="chip c1"><b>3D</b> Escena en tiempo real</div>
-          <div class="chip c2"><b>VR</b> WebXR · Meta Quest</div>
-          <div class="chip c3"><b>✓</b> Certificado digital</div>
+          <div class="float-chip c1"><b>3D</b> Escena en tiempo real</div>
+          <div class="float-chip c2"><b>VR</b> WebXR · Meta Quest</div>
+          <div class="float-chip c3"><b>✓</b> Certificado verificable</div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="modulos" aria-labelledby="mods-title">
-      <div class="wrap">
-        <p class="eyebrow">Programa</p>
-        <h2 id="mods-title">Cinco módulos, una inducción completa</h2>
-        <p class="section-lead">Cada módulo combina una escena 3D interactiva con contenido breve. Tu avance se guarda automáticamente.</p>
-        <ol class="mod-list" id="landing-modules"></ol>
+    <section class="section alt-band" id="modulos" aria-labelledby="mods-title">
+      <div class="container">
+        <div class="section-head" data-anim><span class="eyebrow">Programa</span><h2 id="mods-title">Módulos interactivos</h2><p>Cada módulo combina una escena 3D con contenido breve. Tu avance se guarda automáticamente y tu supervisor lo ve en tiempo real.</p></div>
+        <div class="grid-auto" id="mods"></div>
       </div>
     </section>
 
-    <section class="section alt" id="beneficios" aria-labelledby="ben-title">
-      <div class="wrap">
-        <p class="eyebrow">Por qué inducción XR</p>
-        <h2 id="ben-title">Aprender haciendo, sin exponerse al riesgo</h2>
-        <ul class="benefits">
-          <li><span class="b-ico">◎</span><h3>Más retención</h3><p>Explorar un espacio y tomar decisiones fija los contenidos mucho mejor que una presentación.</p></li>
-          <li><span class="b-ico">⛑</span><h3>Riesgo cero</h3><p>Practica una evacuación o identifica zonas peligrosas antes de tu primer turno en terreno.</p></li>
-          <li><span class="b-ico">⏱</span><h3>A tu ritmo</h3><p>Retoma donde quedaste. Cada módulo dura entre 5 y 10 minutos.</p></li>
-          <li><span class="b-ico">⌖</span><h3>Estandarizada</h3><p>Todas las personas reciben el mismo mensaje, en cualquier turno o faena.</p></li>
-          <li><span class="b-ico">▤</span><h3>Trazable</h3><p>Evaluación final con puntaje y certificado con código de verificación.</p></li>
-          <li><span class="b-ico">☁</span><h3>Sin instalar nada</h3><p>Funciona en el navegador: escritorio, celular, tablet o visor VR.</p></li>
-        </ul>
+    <section class="section" id="programas" aria-labelledby="plans-title">
+      <div class="container">
+        <div class="section-head" data-anim><span class="eyebrow">Planes de inducción</span><h2 id="plans-title">Un plan para cada rol</h2><p>Prevención de riesgos arma planes según área y tipo de trabajador. Tu supervisor te los asigna con un plazo.</p></div>
+        <div class="grid-auto" id="plans"></div>
+      </div>
+    </section>
+
+    <section class="section alt-band" id="beneficios" aria-labelledby="ben-title">
+      <div class="container">
+        <div class="section-head" data-anim><span class="eyebrow">Por qué inducción XR</span><h2 id="ben-title">Aprender haciendo, sin exponerse al riesgo</h2></div>
+        <div class="grid-3">
+          <div class="card benefit"><span class="b-ico">◎</span><h3>Más retención</h3><p>Explorar un espacio y tomar decisiones fija los contenidos mucho mejor que una presentación.</p></div>
+          <div class="card benefit"><span class="b-ico">⛑</span><h3>Riesgo cero</h3><p>Practica una evacuación o identifica zonas peligrosas antes de tu primer turno en terreno.</p></div>
+          <div class="card benefit"><span class="b-ico">⏱</span><h3>A tu ritmo</h3><p>Retoma donde quedaste. Cada módulo dura entre 5 y 10 minutos.</p></div>
+          <div class="card benefit"><span class="b-ico">⌖</span><h3>Estandarizada</h3><p>Todas las personas reciben el mismo mensaje, en cualquier turno o faena.</p></div>
+          <div class="card benefit"><span class="b-ico">▤</span><h3>Trazable</h3><p>Intentos, tiempos y aprobaciones prácticas quedan registrados para auditoría.</p></div>
+          <div class="card benefit"><span class="b-ico">☁</span><h3>Sin instalar nada</h3><p>Funciona en el navegador: escritorio, celular, tablet o visor VR.</p></div>
+        </div>
       </div>
     </section>
 
     <section class="section" id="dispositivos" aria-labelledby="dev-title">
-      <div class="wrap">
-        <p class="eyebrow">Compatibilidad</p>
-        <h2 id="dev-title">Un mismo curso, en cualquier pantalla</h2>
-        <ul class="devices">
-          <li>
-            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="9" width="38" height="24" rx="3"/><path d="M17 40h14M24 33v7"/></svg>
-            <h3>Escritorio</h3>
-            <p>Mouse para orbitar y hacer clic en los puntos de interés. Chrome, Edge, Firefox o Safari.</p>
-          </li>
-          <li>
-            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="14" y="5" width="20" height="38" rx="4"/><path d="M21 37h6"/></svg>
-            <h3>Móvil y tablet</h3>
-            <p>Gestos táctiles: arrastra para girar, pellizca para acercar, toca para abrir fichas.</p>
-          </li>
-          <li>
-            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 18c0-3 2-5 5-5h26c3 0 5 2 5 5v10c0 3-2 5-5 5h-7l-3-4h-6l-3 4h-7c-3 0-5-2-5-5z"/><circle cx="16" cy="23" r="3"/><circle cx="32" cy="23" r="3"/></svg>
-            <h3>Meta Quest (WebXR)</h3>
-            <p>Abre esta página en el navegador del visor y pulsa <em>Entrar en VR</em> dentro de cada módulo.</p>
-          </li>
-        </ul>
-        <p class="xr-status" id="xr-status" role="status">Comprobando compatibilidad con realidad virtual…</p>
+      <div class="container">
+        <div class="section-head" data-anim><span class="eyebrow">Compatibilidad</span><h2 id="dev-title">Un mismo curso, en cualquier pantalla</h2></div>
+        <div class="grid-3">
+          <div class="card device"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="9" width="38" height="24" rx="3"/><path d="M17 40h14M24 33v7"/></svg><h3>Escritorio</h3><p class="muted">Mouse para orbitar y clic en los puntos de interés.</p></div>
+          <div class="card device"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="14" y="5" width="20" height="38" rx="4"/><path d="M21 37h6"/></svg><h3>Móvil y tablet</h3><p class="muted">Arrastra para girar, pellizca para acercar, toca para abrir fichas.</p></div>
+          <div class="card device"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 18c0-3 2-5 5-5h26c3 0 5 2 5 5v10c0 3-2 5-5 5h-7l-3-4h-6l-3 4h-7c-3 0-5-2-5-5z"/><circle cx="16" cy="23" r="3"/><circle cx="32" cy="23" r="3"/></svg><h3>Meta Quest (WebXR)</h3><p class="muted">Abre la plataforma en el navegador del visor y pulsa «Entrar en VR».</p></div>
+        </div>
+        <p class="ak-note xr-status" id="xr-status" role="status">Comprobando compatibilidad con realidad virtual…</p>
+      </div>
+    </section>
+
+    <section class="section alt-band" id="verificar" aria-labelledby="ver-title">
+      <div class="container">
+        <div class="section-head" data-anim><span class="eyebrow">Verificación pública</span><h2 id="ver-title">¿Recibiste un certificado?</h2><p>Ingresa el código de verificación impreso en el certificado para confirmar su validez.</p></div>
+        <form class="verify-box" id="verify-form" data-anim>
+          <input class="input" name="code" placeholder="Ej: MA-RAP-2025-7QX4K" aria-label="Código de verificación" required>
+          <button class="btn btn-primary">Verificar</button>
+        </form>
       </div>
     </section>
 
     <section class="section cta-band">
-      <div class="wrap cta-inner">
-        <div>
-          <h2>¿Listo para tu primer día?</h2>
-          <p>Ingresa con tu nombre y RUT. Te tomará unos 40 minutos.</p>
-        </div>
-        <a class="btn btn-primary" href="#/ingresar">Comenzar ahora</a>
-      </div>
+      <div class="container"><div class="card" data-anim>
+        <div><h2>¿Listo para tu primer día?</h2><p class="muted" style="margin:0">Ingresa con tu RUT y tu PIN. Revisa las inducciones que te asignaron.</p></div>
+        <a class="btn btn-primary btn-lg" href="login.html">Ingresar</a>
+      </div></div>
     </section>
   </main>
-
-  <!-- ================= APP ================= -->
-  <section id="app" class="app" aria-live="off">
-    <!-- Login -->
-    <div class="view" id="view-login" hidden>
-      <div class="wrap narrow">
-        <div class="card login-card">
-          <p class="eyebrow">Acceso de participantes</p>
-          <h1 class="view-title">Ingresa a tu inducción</h1>
-          <p class="muted">Usa tu nombre completo y RUT (o número de identificación). Tu avance quedará guardado en este navegador.</p>
-          <div class="resume" id="resume" hidden></div>
-          <form id="login-form" novalidate>
-            <div class="field">
-              <label for="f-name">Nombre completo</label>
-              <input id="f-name" name="name" autocomplete="name" required minlength="3" placeholder="Ej: Camila Rojas Soto">
-              <p class="err" id="e-name" aria-live="polite"></p>
-            </div>
-            <div class="field">
-              <label for="f-rut">RUT o ID</label>
-              <input id="f-rut" name="rut" required placeholder="Ej: 12.345.678-5" autocomplete="off" aria-describedby="h-rut">
-              <p class="hint" id="h-rut">Si es un RUT chileno, validamos el dígito verificador.</p>
-              <p class="err" id="e-rut" aria-live="polite"></p>
-            </div>
-            <button class="btn btn-primary btn-block" type="submit">Entrar</button>
-          </form>
-          <p class="tiny">Demo de portafolio: empresa ficticia. Los datos no salen de tu dispositivo.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Dashboard -->
-    <div class="view" id="view-dashboard" hidden>
-      <div class="wrap">
-        <div class="dash-head">
-          <div>
-            <p class="eyebrow">Mi panel</p>
-            <h1 class="view-title" id="dash-hello">Hola</h1>
-            <p class="muted" id="dash-sub"></p>
-          </div>
-          <div class="ring" id="dash-ring" role="img" aria-label="Progreso total">
-            <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="ring-bg"/><circle cx="60" cy="60" r="52" class="ring-fg" id="ring-fg"/></svg>
-            <div><strong id="ring-pct">0%</strong><span>completado</span></div>
-          </div>
-        </div>
-        <ol class="dash-grid" id="dash-grid"></ol>
-      </div>
-    </div>
-
-    <!-- Module player -->
-    <div class="view" id="view-module" hidden>
-      <div class="wrap wide">
-        <div class="mod-head">
-          <a class="back" href="#/panel">← Mi panel</a>
-          <div class="mod-title-row">
-            <div>
-              <p class="eyebrow" id="mod-eyebrow">Módulo</p>
-              <h1 class="view-title" id="mod-title">Módulo</h1>
-            </div>
-            <div class="mod-progress" aria-label="Progreso del módulo">
-              <div class="bar"><span id="mod-bar"></span></div>
-              <span id="mod-pct">0%</span>
-            </div>
-          </div>
-        </div>
-        <div class="mod-grid">
-          <div class="viewer" id="viewer">
-            <div class="stage" id="stage"></div>
-            <div class="markers" id="markers"></div>
-            <div class="viewer-tools" id="viewer-tools">
-              <button class="tool" type="button" id="t-tour" hidden>▶ Recorrido guiado</button>
-              <button class="tool" type="button" id="t-reset" title="Restablecer cámara">⟲ Vista</button>
-              <span id="vr-slot"></span>
-            </div>
-            <div class="viewer-loading" id="viewer-loading"><span class="spinner"></span>Cargando escena 3D…</div>
-            <div class="viewer-fallback" id="viewer-fallback" hidden>
-              <div class="fb-msg" role="status">
-                <strong>No pudimos cargar el motor 3D.</strong>
-                <span>Puede deberse a tu conexión, a un bloqueador o a que abriste el archivo directamente (file://). Continúa con la vista 2D: el contenido y tu avance funcionan igual.</span>
-              </div>
-              <div class="fb-body" id="fb-body"></div>
-            </div>
-            <div class="alarm-vignette" id="alarm" aria-hidden="true"></div>
-            <div class="info-card" id="info-card" role="dialog" aria-modal="false" aria-labelledby="ic-title" hidden>
-              <p class="ic-kicker" id="ic-kicker">Punto de interés</p>
-              <h2 id="ic-title"></h2>
-              <p id="ic-text"></p>
-              <div class="ic-actions">
-                <button class="btn btn-sm btn-primary" type="button" id="ic-ok">Entendido</button>
-                <button class="btn btn-sm btn-ghost" type="button" id="ic-next" hidden>Siguiente →</button>
-              </div>
-            </div>
-            <p class="viewer-hint" id="viewer-hint">Arrastra para girar · Rueda o pellizco para acercar · Toca los puntos</p>
-          </div>
-          <aside class="mod-panel card" id="mod-panel"></aside>
-        </div>
-      </div>
-    </div>
-
-    <!-- Quiz -->
-    <div class="view" id="view-quiz" hidden>
-      <div class="wrap narrow">
-        <a class="back" href="#/panel">← Mi panel</a>
-        <div class="card quiz-card" id="quiz-card"></div>
-      </div>
-    </div>
-
-    <!-- Certificate -->
-    <div class="view" id="view-cert" hidden>
-      <div class="wrap">
-        <div class="cert-actions no-print">
-          <a class="back" href="#/panel">← Mi panel</a>
-          <button class="btn btn-primary btn-sm" type="button" id="print-cert">Imprimir / Guardar PDF</button>
-        </div>
-        <div id="cert-host"></div>
-      </div>
-    </div>
-  </section>
-  </div>
-
-  <footer class="footer">
-    <div class="wrap foot-inner">
-      <p><strong>Minera Altiplano</strong> · Plataforma de Inducción XR</p>
-      <p class="tiny">Empresa ficticia creada como demo. Contenidos de seguridad referenciales.</p>
-    </div>
-  </footer>
-
-  <div class="toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
-
-  <script src="app.js" defer></script>
+  <footer class="site-footer"><div class="container" id="footer"></div></footer>
+  <script type="module" src="js/public/home.js"></script>
   <script src="../assets/portfolio-bar.js" defer></script>
 </body>
 </html>

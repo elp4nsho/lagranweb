@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es" data-app="producto" data-default-theme="glass">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seguimiento de pedido · Aquilo Pulse</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='10' y='3' width='12' height='26' rx='5' fill='%2300b3c7'/%3E%3C/svg%3E">
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="site-head scrolled">
+    <div class="container head-in">
+      <a href="index.html" class="logo" aria-label="Aquilo, inicio"><span class="logo-mark" aria-hidden="true"></span>aquilo</a>
+      <nav class="head-nav" aria-label="Principal"><a href="index.html#beneficios">Beneficios</a><a href="index.html#precios">Precios</a><a href="index.html#faq">FAQ</a></nav>
+      <a class="btn btn-primary btn-sm" href="checkout.html">Comprar</a>
+    </div>
+  </header>
+  <main class="container narrow track-wrap">
+    <section class="card stack" data-anim>
+      <div><span class="eyebrow">Seguimiento</span><h1 style="font-size:clamp(26px,4vw,40px);margin:4px 0 0">¿Dónde está mi Aquilo?</h1></div>
+      <form class="grid-2" id="trackForm" novalidate>
+        <div class="field"><label for="t-num">Número de pedido</label><input class="input mono" id="t-num" name="n" placeholder="AQ-10234" required></div>
+        <div class="field"><label for="t-email">Correo de la compra</label><input class="input" id="t-email" name="e" type="email" placeholder="tu@correo.cl" required></div>
+        <div style="grid-column:1/-1" class="row between">
+          <div class="small muted">Pedidos de prueba: <span class="sample-orders" id="samples"></span></div>
+          <button class="btn btn-primary" type="submit">Buscar pedido</button>
+        </div>
+      </form>
+    </section>
+    <div id="result" aria-live="polite"></div>
+  </main>
+  <script type="module" src="js/public/tracking.js"></script>
+  <script src="../assets/portfolio-bar.js" defer></script>
+</body>
+</html>

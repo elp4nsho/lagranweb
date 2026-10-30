@@ -1,240 +1,30 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-app="oficina" data-default-theme="aurora">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>¿Quién es quién? · Directorio y mapa de oficina</title>
-  <meta name="description" content="Demo: directorio de personas, mapa interactivo de la oficina, reserva de puestos, organigrama y modo recepción para empresas ficticias.">
-  <meta name="color-scheme" content="light dark">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236d5efc'/%3E%3Ccircle cx='16' cy='13' r='5' fill='white'/%3E%3Cpath d='M7 26c1.5-5 5-7 9-7s7.5 2 9 7' fill='white'/%3E%3C/svg%3E">
+  <meta name="description" content="Demo: directorio de personas multiempresa, mapa interactivo de la oficina, organigrama, reservas de puestos, recepción de visitas y panel de administración.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3Ccircle cx='16' cy='13' r='5' fill='white'/%3E%3Cpath d='M7 26c1.5-5 5-7 9-7s7.5 2 9 7' fill='white'/%3E%3C/svg%3E">
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-  <a class="skip" href="#main">Saltar al contenido</a>
-
-  <header class="topbar">
-    <div class="topbar-row">
-      <div class="app-id">
-        <span class="app-logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="9" cy="8" r="3.2" fill="currentColor"/><path d="M3 19c.8-3.4 3.2-5 6-5s5.2 1.6 6 5" fill="currentColor"/><circle cx="17" cy="9" r="2.4" fill="currentColor" opacity=".6"/><path d="M15.5 14.2c2.4.1 4.2 1.6 4.9 4.3" stroke="currentColor" stroke-width="1.8" fill="none" opacity=".6" stroke-linecap="round"/></svg>
-        </span>
-        <span class="app-name">¿Quién es quién?</span>
-      </div>
-
-      <div class="co-switch">
-        <span class="co-logo" id="coLogo" aria-hidden="true"></span>
-        <div class="co-select-wrap">
-          <label for="coSelect" class="co-label">Empresa</label>
-          <select id="coSelect"></select>
-        </div>
-      </div>
-
-      <nav class="tabs" role="tablist" aria-label="Secciones">
-        <button role="tab" class="tab" data-view="directorio" id="tab-directorio" aria-controls="view-directorio">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-8 0 4 4 0 0 0 8 0Zm-12 9c1-3.5 4.3-5.5 8-5.5s7 2 8 5.5" /></svg>Directorio</button>
-        <button role="tab" class="tab" data-view="mapa" id="tab-mapa" aria-controls="view-mapa">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2V6Zm6-2v14m6-12v14" /></svg>Mapa</button>
-        <button role="tab" class="tab" data-view="organigrama" id="tab-organigrama" aria-controls="view-organigrama">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6v5H9zM3 16h6v5H3zm12 0h6v5h-6zM12 8v4M6 16v-4h12v4" /></svg>Organigrama</button>
-        <button role="tab" class="tab" data-view="recepcion" id="tab-recepcion" aria-controls="view-recepcion">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M6 20v-6h12v6M9 14V9a3 3 0 0 1 6 0v5M12 3v1" /></svg>Recepción</button>
-      </nav>
-
-      <button class="icon-btn" id="themeBtn" type="button" aria-label="Cambiar a modo oscuro" title="Cambiar tema">
-        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
-        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-      </button>
-    </div>
-  </header>
-
-  <main id="main" tabindex="-1">
-    <!-- DIRECTORIO -->
-    <section class="view" id="view-directorio" role="tabpanel" aria-labelledby="tab-directorio">
-      <div class="page-head">
-        <div>
-          <h1>Directorio</h1>
-          <p class="muted" id="dirSub"></p>
-        </div>
-        <div class="chips" id="fStatus" role="group" aria-label="Filtrar por estado"></div>
-      </div>
-
-      <div class="filters">
-        <div class="search">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <label for="q" class="sr-only">Buscar personas</label>
-          <input id="q" type="search" placeholder="Buscar por nombre, cargo, área o habilidad…" autocomplete="off">
-          <kbd class="kbd" aria-hidden="true">/</kbd>
-        </div>
-        <div class="filter-row">
-          <label class="sel"><span class="sr-only">Área</span><select id="fArea"></select></label>
-          <label class="sel"><span class="sr-only">Habilidad</span><select id="fSkill"></select></label>
-          <label class="sel"><span class="sr-only">Piso</span><select id="fFloor"></select></label>
-          <label class="sel"><span class="sr-only">Ordenar</span><select id="fSort">
-            <option value="name">Orden: nombre</option>
-            <option value="area">Orden: área</option>
-            <option value="status">Orden: estado</option>
-          </select></label>
-          <button class="btn ghost sm" id="fClear" type="button">Limpiar</button>
-        </div>
-      </div>
-
-      <p class="result-count" id="dirCount" aria-live="polite"></p>
-      <div class="grid" id="dirGrid"></div>
+  <div id="topbar"></div>
+  <main id="main" class="app-main">
+    <section class="page-hero container" data-anim>
+      <span class="eyebrow" id="coLine"></span>
+      <h1 id="heroTitle">¿Quién es quién?</h1>
+      <p class="muted" id="heroSub"></p>
     </section>
-
-    <!-- MAPA -->
-    <section class="view" id="view-mapa" role="tabpanel" aria-labelledby="tab-mapa" hidden>
-      <div class="map-layout">
-        <div class="map-card">
-          <div class="map-toolbar">
-            <div class="combo" id="mapCombo">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-              <label for="mapQ" class="sr-only">Buscar persona en el mapa</label>
-              <input id="mapQ" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="mapList" placeholder="Ubicar a una persona…" autocomplete="off">
-              <ul id="mapList" role="listbox" class="combo-list" hidden></ul>
-            </div>
-            <div class="seg" id="floorSeg" role="group" aria-label="Seleccionar piso"></div>
-          </div>
-          <div class="map-stage" id="stage">
-            <svg id="mapSvg" viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid meet" role="group" aria-label="Plano de la oficina">
-              <g id="vp"></g>
-            </svg>
-            <div class="zoom-ctl" role="group" aria-label="Zoom del mapa">
-              <button type="button" class="icon-btn" id="zIn" aria-label="Acercar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
-              <button type="button" class="icon-btn" id="zOut" aria-label="Alejar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button>
-              <button type="button" class="icon-btn" id="zFit" aria-label="Ajustar a la pantalla"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
-            </div>
-            <div class="map-floor-badge" id="floorBadge" aria-hidden="true"></div>
-            <div class="tip" id="tip" hidden></div>
-            <p class="map-hint">Arrastra para mover · rueda o pellizca para zoom</p>
-          </div>
-        </div>
-
-        <aside class="map-side">
-          <div class="card">
-            <div class="card-h"><h2 id="occTitle">Ocupación</h2><span class="muted sm" id="occDate"></span></div>
-            <div class="occ-bar" id="occBar" role="img"></div>
-            <dl class="occ-stats" id="occStats"></dl>
-          </div>
-
-          <div class="card" id="hotCard">
-            <div class="card-h"><h2>Reserva de puesto</h2><span class="pill soft">Hot-desk</span></div>
-            <label class="field">
-              <span>Soy…</span>
-              <select id="meSel"></select>
-            </label>
-            <div id="myRes" class="myres"></div>
-          </div>
-
-          <div class="card">
-            <div class="card-h"><h2>Leyenda</h2></div>
-            <ul class="legend" id="legend"></ul>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ORGANIGRAMA -->
-    <section class="view" id="view-organigrama" role="tabpanel" aria-labelledby="tab-organigrama" hidden>
-      <div class="page-head">
-        <div>
-          <h1>Organigrama</h1>
-          <p class="muted" id="orgSub"></p>
-        </div>
-        <div class="org-tools">
-          <div class="search small">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-            <label for="orgQ" class="sr-only">Resaltar en el organigrama</label>
-            <input id="orgQ" type="search" placeholder="Resaltar persona…" autocomplete="off">
-          </div>
-          <button class="btn ghost sm" type="button" id="orgToggleAll">Contraer todo</button>
-        </div>
-      </div>
-      <div class="org-wrap" id="orgWrap"></div>
-    </section>
-
-    <!-- RECEPCIÓN -->
-    <section class="view" id="view-recepcion" role="tabpanel" aria-labelledby="tab-recepcion" hidden>
-      <div class="kiosk-head">
-        <div>
-          <p class="eyebrow" id="kWelcomeCo"></p>
-          <h1>Bienvenido/a. ¿A quién vienes a ver?</h1>
-        </div>
-        <div class="kiosk-head-actions">
-          <div class="clock" id="clock" aria-live="off"></div>
-          <button class="btn" type="button" id="kioskBtn">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
-            <span>Modo kiosko</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="kiosk-grid">
-        <div class="card kiosk-find">
-          <div class="search big">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-            <label for="kQ" class="sr-only">Buscar a una persona</label>
-            <input id="kQ" type="search" placeholder="Escribe un nombre o área…" autocomplete="off">
-          </div>
-          <div id="kResults" class="k-results" aria-live="polite"></div>
-          <div id="kLoc" class="k-loc"></div>
-        </div>
-
-        <div class="card kiosk-visit">
-          <div class="card-h"><h2>Registro de visitas</h2><span class="pill soft" id="visitCount"></span></div>
-          <form id="visitForm" novalidate>
-            <div class="form-grid">
-              <label class="field span2"><span>Nombre completo *</span><input name="name" required autocomplete="name" placeholder="Ej: Laura Méndez"></label>
-              <label class="field"><span>Documento</span><input name="doc" placeholder="RUT / DNI / Pasaporte"></label>
-              <label class="field"><span>Empresa</span><input name="company" autocomplete="organization" placeholder="Ej: Consultora Pampa"></label>
-              <label class="field span2"><span>Persona que visitas *</span><select name="host" id="hostSel" required></select></label>
-              <label class="field"><span>Motivo</span><select name="reason">
-                <option>Reunión</option><option>Entrevista</option><option>Entrega / courier</option><option>Proveedor técnico</option><option>Otro</option>
-              </select></label>
-              <label class="field"><span>Correo (opcional)</span><input name="email" type="email" autocomplete="email" placeholder="nombre@correo.com"></label>
-              <label class="check span2"><input type="checkbox" name="ok" required> <span>Acepto las normas de seguridad y el registro de mi visita.</span></label>
-            </div>
-            <p class="form-error" id="formError" role="alert"></p>
-            <button class="btn primary block" type="submit">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v3h6V3M9 12h6M9 16h4"/></svg>
-              Registrar y generar credencial
-            </button>
-          </form>
-          <h3 class="sub-h">Visitas de hoy</h3>
-          <ul class="visit-list" id="visitList"></ul>
-        </div>
-      </div>
-      <button class="btn kiosk-exit" type="button" id="kioskExit">Salir del modo kiosko</button>
-    </section>
+    <div class="container stack" id="announcements"></div>
+    <div class="container" id="view" style="margin-top:var(--gap)"></div>
   </main>
-
-  <!-- Panel de perfil -->
-  <div class="scrim" id="scrim" hidden></div>
-  <aside class="drawer" id="profile" role="dialog" aria-modal="true" aria-labelledby="pfName" hidden>
-    <div class="drawer-inner" id="profileBody"></div>
-  </aside>
-
-  <!-- Credencial de visita -->
-  <dialog id="badgeDlg" aria-labelledby="badgeTitle">
-    <div class="dlg-head">
-      <h2 id="badgeTitle">Credencial de visita</h2>
-      <button class="icon-btn" type="button" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-    </div>
-    <div id="badgeBox"></div>
-    <div class="dlg-actions">
-      <button class="btn ghost" type="button" id="badgePrint">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3M7 14h10v7H7z"/></svg>Imprimir</button>
-      <button class="btn primary" type="button" data-close>Listo</button>
-    </div>
-  </dialog>
-
-  <div class="toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
-
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <footer class="footer"><div class="container row between">
+    <span>Demo con empresas y personas ficticias · Datos guardados solo en tu navegador.</span>
+    <span class="row gap-sm"><a href="empleado.html">Mi espacio</a><a href="recepcion.html">Recepción</a><a href="admin.html">Administración</a></span>
+  </div></footer>
+  <script type="module" src="js/public/main.js"></script>
   <script src="../assets/portfolio-bar.js" defer></script>
 </body>
 </html>

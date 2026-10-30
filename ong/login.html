@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es" data-app="ong" data-default-theme="forest">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E🌱%3C/text%3E%3C/svg%3E">
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
+  <title>Ingresar · Raíces del Sur</title>
+</head>
+<body>
+  <main class="login-page">
+    <div class="login-box">
+      <section class="card stack" data-anim>
+        <a href="index.html" class="logo"><span class="logo-mark" aria-hidden="true">🌱</span>Raíces del Sur</a>
+        <div><span class="eyebrow">Acceso</span><h1 style="font-size:clamp(26px,4vw,36px);margin:6px 0 0">Ingresa a tu cuenta</h1></div>
+        <p class="muted" style="margin:0">El equipo entra al panel de gestión; donantes y voluntarios, a su cuenta personal.</p>
+        <form class="stack" id="loginForm" novalidate>
+          <div class="field"><label for="l-email">Correo</label><input class="input" id="l-email" name="email" type="email" autocomplete="username" required></div>
+          <div class="field"><label for="l-pass">Contraseña</label><input class="input" id="l-pass" name="password" type="password" autocomplete="current-password" required></div>
+          <p class="small" id="loginErr" role="alert" style="margin:0;color:var(--danger)"></p>
+          <button class="btn btn-primary btn-lg" type="submit">Entrar</button>
+        </form>
+        <p class="small muted" style="margin:0">¿Donas por primera vez? <a href="cuenta.html#registro">Crea tu cuenta de donante</a> · <a href="index.html">Volver al sitio</a></p>
+      </section>
+      <section class="card stack" data-anim>
+        <h2 style="font-size:20px;margin:0">Cuentas de demostración</h2>
+        <p class="muted small" style="margin:0">Entra con un clic. Cada rol ve una parte distinta del sistema.</p>
+        <div id="demo"></div>
+        <dl class="kv small">
+          <dt>Administrador</dt><dd>Todo el panel, usuarios, ajustes y bitácora</dd>
+          <dt>Coordinador</dt><dd>Campañas, voluntariado, proyectos, comunicaciones, sitio</dd>
+          <dt>Contador</dt><dd>Donaciones, suscripciones, gastos y transparencia</dd>
+          <dt>Voluntario</dt><dd>Mi cuenta: actividades e inscripciones</dd>
+          <dt>Donante</dt><dd>Mi cuenta: historial, certificados y donación mensual</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="js/login.js"></script>
+  <script src="../assets/portfolio-bar.js" defer></script>
+</body>
+</html>

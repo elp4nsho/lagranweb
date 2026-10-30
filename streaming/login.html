@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es" data-app="streaming" data-default-theme="metro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingresar · Andes+</title>
+  <meta name="description" content="Andes+: plataforma de streaming ficticia con series y películas originales. Demo de sistema completo.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2300a300'/%3E%3Cpath d='M6 24 13 10l4 7 3-4 6 11z' fill='%23fff'/%3E%3C/svg%3E">
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <main class="auth-page">
+    <div class="card auth-card">
+      <div class="stack">
+        <a class="logo-word" href="index.html">Andes<b>+</b></a>
+        <h1 style="font-size:28px;margin:0">Ingresar</h1>
+        <form class="stack" id="login" novalidate>
+          <div class="field"><label for="email">Correo</label><input class="input" id="email" name="email" type="email" autocomplete="username" required></div>
+          <div class="field"><label for="pass">Contraseña</label><input class="input" id="pass" name="password" type="password" autocomplete="current-password" required></div>
+          <button class="btn btn-primary btn-lg">Ingresar</button>
+          <p class="small" id="err" role="alert"></p>
+        </form>
+        <p class="small muted">¿Nuevo en Andes+? <a href="index.html#planes">Elige un plan y suscríbete</a></p>
+      </div>
+      <div class="side stack">
+        <div><span class="eyebrow">Demo</span><h2 style="margin:4px 0">Entra con un clic</h2><p class="muted small" style="margin:0">El suscriptor abre el selector de perfiles; el equipo interno entra al CMS con permisos según su rol.</p></div>
+        <div id="demo"></div>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="js/public/login.js"></script>
+  <script src="../assets/portfolio-bar.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+// Logotipo de Gremio dibujado con tokens del tema.
+export const logo = (size = 34) => `<svg viewBox="0 0 40 40" width="${size}" height="${size}" aria-hidden="true"><rect x="3" y="3" width="34" height="34" rx="10" fill="var(--primary)" stroke="var(--text)" stroke-width="2.5"/><path d="M27 15a8 8 0 1 0 0 10h-6" fill="none" stroke="var(--on-primary)" stroke-width="3.5" stroke-linecap="round"/></svg>`;

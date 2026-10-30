@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es" data-app="fintech" data-default-theme="blueprint">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingresar · Cóndor Pay (demo)</title>
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div id="ribbon"></div>
+  <main class="auth-wrap">
+    <div class="auth-card stack">
+      <div class="row between" id="brand"></div>
+      <form class="card stack" id="login-form" novalidate data-anim>
+        <div><h1 style="font-size:30px;margin:0">Ingresa a tu cuenta</h1><p class="muted" style="margin:4px 0 0">Clientes y equipo interno usan el mismo acceso.</p></div>
+        <div class="field"><label for="email">Correo</label><input class="input" id="email" type="email" autocomplete="username" required placeholder="tu@correo.cl"></div>
+        <div class="field"><label for="pass">Clave</label><input class="input" id="pass" type="password" autocomplete="current-password" required></div>
+        <p class="small" id="err" style="color:var(--danger);margin:0" role="alert"></p>
+        <button class="btn btn-primary btn-block" type="submit">Ingresar</button>
+        <p class="small muted" style="margin:0">¿No tienes cuenta? <a href="abrir-cuenta.html">Ábrela en 5 minutos</a></p>
+      </form>
+      <section class="card stack" data-anim>
+        <div><h3 style="margin:0">Cuentas demo</h3><p class="small muted" style="margin:0">Entra con un clic. Todo el dinero es ficticio.</p></div>
+        <span class="eyebrow">Cliente</span><div id="demo-clients"></div>
+        <span class="eyebrow">Equipo interno (back-office)</span><div id="demo-staff"></div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="js/public/login.js"></script>
+  <script src="../assets/portfolio-bar.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es" data-app="iot" data-default-theme="terminal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consola · Sentinela</title>
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div class="admin-shell">
+    <aside class="admin-sidebar" id="sidebar" aria-label="Menú"></aside>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <button class="btn btn-icon admin-burger" aria-label="Abrir menú">☰</button>
+        <span class="live-pill hide-sm" id="livepill">EN VIVO</span>
+        <span class="small muted hide-sm" id="clock"></span>
+        <div id="userbar" style="margin-left:auto"></div>
+      </header>
+      <main class="admin-content" id="view" tabindex="-1"></main>
+    </div>
+  </div>
+  <script type="module" src="js/app/main.js"></script>
+  <script src="../assets/portfolio-bar.js" defer></script>
+</body>
+</html>

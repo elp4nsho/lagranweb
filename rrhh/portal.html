@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es" data-app="rrhh" data-default-theme="material">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi portal · Grupo Cordillera</title>
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div class="admin-shell">
+    <aside class="admin-sidebar" id="sidebar" aria-label="Menú del portal"></aside>
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <button class="btn btn-icon admin-burger" type="button" aria-label="Abrir menú">☰</button>
+        <div class="grow"><b id="pageTitle">Mi portal</b></div>
+        <div id="bellBox"></div>
+        <div id="userBox"></div>
+      </header>
+      <main class="admin-content" id="content"><div class="spinner"></div></main>
+    </div>
+  </div>
+  <script type="module" src="js/portal/main.js"></script>
+  <script src="../assets/portfolio-bar.js" defer></script>
+</body>
+</html>

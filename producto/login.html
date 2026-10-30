@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es" data-app="producto" data-default-theme="glass">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acceso equipo · Aquilo</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='10' y='3' width='12' height='26' rx='5' fill='%2300b3c7'/%3E%3C/svg%3E">
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <main class="login-page">
+    <div class="login-box">
+      <section class="card stack" data-anim>
+        <a href="index.html" class="logo"><span class="logo-mark" aria-hidden="true"></span>aquilo</a>
+        <div><span class="eyebrow">Panel de ventas</span><h1 style="font-size:clamp(26px,4vw,36px);margin:6px 0 0">Acceso del equipo</h1></div>
+        <p class="muted" style="margin:0">Gestiona pedidos, la landing, pruebas A/B, cupones, afiliados e inventario.</p>
+        <form class="stack" id="loginForm" novalidate>
+          <div class="field"><label for="l-email">Correo</label><input class="input" id="l-email" name="email" type="email" autocomplete="username" required></div>
+          <div class="field"><label for="l-pass">Contraseña</label><input class="input" id="l-pass" name="password" type="password" autocomplete="current-password" required></div>
+          <p class="small" id="loginErr" role="alert" style="margin:0;color:var(--danger)"></p>
+          <button class="btn btn-primary btn-lg" type="submit">Entrar</button>
+        </form>
+        <a class="small" href="index.html">← Volver a la landing</a>
+      </section>
+      <section class="card stack" data-anim>
+        <h2 style="font-size:20px;margin:0">Cuentas de demostración</h2>
+        <p class="muted small" style="margin:0">Entra con un clic. Cada rol ve secciones distintas del panel.</p>
+        <div id="demo"></div>
+        <dl class="kv small">
+          <dt>Administrador</dt><dd>Todo, incluidos usuarios, ajustes y bitácora</dd>
+          <dt>Marketing</dt><dd>Landing, A/B, cupones, afiliados, automatizaciones, reseñas</dd>
+          <dt>Soporte</dt><dd>Pedidos, reseñas, inventario y carritos</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="js/login.js"></script>
+  <script src="../assets/portfolio-bar.js" defer></script>
+</body>
+</html>

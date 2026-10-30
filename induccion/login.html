@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es" data-app="induccion" data-default-theme="synthwave">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingresar · Inducción XR</title>
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="auth-wrap">
+    <div class="auth-grid">
+      <section class="card auth-card" data-anim>
+        <span class="eyebrow">Acceso a la plataforma</span>
+        <h1 style="font-size:clamp(26px,4vw,36px)">Ingresa a tu inducción</h1>
+        <div class="tabs" role="tablist" style="margin-bottom:16px">
+          <button class="tab active" role="tab" aria-selected="true" data-tab="rut">Trabajador (RUT)</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="mail">Personal y supervisores</button>
+        </div>
+        <form id="f-rut" novalidate>
+          <div class="field"><label for="rut">RUT</label><input class="input" id="rut" name="rut" placeholder="12.345.678-5" autocomplete="username" inputmode="text"><small class="muted">Validamos el dígito verificador.</small></div>
+          <div class="field"><label for="pin">PIN</label><input class="input" id="pin" name="pin" type="password" placeholder="4 dígitos" autocomplete="current-password" inputmode="numeric"></div>
+          <p class="error" data-err role="alert"></p>
+          <button class="btn btn-primary btn-block">Entrar</button>
+        </form>
+        <form id="f-mail" novalidate hidden>
+          <div class="field"><label for="email">Correo corporativo</label><input class="input" id="email" name="email" type="email" placeholder="nombre@altiplano.cl" autocomplete="username"></div>
+          <div class="field"><label for="pass">Clave</label><input class="input" id="pass" name="pass" type="password" autocomplete="current-password"></div>
+          <p class="error" data-err role="alert"></p>
+          <button class="btn btn-primary btn-block">Entrar</button>
+        </form>
+      </section>
+      <section class="card" data-anim data-anim-delay="120">
+        <h2 style="font-size:20px">Cuentas de demostración</h2>
+        <p class="muted small">Un clic para entrar con cada rol. Los datos viven en este navegador.</p>
+        <div id="demo"></div>
+        <p class="small muted" style="margin-top:14px">¿Tienes un certificado? <a href="verificar.html">Verifícalo aquí</a>.</p>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="js/public/login.js"></script>
+  <script src="../assets/portfolio-bar.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es" data-app="crm" data-default-theme="flatui">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cotización · Pulso CRM</title>
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="quote-page">
+  <div class="quote-bar no-print">
+    <div class="container row between">
+      <a class="btn btn-ghost btn-sm" href="app.html#/negocios">← Volver al CRM</a>
+      <div class="row" style="gap:8px"><button class="btn btn-sm" data-send>Enviar por correo</button><button class="btn btn-primary btn-sm" data-print>Imprimir / Guardar PDF</button></div>
+    </div>
+  </div>
+  <main class="paper" id="doc"><div class="skeleton" style="height:400px"></div></main>
+  <script type="module" src="js/public/quote.js"></script>
+  <script src="../assets/portfolio-bar.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+/* Extensiones del kit para paneles (solo tokens). Compartido por las páginas con .admin-shell. */
+.ak-kpis { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); }
+.ak-panel { min-width: 0; }
+.ak-panel-head { margin-bottom: 12px; }
+.ak-panel-head h3 { margin: 0; }
+.ak-grid { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); }
+.ak-grid-3 { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); }
+.ak-toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+.ak-search { max-width: 280px; flex: 1 1 200px; }
+.ak-filter { width: auto; flex: 1 1 150px; max-width: 220px; min-width: 0; }
+.ak-toolbar-extra { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+.ak-toolbar-extra:empty { display: none; }
+.ak-sortable { cursor: pointer; user-select: none; }
+.ak-sort { font-size: 10px; }
+.ak-click { cursor: pointer; }
+.ak-actions { display: inline-flex; gap: 4px; flex-wrap: nowrap; justify-content: flex-end; }
+.ak-danger { color: var(--danger); }
+.ak-pager { margin-top: 10px; }
+.ak-person { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
+.ak-person > span:last-child { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+.ak-person small { font-size: 12px; overflow: hidden; text-overflow: ellipsis; }
+.ak-pct { display: inline-flex; align-items: center; gap: 8px; min-width: 120px; }
+.ak-pct .progress { flex: 1; min-width: 60px; }
+.ak-pct b { font-size: 12px; min-width: 34px; text-align: right; }
+.ak-dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 16px; margin: 0; }
+.ak-dl dt { color: var(--muted); font-size: 13px; font-weight: 600; }
+.ak-dl dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.ak-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 16px; }
+.ak-form .ak-full { grid-column: 1 / -1; }
+.ak-form-h { margin: 6px 0 -4px; font-size: 14px; color: var(--muted); }
+.ak-multi { display: flex; flex-wrap: wrap; gap: 8px 16px; padding: 10px 12px; border: var(--border-w) solid var(--line); border-radius: var(--radius-sm); background: var(--surface); }
+@media (max-width: 600px) { .ak-form { grid-template-columns: 1fr; } .ak-dl { grid-template-columns: 1fr; gap: 2px; } .ak-dl dd { margin-bottom: 8px; } }
+.ak-side-foot { margin-top: auto; padding-top: 12px; border-top: var(--border-w) solid var(--line); display: flex; flex-direction: column; gap: 2px; }
+.ak-crumb { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ak-top-actions { gap: 8px; flex-wrap: nowrap; }
+.ak-user { display: flex; align-items: center; gap: 8px; line-height: 1.2; }
+.ak-user > span:last-child { display: flex; flex-direction: column; font-size: 13px; }
+.ak-user small { font-size: 11px; }
+@media (max-width: 720px) { .ak-hide-sm { display: none !important; } }
+.ak-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.ak-list > li { display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.ak-list > li:last-child { border-bottom: 0; }
+.ak-list .grow { flex: 1; min-width: 0; }
+.ak-list small { display: block; color: var(--muted); }
+.ak-tabs { margin-bottom: 16px; }
+.ak-order { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.ak-order > li { display: flex; gap: 10px; align-items: center; padding: 10px 12px; background: var(--surface-2); border: var(--border-w) solid var(--line); border-radius: var(--radius-sm); min-width: 0; }
+.ak-order .grow { flex: 1; min-width: 0; }
+.ak-order .num { width: 28px; height: 28px; flex: none; display: grid; place-items: center; border-radius: var(--radius-pill); background: var(--primary); color: var(--on-primary); font-weight: 700; font-size: 13px; }
+.ak-back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; text-decoration: none; margin-bottom: -8px; }
+.ak-note { padding: 12px 14px; border-radius: var(--radius-sm); background: color-mix(in srgb, var(--info) 12%, transparent); border: var(--border-w) solid color-mix(in srgb, var(--info) 35%, transparent); font-size: 14px; }
+.ak-note.warn { background: color-mix(in srgb, var(--warning) 12%, transparent); border-color: color-mix(in srgb, var(--warning) 35%, transparent); }
+.table td .btn-sm { min-height: 28px; padding: 0 8px; }
+.ak-view { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.admin-sidebar { padding-bottom: 76px; }
+.ak-kpis { grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); }
+/* Algunos estilos (p. ej. HTML nativo) redefinen display de .btn: se fuerza el burger del shell. */
+.admin-topbar .admin-burger { display: none; }
+@media (max-width: 900px) { .admin-topbar .admin-burger { display: inline-flex; } }

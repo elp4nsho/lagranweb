@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es" data-app="induccion" data-default-theme="synthwave">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verificar certificado · Inducción XR</title>
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="section"><div class="container" style="max-width:980px">
+    <div class="section-head" data-anim><span class="eyebrow">Verificación pública</span><h1 style="font-size:clamp(28px,4vw,42px)">Verificar certificado</h1><p>Confirma que un certificado de inducción de Minera Altiplano es auténtico y está vigente. No requiere iniciar sesión.</p></div>
+    <form class="verify-box" id="vf" data-anim>
+      <input class="input" name="code" id="code" placeholder="MA-XXX-AAAA-XXXXX" aria-label="Código de verificación" autocomplete="off">
+      <button class="btn btn-primary">Verificar</button>
+    </form>
+    <p class="small muted" style="margin-top:8px">Prueba con <a href="?c=MA-RAP-2025-7QX4K" data-try>MA-RAP-2025-7QX4K</a>.</p>
+    <div id="result" class="verify-result" aria-live="polite"></div>
+  </div></main>
+  <script type="module" src="js/public/verify.js"></script>
+  <script src="../assets/portfolio-bar.js" defer></script>
+</body>
+</html>
