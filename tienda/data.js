@@ -1,0 +1,24 @@
+// Catálogo de la marca ficticia "Raíz" — ropa y objetos de uso diario.
+window.RAIZ_PRODUCTS = [
+  { id: 'p01', name: 'Polera Tierra', cat: 'poleras', price: 14990, emoji: '👕', rating: 4.7, tag: 'Nuevo', sizes: ['XS','S','M','L','XL'], colors: [['Arcilla','#c4623a'],['Hueso','#e9e1d3'],['Musgo','#5b6b4a']], desc: 'Polera de algodón orgánico peinado, corte relajado y costuras reforzadas. Teñida con pigmentos de bajo impacto.' },
+  { id: 'p02', name: 'Polera Cordillera', cat: 'poleras', price: 16990, emoji: '👕', rating: 4.5, sizes: ['S','M','L','XL'], colors: [['Pizarra','#4a5560'],['Hueso','#e9e1d3']], desc: 'Estampado frontal de líneas topográficas inspirado en los Andes. Tela de 180 g, suave al tacto.' },
+  { id: 'p03', name: 'Camisa Lino Brisa', cat: 'camisas', price: 32990, oldPrice: 39990, emoji: '👔', rating: 4.8, tag: 'Oferta', sizes: ['S','M','L','XL'], colors: [['Arena','#d8c3a0'],['Oliva','#7a7f4f'],['Blanco','#f6f3ee']], desc: 'Camisa de lino lavado, fresca y liviana. Ideal para el verano y para llevar abierta sobre una polera.' },
+  { id: 'p04', name: 'Camisa Franela Sur', cat: 'camisas', price: 29990, emoji: '🧥', rating: 4.6, sizes: ['M','L','XL'], colors: [['Vino','#7b2f35'],['Bosque','#2f3e2c']], desc: 'Franela cepillada a cuadros, abrigada y resistente. Botones de corozo natural.' },
+  { id: 'p05', name: 'Polerón Fogata', cat: 'polerones', price: 39990, emoji: '🧶', rating: 4.9, tag: 'Top ventas', sizes: ['XS','S','M','L','XL'], colors: [['Ceniza','#8c8780'],['Arcilla','#c4623a'],['Bosque','#2f3e2c']], desc: 'Polerón con capucha de felpa francesa 100% algodón. Bolsillo canguro y puños acanalados.' },
+  { id: 'p06', name: 'Polerón Crew Niebla', cat: 'polerones', price: 34990, emoji: '🧥', rating: 4.4, sizes: ['S','M','L'], colors: [['Niebla','#b9c0c4'],['Hueso','#e9e1d3']], desc: 'Cuello redondo, corte clásico y tejido que no se deforma con los lavados.' },
+  { id: 'p07', name: 'Pantalón Sendero', cat: 'pantalones', price: 37990, emoji: '👖', rating: 4.6, sizes: ['38','40','42','44','46'], colors: [['Caqui','#a8915f'],['Carbón','#33363a']], desc: 'Pantalón cargo de sarga elástica con bolsillos laterales. Pensado para caminar y trabajar.' },
+  { id: 'p08', name: 'Jeans Raíz Recto', cat: 'pantalones', price: 42990, oldPrice: 49990, emoji: '👖', rating: 4.7, tag: 'Oferta', sizes: ['38','40','42','44'], colors: [['Índigo','#2e3f63'],['Lavado','#7b93b5']], desc: 'Denim de 13 oz con corte recto y tiro medio. Algodón reciclado en un 30%.' },
+  { id: 'p09', name: 'Vestido Quillay', cat: 'vestidos', price: 44990, emoji: '👗', rating: 4.8, tag: 'Nuevo', sizes: ['XS','S','M','L'], colors: [['Terracota','#b5532f'],['Salvia','#9caf88']], desc: 'Vestido midi de viscosa ecológica con tirantes ajustables y caída fluida.' },
+  { id: 'p10', name: 'Vestido Lluvia', cat: 'vestidos', price: 38990, emoji: '👗', rating: 4.3, sizes: ['S','M','L'], colors: [['Pizarra','#4a5560'],['Arena','#d8c3a0']], desc: 'Vestido camisero de algodón con cinturón del mismo tono. Fácil de combinar.' },
+  { id: 'p11', name: 'Jockey Cumbre', cat: 'accesorios', price: 12990, emoji: '🧢', rating: 4.5, sizes: ['Única'], colors: [['Arcilla','#c4623a'],['Bosque','#2f3e2c'],['Hueso','#e9e1d3']], desc: 'Jockey de gabardina con bordado tono sobre tono y correa de cuero vegetal.' },
+  { id: 'p12', name: 'Bolso Tote Mercado', cat: 'accesorios', price: 15990, emoji: '👜', rating: 4.9, sizes: ['Única'], colors: [['Crudo','#efe6d4'],['Musgo','#5b6b4a']], desc: 'Tote de lona gruesa con bolsillo interior. Aguanta la compra de toda la semana.' },
+  { id: 'p13', name: 'Gorro Lana Austral', cat: 'accesorios', price: 13990, emoji: '🧣', rating: 4.6, sizes: ['Única'], colors: [['Mostaza','#c99a3b'],['Ceniza','#8c8780'],['Vino','#7b2f35']], desc: 'Gorro tejido en lana merino de la Patagonia. Abriga sin picar.' },
+  { id: 'p14', name: 'Zapatillas Raíz Lona', cat: 'calzado', price: 49990, emoji: '👟', rating: 4.7, tag: 'Top ventas', sizes: ['37','38','39','40','41','42','43'], colors: [['Hueso','#e9e1d3'],['Carbón','#33363a']], desc: 'Zapatillas de lona con suela de caucho natural. Plantilla de corcho que se adapta a tu pie.' },
+  { id: 'p15', name: 'Botines Huella', cat: 'calzado', price: 69990, oldPrice: 79990, emoji: '🥾', rating: 4.8, tag: 'Oferta', sizes: ['38','39','40','41','42','43','44'], colors: [['Café','#6b4528'],['Negro','#1f1f1f']], desc: 'Botines de cuero curtido vegetal, cosidos a mano. Duran años y mejoran con el uso.' },
+  { id: 'p16', name: 'Calcetines Pack Trío', cat: 'accesorios', price: 8990, emoji: '🧦', rating: 4.4, sizes: ['35-38','39-42','43-46'], colors: [['Surtido','#c4623a'],['Neutros','#b9b2a6']], desc: 'Pack de 3 pares de algodón peinado con talón reforzado.' }
+];
+
+window.RAIZ_CATEGORIES = [
+  ['todos', 'Todo'], ['poleras', 'Poleras'], ['camisas', 'Camisas'], ['polerones', 'Polerones'],
+  ['pantalones', 'Pantalones'], ['vestidos', 'Vestidos'], ['calzado', 'Calzado'], ['accesorios', 'Accesorios']
+];
