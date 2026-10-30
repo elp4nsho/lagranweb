@@ -1,5 +1,12 @@
 // Barra flotante común: vuelve al portafolio y abre el selector de los 30 estilos.
 (function () {
+  // Relleno de formularios con datos ficticios (misma carpeta que este script).
+  var self = document.currentScript && document.currentScript.src;
+  if (self) {
+    var f = document.createElement('script');
+    f.src = self.replace(/portfolio-bar\.js.*$/, 'demo-fill.js');
+    document.body.appendChild(f);
+  }
   var css = '' +
     '.lgw-dock{position:fixed;left:16px;bottom:16px;z-index:99999;display:flex;gap:6px;font:600 13px/1 system-ui,sans-serif}' +
     '.lgw-dock a,.lgw-dock button{display:flex;align-items:center;gap:8px;height:38px;padding:0 14px 0 8px;border:0;border-radius:999px;' +
