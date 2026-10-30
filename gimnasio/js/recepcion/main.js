@@ -14,7 +14,7 @@ if (user) {
     brand: 'Titán Fit', sub: 'Recepción', logo: 'qr', user, auth, db,
     nav: [
       { section: 'Mesón' },
-      { href: '#/', label: 'Kiosco check-in', ico: 'qr', count: () => db.count('checkins', k => k.at.slice(0, 10) === ymd() || new Date(k.at).toDateString() === new Date().toDateString()) },
+      { href: '#/', label: 'Kiosco check-in', ico: 'qr', count: () => db.count('checkins', k => ymd(new Date(k.at)) === ymd()) },
       { href: '#/pos', label: 'Tienda (POS)', ico: 'cart' },
       { href: '#/socios', label: 'Socios y cobros', ico: 'users', count: () => db.count('members', m => m.status === 'moroso') },
       { section: 'Gestión' },

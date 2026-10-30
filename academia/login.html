@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es" data-app="academia" data-default-theme="memphis">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingresar · Academia Faro</title>
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="auth-wrap">
+    <div class="auth-grid">
+      <section class="card auth-card" data-anim>
+        <div class="tabs" role="tablist" style="margin-bottom:16px">
+          <button class="tab active" role="tab" aria-selected="true" data-tab="in">Ingresar</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="reg">Crear cuenta</button>
+        </div>
+        <form id="f-in" novalidate>
+          <h1 style="font-size:clamp(24px,4vw,34px);margin:0">Hola de nuevo</h1>
+          <div class="field"><label for="email">Correo</label><input class="input" id="email" name="email" type="email" autocomplete="username"></div>
+          <div class="field"><label for="pass">Clave</label><input class="input" id="pass" name="pass" type="password" autocomplete="current-password"></div>
+          <p class="error" data-err role="alert"></p>
+          <button class="btn btn-primary btn-block">Ingresar</button>
+        </form>
+        <form id="f-reg" novalidate hidden>
+          <h1 style="font-size:clamp(24px,4vw,34px);margin:0">Empieza a aprender</h1>
+          <div class="field"><label for="rn">Nombre completo</label><input class="input" id="rn" name="name" autocomplete="name"></div>
+          <div class="field"><label for="re">Correo</label><input class="input" id="re" name="email" type="email" autocomplete="email"></div>
+          <div class="field"><label for="rp">Clave (mín. 6 caracteres)</label><input class="input" id="rp" name="pass" type="password" autocomplete="new-password"></div>
+          <p class="error" data-err role="alert"></p>
+          <button class="btn btn-primary btn-block">Crear cuenta gratis</button>
+        </form>
+      </section>
+      <section class="card" data-anim data-anim-delay="120">
+        <h2 style="font-size:20px">Cuentas de demostración</h2>
+        <p class="muted small">Un clic para entrar con cada rol.</p>
+        <div id="demo"></div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="js/public/login.js"></script>
+  <script src="../assets/portfolio-bar.js" defer></script>
+</body>
+</html>
