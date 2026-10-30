@@ -322,3 +322,5 @@ html:not([data-layout="app"]) .site-nav .nav-ico { display: none; }
   [data-layout="app"] .dash .d-act { height: 0; min-height: 100%; overflow: auto; }
 }
 @media (max-width: 999px) { [data-layout="app"] .dash > .d-kpis { order: -2; } [data-layout="app"] .dash .d-act { order: -1; } [data-layout="revista"] .dash > .d-kpis { grid-template-columns: 1fr 1fr; } }
+/* Barra de pestañas (app, celular): fondo opaco aunque el estilo use superficies translúcidas. */
+@media (max-width: 900px) { [data-layout="app"] .site-header .site-nav { background: linear-gradient(var(--surface), var(--surface)), var(--bg) !important; } }

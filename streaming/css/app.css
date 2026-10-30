@@ -1,6 +1,6 @@
 /* Andes+ · estilos propios. Solo tokens del núcleo (themes.css). */
 html { scroll-behavior: smooth; }
-body { overflow-x: hidden; }
+body { overflow-x: hidden; overflow-x: clip; } /* clip: no crea contenedor de scroll, así funcionan los elementos sticky */
 .skip { position: absolute; left: -9999px; }
 .skip:focus { left: 16px; top: 16px; z-index: 3000; background: var(--surface); padding: 8px 12px; }
 .logo-word { font: 800 22px/1 var(--font-head); letter-spacing: -.02em; color: var(--primary); text-decoration: none; white-space: nowrap; text-transform: none; }
@@ -437,3 +437,5 @@ html:not([data-layout="app"]):not([data-layout="revista"]) :is(.st-nav .nav-sear
 @media (max-width: 999px) { [data-layout="app"] .dash > .d-kpis { order: -2; } [data-layout="app"] .dash .d-act { order: -1; } [data-layout="revista"] .dash > .d-kpis { grid-template-columns: 1fr 1fr; } }
 /* El núcleo oculta en "revista" todo lo que no sea enlace directo del menú; recuperamos los accesos del pie del menú. */
 [data-layout="revista"] .admin-sidebar > div.stack:has(.nav-link) { display: flex !important; flex-direction: row; align-items: center; flex: none; gap: 2px; margin: 0 0 0 12px !important; padding: 0 0 0 12px !important; border-left: 1px solid var(--line); }
+/* Barra de pestañas (app, celular): fondo opaco aunque el estilo use superficies translúcidas. */
+@media (max-width: 900px) { [data-layout="app"] .site-header .site-nav { background: linear-gradient(var(--surface), var(--surface)), var(--bg) !important; } }
