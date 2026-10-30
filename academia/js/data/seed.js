@@ -115,7 +115,7 @@ export function seed() {
     return {
       id: 'k' + i, slug: slugify(title), title, subtitle, categoryId: 'c-' + cat, instructorId: inst, level: LEVELS[lvl], price, salePrice: sale || null, emoji, tone: TONES[i % TONES.length],
       description: `${subtitle}. En este curso avanzarás paso a paso, con lecciones breves, ejercicios prácticos y un proyecto final que podrás mostrar. Incluye material descargable, quizzes para medir tu avance y certificado verificable al terminar.`,
-      learn: kw.map(k => `Dominar ${k.toLowerCase()}`).concat(['Aplicar lo aprendido en un proyecto real', 'Resolver problemas frecuentes con confianza']),
+      learn: kw.concat(['Aplicar lo aprendido en un proyecto real', 'Resolver problemas frecuentes con confianza']),
       requirements: lvl === 0 ? ['No necesitas experiencia previa', 'Un computador con conexión a internet'] : ['Conocimientos básicos del área', 'Ganas de practicar'],
       language: 'Español', minutes, sections, status, featured: [0, 4, 8, 13, 16, 20].includes(i),
       createdAt: iso(created), publishedAt: status === 'publicado' ? iso(created + 10 * DAY) : null, submittedAt: status === 'revision' ? iso(now - r.int(1, 4) * DAY) : null

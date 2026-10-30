@@ -40,7 +40,7 @@ body { overflow-x: hidden; }
 .cover.tone-warning { --c1: var(--warning); --c2: var(--danger); }
 .cover.tone-danger { --c1: var(--danger); --c2: var(--warning); }
 .cover-emoji { font-size: clamp(38px, 5vw, 56px); filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .25)); }
-.cover-cat { position: absolute; left: 10px; bottom: 10px; padding: 2px 10px; border-radius: var(--radius-pill); background: var(--surface); color: var(--text); font-size: 11px; font-weight: 700; }
+.cover-cat { position: absolute; left: 10px; bottom: 10px; padding: 2px 10px; border-radius: var(--radius-pill); background: var(--text); color: var(--bg); font-size: 11px; font-weight: 700; }
 .cover.lg .cover-emoji { font-size: 80px; }
 
 /* ---------- Tarjeta de curso ---------- */
