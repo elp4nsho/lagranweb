@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aquilo Pulse · La botella inteligente que te recuerda beber agua</title>
+  <meta name="description" content="Aquilo Pulse: botella inteligente con recordatorios luminosos, sensor de consumo y 24 h de frío. Oferta de lanzamiento.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='10' y='3' width='12' height='26' rx='5' fill='%2300b3c7'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <!-- Sprite SVG del producto (se reutiliza en varias secciones) -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="g-body" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0" style="stop-color: var(--bottle-dark)"/>
+        <stop offset=".35" style="stop-color: var(--bottle)"/>
+        <stop offset=".6" style="stop-color: var(--bottle-light)"/>
+        <stop offset="1" style="stop-color: var(--bottle-dark)"/>
+      </linearGradient>
+      <linearGradient id="g-cap" x1="0" x2="1">
+        <stop offset="0" stop-color="#1a2233"/><stop offset=".45" stop-color="#4a5670"/><stop offset="1" stop-color="#121826"/>
+      </linearGradient>
+      <linearGradient id="g-shine" x1="0" x2="1">
+        <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+      </linearGradient>
+      <radialGradient id="g-glow"><stop offset="0" stop-color="#7ef9ff"/><stop offset="1" stop-color="#7ef9ff" stop-opacity="0"/></radialGradient>
+    </defs>
+    <symbol id="bottle" viewBox="0 0 200 520">
+      <ellipse cx="100" cy="505" rx="70" ry="10" fill="#0b1b2b" opacity=".18"/>
+      <!-- tapa -->
+      <rect x="62" y="10" width="76" height="70" rx="18" fill="url(#g-cap)"/>
+      <rect x="84" y="2" width="32" height="16" rx="8" fill="#2c364b"/>
+      <rect x="62" y="64" width="76" height="8" fill="#0b1220" opacity=".5"/>
+      <!-- anillo LED -->
+      <rect class="led" x="58" y="78" width="84" height="10" rx="5" fill="#7ef9ff"/>
+      <!-- cuerpo -->
+      <path d="M58 92 h84 q14 0 18 18 q6 28 6 60 v290 q0 38 -38 38 h-56 q-38 0 -38 -38 v-290 q0 -32 6 -60 q4 -18 18 -18z" fill="url(#g-body)"/>
+      <!-- pantalla -->
+      <rect x="70" y="200" width="60" height="96" rx="14" fill="#0b1220" opacity=".88"/>
+      <text x="100" y="246" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="24" fill="#7ef9ff">68%</text>
+      <text x="100" y="266" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#cfe9f2">1,4 / 2 L</text>
+      <circle cx="100" cy="282" r="3" fill="#7ef9ff"/>
+      <!-- brillo -->
+      <rect x="62" y="110" width="22" height="370" rx="11" fill="url(#g-shine)" opacity=".7"/>
+      <!-- logo -->
+      <text x="100" y="420" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="16" letter-spacing="3" fill="#fff" opacity=".85">AQUILO</text>
+    </symbol>
+  </svg>
+
+  <!-- Barra superior de oferta -->
+  <div class="promo" role="region" aria-label="Oferta">
+    <p>🔥 Lanzamiento: hasta <strong>30% dcto.</strong> + envío gratis · termina en <span class="cd-inline" data-countdown-inline>--:--:--</span></p>
+  </div>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a href="#" class="logo" aria-label="Aquilo, inicio"><span class="logo__mark" aria-hidden="true"></span>aquilo</a>
+      <nav aria-label="Principal" class="nav__links">
+        <a href="#beneficios">Beneficios</a>
+        <a href="#colores">Colores</a>
+        <a href="#resenas">Reseñas</a>
+        <a href="#precios">Precios</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <button class="btn btn--sm" data-buy>Comprar</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="badge"><span aria-hidden="true">★★★★★</span> 4,9 · más de 12.000 clientes</p>
+          <h1>Bebe mejor.<br><span class="grad">Siéntete increíble.</span></h1>
+          <p class="lead">Aquilo Pulse es la botella inteligente que <strong>brilla cuando es hora de hidratarte</strong>, mide cada sorbo y mantiene tu agua helada 24 horas.</p>
+          <ul class="hero__checks">
+            <li>Recordatorios luminosos personalizados</li>
+            <li>Sensor de consumo + app gratuita</li>
+            <li>Acero inoxidable libre de BPA</li>
+          </ul>
+          <div class="hero__cta">
+            <button class="btn btn--lg" data-buy>Quiero mi Aquilo <span aria-hidden="true">→</span></button>
+            <div class="price-tag"><s>$54.990</s> <strong>desde $39.990</strong></div>
+          </div>
+          <p class="micro">🚚 Envío gratis · ↩️ 60 días de prueba · 🛡️ 2 años de garantía</p>
+        </div>
+        <div class="hero__visual">
+          <div class="halo" aria-hidden="true"></div>
+          <div class="bubble bubble--a" aria-hidden="true">💧 +250 ml</div>
+          <div class="bubble bubble--b" aria-hidden="true">❄️ 24 h frío</div>
+          <div class="bubble bubble--c" aria-hidden="true">🔋 30 días</div>
+          <svg class="bottle bottle--hero" viewBox="0 0 200 520" role="img" aria-label="Botella inteligente Aquilo Pulse en el color seleccionado">
+            <use href="#bottle"/>
+          </svg>
+        </div>
+      </div>
+      <div class="wrap logos" aria-label="Medios que han hablado de nosotros">
+        <span>Como se vio en</span>
+        <strong>Revista Pulso</strong><strong>TecnoDiario</strong><strong>Vida Sana</strong><strong>Radio Andes</strong>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section id="beneficios" class="section">
+      <div class="wrap">
+        <header class="head reveal">
+          <p class="kicker">Por qué Aquilo</p>
+          <h2>La hidratación, por fin, sin esfuerzo.</h2>
+          <p>El 75% de las personas vive levemente deshidratada. Aquilo convierte beber agua en un hábito que no tienes que recordar.</p>
+        </header>
+        <div class="benefits">
+          <article class="benefit reveal"><span class="benefit__ico" aria-hidden="true">💡</span><h3>Te avisa con luz</h3><p>El anillo LED brilla suavemente cuando llevas mucho sin beber. Sin notificaciones molestas.</p></article>
+          <article class="benefit reveal"><span class="benefit__ico" aria-hidden="true">📊</span><h3>Mide cada sorbo</h3><p>Su sensor registra lo que bebes y ajusta tu meta según actividad y clima.</p></article>
+          <article class="benefit reveal"><span class="benefit__ico" aria-hidden="true">🧊</span><h3>24 h helada, 12 h caliente</h3><p>Doble pared de acero al vacío. Tu agua como te gusta, todo el día.</p></article>
+          <article class="benefit reveal"><span class="benefit__ico" aria-hidden="true">🔋</span><h3>30 días de batería</h3><p>Carga magnética en 90 minutos. Olvídate del cargador por un mes.</p></article>
+          <article class="benefit reveal"><span class="benefit__ico" aria-hidden="true">🌱</span><h3>Adiós al plástico</h3><p>Una Aquilo reemplaza ~1.400 botellas desechables al año.</p></article>
+          <article class="benefit reveal"><span class="benefit__ico" aria-hidden="true">🧼</span><h3>Fácil de limpiar</h3><p>Boca ancha y electrónica sellada en la tapa: el cuerpo va al lavavajillas.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOWCASE + COLORES -->
+    <section id="colores" class="section section--tint">
+      <div class="wrap showcase">
+        <div class="showcase__visual reveal">
+          <div class="stage">
+            <svg class="bottle bottle--show" viewBox="0 0 200 520" role="img" aria-labelledby="color-name">
+              <use href="#bottle"/>
+            </svg>
+            <span class="hotspot hotspot--1" tabindex="0" aria-label="Anillo LED: brilla para recordarte beber"><span class="hotspot__tip">Anillo LED de recordatorio</span></span>
+            <span class="hotspot hotspot--2" tabindex="0" aria-label="Pantalla táctil con tu progreso diario"><span class="hotspot__tip">Pantalla con tu progreso</span></span>
+            <span class="hotspot hotspot--3" tabindex="0" aria-label="Acero inoxidable de doble pared"><span class="hotspot__tip">Doble pared al vacío</span></span>
+          </div>
+        </div>
+        <div class="showcase__copy reveal">
+          <p class="kicker">Diseño</p>
+          <h2>Elige el color que va contigo.</h2>
+          <p>Acabado mate antideslizante, 650 ml de capacidad y una silueta que cabe en cualquier portavasos.</p>
+          <fieldset class="swatches">
+            <legend>Color: <strong id="color-name">Glaciar</strong></legend>
+            <div class="swatches__row">
+              <label class="swatch" style="--c:#00b3c7"><input type="radio" name="color" value="glaciar" checked><span class="sr">Glaciar</span></label>
+              <label class="swatch" style="--c:#ff6f61"><input type="radio" name="color" value="coral"><span class="sr">Coral</span></label>
+              <label class="swatch" style="--c:#7f9c80"><input type="radio" name="color" value="salvia"><span class="sr">Salvia</span></label>
+              <label class="swatch" style="--c:#d9b98c"><input type="radio" name="color" value="arena"><span class="sr">Arena</span></label>
+              <label class="swatch" style="--c:#2a3247"><input type="radio" name="color" value="noche"><span class="sr">Noche</span></label>
+            </div>
+          </fieldset>
+          <dl class="specs">
+            <div><dt>Capacidad</dt><dd>650 ml</dd></div>
+            <div><dt>Peso</dt><dd>380 g</dd></div>
+            <div><dt>Batería</dt><dd>30 días</dd></div>
+            <div><dt>Resistencia</dt><dd>IPX6</dd></div>
+          </dl>
+          <button class="btn" data-buy>Comprar en<span data-color-label>Glaciar</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARATIVA -->
+    <section class="section" aria-labelledby="cmp-title">
+      <div class="wrap narrow">
+        <header class="head head--center reveal">
+          <p class="kicker">Comparativa</p>
+          <h2 id="cmp-title">Aquilo vs. otras botellas</h2>
+        </header>
+        <div class="table-wrap reveal">
+          <table class="compare">
+            <caption class="sr">Comparación de características entre Aquilo Pulse y otras botellas</caption>
+            <thead>
+              <tr><th scope="col">Característica</th><th scope="col" class="us">Aquilo Pulse</th><th scope="col">Otras</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Recordatorio luminoso</th><td class="us"><span class="yes" aria-label="Sí">✓</span></td><td><span class="no" aria-label="No">✕</span></td></tr>
+              <tr><th scope="row">Mide tu consumo</th><td class="us"><span class="yes" aria-label="Sí">✓</span></td><td><span class="no" aria-label="No">✕</span></td></tr>
+              <tr><th scope="row">Frío 24 horas</th><td class="us"><span class="yes" aria-label="Sí">✓</span></td><td>8–12 h</td></tr>
+              <tr><th scope="row">Batería</th><td class="us">30 días</td><td>3–7 días</td></tr>
+              <tr><th scope="row">Apta para lavavajillas</th><td class="us"><span class="yes" aria-label="Sí">✓</span></td><td><span class="no" aria-label="No">✕</span></td></tr>
+              <tr><th scope="row">Prueba sin riesgo</th><td class="us">60 días</td><td>14 días</td></tr>
+              <tr><th scope="row">Garantía</th><td class="us">2 años</td><td>6 meses</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEÑAS -->
+    <section id="resenas" class="section section--tint">
+      <div class="wrap">
+        <header class="head reveal reviews__head">
+          <div>
+            <p class="kicker">Reseñas verificadas</p>
+            <h2>Miles de personas ya beben mejor.</h2>
+          </div>
+          <div class="score" aria-label="Valoración media 4,9 de 5 basada en 2.318 reseñas">
+            <strong>4,9</strong>
+            <div><span class="stars" style="--r:4.9" aria-hidden="true"></span><small>2.318 reseñas</small></div>
+          </div>
+        </header>
+        <div class="reviews">
+          <article class="review reveal">
+            <span class="stars" style="--r:5" role="img" aria-label="5 de 5 estrellas"></span>
+            <h3>Pasé de 3 vasos a 2 litros diarios</h3>
+            <p>La luz es sutil pero efectiva. Mis dolores de cabeza de la tarde desaparecieron en una semana.</p>
+            <footer><span class="av" style="--c:#ff6f61" aria-hidden="true">V</span><span><strong>Valentina R.</strong> · Santiago<br><small>Compra verificada · Coral</small></span></footer>
+          </article>
+          <article class="review reveal">
+            <span class="stars" style="--r:5" role="img" aria-label="5 de 5 estrellas"></span>
+            <h3>El hielo dura todo el día</h3>
+            <p>La llevo a la obra con 30 °C y en la tarde todavía tiene hielo. La app es simple y bonita.</p>
+            <footer><span class="av" style="--c:#2a3247" aria-hidden="true">D</span><span><strong>Diego M.</strong> · Antofagasta<br><small>Compra verificada · Noche</small></span></footer>
+          </article>
+          <article class="review reveal">
+            <span class="stars" style="--r:4" role="img" aria-label="4 de 5 estrellas"></span>
+            <h3>Regalo perfecto</h3>
+            <p>Compré el pack de 3 para la familia. Les encantó. Le quito una estrella porque quería más colores.</p>
+            <footer><span class="av" style="--c:#7f9c80" aria-hidden="true">C</span><span><strong>Carolina F.</strong> · Concepción<br><small>Compra verificada · Salvia</small></span></footer>
+          </article>
+          <article class="review reveal">
+            <span class="stars" style="--r:5" role="img" aria-label="5 de 5 estrellas"></span>
+            <h3>La batería es real</h3>
+            <p>Llevo 4 semanas sin cargarla. Elegante, se ve premium y no gotea en la mochila.</p>
+            <footer><span class="av" style="--c:#00b3c7" aria-hidden="true">J</span><span><strong>Javier S.</strong> · Valdivia<br><small>Compra verificada · Glaciar</small></span></footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRECIOS -->
+    <section id="precios" class="section pricing-section">
+      <div class="wrap">
+        <header class="head head--center reveal">
+          <p class="kicker">Oferta de lanzamiento</p>
+          <h2>Elige tu pack y ahorra.</h2>
+          <div class="countdown" role="timer" aria-label="Tiempo restante de la oferta">
+            <p>La oferta termina en</p>
+            <div class="countdown__boxes">
+              <div><span data-cd="h">00</span><small>horas</small></div>
+              <div><span data-cd="m">00</span><small>min</small></div>
+              <div><span data-cd="s">00</span><small>seg</small></div>
+            </div>
+          </div>
+        </header>
+        <div class="plans">
+          <article class="plan reveal">
+            <h3>1 Aquilo</h3>
+            <p class="plan__desc">Para empezar tu hábito.</p>
+            <p class="plan__price"><s>$54.990</s><strong>$39.990</strong></p>
+            <p class="plan__save">Ahorras $15.000</p>
+            <ul><li>Botella + cargador magnético</li><li>App gratuita</li><li>Envío gratis</li></ul>
+            <button class="btn btn--outline btn--block" data-buy="1">Elegir 1 unidad</button>
+          </article>
+          <article class="plan plan--featured reveal">
+            <span class="ribbon">Más popular</span>
+            <h3>2 Aquilo</h3>
+            <p class="plan__desc">Para ti y alguien que quieres.</p>
+            <p class="plan__price"><s>$109.980</s><strong>$69.990</strong></p>
+            <p class="plan__save">$34.995 c/u · Ahorras 36%</p>
+            <ul><li>2 botellas + 2 cargadores</li><li>Funda de neopreno de regalo</li><li>Envío express gratis</li></ul>
+            <button class="btn btn--block" data-buy="2">Elegir 2 unidades</button>
+          </article>
+          <article class="plan reveal">
+            <span class="ribbon ribbon--alt">Mejor precio</span>
+            <h3>3 Aquilo</h3>
+            <p class="plan__desc">Para toda la familia u oficina.</p>
+            <p class="plan__price"><s>$164.970</s><strong>$89.990</strong></p>
+            <p class="plan__save">$29.997 c/u · Ahorras 45%</p>
+            <ul><li>3 botellas + 3 cargadores</li><li>3 fundas de regalo</li><li>Envío express gratis</li></ul>
+            <button class="btn btn--outline btn--block" data-buy="3">Elegir 3 unidades</button>
+          </article>
+        </div>
+        <div class="guarantee reveal">
+          <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
+            <defs><path id="circ" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+            <circle cx="60" cy="60" r="56" fill="#0b2b3b"/>
+            <circle cx="60" cy="60" r="50" fill="none" stroke="#7ef9ff" stroke-width="1.5" stroke-dasharray="3 4"/>
+            <text font-family="Outfit, sans-serif" font-size="9.5" font-weight="700" letter-spacing="2.4" fill="#7ef9ff"><textPath href="#circ">GARANTÍA • SATISFACCIÓN • TOTAL •</textPath></text>
+            <text x="60" y="62" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="30" fill="#fff">60</text>
+            <text x="60" y="78" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="600" font-size="10" fill="#fff">DÍAS</text>
+          </svg>
+          <div>
+            <h3>Garantía de 60 días, sin preguntas</h3>
+            <p>Pruébala dos meses. Si no bebes más agua o simplemente no te convence, te devolvemos el 100% de tu dinero y retiramos la botella sin costo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section section--tint">
+      <div class="wrap narrow">
+        <header class="head head--center reveal">
+          <p class="kicker">Preguntas frecuentes</p>
+          <h2>¿Dudas? Te respondemos.</h2>
+        </header>
+        <div class="faq reveal">
+          <details open>
+            <summary>¿Necesito el teléfono para usarla?</summary>
+            <div class="faq__a"><p>No. Los recordatorios luminosos funcionan solos desde el primer día. La app es opcional para ver tu historial y personalizar metas.</p></div>
+          </details>
+          <details>
+            <summary>¿Cuánto demora el envío?</summary>
+            <div class="faq__a"><p>Despachamos en 24 horas hábiles. Llega en 2–4 días a ciudades principales y en 5–7 días a zonas extremas.</p></div>
+          </details>
+          <details>
+            <summary>¿Puedo meterla al lavavajillas?</summary>
+            <div class="faq__a"><p>Sí, el cuerpo de acero es apto para lavavajillas. La tapa, que contiene la electrónica, se lava a mano con agua tibia.</p></div>
+          </details>
+          <details>
+            <summary>¿Es compatible con iPhone y Android?</summary>
+            <div class="faq__a"><p>Sí, la app funciona en iOS 15+ y Android 9+ mediante Bluetooth de bajo consumo.</p></div>
+          </details>
+          <details>
+            <summary>¿Cómo funciona la garantía de 60 días?</summary>
+            <div class="faq__a"><p>Escríbenos dentro de los 60 días desde que la recibes, coordinamos el retiro gratis y te reembolsamos el total en menos de 5 días hábiles.</p></div>
+          </details>
+          <details>
+            <summary>¿Qué pasa si se daña la tapa?</summary>
+            <div class="faq__a"><p>Tienes 2 años de garantía contra defectos. Además vendemos tapas de repuesto por separado.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="final">
+      <div class="wrap final__inner reveal">
+        <svg class="bottle bottle--final" viewBox="0 0 200 520" aria-hidden="true"><use href="#bottle"/></svg>
+        <div>
+          <h2>Tu cuerpo es 60% agua. Trátalo como tal.</h2>
+          <p>Únete a más de 12.000 personas que ya beben mejor con Aquilo.</p>
+          <button class="btn btn--lg btn--light" data-buy>Aprovechar la oferta <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p><strong>aquilo</strong> · Marca y producto ficticios creados para una demo. No se realizan cobros reales.</p>
+    </div>
+  </footer>
+
+  <!-- Barra de compra fija (móvil) -->
+  <div class="buybar" id="buybar" aria-hidden="true">
+    <div class="buybar__price"><s>$54.990</s><strong>$39.990</strong></div>
+    <button class="btn btn--sm" data-buy tabindex="-1">Comprar</button>
+  </div>
+
+  <!-- CHECKOUT -->
+  <dialog class="checkout" id="checkout" aria-labelledby="co-title">
+    <div class="co">
+      <header class="co__head">
+        <h2 id="co-title">Finalizar compra</h2>
+        <button class="co__close" type="button" data-close aria-label="Cerrar">✕</button>
+      </header>
+      <ol class="co__steps" aria-label="Pasos del pago">
+        <li class="is-active">Pack</li><li>Envío</li><li>Pago</li><li>Listo</li>
+      </ol>
+
+      <!-- Paso 1 -->
+      <section class="co__panel is-active" data-step="1" aria-label="Paso 1: elige pack y color">
+        <div class="co__product">
+          <svg class="bottle bottle--mini" viewBox="0 0 200 520" aria-hidden="true"><use href="#bottle"/></svg>
+          <div>
+            <h3>Aquilo Pulse 650 ml</h3>
+            <p class="muted">Color: <strong data-color-label>Glaciar</strong></p>
+            <div class="mini-swatches" role="radiogroup" aria-label="Color">
+              <button type="button" role="radio" style="--c:#00b3c7" data-color="glaciar" aria-label="Glaciar"></button>
+              <button type="button" role="radio" style="--c:#ff6f61" data-color="coral" aria-label="Coral"></button>
+              <button type="button" role="radio" style="--c:#7f9c80" data-color="salvia" aria-label="Salvia"></button>
+              <button type="button" role="radio" style="--c:#d9b98c" data-color="arena" aria-label="Arena"></button>
+              <button type="button" role="radio" style="--c:#2a3247" data-color="noche" aria-label="Noche"></button>
+            </div>
+          </div>
+        </div>
+        <fieldset class="bundles">
+          <legend>Cantidad</legend>
+          <label class="bundle"><input type="radio" name="qty" value="1"><span><strong>1 unidad</strong><small>$39.990</small></span></label>
+          <label class="bundle"><input type="radio" name="qty" value="2" checked><span><strong>2 unidades</strong><small>$69.990 · −36%</small></span><em>Popular</em></label>
+          <label class="bundle"><input type="radio" name="qty" value="3"><span><strong>3 unidades</strong><small>$89.990 · −45%</small></span></label>
+        </fieldset>
+        <div class="co__summary" data-summary></div>
+        <button class="btn btn--block" type="button" data-next>Continuar al envío</button>
+      </section>
+
+      <!-- Paso 2 -->
+      <form class="co__panel" data-step="2" aria-label="Paso 2: datos de envío" novalidate>
+        <div class="grid2">
+          <div class="f"><label for="s-name">Nombre completo</label><input id="s-name" name="name" autocomplete="name" required><p class="err"></p></div>
+          <div class="f"><label for="s-email">Correo</label><input id="s-email" name="email" type="email" autocomplete="email" required><p class="err"></p></div>
+          <div class="f"><label for="s-phone">Teléfono</label><input id="s-phone" name="phone" type="tel" autocomplete="tel" placeholder="+56 9 1234 5678" required><p class="err"></p></div>
+          <div class="f"><label for="s-region">Región</label>
+            <select id="s-region" name="region" required>
+              <option value="">Selecciona</option>
+              <option>Arica y Parinacota</option><option>Antofagasta</option><option>Coquimbo</option><option>Valparaíso</option>
+              <option>Metropolitana</option><option>O'Higgins</option><option>Biobío</option><option>Los Ríos</option>
+              <option>Los Lagos</option><option>Magallanes</option>
+            </select><p class="err"></p></div>
+          <div class="f f--full"><label for="s-address">Dirección</label><input id="s-address" name="address" autocomplete="street-address" placeholder="Calle, número, depto." required><p class="err"></p></div>
+          <div class="f"><label for="s-city">Comuna</label><input id="s-city" name="city" autocomplete="address-level2" required><p class="err"></p></div>
+        </div>
+        <fieldset class="ship">
+          <legend>Método de envío</legend>
+          <label><input type="radio" name="ship" value="0" checked> <span>Estándar (2–4 días)</span> <strong>Gratis</strong></label>
+          <label><input type="radio" name="ship" value="4990"> <span>Express (24 h)</span> <strong data-express>$4.990</strong></label>
+        </fieldset>
+        <div class="co__actions">
+          <button class="btn btn--ghost" type="button" data-back>Volver</button>
+          <button class="btn" type="submit">Continuar al pago</button>
+        </div>
+      </form>
+
+      <!-- Paso 3 -->
+      <form class="co__panel" data-step="3" aria-label="Paso 3: pago" novalidate>
+        <p class="demo-note">🔒 Pago de demostración: no ingreses datos reales. Prueba con <code>4242 4242 4242 4242</code>.</p>
+        <div class="card-preview" aria-hidden="true">
+          <span class="chip"></span>
+          <span class="cp-num" data-cp="num">•••• •••• •••• ••••</span>
+          <div class="cp-row"><span data-cp="name">NOMBRE APELLIDO</span><span data-cp="exp">MM/AA</span></div>
+        </div>
+        <div class="grid2">
+          <div class="f f--full"><label for="p-num">Número de tarjeta</label><input id="p-num" name="num" inputmode="numeric" autocomplete="off" maxlength="19" placeholder="1234 5678 9012 3456" required><p class="err"></p></div>
+          <div class="f f--full"><label for="p-name">Nombre en la tarjeta</label><input id="p-name" name="cname" autocomplete="off" required><p class="err"></p></div>
+          <div class="f"><label for="p-exp">Vencimiento</label><input id="p-exp" name="exp" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="MM/AA" required><p class="err"></p></div>
+          <div class="f"><label for="p-cvc">CVC</label><input id="p-cvc" name="cvc" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="123" required><p class="err"></p></div>
+        </div>
+        <div class="co__summary" data-summary></div>
+        <div class="co__actions">
+          <button class="btn btn--ghost" type="button" data-back>Volver</button>
+          <button class="btn" type="submit" data-pay>Pagar</button>
+        </div>
+      </form>
+
+      <!-- Paso 4 -->
+      <section class="co__panel co__done" data-step="4" aria-label="Pedido confirmado">
+        <div class="done-check" aria-hidden="true"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27 l7 7 l15 -16"/></svg></div>
+        <h3>¡Pedido confirmado!</h3>
+        <p>Gracias, <strong data-done-name></strong>. Tu pedido <strong data-order></strong> está en camino.</p>
+        <p class="muted">Enviamos el comprobante a <span data-done-email></span>.</p>
+        <div class="co__summary" data-summary></div>
+        <button class="btn btn--block" type="button" data-close>Seguir explorando</button>
+      </section>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+  <script src="../assets/portfolio-bar.js" defer></script>
+</body>
+</html>
