@@ -274,7 +274,7 @@ module.exports = {
       actions: ['Ver la recaudación del mes y la tendencia', 'Seguir el avance de las campañas', 'Atender postulaciones y gastos por aprobar', 'Revisar la actividad reciente']
     },
     {
-      id: 'panel-cms', section: 'admin', login: U.admin, title: 'Sitio (CMS)', url: 'admin.html#/cms', waitFor: '.admin-content .page-head',
+      id: 'panel-cms', section: 'admin', login: U.admin, title: 'Sitio (CMS)', url: 'admin.html#/sitio', waitFor: '.admin-content .page-head',
       description: 'Textos del inicio, cifras de impacto, montos sugeridos de donación y datos de contacto del sitio público.',
       actions: ['Editar textos de la portada', 'Actualizar las cifras de impacto', 'Cambiar los montos sugeridos', 'Editar los datos de contacto']
     },
