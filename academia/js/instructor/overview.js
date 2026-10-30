@@ -2,7 +2,7 @@
 import { lineChart, barChart, money, num } from '../../../assets/core/ui.js';
 import { kpis, panel, pageHead, byMonth, escape, ago, person } from '../shared/admin-kit.js';
 import { db } from '../data/db.js';
-import { salesOf, instructorShare, rating, getCourse, getUser, studentsCount, moneyShort } from '../data/model.js';
+import { salesOf, instructorShare, rating, getCourse, getUser, studentsCount, moneyShort, COURSE } from '../data/model.js';
 
 export function renderOverview(el, _p, ctx) {
   const id = ctx.user.id;
@@ -27,5 +27,5 @@ export function renderOverview(el, _p, ctx) {
     `<div class="ak-grid">${panel('Ganancias por mes (tu 70%)', lineChart(months, { height: 180, format: money }))}
       ${panel('Estudiantes por curso', barChart(cs.filter(c => c.status === 'publicado').map(c => ({ label: c.title.split(' ')[0], value: studentsCount(c.id) })), { height: 180 }))}</div>
     <div class="ak-grid">${panel('Últimas reseñas', reviews.length ? `<ul class="ak-list">${reviews.map(r => `<li>${person(getUser(r.userId), getCourse(r.courseId)?.title)}<div class="grow small">${'★'.repeat(r.rating)} ${escape(r.text)}</div><span class="small muted">${ago(r.createdAt)}</span></li>`).join('')}</ul>` : '<p class="muted">Aún no hay reseñas.</p>')}
-      ${panel('Estado de tus cursos', `<ul class="ak-list">${cs.map(c => `<li><div class="grow"><b>${escape(c.title)}</b><small>${escape(c.status)}${c.reviewNote ? ' · ' + escape(c.reviewNote) : ''}</small></div><a class="btn btn-sm" href="#/cursos/${c.id}">Editar</a></li>`).join('')}</ul>`)}</div>`;
+      ${panel('Estado de tus cursos', `<ul class="ak-list">${cs.map(c => `<li><div class="grow"><b>${escape(c.title)}</b><small>${COURSE[c.status][0]}${c.reviewNote ? ' · ' + escape(c.reviewNote) : ''}</small></div><a class="btn btn-sm" href="#/cursos/${c.id}">Editar</a></li>`).join('')}</ul>`)}</div>`;
 }

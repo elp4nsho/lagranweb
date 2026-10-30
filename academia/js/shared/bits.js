@@ -36,10 +36,10 @@ export function mountHeader(el, { search = true } = {}) {
     el.innerHTML = `<div class="container bar">
       ${brandHTML()}
       ${search ? `<form class="head-search" role="search" data-search><input class="input" type="search" name="q" placeholder="¿Qué quieres aprender?" aria-label="Buscar cursos"></form>` : ''}
-      <nav class="site-nav" aria-label="Principal"><a href="index.html#/cursos">Cursos</a><a href="index.html#/categorias">Categorías</a><a href="index.html#/ensena">Enseña en Faro</a></nav>
+      <nav class="site-nav" aria-label="Principal"><a href="index.html#/cursos">Cursos</a><a href="index.html#/categorias">Categorías</a><a href="index.html#/ensena">Enseña en Faro</a>${u ? `<a class="show-m" href="${homeFor(u.role)}">${u.role === 'estudiante' ? 'Mi aprendizaje' : 'Mi panel'}</a>` : '<a class="show-m" href="login.html">Ingresar</a><a class="show-m" href="login.html#registro">Crear cuenta</a>'}</nav>
       <div class="head-actions">
         <a class="btn btn-ghost btn-icon cart-btn" href="index.html#/carrito" aria-label="Carrito (${n})">🛒${n ? `<span class="dot">${n}</span>` : ''}</a>
-        ${u ? `<a class="btn btn-sm btn-primary" href="${homeFor(u.role)}">${u.role === 'estudiante' ? 'Mi aprendizaje' : 'Mi panel'}</a><button class="btn btn-sm btn-ghost hide-m" data-logout>Salir</button>` : `<a class="btn btn-sm hide-m" href="login.html">Ingresar</a><a class="btn btn-sm btn-primary" href="login.html#registro">Crear cuenta</a>`}
+        ${u ? `<a class="btn btn-sm btn-primary auth-cta" href="${homeFor(u.role)}">${u.role === 'estudiante' ? 'Mi aprendizaje' : 'Mi panel'}</a><button class="btn btn-sm btn-ghost hide-m" data-logout>Salir</button>` : `<a class="btn btn-sm hide-m" href="login.html">Ingresar</a><a class="btn btn-sm btn-primary auth-cta" href="login.html#registro">Crear cuenta</a>`}
         <button class="btn btn-ghost btn-icon burger" aria-label="Abrir menú" aria-expanded="false">☰</button>
       </div></div>`;
     el.querySelector('.burger').onclick = e => { const o = el.classList.toggle('nav-open'); e.currentTarget.setAttribute('aria-expanded', o); };
