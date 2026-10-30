@@ -1,0 +1,1081 @@
+{
+  "app": "iot",
+  "dir": "iot",
+  "name": "Sentinela",
+  "kind": "Monitoreo IoT industrial",
+  "description": "Plataforma de monitoreo industrial con sensores simulados en tiempo real: página de producto, consola operativa (panel en vivo, mapa de planta, alarmas, órdenes de trabajo, energía y bitácora de turno), modo pantalla para sala de control y panel de administración.",
+  "demo": "../iot/index.html",
+  "theme": "terminal",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:52:48.371Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Página de producto y solicitud de demo, sin iniciar sesión."
+    },
+    {
+      "id": "operador",
+      "label": "Operador",
+      "desc": "Consola operativa: monitoreo en vivo, alarmas, órdenes de trabajo y bitácora."
+    },
+    {
+      "id": "ingeniero",
+      "label": "Ingeniero",
+      "desc": "Reglas de alarma, infraestructura, aprovisionamiento y firmware."
+    },
+    {
+      "id": "lectura",
+      "label": "Solo lectura",
+      "desc": "Consulta de la consola y del panel sin poder modificar."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Usuarios, claves API, auditoría, exportación y sitio web."
+    }
+  ],
+  "views": [
+    {
+      "id": "landing",
+      "title": "Página de producto",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Presentación del producto con un mini panel que muestra datos simulados en vivo, funciones, casos de uso, planes y formulario de contacto. Textos y planes se editan desde el panel.",
+      "actions": [
+        "Ver el mini panel con lecturas en vivo",
+        "Conocer funciones y casos de uso",
+        "Comparar planes y cotizar",
+        "Solicitar una demo"
+      ],
+      "img": "img/iot/landing.webp",
+      "thumb": "img/iot/landing-thumb.webp",
+      "mobile": "img/iot/landing-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "landing-planes",
+      "title": "Planes y contacto",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html",
+      "capturedUrl": "index.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Planes con precio y características, y el formulario \"Agenda una demo\" que crea una solicitud en el panel de administración.",
+      "actions": [
+        "Comparar planes",
+        "Elegir un plan para cotizar",
+        "Enviar nombre, empresa, correo y necesidad",
+        "Generar un lead para el equipo comercial"
+      ],
+      "img": "img/iot/landing-planes.webp",
+      "thumb": "img/iot/landing-planes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso con cuentas de prueba para cada rol. Todos entran a la consola operativa; administración, ingeniería y solo lectura también ven el panel de administración.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic como operador, ingeniero, solo lectura o administrador",
+        "Volver a la página de producto"
+      ],
+      "img": "img/iot/login.webp",
+      "thumb": "img/iot/login-thumb.webp",
+      "mobile": "img/iot/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-en-vivo",
+      "title": "Panel en vivo",
+      "section": "operador",
+      "roles": [
+        "Todos los roles"
+      ],
+      "url": "app.html#/",
+      "capturedUrl": "app.html#/",
+      "login": {
+        "id": "u-op",
+        "name": "Rosa Millán",
+        "role": "Operador",
+        "email": "operador@sentinela.demo",
+        "password": "operador123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Indicadores, medidores y gráficos que se actualizan cada segundo con la telemetría simulada de los sensores, más las alarmas activas.",
+      "actions": [
+        "Ver sensores en línea, alarmas y consumo",
+        "Seguir medidores de temperatura, presión, humedad y energía",
+        "Elegir qué sensor muestra cada gráfico",
+        "Abrir una alarma activa"
+      ],
+      "img": "img/iot/panel-en-vivo.webp",
+      "thumb": "img/iot/panel-en-vivo-thumb.webp",
+      "mobile": "img/iot/panel-en-vivo-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mapa",
+      "title": "Mapa de planta",
+      "section": "operador",
+      "roles": [
+        "Todos los roles"
+      ],
+      "url": "app.html#/mapa",
+      "capturedUrl": "app.html#/mapa",
+      "login": {
+        "id": "u-op",
+        "name": "Rosa Millán",
+        "role": "Operador",
+        "email": "operador@sentinela.demo",
+        "password": "operador123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Plano de cada sitio dibujado en la app, con los sensores coloreados según su estado. Al elegir uno se ve su lectura y su historial reciente.",
+      "actions": [
+        "Cambiar de sitio",
+        "Filtrar por tipo de sensor",
+        "Elegir un sensor en el plano para ver su detalle",
+        "Ver los sensores que requieren atención"
+      ],
+      "img": "img/iot/mapa.webp",
+      "thumb": "img/iot/mapa-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dispositivos",
+      "title": "Dispositivos",
+      "section": "operador",
+      "roles": [
+        "Todos los roles"
+      ],
+      "url": "app.html#/dispositivos",
+      "capturedUrl": "app.html#/dispositivos",
+      "login": {
+        "id": "u-op",
+        "name": "Rosa Millán",
+        "role": "Operador",
+        "email": "operador@sentinela.demo",
+        "password": "operador123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Listado de sensores con tipo, sitio, zona, última lectura, batería, señal y estado.",
+      "actions": [
+        "Buscar y filtrar por tipo, sitio y estado",
+        "Ver la última lectura de cada sensor",
+        "Abrir la ficha de un dispositivo",
+        "Exportar a CSV"
+      ],
+      "img": "img/iot/dispositivos.webp",
+      "thumb": "img/iot/dispositivos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dispositivo",
+      "title": "Ficha del dispositivo",
+      "section": "operador",
+      "roles": [
+        "Todos los roles"
+      ],
+      "url": "app.html#/dispositivos/d-101",
+      "capturedUrl": "app.html#/dispositivos/d-101",
+      "login": {
+        "id": "u-op",
+        "name": "Rosa Millán",
+        "role": "Operador",
+        "email": "operador@sentinela.demo",
+        "password": "operador123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lectura en vivo, gráfico histórico por rango (hora, día, semana), estadísticas y alarmas del sensor.",
+      "actions": [
+        "Ver la lectura en tiempo real",
+        "Cambiar el rango del historial",
+        "Revisar mínimo, máximo y promedio",
+        "Crear una orden de trabajo para el equipo"
+      ],
+      "img": "img/iot/dispositivo.webp",
+      "thumb": "img/iot/dispositivo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "alarmas",
+      "title": "Centro de alarmas",
+      "section": "operador",
+      "roles": [
+        "Todos los roles"
+      ],
+      "url": "app.html#/alarmas",
+      "capturedUrl": "app.html#/alarmas",
+      "login": {
+        "id": "u-op",
+        "name": "Rosa Millán",
+        "role": "Operador",
+        "email": "operador@sentinela.demo",
+        "password": "operador123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Alarmas generadas por el motor de reglas, con severidad, sensor, sitio, estado y responsable.",
+      "actions": [
+        "Filtrar abiertas, activas, reconocidas o resueltas",
+        "Filtrar por severidad y sitio",
+        "Reconocer todas las activas",
+        "Abrir una alarma",
+        "Exportar a CSV"
+      ],
+      "img": "img/iot/alarmas.webp",
+      "thumb": "img/iot/alarmas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "alarma",
+      "title": "Detalle de alarma",
+      "section": "operador",
+      "roles": [
+        "Todos los roles"
+      ],
+      "url": "app.html#/alarmas/al1",
+      "capturedUrl": "app.html#/alarmas/al1",
+      "login": {
+        "id": "u-op",
+        "name": "Rosa Millán",
+        "role": "Operador",
+        "email": "operador@sentinela.demo",
+        "password": "operador123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha de la alarma con la regla gatillada, el valor medido, su línea de tiempo y comentarios del equipo.",
+      "actions": [
+        "Reconocer la alarma",
+        "Comentar",
+        "Resolverla con una causa",
+        "Crear una orden de trabajo desde la alarma",
+        "Reabrirla si vuelve a ocurrir"
+      ],
+      "img": "img/iot/alarma.webp",
+      "thumb": "img/iot/alarma-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "alarma-resolver",
+      "title": "Resolver alarma",
+      "section": "operador",
+      "roles": null,
+      "url": "app.html#/alarmas/al1",
+      "capturedUrl": "app.html#/alarmas/al1",
+      "login": {
+        "id": "u-op",
+        "name": "Rosa Millán",
+        "role": "Operador",
+        "email": "operador@sentinela.demo",
+        "password": "operador123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Resolver\" en el detalle de alarma",
+      "description": "Cierre de la alarma indicando la causa y la acción tomada, que quedan en su historial.",
+      "actions": [
+        "Elegir la causa",
+        "Describir la acción tomada",
+        "Cerrar la alarma"
+      ],
+      "img": "img/iot/alarma-resolver.webp",
+      "thumb": "img/iot/alarma-resolver-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ordenes",
+      "title": "Órdenes de trabajo",
+      "section": "operador",
+      "roles": [
+        "Todos los roles"
+      ],
+      "url": "app.html#/ordenes",
+      "capturedUrl": "app.html#/ordenes",
+      "login": {
+        "id": "u-op",
+        "name": "Rosa Millán",
+        "role": "Operador",
+        "email": "operador@sentinela.demo",
+        "password": "operador123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Órdenes de mantención creadas a mano o desde alarmas, con prioridad, responsable, vencimiento y estado.",
+      "actions": [
+        "Crear una orden de trabajo",
+        "Filtrar por estado y prioridad",
+        "Abrir el detalle de una orden",
+        "Exportar a CSV"
+      ],
+      "img": "img/iot/ordenes.webp",
+      "thumb": "img/iot/ordenes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "orden",
+      "title": "Detalle de orden de trabajo",
+      "section": "operador",
+      "roles": null,
+      "url": "app.html#/ordenes",
+      "capturedUrl": "app.html#/ordenes",
+      "login": {
+        "id": "u-op",
+        "name": "Rosa Millán",
+        "role": "Operador",
+        "email": "operador@sentinela.demo",
+        "password": "operador123"
+      },
+      "kind": "modal",
+      "from": "Clic en una orden de trabajo",
+      "description": "Orden con el equipo, la alarma de origen, la lista de tareas para marcar y el cambio de estado.",
+      "actions": [
+        "Marcar tareas del checklist",
+        "Agregar tareas",
+        "Cambiar el estado",
+        "Editar o eliminar la orden"
+      ],
+      "img": "img/iot/orden.webp",
+      "thumb": "img/iot/orden-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "energia",
+      "title": "Energía",
+      "section": "operador",
+      "roles": [
+        "Todos los roles"
+      ],
+      "url": "app.html#/energia",
+      "capturedUrl": "app.html#/energia",
+      "login": {
+        "id": "u-op",
+        "name": "Rosa Millán",
+        "role": "Operador",
+        "email": "operador@sentinela.demo",
+        "password": "operador123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Consumo diario por medidor y por zona, con el costo estimado en pesos según la tarifa configurada.",
+      "actions": [
+        "Ver el consumo diario y del mes",
+        "Comparar zonas y medidores",
+        "Revisar el costo estimado",
+        "Exportar a CSV"
+      ],
+      "img": "img/iot/energia.webp",
+      "thumb": "img/iot/energia-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "bitacora",
+      "title": "Bitácora de turno",
+      "section": "operador",
+      "roles": [
+        "Todos los roles"
+      ],
+      "url": "app.html#/turnos",
+      "capturedUrl": "app.html#/turnos",
+      "login": {
+        "id": "u-op",
+        "name": "Rosa Millán",
+        "role": "Operador",
+        "email": "operador@sentinela.demo",
+        "password": "operador123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Novedades registradas en cada turno (A, B, C) por sitio, para el traspaso entre equipos.",
+      "actions": [
+        "Registrar una novedad del turno",
+        "Filtrar por sitio y turno",
+        "Revisar lo ocurrido en turnos anteriores"
+      ],
+      "img": "img/iot/bitacora.webp",
+      "thumb": "img/iot/bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "modo-pantalla",
+      "title": "Modo pantalla",
+      "section": "operador",
+      "roles": [
+        "Todos los roles"
+      ],
+      "url": "pantalla.html",
+      "capturedUrl": "pantalla.html",
+      "login": {
+        "id": "u-op",
+        "name": "Rosa Millán",
+        "role": "Operador",
+        "email": "operador@sentinela.demo",
+        "password": "operador123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Vista para la TV de la sala de control con indicadores gigantes, gráfico en vivo, mapa que rota entre sitios y alarmas activas.",
+      "actions": [
+        "Proyectar el estado de la planta en una pantalla grande",
+        "Ver alarmas activas de un vistazo",
+        "Activar pantalla completa"
+      ],
+      "img": "img/iot/modo-pantalla.webp",
+      "thumb": "img/iot/modo-pantalla-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-sin-acceso",
+      "title": "Administración sin acceso",
+      "section": "operador",
+      "roles": null,
+      "url": "admin.html",
+      "capturedUrl": "admin.html",
+      "login": {
+        "id": "u-op",
+        "name": "Rosa Millán",
+        "role": "Operador",
+        "email": "operador@sentinela.demo",
+        "password": "operador123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve el operador si intenta abrir el panel de administración, que no corresponde a su rol.",
+      "actions": [
+        "Ver el aviso de acceso restringido",
+        "Volver a la consola operativa",
+        "Comprobar que cada rol solo ve sus secciones"
+      ],
+      "img": "img/iot/admin-sin-acceso.webp",
+      "thumb": "img/iot/admin-sin-acceso-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "reglas",
+      "title": "Reglas de alarma",
+      "section": "ingeniero",
+      "roles": [
+        "Ingeniero",
+        "Administrador"
+      ],
+      "url": "app.html#/reglas",
+      "capturedUrl": "app.html#/reglas",
+      "login": {
+        "id": "u-ing",
+        "name": "Matías Cárcamo",
+        "role": "Ingeniero",
+        "email": "ingeniero@sentinela.demo",
+        "password": "ingeniero123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Reglas del motor de alarmas por sensor: condición, umbral, duración, severidad y destinatarios.",
+      "actions": [
+        "Crear o duplicar reglas",
+        "Activar o desactivar una regla",
+        "Editar umbral, duración y severidad",
+        "Eliminar reglas"
+      ],
+      "img": "img/iot/reglas.webp",
+      "thumb": "img/iot/reglas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "regla-editar",
+      "title": "Nueva regla de alarma",
+      "section": "ingeniero",
+      "roles": [
+        "Ingeniero",
+        "Administrador"
+      ],
+      "url": "app.html#/reglas",
+      "capturedUrl": "app.html#/reglas",
+      "login": {
+        "id": "u-ing",
+        "name": "Matías Cárcamo",
+        "role": "Ingeniero",
+        "email": "ingeniero@sentinela.demo",
+        "password": "ingeniero123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva regla\"",
+      "description": "Formulario de la regla: sensor o tipo, condición (mayor, menor, fuera de rango), umbral, duración mínima, severidad y a quién avisar.",
+      "actions": [
+        "Elegir el sensor y la condición",
+        "Fijar umbral y duración",
+        "Definir severidad",
+        "Elegir destinatarios del aviso"
+      ],
+      "img": "img/iot/regla-editar.webp",
+      "thumb": "img/iot/regla-editar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-resumen",
+      "title": "Resumen de administración",
+      "section": "ingeniero",
+      "roles": [
+        "Ingeniero",
+        "Solo lectura",
+        "Administrador"
+      ],
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-ing",
+        "name": "Matías Cárcamo",
+        "role": "Ingeniero",
+        "email": "ingeniero@sentinela.demo",
+        "password": "ingeniero123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Estado de la flota de dispositivos, alarmas de los últimos 30 días, versiones de firmware y volumen de datos.",
+      "actions": [
+        "Ver dispositivos en línea y con batería baja",
+        "Revisar alarmas por día y severidad",
+        "Ver la distribución de firmware",
+        "Seguir el volumen de datos recibidos"
+      ],
+      "img": "img/iot/admin-resumen.webp",
+      "thumb": "img/iot/admin-resumen-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sitios",
+      "title": "Sitios y zonas",
+      "section": "ingeniero",
+      "roles": [
+        "Ingeniero",
+        "Administrador"
+      ],
+      "url": "admin.html#/sitios",
+      "capturedUrl": "admin.html#/sitios",
+      "login": {
+        "id": "u-ing",
+        "name": "Matías Cárcamo",
+        "role": "Ingeniero",
+        "email": "ingeniero@sentinela.demo",
+        "password": "ingeniero123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Sitios de la empresa y sus zonas, con vista previa del plano que usa el mapa de la consola.",
+      "actions": [
+        "Crear o editar sitios",
+        "Agregar zonas al plano",
+        "Ver la vista previa del plano",
+        "Eliminar sitios o zonas"
+      ],
+      "img": "img/iot/sitios.webp",
+      "thumb": "img/iot/sitios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "aprovisionamiento",
+      "title": "Aprovisionamiento",
+      "section": "ingeniero",
+      "roles": [
+        "Ingeniero",
+        "Administrador"
+      ],
+      "url": "admin.html#/dispositivos",
+      "capturedUrl": "admin.html#/dispositivos",
+      "login": {
+        "id": "u-ing",
+        "name": "Matías Cárcamo",
+        "role": "Ingeniero",
+        "email": "ingeniero@sentinela.demo",
+        "password": "ingeniero123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Alta, edición y baja de dispositivos con su tipo, zona, rango de operación y posición en el plano.",
+      "actions": [
+        "Agregar un dispositivo",
+        "Editar tipo, zona y rango",
+        "Dar de baja un dispositivo",
+        "Exportar a CSV"
+      ],
+      "img": "img/iot/aprovisionamiento.webp",
+      "thumb": "img/iot/aprovisionamiento-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dispositivo-nuevo",
+      "title": "Nuevo dispositivo",
+      "section": "ingeniero",
+      "roles": [
+        "Ingeniero",
+        "Administrador"
+      ],
+      "url": "admin.html#/dispositivos",
+      "capturedUrl": "admin.html#/dispositivos",
+      "login": {
+        "id": "u-ing",
+        "name": "Matías Cárcamo",
+        "role": "Ingeniero",
+        "email": "ingeniero@sentinela.demo",
+        "password": "ingeniero123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Agregar dispositivo\"",
+      "description": "Formulario de alta con nombre, tipo, sitio y zona, y un plano donde se hace clic para ubicar el sensor.",
+      "actions": [
+        "Ingresar nombre y tipo",
+        "Elegir sitio y zona",
+        "Ubicarlo con un clic en el plano",
+        "Guardar el dispositivo"
+      ],
+      "img": "img/iot/dispositivo-nuevo.webp",
+      "thumb": "img/iot/dispositivo-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "firmware",
+      "title": "Firmware",
+      "section": "ingeniero",
+      "roles": [
+        "Ingeniero",
+        "Administrador"
+      ],
+      "url": "admin.html#/firmware",
+      "capturedUrl": "admin.html#/firmware",
+      "login": {
+        "id": "u-ing",
+        "name": "Matías Cárcamo",
+        "role": "Ingeniero",
+        "email": "ingeniero@sentinela.demo",
+        "password": "ingeniero123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Versiones de firmware publicadas y despliegues por aire simulados con el avance por dispositivo.",
+      "actions": [
+        "Publicar una versión nueva",
+        "Lanzar un despliegue a un grupo de equipos",
+        "Seguir el avance y cancelar",
+        "Reintentar en los equipos que fallaron"
+      ],
+      "img": "img/iot/firmware.webp",
+      "thumb": "img/iot/firmware-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "firmware-publicar",
+      "title": "Publicar versión de firmware",
+      "section": "ingeniero",
+      "roles": [
+        "Ingeniero",
+        "Administrador"
+      ],
+      "url": "admin.html#/firmware",
+      "capturedUrl": "admin.html#/firmware",
+      "login": {
+        "id": "u-ing",
+        "name": "Matías Cárcamo",
+        "role": "Ingeniero",
+        "email": "ingeniero@sentinela.demo",
+        "password": "ingeniero123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Publicar versión\"",
+      "description": "Registro de una versión con número, tipo de dispositivo y notas de cambios.",
+      "actions": [
+        "Indicar versión y tipo de equipo",
+        "Escribir las notas de cambios",
+        "Dejarla disponible para desplegar"
+      ],
+      "img": "img/iot/firmware-publicar.webp",
+      "thumb": "img/iot/firmware-publicar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "exportar",
+      "title": "Exportar datos",
+      "section": "ingeniero",
+      "roles": [
+        "Ingeniero",
+        "Solo lectura",
+        "Administrador"
+      ],
+      "url": "admin.html#/exportar",
+      "capturedUrl": "admin.html#/exportar",
+      "login": {
+        "id": "u-ing",
+        "name": "Matías Cárcamo",
+        "role": "Ingeniero",
+        "email": "ingeniero@sentinela.demo",
+        "password": "ingeniero123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Descarga en CSV de dispositivos, alarmas, órdenes, energía y telemetría histórica por sensor y rango.",
+      "actions": [
+        "Descargar cada conjunto de datos",
+        "Elegir sensor y rango de la telemetría",
+        "Llevar los datos a otras herramientas"
+      ],
+      "img": "img/iot/exportar.webp",
+      "thumb": "img/iot/exportar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "lectura-alarmas",
+      "title": "Consola en solo lectura",
+      "section": "lectura",
+      "roles": null,
+      "url": "app.html#/alarmas",
+      "capturedUrl": "app.html#/alarmas",
+      "login": {
+        "id": "u-ro",
+        "name": "Felipe Andrade",
+        "role": "Solo lectura",
+        "email": "lectura@sentinela.demo",
+        "password": "lectura123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "El rol de solo lectura ve la consola completa, pero sin botones para reconocer, resolver o editar.",
+      "actions": [
+        "Consultar alarmas y su estado",
+        "Revisar dispositivos y energía",
+        "Seguir el panel en vivo sin modificar nada"
+      ],
+      "img": "img/iot/lectura-alarmas.webp",
+      "thumb": "img/iot/lectura-alarmas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "lectura-permisos",
+      "title": "Matriz de permisos",
+      "section": "lectura",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-ro",
+        "name": "Felipe Andrade",
+        "role": "Solo lectura",
+        "email": "lectura@sentinela.demo",
+        "password": "lectura123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tabla que muestra qué puede ver y modificar cada rol en la consola y en el panel.",
+      "actions": [
+        "Ver los permisos de lectura y escritura por sección",
+        "Comparar los roles",
+        "Auditar los accesos"
+      ],
+      "img": "img/iot/lectura-permisos.webp",
+      "thumb": "img/iot/lectura-permisos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Javiera Ortiz",
+        "role": "Administrador",
+        "email": "admin@sentinela.demo",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas de la empresa con su rol, estado y último acceso.",
+      "actions": [
+        "Crear o editar usuarios",
+        "Cambiar el rol",
+        "Activar o desactivar cuentas",
+        "Exportar a CSV"
+      ],
+      "img": "img/iot/usuarios.webp",
+      "thumb": "img/iot/usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "usuario-nuevo",
+      "title": "Nuevo usuario",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Javiera Ortiz",
+        "role": "Administrador",
+        "email": "admin@sentinela.demo",
+        "password": "admin123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo usuario\"",
+      "description": "Alta de una cuenta con nombre, correo, contraseña y rol.",
+      "actions": [
+        "Ingresar nombre, correo y contraseña",
+        "Elegir el rol",
+        "Crear la cuenta"
+      ],
+      "img": "img/iot/usuario-nuevo.webp",
+      "thumb": "img/iot/usuario-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "claves-api",
+      "title": "Claves API",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/api",
+      "capturedUrl": "admin.html#/api",
+      "login": {
+        "id": "u-admin",
+        "name": "Javiera Ortiz",
+        "role": "Administrador",
+        "email": "admin@sentinela.demo",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Claves ficticias para integrar otros sistemas, con su alcance, fecha de creación y último uso.",
+      "actions": [
+        "Crear una clave nueva",
+        "Ver la clave una sola vez al crearla",
+        "Revocar una clave"
+      ],
+      "img": "img/iot/claves-api.webp",
+      "thumb": "img/iot/claves-api-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "auditoria",
+      "title": "Auditoría",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Solo lectura"
+      ],
+      "url": "admin.html#/auditoria",
+      "capturedUrl": "admin.html#/auditoria",
+      "login": {
+        "id": "u-admin",
+        "name": "Javiera Ortiz",
+        "role": "Administrador",
+        "email": "admin@sentinela.demo",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de acciones de la consola y del panel: alarmas reconocidas, reglas, órdenes, despliegues y cambios de usuarios.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Filtrar y buscar",
+        "Exportar a CSV"
+      ],
+      "img": "img/iot/auditoria.webp",
+      "thumb": "img/iot/auditoria-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "sitio-web",
+      "title": "Sitio web",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Solo lectura"
+      ],
+      "url": "admin.html#/web",
+      "capturedUrl": "admin.html#/web",
+      "login": {
+        "id": "u-admin",
+        "name": "Javiera Ortiz",
+        "role": "Administrador",
+        "email": "admin@sentinela.demo",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Editor de la página de producto: textos de portada, planes y precios, y tarifa de energía usada en los reportes.",
+      "actions": [
+        "Editar los textos de la portada",
+        "Crear o editar planes",
+        "Cambiar la tarifa de energía"
+      ],
+      "img": "img/iot/sitio-web.webp",
+      "thumb": "img/iot/sitio-web-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "leads",
+      "title": "Solicitudes de demo",
+      "section": "admin",
+      "roles": [
+        "Administrador",
+        "Solo lectura"
+      ],
+      "url": "admin.html#/web",
+      "capturedUrl": "admin.html#/web",
+      "login": {
+        "id": "u-admin",
+        "name": "Javiera Ortiz",
+        "role": "Administrador",
+        "email": "admin@sentinela.demo",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Solicitudes enviadas desde el formulario de la página de producto, con contacto, plan, mensaje y estado.",
+      "actions": [
+        "Revisar cada solicitud",
+        "Cambiar su estado (nuevo, contactado, ganado, perdido)",
+        "Ver el plan de interés"
+      ],
+      "img": "img/iot/leads.webp",
+      "thumb": "img/iot/leads-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Terminal\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/iot/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/iot/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/iot/look-app.webp"
+      },
+      {
+        "id": "noir",
+        "group": "Estilo",
+        "label": "Noir Neón",
+        "desc": "Oscuro con acentos brillantes.",
+        "img": "img/iot/look-noir.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/iot/look-editorial.webp"
+      },
+      {
+        "id": "nordic",
+        "group": "Estilo",
+        "label": "Nórdico",
+        "desc": "Minimalista, blanco y aire.",
+        "img": "img/iot/look-nordic.webp"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1307 @@
+{
+  "app": "ong",
+  "dir": "ong",
+  "name": "Fundación Raíces del Sur",
+  "kind": "ONG / fundación",
+  "description": "Sitio de una fundación con campañas de recaudación, donaciones únicas y mensuales con certificado, voluntariado con calendario y transparencia de gastos, más la cuenta de donantes y voluntarios y un panel con CRM, rendición de gastos y comunicaciones.",
+  "demo": "../ong/index.html",
+  "theme": "forest",
+  "layout": "clasica",
+  "generatedAt": "2026-10-30T23:49:21.885Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Lo que ve cualquier visitante: campañas, donación, voluntariado, transparencia y noticias."
+    },
+    {
+      "id": "donante",
+      "label": "Donante",
+      "desc": "Cuenta personal con historial, certificados y donación mensual."
+    },
+    {
+      "id": "voluntario",
+      "label": "Voluntario",
+      "desc": "Cuenta del voluntario con sus actividades y horas."
+    },
+    {
+      "id": "coordinador",
+      "label": "Coordinador",
+      "desc": "Panel de campañas, voluntariado, proyectos y comunicaciones."
+    },
+    {
+      "id": "contador",
+      "label": "Contador",
+      "desc": "Libro de donaciones, suscripciones y rendición de gastos."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Dashboard, contenido del sitio, usuarios, bitácora y ajustes."
+    }
+  ],
+  "views": [
+    {
+      "id": "inicio",
+      "title": "Inicio",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Portada de la fundación con cifras de impacto, campañas destacadas, uso de los fondos, próximas actividades de voluntariado y noticias. Textos y cifras se editan desde el panel.",
+      "actions": [
+        "Ver el impacto acumulado de la fundación",
+        "Entrar a las campañas destacadas",
+        "Ver cómo se usan los fondos",
+        "Sumarse a una actividad de voluntariado",
+        "Hacerse donante mensual"
+      ],
+      "img": "img/ong/inicio.webp",
+      "thumb": "img/ong/inicio-thumb.webp",
+      "mobile": "img/ong/inicio-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "campanas",
+      "title": "Campañas",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/campanas",
+      "capturedUrl": "index.html#/campanas",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Listado de campañas vigentes y finalizadas con meta, avance, donantes y días restantes.",
+      "actions": [
+        "Buscar campañas por texto",
+        "Filtrar por causa y estado",
+        "Ver el avance de cada meta",
+        "Entrar a una campaña para donar"
+      ],
+      "img": "img/ong/campanas.webp",
+      "thumb": "img/ong/campanas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "campana",
+      "title": "Página de campaña",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/campanas/c1",
+      "capturedUrl": "index.html#/campanas/c1",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de una campaña con su ilustración, meta y avance, el proyecto asociado, actualizaciones del equipo y el muro de donantes.",
+      "actions": [
+        "Ver cuánto se ha recaudado y cuánto falta",
+        "Leer las actualizaciones de la campaña",
+        "Ver el muro de mensajes de donantes",
+        "Donar a la campaña",
+        "Copiar el enlace o compartir"
+      ],
+      "img": "img/ong/campana.webp",
+      "thumb": "img/ong/campana-thumb.webp",
+      "mobile": "img/ong/campana-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "donar-monto",
+      "title": "Donar: monto",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/donar",
+      "capturedUrl": "index.html#/donar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Primer paso de la donación: única o mensual, montos sugeridos con su equivalencia en impacto, destino y mensaje para el muro.",
+      "actions": [
+        "Elegir donación única o mensual",
+        "Elegir un monto sugerido u otro",
+        "Ver a qué equivale el aporte",
+        "Elegir la campaña o el fondo general",
+        "Dejar un mensaje o donar anónimo"
+      ],
+      "img": "img/ong/donar-monto.webp",
+      "thumb": "img/ong/donar-monto-thumb.webp",
+      "mobile": "img/ong/donar-monto-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "donar-datos",
+      "title": "Donar: tus datos",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/donar",
+      "capturedUrl": "index.html#/donar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Datos del donante y opción de crear una cuenta para descargar certificados y administrar la donación mensual.",
+      "actions": [
+        "Ingresar nombre, correo, teléfono y región",
+        "Crear una cuenta en el mismo paso",
+        "Volver a cambiar el monto"
+      ],
+      "img": "img/ong/donar-datos.webp",
+      "thumb": "img/ong/donar-datos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "donar-pago",
+      "title": "Donar: pago",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/donar",
+      "capturedUrl": "index.html#/donar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Pago simulado con tarjeta. En la donación mensual se indica el día de cada cargo.",
+      "actions": [
+        "Ingresar la tarjeta de prueba",
+        "Revisar el resumen de la donación",
+        "Confirmar la donación"
+      ],
+      "img": "img/ong/donar-pago.webp",
+      "thumb": "img/ong/donar-pago-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "donar-gracias",
+      "title": "Donación recibida",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/donar",
+      "capturedUrl": "index.html#/donar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Agradecimiento con el número de comprobante, acceso al certificado de donación y botones para compartir.",
+      "actions": [
+        "Ver o descargar el certificado",
+        "Compartir la campaña",
+        "Ir a la cuenta (si inició sesión)"
+      ],
+      "img": "img/ong/donar-gracias.webp",
+      "thumb": "img/ong/donar-gracias-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "certificado",
+      "title": "Certificado de donación",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/donar",
+      "capturedUrl": "index.html#/donar",
+      "login": null,
+      "kind": "modal",
+      "from": "Botón \"Ver certificado\" al terminar la donación",
+      "description": "Comprobante imprimible de la donación con número, donante, monto, destino y fecha, útil para rendición o beneficios tributarios.",
+      "actions": [
+        "Revisar los datos del comprobante",
+        "Imprimir o guardar en PDF",
+        "Descargarlo como archivo"
+      ],
+      "img": "img/ong/certificado.webp",
+      "thumb": "img/ong/certificado-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "voluntariado",
+      "title": "Voluntariado",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/voluntariado",
+      "capturedUrl": "index.html#/voluntariado",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Calendario de actividades con cupos disponibles y formulario de postulación para nuevos voluntarios.",
+      "actions": [
+        "Ver las próximas actividades y sus cupos",
+        "Abrir una actividad e inscribirse",
+        "Postular como voluntario con disponibilidad"
+      ],
+      "img": "img/ong/voluntariado.webp",
+      "thumb": "img/ong/voluntariado-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "actividad",
+      "title": "Detalle de actividad",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/voluntariado",
+      "capturedUrl": "index.html#/voluntariado",
+      "login": null,
+      "kind": "modal",
+      "from": "Clic en una actividad del calendario",
+      "description": "Ficha de la actividad con fecha, horario, lugar, proyecto, cupos restantes y un formulario corto de inscripción.",
+      "actions": [
+        "Revisar fecha, lugar y horas",
+        "Ver cuántos cupos quedan",
+        "Inscribirse con nombre y correo"
+      ],
+      "img": "img/ong/actividad.webp",
+      "thumb": "img/ong/actividad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "transparencia",
+      "title": "Transparencia",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/transparencia",
+      "capturedUrl": "index.html#/transparencia",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingresos y gastos de la fundación, distribución por categoría y por proyecto, y el detalle de cada gasto publicado.",
+      "actions": [
+        "Comparar ingresos y gastos",
+        "Ver en qué se gasta por categoría y proyecto",
+        "Filtrar el detalle de gastos",
+        "Revisar cada gasto con su respaldo"
+      ],
+      "img": "img/ong/transparencia.webp",
+      "thumb": "img/ong/transparencia-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "noticias",
+      "title": "Noticias",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/noticias",
+      "capturedUrl": "index.html#/noticias",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Noticias publicadas desde el panel y suscripción al boletín.",
+      "actions": [
+        "Leer las noticias de la fundación",
+        "Abrir una noticia completa",
+        "Suscribirse al boletín"
+      ],
+      "img": "img/ong/noticias.webp",
+      "thumb": "img/ong/noticias-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "noticia",
+      "title": "Noticia",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/noticias/n0",
+      "capturedUrl": "index.html#/noticias/n0",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de una noticia con su categoría, fecha y texto completo.",
+      "actions": [
+        "Leer la noticia completa",
+        "Volver al listado",
+        "Ir a donar o a la campaña relacionada"
+      ],
+      "img": "img/ong/noticia.webp",
+      "thumb": "img/ong/noticia-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso para donantes, voluntarios y equipo, con cuentas de prueba para entrar con un clic. El equipo va al panel y donantes y voluntarios a su cuenta.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar con un clic con cada rol",
+        "Volver al sitio"
+      ],
+      "img": "img/ong/login.webp",
+      "thumb": "img/ong/login-thumb.webp",
+      "mobile": "img/ong/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-donaciones",
+      "title": "Mis donaciones",
+      "section": "donante",
+      "roles": null,
+      "url": "cuenta.html",
+      "capturedUrl": "cuenta.html",
+      "login": {
+        "id": "u-don",
+        "name": "Ana María Leiva",
+        "role": "Donante",
+        "email": "donante@raices.cl",
+        "password": "dona123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen del donante con total aportado e historial de donaciones, con comprobantes y certificados anuales.",
+      "actions": [
+        "Ver el total donado y el impacto",
+        "Revisar el historial con estado",
+        "Ver o descargar cada comprobante",
+        "Descargar el certificado anual"
+      ],
+      "img": "img/ong/cuenta-donaciones.webp",
+      "thumb": "img/ong/cuenta-donaciones-thumb.webp",
+      "mobile": "img/ong/cuenta-donaciones-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-comprobante",
+      "title": "Comprobante de donación",
+      "section": "donante",
+      "roles": null,
+      "url": "cuenta.html",
+      "capturedUrl": "cuenta.html",
+      "login": {
+        "id": "u-don",
+        "name": "Ana María Leiva",
+        "role": "Donante",
+        "email": "donante@raices.cl",
+        "password": "dona123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Ver\" de una donación",
+      "description": "Comprobante de una donación del historial, listo para imprimir.",
+      "actions": [
+        "Revisar el comprobante",
+        "Imprimir o guardar en PDF",
+        "Descargarlo"
+      ],
+      "img": "img/ong/cuenta-comprobante.webp",
+      "thumb": "img/ong/cuenta-comprobante-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-mensual",
+      "title": "Donación mensual",
+      "section": "donante",
+      "roles": null,
+      "url": "cuenta.html",
+      "capturedUrl": "cuenta.html",
+      "login": {
+        "id": "u-don",
+        "name": "Ana María Leiva",
+        "role": "Donante",
+        "email": "donante@raices.cl",
+        "password": "dona123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Estado de la donación mensual con monto, destino, tarjeta y próximo cargo.",
+      "actions": [
+        "Cambiar el monto o el destino",
+        "Cambiar la tarjeta",
+        "Pausar o reanudar",
+        "Cancelar la donación mensual"
+      ],
+      "img": "img/ong/cuenta-mensual.webp",
+      "thumb": "img/ong/cuenta-mensual-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-cambiar-monto",
+      "title": "Cambiar monto mensual",
+      "section": "donante",
+      "roles": null,
+      "url": "cuenta.html",
+      "capturedUrl": "cuenta.html",
+      "login": {
+        "id": "u-don",
+        "name": "Ana María Leiva",
+        "role": "Donante",
+        "email": "donante@raices.cl",
+        "password": "dona123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Cambiar monto\" en Donación mensual",
+      "description": "Formulario para ajustar el monto y el destino de la donación mensual.",
+      "actions": [
+        "Subir o bajar el monto mensual",
+        "Cambiar la campaña de destino",
+        "Guardar el cambio"
+      ],
+      "img": "img/ong/cuenta-cambiar-monto.webp",
+      "thumb": "img/ong/cuenta-cambiar-monto-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-perfil",
+      "title": "Perfil",
+      "section": "donante",
+      "roles": null,
+      "url": "cuenta.html",
+      "capturedUrl": "cuenta.html",
+      "login": {
+        "id": "u-don",
+        "name": "Ana María Leiva",
+        "role": "Donante",
+        "email": "donante@raices.cl",
+        "password": "dona123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos de contacto del donante y preferencias de comunicación.",
+      "actions": [
+        "Actualizar nombre, teléfono y región",
+        "Elegir si recibe el boletín",
+        "Cambiar la contraseña"
+      ],
+      "img": "img/ong/cuenta-perfil.webp",
+      "thumb": "img/ong/cuenta-perfil-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cuenta-voluntariado",
+      "title": "Mi voluntariado",
+      "section": "voluntario",
+      "roles": null,
+      "url": "cuenta.html",
+      "capturedUrl": "cuenta.html",
+      "login": {
+        "id": "u-vol",
+        "name": "Diego Vergara",
+        "role": "Voluntario",
+        "email": "voluntario@raices.cl",
+        "password": "volun123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha del voluntario con horas acumuladas, sus próximas actividades y las actividades abiertas para inscribirse.",
+      "actions": [
+        "Ver horas y actividades realizadas",
+        "Inscribirse en actividades abiertas",
+        "Anular una inscripción",
+        "Revisar también sus donaciones"
+      ],
+      "img": "img/ong/cuenta-voluntariado.webp",
+      "thumb": "img/ong/cuenta-voluntariado-thumb.webp",
+      "mobile": "img/ong/cuenta-voluntariado-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-campanas",
+      "title": "Campañas",
+      "section": "coordinador",
+      "roles": [
+        "Coordinador",
+        "Administrador"
+      ],
+      "url": "admin.html#/campanas",
+      "capturedUrl": "admin.html#/campanas",
+      "login": {
+        "id": "u-coord",
+        "name": "Pedro Huenchullán",
+        "role": "Coordinador",
+        "email": "coordinador@raices.cl",
+        "password": "coord123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Campañas con meta, avance, donantes, fecha de término y estado (borrador, publicada, pausada o finalizada).",
+      "actions": [
+        "Crear una campaña",
+        "Publicar, pausar o finalizar",
+        "Destacar en la portada",
+        "Abrir el detalle de una campaña",
+        "Exportar a CSV"
+      ],
+      "img": "img/ong/panel-campanas.webp",
+      "thumb": "img/ong/panel-campanas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-campana",
+      "title": "Detalle de campaña",
+      "section": "coordinador",
+      "roles": [
+        "Coordinador",
+        "Administrador"
+      ],
+      "url": "admin.html#/campanas/c1",
+      "capturedUrl": "admin.html#/campanas/c1",
+      "login": {
+        "id": "u-coord",
+        "name": "Pedro Huenchullán",
+        "role": "Coordinador",
+        "email": "coordinador@raices.cl",
+        "password": "coord123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha interna de la campaña con recaudación, donantes, actualizaciones publicadas y últimas donaciones.",
+      "actions": [
+        "Ver el avance contra la meta",
+        "Publicar una actualización",
+        "Editar la campaña",
+        "Revisar las donaciones recibidas"
+      ],
+      "img": "img/ong/panel-campana.webp",
+      "thumb": "img/ong/panel-campana-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-campana-editar",
+      "title": "Nueva campaña",
+      "section": "coordinador",
+      "roles": [
+        "Coordinador",
+        "Administrador"
+      ],
+      "url": "admin.html#/campanas",
+      "capturedUrl": "admin.html#/campanas",
+      "login": {
+        "id": "u-coord",
+        "name": "Pedro Huenchullán",
+        "role": "Coordinador",
+        "email": "coordinador@raices.cl",
+        "password": "coord123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva campaña\"",
+      "description": "Formulario de campaña con título, causa, región, proyecto, meta, fechas, ilustración de portada y textos.",
+      "actions": [
+        "Definir título, causa y región",
+        "Fijar meta y fechas",
+        "Asociar un proyecto",
+        "Elegir la ilustración de portada"
+      ],
+      "img": "img/ong/panel-campana-editar.webp",
+      "thumb": "img/ong/panel-campana-editar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-voluntariado",
+      "title": "Voluntariado: actividades",
+      "section": "coordinador",
+      "roles": [
+        "Coordinador",
+        "Administrador"
+      ],
+      "url": "admin.html#/voluntariado",
+      "capturedUrl": "admin.html#/voluntariado",
+      "login": {
+        "id": "u-coord",
+        "name": "Pedro Huenchullán",
+        "role": "Coordinador",
+        "email": "coordinador@raices.cl",
+        "password": "coord123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Programación de actividades con calendario, cupos e inscritos. Lo que se publica aparece en el calendario del sitio.",
+      "actions": [
+        "Crear una actividad",
+        "Ver las próximas actividades",
+        "Revisar inscritos y cupos",
+        "Registrar asistencia y horas"
+      ],
+      "img": "img/ong/panel-voluntariado.webp",
+      "thumb": "img/ong/panel-voluntariado-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-actividad",
+      "title": "Actividad e inscritos",
+      "section": "coordinador",
+      "roles": [
+        "Coordinador",
+        "Administrador"
+      ],
+      "url": "admin.html#/voluntariado",
+      "capturedUrl": "admin.html#/voluntariado",
+      "login": {
+        "id": "u-coord",
+        "name": "Pedro Huenchullán",
+        "role": "Coordinador",
+        "email": "coordinador@raices.cl",
+        "password": "coord123"
+      },
+      "kind": "modal",
+      "from": "Clic en una actividad",
+      "description": "Detalle de una actividad con los voluntarios inscritos y el registro de asistencia.",
+      "actions": [
+        "Ver los inscritos",
+        "Marcar asistencia",
+        "Editar la actividad"
+      ],
+      "img": "img/ong/panel-actividad.webp",
+      "thumb": "img/ong/panel-actividad-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-voluntarios",
+      "title": "Voluntariado: fichas",
+      "section": "coordinador",
+      "roles": [
+        "Coordinador",
+        "Administrador"
+      ],
+      "url": "admin.html#/voluntariado",
+      "capturedUrl": "admin.html#/voluntariado",
+      "login": {
+        "id": "u-coord",
+        "name": "Pedro Huenchullán",
+        "role": "Coordinador",
+        "email": "coordinador@raices.cl",
+        "password": "coord123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Fichas de voluntarios con estado de la postulación, región y horas acumuladas.",
+      "actions": [
+        "Revisar postulaciones nuevas",
+        "Aprobar o desactivar voluntarios",
+        "Ver horas por voluntario",
+        "Crear una ficha"
+      ],
+      "img": "img/ong/panel-voluntarios.webp",
+      "thumb": "img/ong/panel-voluntarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-proyectos",
+      "title": "Proyectos",
+      "section": "coordinador",
+      "roles": [
+        "Coordinador",
+        "Contador",
+        "Administrador"
+      ],
+      "url": "admin.html#/proyectos",
+      "capturedUrl": "admin.html#/proyectos",
+      "login": {
+        "id": "u-coord",
+        "name": "Pedro Huenchullán",
+        "role": "Coordinador",
+        "email": "coordinador@raices.cl",
+        "password": "coord123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Proyectos y comunidades beneficiarias con presupuesto contra ejecutado (calculado desde los gastos) y campañas asociadas.",
+      "actions": [
+        "Ver presupuesto y ejecución",
+        "Crear o editar proyectos",
+        "Revisar beneficiarios y comunidad",
+        "Ver campañas asociadas"
+      ],
+      "img": "img/ong/panel-proyectos.webp",
+      "thumb": "img/ong/panel-proyectos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-noticias",
+      "title": "Comunicaciones: noticias",
+      "section": "coordinador",
+      "roles": [
+        "Coordinador",
+        "Administrador"
+      ],
+      "url": "admin.html#/comunicaciones",
+      "capturedUrl": "admin.html#/comunicaciones",
+      "login": {
+        "id": "u-coord",
+        "name": "Pedro Huenchullán",
+        "role": "Coordinador",
+        "email": "coordinador@raices.cl",
+        "password": "coord123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Noticias del sitio en borrador o publicadas.",
+      "actions": [
+        "Escribir una noticia",
+        "Publicar o pasar a borrador",
+        "Editar o eliminar"
+      ],
+      "img": "img/ong/panel-noticias.webp",
+      "thumb": "img/ong/panel-noticias-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-boletines",
+      "title": "Comunicaciones: boletines",
+      "section": "coordinador",
+      "roles": [
+        "Coordinador",
+        "Administrador"
+      ],
+      "url": "admin.html#/comunicaciones",
+      "capturedUrl": "admin.html#/comunicaciones",
+      "login": {
+        "id": "u-coord",
+        "name": "Pedro Huenchullán",
+        "role": "Coordinador",
+        "email": "coordinador@raices.cl",
+        "password": "coord123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Compositor de boletines por segmento de donantes, con vista previa y envío simulado.",
+      "actions": [
+        "Crear un boletín",
+        "Elegir el segmento de destino",
+        "Ver la vista previa personalizada",
+        "Enviarlo (simulado)"
+      ],
+      "img": "img/ong/panel-boletines.webp",
+      "thumb": "img/ong/panel-boletines-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-boletin-vista",
+      "title": "Vista previa del boletín",
+      "section": "coordinador",
+      "roles": [
+        "Coordinador",
+        "Administrador"
+      ],
+      "url": "admin.html#/comunicaciones",
+      "capturedUrl": "admin.html#/comunicaciones",
+      "login": {
+        "id": "u-coord",
+        "name": "Pedro Huenchullán",
+        "role": "Coordinador",
+        "email": "coordinador@raices.cl",
+        "password": "coord123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Vista previa\" de un boletín",
+      "description": "Cómo se verá el boletín con el nombre del destinatario reemplazado y el número de personas del segmento.",
+      "actions": [
+        "Revisar el texto final",
+        "Ver a cuántas personas llegará",
+        "Volver a editar o enviar"
+      ],
+      "img": "img/ong/panel-boletin-vista.webp",
+      "thumb": "img/ong/panel-boletin-vista-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-donaciones",
+      "title": "Libro de donaciones",
+      "section": "contador",
+      "roles": [
+        "Contador",
+        "Administrador"
+      ],
+      "url": "admin.html#/donaciones",
+      "capturedUrl": "admin.html#/donaciones",
+      "login": {
+        "id": "u-cont",
+        "name": "Sofía Riquelme",
+        "role": "Contador",
+        "email": "contador@raices.cl",
+        "password": "conta123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todas las donaciones con totales, filtros, comprobantes, reembolsos y registro manual de transferencias.",
+      "actions": [
+        "Filtrar por estado, tipo, campaña y fechas",
+        "Registrar una donación por transferencia",
+        "Reembolsar una donación",
+        "Ver el comprobante",
+        "Exportar a CSV"
+      ],
+      "img": "img/ong/panel-donaciones.webp",
+      "thumb": "img/ong/panel-donaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-donacion-manual",
+      "title": "Registrar donación manual",
+      "section": "contador",
+      "roles": [
+        "Contador",
+        "Administrador"
+      ],
+      "url": "admin.html#/donaciones",
+      "capturedUrl": "admin.html#/donaciones",
+      "login": {
+        "id": "u-cont",
+        "name": "Sofía Riquelme",
+        "role": "Contador",
+        "email": "contador@raices.cl",
+        "password": "conta123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Registrar donación\"",
+      "description": "Formulario para ingresar donaciones recibidas por transferencia o en efectivo, que generan su comprobante.",
+      "actions": [
+        "Elegir o crear el donante",
+        "Indicar monto, campaña y medio",
+        "Generar el comprobante"
+      ],
+      "img": "img/ong/panel-donacion-manual.webp",
+      "thumb": "img/ong/panel-donacion-manual-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-suscripciones",
+      "title": "Suscripciones mensuales",
+      "section": "contador",
+      "roles": [
+        "Contador",
+        "Administrador"
+      ],
+      "url": "admin.html#/suscripciones",
+      "capturedUrl": "admin.html#/suscripciones",
+      "login": {
+        "id": "u-cont",
+        "name": "Sofía Riquelme",
+        "role": "Contador",
+        "email": "contador@raices.cl",
+        "password": "conta123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Donaciones mensuales con estado, ingreso recurrente, fallos de cobro y ejecución simulada de los cargos del mes.",
+      "actions": [
+        "Ver el ingreso mensual recurrente",
+        "Revisar cobros fallidos",
+        "Ejecutar los cargos del día (simulado)",
+        "Cambiar monto, pausar o cancelar"
+      ],
+      "img": "img/ong/panel-suscripciones.webp",
+      "thumb": "img/ong/panel-suscripciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-gastos",
+      "title": "Gastos y transparencia",
+      "section": "contador",
+      "roles": [
+        "Contador",
+        "Administrador"
+      ],
+      "url": "admin.html#/gastos",
+      "capturedUrl": "admin.html#/gastos",
+      "login": {
+        "id": "u-cont",
+        "name": "Sofía Riquelme",
+        "role": "Contador",
+        "email": "contador@raices.cl",
+        "password": "conta123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Rendición de gastos con registro, aprobación y publicación. Los gastos aprobados y publicados alimentan la página de transparencia.",
+      "actions": [
+        "Registrar un gasto con su proyecto y categoría",
+        "Aprobar o rechazar gastos",
+        "Publicarlos en transparencia",
+        "Exportar a CSV"
+      ],
+      "img": "img/ong/panel-gastos.webp",
+      "thumb": "img/ong/panel-gastos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-gasto-nuevo",
+      "title": "Registrar gasto",
+      "section": "contador",
+      "roles": [
+        "Contador",
+        "Administrador"
+      ],
+      "url": "admin.html#/gastos",
+      "capturedUrl": "admin.html#/gastos",
+      "login": {
+        "id": "u-cont",
+        "name": "Sofía Riquelme",
+        "role": "Contador",
+        "email": "contador@raices.cl",
+        "password": "conta123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Registrar gasto\"",
+      "description": "Formulario de gasto con fecha, proveedor, monto, categoría, proyecto y documento de respaldo.",
+      "actions": [
+        "Ingresar proveedor, monto y fecha",
+        "Asignar categoría y proyecto",
+        "Adjuntar el número de documento"
+      ],
+      "img": "img/ong/panel-gasto-nuevo.webp",
+      "thumb": "img/ong/panel-gasto-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-donantes",
+      "title": "Donantes (CRM)",
+      "section": "contador",
+      "roles": [
+        "Coordinador",
+        "Contador",
+        "Administrador"
+      ],
+      "url": "admin.html#/donantes",
+      "capturedUrl": "admin.html#/donantes",
+      "login": {
+        "id": "u-cont",
+        "name": "Sofía Riquelme",
+        "role": "Contador",
+        "email": "contador@raices.cl",
+        "password": "conta123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "CRM de donantes con segmentos automáticos (nuevo, recurrente, mayor, inactivo), etiquetas, total donado y última donación.",
+      "actions": [
+        "Buscar y filtrar por segmento",
+        "Ver el total y la cantidad de aportes",
+        "Abrir la ficha de un donante",
+        "Crear un donante",
+        "Exportar a CSV"
+      ],
+      "img": "img/ong/panel-donantes.webp",
+      "thumb": "img/ong/panel-donantes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-donante",
+      "title": "Ficha del donante",
+      "section": "contador",
+      "roles": [
+        "Coordinador",
+        "Contador",
+        "Administrador"
+      ],
+      "url": "admin.html#/donantes/d-ana",
+      "capturedUrl": "admin.html#/donantes/d-ana",
+      "login": {
+        "id": "u-cont",
+        "name": "Sofía Riquelme",
+        "role": "Contador",
+        "email": "contador@raices.cl",
+        "password": "conta123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Perfil del donante con historial de aportes, donación mensual, etiquetas y notas del equipo.",
+      "actions": [
+        "Revisar el historial completo",
+        "Agregar etiquetas y notas",
+        "Ver la suscripción mensual",
+        "Editar sus datos"
+      ],
+      "img": "img/ong/panel-donante.webp",
+      "thumb": "img/ong/panel-donante-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-dashboard",
+      "title": "Dashboard",
+      "section": "admin",
+      "roles": [
+        "Todos los roles del equipo"
+      ],
+      "url": "admin.html#/dashboard",
+      "capturedUrl": "admin.html#/dashboard",
+      "login": {
+        "id": "u-admin",
+        "name": "Marcela Quilodrán",
+        "role": "Administrador",
+        "email": "admin@raices.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Recaudación del mes, donantes recurrentes, avance de las campañas, gráficos de ingresos y avisos pendientes para cada rol.",
+      "actions": [
+        "Ver la recaudación del mes y la tendencia",
+        "Seguir el avance de las campañas",
+        "Atender postulaciones y gastos por aprobar",
+        "Revisar la actividad reciente"
+      ],
+      "img": "img/ong/panel-dashboard.webp",
+      "thumb": "img/ong/panel-dashboard-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-cms",
+      "title": "Sitio (CMS)",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/sitio",
+      "capturedUrl": "admin.html#/sitio",
+      "login": {
+        "id": "u-admin",
+        "name": "Marcela Quilodrán",
+        "role": "Administrador",
+        "email": "admin@raices.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Textos del inicio, cifras de impacto, montos sugeridos de donación y datos de contacto del sitio público.",
+      "actions": [
+        "Editar textos de la portada",
+        "Actualizar las cifras de impacto",
+        "Cambiar los montos sugeridos",
+        "Editar los datos de contacto"
+      ],
+      "img": "img/ong/panel-cms.webp",
+      "thumb": "img/ong/panel-cms-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Marcela Quilodrán",
+        "role": "Administrador",
+        "email": "admin@raices.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas del equipo, donantes y voluntarios, con la matriz de permisos por rol.",
+      "actions": [
+        "Crear o editar usuarios",
+        "Cambiar el rol",
+        "Desactivar cuentas",
+        "Restablecer una clave",
+        "Consultar la matriz de permisos"
+      ],
+      "img": "img/ong/panel-usuarios.webp",
+      "thumb": "img/ong/panel-usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-bitacora",
+      "title": "Bitácora de actividad",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/actividad",
+      "capturedUrl": "admin.html#/actividad",
+      "login": {
+        "id": "u-admin",
+        "name": "Marcela Quilodrán",
+        "role": "Administrador",
+        "email": "admin@raices.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de acciones del sitio y del panel: donaciones, inscripciones, gastos, publicaciones y cambios de usuarios.",
+      "actions": [
+        "Ver quién hizo qué y cuándo",
+        "Filtrar y buscar",
+        "Exportar a CSV"
+      ],
+      "img": "img/ong/panel-bitacora.webp",
+      "thumb": "img/ong/panel-bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-ajustes",
+      "title": "Ajustes",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/ajustes",
+      "capturedUrl": "admin.html#/ajustes",
+      "login": {
+        "id": "u-admin",
+        "name": "Marcela Quilodrán",
+        "role": "Administrador",
+        "email": "admin@raices.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Herramientas de la demostración: exportar los datos y restablecer los datos de ejemplo.",
+      "actions": [
+        "Exportar todos los datos en JSON",
+        "Restablecer los datos de demostración",
+        "Volver a empezar la demo desde cero"
+      ],
+      "img": "img/ong/panel-ajustes.webp",
+      "thumb": "img/ong/panel-ajustes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "panel-restringido",
+      "title": "Ruta protegida por rol",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/campanas",
+      "capturedUrl": "admin.html#/campanas",
+      "login": {
+        "id": "u-cont",
+        "name": "Sofía Riquelme",
+        "role": "Contador",
+        "email": "contador@raices.cl",
+        "password": "conta123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lo que ve un usuario del equipo si abre una sección que no corresponde a su rol (aquí, el contador entrando a campañas).",
+      "actions": [
+        "Ver el aviso de sección restringida",
+        "Volver a las secciones permitidas",
+        "Comprobar que cada rol solo ve sus menús"
+      ],
+      "img": "img/ong/panel-restringido.webp",
+      "thumb": "img/ong/panel-restringido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Forest\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/ong/look-clasica.webp"
+      },
+      {
+        "id": "revista",
+        "group": "Disposición",
+        "label": "Revista",
+        "desc": "Cabecera centrada tipo diario y columnas asimétricas.",
+        "img": "img/ong/look-revista.webp"
+      },
+      {
+        "id": "app",
+        "group": "Disposición",
+        "label": "App",
+        "desc": "Navegación lateral fija y mosaicos.",
+        "img": "img/ong/look-app.webp"
+      },
+      {
+        "id": "noir",
+        "group": "Estilo",
+        "label": "Noir Neón",
+        "desc": "Oscuro con acentos brillantes.",
+        "img": "img/ong/look-noir.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/ong/look-editorial.webp"
+      },
+      {
+        "id": "nordic",
+        "group": "Estilo",
+        "label": "Nórdico",
+        "desc": "Minimalista, blanco y aire.",
+        "img": "img/ong/look-nordic.webp"
+      }
+    ]
+  }
+}

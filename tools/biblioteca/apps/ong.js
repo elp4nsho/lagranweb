@@ -167,6 +167,7 @@ module.exports = {
     // ================= Voluntario =================
     {
       id: 'cuenta-voluntariado', section: 'voluntario', login: U.voluntario, title: 'Mi voluntariado', url: 'cuenta.html', waitFor: '[data-tab="voluntariado"]', mobile: true,
+      setup: async h => { await h.click('[data-tab="voluntariado"]'); await h.wait('[data-enroll], [data-unenroll]'); await h.page.evaluate(() => window.scrollTo(0, 0)); },
       description: 'Ficha del voluntario con horas acumuladas, sus próximas actividades y las actividades abiertas para inscribirse.',
       actions: ['Ver horas y actividades realizadas', 'Inscribirse en actividades abiertas', 'Anular una inscripción', 'Revisar también sus donaciones']
     },
