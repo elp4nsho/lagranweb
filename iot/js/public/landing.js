@@ -28,15 +28,15 @@ function render() {
   $('#head').innerHTML = publicHeader();
   $('#foot').innerHTML = publicFooter();
   $('#landing').innerHTML = h`
-  <section class="hero"><div class="container hero-grid">
-    <div data-anim>
+  <section class="hero site-hero"><div class="container hero-grid">
+    <div class="hero-text" data-anim>
       <span class="eyebrow">${s.hero.eyebrow}</span>
       <h1>${s.hero.title}</h1>
       <p class="lead">${s.hero.subtitle}</p>
       <div class="row" style="margin-top:24px"><a class="btn btn-primary btn-lg" href="login.html">${s.hero.cta}</a><a class="btn btn-lg" href="#precios">Ver planes</a></div>
       <p class="small muted" style="margin-top:14px">Datos simulados de un cliente ficticio: Acuícola Fiordo, Los Lagos.</p>
     </div>
-    <div class="card stack" data-anim data-anim-delay="150">
+    <div class="card stack hero-media" data-anim data-anim-delay="150">
       <div class="row between"><b>Jaula 4 · oxígeno disuelto</b><span class="live-pill">EN VIVO</span></div>
       <div data-hero-chart></div>
       <div class="grid-3" data-hero-gauges></div>

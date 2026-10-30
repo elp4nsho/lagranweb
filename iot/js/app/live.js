@@ -17,18 +17,20 @@ export function render(el, ctx) {
   const active = db.query('alarms', a => a.status !== 'resuelta' && (!st.site || a.siteId === st.site)).sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 
   el.innerHTML = pageHead('Panel en vivo', 'Lecturas simuladas cada segundo · Acuícola Fiordo', `<select class="select" id="lsite" style="width:auto" aria-label="Sitio"><option value="">Todos los sitios</option>${sites.map(s => `<option value="${s.id}" ${st.site === s.id ? 'selected' : ''}>${s.name}</option>`).join('')}</select><select class="select" id="lwin" style="width:auto" aria-label="Ventana">${[[60, 'Último minuto'], [300, 'Últimos 5 min'], [900, 'Últimos 15 min']].map(([v, l]) => `<option value="${v}" ${st.window === v ? 'selected' : ''}>${l}</option>`).join('')}</select>`) + h`
-  <div class="kpis">
+  <div class="live">
+  <div class="kpis l-kpis">
     <div class="card"><div class="stat"><span class="label">Dispositivos en línea</span><span class="value" data-k="online"></span><span class="small muted" data-k="online-sub"></span></div></div>
     <div class="card"><div class="stat"><span class="label">Alarmas activas</span><span class="value" data-k="alarms"></span><span class="small muted" data-k="alarms-sub"></span></div></div>
     <div class="card"><div class="stat"><span class="label">O₂ promedio jaulas</span><span class="value" data-k="o2"></span><span class="small muted">mg/L · mínimo seguro 5,0</span></div></div>
     <div class="card"><div class="stat"><span class="label">Potencia total</span><span class="value" data-k="kw"></span><span class="small muted">suma de medidores</span></div></div>
   </div>
-  <div class="gauges">${byType.map(([t, list]) => h`<div class="card gauge-card" data-g="${t}"><span class="name">${TYPES[t].icon} ${TYPES[t].label}</span><div data-gsvg></div>
+  <div class="gauges l-gauges">${byType.map(([t, list]) => h`<div class="card gauge-card" data-g="${t}"><span class="name">${TYPES[t].icon} ${TYPES[t].label}</span><div data-gsvg></div>
     <select class="select" data-gsel="${t}" aria-label="Sensor de ${TYPES[t].label}">${list.map(d => h`<option value="${d.id}" ${st.sel[t] === d.id ? 'selected' : ''}>${d.name}</option>`)}</select></div>`)}</div>
-  <div class="grid-2">${byType.map(([t]) => h`<section class="card" data-c="${t}"><div class="chart-head"><span><b>${TYPES[t].label}</b><br><a class="small" href="#/dispositivos/${st.sel[t]}" data-name></a></span><span class="big" data-big></span></div><div data-svg></div></section>`)}
-    <section class="card"><div class="chart-head"><b>Alarmas abiertas</b><a class="small" href="#/alarmas">Centro de alarmas →</a></div>
+  <div class="grid-2 l-grid">${byType.map(([t]) => h`<section class="card l-chart" data-c="${t}"><div class="chart-head"><span><b>${TYPES[t].label}</b><br><a class="small" href="#/dispositivos/${st.sel[t]}" data-name></a></span><span class="big" data-big></span></div><div data-svg></div></section>`)}
+    <section class="card l-alarms"><div class="chart-head"><b>Alarmas abiertas</b><a class="small" href="#/alarmas">Centro de alarmas →</a></div>
       <ul class="list">${active.slice(0, 6).map(a => { const d = db.get('devices', a.deviceId); return h`<li class="clickable" data-al="${a.id}"><span class="ic">${TYPES[d?.type]?.icon || '🚨'}</span><span class="main"><b>${a.ruleName}</b><small>${d?.name} · ${siteName(a.siteId)} · ${ago(a.createdAt)}</small></span>${raw(sevBadge(a.severity))}${raw(alarmBadge(a.status))}</li>`; })}</ul>
       ${!active.length ? raw('<p class="muted">Sin alarmas abiertas. 👌</p>') : ''}</section>
+  </div>
   </div>`;
 
   const paint = () => {

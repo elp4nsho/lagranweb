@@ -32,7 +32,7 @@ export function simulate({ product, price, pie = 0, plazo, tradeIn = 0, rate }) 
   const seguro = C * (product.insurancePct || 0) / 100;
   let vfmg = 0, cuota;
   if (product.type === 'inteligente') {
-    vfmg = price * (product.vfmg?.[n] ?? 45) / 100;
+    vfmg = Math.min(price * (product.vfmg?.[n] ?? 45) / 100, C * .85); // la cuota final nunca supera el crédito
     cuota = annuity(C - vfmg / Math.pow(1 + i, n + 1), i, n) + seguro;
   } else cuota = annuity(C, i, n) + seguro;
   const flows = [...Array(n).fill(cuota), ...(vfmg ? [vfmg] : [])];

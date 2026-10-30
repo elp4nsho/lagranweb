@@ -85,7 +85,12 @@ function schedule(box) {
     if (n === 'brandId') { s.brandId = e.target.value; fillModels(); }
     if (n === 'modelId') s.modelId = e.target.value;
     if (n === 'year') s.year = +e.target.value; if (n === 'km') s.km = +e.target.value || 0; if (n === 'type') s.type = e.target.value;
-    if (n === 'patente') { s.patente = e.target.value; const veh = findVehicle(s.patente); box.querySelector('[data-found]').textContent = veh ? `Encontramos tu ${veh.modelName} ${veh.year} en nuestros registros.` : ''; if (veh) { Object.assign(s, { vehicleId: veh.id, brandId: veh.brandId, modelId: veh.modelId, year: veh.year, km: veh.km }); syncForm(); } }
+    if (n === 'patente') {
+      s.patente = e.target.value; const veh = findVehicle(s.patente);
+      box.querySelector('[data-found]').textContent = veh ? `Encontramos tu ${veh.modelName} ${veh.year} en nuestros registros.` : '';
+      if (!veh || veh.id === s.vehicleId) return; // nada cambió: no repintar (evita perder el clic siguiente)
+      Object.assign(s, { vehicleId: veh.id, brandId: veh.brandId, modelId: veh.modelId, year: veh.year, km: veh.km }); syncForm();
+    }
     if (n !== 'name' && n !== 'phone' && n !== 'email' && n !== 'notes') draw();
   });
   f.onsubmit = e => {

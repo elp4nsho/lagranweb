@@ -21,9 +21,9 @@ function layout() {
     <div class="card tv-kpi" data-k="kw"><span class="label">Potencia total</span><div class="value"></div></div>
   </div>
   <div class="tv-grid">
-    <div class="stack"><section class="card"><div class="chart-head"><b data-c1n></b><span class="big" data-c1v></span></div><div data-c1></div></section>
+    <div class="stack tv-charts"><section class="card"><div class="chart-head"><b data-c1n></b><span class="big" data-c1v></span></div><div data-c1></div></section>
       <section class="card"><div class="chart-head"><b data-c2n></b><span class="big" data-c2v></span></div><div data-c2></div></section></div>
-    <div class="stack"><section class="card"><div class="chart-head"><b data-mapn></b><span class="small muted">rota cada 15 s</span></div><div data-map></div></section>
+    <div class="stack tv-side"><section class="card"><div class="chart-head"><b data-mapn></b><span class="small muted">rota cada 15 s</span></div><div data-map></div></section>
       <section class="card"><b>Alarmas abiertas</b><div data-alarms></div></section></div>
   </div>`;
   tv.querySelector('[data-fs]').onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.().catch(() => {});

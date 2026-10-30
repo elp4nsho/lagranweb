@@ -67,7 +67,7 @@ export function seed() {
     { id: 'u-pv1', name: 'Paula Herrera', email: 'posventa@autoplaza.cl', password: 'servicio123', role: 'asesor', color: '#0284c7', demo: true, active: true, showroomId: 'scl' },
     { id: 'u-pv2', name: 'Andrés Fuentes', email: 'afuentes@autoplaza.cl', password: 'servicio123', role: 'asesor', color: '#65a30d', active: true, showroomId: 'ccp' },
     { id: 'u-pv3', name: 'Marcela Ortiz', email: 'mortiz@autoplaza.cl', password: 'servicio123', role: 'asesor', color: '#be123c', active: true, showroomId: 'vina' },
-    { id: 'u-cli', name: 'Camila Fuentes Rojas', email: 'cliente@autoplaza.cl', password: 'cliente123', role: 'cliente', color: '#e11d48', demo: true, active: true, rut: '16.245.873-1', phone: '+56 9 8765 4321' }
+    { id: 'u-cli', name: 'Camila Fuentes Rojas', email: 'cliente@autoplaza.cl', password: 'cliente123', role: 'cliente', color: '#e11d48', demo: true, active: true, rut: '16.245.873-6', phone: '+56 9 8765 4321' }
   ];
   const sellersOf = sid => users.filter(u => u.role === 'vendedor' && u.showroomId === sid);
   const advisorOf = sid => users.find(u => u.role === 'asesor' && u.showroomId === sid).id;

@@ -416,3 +416,5 @@ html:not([data-layout="app"]) .head-nav .nav-ico { display: none; }
 [data-layout="app"] .site-main .h-impact .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 [data-layout="app"] .site-main .h-impact .grid-4 > * { grid-column: auto !important; }
 @media (max-width: 700px) { [data-layout="app"] .site-main .h-impact .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* Cabecera de "Mi cuenta": el saludo no debe encogerse bajo los botones en pantallas chicas. */
+.acc-head > div { min-width: min(180px, 100%) !important; }

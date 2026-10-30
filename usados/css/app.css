@@ -298,7 +298,8 @@ html, body { overflow-x: clip; }
 .car-card .cc-title:hover { color: var(--primary); }
 .car-card .cc-specs { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 13px; color: var(--muted); }
 .car-card .cc-foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
-.car-card .cc-tags { position: absolute; top: 10px; left: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
+.car-card .cc-tags { position: absolute; top: 10px; left: 10px; display: flex; gap: 6px; flex-wrap: wrap; max-width: calc(100% - 120px); }
+.mkt-chart { max-width: 680px; }
 .car-card .cc-cmp { position: absolute; top: 8px; right: 10px; font-size: 12px; background: var(--surface); padding: 2px 8px; border-radius: var(--radius-pill); border: 1px solid var(--line); }
 .car-card.sold { opacity: .6; }
 .price-old { text-decoration: line-through; color: var(--muted); font-size: .85em; }
