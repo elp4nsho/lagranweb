@@ -92,7 +92,7 @@
     if (l && window.LGWLayout) { LGWLayout.set(l.getAttribute('data-l')); render(); }
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !pal.hidden) { pal.hidden = true; btn.focus(); }
+    if (e.key === 'Escape' && !pal.hidden) { pal.hidden = true; btn.setAttribute('aria-expanded', 'false'); btn.focus(); }
     if (e.altKey && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) { e.preventDefault(); T.next(e.key === 'ArrowRight' ? 1 : -1); }
     if (e.altKey && (e.key === 'ArrowUp' || e.key === 'ArrowDown') && window.LGWLayout) {
       e.preventDefault();
@@ -100,8 +100,13 @@
       LGWLayout.set(ids[(i + (e.key === 'ArrowDown' ? 1 : -1) + ids.length) % ids.length]); render();
     }
   });
+  // Cerrar al hacer clic fuera. Se usa la ruta del evento (calculada al despacharlo) porque al
+  // elegir un estilo el panel se vuelve a pintar y el botón pulsado ya no está dentro de él.
   document.addEventListener('click', function (e) {
-    if (!pal.hidden && !pal.contains(e.target) && !dock.contains(e.target)) pal.hidden = true;
+    if (pal.hidden) return;
+    var path = e.composedPath ? e.composedPath() : [];
+    var inside = path.length ? (path.indexOf(pal) >= 0 || path.indexOf(dock) >= 0) : (pal.contains(e.target) || dock.contains(e.target));
+    if (!inside) { pal.hidden = true; btn.setAttribute('aria-expanded', 'false'); }
   });
   window.addEventListener('lgw:theme', render);
 })();

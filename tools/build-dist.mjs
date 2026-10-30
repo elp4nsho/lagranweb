@@ -12,7 +12,7 @@ import path from 'path';
 
 const D = path.resolve(process.argv[2] || 'dist');
 const apps = fs.readdirSync(D, { withFileTypes: true })
-  .filter(d => d.isDirectory() && !['assets', 'tools', '.git'].includes(d.name));
+  .filter(d => d.isDirectory() && !['assets', 'tools', '.git', 'biblioteca'].includes(d.name)); // biblioteca usa scripts clásicos
 let n = 0;
 for (const app of apps) {
   const dir = path.join(D, app.name);

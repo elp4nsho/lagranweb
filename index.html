@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>La Gran Web — 30 sistemas demo</title>
-  <meta name="description" content="Portafolio de 30 sistemas web completos con sitio público, panel admin y 30 estilos intercambiables. Todo simulado en el navegador.">
+  <meta name="description" content="Portafolio de 30 sistemas web completos con sitio público, panel admin y 30 estilos intercambiables. Todo simulado en el navegador. Incluye una biblioteca de vistas con la captura y la explicación de cada pantalla.">
   <script src="assets/core/theme-boot.js"></script>
   <style>
     .top { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--bg) 80%, transparent); backdrop-filter: blur(14px); border-bottom: var(--border-w) solid var(--line); }
@@ -21,6 +21,8 @@
     .hero h1 em { font-style: normal; color: var(--primary); }
     .hero p.lead { color: var(--muted); font-size: clamp(16px, 2vw, 20px); max-width: 60ch; margin: 0 auto 30px; }
     .hero .row { justify-content: center; }
+    .hero-note { margin: 18px auto 0; color: var(--muted); font-size: 14px; }
+    .hero-note a { color: var(--primary); font-weight: 600; }
     .numbers { margin-top: 56px; }
     .numbers .card { text-align: center; }
 
@@ -73,7 +75,7 @@
   <header class="top site-header">
     <div class="container">
       <a class="brand site-brand" href="#"><b>✦</b>La Gran Web</a>
-      <nav class="site-nav"><a href="#proyectos">Proyectos</a><a href="#estilos">Estilos</a><a href="#como">Cómo funciona</a><a href="#contacto">Contacto</a></nav>
+      <nav class="site-nav"><a href="#proyectos">Proyectos</a><a href="biblioteca/index.html">Biblioteca de vistas</a><a href="#estilos">Estilos</a><a href="#como">Cómo funciona</a><a href="#contacto">Contacto</a></nav>
       <div class="site-actions"><a class="btn btn-primary btn-sm" href="#proyectos">Ver demos</a></div>
     </div>
   </header>
@@ -88,6 +90,7 @@
         <a class="btn btn-primary btn-lg" href="#proyectos">Explorar proyectos →</a>
         <a class="btn btn-lg" href="#estilos">Cambiar estilo 🎨</a>
       </div>
+      <p class="hero-note">¿Prefieres mirar antes de probar? La <a href="biblioteca/index.html">biblioteca de vistas</a> muestra cada pantalla con su captura y lo que permite hacer.</p>
       </div>
       <div class="grid-4 numbers hero-media">
         <div class="card"><div class="stat"><span class="value">30</span><span class="label">Sistemas</span></div></div>

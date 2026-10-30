@@ -1,0 +1,7 @@
+{
+  "name": "lgw-biblioteca",
+  "private": true,
+  "description": "Generador de la Biblioteca de vistas (capturas + textos) de La Gran Web",
+  "scripts": { "start": "node run.js" },
+  "dependencies": { "sharp": "^0.33.5" }
+}

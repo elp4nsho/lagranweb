@@ -2,7 +2,8 @@
 // Lo carga portfolio-bar.js. Agrega "⚡ Rellenar" a la barra flotante y, si el autorrelleno
 // está activo, completa solo los campos vacíos de cada formulario o modal que aparece.
 (function () {
-  if (document.documentElement.getAttribute('data-app') === 'portal') return;
+  var appId = document.documentElement.getAttribute('data-app');
+  if (appId === 'portal' || appId === 'biblioteca') return;
 
   var KEY_AUTO = 'lgw:autofill', KEY_TIP = 'lgw:autofill-tip';
   function getLS(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }

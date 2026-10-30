@@ -791,6 +791,8 @@ hr { border: 0; border-top: var(--border-w, 1px) solid var(--line); margin: var(
 [data-theme="chrome"] .card { background: linear-gradient(180deg, #fbfcfd, #e1e5ec); }
 [data-theme="chrome"] .btn { background: linear-gradient(180deg, #ffffff, #c9cfd9); color: #15161c; box-shadow: inset 0 1px 0 #fff, 0 2px 6px rgba(0,0,0,.2); }
 [data-theme="chrome"] .btn-primary { background: linear-gradient(180deg, #b3a1ff, #7a5cff 50%, #5b3df0); color: #fff; }
+[data-theme="chrome"] .btn-danger { background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(0,0,0,.12)), var(--danger); color: #fff; }
+[data-theme="chrome"] .btn-accent { background: linear-gradient(180deg, rgba(255,255,255,.4), rgba(0,0,0,.08)), var(--accent); color: var(--on-accent, #111); }
 [data-theme="chrome"] h1 { background: linear-gradient(180deg, #ffffff 0%, #8a93a3 45%, #2b2f38 50%, #9aa3b3 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-stroke: 1px #6b7280; }
 
 [data-theme="contrast"] {
@@ -846,7 +848,11 @@ hr { border: 0; border-top: var(--border-w, 1px) solid var(--line); margin: var(
 [data-theme="skeuo"] .admin-sidebar .nav-link { color: #f5e9d9; }
 [data-theme="skeuo"] .admin-sidebar .nav-link.active { background: rgba(0,0,0,.3); color: #fff; box-shadow: inset 0 2px 4px rgba(0,0,0,.4); }
 [data-theme="skeuo"] .admin-topbar { background: linear-gradient(180deg, #b6c3d6, #6d84a8); color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,.4); }
-[data-theme="skeuo"] .card::before { content: ''; display: block; margin: -6px -6px 12px; border-top: 2px dashed rgba(0,0,0,.12); }
+[data-theme="skeuo"] .btn-danger { background: linear-gradient(180deg, rgba(255,255,255,.3), rgba(0,0,0,.12)), var(--danger); color: #fff; border-color: #8f2a22; text-shadow: 0 -1px 0 rgba(0,0,0,.35); }
+[data-theme="skeuo"] .btn-accent { background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(0,0,0,.1)), var(--accent); color: var(--on-accent, #111); border-color: rgba(0,0,0,.35); text-shadow: 0 -1px 0 rgba(0,0,0,.35); }
+/* Costura de las tarjetas: absoluta, para no ser una celda más en tarjetas con grid o flex en fila */
+:where([data-theme="skeuo"]) .card { position: relative; }
+[data-theme="skeuo"] .card::before { content: ''; position: absolute; top: 7px; left: 7px; right: 7px; margin: 0; border-top: 2px dashed rgba(0,0,0,.12); pointer-events: none; }
 
 [data-theme="metro"] {
   --on-accent: #ffffff;
@@ -942,7 +948,17 @@ hr { border: 0; border-top: var(--border-w, 1px) solid var(--line); margin: var(
 [data-theme="aqua"] .btn { background: linear-gradient(180deg, #fefefe 0, #e8e8e8 50%, #d4d4d4 51%, #f1f1f1 100%); border-color: #8c8c8c; border-radius: 999px; box-shadow: 0 1px 2px rgba(0,0,0,.25); }
 [data-theme="aqua"] .btn-primary { background: linear-gradient(180deg, #cfe6ff 0, #6aaef0 45%, #2a7fd9 50%, #8cc6ff 100%); color: #fff; border-color: #2263a8; text-shadow: 0 -1px 0 rgba(0,0,0,.3); }
 [data-theme="aqua"] .card { border-radius: 8px 8px 6px 6px; overflow: hidden; }
-[data-theme="aqua"] .card::before { content: '● ● ●'; display: block; margin: calc(var(--pad) * -1) calc(var(--pad) * -1) 14px; padding: 4px 10px; font-size: 10px; letter-spacing: 3px; color: transparent; text-shadow: -1px 0 #ff5f57, 15px 0 #febc2e, 31px 0 #28c840; background: linear-gradient(180deg, #ececec, #cfcfcf); border-bottom: 1px solid #a7a7a7; }
+/* Barra de ventana de Aqua: se pinta como fondo en un borde superior de 22 px (no es un elemento),
+   así no ocupa una celda en tarjetas con grid o flex en fila ni depende del padding de cada tarjeta. */
+[data-theme="aqua"] .card { border-top: 22px solid transparent;
+  background: radial-gradient(circle at 13px 11px, #ff5f57 3.4px, rgba(0,0,0,.25) 3.6px, transparent 4.4px) border-box no-repeat,
+    radial-gradient(circle at 29px 11px, #febc2e 3.4px, rgba(0,0,0,.25) 3.6px, transparent 4.4px) border-box no-repeat,
+    radial-gradient(circle at 45px 11px, #28c840 3.4px, rgba(0,0,0,.25) 3.6px, transparent 4.4px) border-box no-repeat,
+    linear-gradient(180deg, #ececec, #cfcfcf 21px, #a7a7a7 21px, #a7a7a7 22px, transparent 22px) border-box no-repeat,
+    var(--surface); }
+/* Variantes de gel para peligro y acento (el gel claro de .btn dejaba texto blanco sobre gris) */
+[data-theme="aqua"] .btn-danger { background: linear-gradient(180deg, rgba(255,255,255,.55) 0, rgba(255,255,255,.15) 50%, rgba(0,0,0,.08) 51%, rgba(255,255,255,.2) 100%), var(--danger); color: #fff; border-color: #a82a22; text-shadow: 0 -1px 0 rgba(0,0,0,.3); }
+[data-theme="aqua"] .btn-accent { background: linear-gradient(180deg, rgba(255,255,255,.6) 0, rgba(255,255,255,.2) 50%, rgba(0,0,0,.05) 51%, rgba(255,255,255,.25) 100%), var(--accent); color: #0d2c4f; border-color: #5d8fc7; }
 
 [data-theme="nativo"] {
   --font-body: 'Times New Roman', Times, serif; --font-head: 'Times New Roman', Times, serif;

@@ -78,9 +78,8 @@ async function run(d) {
     await d.tour(['.featured-sec .model-grid', '.offers-sec .offer-grid', '.launches-sec .launch-grid'], { read: 1.1 });
     await d.scrollTo(0);
   });
-  // Nota: el panel 🎨 se cierra solo tras cada elección (se re-pinta y el clic queda "fuera"),
-  // así que se vuelve a abrir antes de cada cambio.
-  const palette = () => d.click('.lgw-dock button[title="Estilo y disposición"]', { after: .25 });
+  // Abre el panel 🎨 si está cerrado (queda abierto mientras se elige).
+  const palette = async () => { if (await d.page.locator('.lgw-pal').isHidden()) await d.click('.lgw-dock button[title="Estilo y disposición"]', { after: .25 }); };
   await d.step('Disposiciones', async () => {
     await d.caption('Selector de estilo y disposición', 'La misma web, reorganizada por completo sin recargar', { read: .3 });
     await palette();
@@ -96,6 +95,7 @@ async function run(d) {
     await d.scrollTo(0);
     await d.caption('30 estilos visuales', 'Modernos y de la era HTML5: colores, tipografías, bordes y animaciones', { read: .2 });
     for (const t of ['noir', 'brutal', 'metro', 'aqua']) { await palette(); await d.click(`.lgw-pal [data-t="${t}"]`, { after: t === 'aqua' ? .3 : 1.3 }); }
+    await d.page.keyboard.press('Escape');
   });
 
   // ===== 2. Catálogo =====

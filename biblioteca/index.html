@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es" data-app="biblioteca" data-default-theme="noir">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biblioteca de vistas · La Gran Web</title>
+  <meta name="description" content="Biblioteca de vistas de La Gran Web: cada pantalla de cada sistema demo con su captura, qué es y qué puede hacer el usuario en ella, por rol.">
+  <script src="../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/biblioteca.css">
+</head>
+<body>
+  <header class="top site-header">
+    <div class="container">
+      <a class="brand site-brand" href="../index.html"><b>✦</b>La Gran Web</a>
+      <nav class="site-nav" aria-label="Secciones">
+        <a href="#sistemas">Sistemas</a>
+        <a href="../index.html#proyectos">Demos en vivo</a>
+        <a href="../index.html#contacto">Contacto</a>
+      </nav>
+      <div class="site-actions"><a class="btn btn-sm" href="../index.html">← Portafolio</a></div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <section class="bib-hero site-hero"><div class="container">
+      <div class="hero-text">
+        <span class="eyebrow">Biblioteca de vistas</span>
+        <h1>Cada pantalla, <em>explicada</em></h1>
+        <p class="lead">Recorre los sistemas sin instalar nada: cada vista tiene su captura, qué es y qué puede hacer ahí cada tipo de usuario. Si algo te interesa, ábrelo en la demo en vivo.</p>
+      </div>
+    </div></section>
+
+    <section id="sistemas" class="section container bib-systems-sec">
+      <div class="row between bib-systems-head">
+        <div><span class="eyebrow">Sistemas</span><h2>Elige un sistema</h2></div>
+        <p class="muted small" id="avail"></p>
+      </div>
+      <div class="bib-systems" id="systems" role="list"></div>
+    </section>
+
+    <section class="section container bib-app" id="app" aria-live="polite"></section>
+  </main>
+
+  <footer class="site-footer bib-foot">© <span id="y"></span> La Gran Web · Capturas de sistemas demo con datos ficticios.</footer>
+
+  <div class="bib-lightbox" id="lb" hidden role="dialog" aria-modal="true" aria-labelledby="lb-title">
+    <div class="bib-lb-backdrop" data-lb-close></div>
+    <div class="bib-lb-panel">
+      <div class="bib-lb-media">
+        <div class="bib-lb-tools">
+          <div class="bib-lb-switch" id="lb-switch" role="group" aria-label="Formato de la captura"></div>
+          <span class="bib-lb-count muted small" id="lb-count"></span>
+        </div>
+        <figure class="bib-lb-figure" id="lb-figure"></figure>
+        <button class="btn btn-icon bib-lb-nav prev" id="lb-prev" type="button" aria-label="Vista anterior">←</button>
+        <button class="btn btn-icon bib-lb-nav next" id="lb-next" type="button" aria-label="Vista siguiente">→</button>
+      </div>
+      <aside class="bib-lb-info" id="lb-info"></aside>
+      <button class="btn btn-icon btn-sm bib-lb-close" type="button" data-lb-close aria-label="Cerrar">✕</button>
+    </div>
+  </div>
+
+  <script src="../projects.js"></script>
+  <script src="js/biblioteca.js"></script>
+  <script src="../assets/portfolio-bar.js" defer></script>
+</body>
+</html>
