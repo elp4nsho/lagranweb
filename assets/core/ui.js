@@ -165,7 +165,7 @@ export function dataTable(el, { rows, columns, pageSize = 10, search, onRow, emp
     const slice = list.slice(page * pageSize, page * pageSize + pageSize);
     tbody.innerHTML = slice.length ? slice.map((r, i) => `<tr data-i="${i}" ${onRow ? 'style="cursor:pointer"' : ''}>${columns.map(c => `<td>${c.render ? cell(c.render(r)) : escape(r[c.key])}</td>`).join('')}</tr>`).join('')
       : `<tr><td colspan="${columns.length}"><div class="empty">${escape(empty)}</div></td></tr>`;
-    tbody.querySelectorAll('tr[data-i]').forEach(tr => onRow && tr.addEventListener('click', e => { if (!e.target.closest('button, a, input, select')) onRow(slice[+tr.dataset.i]); }));
+    tbody.querySelectorAll('tr[data-i]').forEach(tr => onRow && tr.addEventListener('click', e => { if (!e.target.closest('button, a, input, select, label, textarea')) onRow(slice[+tr.dataset.i]); }));
     pager.innerHTML = `<span>${list.length} registro${list.length === 1 ? '' : 's'}</span><span class="row" style="gap:6px"><button class="btn btn-sm btn-ghost" data-p="-1" ${page === 0 ? 'disabled' : ''}>←</button><span>${page + 1} / ${pages}</span><button class="btn btn-sm btn-ghost" data-p="1" ${page >= pages - 1 ? 'disabled' : ''}>→</button></span>`;
   };
   el.querySelector('[data-q]')?.addEventListener('input', debounce(e => { q = e.target.value; page = 0; render(); }, 150));
