@@ -196,14 +196,14 @@ export function lineChart(data, { height = 200, format = v => v } = {}) {
     ${pts.map((p, i) => `<g><title>${escape(data[i].label)}: ${escape(format(data[i].value))}</title><circle class="dot" cx="${p[0]}" cy="${p[1]}" r="4"/>${data.length <= 14 || i % 2 === 0 ? `<text x="${p[0]}" y="${height + 16}" text-anchor="middle">${escape(data[i].label)}</text>` : ''}</g>`).join('')}
   </svg>`;
 }
-export function donutChart(data, { size = 180, label = '' } = {}) {
+export function donutChart(data, { size = 180, label = '', format = v => v } = {}) {
   const total = data.reduce((s, d) => s + d.value, 0) || 1;
   const r = 70, c = 2 * Math.PI * r;
   const palette = ['var(--primary)', 'var(--accent)', 'var(--success)', 'var(--warning)', 'var(--danger)', 'var(--info)', 'var(--muted)'];
   let off = 0;
-  const arcs = data.map((d, i) => { const len = (d.value / total) * c; const s = `<circle r="${r}" cx="90" cy="90" fill="none" stroke="${d.color || palette[i % palette.length]}" stroke-width="22" stroke-dasharray="${len} ${c - len}" stroke-dashoffset="${-off}" transform="rotate(-90 90 90)"><title>${escape(d.label)}: ${d.value}</title></circle>`; off += len; return s; }).join('');
+  const arcs = data.map((d, i) => { const len = (d.value / total) * c; const s = `<circle r="${r}" cx="90" cy="90" fill="none" stroke="${d.color || palette[i % palette.length]}" stroke-width="22" stroke-dasharray="${len} ${c - len}" stroke-dashoffset="${-off}" transform="rotate(-90 90 90)"><title>${escape(d.label)}: ${escape(format(d.value))}</title></circle>`; off += len; return s; }).join('');
   return `<div class="row" style="gap:20px"><svg class="chart" viewBox="0 0 180 180" style="width:min(${size}px,100%);flex:none">${arcs}<text x="90" y="96" text-anchor="middle" style="font-size:20px;font-weight:700;fill:var(--text)">${escape(label)}</text></svg>
-    <ul style="list-style:none;padding:0;margin:0;display:grid;gap:6px;font-size:13px">${data.map((d, i) => `<li class="row" style="gap:8px;flex-wrap:nowrap"><i style="width:10px;height:10px;border-radius:2px;background:${d.color || palette[i % palette.length]}"></i>${escape(d.label)} <b>${d.value}</b></li>`).join('')}</ul></div>`;
+    <ul style="list-style:none;padding:0;margin:0;display:grid;gap:6px;font-size:13px">${data.map((d, i) => `<li class="row" style="gap:8px;flex-wrap:nowrap"><i style="width:10px;height:10px;border-radius:2px;background:${d.color || palette[i % palette.length]}"></i>${escape(d.label)} <b>${escape(format(d.value))}</b></li>`).join('')}</ul></div>`;
 }
 
 // Exportar filas a CSV (descarga).

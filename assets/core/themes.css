@@ -781,7 +781,7 @@ hr { border: 0; border-top: var(--border-w, 1px) solid var(--line); margin: var(
   --font-body: 'Syne', system-ui, sans-serif; --font-head: 'Syne', sans-serif;
   --head-weight: 800; --head-spacing: -0.03em;
   --bg: #d9dde3; --bg-image: radial-gradient(ellipse at 20% 0%, #ffffff, transparent 50%), radial-gradient(ellipse at 100% 100%, rgba(122,92,255,.25), transparent 50%), linear-gradient(160deg, #e9ecf1, #c3c9d3);
-  --surface: linear-gradient(180deg, #fbfcfd, #dfe3ea); --surface-2: #e7eaf0; --surface-3: #cfd5de;
+  --surface: #f1f3f7; --surface-2: #e7eaf0; --surface-3: #cfd5de;
   --text: #15161c; --muted: #5c6270; --line: #aab2bf;
   --primary: #7a5cff; --primary-2: #9a83ff; --on-primary: #ffffff; --accent: #00e0c7;
   --success: #00b894; --warning: #f39c12; --danger: #e8445a; --info: #4a7bff;
