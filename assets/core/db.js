@@ -6,11 +6,35 @@
 //   export const db = createDB('tienda', { version: 1, seed: () => ({ products: [...], orders: [...] }) });
 //   db.all('products'); db.insert('orders', {...}); db.update('products', id, { stock: 3 });
 
+// Todas las webs comparten la cuota de localStorage del dominio (~5 MB). Si se llena,
+// liberamos las bases de las webs visitadas hace más tiempo (LRU) y reintentamos.
 const memory = {};
+const META = 'lgw:dbmeta';
+function touch(k) {
+  try { const m = JSON.parse(localStorage.getItem(META) || '{}'); m[k] = Date.now(); localStorage.setItem(META, JSON.stringify(m)); } catch (e) {}
+}
+function evictOldest(except) {
+  try {
+    const m = JSON.parse(localStorage.getItem(META) || '{}');
+    const keys = Object.keys(localStorage).filter(k => k.startsWith('lgw:db:') && k !== except)
+      .sort((a, b) => (m[a] || 0) - (m[b] || 0));
+    if (!keys.length) return false;
+    localStorage.removeItem(keys[0]);
+    delete m[keys[0]];
+    localStorage.setItem(META, JSON.stringify(m));
+    return true;
+  } catch (e) { return false; }
+}
 const storage = {
-  get(k) { try { return localStorage.getItem(k); } catch (e) { return memory[k] ?? null; } },
-  set(k, v) { try { localStorage.setItem(k, v); } catch (e) { memory[k] = v; } },
-  del(k) { try { localStorage.removeItem(k); } catch (e) { delete memory[k]; } }
+  get(k) { try { return localStorage.getItem(k) ?? memory[k] ?? null; } catch (e) { return memory[k] ?? null; } },
+  set(k, v) {
+    for (let i = 0; i < 30; i++) {
+      try { localStorage.setItem(k, v); delete memory[k]; touch(k); return; }
+      catch (e) { if (!evictOldest(k)) break; }
+    }
+    memory[k] = v;
+  },
+  del(k) { try { localStorage.removeItem(k); } catch (e) {} delete memory[k]; }
 };
 
 export function uid(prefix = '') {
@@ -33,7 +57,7 @@ export function createDB(name, { version = 1, seed = () => ({}) } = {}) {
   function load() {
     try {
       const raw = JSON.parse(storage.get(key));
-      if (raw && raw._v === version) return raw;
+      if (raw && raw._v === version) { touch(key); return raw; }
     } catch (e) { /* datos corruptos → reseed */ }
     const d = fresh();
     storage.set(key, JSON.stringify(d));
