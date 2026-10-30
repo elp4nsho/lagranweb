@@ -154,3 +154,5 @@ export function resolveRefund(orderId, approve, byId, note = '') {
 export const ORDER = { pagado: ['Pagado', 'success'], reembolso_solicitado: ['Reembolso solicitado', 'warning'], reembolsado: ['Reembolsado', 'info'], fallido: ['Fallido', 'danger'] };
 export const COURSE = { borrador: ['Borrador', ''], revision: ['En revisión', 'warning'], publicado: ['Publicado', 'success'], rechazado: ['Rechazado', 'danger'], archivado: ['Archivado', 'info'] };
 export const LESSON = { video: ['▶', 'Video'], lectura: ['📄', 'Lectura'], quiz: ['❓', 'Quiz'], tarea: ['📝', 'Tarea'] };
+// Monto compacto para KPIs: $1,6 M
+export const moneyShort = n => Math.abs(n) >= 1e6 ? `$${(n / 1e6).toFixed(1).replace('.', ',')} M` : `$${Math.round(n).toLocaleString('es-CL')}`;

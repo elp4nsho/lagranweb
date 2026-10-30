@@ -2,7 +2,7 @@
 import { lineChart, barChart, donutChart, money, num } from '../../../assets/core/ui.js';
 import { kpis, panel, pageHead, byMonth, escape, ago, person } from '../shared/admin-kit.js';
 import { db } from '../data/db.js';
-import { getCourse, getCategory, getUser, rating, studentsCount, commission } from '../data/model.js';
+import { getCourse, getCategory, getUser, rating, studentsCount, commission, moneyShort } from '../data/model.js';
 
 export function renderDashboard(el, _p, ctx) {
   const paid = db.query('orders', o => o.status === 'pagado');
@@ -17,8 +17,8 @@ export function renderDashboard(el, _p, ctx) {
   const isAdmin = ctx.user.role === 'admin';
   el.innerHTML = pageHead('Dashboard', `Hola, ${ctx.user.name.split(' ')[0]}. Resumen de Academia Faro.`, isAdmin ? '<a class="btn" href="#/revision">Revisar cursos</a><a class="btn btn-primary" href="#/sitio">Editar portada</a>' : '<a class="btn btn-primary" href="#/pedidos">Ver reembolsos</a>') +
     kpis([
-      { label: 'Ingresos del mes', value: money(curM), delta: `${curM >= prevM ? '▲' : '▼'} ${prevM ? Math.round(Math.abs(curM - prevM) / prevM * 100) : 0}% vs mes anterior`, up: curM >= prevM },
-      { label: 'Ventas totales', value: money(total), hint: `Comisión plataforma ${commission()}%: ${money(total * commission() / 100)}` },
+      { label: 'Ingresos del mes', value: moneyShort(curM), delta: `${curM >= prevM ? '▲' : '▼'} ${prevM ? Math.round(Math.abs(curM - prevM) / prevM * 100) : 0}% vs mes anterior`, up: curM >= prevM },
+      { label: 'Ventas totales', value: moneyShort(total), hint: `Comisión plataforma ${commission()}%: ${money(total * commission() / 100)}` },
       { label: 'Matrículas', value: num(all.length), hint: `${enr.at(-1).value} este mes` },
       { label: 'Tasa de finalización', value: Math.round(done / (all.length || 1) * 100) + '%', hint: `${done} cursos terminados` },
       { label: 'Cursos publicados', value: String(db.count('courses', c => c.status === 'publicado')), hint: `${db.count('courses', c => c.status === 'revision')} en revisión` },

@@ -2,7 +2,7 @@
 import { lineChart, barChart, money, num } from '../../../assets/core/ui.js';
 import { kpis, panel, pageHead, byMonth, escape, ago, person } from '../shared/admin-kit.js';
 import { db } from '../data/db.js';
-import { salesOf, instructorShare, rating, getCourse, getUser, studentsCount } from '../data/model.js';
+import { salesOf, instructorShare, rating, getCourse, getUser, studentsCount, moneyShort } from '../data/model.js';
 
 export function renderOverview(el, _p, ctx) {
   const id = ctx.user.id;
@@ -18,8 +18,8 @@ export function renderOverview(el, _p, ctx) {
   const reviews = db.query('reviews', r => ids.has(r.courseId) && r.status === 'publicada').sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 5);
   el.innerHTML = pageHead(`Hola, ${ctx.user.name.split(' ')[0]}`, 'Así van tus cursos en Academia Faro.', '<a class="btn btn-primary" href="#/cursos">＋ Crear curso</a>') +
     kpis([
-      { label: 'Ganancias del mes', value: money(thisM), delta: `${thisM >= prevM ? '▲' : '▼'} vs ${money(prevM)} mes anterior`, up: thisM >= prevM },
-      { label: 'Ganancias totales', value: money(sales.reduce((t, s) => t + instructorShare(s.net), 0)) },
+      { label: 'Ganancias del mes', value: moneyShort(thisM), delta: `${thisM >= prevM ? '▲' : '▼'} vs ${money(prevM)} mes anterior`, up: thisM >= prevM },
+      { label: 'Ganancias totales', value: moneyShort(sales.reduce((t, s) => t + instructorShare(s.net), 0)) },
       { label: 'Estudiantes', value: num(enr.length), hint: `${enr.filter(e => e.completedAt).length} terminaron` },
       { label: 'Valoración promedio', value: avg ? avg.toFixed(2).replace('.', ',') + ' ★' : '—', hint: `${rs.reduce((t, r) => t + r.count, 0)} reseñas` },
       { label: 'Preguntas sin responder', value: String(pendingQ), up: !pendingQ, delta: pendingQ ? 'Responde pronto' : 'Al día' }

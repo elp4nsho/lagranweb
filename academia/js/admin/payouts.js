@@ -3,6 +3,7 @@ import { pageHead, table, person, badge, date, downloadCSV, toast, confirm, kpis
 import { money } from '../../../assets/core/ui.js';
 import { db } from '../data/db.js';
 import { getUser, salesOf, instructorShare } from '../data/model.js';
+import { moneyShort } from '../data/model.js';
 
 export function renderPayouts(el, _p, ctx) {
   const now = new Date(), period = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
@@ -12,7 +13,7 @@ export function renderPayouts(el, _p, ctx) {
   const rows = db.all('payouts').map(p => ({ ...p, _u: getUser(p.instructorId) })).filter(p => p._u).sort((a, b) => b.period.localeCompare(a.period));
   const pend = rows.filter(p => p.status === 'pendiente');
   el.innerHTML = pageHead('Pagos a instructores', 'Los instructores reciben el 70% de cada venta neta. Se liquida mensualmente.', `<button class="btn" data-csv>⬇ CSV</button>${pend.length ? `<button class="btn btn-primary" data-payall>Pagar ${pend.length} pendientes</button>` : ''}`) +
-    kpis([{ label: 'Pendiente de pago', value: money(pend.reduce((t, p) => t + p.amount, 0)) }, { label: 'Pagado (histórico)', value: money(rows.filter(p => p.status === 'pagado').reduce((t, p) => t + p.amount, 0)) }, { label: `Acumulado ${period}`, value: money(accrued.reduce((t, x) => t + x.amount, 0)), hint: 'Se liquida al cierre del mes' }]) +
+    kpis([{ label: 'Pendiente de pago', value: moneyShort(pend.reduce((t, p) => t + p.amount, 0)) }, { label: 'Pagado (histórico)', value: moneyShort(rows.filter(p => p.status === 'pagado').reduce((t, p) => t + p.amount, 0)) }, { label: `Acumulado ${period}`, value: moneyShort(accrued.reduce((t, x) => t + x.amount, 0)), hint: 'Se liquida al cierre del mes' }]) +
     panel(`Acumulado del mes en curso (${period})`, accrued.length ? `<ul class="ak-list">${accrued.map(x => `<li>${person(x.u, x.u.payoutMethod)}<span class="grow"></span><b>${money(x.amount)}</b></li>`).join('')}</ul>` : '<p class="muted">Sin ventas este mes.</p>') + '<div data-t></div>';
   const t = table(el.querySelector('[data-t]'), {
     key: 'payouts', rows, pageSize: 10,

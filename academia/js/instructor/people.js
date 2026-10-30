@@ -3,6 +3,7 @@ import { pageHead, table, person, badge, pctBar, html, escape, date, ago, toast,
 import { money, barChart } from '../../../assets/core/ui.js';
 import { db } from '../data/db.js';
 import { getCourse, getUser, coursePct, salesOf, instructorShare, lessonsOf, notify } from '../data/model.js';
+import { moneyShort } from '../data/model.js';
 
 const mine = ctx => new Set(db.query('courses', c => c.instructorId === ctx.user.id).map(c => c.id));
 
@@ -69,7 +70,7 @@ export function renderEarnings(el, _p, ctx) {
   const byCourse = Object.values(sales.reduce((m, s) => { const o = m[s.courseId] || (m[s.courseId] = { title: getCourse(s.courseId)?.title, n: 0, gross: 0, mine: 0 }); o.n++; o.gross += s.net; o.mine += instructorShare(s.net); return m; }, {})).sort((a, b) => b.mine - a.mine);
   const paid = payouts.filter(p => p.status === 'pagado').reduce((t, p) => t + p.amount, 0);
   el.innerHTML = pageHead('Ganancias', `Recibes el 70% de cada venta neta. Pago mensual a ${ctx.user.payoutMethod || 'tu cuenta'}.`, '<button class="btn" data-csv>⬇ CSV ventas</button>') +
-    kpis([{ label: 'Ventas totales', value: String(sales.length) }, { label: 'Tus ganancias', value: money(sales.reduce((t, s) => t + instructorShare(s.net), 0)) }, { label: 'Pagado', value: money(paid) }, { label: 'Pendiente de pago', value: money(payouts.filter(p => p.status === 'pendiente').reduce((t, p) => t + p.amount, 0)) }]) +
+    kpis([{ label: 'Ventas totales', value: String(sales.length) }, { label: 'Tus ganancias', value: moneyShort(sales.reduce((t, s) => t + instructorShare(s.net), 0)) }, { label: 'Pagado', value: moneyShort(paid) }, { label: 'Pendiente de pago', value: moneyShort(payouts.filter(p => p.status === 'pendiente').reduce((t, p) => t + p.amount, 0)) }]) +
     `<div class="ak-grid">${panel('Ganancias por mes', barChart(months, { height: 180, format: money }))}${panel('Por curso', `<div class="table-wrap"><table class="table"><thead><tr><th>Curso</th><th>Ventas</th><th>Neto</th><th>Tu parte</th></tr></thead><tbody>${byCourse.map(r => `<tr><td>${escape(r.title)}</td><td>${r.n}</td><td>${money(r.gross)}</td><td><b>${money(r.mine)}</b></td></tr>`).join('')}</tbody></table></div>`)}</div>` +
     panel('Pagos', `<div class="table-wrap"><table class="table"><thead><tr><th>Período</th><th>Monto</th><th>Estado</th><th>Fecha de pago</th></tr></thead><tbody>${payouts.map(p => `<tr><td>${p.period}</td><td>${money(p.amount)}</td><td>${badge(p.status === 'pagado' ? 'Pagado' : 'Pendiente', p.status === 'pagado' ? 'success' : 'warning')}</td><td>${p.paidAt ? date(p.paidAt) : '—'}</td></tr>`).join('') || '<tr><td colspan="4" class="muted">Sin pagos aún.</td></tr>'}</tbody></table></div>`);
   el.querySelector('[data-csv]').onclick = () => { downloadCSV('mis-ventas.csv', sales.map(s => ({ fecha: date(s.at), curso: s.title, precio: s.price, neto: s.net, tu_parte: instructorShare(s.net) }))); toast('CSV exportado', 'success'); };

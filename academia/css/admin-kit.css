@@ -57,4 +57,4 @@
 /* Algunos estilos (p. ej. HTML nativo) redefinen display de .btn: se fuerza el burger del shell. */
 .admin-topbar .admin-burger { display: none; }
 @media (max-width: 900px) { .admin-topbar .admin-burger { display: inline-flex; } }
-.ak-kpis .stat .value { font-size: clamp(20px, 2.1vw, 28px); overflow-wrap: anywhere; }
+.ak-kpis .stat .value { font-size: clamp(19px, 1.9vw, 28px); overflow-wrap: break-word; }

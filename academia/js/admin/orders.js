@@ -3,12 +3,13 @@ import { pageHead, table, person, badge, html, escape, date, dateTime, downloadC
 import { money } from '../../../assets/core/ui.js';
 import { db } from '../data/db.js';
 import { getUser, ORDER, resolveRefund } from '../data/model.js';
+import { moneyShort } from '../data/model.js';
 
 export function renderOrders(el, _p, ctx) {
   const rows = db.all('orders').map(o => ({ ...o, _u: getUser(o.userId) })).filter(o => o._u).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   const paid = rows.filter(o => o.status === 'pagado');
   el.innerHTML = pageHead('Pedidos y reembolsos', 'Historial de compras. Las solicitudes de reembolso requieren aprobación.', '<button class="btn" data-csv>⬇ CSV</button>') +
-    kpis([{ label: 'Pedidos pagados', value: String(paid.length) }, { label: 'Ticket promedio', value: money(paid.reduce((t, o) => t + o.total, 0) / (paid.length || 1)) }, { label: 'Reembolsos solicitados', value: String(rows.filter(o => o.status === 'reembolso_solicitado').length) }, { label: 'Reembolsados', value: String(rows.filter(o => o.status === 'reembolsado').length) }]) + '<div data-t></div>';
+    kpis([{ label: 'Pedidos pagados', value: String(paid.length) }, { label: 'Ticket promedio', value: moneyShort(paid.reduce((t, o) => t + o.total, 0) / (paid.length || 1)) }, { label: 'Reembolsos solicitados', value: String(rows.filter(o => o.status === 'reembolso_solicitado').length) }, { label: 'Reembolsados', value: String(rows.filter(o => o.status === 'reembolsado').length) }]) + '<div data-t></div>';
   const t = table(el.querySelector('[data-t]'), {
     key: 'orders', rows, pageSize: 12,
     search: o => `${o.number} ${o._u.name} ${o._u.email} ${o.items.map(x => x.title).join(' ')} ${o.couponCode || ''}`,
