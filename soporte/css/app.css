@@ -654,11 +654,6 @@ button.tag { cursor: pointer; }
 [data-layout="app"] .dash-grid { gap: 12px; }
 [data-layout="app"] .dash-grid > .card { padding: 14px; }
 
-/* Riel de íconos (app): el núcleo recorta las etiquetas y dejaba 2-3 letras visibles; se ocultan hasta expandir */
-@media (min-width: 901px) {
-  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) :is(.nav-link, .admin-brand) { font-size: 0; gap: 0; }
-  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) :is(.nav-link .count, .brand-area) { display: none; }
-}
 /* Revista reordena Destacados antes que Temas: la numeración del núcleo sigue el orden del DOM, se fija a mano */
 [data-layout="revista"] .site-main > section.kb-featured:not(.site-hero) h2:first-of-type::before { content: '01  '; }
 [data-layout="revista"] .site-main > section.kb-cats:not(.site-hero) h2:first-of-type::before { content: '02  '; }

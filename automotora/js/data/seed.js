@@ -252,6 +252,7 @@ export function seed() {
 
   // ---------- Cliente demo: Camila Fuentes ----------
   const cam = users.find(u => u.id === 'u-cli');
+  const workday = n => { let d = addDays(today, n); if (new Date(d + 'T12:00').getDay() === 0) d = addDays(d, 1); return d; };
   const sp = M.sportage, yar = M.yaris, tuc = M.tucson;
   const v1 = { id: 'h-cam1', ownerId: cam.id, owner: cam.name, phone: cam.phone, email: cam.email, patente: 'SKTR42', vin: 'KNAPX81GBR' + 'S482917', brandId: 'kia', modelId: 'sportage', modelName: 'Sportage', year: 2025, colorName: 'Gris Gravedad', hex: '#5a5e63', km: 18400, purchaseDate: addDays(today, -420), showroomId: 'scl', saleId: 's-cam1', lastServiceKm: 10000, lastServiceDate: addDays(today, -190), warrantyUntil: addDays(today, -420 + 365 * 7) };
   const v2 = { id: 'h-cam2', ownerId: cam.id, owner: cam.name, phone: cam.phone, email: cam.email, patente: 'HJPW71', vin: 'JTDKBRFU3P3' + '051776', brandId: 'toyota', modelId: 'yaris', modelName: 'Yaris Hatchback', year: 2023, colorName: 'Rojo Emoción', hex: '#a3141e', km: 41200, purchaseDate: '2023-03-14', showroomId: 'scl', saleId: 's-cam2', lastServiceKm: 40000, lastServiceDate: addDays(today, -40) };
@@ -262,14 +263,14 @@ export function seed() {
   leads.unshift(camLead);
   const tucList = tuc.versions[2].price + 350000 + 890000;
   quotes.unshift({ id: 'q-cam', number: 'COT-3399', leadId: 'l-cam', customer: cam.name, email: cam.email, customerId: cam.id, modelId: 'tucson', versionId: 'tucson-3', colorId: 'c5', wheelId: 'w2', packIds: ['p-tech'], accIds: ['acc-pisos'], listPrice: tucList + 590000 + 49990, bonus: 1500000, discountPct: 2, discount: 750000, total: tucList + 590000 + 49990 - 2250000, status: 'enviada', sellerId: 'u-v1', validUntil: addDays(today, 3), createdAt: isoAgo(5) });
-  testdrives.unshift({ id: 't-cam', leadId: 'l-cam', customerId: cam.id, name: cam.name, phone: cam.phone, email: cam.email, modelId: 'tucson', showroomId: 'scl', date: addDays(today, 2), slot: '11:00', status: 'agendado', sellerId: 'u-v1', createdAt: isoAgo(3) });
+  testdrives.unshift({ id: 't-cam', leadId: 'l-cam', customerId: cam.id, name: cam.name, phone: cam.phone, email: cam.email, modelId: 'tucson', showroomId: 'scl', date: workday(2), slot: '11:00', status: 'agendado', sellerId: 'u-v1', createdAt: isoAgo(3) });
   finApps.unshift({ id: 'f-cam', number: 'SOL-7099', leadId: 'l-cam', customerId: cam.id, name: cam.name, rut: cam.rut, email: cam.email, phone: cam.phone, employment: 'dependiente', seniority: 6, renta: 2850000, otherDebt: 180000, modelId: 'tucson', versionId: 'tucson-3', price: tuc.versions[2].price, pie: 11000000, plazo: 36, productId: 'fp-smart', cuota: 487000, score: 712, status: 'en_evaluacion', analystId: 'u-cred', conditions: '', createdAt: isoAgo(2), decidedAt: null, notes: [] });
   const configs = [
     { id: 'cfg-cam1', code: 'tucson~tucson-3~c5~w2~p-tech~acc-pisos', userId: cam.id, modelId: 'tucson', name: 'Mi Tucson híbrida', createdAt: isoAgo(9) },
     { id: 'cfg-cam2', code: 'ev6~ev6-2~c6~w3~p-adas~acc-wallbox', userId: cam.id, modelId: 'ev6', name: 'Sueño eléctrico', createdAt: isoAgo(30) }
   ];
   const camPlan = planFor('kia', 20000);
-  appointments.unshift({ id: 'a-cam', number: 'CT-9299', vehicleId: v1.id, customerId: cam.id, patente: v1.patente, owner: cam.name, phone: cam.phone, email: cam.email, brandId: 'kia', modelId: 'sportage', modelName: 'Sportage', year: 2025, showroomId: 'scl', date: addDays(today, 3), slot: '09:30', type: 'mantencion', km: 19200, planId: camPlan.id, notes: 'Aprovechar de revisar el recall de frenos.', status: 'agendada', advisorId: 'u-pv1', createdAt: isoAgo(4) });
+  appointments.unshift({ id: 'a-cam', number: 'CT-9299', vehicleId: v1.id, customerId: cam.id, patente: v1.patente, owner: cam.name, phone: cam.phone, email: cam.email, brandId: 'kia', modelId: 'sportage', modelName: 'Sportage', year: 2025, showroomId: 'scl', date: workday(3), slot: '09:30', type: 'mantencion', km: 19200, planId: camPlan.id, notes: 'Aprovechar de revisar el recall de frenos.', status: 'agendada', advisorId: 'u-pv1', createdAt: isoAgo(4) });
   const camPrev = { id: 'a-cam0', number: 'CT-8812', vehicleId: v2.id, customerId: cam.id, patente: v2.patente, owner: cam.name, phone: cam.phone, email: cam.email, brandId: 'toyota', modelId: 'yaris', modelName: 'Yaris Hatchback', year: 2023, showroomId: 'scl', date: addDays(today, -40), slot: '09:00', type: 'mantencion', km: 40000, planId: 'sp-toyota-40', notes: '', status: 'entregada', advisorId: 'u-pv1', otId: 'o-cam0', createdAt: isoAgo(48) };
   appointments.unshift(camPrev);
   const p40 = servicePlans.find(p => p.id === 'sp-toyota-40');

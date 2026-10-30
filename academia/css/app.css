@@ -460,9 +460,3 @@ fieldset { min-width: 0; } legend { white-space: normal; max-width: 100%; }
 [data-layout="app"] .ak-view > .ak-grid > .ak-panel { padding: 14px; box-shadow: none; }
 [data-layout="app"] .ak-view { gap: 14px; }
 
-/* Riel de íconos (app): el núcleo recorta las etiquetas y dejaba 2-3 letras visibles; se ocultan hasta expandir */
-@media (min-width: 901px) {
-  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) :is(.nav-link, .admin-brand) { font-size: 0; gap: 0; }
-  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .nav-link .count { display: none; }
-  [data-layout="app"] .admin-brand .logo { font-size: 18px; }
-}
