@@ -7,7 +7,7 @@
   "demo": "../taller/index.html",
   "theme": "blueprint",
   "layout": "clasica",
-  "generatedAt": "2026-10-30T23:31:50.435Z",
+  "generatedAt": "2026-10-30T23:59:56.984Z",
   "viewport": {
     "width": 1440,
     "height": 900
@@ -148,7 +148,7 @@
       ],
       "img": "img/taller/cotizar.webp",
       "thumb": "img/taller/cotizar-thumb.webp",
-      "mobile": "img/taller/cotizar-m.webp",
+      "mobile": null,
       "w": 1440,
       "h": 900
     },
@@ -352,7 +352,7 @@
       ],
       "img": "img/taller/login.webp",
       "thumb": "img/taller/login-thumb.webp",
-      "mobile": "img/taller/login-m.webp",
+      "mobile": null,
       "w": 1440,
       "h": 900
     },
@@ -607,7 +607,7 @@
       ],
       "img": "img/taller/tablero.webp",
       "thumb": "img/taller/tablero-thumb.webp",
-      "mobile": "img/taller/tablero-m.webp",
+      "mobile": null,
       "w": 1440,
       "h": 900
     },

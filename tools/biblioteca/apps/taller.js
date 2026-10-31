@@ -71,7 +71,7 @@ module.exports = {
       actions: ['Ver qué incluye el servicio', 'Revisar los trabajos típicos y sus horas estándar', 'Ver el valor de mano de obra referencial', 'Pedir cotización de ese servicio']
     },
     {
-      id: 'cotizar', section: 'publico', title: 'Cotizar o agendar', url: 'index.html#/cotizar', waitFor: '[data-f]', mobile: true,
+      id: 'cotizar', section: 'publico', title: 'Cotizar o agendar', url: 'index.html#/cotizar', waitFor: '[data-f]',
       setup: async h => { await h.click('[data-kind="hora"]'); await h.fill('#q-p', 'KJTR-45'); await h.fill('#q-c', 'Toyota Yaris 2018'); await h.fill('#q-sy', 'Ruido metálico al frenar y vibración en el volante'); await h.click('[data-shot="0"]'); await h.scrollTo('[data-f]', 'start', -110); },
       description: 'Formulario para pedir una cotización o agendar hora: servicio, vehículo, síntomas, fotos y horario preferido. Para siniestros pide la aseguradora y el número de siniestro.',
       actions: ['Elegir entre cotización o agendar hora', 'Indicar servicio, patente y vehículo', 'Describir los síntomas o el daño', 'Adjuntar fotos (simulado)', 'Elegir día y hora de ingreso']
@@ -122,7 +122,7 @@ module.exports = {
       actions: ['Describir el problema', 'Dejar un celular de contacto', 'Enviar la solicitud al taller']
     },
     {
-      id: 'login', section: 'publico', title: 'Ingreso', url: 'login.html', waitFor: '.demo-account', mobile: true,
+      id: 'login', section: 'publico', title: 'Ingreso', url: 'login.html', waitFor: '.demo-account',
       description: 'Página de ingreso para clientes, equipo del taller y liquidadores, con cuentas de prueba para entrar con un clic a cada rol.',
       actions: ['Ingresar con correo y contraseña', 'Entrar con un clic como administrador, jefe, asesor, mecánico, bodega, aseguradora o cliente', 'Crear una cuenta de cliente', 'Volver al sitio']
     },
@@ -175,7 +175,7 @@ module.exports = {
 
     // ================= Asesor de servicio =================
     {
-      id: 'tablero', section: 'asesor', login: U.asesor, roles: PANEL, title: 'Tablero de OT', url: 'admin.html#/tablero', waitFor: '.kanban .kcard', mobile: true,
+      id: 'tablero', section: 'asesor', login: U.asesor, roles: PANEL, title: 'Tablero de OT', url: 'admin.html#/tablero', waitFor: '.kanban .kcard',
       description: 'Kanban con todas las OT abiertas por etapa, desde recepción hasta listo. Las tarjetas se arrastran entre columnas y el sistema valida las reglas del flujo. Abajo, la carga de cada mecánico y la ocupación de elevadores.',
       actions: ['Mover una OT de etapa arrastrando su tarjeta', 'Ver ítems por aprobar, OT atrasadas y con seguro', 'Filtrar por mecánico o asesor', 'Revisar la carga de horas por mecánico y los elevadores ocupados', 'Crear una OT nueva']
     },

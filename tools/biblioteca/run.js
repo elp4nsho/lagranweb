@@ -179,7 +179,7 @@ async function shoot(browser, v, { viewport, mobile = false, theme = null, layou
   }
   fs.mkdirSync(imgDir, { recursive: true });
   fs.mkdirSync(path.dirname(dataFile), { recursive: true });
-  if (!only) fs.rmSync(errDir, { recursive: true, force: true });
+  if (!only && fs.existsSync(errDir)) for (const f of fs.readdirSync(errDir)) if (f.startsWith(name + "-")) fs.rmSync(path.join(errDir, f));
 
   const server = await ensureServer();
   const browser = await chromium.launch({ headless: !flag('headed') });

@@ -73,7 +73,7 @@ module.exports = {
       actions: ['Ver aceite recomendado, litros, filtros y cada cuántos km cambiarlo', 'Revisar el precio de cada servicio para su vehículo', 'Reservar un servicio puntual desde su tarjeta', 'Cambiar de vehículo']
     },
     {
-      id: 'sucursales', section: 'publico', title: 'Sucursales y tiempos de espera', url: 'index.html#/sucursales', waitFor: '.branch-card', mobile: true,
+      id: 'sucursales', section: 'publico', title: 'Sucursales y tiempos de espera', url: 'index.html#/sucursales', waitFor: '.branch-card',
       description: 'Las sucursales con su espera estimada en vivo, calculada con los autos en bahía, lo que les falta y la fila. La página se actualiza sola.',
       actions: ['Ver la espera estimada si llega ahora', 'Revisar autos en fila, en bahía y bahías libres', 'Ver dirección, horario, teléfono y si abre hoy', 'Reservar en esa sucursal o hacer check-in "Llegué"']
     },
@@ -146,7 +146,7 @@ module.exports = {
       actions: ['Ingresar nombre, celular y patente', 'Ver cuándo le toca el próximo cambio', 'Elegir canal y si avisar por km o fecha', 'Ver cómo llegará el mensaje', 'Activar el recordatorio']
     },
     {
-      id: 'login', section: 'publico', title: 'Ingreso', url: 'login.html', waitFor: '.demo-account', mobile: true,
+      id: 'login', section: 'publico', title: 'Ingreso', url: 'login.html', waitFor: '.demo-account',
       description: 'Página de ingreso para clientes y equipo, con el resumen de lo que ve cada rol y cuentas de prueba para entrar con un clic.',
       actions: ['Ingresar con correo y contraseña', 'Entrar con un clic como administrador, jefe, recepcionista, técnico o cliente', 'Crear una cuenta de cliente nueva', 'Volver al sitio']
     },
@@ -197,7 +197,7 @@ module.exports = {
 
     // ================= Recepcionista =================
     {
-      id: 'recepcion', section: 'recepcion', login: U.recepcion, roles: ['Recepcionista', 'Jefe de sucursal', 'Administrador'], title: 'Recepción: operación', url: 'recepcion.html', waitFor: '.ops-cols', mobile: true,
+      id: 'recepcion', section: 'recepcion', login: U.recepcion, roles: ['Recepcionista', 'Jefe de sucursal', 'Administrador'], title: 'Recepción: operación', url: 'recepcion.html', waitFor: '.ops-cols',
       description: 'Pantalla de trabajo del mesón con tres columnas: llegadas y fila, autos en bahía y autos listos para cobrar. Se actualiza sola con lo que pasa en el sitio y en las bahías.',
       actions: ['Recibir una reserva o marcarla como "no llegó"', 'Enviar un auto de la fila a una bahía', 'Ver el avance de cada auto en bahía', 'Responder recomendaciones por teléfono del cliente', 'Cobrar y entregar los autos listos']
     },
@@ -292,7 +292,7 @@ module.exports = {
 
     // ================= Jefe de sucursal =================
     {
-      id: 'dashboard', section: 'jefe', login: U.jefe, roles: PANEL, title: 'Dashboard', url: 'admin.html#/dashboard', waitFor: '.kpi-grid', mobile: true,
+      id: 'dashboard', section: 'jefe', login: U.jefe, roles: PANEL, title: 'Dashboard', url: 'admin.html#/dashboard', waitFor: '.kpi-grid',
       description: 'Indicadores de los últimos 30 días comparados con el periodo anterior: autos, ingresos, ticket, uso de bahías, espera y conversión de recomendaciones, con gráficos y el estado en vivo de las sucursales.',
       actions: ['Filtrar por sucursal o ver toda la cadena', 'Ver autos por día e ingresos por mes', 'Comparar sucursales en autos, ingresos, espera y uso', 'Revisar el mix de servicios y la conversión de recomendaciones', 'Ver stock crítico y actividad reciente']
     },

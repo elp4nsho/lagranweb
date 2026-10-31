@@ -7,7 +7,7 @@
   "demo": "../usados/index.html",
   "theme": "flatui",
   "layout": "clasica",
-  "generatedAt": "2026-10-30T23:54:09.531Z",
+  "generatedAt": "2026-10-31T00:00:13.075Z",
   "viewport": {
     "width": 1440,
     "height": 900
@@ -257,7 +257,7 @@
       ],
       "img": "img/usados/financiamiento.webp",
       "thumb": "img/usados/financiamiento-thumb.webp",
-      "mobile": "img/usados/financiamiento-m.webp",
+      "mobile": null,
       "w": 1440,
       "h": 900
     },
@@ -460,7 +460,7 @@
       ],
       "img": "img/usados/login.webp",
       "thumb": "img/usados/login-thumb.webp",
-      "mobile": "img/usados/login-m.webp",
+      "mobile": null,
       "w": 1440,
       "h": 900
     },
@@ -494,10 +494,10 @@
       "url": "index.html#/cuenta",
       "capturedUrl": "index.html#/cuenta",
       "login": {
-        "id": "u-c2",
-        "name": "Tomás Pérez",
+        "id": "u-c1",
+        "name": "Camila Rojas",
         "role": "Cliente",
-        "email": "tomas@correo.cl",
+        "email": "cliente@correo.cl",
         "password": "demo123"
       },
       "kind": "page",
@@ -551,10 +551,10 @@
       "url": "index.html#/cuenta",
       "capturedUrl": "index.html#/cuenta",
       "login": {
-        "id": "u-c2",
-        "name": "Tomás Pérez",
+        "id": "u-c1",
+        "name": "Camila Rojas",
         "role": "Cliente",
-        "email": "tomas@correo.cl",
+        "email": "cliente@correo.cl",
         "password": "demo123"
       },
       "kind": "page",
@@ -579,10 +579,10 @@
       "url": "index.html#/cuenta",
       "capturedUrl": "index.html#/cuenta",
       "login": {
-        "id": "u-c2",
-        "name": "Tomás Pérez",
+        "id": "u-c1",
+        "name": "Camila Rojas",
         "role": "Cliente",
-        "email": "tomas@correo.cl",
+        "email": "cliente@correo.cl",
         "password": "demo123"
       },
       "kind": "page",
@@ -931,7 +931,7 @@
       ],
       "img": "img/usados/dashboard.webp",
       "thumb": "img/usados/dashboard-thumb.webp",
-      "mobile": "img/usados/dashboard-m.webp",
+      "mobile": null,
       "w": 1440,
       "h": 900
     },
@@ -1123,7 +1123,7 @@
       ],
       "img": "img/usados/inspector.webp",
       "thumb": "img/usados/inspector-thumb.webp",
-      "mobile": "img/usados/inspector-m.webp",
+      "mobile": null,
       "w": 1440,
       "h": 900
     },

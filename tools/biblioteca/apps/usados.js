@@ -3,7 +3,7 @@
 // requiere ingreso, pasos opcionales (`setup`) y los textos (descripción + "puede hacer").
 // Los textos salen del código de la app: si cambia una pantalla, actualiza aquí su descripción.
 
-const U = { cliente: 'u-c2', vendedor: 'u-v1', gerente: 'u-gerente', inspector: 'u-i1', taller: 'u-t1', admin: 'u-admin' };
+const U = { cliente: 'u-c1', clienteReserva: 'u-c2', vendedor: 'u-v1', gerente: 'u-gerente', inspector: 'u-i1', taller: 'u-t1', admin: 'u-admin' };
 // Datos estables de la semilla: un auto destacado publicado, uno reservado (por la cuenta demo) y uno en evaluación.
 const CAR = { publicado: 'car1114', otro: 'car1112', tercero: 'car1113', evaluacion: 'car1154', leadReserva: 'ld262' };
 const COMERCIAL = ['Vendedor', 'Gerente comercial', 'Administrador'];
@@ -20,6 +20,7 @@ module.exports = {
   theme: 'flatui',
   description: 'Automotora de autos usados certificados con sitio público (buscador, ficha con informe de 150 puntos, reserva en línea, crédito, tasación, planes, servicios y tienda), cuenta del cliente, panel comercial y apps para vendedores e inspectores.',
   accounts: {
+    'u-c1': { name: 'Camila Rojas', role: 'Cliente', email: 'cliente@correo.cl', password: 'demo123' },
     'u-c2': { name: 'Tomás Pérez', role: 'Cliente', email: 'tomas@correo.cl', password: 'demo123' },
     'u-v1': { name: 'Sofía Muñoz', role: 'Vendedor', email: 'vendedor@rutacertificada.cl', password: 'demo123' },
     'u-gerente': { name: 'Ricardo Sepúlveda', role: 'Gerente comercial', email: 'gerente@rutacertificada.cl', password: 'demo123' },
@@ -101,7 +102,7 @@ module.exports = {
       actions: ['Ver el código y el vencimiento de la reserva', 'Pasar a simular el financiamiento', 'Seguir viendo autos']
     },
     {
-      id: 'financiamiento', section: 'publico', title: 'Simulador de crédito', url: `index.html#/financiamiento?car=${CAR.publicado}`, waitFor: '#fa', mobile: true,
+      id: 'financiamiento', section: 'publico', title: 'Simulador de crédito', url: `index.html#/financiamiento?car=${CAR.publicado}`, waitFor: '#fa',
       description: 'Simulador de crédito automotriz con pie, número de cuotas y tasa, que entrega cuota mensual, CAE y costo total, más la postulación en línea a la financiera.',
       actions: ['Elegir el auto o ingresar el precio', 'Ajustar pie y número de cuotas', 'Ver cuota, CAE y costo total', 'Postular en línea con su renta']
     },
@@ -150,7 +151,7 @@ module.exports = {
       actions: ['Cambiar cantidades o quitar productos', 'Elegir despacho o retiro en sucursal', 'Ver el costo de envío y el total', 'Pagar el pedido (simulado)']
     },
     {
-      id: 'login', section: 'publico', title: 'Ingreso', url: 'login.html', waitFor: '.demo-account', mobile: true,
+      id: 'login', section: 'publico', title: 'Ingreso', url: 'login.html', waitFor: '.demo-account',
       description: 'Página de ingreso para clientes y equipo, con cuentas de prueba para entrar con un clic a cada rol.',
       actions: ['Ingresar con correo y contraseña', 'Entrar con un clic como administrador, gerente, vendedor, inspector, taller o cliente', 'Crear una cuenta de cliente', 'Volver al sitio']
     },
@@ -167,7 +168,7 @@ module.exports = {
       actions: ['Ver sus autos', 'Registrar un auto propio', 'Moverse entre reservas, tasaciones, planes, pedidos, servicios y créditos', 'Cerrar sesión']
     },
     {
-      id: 'cuenta-reservas', section: 'cliente', login: U.cliente, title: 'Mi cuenta: reservas', url: 'index.html#/cuenta', waitFor: '.tabs',
+      id: 'cuenta-reservas', section: 'cliente', login: U.clienteReserva, title: 'Mi cuenta: reservas', url: 'index.html#/cuenta', waitFor: '.tabs',
       setup: async h => { await h.click('[data-tab="res"]'); },
       description: 'Reservas del cliente con el auto, el abono, el vencimiento y su estado.',
       actions: ['Ver el auto reservado y el abono', 'Revisar cuándo vence la reserva', 'Cancelar la reserva con devolución del abono']
@@ -243,7 +244,7 @@ module.exports = {
 
     // ================= Gerente comercial =================
     {
-      id: 'dashboard', section: 'gerente', login: U.gerente, roles: COMERCIAL, title: 'Dashboard comercial', url: 'admin.html#/dashboard', waitFor: '.kpi-grid', mobile: true,
+      id: 'dashboard', section: 'gerente', login: U.gerente, roles: COMERCIAL, title: 'Dashboard comercial', url: 'admin.html#/dashboard', waitFor: '.kpi-grid',
       description: 'Indicadores de la red: valor del inventario, días en stock, autos vendidos, margen por auto, conversión de leads, tasación a compra y suscripciones, con gráficos de ventas, márgenes, antigüedad del stock y vendedores.',
       actions: ['Ver valor del inventario y días en stock', 'Revisar ventas y margen por mes', 'Comparar leads por origen y ventas por vendedor', 'Detectar los autos con más días publicados', 'Seguir el ingreso mensual de planes']
     },
@@ -276,7 +277,7 @@ module.exports = {
 
     // ================= Inspector =================
     {
-      id: 'inspector', section: 'inspector', login: U.inspector, roles: ['Inspector', 'Gerente comercial', 'Administrador'], title: 'Cola de inspección', url: 'inspector.html', waitFor: '.role-wrap .card', mobile: true,
+      id: 'inspector', section: 'inspector', login: U.inspector, roles: ['Inspector', 'Gerente comercial', 'Administrador'], title: 'Cola de inspección', url: 'inspector.html', waitFor: '.role-wrap .card',
       description: 'App móvil del inspector con los autos en evaluación o reacondicionamiento, su avance en la inspección y las últimas completadas.',
       actions: ['Ver los autos por inspeccionar', 'Ver el avance de cada inspección', 'Reinspeccionar fallas tras el reacondicionamiento', 'Abrir una inspección']
     },

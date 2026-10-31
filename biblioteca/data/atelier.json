@@ -7,7 +7,7 @@
   "demo": "../atelier/index.html",
   "theme": "noir",
   "layout": "clasica",
-  "generatedAt": "2026-10-30T23:45:28.671Z",
+  "generatedAt": "2026-10-31T00:00:04.157Z",
   "viewport": {
     "width": 1440,
     "height": 900
@@ -461,7 +461,7 @@
       ],
       "img": "img/atelier/login.webp",
       "thumb": "img/atelier/login-thumb.webp",
-      "mobile": "img/atelier/login-m.webp",
+      "mobile": null,
       "w": 1440,
       "h": 900
     },
@@ -1080,7 +1080,7 @@
       ],
       "img": "img/atelier/dashboard.webp",
       "thumb": "img/atelier/dashboard-thumb.webp",
-      "mobile": "img/atelier/dashboard-m.webp",
+      "mobile": null,
       "w": 1440,
       "h": 900
     },
@@ -1426,7 +1426,7 @@
       ],
       "img": "img/atelier/chofer.webp",
       "thumb": "img/atelier/chofer-thumb.webp",
-      "mobile": "img/atelier/chofer-m.webp",
+      "mobile": null,
       "w": 1440,
       "h": 900
     },

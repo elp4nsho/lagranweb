@@ -7,7 +7,7 @@
   "demo": "../lubricentro/index.html",
   "theme": "bootstrap2",
   "layout": "clasica",
-  "generatedAt": "2026-10-30T23:31:54.508Z",
+  "generatedAt": "2026-10-30T23:59:49.112Z",
   "viewport": {
     "width": 1440,
     "height": 900
@@ -139,7 +139,7 @@
       ],
       "img": "img/lubricentro/sucursales.webp",
       "thumb": "img/lubricentro/sucursales-thumb.webp",
-      "mobile": "img/lubricentro/sucursales-m.webp",
+      "mobile": null,
       "w": 1440,
       "h": 900
     },
@@ -440,7 +440,7 @@
       ],
       "img": "img/lubricentro/login.webp",
       "thumb": "img/lubricentro/login-thumb.webp",
-      "mobile": "img/lubricentro/login-m.webp",
+      "mobile": null,
       "w": 1440,
       "h": 900
     },
@@ -694,7 +694,7 @@
       ],
       "img": "img/lubricentro/recepcion.webp",
       "thumb": "img/lubricentro/recepcion-thumb.webp",
-      "mobile": "img/lubricentro/recepcion-m.webp",
+      "mobile": null,
       "w": 1440,
       "h": 900
     },
@@ -1181,7 +1181,7 @@
       ],
       "img": "img/lubricentro/dashboard.webp",
       "thumb": "img/lubricentro/dashboard-thumb.webp",
-      "mobile": "img/lubricentro/dashboard-m.webp",
+      "mobile": null,
       "w": 1440,
       "h": 900
     },
@@ -1777,7 +1777,7 @@
       {
         "id": "brutal",
         "group": "Estilo",
-        "label": "Brutalista",
+        "label": "Brutal",
         "desc": "Bordes gruesos y contraste alto.",
         "img": "img/lubricentro/look-brutal.webp"
       },

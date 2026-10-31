@@ -1,44 +1,39 @@
 {
   "apps": {
+    "academia": {
+      "views": 42,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:44:31.176Z"
+    },
+    "atelier": {
+      "views": 54,
+      "sections": 7,
+      "generatedAt": "2026-10-31T00:00:04.157Z"
+    },
     "automotora": {
       "views": 100,
       "sections": 7,
       "generatedAt": "2026-10-30T22:54:31.093Z"
     },
-    "presentacion": {
-      "views": 54,
-      "sections": 4,
-      "generatedAt": "2026-10-30T23:15:27.176Z"
-    },
-    "marketplace": {
-      "views": 53,
-      "sections": 6,
-      "generatedAt": "2026-10-30T23:40:27.021Z"
-    },
-    "eventos": {
-      "views": 51,
-      "sections": 6,
-      "generatedAt": "2026-10-30T23:21:42.954Z"
-    },
-    "rrhh": {
-      "views": 53,
+    "blog": {
+      "views": 45,
       "sections": 5,
-      "generatedAt": "2026-10-30T23:19:55.510Z"
+      "generatedAt": "2026-10-30T23:20:59.155Z"
+    },
+    "clinica": {
+      "views": 55,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:31:55.519Z"
     },
     "colegio": {
       "views": 87,
       "sections": 6,
       "generatedAt": "2026-10-30T23:26:02.202Z"
     },
-    "lubricentro": {
-      "views": 60,
-      "sections": 6,
-      "generatedAt": "2026-10-30T23:31:54.508Z"
-    },
-    "blog": {
-      "views": 45,
+    "condominio": {
+      "views": 48,
       "sections": 5,
-      "generatedAt": "2026-10-30T23:20:59.155Z"
+      "generatedAt": "2026-10-30T23:45:42.070Z"
     },
     "crm": {
       "views": 54,
@@ -50,35 +45,15 @@
       "sections": 6,
       "generatedAt": "2026-10-30T23:45:06.539Z"
     },
-    "clinica": {
-      "views": 55,
-      "sections": 5,
-      "generatedAt": "2026-10-30T23:31:55.519Z"
-    },
-    "menu": {
-      "views": 35,
+    "eventos": {
+      "views": 51,
       "sections": 6,
-      "generatedAt": "2026-10-30T23:42:43.422Z"
+      "generatedAt": "2026-10-30T23:21:42.954Z"
     },
-    "taller": {
-      "views": 57,
-      "sections": 8,
-      "generatedAt": "2026-10-30T23:31:50.435Z"
-    },
-    "streaming": {
-      "views": 46,
-      "sections": 5,
-      "generatedAt": "2026-10-30T23:30:22.138Z"
-    },
-    "soporte": {
-      "views": 41,
-      "sections": 5,
-      "generatedAt": "2026-10-30T23:31:13.319Z"
-    },
-    "tienda": {
-      "views": 47,
-      "sections": 5,
-      "generatedAt": "2026-10-30T23:31:28.183Z"
+    "fintech": {
+      "views": 52,
+      "sections": 6,
+      "generatedAt": "2026-10-30T23:41:23.139Z"
     },
     "gimnasio": {
       "views": 51,
@@ -95,60 +70,85 @@
       "sections": 5,
       "generatedAt": "2026-10-30T23:36:33.147Z"
     },
-    "pos": {
-      "views": 36,
-      "sections": 5,
-      "generatedAt": "2026-10-30T23:37:10.084Z"
-    },
-    "oficina": {
-      "views": 34,
-      "sections": 5,
-      "generatedAt": "2026-10-30T23:45:40.719Z"
-    },
     "inmobiliaria": {
       "views": 50,
       "sections": 6,
       "generatedAt": "2026-10-30T23:39:32.771Z"
-    },
-    "fintech": {
-      "views": 52,
-      "sections": 6,
-      "generatedAt": "2026-10-30T23:41:23.139Z"
-    },
-    "atelier": {
-      "views": 54,
-      "sections": 7,
-      "generatedAt": "2026-10-30T23:45:28.671Z"
-    },
-    "producto": {
-      "views": 44,
-      "sections": 4,
-      "generatedAt": "2026-10-30T23:43:52.879Z"
-    },
-    "condominio": {
-      "views": 48,
-      "sections": 5,
-      "generatedAt": "2026-10-30T23:45:42.070Z"
-    },
-    "academia": {
-      "views": 42,
-      "sections": 5,
-      "generatedAt": "2026-10-30T23:44:31.176Z"
-    },
-    "ong": {
-      "views": 43,
-      "sections": 6,
-      "generatedAt": "2026-10-30T23:49:21.885Z"
     },
     "iot": {
       "views": 33,
       "sections": 5,
       "generatedAt": "2026-10-30T23:52:48.371Z"
     },
+    "lubricentro": {
+      "views": 60,
+      "sections": 6,
+      "generatedAt": "2026-10-30T23:59:49.112Z"
+    },
+    "marketplace": {
+      "views": 53,
+      "sections": 6,
+      "generatedAt": "2026-10-30T23:40:27.021Z"
+    },
+    "menu": {
+      "views": 35,
+      "sections": 6,
+      "generatedAt": "2026-10-30T23:42:43.422Z"
+    },
+    "oficina": {
+      "views": 34,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:45:40.719Z"
+    },
+    "ong": {
+      "views": 43,
+      "sections": 6,
+      "generatedAt": "2026-10-30T23:49:21.885Z"
+    },
+    "pos": {
+      "views": 36,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:37:10.084Z"
+    },
+    "presentacion": {
+      "views": 54,
+      "sections": 4,
+      "generatedAt": "2026-10-30T23:15:27.176Z"
+    },
+    "producto": {
+      "views": 44,
+      "sections": 4,
+      "generatedAt": "2026-10-30T23:43:52.879Z"
+    },
+    "rrhh": {
+      "views": 53,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:19:55.510Z"
+    },
+    "soporte": {
+      "views": 41,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:31:13.319Z"
+    },
+    "streaming": {
+      "views": 46,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:30:22.138Z"
+    },
+    "taller": {
+      "views": 57,
+      "sections": 8,
+      "generatedAt": "2026-10-30T23:59:56.984Z"
+    },
+    "tienda": {
+      "views": 47,
+      "sections": 5,
+      "generatedAt": "2026-10-30T23:31:28.183Z"
+    },
     "usados": {
       "views": 50,
       "sections": 7,
-      "generatedAt": "2026-10-30T23:54:09.531Z"
+      "generatedAt": "2026-10-31T00:00:13.075Z"
     }
   }
 }

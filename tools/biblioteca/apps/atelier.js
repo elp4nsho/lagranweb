@@ -152,7 +152,7 @@ module.exports = {
       actions: ['Comparar los tres niveles', 'Ver precio anual y mensual equivalente', 'Revisar la tabla de beneficios', 'Ingresar para activar una membresía']
     },
     {
-      id: 'login', section: 'publico', title: 'Ingreso', url: 'login.html', waitFor: '.demo-account', mobile: true,
+      id: 'login', section: 'publico', title: 'Ingreso', url: 'login.html', waitFor: '.demo-account',
       description: 'Página de ingreso para clientes y equipo, con cuentas de prueba para entrar con un clic a cada rol.',
       actions: ['Ingresar con correo y contraseña', 'Entrar con un clic como administrador, gerente, asesor, técnico, chofer o cliente', 'Crear una cuenta de cliente', 'Volver al sitio']
     },
@@ -272,7 +272,7 @@ module.exports = {
 
     // ================= Gerente de servicio =================
     {
-      id: 'dashboard', section: 'gerente', login: U.gerente, roles: ['Gerente de servicio', 'Administrador', 'Asesor de servicio'], title: 'Dashboard', url: 'admin.html#/dashboard', waitFor: '.kpi-grid', mobile: true,
+      id: 'dashboard', section: 'gerente', login: U.gerente, roles: ['Gerente de servicio', 'Administrador', 'Asesor de servicio'], title: 'Dashboard', url: 'admin.html#/dashboard', waitFor: '.kpi-grid',
       description: 'Indicadores del atelier: ingresos y ticket de 30 días, NPS, OT abiertas, participación de eléctricos y corridas concierge del día, con gráficos por línea de servicio, productividad técnica y semanas de concierge.',
       actions: ['Ver ingresos, ticket y NPS contra el periodo anterior', 'Revisar ingresos por línea y el mix del mes', 'Comparar horas facturadas por técnico', 'Seguir la participación de eléctricos', 'Ver aprobaciones pendientes y el concierge de hoy']
     },
@@ -335,7 +335,7 @@ module.exports = {
 
     // ================= Chofer concierge =================
     {
-      id: 'chofer', section: 'chofer', login: U.chofer, roles: ['Chofer concierge', 'Asesor de servicio', 'Gerente de servicio', 'Administrador'], title: 'Corridas del día', url: 'chofer.html', waitFor: '.run-card', mobile: true,
+      id: 'chofer', section: 'chofer', login: U.chofer, roles: ['Chofer concierge', 'Asesor de servicio', 'Gerente de servicio', 'Administrador'], title: 'Corridas del día', url: 'chofer.html', waitFor: '.run-card',
       description: 'App móvil del chofer con sus retiros y entregas pendientes, las hechas hoy y las próximas, con dirección, ventana, auto y si debe llevar auto de cortesía.',
       actions: ['Ver retiros y entregas de hoy por ventana', 'Revisar las corridas de los próximos días', 'Abrir una corrida', 'Saber si lleva auto de cortesía']
     },
