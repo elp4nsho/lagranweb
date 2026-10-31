@@ -1,0 +1,18 @@
+/* Flat UI · Era HTML5 · claro — Plano 2013 turquesa.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="flatui"] {
+  --font-body: 'Lato', sans-serif; --font-head: 'Lato', sans-serif;
+  --head-weight: 900; --head-spacing: 0;
+  --bg: #ecf0f1; --surface: #ffffff; --surface-2: #f4f6f6; --surface-3: #e0e6e8;
+  --text: #34495e; --muted: #7f8c8d; --line: #dde4e6;
+  --primary: #1abc9c; --primary-2: #48c9b0; --on-primary: #ffffff; --accent: #e67e22;
+  --success: #2ecc71; --warning: #f1c40f; --danger: #e74c3c; --info: #3498db;
+  --radius: 6px; --radius-sm: 6px; --border-w: 2px; --shadow: none; --shadow-lg: 0 8px 0 rgba(0,0,0,.08);
+  --focus: 0 0 0 3px rgba(26,188,156,.4);
+}
+[data-theme="flatui"] .btn { border: 0; }
+[data-theme="flatui"] .btn-primary { box-shadow: inset 0 -3px 0 #16a085; }
+[data-theme="flatui"] .btn-danger { box-shadow: inset 0 -3px 0 #c0392b; }
+[data-theme="flatui"] .admin-sidebar { background: #34495e; color: #ecf0f1; border: 0; }
+[data-theme="flatui"] .admin-sidebar .nav-link { color: #ecf0f1; }
+[data-theme="flatui"] .admin-sidebar .nav-link.active { background: #1abc9c; color: #fff; }

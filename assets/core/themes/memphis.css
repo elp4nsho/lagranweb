@@ -1,0 +1,20 @@
+/* Memphis · Modernos · claro — Pop 90s con formas.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="memphis"] {
+  --on-accent: #ffffff;
+  --font-body: 'Poppins', system-ui, sans-serif; --font-head: 'Poppins', sans-serif;
+  --head-weight: 800; --head-spacing: -0.02em;
+  --bg: #fffdf5;
+  --bg-image: radial-gradient(circle at 8% 20%, #ffd23f 0 14px, transparent 15px), radial-gradient(circle at 88% 70%, #00a6a6 0 10px, transparent 11px), repeating-linear-gradient(45deg, transparent 0 22px, rgba(255,107,53,.08) 22px 26px);
+  --surface: #ffffff; --surface-2: #ffe8dc; --surface-3: #d9f5f5;
+  --text: #1b1b3a; --muted: #5a5a7a; --line: #1b1b3a;
+  --primary: #ff6b35; --primary-2: #ff8a5c; --on-primary: #ffffff; --accent: #00a6a6;
+  --success: #2ec4b6; --warning: #ffd23f; --danger: #e71d36; --info: #7b2cbf;
+  --radius: 16px; --radius-sm: 10px; --border-w: 2px;
+  --shadow: 6px 6px 0 var(--accent); --shadow-lg: 12px 12px 0 #ffd23f; --focus: 0 0 0 3px #ffd23f;
+}
+[data-theme="memphis"] .card:nth-child(even) { box-shadow: 6px 6px 0 var(--primary); }
+/* Subrayado ondulado: la onda (≈3× el grosor) necesita aire bajo cada línea y antes del bloque siguiente,
+   si no toca la línea de abajo en títulos de varias líneas. */
+[data-theme="memphis"] h1, [data-theme="memphis"] h2 { text-decoration: underline wavy var(--accent); text-underline-offset: .2em; text-decoration-thickness: 3px; text-decoration-skip-ink: none; line-height: 1.42 !important; padding-bottom: .28em; }
+[data-theme="memphis"] h1 { line-height: 1.36 !important; }

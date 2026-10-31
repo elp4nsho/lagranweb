@@ -1,0 +1,51 @@
+/* Halloween · Terror · oscuro — noche morada, calabaza naranja, baba verde, murciélagos y telarañas. */
+[data-theme="halloween"] {
+  --font-body: 'Lexend', system-ui, sans-serif; --font-head: 'Creepster', 'Lexend', cursive;
+  --head-weight: 400; --head-transform: none; --head-spacing: .04em; --body-size: 15px;
+  --bg: #140b1f;
+  --bg-image: radial-gradient(circle at 86% 9%, rgba(255, 196, 120, .22) 0 46px, rgba(255, 122, 26, .10) 47px, transparent 200px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Cg fill='%23ff7a1a' fill-opacity='.07'%3E%3Cpath d='M30 40c6-8 14-8 18-2 2-4 6-4 8 0 4-6 12-6 18 2-6-2-10 0-12 6-2-3-5-3-7 0-2-3-5-3-7 0-2-6-6-8-18-6z'/%3E%3Cpath d='M150 120c5-6 11-6 14-2 2-3 4-3 6 0 3-4 9-4 14 2-5-2-8 0-9 4-2-2-4-2-6 0-2-2-4-2-6 0-1-4-4-6-13-4z'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(180deg, #1d0f2e, #140b1f 60%, #0d0714);
+  --surface: #1f1330; --surface-2: #2a1a40; --surface-3: #3a2556;
+  --text: #f6ecff; --muted: #c6b4da; --line: #4a3366;
+  --primary: #ff7a1a; --primary-2: #ff9a4d; --on-primary: #1a0d00;
+  --accent: #9be564; --on-accent: #102008;
+  --success: #8be36b; --warning: #ffc24b; --danger: #ff6b7f; --info: #8cc0ff; --on-danger: #1f0509;
+  --radius: 14px; --radius-sm: 10px; --radius-pill: 999px; --border-w: 2px;
+  --shadow: 0 0 0 1px rgba(255, 122, 26, .10), 0 16px 32px -14px rgba(0, 0, 0, .85);
+  --shadow-lg: 0 0 44px -8px rgba(255, 122, 26, .45), 0 30px 60px -20px rgba(0, 0, 0, .9);
+  --focus: 0 0 0 3px #ff7a1a, 0 0 18px rgba(255, 122, 26, .6);
+  color-scheme: dark;
+}
+[data-theme="halloween"] body { background-size: auto, 220px 180px, auto; }
+[data-theme="halloween"] h1, [data-theme="halloween"] h2 { color: var(--primary); text-shadow: 0 0 22px rgba(255, 122, 26, .45), 0 2px 0 #3a1a00; overflow-wrap: break-word; }
+[data-theme="halloween"] h1 { font-size: clamp(36px, 6vw, 68px); line-height: 1.05; }
+[data-theme="halloween"] .eyebrow { color: var(--accent); }
+[data-theme="halloween"] .eyebrow::before { content: '🎃 '; }
+/* Telaraña en la esquina de cada tarjeta (capa de fondo, no ocupa lugar). */
+:where([data-theme="halloween"]) .card {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' fill='none' stroke='%23d9c8ee' stroke-opacity='.22' stroke-width='1'%3E%3Cpath d='M70 0L20 50M70 0L0 30M70 0L45 70M70 0V70M70 0H0'/%3E%3Cpath d='M58 0q2 10 12 12M44 0q4 20 26 26M28 0q6 32 42 42M12 0q10 46 58 58'/%3E%3C/svg%3E") top right / 70px 70px no-repeat, var(--surface);
+}
+[data-theme="halloween"] .card.hover:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px) rotate(-.3deg); }
+[data-theme="halloween"] .btn { font-weight: 700; letter-spacing: .02em; }
+[data-theme="halloween"] .btn-primary { box-shadow: 0 4px 0 #9a3f00, 0 0 18px rgba(255, 122, 26, .35); }
+[data-theme="halloween"] .btn-primary:active { box-shadow: 0 1px 0 #9a3f00; transform: translateY(3px); }
+[data-theme="halloween"] .btn-accent { box-shadow: 0 4px 0 #3e7a1c; }
+[data-theme="halloween"] .table th { color: var(--primary); border-bottom: 2px solid var(--line); }
+[data-theme="halloween"] .table tbody tr:hover { background: rgba(255, 122, 26, .08); }
+[data-theme="halloween"] .nav-link.active { background: rgba(255, 122, 26, .16); color: var(--primary); }
+[data-theme="halloween"] .admin-sidebar { background-image: linear-gradient(180deg, rgba(255, 122, 26, .06), transparent 40%); }
+[data-theme="halloween"] .progress > i { background: repeating-linear-gradient(-45deg, var(--primary) 0 10px, #e0610a 10px 20px); }
+/* Murciélagos que cruzan el fondo (detrás del contenido). */
+[data-theme="halloween"] body::before {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Cg fill='%230a0510'%3E%3Cpath d='M80 90c10-14 24-14 30-4 3-6 9-6 12 0 6-10 20-10 30 4-10-4-16 0-19 9-3-4-8-4-11 0-3-4-8-4-11 0-3-9-9-13-31-9z'/%3E%3Cpath transform='translate(380 60) scale(.7)' d='M80 90c10-14 24-14 30-4 3-6 9-6 12 0 6-10 20-10 30 4-10-4-16 0-19 9-3-4-8-4-11 0-3-4-8-4-11 0-3-9-9-13-31-9z'/%3E%3Cpath transform='translate(250 230) scale(.5)' d='M80 90c10-14 24-14 30-4 3-6 9-6 12 0 6-10 20-10 30 4-10-4-16 0-19 9-3-4-8-4-11 0-3-4-8-4-11 0-3-9-9-13-31-9z'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 600px 400px;
+  opacity: .9; animation: lgw-halloween-bats 60s linear infinite;
+}
+[data-theme="halloween"] body::after {
+  content: ''; position: fixed; left: 0; right: 0; bottom: 0; height: 30vh; z-index: -1; pointer-events: none;
+  background: linear-gradient(0deg, rgba(155, 229, 100, .07), transparent);
+}
+@keyframes lgw-halloween-bats { from { background-position: 0 0; } to { background-position: 600px -400px; } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="halloween"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }

@@ -1,0 +1,46 @@
+/* Cómic · Locos · claro — pop-art: puntos Ben-Day, tinta negra gruesa, viñetas inclinadas y globos de diálogo. */
+[data-theme="comic"] {
+  --font-body: 'Comic Neue', 'Comic Sans MS', system-ui, sans-serif; --font-head: 'Bangers', 'Impact', cursive;
+  --head-weight: 400; --head-transform: uppercase; --head-spacing: .05em; --body-size: 16px;
+  --bg: #fff6cf;
+  --bg-image: radial-gradient(rgba(227, 0, 27, .16) 22%, transparent 24%), radial-gradient(rgba(0, 87, 184, .12) 22%, transparent 24%);
+  --surface: #ffffff; --surface-2: #fff1a6; --surface-3: #d6ebff;
+  --text: #111111; --muted: #3d3d3d; --line: #111111;
+  --primary: #bd0017; --primary-2: #f0122d; --on-primary: #ffffff;
+  --accent: #ffe100; --on-accent: #111111;
+  --success: #006e32; --warning: #855600; --danger: #be0019; --info: #0052ad; --on-danger: #ffffff;
+  --radius: 4px; --radius-sm: 4px; --radius-pill: 999px; --border-w: 3px;
+  --shadow: 6px 6px 0 #111111;
+  --shadow-lg: 10px 10px 0 #111111;
+  --shadow-press: 2px 2px 0 #111111;
+  --focus: 0 0 0 3px #ffe100, 0 0 0 6px #111111;
+  --ease: cubic-bezier(.34, 1.56, .64, 1);
+  color-scheme: light;
+}
+[data-theme="comic"] body { font-weight: 700; background-size: 16px 16px, 16px 16px; background-position: 0 0, 8px 8px; }
+[data-theme="comic"] h1, [data-theme="comic"] h2 { text-shadow: 3px 3px 0 #ffe100, 5px 5px 0 #111111; letter-spacing: .06em; }
+[data-theme="comic"] h1 { font-size: clamp(40px, 7vw, 86px); line-height: 1; transform: rotate(-1.5deg); }
+/* Eyebrow como globo de diálogo (la cola es absoluta, no ocupa lugar). */
+[data-theme="comic"] .eyebrow { position: relative; display: inline-block; padding: 4px 12px; background: #ffffff; color: #111111; border: 3px solid #111111; border-radius: 16px; letter-spacing: .08em; font-family: var(--font-head); font-weight: 400; font-size: 15px; }
+[data-theme="comic"] .eyebrow::after { content: ''; position: absolute; left: 18px; bottom: -11px; width: 14px; height: 14px; background: #ffffff; border: solid #111111; border-width: 0 3px 3px 0; transform: skewY(35deg) rotate(15deg); }
+/* Trama de puntos en la esquina inferior de cada viñeta. */
+:where([data-theme="comic"]) .card { background: linear-gradient(135deg, var(--surface) 80%, transparent 80%), radial-gradient(circle, rgba(0, 82, 173, .22) 28%, transparent 31%) 0 0 / 10px 10px, var(--surface); }
+[data-theme="comic"] .grid-3 > .card:nth-child(odd), [data-theme="comic"] .grid-auto > .card:nth-child(odd) { transform: rotate(-.6deg); }
+[data-theme="comic"] .grid-3 > .card:nth-child(even), [data-theme="comic"] .grid-auto > .card:nth-child(even) { transform: rotate(.6deg); }
+[data-theme="comic"] .card.hover:hover { transform: rotate(0) scale(1.02); box-shadow: var(--shadow-lg); }
+[data-theme="comic"] .btn { font-family: var(--font-head); font-weight: 400; font-size: 17px; letter-spacing: .08em; text-transform: uppercase; border-color: #111111; box-shadow: 4px 4px 0 #111111; }
+[data-theme="comic"] .btn:hover { transform: translate(-2px, -2px) rotate(-1deg); box-shadow: 6px 6px 0 #111111; filter: none; }
+[data-theme="comic"] .btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 #111111; }
+[data-theme="comic"] .badge { color: #111111; border-color: #111111; border-width: 2px; font-weight: 700; }
+[data-theme="comic"] .badge-success { background: #8ff0b0; } [data-theme="comic"] .badge-warning { background: #ffe100; }
+[data-theme="comic"] .badge-danger { background: #ffb3bd; } [data-theme="comic"] .badge-info { background: #b8dcff; } [data-theme="comic"] .badge-primary { background: #ffd0d6; }
+[data-theme="comic"] .table th { background: #ffe100; color: #111111; border-bottom: 3px solid #111111; font-family: var(--font-head); font-weight: 400; font-size: 15px; letter-spacing: .1em; }
+[data-theme="comic"] .table td { border-bottom: 2px solid #111111; }
+[data-theme="comic"] .input:focus, [data-theme="comic"] .select:focus, [data-theme="comic"] .textarea:focus { box-shadow: 4px 4px 0 #111111; }
+[data-theme="comic"] .nav-link { font-weight: 700; }
+[data-theme="comic"] .nav-link.active { background: var(--primary); color: #ffffff; border-color: #111111; box-shadow: 3px 3px 0 #111111; }
+[data-theme="comic"] .nav-link.active .count { background: #ffe100; color: #111111; }
+[data-theme="comic"] .avatar { border: 3px solid #111111; }
+[data-theme="comic"] .progress { border: 2px solid #111111; height: 12px; }
+[data-theme="comic"] .progress > i { background: repeating-linear-gradient(-45deg, #bd0017 0 6px, #f0122d 6px 12px); }
+[data-theme="comic"] .modal { box-shadow: 10px 10px 0 #111111; }

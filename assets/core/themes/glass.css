@@ -1,0 +1,40 @@
+/* Cristal · Modernos · oscuro — Glassmorphism y degradé.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="glass"] {
+  --on-accent: #4a2bd8;
+  --font-body: 'Outfit', system-ui, sans-serif;
+  --font-head: 'Outfit', system-ui, sans-serif;
+  --head-weight: 600;
+  --bg: #6a4cff;
+  --bg-image: radial-gradient(at 10% 10%, #ff8ad8 0, transparent 45%), radial-gradient(at 90% 20%, #4fd1ff 0, transparent 45%), radial-gradient(at 50% 100%, #7b5cff 0, transparent 55%), linear-gradient(135deg, #5b3df5, #b04cff);
+  --surface: rgba(255, 255, 255, .16);
+  --surface-2: rgba(255, 255, 255, .12);
+  --surface-3: rgba(255, 255, 255, .24);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, .72);
+  --line: rgba(255, 255, 255, .28);
+  --primary: #ffffff;
+  --primary-2: #f3eaff;
+  --on-primary: #4a2bd8;
+  --accent: #ffd6f2;
+  --success: #7dffc4;
+  --warning: #ffe27a;
+  --danger: #ff9cb0;
+  --info: #a8e6ff;
+  --radius: 22px;
+  --radius-sm: 14px;
+  --shadow: 0 8px 32px rgba(31, 12, 110, .25), inset 0 1px 0 rgba(255, 255, 255, .35);
+  --shadow-lg: 0 30px 80px rgba(31, 12, 110, .45);
+  --blur: 18px;
+  --focus: 0 0 0 3px rgba(255, 255, 255, .6);
+  color-scheme: dark;
+}
+[data-theme="glass"] body { background-size: cover; }
+[data-theme="glass"] .btn { backdrop-filter: blur(10px); border-color: rgba(255, 255, 255, .35); }
+[data-theme="glass"] .btn:not(.btn-primary):not(.btn-danger) { --b: rgba(255, 255, 255, .14); }
+[data-theme="glass"] .input, [data-theme="glass"] .select, [data-theme="glass"] .textarea { background-color: rgba(255, 255, 255, .12); }
+[data-theme="glass"] .select option { color: #222; }
+[data-theme="glass"] .modal { background: color-mix(in srgb, var(--bg) 92%, #000); }
+[data-theme="glass"] .modal { background: rgba(70, 40, 190, .82); backdrop-filter: blur(24px); }
+[data-theme="glass"] .toast { background: rgba(70, 40, 190, .85); }
+[data-theme="glass"] .admin-topbar { background: rgba(255, 255, 255, .08); }

@@ -1,0 +1,42 @@
+/* Risografía · Locos · claro — impresión riso: papel, rosa flúor y azul, desregistro, grano y tintas que se superponen. */
+[data-theme="riso"] {
+  --font-body: 'Bricolage Grotesque', system-ui, sans-serif; --font-head: 'Bricolage Grotesque', system-ui, sans-serif;
+  --head-weight: 800; --head-transform: none; --head-spacing: -0.035em; --body-size: 16px;
+  --bg: #f6f1e6;
+  --bg-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .1 0 0 0 0 .2 0 0 0 .14 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  --surface: #fffdf7; --surface-2: #fde6f1; --surface-3: #e2eefa;
+  --text: #1b1a3a; --muted: #4b4868; --line: #1b1a3a;
+  --primary: #b3125f; --primary-2: #ea2b86; --on-primary: #ffffff;
+  --accent: #0063ab; --on-accent: #ffffff;
+  --success: #006a52; --warning: #855600; --danger: #b8112d; --info: #0063ab; --on-danger: #ffffff;
+  --radius: 2px; --radius-sm: 2px; --radius-pill: 999px; --border-w: 2px;
+  --shadow: 5px 4px 0 rgba(255, 72, 176, .85);
+  --shadow-lg: 8px 6px 0 rgba(255, 72, 176, .85), -4px -3px 0 rgba(0, 120, 191, .55);
+  --focus: 0 0 0 3px #fffdf7, 0 0 0 5px #0063ab;
+  color-scheme: light;
+}
+[data-theme="riso"] body { background-size: 140px 140px; }
+[data-theme="riso"] h1, [data-theme="riso"] h2 { text-shadow: 3px 2px 0 rgba(255, 72, 176, .55), -2px -1px 0 rgba(0, 120, 191, .45); }
+[data-theme="riso"] h1 { font-size: clamp(40px, 7vw, 92px); line-height: .95; }
+[data-theme="riso"] .eyebrow { color: var(--accent); letter-spacing: .12em; }
+[data-theme="riso"] .eyebrow::before { content: '● '; color: #ff48b0; text-shadow: 4px 1px 0 rgba(0, 120, 191, .7); }
+[data-theme="riso"] .card:nth-child(even) { box-shadow: -5px 4px 0 rgba(0, 120, 191, .6); }
+[data-theme="riso"] .card.hover:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-lg); }
+[data-theme="riso"] .btn { font-weight: 700; border-color: var(--line); border-radius: var(--radius-pill); box-shadow: 3px 3px 0 rgba(255, 72, 176, .9); }
+[data-theme="riso"] .btn-primary { box-shadow: 3px 3px 0 rgba(0, 120, 191, .7); }
+[data-theme="riso"] .btn:hover { transform: translate(-1px, -1px); filter: none; }
+[data-theme="riso"] .btn:active { transform: translate(2px, 2px); box-shadow: none; }
+[data-theme="riso"] .badge { border-color: currentColor; background: transparent; font-weight: 700; }
+[data-theme="riso"] .table-wrap { box-shadow: 5px 4px 0 rgba(0, 120, 191, .5); }
+[data-theme="riso"] .table th { background: #fde6f1; color: var(--text); border-bottom: 2px solid var(--line); }
+[data-theme="riso"] .table tbody tr:hover { background: #e2eefa; }
+[data-theme="riso"] .nav-link.active { background: #ff48b0; color: #1b1a3a; mix-blend-mode: multiply; }
+[data-theme="riso"] .progress { border: 2px solid var(--line); }
+[data-theme="riso"] .progress > i { background: repeating-linear-gradient(90deg, #ff48b0 0 3px, transparent 3px 5px), #0078bf; }
+/* Círculos de tinta superpuestos (multiplicar) al fondo (detrás del contenido). */
+[data-theme="riso"] body::before, [data-theme="riso"] body::after {
+  content: ''; position: fixed; width: 300px; height: 300px; border-radius: 50%; z-index: -1; pointer-events: none; mix-blend-mode: multiply;
+}
+[data-theme="riso"] body::before { right: -40px; top: 18vh; background: radial-gradient(circle, rgba(255, 72, 176, .5) 0 1.5px, transparent 2px) 0 0 / 7px 7px, rgba(255, 72, 176, .28); animation: lgw-riso-drift 18s ease-in-out infinite alternate; }
+[data-theme="riso"] body::after { right: 90px; top: calc(18vh + 120px); background: rgba(0, 120, 191, .25); animation: lgw-riso-drift 22s ease-in-out infinite alternate-reverse; }
+@keyframes lgw-riso-drift { to { transform: translate(-30px, 20px); } }

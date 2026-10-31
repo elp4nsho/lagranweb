@@ -1,0 +1,16 @@
+/* Plano · Modernos · oscuro — Plano técnico azul.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="blueprint"] {
+  --font-body: 'Share Tech Mono', monospace; --font-head: 'Barlow Condensed', sans-serif; --font-mono: 'Share Tech Mono', monospace;
+  --head-weight: 700; --head-transform: uppercase; --head-spacing: .06em;
+  --bg: #0b3d91; --bg-image: linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px), linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  --surface: rgba(11,61,145,.75); --surface-2: rgba(255,255,255,.07); --surface-3: rgba(255,255,255,.14);
+  --text: #ffffff; --muted: #a9cbff; --line: rgba(255,255,255,.7);
+  --primary: #ffffff; --primary-2: #e6f2ff; --on-primary: #0b3d91; --accent: #7fd1ff;
+  --success: #7dffb2; --warning: #ffe066; --danger: #ff8a8a; --info: #7fd1ff;
+  --radius: 0px; --radius-sm: 0px; --radius-pill: 0px;
+  --shadow: none; --shadow-lg: 0 0 0 1px #fff; --focus: 0 0 0 2px #7fd1ff; color-scheme: dark;
+}
+[data-theme="blueprint"] body { background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px; }
+[data-theme="blueprint"] .card { border-style: dashed; }
+[data-theme="blueprint"] .btn { border-style: solid; text-transform: uppercase; letter-spacing: .1em; }

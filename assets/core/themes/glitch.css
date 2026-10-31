@@ -1,0 +1,54 @@
+/* Glitch · Locos · oscuro — señal corrupta: negro, separación RGB, letras que se rompen y bloques que parpadean. */
+[data-theme="glitch"] {
+  --font-body: 'Red Hat Mono', ui-monospace, monospace; --font-head: 'Rubik', system-ui, sans-serif;
+  --font-mono: 'Red Hat Mono', monospace;
+  --head-weight: 800; --head-transform: uppercase; --head-spacing: .01em; --body-size: 15px;
+  --bg: #050505;
+  --bg-image: repeating-linear-gradient(180deg, transparent 0 7px, rgba(255, 255, 255, .02) 7px 8px),
+    linear-gradient(90deg, transparent 0 62%, rgba(255, 42, 109, .05) 62% 63%, transparent 63% 87%, rgba(42, 212, 255, .05) 87% 88%, transparent 88%);
+  --surface: #0d0d0d; --surface-2: #171717; --surface-3: #242424;
+  --text: #f5f5f5; --muted: #b5b5b5; --line: #333333;
+  --primary: #00ff9c; --primary-2: #6bffc6; --on-primary: #001a0f;
+  --accent: #ff2a6d; --on-accent: #1a0008;
+  --success: #00ff9c; --warning: #ffe14d; --danger: #ff4d7e; --info: #2ad4ff; --on-danger: #1a0008;
+  --radius: 0px; --radius-sm: 0px; --radius-pill: 0px; --border-w: 1px;
+  --shadow: -3px 0 0 rgba(255, 42, 109, .75), 3px 0 0 rgba(42, 212, 255, .75);
+  --shadow-lg: -6px 0 0 rgba(255, 42, 109, .8), 6px 0 0 rgba(42, 212, 255, .8), 0 30px 60px -20px #000;
+  --focus: 0 0 0 2px #050505, 0 0 0 4px #00ff9c;
+  color-scheme: dark;
+}
+[data-theme="glitch"] h1, [data-theme="glitch"] h2 { font-family: 'Rubik Glitch', 'Rubik', sans-serif; font-weight: 400; text-shadow: -2px 0 #ff2a6d, 2px 0 #2ad4ff; }
+[data-theme="glitch"] h1 { animation: lgw-glitch-jitter 4s steps(1) infinite; }
+@keyframes lgw-glitch-jitter {
+  0%, 88%, 100% { transform: none; text-shadow: -2px 0 #ff2a6d, 2px 0 #2ad4ff; }
+  90% { transform: translate(3px, -1px) skewX(-8deg); text-shadow: -5px 0 #ff2a6d, 5px 0 #2ad4ff; }
+  93% { transform: translate(-3px, 1px); text-shadow: 4px 0 #ff2a6d, -4px 0 #2ad4ff; }
+  96% { transform: translate(1px, 0) skewX(6deg); }
+}
+[data-theme="glitch"] .eyebrow { color: var(--primary); letter-spacing: .3em; }
+[data-theme="glitch"] .eyebrow::before { content: '▚▞ '; color: var(--accent); }
+:where([data-theme="glitch"]) .card { background: linear-gradient(90deg, transparent calc(100% - 4px), rgba(0, 255, 156, .5) calc(100% - 4px)) 0 18px / 100% 2px no-repeat, var(--surface); }
+[data-theme="glitch"] .card.hover:hover { box-shadow: var(--shadow-lg); transform: translateX(-2px); }
+[data-theme="glitch"] .btn { text-transform: uppercase; letter-spacing: .14em; font-size: 12px; font-weight: 600; }
+[data-theme="glitch"] .btn:hover { filter: none; box-shadow: -3px 0 0 #ff2a6d, 3px 0 0 #2ad4ff; transform: translateX(1px); }
+[data-theme="glitch"] .btn-ghost { border-color: var(--primary); --c: var(--primary); }
+[data-theme="glitch"] .badge { border-radius: 0; text-transform: uppercase; letter-spacing: .1em; font-size: 11px; }
+[data-theme="glitch"] .badge::before { border-radius: 0; width: 7px; height: 3px; }
+[data-theme="glitch"] .table th { background: #000000; color: var(--primary); letter-spacing: .2em; }
+[data-theme="glitch"] .table tbody tr:hover { background: var(--surface-2); box-shadow: inset 3px 0 0 #ff2a6d; }
+[data-theme="glitch"] .input, [data-theme="glitch"] .select, [data-theme="glitch"] .textarea { background-color: #000000; caret-color: var(--accent); }
+[data-theme="glitch"] .nav-link.active { background: var(--text); color: #050505; box-shadow: -3px 0 0 #ff2a6d, 3px 0 0 #2ad4ff; }
+[data-theme="glitch"] .nav-link.active .count { background: #050505; color: var(--text); }
+[data-theme="glitch"] .progress { border-radius: 0; }
+[data-theme="glitch"] .progress > i { background: repeating-linear-gradient(90deg, var(--primary) 0 12px, #ff2a6d 12px 14px, var(--primary) 14px 30px, #2ad4ff 30px 32px); }
+[data-theme="glitch"] .avatar { border-radius: 0; box-shadow: -2px 0 0 #ff2a6d, 2px 0 0 #2ad4ff; }
+/* Bloques de señal corrupta que parpadean (detrás del contenido). */
+[data-theme="glitch"] body::before {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(#ff2a6d, #ff2a6d) 12% 22% / 140px 6px no-repeat, linear-gradient(#2ad4ff, #2ad4ff) 78% 64% / 220px 4px no-repeat,
+    linear-gradient(#00ff9c, #00ff9c) 40% 88% / 90px 10px no-repeat, linear-gradient(rgba(255, 255, 255, .6), rgba(255, 255, 255, .6)) 66% 12% / 60px 3px no-repeat;
+  opacity: 0; animation: lgw-glitch-blocks 5s steps(1) infinite;
+}
+@keyframes lgw-glitch-blocks { 0%, 70%, 100% { opacity: 0; transform: none; } 72% { opacity: .45; } 75% { opacity: .2; transform: translateX(30px); } 78% { opacity: .5; transform: translateX(-20px) scaleY(2); } 80% { opacity: 0; } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="glitch"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }

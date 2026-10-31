@@ -1,0 +1,51 @@
+/* Pascua · Fiestas · claro — lila, menta y mantequilla, huevos pintados con zigzag, formas ovaladas. */
+[data-theme="pascua"] {
+  --font-body: 'Baloo 2', system-ui, sans-serif; --font-head: 'Baloo 2', system-ui, sans-serif;
+  --head-weight: 800; --head-transform: none; --head-spacing: -0.01em; --body-size: 16px;
+  --bg: #fbf8ff;
+  --bg-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cg transform='translate(34 38) rotate(-14)'%3E%3Cellipse rx='14' ry='18' fill='%23c9b6f5' fill-opacity='.25'/%3E%3Cpath d='M-13 -2l5 5 5-5 5 5 5-5 5 5 2-2' fill='none' stroke='%236b3fd1' stroke-opacity='.18' stroke-width='2'/%3E%3C/g%3E%3Cg transform='translate(104 100) rotate(12)'%3E%3Cellipse rx='11' ry='14' fill='%23a8e6cf' fill-opacity='.35'/%3E%3Cpath d='M-10 2h20' stroke='%23ffd84d' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E");
+  --surface: #ffffff; --surface-2: #f3edff; --surface-3: #e2f6ec;
+  --text: #2d2440; --muted: #5e5574; --line: #ddd2f4;
+  --primary: #6b3fd1; --primary-2: #8159e0; --on-primary: #ffffff;
+  --accent: #ffd84d; --on-accent: #3a2a00;
+  --success: #1a714e; --warning: #855600; --danger: #b4234b; --info: #2d61b9; --on-danger: #ffffff;
+  --radius: 28px; --radius-sm: 16px; --radius-pill: 999px; --border-w: 2px;
+  --shadow: 0 6px 0 #e7ddfb, 0 16px 30px -18px rgba(107, 63, 209, .35);
+  --shadow-lg: 0 10px 0 #e7ddfb, 0 30px 60px -24px rgba(107, 63, 209, .45);
+  --shadow-press: 0 2px 0 #e7ddfb;
+  --focus: 0 0 0 4px #ffe88f;
+  --ease: cubic-bezier(.34, 1.56, .64, 1);
+  color-scheme: light;
+}
+[data-theme="pascua"] body { background-size: 140px 140px; }
+[data-theme="pascua"] h1 { color: var(--primary); }
+[data-theme="pascua"] .eyebrow { color: #1a714e; }
+[data-theme="pascua"] .eyebrow::before { content: '🐣 '; }
+/* Franja zigzag arriba de cada tarjeta, como un huevo pintado. */
+:where([data-theme="pascua"]) .card {
+  background: linear-gradient(135deg, #c9b6f5 25%, transparent 25%) -6px 0 / 12px 12px repeat-x, linear-gradient(225deg, #c9b6f5 25%, transparent 25%) -6px 0 / 12px 12px repeat-x,
+    linear-gradient(#a8e6cf, #a8e6cf) 0 0 / 100% 6px no-repeat, var(--surface);
+}
+[data-theme="pascua"] .card.hover:hover { transform: translateY(-4px) rotate(-.5deg); }
+[data-theme="pascua"] .btn { border-radius: var(--radius-pill); font-weight: 700; box-shadow: 0 4px 0 #ddd2f4; font-size: 15px; }
+[data-theme="pascua"] .btn-primary { box-shadow: 0 4px 0 #4a2a99; }
+[data-theme="pascua"] .btn-accent { box-shadow: 0 4px 0 #c9a520; }
+[data-theme="pascua"] .btn-danger { box-shadow: 0 4px 0 #7d1533; }
+[data-theme="pascua"] .btn-ghost { box-shadow: none; }
+[data-theme="pascua"] .btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #ddd2f4; }
+[data-theme="pascua"] .avatar { border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; }
+[data-theme="pascua"] .table th { background: var(--surface-3); color: #1f5a41; }
+[data-theme="pascua"] .table-wrap { border-radius: 20px; }
+[data-theme="pascua"] .nav-link { border-radius: var(--radius-pill); }
+[data-theme="pascua"] .nav-link.active { background: #efe7ff; color: var(--primary); }
+[data-theme="pascua"] .progress > i { background: repeating-linear-gradient(90deg, #6b3fd1 0 14px, #a8e6cf 14px 28px, #ffd84d 28px 42px); }
+[data-theme="pascua"] .chip { border-width: 2px; }
+/* Huevitos que se mecen al fondo (detrás del contenido). */
+[data-theme="pascua"] body::before {
+  content: ''; position: fixed; right: 3vw; bottom: 4vh; width: 150px; height: 110px; z-index: -1; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='110'%3E%3Cellipse cx='40' cy='62' rx='26' ry='34' fill='%23c9b6f5'/%3E%3Cpath d='M15 58l8 8 8-8 8 8 8-8 8 8 8-8' fill='none' stroke='%23ffffff' stroke-width='4'/%3E%3Cellipse cx='104' cy='66' rx='22' ry='29' fill='%23a8e6cf'/%3E%3Ccircle cx='96' cy='56' r='4' fill='%23ffd84d'/%3E%3Ccircle cx='112' cy='72' r='4' fill='%23ffd84d'/%3E%3Ccircle cx='100' cy='82' r='3' fill='%23ffffff'/%3E%3C/svg%3E") center / contain no-repeat;
+  opacity: .5; transform-origin: bottom center; animation: lgw-pascua-wobble 3s ease-in-out infinite;
+}
+@keyframes lgw-pascua-wobble { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="pascua"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }

@@ -1,0 +1,48 @@
+/* Estadio · Temáticos · oscuro — cancha de noche: pasto a franjas, líneas de cal, marcador LED amarillo y focos. */
+[data-theme="estadio"] {
+  --font-body: 'Barlow', system-ui, sans-serif; --font-head: 'Bebas Neue', 'Barlow', sans-serif;
+  --head-weight: 400; --head-transform: uppercase; --head-spacing: .04em; --body-size: 15px;
+  --bg: #0b3d1e;
+  --bg-image: radial-gradient(circle at 50% 50%, transparent 0 118px, rgba(255, 255, 255, .10) 119px 121px, transparent 122px),
+    linear-gradient(90deg, transparent calc(50% - 1px), rgba(255, 255, 255, .10) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)),
+    repeating-linear-gradient(90deg, #0d4523 0 90px, #0b3d1e 90px 180px);
+  --surface: #0f1a14; --surface-2: #16261c; --surface-3: #213628;
+  --text: #f2fff5; --muted: #a9c8b3; --line: #2c4a37;
+  --primary: #ffd400; --primary-2: #ffe14d; --on-primary: #1a1600;
+  --accent: #ff5a3c; --on-accent: #1f0700;
+  --success: #4be37a; --warning: #ffd400; --danger: #ff9191; --info: #5cc8ff; --on-danger: #1f0505;
+  --radius: 4px; --radius-sm: 3px; --radius-pill: 999px; --border-w: 2px;
+  --shadow: inset 0 4px 0 #ffd400, 0 16px 30px -14px rgba(0, 0, 0, .8);
+  --shadow-lg: inset 0 4px 0 #ffd400, 0 0 0 2px #ffd400, 0 30px 60px -20px #000000;
+  --focus: 0 0 0 2px #0b3d1e, 0 0 0 4px #ffd400;
+  color-scheme: dark;
+}
+[data-theme="estadio"] body { font-weight: 500; }
+[data-theme="estadio"] h1 { font-size: clamp(44px, 8vw, 104px); line-height: .92; }
+[data-theme="estadio"] h1, [data-theme="estadio"] h2 { text-shadow: 0 3px 0 rgba(0, 0, 0, .45); }
+[data-theme="estadio"] .eyebrow { color: var(--primary); letter-spacing: .24em; }
+[data-theme="estadio"] .eyebrow::before { content: '⚽ '; }
+[data-theme="estadio"] .grid-3 > .card:nth-child(3n+2), [data-theme="estadio"] .grid-4 > .card:nth-child(even), [data-theme="estadio"] .grid-auto > .card:nth-child(even) { box-shadow: inset 0 4px 0 #ff5a3c, 0 16px 30px -14px rgba(0, 0, 0, .8); }
+/* Marcador LED: cifras con brillo. */
+[data-theme="estadio"] .stat .value { color: var(--primary); text-shadow: 0 0 12px rgba(255, 212, 0, .55); letter-spacing: .06em; font-size: clamp(30px, 3.6vw, 40px); }
+[data-theme="estadio"] .btn { font-style: italic; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+[data-theme="estadio"] .btn-primary { box-shadow: 0 0 0 2px #0b3d1e, 0 0 0 4px #ffd400; }
+[data-theme="estadio"] .btn-ghost { border-color: rgba(255, 255, 255, .6); }
+[data-theme="estadio"] .badge { font-style: italic; text-transform: uppercase; letter-spacing: .06em; font-weight: 700; font-size: 11px; border-radius: 3px; }
+[data-theme="estadio"] .badge::before { border-radius: 1px; width: 5px; height: 8px; }
+[data-theme="estadio"] .table th { background: #060d09; color: var(--primary); letter-spacing: .14em; font-style: italic; }
+[data-theme="estadio"] .table tbody tr:nth-child(even) { background: rgba(255, 255, 255, .025); }
+[data-theme="estadio"] .input, [data-theme="estadio"] .select, [data-theme="estadio"] .textarea { background-color: #0a120d; }
+[data-theme="estadio"] .nav-link.active { background: var(--primary); color: var(--on-primary); font-style: italic; }
+[data-theme="estadio"] .nav-link.active .count { background: var(--on-primary); color: var(--primary); }
+[data-theme="estadio"] .tab { text-transform: uppercase; letter-spacing: .08em; font-style: italic; }
+[data-theme="estadio"] .progress > i { background: linear-gradient(90deg, #4be37a, var(--primary)); }
+/* Focos del estadio que destellan suave (detrás del contenido). */
+[data-theme="estadio"] body::before {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse 35vw 30vh at 0% 0%, rgba(255, 255, 240, .16), transparent 70%), radial-gradient(ellipse 35vw 30vh at 100% 0%, rgba(255, 255, 240, .16), transparent 70%);
+  animation: lgw-estadio-flood 6s ease-in-out infinite alternate;
+}
+@keyframes lgw-estadio-flood { from { opacity: .6; } to { opacity: 1; } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="estadio"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }

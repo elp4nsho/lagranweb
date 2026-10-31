@@ -1,0 +1,55 @@
+/* Casa embrujada · Terror · claro — mansión victoriana descolorida: papel tapiz, marcos, niebla y un fantasma. */
+[data-theme="embrujada"] {
+  --font-body: 'Lora', Georgia, serif; --font-head: 'Henny Penny', 'Lora', cursive;
+  --head-weight: 400; --head-transform: none; --head-spacing: .01em; --body-size: 16px;
+  --bg: #e7e0d2;
+  --bg-image: radial-gradient(ellipse at center, transparent 55%, rgba(60, 40, 50, .14)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='130' viewBox='0 0 90 130'%3E%3Cg fill='%235b3a6b' fill-opacity='.07'%3E%3Cpath d='M45 10c8 10 18 14 18 28S52 56 45 66C38 56 27 52 27 38S37 20 45 10zM45 74c5 7 12 9 12 19s-7 12-12 19c-5-7-12-9-12-19s7-12 12-19z'/%3E%3Crect x='0' width='3' height='130'/%3E%3Crect x='87' width='3' height='130'/%3E%3C/g%3E%3C/svg%3E");
+  --surface: #f7f3ea; --surface-2: #ece5d6; --surface-3: #ddd3bf;
+  --text: #2a2420; --muted: #554c43; --line: #b8ab93;
+  --primary: #5b3a6b; --primary-2: #734d86; --on-primary: #fbf6ff;
+  --accent: #3e5d59; --on-accent: #f2faf8;
+  --success: #335d3c; --warning: #744e00; --danger: #8e2a2a; --info: #3b5776; --on-danger: #ffffff;
+  --radius: 3px; --radius-sm: 3px; --radius-pill: 999px; --border-w: 1px;
+  --shadow: 0 0 0 4px #f7f3ea, 0 0 0 5px #b8ab93, 0 18px 30px -18px rgba(42, 36, 32, .55);
+  --shadow-lg: 0 0 0 4px #f7f3ea, 0 0 0 5px #8f8068, 0 34px 60px -24px rgba(42, 36, 32, .6);
+  --focus: 0 0 0 3px rgba(91, 58, 107, .45);
+  --pad: 22px;
+  color-scheme: light;
+}
+[data-theme="embrujada"] body { background-size: auto, 90px 130px; }
+[data-theme="embrujada"] h1, [data-theme="embrujada"] h2 { text-shadow: 4px 3px 6px rgba(91, 58, 107, .28); }
+[data-theme="embrujada"] .eyebrow { color: var(--primary); letter-spacing: .2em; font-style: italic; text-transform: none; font-size: 14px; }
+[data-theme="embrujada"] .eyebrow::before { content: '🕯 '; }
+[data-theme="embrujada"] .card:nth-child(3n+1) { rotate: -.35deg; }
+[data-theme="embrujada"] .card:nth-child(3n+2) { rotate: .3deg; }
+[data-theme="embrujada"] .admin-content .card, [data-theme="embrujada"] .modal .card { rotate: none; }
+[data-theme="embrujada"] .card.hover:hover { transform: translateY(-2px); opacity: .94; }
+[data-theme="embrujada"] .btn { letter-spacing: .04em; font-family: var(--font-body); font-style: italic; font-weight: 600; }
+[data-theme="embrujada"] .btn-primary { box-shadow: 0 0 0 2px var(--surface), 0 0 0 3px var(--primary); }
+[data-theme="embrujada"] .badge { font-style: italic; }
+[data-theme="embrujada"] .table th { font-style: italic; text-transform: none; letter-spacing: .02em; font-size: 13px; color: var(--text); background: var(--surface-2); border-bottom: 3px double var(--line); }
+[data-theme="embrujada"] .table tbody tr:nth-child(even) { background: rgba(91, 58, 107, .04); }
+[data-theme="embrujada"] .input, [data-theme="embrujada"] .select, [data-theme="embrujada"] .textarea { background-color: #fbf8f1; }
+[data-theme="embrujada"] .nav-link.active { background: rgba(91, 58, 107, .12); color: var(--primary); box-shadow: inset 0 0 0 1px rgba(91, 58, 107, .25); }
+[data-theme="embrujada"] .admin-sidebar { background-image: linear-gradient(90deg, transparent calc(100% - 6px), rgba(91, 58, 107, .08)); }
+[data-theme="embrujada"] .avatar { border-radius: 50% / 60%; box-shadow: 0 0 0 2px #f7f3ea, 0 0 0 3px #8f8068; }
+/* Niebla que se desliza y un fantasma que flota (detrás del contenido). */
+[data-theme="embrujada"] body::before {
+  content: ''; position: fixed; left: -50vw; right: -50vw; bottom: 0; height: 45vh; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse 30% 60% at 20% 100%, rgba(255, 255, 255, .55), transparent 70%),
+    radial-gradient(ellipse 25% 50% at 60% 100%, rgba(255, 255, 255, .45), transparent 70%),
+    radial-gradient(ellipse 30% 55% at 90% 100%, rgba(255, 255, 255, .5), transparent 70%);
+  animation: lgw-embrujada-fog 40s ease-in-out infinite alternate;
+}
+[data-theme="embrujada"] body::after {
+  content: ''; position: fixed; right: 6vw; top: 18vh; width: 90px; height: 110px; z-index: -1; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='110' viewBox='0 0 90 110'%3E%3Cpath fill='%23ffffff' fill-opacity='.75' d='M45 4C22 4 10 22 10 46v58l10-8 9 10 8-10 8 10 8-10 8 10 9-10 10 8V46C80 22 68 4 45 4z'/%3E%3Ccircle cx='34' cy='44' r='5' fill='%232a2420' fill-opacity='.45'/%3E%3Ccircle cx='56' cy='44' r='5' fill='%232a2420' fill-opacity='.45'/%3E%3C/svg%3E") center / contain no-repeat;
+  opacity: .5; animation: lgw-embrujada-ghost 8s ease-in-out infinite;
+}
+@keyframes lgw-embrujada-fog { to { transform: translateX(30vw); } }
+@keyframes lgw-embrujada-ghost { 0%, 100% { transform: translateY(0); opacity: .35; } 50% { transform: translateY(-18px); opacity: .6; } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="embrujada"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }
+/* En celular el relleno vuelve al de la base: las grillas angostas de las webs no se desbordan. */
+@media (max-width: 600px) { [data-theme="embrujada"] { --pad: 18px; } }

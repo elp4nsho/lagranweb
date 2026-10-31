@@ -1,0 +1,50 @@
+/* Slasher VHS · Terror · oscuro — cinta de video gastada: rojo sangre, aberración cromática, líneas de barrido y "REC". */
+[data-theme="slasher"] {
+  --font-body: 'Courier Prime', 'Courier New', monospace; --font-head: 'Anton', 'Impact', sans-serif;
+  --font-mono: 'Courier Prime', monospace;
+  --head-weight: 400; --head-transform: uppercase; --head-spacing: .02em; --body-size: 15px;
+  --bg: #070707;
+  --bg-image: repeating-linear-gradient(0deg, rgba(255, 255, 255, .025) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at 50% 120%, rgba(255, 30, 30, .14), transparent 60%);
+  --surface: #121212; --surface-2: #1b1b1b; --surface-3: #2a2a2a;
+  --text: #f2f2f2; --muted: #b3b3b3; --line: #3a3a3a;
+  --primary: #ff3030; --primary-2: #ff5c5c; --on-primary: #0a0a0a;
+  --accent: #3cf2ff; --on-accent: #00161a;
+  --success: #4dff88; --warning: #ffd23f; --danger: #ff4545; --info: #66b0ff; --on-danger: #0a0a0a;
+  --radius: 0px; --radius-sm: 0px; --radius-pill: 0px; --border-w: 2px;
+  --shadow: 0 10px 30px -12px rgba(0, 0, 0, .9);
+  --shadow-lg: 3px 0 0 rgba(255, 48, 48, .55), -3px 0 0 rgba(60, 242, 255, .4), 0 30px 60px -20px #000;
+  --focus: 0 0 0 2px #070707, 0 0 0 4px #ff3030;
+  color-scheme: dark;
+}
+[data-theme="slasher"] h1, [data-theme="slasher"] h2 { text-shadow: 2px 0 rgba(255, 48, 48, .85), -2px 0 rgba(60, 242, 255, .6); }
+[data-theme="slasher"] h1 { font-size: clamp(38px, 7vw, 84px); line-height: 1; letter-spacing: .01em; }
+[data-theme="slasher"] .eyebrow { color: var(--text); letter-spacing: .2em; font-family: var(--font-mono); }
+[data-theme="slasher"] .eyebrow::before { content: '● REC  '; color: var(--primary); animation: lgw-slasher-rec 1.6s steps(2, jump-none) infinite; white-space: pre; }
+@keyframes lgw-slasher-rec { 50% { opacity: .25; } }
+/* Gotas de sangre en el borde superior de las tarjetas (capa de fondo). */
+:where([data-theme="slasher"]) .card {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='16' viewBox='0 0 160 16'%3E%3Cpath fill='%23b30000' d='M0 0h160v3c-6 0-6 9-10 9s-3-9-9-9-7 5-11 5-4-5-9-5c-6 0-5 13-10 13s-4-13-10-13-6 4-10 4-5-4-10-4-6 7-10 7-4-7-10-7-7 10-12 10-5-10-11-10-6 3-10 3-5-3-10-3-4 5-8 5-5-5-10-5z'/%3E%3C/svg%3E") top left / 160px 16px repeat-x, var(--surface);
+  border-color: #2e2e2e;
+}
+[data-theme="slasher"] .card.hover:hover { box-shadow: var(--shadow-lg); transform: translateX(1px); }
+[data-theme="slasher"] .btn { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .08em; font-weight: 400; font-size: 15px; }
+[data-theme="slasher"] .btn:hover { filter: none; box-shadow: 2px 0 rgba(255, 48, 48, .8), -2px 0 rgba(60, 242, 255, .6); }
+[data-theme="slasher"] .badge { border-radius: 0; text-transform: uppercase; letter-spacing: .08em; font-size: 11px; }
+[data-theme="slasher"] .badge::before { border-radius: 0; }
+[data-theme="slasher"] .table th { font-family: var(--font-head); font-weight: 400; letter-spacing: .1em; font-size: 13px; color: var(--text); background: #1f0a0a; border-bottom: 2px solid var(--primary); }
+[data-theme="slasher"] .table tbody tr:hover { background: rgba(255, 48, 48, .07); }
+[data-theme="slasher"] .input, [data-theme="slasher"] .select, [data-theme="slasher"] .textarea { background-color: #0b0b0b; caret-color: var(--primary); }
+[data-theme="slasher"] .nav-link.active { background: var(--primary); color: var(--on-primary); }
+[data-theme="slasher"] .nav-link.active .count { background: var(--on-primary); color: var(--primary); }
+[data-theme="slasher"] .progress > i { background: var(--primary); }
+[data-theme="slasher"] .avatar { border-radius: 0; filter: saturate(.7) contrast(1.1); }
+/* Banda de "tracking" de la cinta que baja lentamente (detrás del contenido). */
+[data-theme="slasher"] body::before {
+  content: ''; position: fixed; left: 0; right: 0; top: 0; height: 18vh; z-index: -1; pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, .05) 45%, rgba(60, 242, 255, .05) 55%, transparent);
+  animation: lgw-slasher-track 9s linear infinite;
+}
+@keyframes lgw-slasher-track { from { transform: translateY(-20vh); } to { transform: translateY(105vh); } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="slasher"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }

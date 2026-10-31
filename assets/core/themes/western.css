@@ -1,0 +1,50 @@
+/* Lejano Oeste · Temáticos · claro — cartel de "Se busca": papel envejecido, letra de imprenta western, madera y estrella de sheriff. */
+[data-theme="western"] {
+  --font-body: 'Bitter', Georgia, serif; --font-head: 'Rye', 'Bitter', serif;
+  --head-weight: 400; --head-transform: none; --head-spacing: .02em; --body-size: 16px;
+  --bg: #e9d6b0;
+  --bg-image: radial-gradient(ellipse at center, transparent 55%, rgba(94, 58, 30, .16)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.6' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .22 0 0 0 0 .1 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  --surface: #f6ead0; --surface-2: #ecd9b2; --surface-3: #ddc290;
+  --text: #2b1a0e; --muted: #5c4027; --line: #7a5432;
+  --primary: #8b2e16; --primary-2: #a63a1d; --on-primary: #fff3dc;
+  --accent: #2f4a5c; --on-accent: #ffffff;
+  --success: #325a23; --warning: #704600; --danger: #9b1c10; --info: #2f4a5c; --on-danger: #ffffff;
+  --radius: 2px; --radius-sm: 2px; --radius-pill: 999px; --border-w: 2px;
+  --shadow: 0 0 0 4px #f6ead0, 0 0 0 6px #7a5432, 0 16px 26px -14px rgba(60, 30, 10, .55);
+  --shadow-lg: 0 0 0 4px #f6ead0, 0 0 0 6px #5c3a1e, 0 30px 50px -20px rgba(60, 30, 10, .6);
+  --focus: 0 0 0 3px #f6ead0, 0 0 0 5px #8b2e16;
+  color-scheme: light;
+}
+[data-theme="western"] body { background-size: auto, 160px 160px; }
+[data-theme="western"] h1 { font-size: clamp(34px, 6vw, 72px); color: var(--text); text-shadow: 2px 2px 0 rgba(139, 46, 22, .25); overflow-wrap: break-word; }
+[data-theme="western"] h2 { color: var(--primary); overflow-wrap: break-word; }
+[data-theme="western"] h1, [data-theme="western"] h2 { text-align: inherit; }
+[data-theme="western"] .eyebrow { color: var(--primary); letter-spacing: .3em; font-family: var(--font-body); }
+[data-theme="western"] .eyebrow::before { content: '★ '; color: #b8860b; }
+:where([data-theme="western"]) .card { border-style: solid; border-color: #7a5432; }
+[data-theme="western"] .card.hover:hover { transform: translateY(-2px) rotate(-.4deg); }
+/* Botones de tabla de madera. */
+[data-theme="western"] .btn { font-family: var(--font-head); font-weight: 400; font-size: 14px; letter-spacing: .06em; border-color: #5c3a1e; }
+[data-theme="western"] .btn:not(.btn-primary):not(.btn-danger):not(.btn-accent):not(.btn-ghost) { background: repeating-linear-gradient(90deg, rgba(92, 58, 30, .06) 0 3px, transparent 3px 9px), var(--b); }
+[data-theme="western"] .btn-primary { box-shadow: inset 0 -3px 0 rgba(0, 0, 0, .25); }
+[data-theme="western"] .badge { border-radius: 2px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: 11px; }
+[data-theme="western"] .badge::before { content: '★'; width: auto; height: auto; background: none; border-radius: 0; font-size: 10px; }
+[data-theme="western"] .table th { background: #5c3a1e; color: #fff3dc; font-family: var(--font-head); font-weight: 400; letter-spacing: .08em; text-transform: none; font-size: 13px; }
+[data-theme="western"] .table td { border-bottom: 1px dashed #b08a5a; }
+[data-theme="western"] .input, [data-theme="western"] .select, [data-theme="western"] .textarea { background-color: #fbf3e1; border-color: #7a5432; }
+[data-theme="western"] .nav-link.active { background: #5c3a1e; color: #fff3dc; }
+[data-theme="western"] .nav-link.active .count { background: #fff3dc; color: #5c3a1e; }
+[data-theme="western"] .admin-sidebar { background: repeating-linear-gradient(180deg, rgba(92, 58, 30, .05) 0 2px, transparent 2px 22px), var(--surface); }
+[data-theme="western"] .progress { border: 1px solid #7a5432; }
+[data-theme="western"] .progress > i { background: repeating-linear-gradient(90deg, #8b2e16 0 10px, #a63a1d 10px 20px); }
+[data-theme="western"] .avatar { filter: sepia(.35); }
+/* Una planta rodadora que cruza el fondo (detrás del contenido). */
+[data-theme="western"] body::before {
+  content: ''; position: fixed; left: 0; bottom: 3vh; width: 70px; height: 70px; z-index: -1; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' fill='none' stroke='%237a5432' stroke-opacity='.5' stroke-width='2'%3E%3Ccircle cx='35' cy='35' r='28'/%3E%3Cpath d='M12 24c18 8 30 30 46 22M14 46c14-14 34-20 44-12M24 10c4 20 0 40 16 52M46 10c-8 16 2 34-12 50'/%3E%3C/svg%3E") center / contain no-repeat;
+  animation: lgw-western-roll 26s linear infinite;
+}
+@keyframes lgw-western-roll { from { transform: translateX(-90px) rotate(0); } to { transform: translateX(calc(100vw + 90px)) rotate(1080deg); } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="western"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }

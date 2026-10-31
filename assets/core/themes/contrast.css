@@ -1,0 +1,14 @@
+/* Contraste · Modernos · oscuro — Alto contraste accesible.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="contrast"] {
+  --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif; --font-head: 'Atkinson Hyperlegible', sans-serif;
+  --head-weight: 700; --body-size: 18px;
+  --bg: #000000; --surface: #000000; --surface-2: #111111; --surface-3: #222222;
+  --text: #ffffff; --muted: #ffffff; --line: #ffffff;
+  --primary: #ffff00; --primary-2: #ffff66; --on-primary: #000000; --accent: #00ffff;
+  --success: #00ff00; --warning: #ffff00; --danger: #ff5555; --info: #00ffff;
+  --radius: 4px; --radius-sm: 4px; --border-w: 2px; --shadow: none; --shadow-lg: 0 0 0 3px #ffff00;
+  --focus: 0 0 0 4px #00ffff; color-scheme: dark;
+}
+[data-theme="contrast"] a { color: #ffff00; text-decoration: underline; }
+[data-theme="contrast"] .btn { font-size: 16px; min-height: 48px; text-decoration: none; }

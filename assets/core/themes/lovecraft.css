@@ -1,0 +1,56 @@
+/* Cósmico · Terror · oscuro — horror lovecraftiano: abismo verde, ojo que vigila, tentáculos y formas irregulares. */
+[data-theme="lovecraft"] {
+  --font-body: 'Crimson Text', Georgia, serif; --font-head: 'IM Fell English', Georgia, serif;
+  --head-weight: 400; --head-transform: none; --head-spacing: .01em; --body-size: 17px;
+  --bg: #031110;
+  --bg-image: radial-gradient(ellipse at 20% 0%, rgba(95, 224, 176, .10), transparent 50%),
+    radial-gradient(ellipse at 90% 100%, rgba(180, 140, 255, .10), transparent 55%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .37 0 0 0 0 .88 0 0 0 0 .69 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  --surface: #071c1b; --surface-2: #0b2826; --surface-3: #123838;
+  --text: #dff0e8; --muted: #9dbcb1; --line: #1f4b47;
+  --primary: #5fe0b0; --primary-2: #8af0ca; --on-primary: #021310;
+  --accent: #b48cff; --on-accent: #140828;
+  --success: #6fe39c; --warning: #e3c76a; --danger: #ff7d8c; --info: #7ec8ff; --on-danger: #210308;
+  --radius: 20px 6px 24px 8px; --radius-sm: 10px 4px 12px 4px; --radius-pill: 999px; --border-w: 1px;
+  --shadow: 0 0 0 1px rgba(95, 224, 176, .10), 0 24px 50px -22px rgba(0, 0, 0, .95), 0 0 30px -14px rgba(95, 224, 176, .3);
+  --shadow-lg: 0 0 60px -12px rgba(180, 140, 255, .4), 0 40px 80px -30px #000;
+  --focus: 0 0 0 2px #031110, 0 0 0 4px #5fe0b0, 0 0 20px rgba(95, 224, 176, .5);
+  --ease: cubic-bezier(.6, .05, .3, .95);
+  color-scheme: dark;
+}
+[data-theme="lovecraft"] body { background-size: auto, auto, 320px 320px; }
+[data-theme="lovecraft"] h1, [data-theme="lovecraft"] h2 { text-shadow: 0 0 18px rgba(95, 224, 176, .35); }
+[data-theme="lovecraft"] h1 { font-style: italic; animation: lgw-lovecraft-breathe 7s ease-in-out infinite; }
+@keyframes lgw-lovecraft-breathe { 50% { text-shadow: 0 0 28px rgba(180, 140, 255, .55), 0 0 2px rgba(95, 224, 176, .6); } }
+[data-theme="lovecraft"] .eyebrow { color: var(--accent); letter-spacing: .26em; font-style: italic; text-transform: none; font-size: 14px; }
+[data-theme="lovecraft"] .eyebrow::before { content: '◉ '; color: var(--primary); }
+/* Sello arcano en la esquina de cada tarjeta. */
+:where([data-theme="lovecraft"]) .card {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' fill='none' stroke='%235fe0b0' stroke-opacity='.18'%3E%3Ccircle cx='32' cy='32' r='28'/%3E%3Ccircle cx='32' cy='32' r='20'/%3E%3Cpath d='M32 4v56M4 32h56M12 12l40 40M52 12L12 52'/%3E%3Cellipse cx='32' cy='32' rx='9' ry='5'/%3E%3Ccircle cx='32' cy='32' r='2.5' fill='%235fe0b0' fill-opacity='.3'/%3E%3C/svg%3E") right 10px bottom 10px / 54px 54px no-repeat, var(--surface);
+}
+[data-theme="lovecraft"] .card.hover:hover { transform: translateY(-2px) skewX(-.6deg); }
+[data-theme="lovecraft"] .btn { font-family: var(--font-head); font-size: 16px; font-weight: 400; letter-spacing: .04em; }
+[data-theme="lovecraft"] .btn-primary { box-shadow: 0 0 20px rgba(95, 224, 176, .35); }
+[data-theme="lovecraft"] .btn-accent { box-shadow: 0 0 20px rgba(180, 140, 255, .35); }
+[data-theme="lovecraft"] .badge { font-style: italic; font-size: 13px; }
+[data-theme="lovecraft"] .table th { font-family: var(--font-head); text-transform: none; letter-spacing: .04em; font-size: 15px; font-weight: 400; color: var(--primary); }
+[data-theme="lovecraft"] .input, [data-theme="lovecraft"] .select, [data-theme="lovecraft"] .textarea { background-color: #041514; }
+[data-theme="lovecraft"] .nav-link.active { background: radial-gradient(ellipse at left, rgba(95, 224, 176, .2), transparent 80%); color: var(--primary); }
+[data-theme="lovecraft"] .progress > i { background: linear-gradient(90deg, var(--accent), var(--primary)); }
+/* El ojo que vigila desde el fondo y tentáculos que asoman (detrás del contenido). */
+[data-theme="lovecraft"] body::before {
+  content: ''; position: fixed; right: -60px; top: 22vh; width: 340px; height: 200px; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse 18px 40px at 50% 50%, #021310 98%, transparent),
+    radial-gradient(circle at 50% 50%, rgba(227, 199, 106, .55) 0 34px, rgba(95, 224, 176, .25) 35px 60px, transparent 61px),
+    radial-gradient(ellipse 170px 70px at 50% 50%, rgba(223, 240, 232, .10) 98%, transparent);
+  opacity: .55; animation: lgw-lovecraft-eye 9s ease-in-out infinite;
+}
+[data-theme="lovecraft"] body::after {
+  content: ''; position: fixed; left: 0; right: 0; bottom: 0; height: 160px; z-index: -1; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='160' fill='none' stroke='%235fe0b0' stroke-opacity='.12' stroke-width='14' stroke-linecap='round'%3E%3Cpath d='M30 170C40 110 90 120 80 70S120 20 140 40'/%3E%3Cpath d='M250 170c-10-50 40-60 20-100s30-50 60-30'/%3E%3Cpath d='M380 170c10-40-30-40-10-80'/%3E%3C/svg%3E") bottom left / 420px 160px repeat-x;
+  transform-origin: bottom; animation: lgw-lovecraft-sway 11s ease-in-out infinite alternate;
+}
+@keyframes lgw-lovecraft-eye { 0%, 46%, 54%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.08); } }
+@keyframes lgw-lovecraft-sway { to { transform: skewX(4deg) scaleY(1.06); } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="lovecraft"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }

@@ -1,0 +1,18 @@
+/* Web 2.0 · Era HTML5 · claro — Brillo, reflejos y "beta".
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="web2"] {
+  --font-body: 'Ubuntu', 'Lucida Grande', Verdana, sans-serif; --font-head: 'Ubuntu', 'Trebuchet MS', sans-serif;
+  --head-weight: 700; --head-spacing: -0.01em;
+  --bg: #eef6ff; --bg-image: linear-gradient(180deg, #cfe6ff 0, #eef6ff 340px);
+  --surface: #ffffff; --surface-2: #f3f8fe; --surface-3: #e2eefb;
+  --text: #2a3540; --muted: #6a7c8f; --line: #c4d7ec;
+  --primary: #2b8de0; --primary-2: #59aef3; --on-primary: #ffffff; --accent: #ff7a00;
+  --success: #6bbf1f; --warning: #ffb400; --danger: #e8402e; --info: #2b8de0;
+  --radius: 10px; --radius-sm: 8px; --shadow: 0 1px 3px rgba(0,40,90,.18), 0 0 0 1px rgba(255,255,255,.8) inset;
+  --shadow-lg: 0 10px 30px rgba(0,40,90,.25);
+}
+[data-theme="web2"] .btn { background: linear-gradient(180deg, rgba(255,255,255,.55) 0 50%, rgba(255,255,255,0) 50%), var(--b); border-color: rgba(0,0,0,.18); text-shadow: 0 1px 0 rgba(255,255,255,.5); box-shadow: 0 1px 2px rgba(0,0,0,.2); border-radius: 999px; }
+[data-theme="web2"] .btn-primary, [data-theme="web2"] .btn-danger { text-shadow: 0 -1px 0 rgba(0,0,0,.3); }
+[data-theme="web2"] h1, [data-theme="web2"] h2 { text-shadow: 0 1px 0 #fff, 0 2px 3px rgba(0,60,120,.2); }
+[data-theme="web2"] .card { background: linear-gradient(180deg, #fff, #f5f9fe); border-top: 4px solid var(--primary); }
+[data-theme="web2"] .eyebrow::after { content: 'BETA'; margin-left: 8px; padding: 1px 6px; font-size: 9px; color: #fff; background: var(--accent); border-radius: 3px; letter-spacing: .05em; vertical-align: 2px; }

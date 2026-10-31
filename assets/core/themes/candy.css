@@ -1,0 +1,37 @@
+/* Caramelo · Modernos · claro — Pastel juguetón.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="candy"] {
+  --font-body: 'Fredoka', system-ui, sans-serif;
+  --font-head: 'Fredoka', system-ui, sans-serif;
+  --head-weight: 700;
+  --head-spacing: 0;
+  --body-size: 16px;
+  --bg: #fff6fb;
+  --bg-image: radial-gradient(#ffc6e2 2px, transparent 2px), radial-gradient(#bdeefc 2px, transparent 2px);
+  --surface: #ffffff;
+  --surface-2: #fff0f7;
+  --surface-3: #e8f9ff;
+  --text: #4a3357;
+  --muted: #9a7fa8;
+  --line: #ffd3e8;
+  --primary: #ff7eb6;
+  --primary-2: #ff9cc8;
+  --on-primary: #ffffff;
+  --accent: #7ad7f0;
+  --success: #5fd39a;
+  --warning: #ffb547;
+  --danger: #ff6b81;
+  --info: #7aa7ff;
+  --radius: 26px;
+  --radius-sm: 18px;
+  --border-w: 2px;
+  --shadow: 0 6px 0 #ffd3e8, 0 10px 24px -8px rgba(255, 126, 182, .35);
+  --shadow-lg: 0 12px 0 #ffd3e8, 0 30px 60px -20px rgba(255, 126, 182, .5);
+  --shadow-press: 0 2px 0 #ffd3e8;
+  --ease: cubic-bezier(.34, 1.56, .64, 1);
+  --focus: 0 0 0 4px #bdeefc;
+}
+[data-theme="candy"] body { background-size: 40px 40px; background-position: 0 0, 20px 20px; }
+[data-theme="candy"] .btn { box-shadow: 0 4px 0 color-mix(in srgb, var(--b) 70%, #000 12%); border-color: transparent; }
+[data-theme="candy"] .btn:hover { transform: translateY(-2px) scale(1.03); }
+[data-theme="candy"] .btn:active { transform: translateY(3px); box-shadow: 0 1px 0 color-mix(in srgb, var(--b) 70%, #000 12%); }

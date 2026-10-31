@@ -1,0 +1,61 @@
+/* Espacial · Temáticos · oscuro — cabina de nave: cielo estrellado, nebulosa, paneles HUD con esquineros y un planeta. */
+[data-theme="espacial"] {
+  --font-body: 'Exo 2', system-ui, sans-serif; --font-head: 'Audiowide', 'Exo 2', sans-serif;
+  --head-weight: 400; --head-transform: uppercase; --head-spacing: .06em; --body-size: 15px;
+  --bg: #04030d;
+  --bg-image: radial-gradient(ellipse at 75% 20%, rgba(124, 92, 255, .18), transparent 45%), radial-gradient(ellipse at 15% 85%, rgba(124, 243, 255, .10), transparent 45%),
+    radial-gradient(1px 1px at 20px 30px, #ffffff, transparent), radial-gradient(1px 1px at 120px 80px, rgba(255, 255, 255, .7), transparent),
+    radial-gradient(1.5px 1.5px at 170px 150px, #cfe8ff, transparent), radial-gradient(1px 1px at 60px 170px, rgba(255, 255, 255, .6), transparent);
+  --surface: #0b0b1e; --surface-2: #12122c; --surface-3: #1d1d42;
+  --text: #e9ecff; --muted: #a6abd8; --line: #2a2d5c;
+  --primary: #7cf3ff; --primary-2: #b0f8ff; --on-primary: #001a1f;
+  --accent: #ffb347; --on-accent: #2a1500;
+  --success: #6dffb0; --warning: #ffd166; --danger: #ff7088; --info: #8ab4ff; --on-danger: #24020a;
+  --radius: 4px; --radius-sm: 3px; --radius-pill: 999px; --border-w: 1px;
+  --shadow: 0 0 0 1px rgba(124, 243, 255, .08), 0 18px 40px -18px rgba(0, 0, 0, .9);
+  --shadow-lg: 0 0 0 1px rgba(124, 243, 255, .35), 0 0 40px -10px rgba(124, 243, 255, .35);
+  --focus: 0 0 0 2px #04030d, 0 0 0 4px #7cf3ff;
+  color-scheme: dark;
+}
+[data-theme="espacial"] body { background-size: auto, auto, 200px 200px, 200px 200px, 200px 200px, 200px 200px; }
+[data-theme="espacial"] h1, [data-theme="espacial"] h2 { text-shadow: 0 0 20px rgba(124, 243, 255, .35); }
+[data-theme="espacial"] h1 { letter-spacing: .08em; }
+[data-theme="espacial"] .eyebrow { color: var(--accent); letter-spacing: .32em; }
+[data-theme="espacial"] .eyebrow::before { content: '◉ '; color: var(--primary); }
+/* Esquineros de HUD en cada panel. */
+:where([data-theme="espacial"]) .card {
+  background:
+    linear-gradient(#7cf3ff, #7cf3ff) 0 0 / 16px 2px no-repeat, linear-gradient(#7cf3ff, #7cf3ff) 0 0 / 2px 16px no-repeat,
+    linear-gradient(#7cf3ff, #7cf3ff) 100% 100% / 16px 2px no-repeat, linear-gradient(#7cf3ff, #7cf3ff) 100% 100% / 2px 16px no-repeat,
+    repeating-linear-gradient(0deg, rgba(124, 243, 255, .025) 0 1px, transparent 1px 4px),
+    var(--surface);
+}
+[data-theme="espacial"] .card.hover:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+[data-theme="espacial"] .btn { font-family: var(--font-head); font-weight: 400; text-transform: uppercase; letter-spacing: .12em; font-size: 12px; }
+[data-theme="espacial"] .btn-primary { box-shadow: 0 0 18px rgba(124, 243, 255, .45); }
+[data-theme="espacial"] .btn-ghost { border-color: rgba(124, 243, 255, .5); --c: var(--primary); }
+[data-theme="espacial"] .badge { text-transform: uppercase; letter-spacing: .08em; font-size: 11px; }
+[data-theme="espacial"] .table th { color: var(--primary); background: #08081a; letter-spacing: .16em; }
+[data-theme="espacial"] .table tbody tr:hover { background: rgba(124, 243, 255, .05); }
+[data-theme="espacial"] .input, [data-theme="espacial"] .select, [data-theme="espacial"] .textarea { background-color: #070716; }
+[data-theme="espacial"] .nav-link.active { background: linear-gradient(90deg, rgba(124, 243, 255, .18), transparent); color: var(--primary); box-shadow: inset 2px 0 0 var(--primary); }
+[data-theme="espacial"] .progress > i { background: linear-gradient(90deg, #7c5cff, var(--primary)); box-shadow: 0 0 10px rgba(124, 243, 255, .6); }
+[data-theme="espacial"] .stat .value { font-family: var(--font-head); }
+/* Estrellas que titilan y un planeta con anillo (detrás del contenido). */
+[data-theme="espacial"] body::before {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image: radial-gradient(2px 2px at 50px 80px, #ffffff, transparent), radial-gradient(2px 2px at 230px 40px, #ffe9b0, transparent),
+    radial-gradient(1.5px 1.5px at 310px 210px, #b0f8ff, transparent), radial-gradient(2px 2px at 140px 260px, #ffffff, transparent);
+  background-size: 360px 300px;
+  animation: lgw-espacial-twinkle 3.5s ease-in-out infinite alternate;
+}
+[data-theme="espacial"] body::after {
+  content: ''; position: fixed; right: 5vw; top: 14vh; width: 150px; height: 150px; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse 75px 16px at 50% 52%, transparent 62%, rgba(255, 179, 71, .45) 64% 70%, transparent 72%),
+    radial-gradient(circle at 38% 36%, #6a5cff, #2a1f7a 55%, transparent 56%);
+  opacity: .55; animation: lgw-espacial-float 14s ease-in-out infinite alternate;
+}
+@keyframes lgw-espacial-twinkle { from { opacity: .35; } to { opacity: 1; } }
+@keyframes lgw-espacial-float { to { transform: translate(-20px, 16px) rotate(8deg); } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="espacial"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }

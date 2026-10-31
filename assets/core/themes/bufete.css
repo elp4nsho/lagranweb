@@ -1,0 +1,39 @@
+/* Bufete · Formales · claro — estudio jurídico: azul marino, oro viejo, serif clásica y filetes dobles. */
+[data-theme="bufete"] {
+  --font-body: 'Libre Franklin', system-ui, sans-serif; --font-head: 'Libre Baskerville', Georgia, serif;
+  --head-weight: 700; --head-transform: none; --head-spacing: -0.005em; --body-size: 15px;
+  --bg: #f4f1e9;
+  --bg-image: linear-gradient(180deg, #1f2f56 0 6px, transparent 6px), repeating-linear-gradient(90deg, rgba(31, 47, 86, .025) 0 1px, transparent 1px 6px);
+  --surface: #fffdf8; --surface-2: #f1ece0; --surface-3: #e4dccb;
+  --text: #1c2333; --muted: #555b68; --line: #cbc1aa;
+  --primary: #1f2f56; --primary-2: #2c4378; --on-primary: #fffdf8;
+  --accent: #7d5f1a; --on-accent: #ffffff;
+  --success: #2c6a3c; --warning: #855600; --danger: #9b1d24; --info: #24507a; --on-danger: #ffffff;
+  --radius: 2px; --radius-sm: 2px; --radius-pill: 2px; --border-w: 1px;
+  --shadow: 0 1px 0 rgba(28, 35, 51, .05), 0 14px 28px -20px rgba(28, 35, 51, .45);
+  --shadow-lg: 0 28px 60px -28px rgba(28, 35, 51, .5);
+  --focus: 0 0 0 2px #fffdf8, 0 0 0 4px #1f2f56;
+  --pad: 24px;
+  color-scheme: light;
+}
+[data-theme="bufete"] h1 { letter-spacing: -0.01em; }
+[data-theme="bufete"] h1, [data-theme="bufete"] h2 { font-weight: 400; }
+[data-theme="bufete"] .eyebrow { color: var(--accent); font-variant: small-caps; text-transform: lowercase; letter-spacing: .16em; font-size: 14px; }
+[data-theme="bufete"] .eyebrow::before { content: '§ '; }
+:where([data-theme="bufete"]) .card { border-top: 3px double var(--primary); }
+[data-theme="bufete"] .btn { text-transform: uppercase; letter-spacing: .12em; font-size: 12px; font-weight: 600; }
+[data-theme="bufete"] .btn-primary { box-shadow: inset 0 -2px 0 var(--accent); }
+[data-theme="bufete"] .btn-ghost { border-color: var(--primary); }
+[data-theme="bufete"] .badge { border-radius: 2px; text-transform: uppercase; letter-spacing: .06em; font-size: 11px; }
+[data-theme="bufete"] .badge::before { border-radius: 0; transform: rotate(45deg); width: 5px; height: 5px; }
+[data-theme="bufete"] .table th { font-family: var(--font-head); text-transform: none; letter-spacing: 0; font-size: 13px; font-style: italic; color: var(--text); border-bottom: 3px double var(--line); }
+[data-theme="bufete"] .input, [data-theme="bufete"] .select, [data-theme="bufete"] .textarea { border-width: 0 0 1px; background-color: transparent; border-color: var(--muted); padding-inline: 2px; }
+[data-theme="bufete"] .tab { font-family: var(--font-head); font-style: italic; }
+[data-theme="bufete"] .nav-link.active { background: transparent; border-left: 3px solid var(--accent); border-radius: 0; color: var(--primary); }
+[data-theme="bufete"] .admin-sidebar { --surface: #1f2f56; --surface-2: #2a3d6b; --text: #f4efe3; --muted: #b9c1d6; --line: #3a4d7d; --primary: #e6c77a; --on-primary: #1c2333; --accent: #e6c77a; background: var(--surface); color: var(--text); }
+[data-theme="bufete"] .admin-sidebar .nav-link.active { background: rgba(230, 199, 122, .12); }
+[data-theme="bufete"] .avatar { border-radius: 2px; }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="bufete"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }
+/* En celular el relleno vuelve al de la base: las grillas angostas de las webs no se desbordan. */
+@media (max-width: 600px) { [data-theme="bufete"] { --pad: 18px; } }

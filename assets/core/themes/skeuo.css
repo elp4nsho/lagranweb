@@ -1,0 +1,27 @@
+/* iOS 6 · Era HTML5 · claro — Lino, cuero y relieve.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="skeuo"] {
+  --on-accent: #ffffff;
+  --font-body: 'Lato', 'Helvetica Neue', Helvetica, sans-serif; --font-head: 'Lato', 'Helvetica Neue', sans-serif;
+  --head-weight: 700; --head-spacing: 0;
+  --bg: #cfd4dc; --bg-image: repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 2px, transparent 2px 4px), repeating-linear-gradient(0deg, rgba(0,0,0,.04) 0 1px, transparent 1px 3px);
+  --surface: #f7f7f7; --surface-2: #e9ecf0; --surface-3: #dfe3e8;
+  --text: #2d3138; --muted: #6d7480; --line: #a9b0bb;
+  --primary: #3d6bb3; --primary-2: #5a86cf; --on-primary: #ffffff; --accent: #6b4a2e;
+  --success: #4c9a2a; --warning: #d4932a; --danger: #c6362f; --info: #3d6bb3;
+  --radius: 10px; --radius-sm: 6px;
+  --shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 2px 4px rgba(0,0,0,.25), 0 0 0 1px rgba(0,0,0,.12);
+  --shadow-lg: 0 14px 40px rgba(0,0,0,.4);
+}
+[data-theme="skeuo"] body { text-shadow: 0 1px 0 rgba(255,255,255,.6); }
+[data-theme="skeuo"] .btn { background: linear-gradient(180deg, #fdfdfd, #d5dae1); border-color: #8a929e; box-shadow: 0 1px 0 #fff inset, 0 1px 2px rgba(0,0,0,.25); }
+[data-theme="skeuo"] .btn-primary { background: linear-gradient(180deg, #7fa4e0, #3d6bb3 55%, #2f5a9e); color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,.35); border-color: #284b85; }
+[data-theme="skeuo"] .admin-sidebar { background: linear-gradient(90deg, #4a3322, #6b4a2e); color: #f5e9d9; border-right: 2px dashed rgba(255,235,200,.35); text-shadow: 0 -1px 0 rgba(0,0,0,.5); }
+[data-theme="skeuo"] .admin-sidebar .nav-link { color: #f5e9d9; }
+[data-theme="skeuo"] .admin-sidebar .nav-link.active { background: rgba(0,0,0,.3); color: #fff; box-shadow: inset 0 2px 4px rgba(0,0,0,.4); }
+[data-theme="skeuo"] .admin-topbar { background: linear-gradient(180deg, #b6c3d6, #6d84a8); color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,.4); }
+[data-theme="skeuo"] .btn-danger { background: linear-gradient(180deg, rgba(255,255,255,.3), rgba(0,0,0,.12)), var(--danger); color: #fff; border-color: #8f2a22; text-shadow: 0 -1px 0 rgba(0,0,0,.35); }
+[data-theme="skeuo"] .btn-accent { background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(0,0,0,.1)), var(--accent); color: var(--on-accent, #111); border-color: rgba(0,0,0,.35); text-shadow: 0 -1px 0 rgba(0,0,0,.35); }
+/* Costura de las tarjetas: absoluta, para no ser una celda más en tarjetas con grid o flex en fila */
+:where([data-theme="skeuo"]) .card { position: relative; }
+[data-theme="skeuo"] .card::before { content: ''; position: absolute; top: 7px; left: 7px; right: 7px; margin: 0; border-top: 2px dashed rgba(0,0,0,.12); pointer-events: none; }

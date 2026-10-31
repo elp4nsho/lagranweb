@@ -1,0 +1,20 @@
+/* Vintage · Era HTML5 · claro — Hipster 2012, cintas.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="vintage"] {
+  --on-accent: #ffffff;
+  --font-body: 'Arvo', Georgia, serif; --font-head: 'Lobster', cursive;
+  --head-weight: 400; --head-spacing: .01em;
+  --bg: #f3e9d2; --bg-image: radial-gradient(ellipse at center, transparent 50%, rgba(92,58,22,.18)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.75' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.09'/%3E%3C/svg%3E");
+  --surface: #fbf4e4; --surface-2: #efe1c2; --surface-3: #e4d2ab;
+  --text: #2c3e50; --muted: #7a6a52; --line: #2c3e50;
+  --primary: #c0392b; --primary-2: #d35445; --on-primary: #fbf4e4; --accent: #2c3e50;
+  --success: #5b8c51; --warning: #d68910; --danger: #c0392b; --info: #2c3e50;
+  --radius: 4px; --radius-sm: 3px; --border-w: 2px;
+  --shadow: 0 0 0 4px var(--surface), 0 0 0 6px var(--line); --shadow-lg: 0 20px 40px -10px rgba(60,40,20,.45);
+}
+[data-theme="vintage"] h1, [data-theme="vintage"] h2 { text-shadow: 3px 3px 0 rgba(192,57,43,.25); }
+[data-theme="vintage"] .eyebrow { display: inline-block; background: var(--primary); color: var(--on-primary); padding: 4px 18px; position: relative; letter-spacing: .2em; }
+[data-theme="vintage"] .eyebrow::before, [data-theme="vintage"] .eyebrow::after { content: ''; position: absolute; top: 0; border: 12px solid var(--primary); border-width: 13px 8px; }
+[data-theme="vintage"] .eyebrow::before { left: -14px; border-left-color: transparent; }
+[data-theme="vintage"] .eyebrow::after { right: -14px; border-right-color: transparent; }
+[data-theme="vintage"] .btn { text-transform: uppercase; letter-spacing: .12em; font-weight: 700; border-style: double; border-width: 4px; }

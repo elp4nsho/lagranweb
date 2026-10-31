@@ -1,0 +1,13 @@
+/* Bosque · Modernos · claro — Orgánico verde y tierra.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="forest"] {
+  --font-body: 'DM Sans', system-ui, sans-serif; --font-head: 'DM Serif Display', Georgia, serif;
+  --head-weight: 400; --head-spacing: 0;
+  --bg: #eef0e4; --bg-image: radial-gradient(ellipse at 0% 100%, rgba(47,93,58,.12), transparent 50%), radial-gradient(ellipse at 100% 0%, rgba(201,128,59,.12), transparent 45%);
+  --surface: #fbfbf5; --surface-2: #e4e8d6; --surface-3: #d7ddc4;
+  --text: #1f2a1e; --muted: #5f6b58; --line: #d3d8c3;
+  --primary: #2f5d3a; --primary-2: #3d7a4b; --on-primary: #f4f1e6; --accent: #c9803b;
+  --success: #3d7a4b; --warning: #c9803b; --danger: #a8432f; --info: #3f6e7a;
+  --radius: 28px 10px 28px 10px; --radius-sm: 14px 6px 14px 6px; --radius-pill: 999px;
+  --shadow: 0 10px 30px -14px rgba(31,42,30,.35); --shadow-lg: 0 30px 60px -24px rgba(31,42,30,.45);
+}

@@ -1,0 +1,48 @@
+/* Medieval · Temáticos · claro — manuscrito iluminado: pergamino, letra uncial, capitulares en rojo y lapislázuli. */
+[data-theme="medieval"] {
+  --font-body: 'Alegreya', Georgia, serif; --font-head: 'Uncial Antiqua', 'Alegreya', serif;
+  --head-weight: 400; --head-transform: none; --head-spacing: .01em; --body-size: 17px;
+  --bg: #ecdcb9;
+  --bg-image: radial-gradient(ellipse at 20% 30%, rgba(156, 110, 50, .14), transparent 40%), radial-gradient(ellipse at 80% 75%, rgba(156, 110, 50, .16), transparent 45%),
+    radial-gradient(ellipse at center, transparent 60%, rgba(110, 70, 30, .16)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath fill='%238e1b1b' fill-opacity='.05' d='M60 30c4 8 4 14 0 22-4-8-4-14 0-22zm-12 18c8 0 12 4 12 10-6-2-10-4-12-10zm24 0c-8 0-12 4-12 10 6-2 10-4 12-10zM56 58h8v6h-8z'/%3E%3C/svg%3E");
+  --surface: #f8eed6; --surface-2: #eddcb5; --surface-3: #e0c994;
+  --text: #2a1c10; --muted: #5a452f; --line: #9c7a45;
+  --primary: #8e1b1b; --primary-2: #a82424; --on-primary: #fff3dc;
+  --accent: #1f3f7a; --on-accent: #ffffff;
+  --success: #2a5e2a; --warning: #774a00; --danger: #8e1b1b; --info: #1f3f7a; --on-danger: #fff3dc;
+  --radius: 0px; --radius-sm: 2px; --radius-pill: 999px; --border-w: 2px;
+  --shadow: 0 10px 22px -14px rgba(60, 35, 10, .55);
+  --shadow-lg: 0 26px 50px -20px rgba(60, 35, 10, .6);
+  --focus: 0 0 0 3px #f8eed6, 0 0 0 5px #1f3f7a;
+  --pad: 24px;
+  color-scheme: light;
+}
+[data-theme="medieval"] body { background-size: auto, auto, auto, 120px 120px; }
+[data-theme="medieval"] h1 { font-size: clamp(32px, 5.5vw, 64px); }
+[data-theme="medieval"] h1::first-letter { color: var(--primary); font-size: 1.35em; text-shadow: 2px 2px 0 rgba(201, 162, 74, .7); }
+[data-theme="medieval"] h2 { color: var(--accent); }
+[data-theme="medieval"] h2::first-letter { color: var(--primary); }
+[data-theme="medieval"] .eyebrow { color: var(--primary); letter-spacing: .2em; font-variant: small-caps; text-transform: lowercase; font-size: 15px; }
+[data-theme="medieval"] .eyebrow::before { content: '⚜ '; color: #a8862f; }
+/* Doble marco de manuscrito: borde y filete interior. */
+:where([data-theme="medieval"]) .card { border-color: var(--line); outline: 1px solid rgba(156, 122, 69, .6); outline-offset: -7px; }
+[data-theme="medieval"] .card.hover:hover { transform: translateY(-2px); }
+[data-theme="medieval"] .btn { font-variant: small-caps; text-transform: lowercase; letter-spacing: .08em; font-size: 16px; font-weight: 700; border-color: var(--line); }
+[data-theme="medieval"] .btn-primary { border-color: #c9a24a; box-shadow: inset 0 0 0 2px #8e1b1b, inset 0 0 0 3px #c9a24a; }
+[data-theme="medieval"] .btn-accent { border-color: #c9a24a; }
+[data-theme="medieval"] .badge { font-variant: small-caps; text-transform: lowercase; font-size: 14px; }
+[data-theme="medieval"] .badge::before { content: '✠'; width: auto; height: auto; background: none; border-radius: 0; font-size: 10px; }
+[data-theme="medieval"] .table-wrap { border-color: var(--line); }
+[data-theme="medieval"] .table th { background: var(--accent); color: #f8eed6; font-variant: small-caps; text-transform: lowercase; letter-spacing: .08em; font-size: 15px; }
+[data-theme="medieval"] .table td { border-bottom-color: rgba(156, 122, 69, .45); }
+[data-theme="medieval"] .input, [data-theme="medieval"] .select, [data-theme="medieval"] .textarea { background-color: #fbf4e2; border-color: var(--line); }
+[data-theme="medieval"] .nav-link.active { background: var(--primary); color: #fff3dc; border-radius: 0; box-shadow: inset 0 0 0 1px #c9a24a; }
+[data-theme="medieval"] .nav-link.active .count { background: #fff3dc; color: var(--primary); }
+[data-theme="medieval"] .progress { border: 1px solid var(--line); }
+[data-theme="medieval"] .progress > i { background: linear-gradient(90deg, var(--accent), #3a5f9e); }
+[data-theme="medieval"] .avatar { border-radius: 0; box-shadow: 0 0 0 2px #c9a24a; }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="medieval"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }
+/* En celular el relleno vuelve al de la base: las grillas angostas de las webs no se desbordan. */
+@media (max-width: 600px) { [data-theme="medieval"] { --pad: 18px; } }

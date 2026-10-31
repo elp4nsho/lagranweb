@@ -1,0 +1,57 @@
+/* Zen japonés · Temáticos · claro — papel washi, tinta sumi, sello bermellón, mucho aire, enso y pétalos que caen. */
+[data-theme="zen"] {
+  --font-body: 'Zen Kaku Gothic New', system-ui, sans-serif; --font-head: 'Shippori Mincho', Georgia, serif;
+  --head-weight: 700; --head-transform: none; --head-spacing: .04em; --body-size: 15px;
+  --bg: #f4f1ea;
+  --bg-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.02 .4' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .35 0 0 0 0 .3 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  --surface: #fbf9f4; --surface-2: #efebe1; --surface-3: #e3ddcf;
+  --text: #1f1d1a; --muted: #5d5850; --line: #d6cfbf;
+  --primary: #b02a30; --primary-2: #c73e1d; --on-primary: #ffffff;
+  --accent: #3f5d4a; --on-accent: #ffffff;
+  --success: #3d6a49; --warning: #775400; --danger: #a61e22; --info: #35506b; --on-danger: #ffffff;
+  --radius: 2px; --radius-sm: 2px; --radius-pill: 999px; --border-w: 1px;
+  --shadow: none; --shadow-lg: 0 24px 50px -30px rgba(31, 29, 26, .4);
+  --focus: 0 0 0 2px #fbf9f4, 0 0 0 3px #1f1d1a;
+  --gap: 22px; --pad: 28px;
+  --ease: cubic-bezier(.25, .1, .25, 1);
+  color-scheme: light;
+}
+[data-theme="zen"] body { background-size: 200px 200px; }
+[data-theme="zen"] h1 { font-weight: 500; letter-spacing: .08em; }
+[data-theme="zen"] h2 { font-weight: 500; }
+[data-theme="zen"] .eyebrow { color: var(--muted); letter-spacing: .4em; font-weight: 500; }
+[data-theme="zen"] .eyebrow::before { content: ''; display: inline-block; width: 10px; height: 10px; margin-right: 10px; background: var(--primary); vertical-align: 0; }
+:where([data-theme="zen"]) .card { border-width: 0 0 1px; border-color: var(--line); background: var(--surface); }
+[data-theme="zen"] .card.hover:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+[data-theme="zen"] .btn { font-weight: 500; letter-spacing: .14em; font-size: 13px; border-color: var(--text); }
+[data-theme="zen"] .btn-primary { border-color: var(--primary); }
+[data-theme="zen"] .btn-ghost { border-color: transparent; }
+[data-theme="zen"] .btn-ghost:hover { border-color: var(--line); }
+[data-theme="zen"] .badge { border-radius: 2px; font-weight: 500; letter-spacing: .06em; }
+[data-theme="zen"] .badge::before { border-radius: 0; width: 5px; height: 5px; }
+[data-theme="zen"] .table-wrap { border-width: 1px 0; border-radius: 0; box-shadow: none; }
+[data-theme="zen"] .table th { background: transparent; color: var(--muted); font-weight: 500; letter-spacing: .2em; }
+[data-theme="zen"] .input, [data-theme="zen"] .select, [data-theme="zen"] .textarea { border-width: 0 0 1px; background-color: transparent; padding-inline: 2px; border-color: var(--muted); }
+[data-theme="zen"] .chip { border-radius: 2px; }
+[data-theme="zen"] .tab { letter-spacing: .1em; font-weight: 500; }
+[data-theme="zen"] .nav-link { letter-spacing: .06em; }
+[data-theme="zen"] .nav-link.active { background: transparent; color: var(--text); box-shadow: inset 3px 0 0 var(--primary); border-radius: 0; }
+[data-theme="zen"] .progress { height: 4px; border-radius: 0; background: var(--surface-3); }
+[data-theme="zen"] .progress > i { background: var(--text); border-radius: 0; }
+[data-theme="zen"] .avatar { font-family: var(--font-head); }
+/* Enso (círculo de pincel) al fondo y pétalos que caen lento (detrás del contenido). */
+[data-theme="zen"] body::before {
+  content: ''; position: fixed; right: -80px; bottom: -60px; width: 420px; height: 420px; z-index: -1; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none'%3E%3Cpath d='M150 40C120 14 60 16 34 60S30 160 96 172s92-40 78-96c-4-16-12-28-22-36' stroke='%231f1d1a' stroke-opacity='.08' stroke-width='14' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+[data-theme="zen"] body::after {
+  content: ''; position: fixed; left: 0; right: 0; top: -300px; height: calc(100% + 300px); z-index: -1; pointer-events: none;
+  background-image: radial-gradient(5px 3px at 60px 80px, rgba(232, 160, 170, .7) 95%, transparent), radial-gradient(4px 2.5px at 300px 210px, rgba(232, 160, 170, .55) 95%, transparent);
+  background-size: 420px 300px;
+  animation: lgw-zen-petals 30s linear infinite;
+}
+@keyframes lgw-zen-petals { to { transform: translate(-40px, 300px); } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="zen"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }
+/* En celular el relleno vuelve al de la base: las grillas angostas de las webs no se desbordan. */
+@media (max-width: 600px) { [data-theme="zen"] { --pad: 18px; } }

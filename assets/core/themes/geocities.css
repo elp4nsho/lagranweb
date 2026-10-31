@@ -1,0 +1,72 @@
+/* GeoCities 98 · Locos · oscuro — página personal de 1998: estrellas, ventanas biseladas de Windows 95, arcoíris y "en construcción". */
+[data-theme="geocities"] {
+  --font-body: 'Tinos', 'Times New Roman', serif; --font-head: 'Bungee', 'Impact', sans-serif;
+  --font-mono: 'Courier New', monospace;
+  --head-weight: 400; --head-transform: uppercase; --head-spacing: .02em; --body-size: 17px;
+  --bg: #000018;
+  --bg-image: radial-gradient(1px 1px at 10px 14px, #ffffff, transparent), radial-gradient(1px 1px at 52px 70px, #ffffaa, transparent),
+    radial-gradient(1.5px 1.5px at 90px 30px, #ffffff, transparent), radial-gradient(1px 1px at 30px 100px, #aaccff, transparent),
+    radial-gradient(1px 1px at 110px 110px, #ffffff, transparent);
+  --surface: #000040; --surface-2: #00006a; --surface-3: #1a1a8a;
+  --text: #ffffff; --muted: #ccccff; --line: #c0c0c0;
+  --primary: #00ffff; --primary-2: #66ffff; --on-primary: #000000;
+  --accent: #ff66ff; --on-accent: #000000;
+  --success: #33ff33; --warning: #ffff00; --danger: #ff5555; --info: #66ccff; --on-danger: #000000;
+  --radius: 0px; --radius-sm: 0px; --radius-pill: 0px; --border-w: 3px;
+  --shadow: none; --shadow-lg: 4px 4px 0 #000000;
+  --focus: 0 0 0 2px #000000, 0 0 0 4px #ffff00;
+  --ease: steps(3);
+  color-scheme: dark;
+}
+[data-theme="geocities"] body { background-size: 128px 128px; }
+[data-theme="geocities"] h1 { font-family: 'Bungee Shade', 'Bungee', sans-serif; font-size: clamp(30px, 5.4vw, 64px); background: linear-gradient(90deg, #ff4d4d, #ffa600, #ffff33, #33ff66, #33ccff, #cc77ff); -webkit-background-clip: text; background-clip: text; color: transparent; overflow-wrap: break-word; }
+[data-theme="geocities"] h2 { color: #ffff00; text-shadow: 2px 2px 0 #ff00ff; overflow-wrap: break-word; }
+[data-theme="geocities"] h3 { color: #00ffff; }
+[data-theme="geocities"] a:not([class]) { color: #00ffff; text-decoration: underline; }
+[data-theme="geocities"] .eyebrow { color: #ffff00; letter-spacing: .1em; font-family: var(--font-head); font-weight: 400; animation: lgw-geocities-blink 1.2s steps(1) 4; }
+[data-theme="geocities"] .eyebrow::before { content: '🚧 '; }
+@keyframes lgw-geocities-blink { 50% { opacity: .2; } }
+[data-theme="geocities"] hr { border: 0; height: 4px; background: linear-gradient(90deg, #ff4d4d, #ffa600, #ffff33, #33ff66, #33ccff, #cc77ff); }
+/* Tarjetas como ventanas: bisel 3D gris (outset) y barra de título azul pintada en el borde superior. */
+:where([data-theme="geocities"]) .card {
+  border: 3px outset #c0c0c0; border-top-width: 22px; border-top-style: solid; border-top-color: transparent;
+  background:
+    linear-gradient(#c0c0c0, #c0c0c0) right 4px top 4px / 14px 13px no-repeat border-box,
+    linear-gradient(90deg, #000080, #1084d0) 0 0 / 100% 22px no-repeat border-box,
+    var(--surface) padding-box;
+}
+[data-theme="geocities"] .card.hover:hover { transform: none; box-shadow: 4px 4px 0 #ff00ff; }
+[data-theme="geocities"] .btn { --b: #c0c0c0; --c: #000000; border: 3px outset #ffffff; font-family: var(--font-body); font-weight: 700; font-size: 15px; }
+[data-theme="geocities"] .btn:active { border-style: inset; transform: none; }
+[data-theme="geocities"] .btn-primary { --b: #00ffff; --c: #000000; }
+[data-theme="geocities"] .btn-accent { --b: #ff66ff; --c: #000000; }
+[data-theme="geocities"] .btn-danger { --b: #ff5555; --c: #000000; }
+[data-theme="geocities"] .btn-ghost { --b: transparent; --c: #ffff00; border-color: #ffff00; border-style: dashed; }
+[data-theme="geocities"] .badge { border-radius: 0; font-family: var(--font-mono); font-weight: 700; border-width: 2px; border-style: outset; }
+[data-theme="geocities"] .badge::before { content: '★'; width: auto; height: auto; background: none; border-radius: 0; }
+[data-theme="geocities"] .table-wrap { border: 3px outset #c0c0c0; }
+[data-theme="geocities"] .table th { background: #000080; color: #ffffff; text-transform: none; font-family: var(--font-mono); letter-spacing: 0; font-size: 14px; border: 1px solid #c0c0c0; }
+[data-theme="geocities"] .table td { border: 1px solid #555599; }
+[data-theme="geocities"] .input, [data-theme="geocities"] .select, [data-theme="geocities"] .textarea { background-color: #ffffff; color: #000000; border: 3px inset #c0c0c0; font-family: var(--font-mono); }
+[data-theme="geocities"] .input::placeholder, [data-theme="geocities"] .textarea::placeholder { color: #555555; }
+[data-theme="geocities"] .tab { color: #ccccff; font-family: var(--font-mono); }
+[data-theme="geocities"] .tab.active, [data-theme="geocities"] .tab[aria-selected="true"] { color: #ffff00; border-bottom-color: #ffff00; }
+[data-theme="geocities"] .nav-link { color: #00ffff; text-decoration: underline; }
+[data-theme="geocities"] .nav-link.active { background: #000080; color: #ffffff; text-decoration: none; border: 2px outset #c0c0c0; }
+[data-theme="geocities"] .admin-sidebar { border-right: 3px outset #c0c0c0; }
+/* Franja "en construcción" bajo la barra superior y al pie. */
+[data-theme="geocities"] .admin-topbar, [data-theme="geocities"] .site-header { border-bottom: 8px solid transparent; border-image: repeating-linear-gradient(-45deg, #ffcc00 0 12px, #111111 12px 24px) 8; }
+[data-theme="geocities"] .site-footer { border-top: 8px solid transparent; border-image: repeating-linear-gradient(-45deg, #ffcc00 0 12px, #111111 12px 24px) 8; }
+[data-theme="geocities"] .progress { border-radius: 0; border: 2px inset #c0c0c0; background: #ffffff; height: 14px; }
+[data-theme="geocities"] .progress > i { border-radius: 0; background: repeating-linear-gradient(90deg, #000080 0 10px, transparent 10px 12px); }
+[data-theme="geocities"] .avatar { border-radius: 0; border: 2px outset #c0c0c0; }
+[data-theme="geocities"] .modal { border: 3px outset #c0c0c0; }
+[data-theme="geocities"] .modal-head { background: linear-gradient(90deg, #000080, #1084d0); }
+/* Estrellas que titilan (detrás del contenido). */
+[data-theme="geocities"] body::before {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image: radial-gradient(2px 2px at 40px 60px, #ffffff, transparent), radial-gradient(2px 2px at 200px 160px, #ffff99, transparent), radial-gradient(1.5px 1.5px at 330px 40px, #99ccff, transparent);
+  background-size: 380px 260px;
+  animation: lgw-geocities-twinkle 2.4s steps(2) infinite;
+}
+@keyframes lgw-geocities-twinkle { 50% { opacity: .2; } }

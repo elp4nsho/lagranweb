@@ -1,0 +1,51 @@
+/* Terminal · Modernos · oscuro — Fósforo verde de consola.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="terminal"] {
+  --font-body: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-head: 'VT323', 'IBM Plex Mono', monospace;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --head-weight: 400;
+  --head-transform: uppercase;
+  --head-spacing: .04em;
+  --body-size: 14px;
+  --bg: #020a03;
+  --bg-image: repeating-linear-gradient(0deg, rgba(51, 255, 102, .04) 0 1px, transparent 1px 3px), radial-gradient(ellipse at center, rgba(51, 255, 102, .08), transparent 70%);
+  --surface: #031205;
+  --surface-2: #062009;
+  --surface-3: #0a2e0f;
+  --text: #33ff66;
+  --muted: #1fae46;
+  --line: #1d7a35;
+  --primary: #33ff66;
+  --primary-2: #7dff9c;
+  --on-primary: #020a03;
+  --accent: #ffb000;
+  --success: #33ff66;
+  --warning: #ffb000;
+  --danger: #ff4040;
+  --info: #3fd0ff;
+  --radius: 0px;
+  --radius-sm: 0px;
+  --radius-pill: 0px;
+  --shadow: 0 0 0 1px rgba(51, 255, 102, .25), 0 0 20px -8px rgba(51, 255, 102, .5);
+  --shadow-lg: 0 0 40px -6px rgba(51, 255, 102, .45);
+  --focus: 0 0 0 1px var(--bg), 0 0 0 3px var(--primary);
+  color-scheme: dark;
+}
+[data-theme="terminal"] h1, [data-theme="terminal"] h2, [data-theme="terminal"] h3 { text-shadow: 0 0 8px rgba(51, 255, 102, .7); }
+[data-theme="terminal"] h1::before { content: '> '; }
+[data-theme="terminal"] body { text-shadow: 0 0 2px rgba(51, 255, 102, .5); }
+[data-theme="terminal"] .card { border-style: dashed; }
+[data-theme="terminal"] .btn { text-transform: uppercase; border-style: solid; }
+[data-theme="terminal"] .btn::before { content: '['; }
+[data-theme="terminal"] .btn::after { content: ']'; }
+[data-theme="terminal"] .btn.btn-icon::before, [data-theme="terminal"] .btn.btn-icon::after { content: none; }
+[data-theme="terminal"] .btn:hover { --b: var(--primary); --c: var(--on-primary); text-shadow: none; }
+[data-theme="terminal"] .input, [data-theme="terminal"] .textarea { caret-color: var(--primary); background: var(--bg); }
+[data-theme="terminal"] .badge { text-transform: uppercase; }
+[data-theme="terminal"] .badge::before { content: '*'; width: auto; height: auto; background: none; }
+[data-theme="terminal"] .avatar { border-radius: 0; }
+[data-theme="terminal"] .progress > i { background: repeating-linear-gradient(90deg, var(--primary) 0 8px, transparent 8px 10px); }
+[data-theme="terminal"] .nav-link.active { background: var(--primary); color: var(--on-primary); text-shadow: none; }
+[data-theme="terminal"] .nav-link.active::before { content: '>'; }
+[data-theme="terminal"] .chart .line { filter: drop-shadow(0 0 6px var(--primary)); }

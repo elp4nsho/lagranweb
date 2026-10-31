@@ -1,0 +1,35 @@
+/* Banca privada · Formales · claro — verde botella, latón, cifras tabulares y filete superior en cada pieza. */
+[data-theme="banca"] {
+  --font-body: 'Figtree', system-ui, sans-serif; --font-head: 'Spectral', Georgia, serif;
+  --head-weight: 600; --head-transform: none; --head-spacing: -0.01em; --body-size: 15px;
+  --bg: #f2f4f3;
+  --bg-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(11, 59, 46, .08), transparent 70%);
+  --surface: #ffffff; --surface-2: #edf1ef; --surface-3: #dde5e1;
+  --text: #0f201b; --muted: #4c5b55; --line: #d3dcd8;
+  --primary: #0b3b2e; --primary-2: #13563f; --on-primary: #ffffff;
+  --accent: #b08d57; --on-accent: #1a1408;
+  --success: #1c6a44; --warning: #845800; --danger: #a12530; --info: #1f5878; --on-danger: #ffffff;
+  --radius: 6px; --radius-sm: 4px; --radius-pill: 999px; --border-w: 1px;
+  --shadow: inset 0 2px 0 #b08d57, 0 1px 2px rgba(15, 32, 27, .06), 0 16px 32px -22px rgba(15, 32, 27, .35);
+  --shadow-lg: 0 30px 60px -26px rgba(15, 32, 27, .45);
+  --focus: 0 0 0 3px rgba(176, 141, 87, .55);
+  --pad: 22px;
+  color-scheme: light;
+}
+[data-theme="banca"] body { font-variant-numeric: tabular-nums; }
+[data-theme="banca"] .eyebrow { color: var(--primary); letter-spacing: .22em; font-weight: 600; }
+[data-theme="banca"] .eyebrow::before { content: ''; display: inline-block; width: 22px; height: 1px; margin-right: 10px; vertical-align: middle; background: var(--accent); }
+[data-theme="banca"] .stat .value { font-family: var(--font-head); font-weight: 500; }
+[data-theme="banca"] .btn { font-weight: 600; letter-spacing: .02em; }
+[data-theme="banca"] .btn-primary:hover { --b: var(--primary-2); filter: none; }
+[data-theme="banca"] .btn-accent { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35); }
+[data-theme="banca"] .table th { background: transparent; color: var(--muted); border-bottom: 1px solid var(--accent); letter-spacing: .1em; }
+[data-theme="banca"] .table td { font-variant-numeric: tabular-nums; }
+[data-theme="banca"] .chip.active, [data-theme="banca"] .chip[aria-pressed="true"] { box-shadow: inset 0 -2px 0 var(--accent); }
+[data-theme="banca"] .progress > i { background: linear-gradient(90deg, var(--primary), var(--accent)); }
+[data-theme="banca"] .admin-sidebar { --surface: #0b3b2e; --surface-2: #12503e; --text: #eef5f1; --muted: #a9c3b8; --line: #1f5747; --primary: #e3c48e; --on-primary: #10201a; background: var(--surface); color: var(--text); }
+[data-theme="banca"] .admin-sidebar .nav-link.active { background: rgba(227, 196, 142, .14); box-shadow: inset 2px 0 0 #e3c48e; }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="banca"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }
+/* En celular el relleno vuelve al de la base: las grillas angostas de las webs no se desbordan. */
+@media (max-width: 600px) { [data-theme="banca"] { --pad: 18px; } }

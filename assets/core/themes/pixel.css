@@ -1,0 +1,21 @@
+/* Pixel · Modernos · oscuro — Videojuego 8 bits.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="pixel"] {
+  --font-body: 'Silkscreen', monospace; --font-head: 'Press Start 2P', monospace;
+  --head-weight: 400; --head-transform: uppercase; --head-spacing: 0; --body-size: 14px;
+  --bg: #1d1b3a; --bg-image: linear-gradient(45deg, #23214a 25%, transparent 25%, transparent 75%, #23214a 75%), linear-gradient(45deg, #23214a 25%, transparent 25%, transparent 75%, #23214a 75%);
+  --surface: #2b2857; --surface-2: #38357a; --surface-3: #4a46a0;
+  --text: #ffffff; --muted: #b7b3ff; --line: #000000;
+  --primary: #ffcd00; --primary-2: #ffe14d; --on-primary: #000000; --accent: #00d26a;
+  --success: #00d26a; --warning: #ff9a00; --danger: #ff3b5c; --info: #39c2ff;
+  --radius: 0px; --radius-sm: 0px; --radius-pill: 0px; --border-w: 4px;
+  --shadow: inset -4px -4px 0 rgba(0,0,0,.35), inset 4px 4px 0 rgba(255,255,255,.15), 4px 4px 0 #000;
+  --shadow-lg: 8px 8px 0 #000; --focus: 0 0 0 4px #ffcd00; color-scheme: dark;
+}
+[data-theme="pixel"] body { background-size: 32px 32px; background-position: 0 0, 16px 16px; image-rendering: pixelated; }
+[data-theme="pixel"] h1 { font-size: clamp(20px, 3.4vw, 36px); line-height: 1.4; }
+[data-theme="pixel"] h2 { font-size: clamp(16px, 2.4vw, 24px); line-height: 1.4; }
+[data-theme="pixel"] h3 { font-size: 13px; line-height: 1.5; }
+[data-theme="pixel"] .btn { box-shadow: inset -4px -4px 0 rgba(0,0,0,.35), inset 4px 4px 0 rgba(255,255,255,.3); border-color: #000; text-transform: uppercase; }
+[data-theme="pixel"] .btn:active { box-shadow: inset 4px 4px 0 rgba(0,0,0,.35); }
+[data-theme="pixel"] .avatar { border-radius: 0; }

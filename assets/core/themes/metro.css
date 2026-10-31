@@ -1,0 +1,26 @@
+/* Metro · Era HTML5 · oscuro — Windows 8, mosaicos planos.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="metro"] {
+  --on-accent: #ffffff;
+  --font-body: 'Segoe UI', 'Open Sans', sans-serif; --font-head: 'Segoe UI Light', 'Open Sans', sans-serif;
+  --head-weight: 300; --head-spacing: -0.01em; --head-transform: lowercase;
+  --bg: #1d1d1d; --surface: #2d2d2d; --surface-2: #393939; --surface-3: #4a4a4a;
+  --text: #ffffff; --muted: #bdbdbd; --line: #3e3e3e;
+  --primary: #00a300; --primary-2: #2dbe2d; --on-primary: #ffffff; --accent: #2d89ef;
+  --success: #00a300; --warning: #ffc40d; --danger: #ee1111; --info: #2d89ef;
+  --radius: 0px; --radius-sm: 0px; --radius-pill: 0px; --border-w: 0px;
+  --shadow: none; --shadow-lg: none; --focus: 0 0 0 3px #fff; color-scheme: dark;
+}
+[data-theme="metro"] h1 { font-size: clamp(36px, 6vw, 72px); }
+[data-theme="metro"] .card { background: var(--tile, #2d2d2d); }
+[data-theme="metro"] .grid-auto > .card:nth-child(6n+1), [data-theme="metro"] .grid-3 > .card:nth-child(6n+1), [data-theme="metro"] .grid-4 > .card:nth-child(6n+1) { --tile: #00a300; }
+[data-theme="metro"] .grid-auto > .card:nth-child(6n+2), [data-theme="metro"] .grid-3 > .card:nth-child(6n+2), [data-theme="metro"] .grid-4 > .card:nth-child(6n+2) { --tile: #2d89ef; }
+[data-theme="metro"] .grid-auto > .card:nth-child(6n+3), [data-theme="metro"] .grid-3 > .card:nth-child(6n+3), [data-theme="metro"] .grid-4 > .card:nth-child(6n+3) { --tile: #9f00a7; }
+[data-theme="metro"] .grid-auto > .card:nth-child(6n+4), [data-theme="metro"] .grid-3 > .card:nth-child(6n+4), [data-theme="metro"] .grid-4 > .card:nth-child(6n+4) { --tile: #da532c; }
+[data-theme="metro"] .grid-auto > .card:nth-child(6n+5), [data-theme="metro"] .grid-3 > .card:nth-child(6n+5), [data-theme="metro"] .grid-4 > .card:nth-child(6n+5) { --tile: #00aba9; }
+[data-theme="metro"] .grid-auto > .card:nth-child(6n), [data-theme="metro"] .grid-3 > .card:nth-child(6n), [data-theme="metro"] .grid-4 > .card:nth-child(6n) { --tile: #b91d47; }
+[data-theme="metro"] .card.hover:hover { transform: scale(.97); }
+[data-theme="metro"] .btn { border: 2px solid #fff; --b: transparent; --c: #fff; }
+[data-theme="metro"] .btn-primary { --b: var(--primary); border-color: var(--primary); }
+/* Metro: los mosaicos de colores son solo para el sitio público; en el panel las tarjetas quedan neutras */
+[data-theme="metro"] .admin-content .card, [data-theme="metro"] .modal .card { --tile: var(--surface) !important; }

@@ -1,0 +1,53 @@
+/* Fiestas Patrias · Fiestas · claro — dieciocho chileno: azul, blanco y rojo, banderines, franja de bandera y estrella. */
+[data-theme="dieciocho"] {
+  --font-body: 'Nunito Sans', system-ui, sans-serif; --font-head: 'Alfa Slab One', Georgia, serif;
+  --head-weight: 400; --head-transform: none; --head-spacing: .01em; --body-size: 16px;
+  --bg: #fbf7ef;
+  --bg-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='120' viewBox='0 0 168 120'%3E%3Cpath d='M0 8Q84 34 168 8' fill='none' stroke='%237a6a55' stroke-opacity='.18'/%3E%3Cpath d='M10 11l14 0-7 16z' fill='%230039a6' fill-opacity='.14'/%3E%3Cpath d='M38 17l14 3-8 15z' fill='%23d52b1e' fill-opacity='.14'/%3E%3Cpath d='M70 20h14l-7 16z' fill='%23ffffff' stroke='%237a6a55' stroke-opacity='.2'/%3E%3Cpath d='M102 19l14-2-6 16z' fill='%230039a6' fill-opacity='.14'/%3E%3Cpath d='M134 14l14-4-5 16z' fill='%23d52b1e' fill-opacity='.14'/%3E%3C/svg%3E");
+  --surface: #ffffff; --surface-2: #f3ede0; --surface-3: #e7decb;
+  --text: #1d1a16; --muted: #59524a; --line: #dbd0bc;
+  --primary: #0039a6; --primary-2: #1a52c2; --on-primary: #ffffff;
+  --accent: #c8261b; --on-accent: #ffffff;
+  --success: #27712d; --warning: #865700; --danger: #b3261e; --info: #1c5aa6; --on-danger: #ffffff;
+  --radius: 10px; --radius-sm: 8px; --radius-pill: 999px; --border-w: 2px;
+  --shadow: 4px 4px 0 rgba(0, 57, 166, .14);
+  --shadow-lg: 8px 8px 0 rgba(200, 38, 27, .18);
+  --focus: 0 0 0 3px #fbf7ef, 0 0 0 5px #0039a6;
+  color-scheme: light;
+}
+[data-theme="dieciocho"] body { background-size: 168px 120px; }
+[data-theme="dieciocho"] h1 { color: var(--primary); text-shadow: 3px 3px 0 rgba(200, 38, 27, .18); overflow-wrap: break-word; }
+[data-theme="dieciocho"] h2 { overflow-wrap: break-word; }
+[data-theme="dieciocho"] .eyebrow { color: var(--accent); }
+[data-theme="dieciocho"] .eyebrow::before { content: '★ '; color: var(--primary); }
+/* Franja de la bandera arriba de cada tarjeta: cuadro azul con estrella, blanco y rojo. */
+:where([data-theme="dieciocho"]) .card {
+  border-top-width: 10px; border-top-color: transparent;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath fill='%23fff' d='M5 1.2l1 2.9h3l-2.4 1.8.9 2.9L5 7 2.5 8.8l.9-2.9L1 4.1h3z'/%3E%3C/svg%3E") 8px 0 / 10px 10px no-repeat border-box,
+    linear-gradient(#0039a6, #0039a6) 0 0 / 26px 10px no-repeat border-box,
+    linear-gradient(180deg, #ffffff 0 5px, #c8261b 5px 10px) 0 0 / 100% 10px no-repeat border-box,
+    var(--surface);
+}
+[data-theme="dieciocho"] .card { border-color: var(--line); }
+[data-theme="dieciocho"] .btn { font-weight: 800; border-radius: var(--radius-pill); }
+[data-theme="dieciocho"] .btn-primary { box-shadow: 0 4px 0 #c8261b; }
+[data-theme="dieciocho"] .btn-primary:active { box-shadow: 0 1px 0 #c8261b; transform: translateY(3px); }
+[data-theme="dieciocho"] .btn-accent { box-shadow: 0 4px 0 #0039a6; }
+[data-theme="dieciocho"] .badge { font-weight: 800; }
+[data-theme="dieciocho"] .table th { background: var(--primary); color: #ffffff; }
+[data-theme="dieciocho"] .table-wrap { border-color: var(--primary); }
+[data-theme="dieciocho"] .table tbody tr:nth-child(even) { background: #faf6ee; }
+[data-theme="dieciocho"] .nav-link.active { background: var(--primary); color: #ffffff; box-shadow: inset -4px 0 0 #c8261b; }
+[data-theme="dieciocho"] .nav-link.active .count { background: #ffffff; color: var(--primary); }
+[data-theme="dieciocho"] .progress > i { background: linear-gradient(90deg, #0039a6 0 33%, #ffffff 33% 66%, #c8261b 66%); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .1); }
+[data-theme="dieciocho"] .chip.active, [data-theme="dieciocho"] .chip[aria-pressed="true"] { box-shadow: inset 0 -3px 0 #c8261b; }
+/* Guirnalda de banderines que se mece arriba (detrás del contenido). */
+[data-theme="dieciocho"] body::before {
+  content: ''; position: fixed; left: -40px; right: -40px; top: 0; height: 60px; z-index: -1; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'%3E%3Cpath d='M0 6Q60 30 120 6' fill='none' stroke='%237a6a55' stroke-width='1.5'/%3E%3Cpath d='M12 9l18 5-11 22z' fill='%230039a6'/%3E%3Cpath d='M48 16h20l-10 24z' fill='%23ffffff' stroke='%23d9cfbd'/%3E%3Cpath d='M86 14l18-5-7 23z' fill='%23c8261b'/%3E%3C/svg%3E") 0 0 / 120px 60px repeat-x;
+  opacity: .35; transform-origin: top; animation: lgw-dieciocho-sway 5s ease-in-out infinite alternate;
+}
+@keyframes lgw-dieciocho-sway { from { transform: rotate(-.6deg); } to { transform: rotate(.6deg); } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="dieciocho"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }

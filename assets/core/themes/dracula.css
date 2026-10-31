@@ -1,0 +1,49 @@
+/* Drácula · Terror · oscuro — gótico: damasco carmesí, marfil, arcos ojivales y luz de vela. */
+[data-theme="dracula"] {
+  --font-body: 'EB Garamond', Georgia, serif; --font-head: 'Pirata One', 'EB Garamond', serif;
+  --head-weight: 400; --head-transform: none; --head-spacing: .02em; --body-size: 17px;
+  --bg: #0c0607;
+  --bg-image: radial-gradient(ellipse at 50% 0%, rgba(193, 18, 31, .16), transparent 55%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='120' viewBox='0 0 80 120'%3E%3Cg fill='%23c1121f' fill-opacity='.06'%3E%3Cpath d='M40 6c10 14 22 18 22 34S48 62 40 76C32 62 18 56 18 40S30 20 40 6z'/%3E%3Cpath d='M0 66c10 14 22 18 22 34S8 122 0 136V66zM80 66c-10 14-22 18-22 34s14 22 22 36V66z'/%3E%3Ccircle cx='40' cy='100' r='5'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, .65));
+  --surface: #170b0d; --surface-2: #231013; --surface-3: #34181d;
+  --text: #f3e9e1; --muted: #c2aba4; --line: #4d232a;
+  --primary: #eb5766; --primary-2: #ff5a69; --on-primary: #160304;
+  --accent: #d9c7a3; --on-accent: #1d1206;
+  --success: #8fc79a; --warning: #e6b45a; --danger: #ff6b6b; --info: #9db7d6; --on-danger: #1c0404;
+  --radius: 26px 26px 3px 3px; --radius-sm: 3px; --radius-pill: 3px; --border-w: 1px;
+  --shadow: 0 0 0 1px rgba(235, 87, 102, .14), 0 18px 40px -16px rgba(0, 0, 0, .9);
+  --shadow-lg: 0 0 0 1px rgba(235, 87, 102, .3), 0 40px 80px -24px rgba(0, 0, 0, .95);
+  --focus: 0 0 0 2px #0c0607, 0 0 0 4px #eb5766;
+  --pad: 24px;
+  color-scheme: dark;
+}
+[data-theme="dracula"] body { background-size: auto, 80px 120px, auto; }
+[data-theme="dracula"] h1, [data-theme="dracula"] h2 { color: #f6ece4; text-shadow: 0 2px 0 #4a0a12, 0 0 30px rgba(235, 87, 102, .35); }
+[data-theme="dracula"] h1 { font-size: clamp(36px, 6vw, 70px); }
+[data-theme="dracula"] .eyebrow { color: var(--accent); letter-spacing: .3em; font-weight: 600; }
+[data-theme="dracula"] .eyebrow::before { content: '❦ '; color: var(--primary); }
+:where([data-theme="dracula"]) .card { border-top: 2px solid var(--primary); background: linear-gradient(180deg, rgba(235, 87, 102, .07), transparent 90px), var(--surface); }
+[data-theme="dracula"] .btn { font-family: var(--font-head); font-weight: 400; font-size: 17px; letter-spacing: .06em; }
+[data-theme="dracula"] .btn-primary { box-shadow: 0 0 0 1px #160304 inset, 0 0 22px rgba(235, 87, 102, .35); }
+[data-theme="dracula"] .btn-ghost { border-color: var(--accent); }
+[data-theme="dracula"] .badge { border-radius: 3px; font-style: italic; font-size: 13px; }
+[data-theme="dracula"] .badge::before { content: '✦'; width: auto; height: auto; background: none; font-size: 9px; }
+[data-theme="dracula"] .table th { font-family: var(--font-head); font-weight: 400; font-size: 15px; letter-spacing: .08em; text-transform: none; color: var(--accent); background: var(--surface-2); border-bottom: 1px solid var(--primary); }
+[data-theme="dracula"] .input, [data-theme="dracula"] .select, [data-theme="dracula"] .textarea { background-color: #100709; }
+[data-theme="dracula"] .nav-link { font-size: 15px; }
+[data-theme="dracula"] .nav-link.active { background: linear-gradient(90deg, rgba(235, 87, 102, .22), transparent); color: #fff1ec; box-shadow: inset 2px 0 0 var(--primary); border-radius: 0; }
+[data-theme="dracula"] .tab.active, [data-theme="dracula"] .tab[aria-selected="true"] { color: var(--primary); }
+[data-theme="dracula"] .progress > i { background: linear-gradient(90deg, #6d0a14, var(--primary)); }
+[data-theme="dracula"] .modal-head { border-bottom-color: var(--primary); }
+/* Luz de vela que titila al pie de la página (detrás del contenido). */
+[data-theme="dracula"] body::before {
+  content: ''; position: fixed; left: 50%; bottom: -30vh; width: 120vw; height: 70vh; transform: translateX(-50%); z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(255, 150, 60, .10), rgba(193, 18, 31, .06) 40%, transparent 70%);
+  animation: lgw-dracula-candle 3.2s ease-in-out infinite alternate;
+}
+@keyframes lgw-dracula-candle { 0% { opacity: .7; } 40% { opacity: 1; } 55% { opacity: .8; } 100% { opacity: .95; } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="dracula"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }
+/* En celular el relleno vuelve al de la base: las grillas angostas de las webs no se desbordan. */
+@media (max-width: 600px) { [data-theme="dracula"] { --pad: 18px; } }

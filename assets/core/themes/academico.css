@@ -1,0 +1,49 @@
+/* Académico · Formales · claro — paper de investigación: papel marfil, serif STIX, tablas "booktabs" y versalitas. */
+[data-theme="academico"] {
+  --font-body: 'STIX Two Text', 'Times New Roman', serif; --font-head: 'STIX Two Text', 'Times New Roman', serif;
+  --font-mono: 'Courier Prime', 'Courier New', monospace;
+  --head-weight: 600; --head-transform: none; --head-spacing: 0; --body-size: 17px;
+  --bg: #fffff8; --bg-image: none;
+  --surface: #fffff8; --surface-2: #f5f2e6; --surface-3: #e9e4d2;
+  --text: #111111; --muted: #57534a; --line: #c9c3b0;
+  --primary: #8c1515; --primary-2: #a8201f; --on-primary: #ffffff;
+  --accent: #2b5a7a; --on-accent: #ffffff;
+  --success: #2f6a3d; --warning: #7a5000; --danger: #a4161a; --info: #2b5a7a; --on-danger: #ffffff;
+  --radius: 0px; --radius-sm: 0px; --radius-pill: 0px; --border-w: 1px;
+  --shadow: none; --shadow-lg: 0 18px 40px -24px rgba(17, 17, 17, .4);
+  --focus: 0 0 0 2px #fffff8, 0 0 0 3px #8c1515;
+  --gap: 18px; --pad: 22px;
+  color-scheme: light;
+}
+[data-theme="academico"] h1 { font-weight: 400; font-style: italic; }
+[data-theme="academico"] h2 { font-weight: 400; font-variant: small-caps; letter-spacing: .03em; text-transform: lowercase; }
+[data-theme="academico"] h2::first-letter { text-transform: uppercase; }
+[data-theme="academico"] .eyebrow { color: var(--primary); font-variant: small-caps; text-transform: lowercase; letter-spacing: .08em; font-weight: 600; font-size: 15px; }
+[data-theme="academico"] .eyebrow::before { content: '§ '; }
+[data-theme="academico"] :where(.site-main, .admin-content) a:not([class]) { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+:where([data-theme="academico"]) .card { border-width: 1px 0; border-color: var(--text); background: var(--surface); }
+[data-theme="academico"] .card.hover:hover { transform: none; box-shadow: inset 3px 0 0 var(--primary); }
+[data-theme="academico"] .btn { font-variant: small-caps; text-transform: lowercase; letter-spacing: .06em; font-size: 16px; font-weight: 600; border-color: var(--text); }
+[data-theme="academico"] .btn-primary { border-color: var(--primary); }
+[data-theme="academico"] .btn-ghost { border-color: transparent; text-decoration: underline; text-underline-offset: .2em; }
+[data-theme="academico"] .badge { border-radius: 0; font-variant: small-caps; text-transform: lowercase; font-size: 13px; letter-spacing: .04em; }
+[data-theme="academico"] .badge::before { content: '¶'; width: auto; height: auto; background: none; border-radius: 0; font-size: 11px; }
+[data-theme="academico"] .chip { border-radius: 0; }
+/* Tablas estilo booktabs: filete grueso arriba y abajo, fino bajo el encabezado, sin verticales. */
+[data-theme="academico"] .table-wrap { border-width: 2px 0; border-color: var(--text); border-radius: 0; box-shadow: none; background: transparent; }
+[data-theme="academico"] .table th { background: transparent; color: var(--text); font-variant: small-caps; text-transform: lowercase; letter-spacing: .05em; font-size: 15px; border-bottom: 1px solid var(--text); }
+[data-theme="academico"] .table td { border-bottom: 0; }
+[data-theme="academico"] .table tbody tr:hover { background: var(--surface-2); }
+[data-theme="academico"] .input, [data-theme="academico"] .select, [data-theme="academico"] .textarea { border-color: var(--muted); background-color: #fffffc; }
+[data-theme="academico"] .tab { font-variant: small-caps; text-transform: lowercase; font-size: 16px; }
+[data-theme="academico"] .nav-link { font-size: 15px; }
+[data-theme="academico"] .nav-link.active { background: transparent; color: var(--primary); box-shadow: inset 2px 0 0 var(--primary); border-radius: 0; font-style: italic; }
+[data-theme="academico"] .admin-sidebar { background: var(--surface-2); }
+[data-theme="academico"] .stat .value { font-weight: 400; font-variant-numeric: oldstyle-nums; }
+[data-theme="academico"] .avatar { border-radius: 0; font-family: var(--font-head); }
+[data-theme="academico"] .progress { border-radius: 0; height: 6px; background: var(--surface-3); }
+[data-theme="academico"] .progress > i { background: var(--primary); }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="academico"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }
+/* En celular el relleno vuelve al de la base: las grillas angostas de las webs no se desbordan. */
+@media (max-width: 600px) { [data-theme="academico"] { --pad: 18px; } }

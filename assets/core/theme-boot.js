@@ -1,40 +1,96 @@
-// Sistema de estilos de La Gran Web. Script clásico: cárgalo SINCRÓNICO en <head>
+// Sistema de estilos y disposiciones de La Gran Web. Script clásico: cárgalo SINCRÓNICO en <head>
 // para aplicar el estilo antes del primer pintado.
 //   <html data-app="tienda" data-default-theme="brutal">
 //   <script src="../assets/core/theme-boot.js"></script>
+// Para fijar un estilo sin guardarlo (capturas, enlaces): ?theme=<id> en la URL.
 (function () {
+  // ---------- Estilos: REGISTRO ÚNICO ----------
+  // Lo usan el panel 🎨 (agrupado por categoría, con búsqueda), Alt + ← / →, la landing, kit.html,
+  // la validación del valor guardado y tools/check-themes.mjs (que lee este arreglo).
+  // Agregar un estilo = una entrada aquí + el archivo assets/core/themes/<id>.css (ver assets/core/THEMES.md).
+  // Solo se descarga la hoja del estilo activo (css: false = sin hoja propia: sus tokens están en themes.css).
+  //   id    → valor de html[data-theme] y nombre del archivo CSS
+  //   name  → nombre visible · desc → una línea · group → id de THEME_GROUPS
+  //   dark  → true si el fondo es oscuro (filtro claro/oscuro del panel)
+  //   sw    → muestras [fondo, primario, acento] para las miniaturas
+  //   fonts → familias de Google Fonts (parámetro family= de css2; '' = fuentes del sistema)
+  //   anim  → animación de entrada (estilo animate.css) de [data-anim] y las .card del sitio público
+  var THEME_GROUPS = [
+    { id: 'modernos',  name: 'Modernos',               icon: '✦' },
+    { id: 'html5',     name: 'Era HTML5 · animate.css', icon: '⟲' },
+    { id: 'formales',  name: 'Formales',               icon: '⚖️' },
+    { id: 'terror',    name: 'Terror',                 icon: '🦇' },
+    { id: 'fiestas',   name: 'Fiestas y fechas',       icon: '🎉' },
+    { id: 'locos',     name: 'Locos',                  icon: '🌀' },
+    { id: 'tematicos', name: 'Temáticos',              icon: '🧭' }
+  ];
   var THEMES = [
-    { id: 'aurora',    name: 'Aurora',    desc: 'SaaS limpio y luminoso',  sw: ['#f6f7fb', '#4f46e5', '#0ea5e9'], fonts: 'Inter:wght@400;500;600;700' },
-    { id: 'noir',      name: 'Noir Neón', desc: 'Oscuro cyber con brillo', sw: ['#05060a', '#00e5ff', '#ff2bd6'], fonts: 'Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600' },
-    { id: 'brutal',    name: 'Brutal',    desc: 'Neo-brutalismo crudo',     sw: ['#fff4d6', '#111111', '#ff5c8a'], fonts: 'Archivo+Black&family=Archivo:wght@400;600;800' },
-    { id: 'glass',     name: 'Cristal',   desc: 'Glassmorphism y degradé',  sw: ['#7b5cff', '#ffffff', '#ff8ad8'], fonts: 'Outfit:wght@300;400;600;700' },
-    { id: 'neumorph',  name: 'Relieve',   desc: 'Neumorfismo suave',        sw: ['#e4e9f0', '#5b7cfa', '#a3b1c6'], fonts: 'Nunito:wght@400;600;800' },
-    { id: 'editorial', name: 'Editorial', desc: 'Revista impresa clásica',  sw: ['#f4efe6', '#1a1a1a', '#c8102e'], fonts: 'Playfair+Display:ital,wght@0,500;0,800;1,500&family=Source+Serif+4:wght@400;600' },
-    { id: 'terminal',  name: 'Terminal',  desc: 'Fósforo verde de consola', sw: ['#020a03', '#33ff66', '#ffb000'], fonts: 'VT323&family=IBM+Plex+Mono:wght@400;600' },
-    { id: 'synthwave', name: 'Synthwave', desc: 'Atardecer retro 80s',      sw: ['#1a0533', '#ff3cac', '#ffd319'], fonts: 'Orbitron:wght@500;800&family=Rajdhani:wght@400;600' },
-    { id: 'luxury',    name: 'Lujo',      desc: 'Negro y oro, serif fina',  sw: ['#0c0b09', '#c9a35b', '#f2e7d0'], fonts: 'Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;600' },
-    { id: 'candy',     name: 'Caramelo',  desc: 'Pastel juguetón',          sw: ['#fff6fb', '#ff7eb6', '#7ad7f0'], fonts: 'Fredoka:wght@400;500;600;700' },
-    { id: 'bauhaus',   name: 'Bauhaus',   desc: 'Geometría y primarios',    sw: ['#f2ede3', '#e63322', '#1e4db7'], fonts: 'Josefin+Sans:wght@400;600;700' },
-    { id: 'nordic',    name: 'Nórdico',   desc: 'Minimal blanco y aire',    sw: ['#ffffff', '#111111', '#9aa0a6'], fonts: 'Manrope:wght@300;400;600;800' },
-    { id: 'forest',    name: 'Bosque',    desc: 'Orgánico verde y tierra',  sw: ['#eef0e4', '#2f5d3a', '#c9803b'], fonts: 'DM+Serif+Display&family=DM+Sans:wght@400;500;700' },
-    { id: 'pixel',     name: 'Pixel',     desc: 'Videojuego 8 bits',        sw: ['#1d1b3a', '#ffcd00', '#00d26a'], fonts: 'Press+Start+2P&family=Silkscreen' },
-    { id: 'memphis',   name: 'Memphis',   desc: 'Pop 90s con formas',       sw: ['#fffdf5', '#ff6b35', '#00a6a6'], fonts: 'Poppins:wght@400;600;800' },
-    { id: 'blueprint', name: 'Plano',     desc: 'Plano técnico azul',       sw: ['#0b3d91', '#ffffff', '#7fd1ff'], fonts: 'Share+Tech+Mono&family=Barlow+Condensed:wght@500;700' },
-    { id: 'sketch',    name: 'Boceto',    desc: 'Dibujado a mano en papel', sw: ['#fdfbf3', '#2b2b2b', '#ff6f59'], fonts: 'Caveat:wght@500;700&family=Patrick+Hand' },
-    { id: 'graphite',  name: 'Grafito',   desc: 'Dashboard pro oscuro',     sw: ['#0f1218', '#3b82f6', '#22c55e'], fonts: 'IBM+Plex+Sans:wght@400;500;600;700' },
-    { id: 'chrome',    name: 'Cromo Y2K', desc: 'Metal líquido 2000',       sw: ['#d9dde3', '#7a5cff', '#00e0c7'], fonts: 'Syne:wght@500;700;800' },
-    { id: 'contrast',  name: 'Contraste', desc: 'Alto contraste accesible', sw: ['#000000', '#ffff00', '#ffffff'], fonts: 'Atkinson+Hyperlegible:wght@400;700' },
+    { id: 'aurora',    name: 'Aurora',    group: 'modernos', dark: false, css: false, desc: 'SaaS limpio y luminoso',  sw: ['#f6f7fb', '#4f46e5', '#0ea5e9'], fonts: 'Inter:wght@400;500;600;700' },
+    { id: 'noir',      name: 'Noir Neón', group: 'modernos', dark: true,  desc: 'Oscuro cyber con brillo', sw: ['#05060a', '#00e5ff', '#ff2bd6'], fonts: 'Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600' },
+    { id: 'brutal',    name: 'Brutal',    group: 'modernos', dark: false, desc: 'Neo-brutalismo crudo',     sw: ['#fff4d6', '#111111', '#ff5c8a'], fonts: 'Archivo+Black&family=Archivo:wght@400;600;800' },
+    { id: 'glass',     name: 'Cristal',   group: 'modernos', dark: true,  desc: 'Glassmorphism y degradé',  sw: ['#7b5cff', '#ffffff', '#ff8ad8'], fonts: 'Outfit:wght@300;400;600;700' },
+    { id: 'neumorph',  name: 'Relieve',   group: 'modernos', dark: false, desc: 'Neumorfismo suave',        sw: ['#e4e9f0', '#5b7cfa', '#a3b1c6'], fonts: 'Nunito:wght@400;600;800' },
+    { id: 'editorial', name: 'Editorial', group: 'modernos', dark: false, desc: 'Revista impresa clásica',  sw: ['#f4efe6', '#1a1a1a', '#c8102e'], fonts: 'Playfair+Display:ital,wght@0,500;0,800;1,500&family=Source+Serif+4:wght@400;600' },
+    { id: 'terminal',  name: 'Terminal',  group: 'modernos', dark: true,  desc: 'Fósforo verde de consola', sw: ['#020a03', '#33ff66', '#ffb000'], fonts: 'VT323&family=IBM+Plex+Mono:wght@400;600' },
+    { id: 'synthwave', name: 'Synthwave', group: 'modernos', dark: true,  desc: 'Atardecer retro 80s',      sw: ['#1a0533', '#ff3cac', '#ffd319'], fonts: 'Orbitron:wght@500;800&family=Rajdhani:wght@400;600' },
+    { id: 'luxury',    name: 'Lujo',      group: 'modernos', dark: true,  desc: 'Negro y oro, serif fina',  sw: ['#0c0b09', '#c9a35b', '#f2e7d0'], fonts: 'Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;600' },
+    { id: 'candy',     name: 'Caramelo',  group: 'modernos', dark: false, desc: 'Pastel juguetón',          sw: ['#fff6fb', '#ff7eb6', '#7ad7f0'], fonts: 'Fredoka:wght@400;500;600;700' },
+    { id: 'bauhaus',   name: 'Bauhaus',   group: 'modernos', dark: false, desc: 'Geometría y primarios',    sw: ['#f2ede3', '#e63322', '#1e4db7'], fonts: 'Josefin+Sans:wght@400;600;700' },
+    { id: 'nordic',    name: 'Nórdico',   group: 'modernos', dark: false, desc: 'Minimal blanco y aire',    sw: ['#ffffff', '#111111', '#9aa0a6'], fonts: 'Manrope:wght@300;400;600;800' },
+    { id: 'forest',    name: 'Bosque',    group: 'modernos', dark: false, desc: 'Orgánico verde y tierra',  sw: ['#eef0e4', '#2f5d3a', '#c9803b'], fonts: 'DM+Serif+Display&family=DM+Sans:wght@400;500;700' },
+    { id: 'pixel',     name: 'Pixel',     group: 'modernos', dark: true,  desc: 'Videojuego 8 bits',        sw: ['#1d1b3a', '#ffcd00', '#00d26a'], fonts: 'Press+Start+2P&family=Silkscreen' },
+    { id: 'memphis',   name: 'Memphis',   group: 'modernos', dark: false, desc: 'Pop 90s con formas',       sw: ['#fffdf5', '#ff6b35', '#00a6a6'], fonts: 'Poppins:wght@400;600;800' },
+    { id: 'blueprint', name: 'Plano',     group: 'modernos', dark: true,  desc: 'Plano técnico azul',       sw: ['#0b3d91', '#ffffff', '#7fd1ff'], fonts: 'Share+Tech+Mono&family=Barlow+Condensed:wght@500;700' },
+    { id: 'sketch',    name: 'Boceto',    group: 'modernos', dark: false, desc: 'Dibujado a mano en papel', sw: ['#fdfbf3', '#2b2b2b', '#ff6f59'], fonts: 'Caveat:wght@500;700&family=Patrick+Hand' },
+    { id: 'graphite',  name: 'Grafito',   group: 'modernos', dark: true,  desc: 'Dashboard pro oscuro',     sw: ['#0f1218', '#3b82f6', '#22c55e'], fonts: 'IBM+Plex+Sans:wght@400;500;600;700' },
+    { id: 'chrome',    name: 'Cromo Y2K', group: 'modernos', dark: false, desc: 'Metal líquido 2000',       sw: ['#d9dde3', '#7a5cff', '#00e0c7'], fonts: 'Syne:wght@500;700;800' },
+    { id: 'contrast',  name: 'Contraste', group: 'modernos', dark: true,  desc: 'Alto contraste accesible', sw: ['#000000', '#ffff00', '#ffffff'], fonts: 'Atkinson+Hyperlegible:wght@400;700' },
     // Era HTML5 (2010–2014): animaciones de entrada al estilo WOW.js / animate.css.
-    { id: 'web2',      name: 'Web 2.0',      group: 'html5', anim: 'bounceIn',    desc: 'Brillo, reflejos y "beta"', sw: ['#eef6ff', '#2b8de0', '#ff7a00'], fonts: 'Ubuntu:wght@400;700' },
-    { id: 'skeuo',     name: 'iOS 6',        group: 'html5', anim: 'fadeInUp',    desc: 'Lino, cuero y relieve',     sw: ['#cfd4dc', '#3d6bb3', '#6b4a2e'], fonts: 'Lato:wght@400;700' },
-    { id: 'metro',     name: 'Metro',        group: 'html5', anim: 'turnIn',      desc: 'Windows 8, mosaicos planos', sw: ['#1d1d1d', '#00a300', '#2d89ef'], fonts: 'Open+Sans:wght@300;400;600' },
-    { id: 'bootstrap2',name: 'Bootstrap 2',  group: 'html5', anim: 'fadeIn',      desc: 'Barra negra y degradés',    sw: ['#ffffff', '#0074cc', '#222222'], fonts: 'Arimo:wght@400;700' },
-    { id: 'flatui',    name: 'Flat UI',      group: 'html5', anim: 'zoomIn',      desc: 'Plano 2013 turquesa',       sw: ['#ecf0f1', '#1abc9c', '#34495e'], fonts: 'Lato:wght@300;400;700;900' },
-    { id: 'parallax',  name: 'Parallax',     group: 'html5', anim: 'fadeInUp',    desc: 'One-page con fondos fijos', sw: ['#1b1f24', '#ffffff', '#e74c3c'], fonts: 'Raleway:wght@200;400;700' },
-    { id: 'aqua',      name: 'Aqua',         group: 'html5', anim: 'flipInX',     desc: 'Mac OS X gel y rayas',      sw: ['#e8e8e8', '#3a8ee6', '#9ac5f5'], fonts: 'Lucida+Sans:wght@400' },
-    { id: 'nativo',    name: 'HTML nativo',  group: 'html5', anim: 'none',        desc: 'Controles del navegador',   sw: ['#ffffff', '#0000ee', '#551a8b'], fonts: '' },
-    { id: 'vintage',   name: 'Vintage',      group: 'html5', anim: 'slideInLeft', desc: 'Hipster 2012, cintas',      sw: ['#f3e9d2', '#c0392b', '#2c3e50'], fonts: 'Lobster&family=Arvo:wght@400;700' },
-    { id: 'material',  name: 'Material 14',  group: 'html5', anim: 'fadeInUp',    desc: 'Papel, sombras y FAB',      sw: ['#fafafa', '#3f51b5', '#ff4081'], fonts: 'Roboto:wght@300;400;500;700' }
+    { id: 'web2',      name: 'Web 2.0',      group: 'html5', dark: false, anim: 'bounceIn',    desc: 'Brillo, reflejos y "beta"', sw: ['#eef6ff', '#2b8de0', '#ff7a00'], fonts: 'Ubuntu:wght@400;700' },
+    { id: 'skeuo',     name: 'iOS 6',        group: 'html5', dark: false, anim: 'fadeInUp',    desc: 'Lino, cuero y relieve',     sw: ['#cfd4dc', '#3d6bb3', '#6b4a2e'], fonts: 'Lato:wght@400;700' },
+    { id: 'metro',     name: 'Metro',        group: 'html5', dark: true,  anim: 'turnIn',      desc: 'Windows 8, mosaicos planos', sw: ['#1d1d1d', '#00a300', '#2d89ef'], fonts: 'Open+Sans:wght@300;400;600' },
+    { id: 'bootstrap2',name: 'Bootstrap 2',  group: 'html5', dark: false, anim: 'fadeIn',      desc: 'Barra negra y degradés',    sw: ['#ffffff', '#0074cc', '#222222'], fonts: 'Arimo:wght@400;700' },
+    { id: 'flatui',    name: 'Flat UI',      group: 'html5', dark: false, anim: 'zoomIn',      desc: 'Plano 2013 turquesa',       sw: ['#ecf0f1', '#1abc9c', '#34495e'], fonts: 'Lato:wght@300;400;700;900' },
+    { id: 'parallax',  name: 'Parallax',     group: 'html5', dark: true,  anim: 'fadeInUp',    desc: 'One-page con fondos fijos', sw: ['#1b1f24', '#ffffff', '#e74c3c'], fonts: 'Raleway:wght@200;400;700' },
+    { id: 'aqua',      name: 'Aqua',         group: 'html5', dark: false, anim: 'flipInX',     desc: 'Mac OS X gel y rayas',      sw: ['#e8e8e8', '#3a8ee6', '#9ac5f5'], fonts: 'Lucida+Sans:wght@400' },
+    { id: 'nativo',    name: 'HTML nativo',  group: 'html5', dark: false, anim: 'none',        desc: 'Controles del navegador',   sw: ['#ffffff', '#0000ee', '#551a8b'], fonts: '' },
+    { id: 'vintage',   name: 'Vintage',      group: 'html5', dark: false, anim: 'slideInLeft', desc: 'Hipster 2012, cintas',      sw: ['#f3e9d2', '#c0392b', '#2c3e50'], fonts: 'Lobster&family=Arvo:wght@400;700' },
+    { id: 'material',  name: 'Material 14',  group: 'html5', dark: false, anim: 'fadeInUp',    desc: 'Papel, sombras y FAB',      sw: ['#fafafa', '#3f51b5', '#ff4081'], fonts: 'Roboto:wght@300;400;500;700' },
+    // Formales
+    { id: 'bufete',        name: 'Bufete',          group: 'formales', dark: false, desc: 'Estudio jurídico, marino y oro viejo', sw: ['#f4f1e9', '#1f2f56', '#7d5f1a'], fonts: 'Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@400;500;600;700' },
+    { id: 'banca',         name: 'Banca privada',   group: 'formales', dark: false, desc: 'Verde botella, latón y cifras',        sw: ['#f2f4f3', '#0b3b2e', '#b08d57'], fonts: 'Spectral:wght@500;600;700&family=Figtree:wght@400;500;600;700' },
+    { id: 'institucional', name: 'Institucional',   group: 'formales', dark: false, desc: 'Servicio público, foco amarillo',      sw: ['#ffffff', '#0b0c0c', '#00703c'], fonts: 'Noto+Sans:wght@400;600;700' },
+    { id: 'academico',     name: 'Académico',       group: 'formales', dark: false, desc: 'Paper, versalitas y booktabs',          sw: ['#fffff8', '#8c1515', '#2b5a7a'], fonts: 'STIX+Two+Text:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime' },
+    // Terror
+    { id: 'halloween',     name: 'Halloween',       group: 'terror', dark: true,  anim: 'fadeInUp', desc: 'Calabazas, telarañas y murciélagos', sw: ['#140b1f', '#ff7a1a', '#9be564'], fonts: 'Creepster&family=Lexend:wght@400;500;600;700' },
+    { id: 'dracula',       name: 'Drácula',         group: 'terror', dark: true,  desc: 'Gótico carmesí, arcos y velas',      sw: ['#0c0607', '#e8394b', '#d9c7a3'], fonts: 'Pirata+One&family=EB+Garamond:ital,wght@0,400;0,600;1,400' },
+    { id: 'slasher',       name: 'Slasher VHS',     group: 'terror', dark: true,  desc: 'Cinta gastada, sangre y REC',        sw: ['#070707', '#ff3030', '#3cf2ff'], fonts: 'Anton&family=Courier+Prime:wght@400;700' },
+    { id: 'lovecraft',     name: 'Cósmico',         group: 'terror', dark: true,  desc: 'Abismo lovecraftiano que te mira',   sw: ['#031110', '#5fe0b0', '#b48cff'], fonts: 'IM+Fell+English:ital@0;1&family=Crimson+Text:ital,wght@0,400;0,600;1,400' },
+    { id: 'embrujada',     name: 'Casa embrujada',  group: 'terror', dark: false, desc: 'Papel tapiz, niebla y un fantasma',  sw: ['#e7e0d2', '#5b3a6b', '#3e5d59'], fonts: 'Henny+Penny&family=Lora:ital,wght@0,400;0,600;1,400;1,600' },
+    // Fiestas y fechas
+    { id: 'navidad',       name: 'Navidad',         group: 'fiestas', dark: false, desc: 'Rojo, pino, nieve y bastones',     sw: ['#fbf6ee', '#b3122e', '#0f6b3a'], fonts: 'Mountains+of+Christmas:wght@400;700&family=Nunito:wght@400;600;700' },
+    { id: 'anonuevo',      name: 'Año Nuevo',       group: 'fiestas', dark: true,  anim: 'zoomIn', desc: 'Medianoche, champaña y confeti', sw: ['#070b24', '#f5c542', '#ff5aa8'], fonts: 'Big+Shoulders+Display:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;700' },
+    { id: 'dieciocho',     name: 'Fiestas Patrias', group: 'fiestas', dark: false, desc: 'Dieciocho chileno con banderines',  sw: ['#fbf7ef', '#0039a6', '#c8261b'], fonts: 'Alfa+Slab+One&family=Nunito+Sans:wght@400;600;700;800' },
+    { id: 'sanvalentin',   name: 'San Valentín',    group: 'fiestas', dark: false, desc: 'Rosa, frambuesa y corazones',       sw: ['#fff1f4', '#c2185b', '#6a1b9a'], fonts: 'Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700' },
+    { id: 'pascua',        name: 'Pascua',          group: 'fiestas', dark: false, anim: 'bounceIn', desc: 'Huevos pintados lila y menta',  sw: ['#fbf8ff', '#6b3fd1', '#ffd84d'], fonts: 'Baloo+2:wght@500;600;700;800' },
+    { id: 'muertos',       name: 'Día de Muertos',  group: 'fiestas', dark: true,  desc: 'Cempasúchil y papel picado',       sw: ['#170a26', '#ff9f1c', '#ff4fa3'], fonts: 'Lilita+One&family=Mulish:wght@400;600;700' },
+    { id: 'carnaval',      name: 'Carnaval',        group: 'fiestas', dark: true,  anim: 'rubberBand', desc: 'Arlequín, serpentinas y oro', sw: ['#2a0a45', '#ffc93c', '#18e0d0'], fonts: 'Luckiest+Guy&family=Rubik:wght@400;500;700' },
+    { id: 'chino',         name: 'Año Nuevo Chino', group: 'fiestas', dark: true,  desc: 'Laca roja, oro y faroles',          sw: ['#6d0a12', '#ffd166', '#46d39a'], fonts: 'Noto+Serif+TC:wght@600;900&family=Mukta:wght@400;500;700' },
+    // Locos
+    { id: 'vaporwave',     name: 'Vaporwave',       group: 'locos', dark: false, desc: 'Sol a rayas y ventanas 90s',         sw: ['#f6d6f0', '#a8128a', '#00c2c7'], fonts: 'Righteous&family=Work+Sans:wght@400;500;600' },
+    { id: 'glitch',        name: 'Glitch',          group: 'locos', dark: true,  anim: 'lightSpeedIn', desc: 'Señal rota y separación RGB', sw: ['#050505', '#00ff9c', '#ff2a6d'], fonts: 'Rubik+Glitch&family=Rubik:wght@500;800&family=Red+Hat+Mono:wght@400;600' },
+    { id: 'comic',         name: 'Cómic',           group: 'locos', dark: false, anim: 'bounceIn', desc: 'Pop-art, tinta y globos',       sw: ['#fff6cf', '#d4001a', '#ffe100'], fonts: 'Bangers&family=Comic+Neue:wght@400;700' },
+    { id: 'psicodelico',   name: 'Psicodélico 70s', group: 'locos', dark: false, desc: 'Ondas groovy y sombras apiladas',    sw: ['#fff1d6', '#b53a0b', '#7b2d8e'], fonts: 'Shrikhand&family=Kumbh+Sans:wght@400;600;700' },
+    { id: 'geocities',     name: 'GeoCities 98',    group: 'locos', dark: true,  anim: 'flipInX', desc: 'Estrellas, biseles y arcoíris',  sw: ['#000018', '#00ffff', '#ff66ff'], fonts: 'Bungee&family=Bungee+Shade&family=Tinos:ital,wght@0,400;0,700;1,400' },
+    { id: 'riso',          name: 'Risografía',      group: 'locos', dark: false, desc: 'Rosa flúor, azul y desregistro',     sw: ['#f6f1e6', '#d1166f', '#0063ab'], fonts: 'Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800' },
+    // Temáticos
+    { id: 'espacial',      name: 'Espacial',        group: 'tematicos', dark: true,  desc: 'Estrellas, nebulosa y HUD',      sw: ['#04030d', '#7cf3ff', '#ffb347'], fonts: 'Audiowide&family=Exo+2:wght@400;500;700' },
+    { id: 'submarino',     name: 'Submarino',       group: 'tematicos', dark: true,  desc: 'Profundidad, burbujas y bronce', sw: ['#021a2b', '#3fe0d0', '#ffb84d'], fonts: 'Comfortaa:wght@500;700&family=Sora:wght@400;600' },
+    { id: 'western',       name: 'Lejano Oeste',    group: 'tematicos', dark: false, desc: 'Cartel de "Se busca" y madera',  sw: ['#e9d6b0', '#8b2e16', '#2f4a5c'], fonts: 'Rye&family=Bitter:wght@400;600;700' },
+    { id: 'steampunk',     name: 'Steampunk',       group: 'tematicos', dark: true,  desc: 'Latón, remaches y engranajes',   sw: ['#1e140c', '#d9a24f', '#4fb3a9'], fonts: 'Cinzel:wght@600;800&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400' },
+    { id: 'medieval',      name: 'Medieval',        group: 'tematicos', dark: false, desc: 'Pergamino y letra uncial',       sw: ['#ecdcb9', '#8e1b1b', '#1f3f7a'], fonts: 'Uncial+Antiqua&family=Alegreya:ital,wght@0,400;0,700;1,400' },
+    { id: 'zen',           name: 'Zen japonés',     group: 'tematicos', dark: false, desc: 'Washi, sumi y sello bermellón',  sw: ['#f4f1ea', '#1f1d1a', '#b02a30'], fonts: 'Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700' },
+    { id: 'estadio',       name: 'Estadio',         group: 'tematicos', dark: true,  anim: 'slideInLeft', desc: 'Cancha de noche y marcador LED', sw: ['#0b3d1e', '#ffd400', '#ff5a3c'], fonts: 'Bebas+Neue&family=Barlow:wght@400;500;700' }
   ];
   var root = document.documentElement;
   var app = root.getAttribute('data-app') || 'global';
@@ -42,12 +98,14 @@
   function read() { try { return localStorage.getItem(key); } catch (e) { return null; } }
   function save(id) { try { localStorage.setItem(key, id); } catch (e) {} }
   function find(id) { for (var i = 0; i < THEMES.length; i++) if (THEMES[i].id === id) return THEMES[i]; return null; }
+  function urlTheme() { try { return new URLSearchParams(location.search).get('theme'); } catch (e) { return null; } }
 
-  // Hoja de estilos de los temas (misma carpeta que este script).
+  // Hojas base (misma carpeta que este script): themes.css = tokens + kit de componentes;
+  // layouts.css = reglas compartidas de las disposiciones.
   var base = (document.currentScript && document.currentScript.src || '').replace(/theme-boot\.js.*$/, '');
   if (base && !document.querySelector('link[data-lgw-themes]')) {
     var l = document.createElement('link');
-    l.rel = 'stylesheet'; l.href = base + 'themes.css'; l.setAttribute('data-lgw-themes', '');
+    l.rel = 'stylesheet'; l.href = base + 'themes.css'; l.setAttribute('data-lgw-themes', ''); l.setAttribute('blocking', 'render');
     document.head.appendChild(l);
     var lay = document.createElement('link');
     lay.rel = 'stylesheet'; lay.href = base + 'layouts.css'; lay.setAttribute('data-lgw-layouts', '');
@@ -63,12 +121,42 @@
     document.head.appendChild(f);
   }
 
-  function apply(id, persist) {
+  // Hoja de cada estilo (assets/core/themes/<id>.css): se inserta justo después de themes.css, antes
+  // de layouts.css y del CSS de la app (mismo orden de cascada que cuando todo vivía en themes.css).
+  // Una vez cargada se queda (sus reglas solo aplican con html[data-theme="<id>"]).
+  // cb(): se llama cuando la hoja está lista (de inmediato si ya lo estaba o si el estilo no tiene hoja).
+  function loadThemeCss(t, cb) {
+    if (!base || t.css === false) return cb && cb();
+    var k = document.querySelector('link[data-lgw-theme="' + t.id + '"]');
+    if (k) { if (k.__ready) cb && cb(); else (k.__wait || (k.__wait = [])).push(cb); return; }
+    k = document.createElement('link');
+    k.rel = 'stylesheet'; k.href = base + 'themes/' + t.id + '.css'; k.setAttribute('data-lgw-theme', t.id);
+    if (document.readyState === 'loading') k.setAttribute('blocking', 'render');
+    k.__wait = cb ? [cb] : [];
+    k.onload = k.onerror = function () { k.__ready = 1; var w = k.__wait; k.__wait = []; w.forEach(function (f) { f && f(); }); };
+    var anchor = document.querySelector('link[data-lgw-themes]'), after = anchor;
+    while (after && after.nextElementSibling && after.nextElementSibling.hasAttribute('data-lgw-theme')) after = after.nextElementSibling;
+    if (after && after.parentNode) after.parentNode.insertBefore(k, after.nextSibling); else document.head.appendChild(k);
+  }
+
+  var pending = null, readyCbs = [];
+  function flushReady() { var w = readyCbs; readyCbs = []; w.forEach(function (f) { try { f(find(root.getAttribute('data-theme'))); } catch (e) {} }); }
+  // Al arrancar se aplica de inmediato (la hoja bloquea el pintado). Al cambiar en caliente se espera
+  // a que la hoja nueva cargue para no mostrar un instante el estilo a medias.
+  function apply(id, persist, boot) {
     var t = find(id) || find(root.getAttribute('data-default-theme')) || THEMES[0];
-    root.setAttribute('data-theme', t.id);
     loadFonts(t);
     if (persist) save(t.id);
-    try { window.dispatchEvent(new CustomEvent('lgw:theme', { detail: t })); } catch (e) {}
+    pending = t.id;
+    var done = function () {
+      if (pending !== t.id) return;
+      pending = null;
+      root.setAttribute('data-theme', t.id);
+      try { window.dispatchEvent(new CustomEvent('lgw:theme', { detail: t })); } catch (e) {}
+      flushReady();
+    };
+    if (boot) { root.setAttribute('data-theme', t.id); loadThemeCss(t, function () { if (!pending || pending === t.id) { pending = null; flushReady(); } }); }
+    else loadThemeCss(t, done);
     return t;
   }
 
@@ -171,14 +259,18 @@
     }
   };
 
-  apply(read());
+  apply(urlTheme() || read(), false, true);
   window.LGWTheme = {
     list: THEMES,
-    get current() { return root.getAttribute('data-theme'); },
+    groups: THEME_GROUPS,
+    find: find,
+    get current() { return pending || root.getAttribute('data-theme'); },
     set: function (id) { return apply(id, true); },
     next: function (dir) {
-      var i = THEMES.findIndex(function (t) { return t.id === root.getAttribute('data-theme'); });
+      var i = THEMES.indexOf(find(this.current));
       return apply(THEMES[(i + (dir || 1) + THEMES.length) % THEMES.length].id, true);
-    }
+    },
+    // ready(fn): fn(estilo) cuando la hoja del estilo activo (o del que se está cargando) está lista.
+    ready: function (fn) { if (pending) readyCbs.push(fn); else { var t = find(root.getAttribute('data-theme')); var k = t && t.css !== false && document.querySelector('link[data-lgw-theme="' + t.id + '"]'); if (k && !k.__ready) readyCbs.push(fn); else fn(t); } }
   };
 })();

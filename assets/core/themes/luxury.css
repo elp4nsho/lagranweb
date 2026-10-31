@@ -1,0 +1,41 @@
+/* Lujo · Modernos · oscuro — Negro y oro, serif fina.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="luxury"] {
+  --font-body: 'Montserrat', system-ui, sans-serif;
+  --font-head: 'Cormorant Garamond', Georgia, serif;
+  --head-weight: 600;
+  --head-spacing: .01em;
+  --body-size: 14px;
+  --bg: #0c0b09;
+  --bg-image: radial-gradient(ellipse at 50% -20%, rgba(201, 163, 91, .14), transparent 60%);
+  --surface: #14120f;
+  --surface-2: #1b1814;
+  --surface-3: #242019;
+  --text: #f2e7d0;
+  --muted: #a39578;
+  --line: #3a3224;
+  --primary: #c9a35b;
+  --primary-2: #e2c27f;
+  --on-primary: #0c0b09;
+  --accent: #e8d5a9;
+  --success: #8fbf8a;
+  --warning: #d9a441;
+  --danger: #d1655b;
+  --info: #9fb6c9;
+  --radius: 2px;
+  --radius-sm: 2px;
+  --radius-pill: 2px;
+  --shadow: 0 0 0 1px rgba(201, 163, 91, .18), 0 20px 40px -20px rgba(0, 0, 0, .9);
+  --shadow-lg: 0 40px 80px -30px rgba(0, 0, 0, .95), 0 0 0 1px rgba(201, 163, 91, .3);
+  --pad: 26px;
+  --focus: 0 0 0 1px var(--bg), 0 0 0 2px var(--primary);
+  color-scheme: dark;
+}
+[data-theme="luxury"] h1, [data-theme="luxury"] h2 { font-weight: 500; font-style: italic; }
+[data-theme="luxury"] .eyebrow { letter-spacing: .32em; font-weight: 400; }
+[data-theme="luxury"] .card { position: relative; }
+[data-theme="luxury"] .card::after { content: ''; position: absolute; inset: 6px; border: 1px solid rgba(201, 163, 91, .14); pointer-events: none; }
+[data-theme="luxury"] .btn { text-transform: uppercase; letter-spacing: .22em; font-weight: 400; font-size: 11px; min-height: 44px; padding: 0 26px; }
+[data-theme="luxury"] .btn-primary { background: linear-gradient(135deg, #b08a46, #e2c27f 50%, #b08a46); }
+[data-theme="luxury"] .nav-link { text-transform: uppercase; letter-spacing: .14em; font-size: 11px; }
+[data-theme="luxury"] .nav-link.active { background: transparent; color: var(--primary); border-color: var(--line); }

@@ -1,0 +1,52 @@
+/* Brutal · Modernos · claro — Neo-brutalismo crudo.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="brutal"] {
+  --font-body: 'Archivo', system-ui, sans-serif;
+  --font-head: 'Archivo Black', 'Archivo', sans-serif;
+  --head-weight: 400;
+  --head-transform: uppercase;
+  --head-spacing: 0;
+  --bg: #fff4d6;
+  --bg-image: radial-gradient(#11111122 1px, transparent 1px);
+  --surface: #ffffff;
+  --surface-2: #ffe066;
+  --surface-3: #c5f0ff;
+  --text: #111111;
+  --muted: #3c3c3c;
+  --line: #111111;
+  --primary: #ff5c8a;
+  --primary-2: #ff85a7;
+  --on-primary: #111111;
+  --accent: #5ce1e6;
+  --success: #3ddc84;
+  --warning: #ffb703;
+  --danger: #ff3b30;
+  --info: #4d7cff;
+  --radius: 0px;
+  --radius-sm: 0px;
+  --radius-pill: 0px;
+  --border-w: 3px;
+  --shadow: 5px 5px 0 #111;
+  --shadow-lg: 10px 10px 0 #111;
+  --shadow-press: 1px 1px 0 #111;
+  --focus: 0 0 0 3px #111, 6px 6px 0 3px var(--accent);
+}
+[data-theme="brutal"] body { background-size: 18px 18px; }
+[data-theme="brutal"] .eyebrow { background: var(--text); color: var(--surface-2); padding: 2px 8px; display: inline-block; }
+[data-theme="brutal"] .card.hover:hover { transform: translate(-3px, -3px); }
+[data-theme="brutal"] .btn { box-shadow: 3px 3px 0 #111; text-transform: uppercase; font-weight: 800; }
+[data-theme="brutal"] .btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 #111; filter: none; }
+[data-theme="brutal"] .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #111; }
+[data-theme="brutal"] .input:focus, [data-theme="brutal"] .select:focus, [data-theme="brutal"] .textarea:focus { box-shadow: 4px 4px 0 #111; }
+[data-theme="brutal"] .switch span::after { top: 0; left: 0; }
+[data-theme="brutal"] .badge { color: #111; border-color: #111; }
+[data-theme="brutal"] .badge-success { background: var(--success); }
+[data-theme="brutal"] .badge-warning { background: var(--warning); }
+[data-theme="brutal"] .badge-danger { background: var(--danger); }
+[data-theme="brutal"] .badge-info { background: var(--info); }
+[data-theme="brutal"] .badge-primary { background: var(--primary); }
+[data-theme="brutal"] .table th { background: var(--surface-2); color: #111; border-bottom: 3px solid #111; }
+[data-theme="brutal"] .avatar { border-radius: 0; }
+[data-theme="brutal"] .avatar { border: 2px solid #111; }
+[data-theme="brutal"] .nav-link.active { background: var(--primary); color: #111; border-color: #111; box-shadow: 3px 3px 0 #111; }
+[data-theme="brutal"] .chart .bar { stroke: #111; stroke-width: 2; }

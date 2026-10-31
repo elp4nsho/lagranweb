@@ -1,0 +1,50 @@
+/* San Valentín · Fiestas · claro — rosa y frambuesa, letra manuscrita, corazones que suben. */
+[data-theme="sanvalentin"] {
+  --font-body: 'Quicksand', system-ui, sans-serif; --font-head: 'Dancing Script', cursive;
+  --head-weight: 700; --head-transform: none; --head-spacing: 0; --body-size: 16px;
+  --bg: #fff1f4;
+  --bg-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath fill='%23c2185b' fill-opacity='.07' d='M20 30c-4-6-14-4-14 4 0 7 14 14 14 14s14-7 14-14c0-8-10-10-14-4zM60 64c-3-4-9-3-9 3 0 4 9 9 9 9s9-5 9-9c0-6-6-7-9-3z'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 100% 0%, rgba(255, 175, 200, .45), transparent 50%);
+  --surface: #ffffff; --surface-2: #ffe6ec; --surface-3: #ffd1dc;
+  --text: #3b0f1f; --muted: #7a4057; --line: #f5c3d0;
+  --primary: #b71756; --primary-2: #d81b60; --on-primary: #ffffff;
+  --accent: #6a1b9a; --on-accent: #ffffff;
+  --success: #296e47; --warning: #875200; --danger: #b00030; --info: #3949ab; --on-danger: #ffffff;
+  --radius: 22px; --radius-sm: 14px; --radius-pill: 999px; --border-w: 1px;
+  --shadow: 0 10px 30px -14px rgba(194, 24, 91, .4), 0 0 0 1px rgba(245, 195, 208, .6);
+  --shadow-lg: 0 30px 60px -20px rgba(194, 24, 91, .45);
+  --focus: 0 0 0 3px #fff1f4, 0 0 0 5px #b71756;
+  --ease: cubic-bezier(.34, 1.4, .64, 1);
+  color-scheme: light;
+}
+[data-theme="sanvalentin"] body { font-weight: 500; background-size: 80px 80px, auto; }
+[data-theme="sanvalentin"] h1 { color: var(--primary); font-size: clamp(40px, 7vw, 80px); line-height: 1.05; }
+[data-theme="sanvalentin"] h2 { color: var(--primary); font-size: clamp(30px, 4vw, 44px); }
+[data-theme="sanvalentin"] h3 { font-size: 24px; }
+[data-theme="sanvalentin"] .eyebrow { color: var(--accent); letter-spacing: .18em; }
+[data-theme="sanvalentin"] .eyebrow::before { content: '♥ '; color: var(--primary); }
+/* Corazón pequeño en la esquina de cada tarjeta. */
+:where([data-theme="sanvalentin"]) .card {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='20'%3E%3Cpath fill='%23f48fb1' d='M11 5c-2-4-10-4-10 2 0 5 10 11 10 11s10-6 10-11c0-6-8-6-10-2z'/%3E%3C/svg%3E") right 14px top 12px / 18px 16px no-repeat, var(--surface);
+}
+[data-theme="sanvalentin"] .card.hover:hover { transform: translateY(-4px) scale(1.01); }
+[data-theme="sanvalentin"] .btn { border-radius: var(--radius-pill); font-weight: 700; }
+[data-theme="sanvalentin"] .btn-primary { background: linear-gradient(135deg, #d81b60, #ad1457); box-shadow: 0 8px 18px -8px rgba(194, 24, 91, .7); }
+[data-theme="sanvalentin"] .btn:hover { transform: translateY(-1px); }
+[data-theme="sanvalentin"] .badge::before { content: '♥'; width: auto; height: auto; background: none; font-size: 10px; }
+[data-theme="sanvalentin"] .table th { background: var(--surface-2); color: #8a1546; }
+[data-theme="sanvalentin"] .table-wrap { border-radius: 18px; }
+[data-theme="sanvalentin"] .input, [data-theme="sanvalentin"] .select { border-radius: var(--radius-pill); }
+[data-theme="sanvalentin"] .nav-link { border-radius: var(--radius-pill); }
+[data-theme="sanvalentin"] .nav-link.active { background: var(--primary); color: #ffffff; }
+[data-theme="sanvalentin"] .nav-link.active .count { background: #ffffff; color: var(--primary); }
+[data-theme="sanvalentin"] .progress > i { background: linear-gradient(90deg, #f48fb1, var(--primary)); }
+/* Corazones que suben flotando (detrás del contenido). */
+[data-theme="sanvalentin"] body::before {
+  content: ''; position: fixed; left: 0; right: 0; top: 0; height: calc(100% + 300px); z-index: -1; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cg fill='%23f06292'%3E%3Cpath fill-opacity='.22' d='M40 60c-3-6-14-6-14 2 0 7 14 15 14 15s14-8 14-15c0-8-11-8-14-2z'/%3E%3Cpath fill-opacity='.15' d='M210 150c-2-4-9-4-9 1 0 5 9 10 9 10s9-5 9-10c0-5-7-5-9-1z'/%3E%3Cpath fill-opacity='.18' d='M120 250c-3-5-12-5-12 2 0 6 12 12 12 12s12-6 12-12c0-7-9-7-12-2z'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 300px 300px;
+  animation: lgw-sanvalentin-rise 22s linear infinite;
+}
+@keyframes lgw-sanvalentin-rise { to { transform: translateY(-300px); } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="sanvalentin"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }

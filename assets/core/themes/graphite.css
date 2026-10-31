@@ -1,0 +1,12 @@
+/* Grafito · Modernos · oscuro — Dashboard pro oscuro.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="graphite"] {
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif; --font-head: 'IBM Plex Sans', sans-serif;
+  --head-weight: 600; --head-spacing: -0.01em; --body-size: 14px;
+  --bg: #0f1218; --surface: #161a22; --surface-2: #1c212b; --surface-3: #252b37;
+  --text: #e6e9ef; --muted: #8b93a7; --line: #262c38;
+  --primary: #3b82f6; --primary-2: #60a5fa; --on-primary: #ffffff; --accent: #22c55e;
+  --success: #22c55e; --warning: #f59e0b; --danger: #ef4444; --info: #06b6d4;
+  --radius: 8px; --radius-sm: 6px; --shadow: 0 1px 0 rgba(255,255,255,.03) inset, 0 8px 24px -12px rgba(0,0,0,.6);
+  --shadow-lg: 0 30px 60px -20px rgba(0,0,0,.8); --pad: 18px; --gap: 14px; color-scheme: dark;
+}

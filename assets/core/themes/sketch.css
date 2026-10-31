@@ -1,0 +1,17 @@
+/* Boceto · Modernos · claro — Dibujado a mano en papel.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="sketch"] {
+  --font-body: 'Patrick Hand', cursive; --font-head: 'Caveat', cursive;
+  --head-weight: 700; --head-spacing: 0; --body-size: 18px;
+  --bg: #fdfbf3; --bg-image: repeating-linear-gradient(0deg, transparent 0 31px, rgba(80,130,200,.18) 31px 32px);
+  --surface: #ffffff; --surface-2: #fff6c9; --surface-3: #f1efe6;
+  --text: #2b2b2b; --muted: #6b6b6b; --line: #2b2b2b;
+  --primary: #ff6f59; --primary-2: #ff8b78; --on-primary: #ffffff; --accent: #43aa8b;
+  --success: #43aa8b; --warning: #f9c74f; --danger: #e5383b; --info: #4d908e;
+  --radius: 255px 15px 225px 15px / 15px 225px 15px 255px; --radius-sm: 155px 10px 125px 10px / 10px 125px 10px 155px; --radius-pill: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --border-w: 2px; --shadow: 2px 3px 0 rgba(0,0,0,.65); --shadow-lg: 4px 6px 0 rgba(0,0,0,.6); --focus: 0 0 0 3px #f9c74f;
+}
+[data-theme="sketch"] h1 { font-size: clamp(40px, 7vw, 76px); }
+[data-theme="sketch"] .card:nth-child(odd) { transform: rotate(-.4deg); }
+[data-theme="sketch"] .card:nth-child(even) { transform: rotate(.4deg); }
+[data-theme="sketch"] .avatar { border: 2px solid #2b2b2b; }

@@ -1,0 +1,34 @@
+/* HTML nativo · Era HTML5 · claro — Controles del navegador.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="nativo"] {
+  --font-body: 'Times New Roman', Times, serif; --font-head: 'Times New Roman', Times, serif;
+  --font-mono: 'Courier New', monospace; --head-weight: 700; --head-spacing: 0; --body-size: 16px;
+  --bg: #ffffff; --bg-image: none; --surface: #ffffff; --surface-2: #f0f0f0; --surface-3: #e0e0e0;
+  --text: #000000; --muted: #444444; --line: #808080;
+  --primary: #0000ee; --primary-2: #551a8b; --on-primary: #ffffff; --accent: #551a8b;
+  --success: #008000; --warning: #b8860b; --danger: #ff0000; --info: #0000ee;
+  --radius: 0px; --radius-sm: 0px; --radius-pill: 0px; --border-w: 1px;
+  --shadow: none; --shadow-lg: none; --blur: 0px; --focus: 0 0 0 2px #000; --ease: linear;
+}
+[data-theme="nativo"] * { transition: none !important; animation: none !important; }
+[data-theme="nativo"] a { color: #0000ee; text-decoration: underline; }
+[data-theme="nativo"] a:visited { color: #551a8b; }
+[data-theme="nativo"] .card { border: 2px inset #c0c0c0; }
+[data-theme="nativo"] .btn { all: revert; font: 13px system-ui, sans-serif; cursor: pointer; display: inline-block; }
+[data-theme="nativo"] .input, [data-theme="nativo"] .select, [data-theme="nativo"] .textarea { all: revert; font: 13px system-ui, sans-serif; }
+[data-theme="nativo"] .table, [data-theme="nativo"] .table th, [data-theme="nativo"] .table td { border: 1px solid #808080; }
+[data-theme="nativo"] .table { border: 2px outset #c0c0c0; }
+[data-theme="nativo"] .table th { background: #c0c0c0; color: #000; text-transform: none; letter-spacing: 0; font-size: 14px; }
+[data-theme="nativo"] .badge { border-radius: 0; background: #ffffe1; color: #000; border: 1px solid #000; }
+[data-theme="nativo"] .badge::before { display: none; }
+[data-theme="nativo"] .admin-sidebar { background: #c0c0c0; border-right: 2px outset #fff; }
+[data-theme="nativo"] .nav-link { color: #0000ee; text-decoration: underline; }
+[data-theme="nativo"] .nav-link.active { background: #000080; color: #fff; }
+[data-theme="nativo"] .admin-topbar { background: #c0c0c0; backdrop-filter: none; border-bottom: 2px outset #fff; }
+[data-theme="nativo"] .modal { border: 2px outset #fff; background: #c0c0c0; }
+[data-theme="nativo"] .modal-head { background: linear-gradient(90deg, #000080, #1084d0); color: #fff; padding: 4px 8px; }
+[data-theme="nativo"] .avatar { border-radius: 0; }
+[data-theme="nativo"] marquee, [data-theme="nativo"] .blink { color: red; }
+/* "nativo" revierte .btn con all: revert; restaurar el botón de menú del panel */
+[data-theme="nativo"] .admin-burger { display: none; }
+@media (max-width: 900px) { [data-theme="nativo"] .admin-burger { display: inline-block; } }

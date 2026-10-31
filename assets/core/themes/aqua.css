@@ -1,0 +1,27 @@
+/* Aqua · Era HTML5 · claro — Mac OS X gel y rayas.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="aqua"] {
+  --font-body: 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Unicode', sans-serif; --font-head: 'Lucida Grande', 'Lucida Sans', sans-serif;
+  --head-weight: 700; --head-spacing: 0; --body-size: 14px;
+  --bg: #e8e8e8; --bg-image: repeating-linear-gradient(0deg, #ececec 0 2px, #f6f6f6 2px 4px);
+  --surface: #ffffff; --surface-2: #f2f2f2; --surface-3: #e3e3e3;
+  --text: #1a1a1a; --muted: #6e6e6e; --line: #b5b5b5;
+  --primary: #3a8ee6; --primary-2: #6aaef0; --on-primary: #ffffff; --accent: #9ac5f5;
+  --success: #43b02a; --warning: #f5a623; --danger: #e0443a; --info: #3a8ee6;
+  --radius: 8px; --radius-sm: 999px; --shadow: 0 2px 8px rgba(0,0,0,.25), 0 0 0 1px rgba(0,0,0,.15);
+  --shadow-lg: 0 20px 50px rgba(0,0,0,.45);
+}
+[data-theme="aqua"] .btn { background: linear-gradient(180deg, #fefefe 0, #e8e8e8 50%, #d4d4d4 51%, #f1f1f1 100%); border-color: #8c8c8c; border-radius: 999px; box-shadow: 0 1px 2px rgba(0,0,0,.25); }
+[data-theme="aqua"] .btn-primary { background: linear-gradient(180deg, #cfe6ff 0, #6aaef0 45%, #2a7fd9 50%, #8cc6ff 100%); color: #fff; border-color: #2263a8; text-shadow: 0 -1px 0 rgba(0,0,0,.3); }
+[data-theme="aqua"] .card { border-radius: 8px 8px 6px 6px; overflow: hidden; }
+/* Barra de ventana de Aqua: se pinta como fondo en un borde superior de 22 px (no es un elemento),
+   así no ocupa una celda en tarjetas con grid o flex en fila ni depende del padding de cada tarjeta. */
+[data-theme="aqua"] .card { border-top: 22px solid transparent;
+  background: radial-gradient(circle at 13px 11px, #ff5f57 3.4px, rgba(0,0,0,.25) 3.6px, transparent 4.4px) border-box no-repeat,
+    radial-gradient(circle at 29px 11px, #febc2e 3.4px, rgba(0,0,0,.25) 3.6px, transparent 4.4px) border-box no-repeat,
+    radial-gradient(circle at 45px 11px, #28c840 3.4px, rgba(0,0,0,.25) 3.6px, transparent 4.4px) border-box no-repeat,
+    linear-gradient(180deg, #ececec, #cfcfcf 21px, #a7a7a7 21px, #a7a7a7 22px, transparent 22px) border-box no-repeat,
+    var(--surface); }
+/* Variantes de gel para peligro y acento (el gel claro de .btn dejaba texto blanco sobre gris) */
+[data-theme="aqua"] .btn-danger { background: linear-gradient(180deg, rgba(255,255,255,.55) 0, rgba(255,255,255,.15) 50%, rgba(0,0,0,.08) 51%, rgba(255,255,255,.2) 100%), var(--danger); color: #fff; border-color: #a82a22; text-shadow: 0 -1px 0 rgba(0,0,0,.3); }
+[data-theme="aqua"] .btn-accent { background: linear-gradient(180deg, rgba(255,255,255,.6) 0, rgba(255,255,255,.2) 50%, rgba(0,0,0,.05) 51%, rgba(255,255,255,.25) 100%), var(--accent); color: #0d2c4f; border-color: #5d8fc7; }

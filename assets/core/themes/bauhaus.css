@@ -1,0 +1,18 @@
+/* Bauhaus · Modernos · claro — Geometría y primarios.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="bauhaus"] {
+  --on-accent: #ffffff;
+  --font-body: 'Josefin Sans', system-ui, sans-serif; --font-head: 'Josefin Sans', sans-serif;
+  --head-weight: 700; --head-transform: uppercase; --head-spacing: .02em;
+  --bg: #f2ede3; --bg-image: radial-gradient(circle at 92% 8%, #f6c90e 0 70px, transparent 71px), linear-gradient(135deg, transparent 0 88%, #1e4db7 88% 100%);
+  --surface: #ffffff; --surface-2: #f6c90e; --surface-3: #e9e2d2;
+  --text: #121212; --muted: #4d4a45; --line: #121212;
+  --primary: #e63322; --primary-2: #ff4b39; --on-primary: #ffffff; --accent: #1e4db7;
+  --success: #2a9d3f; --warning: #f6c90e; --danger: #e63322; --info: #1e4db7;
+  --radius: 0px; --radius-sm: 0px; --radius-pill: 999px; --border-w: 2px;
+  --shadow: none; --shadow-lg: 12px 12px 0 #1e4db7; --focus: 0 0 0 3px #f6c90e;
+}
+[data-theme="bauhaus"] .card { border-top: 10px solid var(--primary); }
+[data-theme="bauhaus"] .card:nth-child(3n+2) { border-top-color: var(--accent); }
+[data-theme="bauhaus"] .card:nth-child(3n) { border-top-color: var(--warning); }
+[data-theme="bauhaus"] .btn { border-radius: 999px; text-transform: uppercase; letter-spacing: .08em; }

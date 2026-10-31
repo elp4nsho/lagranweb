@@ -1,0 +1,14 @@
+/* Nórdico · Modernos · claro — Minimal blanco y aire.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="nordic"] {
+  --font-body: 'Manrope', system-ui, sans-serif; --font-head: 'Manrope', sans-serif;
+  --head-weight: 300; --head-spacing: -0.03em;
+  --bg: #ffffff; --surface: #ffffff; --surface-2: #f6f6f5; --surface-3: #ededeb;
+  --text: #111111; --muted: #8a8f94; --line: #ebebea;
+  --primary: #111111; --primary-2: #333; --on-primary: #ffffff; --accent: #c9b8a0;
+  --success: #3b7a57; --warning: #b98b2e; --danger: #b3412f; --info: #4a6a8a;
+  --radius: 4px; --radius-sm: 4px; --shadow: none; --shadow-lg: 0 30px 60px -30px rgba(0,0,0,.18);
+  --pad: 28px; --gap: 20px; --focus: 0 0 0 2px #111;
+}
+[data-theme="nordic"] h1 { font-weight: 200; }
+[data-theme="nordic"] .btn { font-weight: 500; letter-spacing: .04em; }

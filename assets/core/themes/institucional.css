@@ -1,0 +1,48 @@
+/* Institucional · Formales · claro — servicio público: cabecera negra, foco amarillo, enlaces subrayados y botón verde. */
+[data-theme="institucional"] {
+  --font-body: 'Noto Sans', Arial, sans-serif; --font-head: 'Noto Sans', Arial, sans-serif;
+  --head-weight: 700; --head-transform: none; --head-spacing: 0; --body-size: 16px;
+  --bg: #ffffff; --bg-image: none;
+  --surface: #ffffff; --surface-2: #f3f2f1; --surface-3: #e3e2e0;
+  --text: #0b0c0c; --muted: #505a5f; --line: #b1b4b6;
+  --primary: #1b67aa; --primary-2: #003078; --on-primary: #ffffff;
+  --accent: #ffdd00; --on-accent: #0b0c0c;
+  --success: #00703c; --warning: #8f4a00; --danger: #ba3019; --info: #1b67aa; --on-danger: #ffffff;
+  --radius: 0px; --radius-sm: 0px; --radius-pill: 0px; --border-w: 2px;
+  --shadow: none; --shadow-lg: 0 0 0 2px #0b0c0c;
+  --focus: 0 0 0 3px #ffdd00, 0 3px 0 3px #0b0c0c;
+  --ease: ease;
+  color-scheme: light;
+}
+[data-theme="institucional"] :where(.site-main, .admin-content, .site-footer, footer) a:not([class]) { text-decoration: underline; text-decoration-thickness: max(1px, .0625rem); text-underline-offset: .15em; }
+[data-theme="institucional"] :where(.site-main, .admin-content, .site-footer, footer) a:not([class]):hover { color: var(--primary-2); text-decoration-thickness: 3px; }
+[data-theme="institucional"] .site-header, [data-theme="institucional"] .admin-topbar {
+  --bg: #0b0c0c; --surface: #0b0c0c; --surface-2: #1d1e1f; --surface-3: #2c2d2e; --text: #ffffff; --muted: #c8ccce; --line: #505a5f; --primary: #ffffff; --on-primary: #0b0c0c;
+  background: #0b0c0c; color: #ffffff; border-bottom: 8px solid #1d70b8; backdrop-filter: none;
+}
+[data-theme="institucional"] .eyebrow { color: var(--muted); letter-spacing: 0; text-transform: none; font-size: 16px; font-weight: 400; }
+[data-theme="institucional"] .card { border-color: var(--line); }
+[data-theme="institucional"] .card.hover:hover { transform: none; box-shadow: 0 0 0 2px var(--text); }
+[data-theme="institucional"] .btn { font-weight: 600; font-size: 16px; box-shadow: 0 2px 0 #929191; border-color: transparent; }
+[data-theme="institucional"] .btn-primary { --b: #00703c; --c: #ffffff; border-color: #00703c; box-shadow: 0 2px 0 #002d18; }
+[data-theme="institucional"] .btn-primary:hover { --b: #005a30; filter: none; }
+[data-theme="institucional"] .btn-danger { box-shadow: 0 2px 0 #55150b; }
+[data-theme="institucional"] .btn-accent { box-shadow: 0 2px 0 #8a7700; }
+[data-theme="institucional"] .btn-ghost { box-shadow: none; border-color: var(--text); }
+[data-theme="institucional"] .btn:active { transform: translateY(2px); box-shadow: none; }
+[data-theme="institucional"] .btn:focus-visible { --b: #ffdd00; --c: #0b0c0c; box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c; }
+[data-theme="institucional"] .input, [data-theme="institucional"] .select, [data-theme="institucional"] .textarea { border-color: #0b0c0c; }
+[data-theme="institucional"] .input:focus, [data-theme="institucional"] .select:focus, [data-theme="institucional"] .textarea:focus { border-color: #0b0c0c; box-shadow: inset 0 0 0 2px #0b0c0c, 0 0 0 3px #ffdd00; }
+[data-theme="institucional"] .badge { border-radius: 0; text-transform: uppercase; letter-spacing: .04em; font-weight: 700; border-width: 0; }
+[data-theme="institucional"] .badge::before { display: none; }
+[data-theme="institucional"] .table-wrap { border-width: 0; box-shadow: none; }
+[data-theme="institucional"] .table th { background: transparent; color: var(--text); text-transform: none; letter-spacing: 0; font-size: 15px; border-bottom: 1px solid var(--line); }
+[data-theme="institucional"] .table td { border-bottom-color: var(--line); }
+[data-theme="institucional"] .tab { border: 1px solid transparent; border-bottom: 0; color: var(--primary); text-decoration: underline; }
+[data-theme="institucional"] .tab.active, [data-theme="institucional"] .tab[aria-selected="true"] { color: var(--text); text-decoration: none; border-color: var(--line); background: var(--surface); }
+[data-theme="institucional"] .nav-link.active { background: transparent; color: var(--text); box-shadow: inset 5px 0 0 var(--primary); border-radius: 0; }
+[data-theme="institucional"] .admin-sidebar { background: var(--surface-2); border-right-width: 0; }
+[data-theme="institucional"] .progress { border-radius: 0; }
+[data-theme="institucional"] .progress > i { background: var(--primary); }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="institucional"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }

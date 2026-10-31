@@ -14,9 +14,14 @@
   </div></header>
   <main class="site-main">
   <section class="section site-hero"><div class="container">
-    <div class="hero-text stack"><span class="eyebrow">Kit La Gran Web</span><h1>Un kit, treinta estilos, tres disposiciones</h1>
+    <div class="hero-text stack"><span class="eyebrow">Kit La Gran Web</span><h1>Un kit, <span data-n="themes">60</span> estilos, <span data-n="layouts">8</span> disposiciones</h1>
     <p class="muted">Cambia el estilo con Alt + ← / → y la disposición con Alt + ↑ / ↓.</p></div>
     <div class="hero-media card" style="min-height:180px;display:grid;place-items:center;font-size:64px">🧩</div>
+  </div></section>
+  <section class="section" id="estilos" style="padding-bottom:0"><div class="container stack">
+    <div class="row between"><h2 style="margin:0">Estilos</h2><span class="muted small" id="kit-cur"></span></div>
+    <div class="row" id="kit-groups" role="group" aria-label="Categorías" style="gap:6px"></div>
+    <div class="row" id="kit-themes" role="group" aria-label="Estilos" style="gap:6px"></div>
   </div></section>
   <section class="section"><div class="container stack">
     <h2>Componentes</h2>
@@ -62,6 +67,22 @@
     import { toast, modal, barChart } from './ui.js';
     document.getElementById('chart').innerHTML = '<h3>Ventas semana</h3>' + barChart([['Lu',12],['Ma',18],['Mi',9],['Ju',22],['Vi',30],['Sá',26],['Do',14]].map(([label, value]) => ({ label, value })));
     t1.onclick = () => toast('Guardado correctamente', 'success');
+    // Galería de estilos: sale del registro de theme-boot.js (LGWTheme.list / LGWTheme.groups).
+    const T = window.LGWTheme, L = window.LGWLayout;
+    document.querySelectorAll('[data-n="themes"]').forEach(el => el.textContent = T.list.length);
+    if (L) document.querySelectorAll('[data-n="layouts"]').forEach(el => el.textContent = L.list.length);
+    let group = (T.find(T.current) || {}).group || '';
+    const groupsEl = document.getElementById('kit-groups'), themesEl = document.getElementById('kit-themes');
+    function drawKit() {
+      const cur = T.find(T.current), g = T.groups.find(x => x.id === (cur && cur.group));
+      document.getElementById('kit-cur').textContent = cur ? `${cur.name} · ${g ? g.name : ''} · ${cur.dark ? 'oscuro' : 'claro'} · ${cur.fonts ? decodeURIComponent(cur.fonts.replace(/\+/g, ' ')).split('&family=').map(f => f.split(':')[0]).join(', ') : 'fuentes del sistema'}` : '';
+      groupsEl.innerHTML = T.groups.map(x => `<button class="chip${x.id === group ? ' active' : ''}" data-g="${x.id}">${x.icon || ''} ${x.name} <span class="muted small">${T.list.filter(t => t.group === x.id).length}</span></button>`).join('');
+      themesEl.innerHTML = T.list.filter(t => t.group === group).map(t => `<button class="btn btn-sm${t.id === T.current ? ' btn-primary' : ''}" data-t="${t.id}" title="${t.desc}"><span aria-hidden="true" style="display:inline-block;width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,${t.sw[0]} 0 50%,${t.sw[1]} 50% 75%,${t.sw[2]} 75%);box-shadow:0 0 0 1px rgba(0,0,0,.2)"></span>${t.name}</button>`).join('');
+    }
+    groupsEl.onclick = e => { const b = e.target.closest('[data-g]'); if (b) { group = b.dataset.g; drawKit(); } };
+    themesEl.onclick = e => { const b = e.target.closest('[data-t]'); if (b) T.set(b.dataset.t); };
+    addEventListener('lgw:theme', drawKit);
+    drawKit();
     t2.onclick = () => modal({ title: 'Eliminar', body: '<p>¿Seguro?</p>', foot: '<button class="btn" data-close>Cancelar</button><button class="btn btn-danger" data-close>Eliminar</button>' });
   </script>
   <script src="../portfolio-bar.js" defer></script>

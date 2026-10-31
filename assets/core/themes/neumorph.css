@@ -1,0 +1,38 @@
+/* Relieve · Modernos · claro — Neumorfismo suave.
+   Uno de los 30 estilos originales, migrado tal cual desde themes.css (mismas reglas, mismo orden). */
+[data-theme="neumorph"] {
+  --font-body: 'Nunito', system-ui, sans-serif;
+  --font-head: 'Nunito', system-ui, sans-serif;
+  --head-weight: 800;
+  --bg: #e4e9f0;
+  --surface: #e4e9f0;
+  --surface-2: #e4e9f0;
+  --surface-3: #d9dfe8;
+  --text: #3a4560;
+  --muted: #7a86a1;
+  --line: transparent;
+  --primary: #5b7cfa;
+  --primary-2: #7b96ff;
+  --on-primary: #ffffff;
+  --accent: #f78fb3;
+  --success: #2bb673;
+  --warning: #f0a33a;
+  --danger: #ef5d6f;
+  --info: #4ba3e3;
+  --radius: 20px;
+  --radius-sm: 14px;
+  --border-w: 0px;
+  --shadow: 8px 8px 16px #c2c9d4, -8px -8px 16px #ffffff;
+  --shadow-lg: 14px 14px 30px #bcc4d0, -14px -14px 30px #ffffff;
+  --shadow-press: inset 5px 5px 10px #c2c9d4, inset -5px -5px 10px #ffffff;
+  --focus: 0 0 0 3px rgba(91, 124, 250, .35);
+}
+[data-theme="neumorph"] .btn { box-shadow: 5px 5px 10px #c2c9d4, -5px -5px 10px #fff; }
+[data-theme="neumorph"] .btn:active { box-shadow: var(--shadow-press); }
+[data-theme="neumorph"] .btn-primary { box-shadow: 5px 5px 12px #b7c0d6, -5px -5px 12px #fff; }
+[data-theme="neumorph"] .input, [data-theme="neumorph"] .select, [data-theme="neumorph"] .textarea { box-shadow: var(--shadow-press); background-color: var(--bg); }
+[data-theme="neumorph"] .chip { box-shadow: 4px 4px 8px #c2c9d4, -4px -4px 8px #fff; }
+[data-theme="neumorph"] .chip[aria-pressed="true"], [data-theme="neumorph"] .chip.active { box-shadow: var(--shadow-press); background: var(--bg); color: var(--primary); }
+[data-theme="neumorph"] .table th, [data-theme="neumorph"] .table td { border-bottom-color: #d3d9e3; }
+[data-theme="neumorph"] .progress { box-shadow: var(--shadow-press); }
+[data-theme="neumorph"] .nav-link.active { background: var(--bg); box-shadow: var(--shadow-press); }

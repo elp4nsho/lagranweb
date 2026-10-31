@@ -1,0 +1,54 @@
+/* Steampunk · Temáticos · oscuro — cuero y latón: engranajes que giran, remaches, pátina verde y tipografía victoriana. */
+[data-theme="steampunk"] {
+  --font-body: 'Old Standard TT', Georgia, serif; --font-head: 'Cinzel', Georgia, serif;
+  --head-weight: 800; --head-transform: uppercase; --head-spacing: .06em; --body-size: 16px;
+  --bg: #1e140c;
+  --bg-image: radial-gradient(ellipse at 50% 0%, rgba(212, 154, 74, .14), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.5' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .3 0 0 0 0 .15 0 0 0 .10 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  --surface: #2b1d12; --surface-2: #382617; --surface-3: #4a331f;
+  --text: #f3e2c3; --muted: #cdb087; --line: #6b4a2b;
+  --primary: #d9a24f; --primary-2: #e9bd73; --on-primary: #1e140c;
+  --accent: #4fb3a9; --on-accent: #06201d;
+  --success: #8cc084; --warning: #e8b04a; --danger: #ec7b62; --info: #8fbfd9; --on-danger: #1f0a05;
+  --radius: 6px; --radius-sm: 4px; --radius-pill: 999px; --border-w: 2px;
+  --shadow: inset 0 1px 0 rgba(255, 220, 160, .12), 0 0 0 1px #120b06, 0 14px 28px -12px #000000;
+  --shadow-lg: inset 0 1px 0 rgba(255, 220, 160, .15), 0 0 0 1px #8a6532, 0 30px 60px -20px #000000;
+  --focus: 0 0 0 2px #1e140c, 0 0 0 4px #d9a24f;
+  color-scheme: dark;
+}
+[data-theme="steampunk"] body { background-size: auto, 160px 160px; }
+[data-theme="steampunk"] h1, [data-theme="steampunk"] h2 { background: linear-gradient(180deg, #f7d79a, #d9a24f 55%, #b07a2e); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 2px 0 #120b06); }
+[data-theme="steampunk"] .eyebrow { color: var(--accent); letter-spacing: .28em; }
+[data-theme="steampunk"] .eyebrow::before { content: '⚙ '; color: var(--primary); }
+/* Cuatro remaches de latón en cada placa. */
+:where([data-theme="steampunk"]) .card {
+  border-color: #8a6532;
+  background:
+    radial-gradient(circle at 10px 10px, #f0c47a 0 2.5px, #6b4a2b 3px, transparent 4px),
+    radial-gradient(circle at calc(100% - 10px) 10px, #f0c47a 0 2.5px, #6b4a2b 3px, transparent 4px),
+    radial-gradient(circle at 10px calc(100% - 10px), #f0c47a 0 2.5px, #6b4a2b 3px, transparent 4px),
+    radial-gradient(circle at calc(100% - 10px) calc(100% - 10px), #f0c47a 0 2.5px, #6b4a2b 3px, transparent 4px),
+    linear-gradient(180deg, rgba(255, 220, 160, .05), transparent 40%),
+    var(--surface);
+}
+[data-theme="steampunk"] .btn { font-family: var(--font-head); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; font-size: 12px; border-color: #8a6532; }
+[data-theme="steampunk"] .btn-primary { background: linear-gradient(180deg, #f0c47a, #d9a24f 45%, #b07a2e); border-color: #6b4a2b; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 2px 0 #120b06; }
+[data-theme="steampunk"] .btn-accent { background: linear-gradient(180deg, #7fd3ca, #4fb3a9 50%, #3a8c84); border-color: #24605a; }
+[data-theme="steampunk"] .badge { font-family: var(--font-head); font-size: 11px; letter-spacing: .06em; }
+[data-theme="steampunk"] .table-wrap { border-color: #8a6532; }
+[data-theme="steampunk"] .table th { font-family: var(--font-head); color: var(--primary); background: #24180e; border-bottom: 2px solid #8a6532; }
+[data-theme="steampunk"] .input, [data-theme="steampunk"] .select, [data-theme="steampunk"] .textarea { background-color: #170f08; border-color: #6b4a2b; }
+[data-theme="steampunk"] .nav-link.active { background: linear-gradient(90deg, rgba(217, 162, 79, .22), transparent); color: var(--primary); box-shadow: inset 3px 0 0 #d9a24f; }
+[data-theme="steampunk"] .progress { border: 1px solid #8a6532; background: #170f08; }
+[data-theme="steampunk"] .progress > i { background: linear-gradient(180deg, #f0c47a, #b07a2e); }
+[data-theme="steampunk"] .avatar { box-shadow: 0 0 0 2px #d9a24f, 0 0 0 4px #4a331f; }
+/* Engranajes que giran en la esquina (detrás del contenido). */
+[data-theme="steampunk"] body::before, [data-theme="steampunk"] body::after {
+  content: ''; position: fixed; z-index: -1; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d9a24f' fill-opacity='.14' d='M45 4h10l2 11 8 3 9-7 7 7-7 9 3 8 11 2v10l-11 2-3 8 7 9-7 7-9-7-8 3-2 11H45l-2-11-8-3-9 7-7-7 7-9-3-8-11-2V45l11-2 3-8-7-9 7-7 9 7 8-3zM50 34a16 16 0 1 0 0 32 16 16 0 0 0 0-32z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+[data-theme="steampunk"] body::before { right: -60px; top: 12vh; width: 260px; height: 260px; animation: lgw-steampunk-gear 40s linear infinite; }
+[data-theme="steampunk"] body::after { right: 150px; top: calc(12vh + 190px); width: 130px; height: 130px; animation: lgw-steampunk-gear 20s linear infinite reverse; }
+@keyframes lgw-steampunk-gear { to { transform: rotate(360deg); } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="steampunk"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }

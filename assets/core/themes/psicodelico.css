@@ -1,0 +1,49 @@
+/* Psicodélico 70s · Locos · claro — ondas concéntricas naranja-mostaza-rosa, letra groovy y sombras apiladas. */
+[data-theme="psicodelico"] {
+  --font-body: 'Kumbh Sans', system-ui, sans-serif; --font-head: 'Shrikhand', 'Kumbh Sans', cursive;
+  --head-weight: 400; --head-transform: none; --head-spacing: .01em; --body-size: 16px;
+  --bg: #fff1d6;
+  --bg-image: radial-gradient(circle at 0% 100%, #e76f51 0 70px, #f4a259 70px 120px, #f6c56b 120px 170px, #f2a7c3 170px 220px, #fff1d6 220px 250px, rgba(244, 162, 89, .35) 250px 270px, transparent 270px),
+    radial-gradient(circle at 100% 0%, #f2a7c3 0 50px, #f6c56b 50px 90px, #f4a259 90px 130px, transparent 130px),
+    repeating-linear-gradient(135deg, transparent 0 40px, rgba(231, 111, 81, .05) 40px 60px);
+  --surface: #fffaf0; --surface-2: #ffe7c2; --surface-3: #ffd6e6;
+  --text: #3b1d0e; --muted: #6b4630; --line: #e0a868;
+  --primary: #aa370a; --primary-2: #d0480f; --on-primary: #ffffff;
+  --accent: #7b2d8e; --on-accent: #ffffff;
+  --success: #366d1c; --warning: #855600; --danger: #b3122e; --info: #2d5aa3; --on-danger: #ffffff;
+  --radius: 38px 14px 38px 14px; --radius-sm: 999px; --radius-pill: 999px; --border-w: 3px;
+  --shadow: 6px 6px 0 #f4a259, 12px 12px 0 #e76f51;
+  --shadow-lg: 8px 8px 0 #f6c56b, 16px 16px 0 #e76f51, 24px 24px 0 #7b2d8e;
+  --focus: 0 0 0 3px #fffaf0, 0 0 0 6px #7b2d8e;
+  --ease: cubic-bezier(.34, 1.56, .64, 1);
+  color-scheme: light;
+}
+[data-theme="psicodelico"] h1, [data-theme="psicodelico"] h2 { color: var(--primary); text-shadow: 3px 3px 0 #f6c56b, 6px 6px 0 #f2a7c3; }
+[data-theme="psicodelico"] h1 { font-size: clamp(40px, 7vw, 84px); line-height: 1.05; }
+[data-theme="psicodelico"] .eyebrow { color: var(--accent); }
+[data-theme="psicodelico"] .eyebrow::before { content: '☮ '; }
+[data-theme="psicodelico"] .card { border-color: var(--text); }
+[data-theme="psicodelico"] .card.hover:hover { transform: translate(-3px, -3px) rotate(-.6deg); box-shadow: var(--shadow-lg); }
+[data-theme="psicodelico"] .btn { border-radius: var(--radius-pill); font-weight: 700; border-color: var(--text); box-shadow: 3px 3px 0 #e76f51; }
+[data-theme="psicodelico"] .btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 #e76f51, 7px 7px 0 #7b2d8e; filter: none; }
+[data-theme="psicodelico"] .btn:active { transform: translate(2px, 2px); box-shadow: none; }
+[data-theme="psicodelico"] .textarea { border-radius: 22px; }
+[data-theme="psicodelico"] .input, [data-theme="psicodelico"] .select { border-radius: 999px; padding-inline: 18px; }
+[data-theme="psicodelico"] .badge { border-width: 2px; }
+[data-theme="psicodelico"] .table-wrap { border-radius: 28px; border-color: var(--text); }
+[data-theme="psicodelico"] .table th { background: #f6c56b; color: var(--text); }
+[data-theme="psicodelico"] .table tbody tr:nth-child(even) { background: #fff3df; }
+[data-theme="psicodelico"] .nav-link { border-radius: 999px; }
+[data-theme="psicodelico"] .nav-link.active { background: linear-gradient(90deg, #f6c56b, #f2a7c3); color: var(--text); border-color: var(--text); }
+[data-theme="psicodelico"] .progress { border: 2px solid var(--text); height: 12px; }
+[data-theme="psicodelico"] .progress > i { background: linear-gradient(90deg, #e76f51, #f4a259, #f6c56b, #f2a7c3, #7b2d8e); }
+[data-theme="psicodelico"] .admin-sidebar { background-image: repeating-linear-gradient(180deg, transparent 0 60px, rgba(244, 162, 89, .08) 60px 64px); }
+/* Espiral que gira muy lento al fondo (detrás del contenido). */
+[data-theme="psicodelico"] body::before {
+  content: ''; position: fixed; right: -180px; top: 30vh; width: 460px; height: 460px; border-radius: 50%; z-index: -1; pointer-events: none;
+  background: repeating-conic-gradient(from 0deg, rgba(231, 111, 81, .22) 0 15deg, rgba(246, 197, 107, .22) 15deg 30deg, rgba(242, 167, 195, .22) 30deg 45deg);
+  animation: lgw-psicodelico-spin 60s linear infinite;
+}
+@keyframes lgw-psicodelico-spin { to { transform: rotate(360deg); } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="psicodelico"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }

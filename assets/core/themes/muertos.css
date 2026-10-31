@@ -1,0 +1,53 @@
+/* Día de Muertos · Fiestas · oscuro — noche morada, cempasúchil y rosa mexicano, papel picado y pétalos. */
+[data-theme="muertos"] {
+  --font-body: 'Mulish', system-ui, sans-serif; --font-head: 'Lilita One', 'Mulish', sans-serif;
+  --head-weight: 400; --head-transform: none; --head-spacing: .02em; --body-size: 15px;
+  --bg: #170a26;
+  --bg-image: radial-gradient(circle at 10% 90%, rgba(255, 159, 28, .14), transparent 30%),
+    radial-gradient(circle at 90% 20%, rgba(255, 61, 154, .12), transparent 30%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='%23ff9f1c' fill-opacity='.10'%3E%3Ccircle cx='30' cy='30' r='6'/%3E%3Ccircle cx='30' cy='20' r='4'/%3E%3Ccircle cx='40' cy='30' r='4'/%3E%3Ccircle cx='30' cy='40' r='4'/%3E%3Ccircle cx='20' cy='30' r='4'/%3E%3C/g%3E%3Cg fill='%23ff3d9a' fill-opacity='.09'%3E%3Ccircle cx='90' cy='86' r='5'/%3E%3Ccircle cx='90' cy='78' r='3.5'/%3E%3Ccircle cx='98' cy='86' r='3.5'/%3E%3Ccircle cx='90' cy='94' r='3.5'/%3E%3Ccircle cx='82' cy='86' r='3.5'/%3E%3C/g%3E%3C/svg%3E");
+  --surface: #22113a; --surface-2: #2e1850; --surface-3: #3e2268;
+  --text: #fff3e6; --muted: #d9c3e8; --line: #4f2d7a;
+  --primary: #ff9f1c; --primary-2: #ffb54d; --on-primary: #1f0d00;
+  --accent: #ff4fa3; --on-accent: #2a0014;
+  --success: #4fe0a0; --warning: #ffd23f; --danger: #ff7272; --info: #5ccbff; --on-danger: #200404;
+  --radius: 14px; --radius-sm: 10px; --radius-pill: 999px; --border-w: 2px;
+  --shadow: 0 0 0 1px rgba(255, 159, 28, .08), 0 18px 36px -16px rgba(0, 0, 0, .8);
+  --shadow-lg: 0 0 40px -10px rgba(255, 79, 163, .45), 0 30px 60px -20px rgba(0, 0, 0, .85);
+  --focus: 0 0 0 3px #ff9f1c, 0 0 0 6px rgba(255, 79, 163, .45);
+  color-scheme: dark;
+}
+[data-theme="muertos"] body { background-size: auto, auto, 120px 120px; }
+[data-theme="muertos"] h1 { background: linear-gradient(90deg, #ff9f1c, #ff4fa3 60%, #b78cff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+[data-theme="muertos"] h2 { color: var(--primary); }
+[data-theme="muertos"] .eyebrow { color: var(--accent); }
+[data-theme="muertos"] .eyebrow::before { content: '✿ '; color: var(--primary); }
+/* Papel picado de colores en el borde superior de cada tarjeta. */
+:where([data-theme="muertos"]) .card {
+  border-top-width: 14px; border-top-color: transparent;
+  background:
+    radial-gradient(circle at 50% 100%, var(--surface) 3px, transparent 3.5px) 0 2px / 18px 12px repeat-x border-box,
+    linear-gradient(90deg, #ff9f1c 0 25%, #ff4fa3 25% 50%, #5ccbff 50% 75%, #4fe0a0 75%) 0 0 / 100% 14px no-repeat border-box,
+    var(--surface);
+}
+[data-theme="muertos"] .card { border-left-color: var(--line); border-right-color: var(--line); border-bottom-color: var(--line); }
+[data-theme="muertos"] .card.hover:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+[data-theme="muertos"] .btn { font-family: var(--font-head); font-weight: 400; letter-spacing: .04em; font-size: 15px; }
+[data-theme="muertos"] .btn-primary { box-shadow: 0 4px 0 #a85e00; }
+[data-theme="muertos"] .btn-accent { box-shadow: 0 4px 0 #a01a5c; }
+[data-theme="muertos"] .btn:active { transform: translateY(3px); box-shadow: none; }
+[data-theme="muertos"] .table th { color: var(--primary); background: #1c0d30; border-bottom: 2px dashed var(--accent); }
+[data-theme="muertos"] .nav-link.active { background: linear-gradient(90deg, rgba(255, 159, 28, .22), rgba(255, 79, 163, .12)); color: var(--primary); }
+[data-theme="muertos"] .progress > i { background: linear-gradient(90deg, #ff9f1c, #ff4fa3); }
+[data-theme="muertos"] .avatar { box-shadow: 0 0 0 2px #ff9f1c; }
+/* Pétalos de cempasúchil que caen (detrás del contenido). */
+[data-theme="muertos"] body::before {
+  content: ''; position: fixed; left: 0; right: 0; top: -280px; height: calc(100% + 280px); z-index: -1; pointer-events: none;
+  background-image: radial-gradient(5px 3px at 40px 50px, #ff9f1c 95%, transparent), radial-gradient(3px 5px at 180px 120px, #ffb54d 95%, transparent),
+    radial-gradient(4px 3px at 240px 220px, #ff9f1c 95%, transparent), radial-gradient(3px 4px at 100px 240px, #ff4fa3 95%, transparent);
+  background-size: 280px 280px; opacity: .5;
+  animation: lgw-muertos-petals 20s linear infinite;
+}
+@keyframes lgw-muertos-petals { to { transform: translateY(280px); } }
+/* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
+[data-theme="muertos"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }
