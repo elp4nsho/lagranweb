@@ -46,7 +46,7 @@
   [data-layout="carrusel"] .site-main :is(.grid-3, .grid-4, .grid-auto, .products, [class*="-cards"], [class*="cards-"]):has(> :nth-child(3)) > * { flex-basis: 78% !important; }
 }
 /* Rótulo de cada fila con la pista de deslizar */
-[data-layout="carrusel"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)):has(:is(.grid-3, .grid-4, .grid-auto, .products, [class*="-cards"], [class*="cards-"]):has(> :nth-child(3))) h2:first-of-type::after { content: '  ⟶ desliza'; font: 500 12px var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: pre; vertical-align: .35em; }
+[data-layout="carrusel"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)):has(:is(.grid-3, .grid-4, .grid-auto, .products, [class*="-cards"], [class*="cards-"]) > :nth-child(3)) h2:first-of-type::after { content: '  ⟶ desliza'; font: 500 12px var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: pre; vertical-align: .35em; }
 [data-layout="carrusel"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) { padding-block: clamp(22px, 3.4vw, 44px) !important; }
 [data-layout="carrusel"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) h2:first-of-type { text-align: left; }
 

@@ -174,7 +174,7 @@ export function seed() {
   const seed1 = findSeed('ALERCE', labels1, { C04: 2, C03: 7 }, o => o.indexOf('C01') === 4 && o.indexOf('C08') > 6); // Luis 2.º, Marisol 5.º, Javiera 7.º, Antonia después
   const P1 = makePolla({
     created: at(addDays(p1Start, -24), 19, 40), startAt: at(addDays(p1Start, -5), 20, 0), members: P1members, drawSeed: seed1,
-    data: { name: 'Polla de la Pega', emoji: '💼', organizerId: 'u-org', treasurerId: 'u-tes', amount: 100000, frequency: 'mensual', startDate: p1Start, cupos: 10, mode: 'sorteo', allowHalf: false, lateFee: 5000, graceDays: 3, approval: false, code: 'PEGA-482',
+    data: { id: 'p-pega', name: 'Polla de la Pega', emoji: '💼', organizerId: 'u-org', treasurerId: 'u-tes', amount: 100000, frequency: 'mensual', startDate: p1Start, cupos: 10, mode: 'sorteo', allowHalf: false, lateFee: 5000, graceDays: 3, approval: false, code: 'PEGA-482',
       paymentInfo: 'Marisol Cárcamo · Banco de Chile · Cta. Cte. 00-123-45678-09 · RUT 13.456.789-2 · organiza@gallada.cl', rules: 'Cuota el día del pago de sueldo. 3 días de gracia; después, multa de $5.000 que va al fondo común y se reparte al final. Si alguien no paga, la organización cubre y la persona queda debiendo. Cambios de turno solo con acuerdo de ambos y visto bueno de la organización.' },
     after: pid => {
       planRound(pid, 1, { plan: {} });
@@ -200,7 +200,7 @@ export function seed() {
   const P2 = makePolla({
     created: at(addDays(p2Start, -12), 21, 10), startAt: at(addDays(p2Start, -2), 21, 0), members: P2members, half: ['u-10', 'u-11'],
     order: (d, pid) => { const want = ['u-12', 'u-13', 'u-org', 'u-9', 'u-par', 'u-14', 'u-10', 'u-28']; return want.map(u => d.find('members', m => m.pollaId === pid && m.userId === u).slotId); },
-    data: { name: 'Polla Familia Soto', emoji: '👨‍👩‍👧', organizerId: 'u-org', treasurerId: '', amount: 25000, frequency: 'semanal', startDate: p2Start, cupos: 8, mode: 'fijo', allowHalf: true, lateFee: 1000, graceDays: 0, approval: false, code: 'FAMIL-215',
+    data: { id: 'p-familia', name: 'Polla Familia Soto', emoji: '👨‍👩‍👧', organizerId: 'u-org', treasurerId: '', amount: 25000, frequency: 'semanal', startDate: p2Start, cupos: 8, mode: 'fijo', allowHalf: true, lateFee: 1000, graceDays: 0, approval: false, code: 'FAMIL-215',
       paymentInfo: 'Marisol Cárcamo · BancoEstado CuentaRUT 13456789 · o en efectivo en el almuerzo del domingo', rules: 'Se paga cada domingo. Sin días de gracia: el lunes ya corre la multa de $1.000. Tomás e Isidora comparten un cupo (pagan $12.500 cada uno y se reparten el pozo). El orden lo acordamos en el cumpleaños de la Tía Gloria.' },
     after: pid => {
       planRound(pid, 1, {}); planRound(pid, 2, { plan: { 'u-10': 'late' } }); planRound(pid, 3, {}); planRound(pid, 4, { plan: { 'u-13': 'late' } });
@@ -219,7 +219,7 @@ export function seed() {
   const B = [[62000, 58000, 41000], [54500, 50000], [47000, 45000, 30000], [41000, 39500], [30000, 26000, 15000], [24000, 18000]];
   const P3 = makePolla({
     created: at(addDays(p3Start, -20), 18, 0), startAt: at(addDays(p3Start, -4), 19, 30), members: P3members,
-    data: { name: 'Polla Feria Persa Biobío', emoji: '🧺', organizerId: 'u-org', treasurerId: 'u-tes', amount: 50000, frequency: 'quincenal', startDate: p3Start, cupos: 12, mode: 'remate', maxBidPct: 25, allowHalf: false, lateFee: 3000, graceDays: 2, approval: false, code: 'FERIA-731',
+    data: { id: 'p-feria', name: 'Polla Feria Persa Biobío', emoji: '🧺', organizerId: 'u-org', treasurerId: 'u-tes', amount: 50000, frequency: 'quincenal', startDate: p3Start, cupos: 12, mode: 'remate', maxBidPct: 25, allowHalf: false, lateFee: 3000, graceDays: 2, approval: false, code: 'FERIA-731',
       paymentInfo: 'Patricio Vergara (tesorero) · Mercado Pago CVU 1000-2233-4455 · o en el puesto 14 los sábados', rules: 'Pozo de $600.000 cada 15 días (días 1 y 16, o el último hábil). Cada ronda se remata: quien ofrece el mayor descuento se lleva el pozo y ese descuento se reparte en partes iguales entre los otros 11 cupos. Puja máxima: 25% del pozo. Si nadie puja, se sortea entre quienes aún no reciben.' },
     after: pid => {
       const order = ['u-7', 'u-31', 'u-8', 'u-30', 'u-2', 'u-9'];
@@ -238,7 +238,7 @@ export function seed() {
   const P4 = makePolla({
     created: ago(9, 20, 30), lastJoin: ago(1), members: ['u-org', 'u-28', 'u-29', 'u-26'], half: ['u-26'], turns: { 'u-org': 6, 'u-28': 2, 'u-29': 4, 'u-26': 5 },
     requests: [['u-30', ago(0, 8, 40)]],
-    data: { name: 'Polla Navideña Villa Los Aromos', emoji: '🎄', organizerId: 'u-org', treasurerId: '', amount: 15000, frequency: 'cada_n', everyDays: 10, startDate: addDays(T, 12), cupos: 6, mode: 'llegada', allowHalf: true, lateFee: 1000, graceDays: 2, approval: true, code: 'AROMOS-24',
+    data: { id: 'p-aromos', name: 'Polla Navideña Villa Los Aromos', emoji: '🎄', organizerId: 'u-org', treasurerId: '', amount: 15000, frequency: 'cada_n', everyDays: 10, startDate: addDays(T, 12), cupos: 6, mode: 'llegada', allowHalf: true, lateFee: 1000, graceDays: 2, approval: true, code: 'AROMOS-24',
       paymentInfo: 'Junta de Vecinos Villa Los Aromos · BancoEstado Cta. Vista 2233445 · tesorería en la sede los martes', rules: 'Cada 10 días hasta las fiestas. Eliges tu turno al inscribirte (el que llega primero escoge). Se aceptan medios cupos. La directiva aprueba cada inscripción.' }
   });
   post(P4, addDays(T, -8), 21, 'u-org', 'Vecinos: quedan cupos para la polla navideña 🎄 Inscríbanse con el código AROMOS-24 y elijan su turno.', { kind: 'aviso', pinned: true });
@@ -246,7 +246,7 @@ export function seed() {
   // ===== P5 · Polla Vacaciones de Invierno (mensual, sorteo pendiente) — cupos llenos, falta sortear =====
   const P5 = makePolla({
     created: ago(16, 22, 0), lastJoin: ago(2), members: ['u-org', 'u-1', 'u-3', 'u-5', 'u-7', 'u-32'],
-    data: { name: 'Polla Vacaciones de Invierno', emoji: '🏔️', organizerId: 'u-org', treasurerId: 'u-tes', amount: 80000, frequency: 'mensual', startDate: addDays(T, 9), cupos: 6, mode: 'sorteo', allowHalf: false, lateFee: 4000, graceDays: 3, approval: false,
+    data: { id: 'p-vacaciones', name: 'Polla Vacaciones de Invierno', emoji: '🏔️', organizerId: 'u-org', treasurerId: 'u-tes', amount: 80000, frequency: 'mensual', startDate: addDays(T, 9), cupos: 6, mode: 'sorteo', allowHalf: false, lateFee: 4000, graceDays: 3, approval: false,
       paymentInfo: 'Marisol Cárcamo · Banco de Chile · Cta. Cte. 00-123-45678-09', rules: 'Pozo de $480.000 al mes para las vacaciones de julio. El orden se sortea en vivo con semilla pública.' }
   });
 
@@ -256,7 +256,7 @@ export function seed() {
   const P6 = makePolla({
     created: at(addDays(p6Start, -15), 20), startAt: at(addDays(p6Start, -3), 20), members: P6m,
     order: (d, pid) => ['u-24', 'u-carla', 'u-27', 'u-26', 'u-25', 'u-30'].map(u => d.find('members', m => m.pollaId === pid && m.userId === u).slotId),
-    data: { name: 'Polla Peluquería Estilo Valpo', emoji: '✂️', organizerId: 'u-carla', treasurerId: '', amount: 200000, frequency: 'mensual', startDate: p6Start, cupos: 6, mode: 'fijo', allowHalf: false, lateFee: 8000, graceDays: 3, approval: false,
+    data: { id: 'p-peluqueria', name: 'Polla Peluquería Estilo Valpo', emoji: '✂️', organizerId: 'u-carla', treasurerId: '', amount: 200000, frequency: 'mensual', startDate: p6Start, cupos: 6, mode: 'fijo', allowHalf: false, lateFee: 8000, graceDays: 3, approval: false,
       paymentInfo: 'Carla Pizarro · Santander Cta. Cte. 7788990', rules: 'Entre colegas del salón. Pago el 5 de cada mes.' },
     after: pid => { planRound(pid, 1, {}); planRound(pid, 2, { plan: { 'u-25': 'late' } }); planRound(pid, 3, { plan: { 'u-25': 'skip', 'u-30': 'informado' }, payout: false }); }
   });
@@ -267,7 +267,7 @@ export function seed() {
   const lab7 = P7m.map((u, i) => 'C' + String(i + 1).padStart(2, '0'));
   const P7 = makePolla({
     created: at(addDays(p7Start, -20), 19), startAt: at(addDays(p7Start, -4), 19), members: P7m, drawSeed: findSeed('PEUMO', lab7, { C03: 6 }),
-    data: { name: 'Polla Club Deportivo Unión Estrella', emoji: '⚽', organizerId: 'u-hector', treasurerId: '', amount: 30000, frequency: 'mensual', startDate: p7Start, cupos: 8, mode: 'sorteo', allowHalf: false, lateFee: 2000, graceDays: 3, approval: false,
+    data: { id: 'p-club', name: 'Polla Club Deportivo Unión Estrella', emoji: '⚽', organizerId: 'u-hector', treasurerId: '', amount: 30000, frequency: 'mensual', startDate: p7Start, cupos: 8, mode: 'sorteo', allowHalf: false, lateFee: 2000, graceDays: 3, approval: false,
       paymentInfo: 'Héctor Muñoz · BancoEstado CuentaRUT 9876543', rules: 'Para la camiseta nueva y los viajes del campeonato.' },
     after: pid => {
       let last = null;
@@ -282,7 +282,7 @@ export function seed() {
   const P8 = makePolla({
     created: at(addDays(p8Start, -14), 20), startAt: at(addDays(p8Start, -3), 20), members: P8m,
     order: (d, pid) => ['u-luis', 'u-21', 'u-29', 'u-20', 'u-22', 'u-23', 'u-15', 'u-hector'].map(u => d.find('members', m => m.pollaId === pid && m.userId === u).slotId),
-    data: { name: 'Polla Colectiveros Línea 8', emoji: '🚕', organizerId: 'u-hector', treasurerId: '', amount: 40000, frequency: 'quincenal', startDate: p8Start, cupos: 8, mode: 'fijo', allowHalf: false, lateFee: 2000, graceDays: 2, approval: false,
+    data: { id: 'p-colectivo', name: 'Polla Colectiveros Línea 8', emoji: '🚕', organizerId: 'u-hector', treasurerId: '', amount: 40000, frequency: 'quincenal', startDate: p8Start, cupos: 8, mode: 'fijo', allowHalf: false, lateFee: 2000, graceDays: 2, approval: false,
       paymentInfo: 'Héctor Muñoz · BancoEstado CuentaRUT 9876543', rules: 'Cuota quincenal en el paradero. Pozo para mantención de los autos.' },
     after: pid => {
       planRound(pid, 1, {}); planRound(pid, 2, { plan: { 'u-luis': 'late' } }); planRound(pid, 3, { plan: { 'u-luis': 'cover', 'u-29': 'late' } });
@@ -292,8 +292,15 @@ export function seed() {
     }
   });
 
+  // ===== P10 · Cumpleaños de la Pega (orden fijo, cupos llenos, falta ordenar) =====
+  makePolla({
+    created: ago(6, 13, 10), lastJoin: ago(1), members: ['u-org', 'u-1', 'u-3', 'u-5', 'u-7'],
+    data: { id: 'p-cumple', name: 'Polla Cumpleaños de la Pega', emoji: '🎂', organizerId: 'u-org', treasurerId: '', amount: 20000, frequency: 'mensual', startDate: addDays(T, 20), cupos: 5, mode: 'fijo', allowHalf: false, lateFee: 1000, graceDays: 3, approval: false,
+      paymentInfo: 'Marisol Cárcamo · Banco de Chile · Cta. Cte. 00-123-45678-09', rules: 'Cada mes recibe quien está de cumpleaños ese mes: el orden sigue el calendario de cumpleaños.' }
+  });
+
   // ===== P9 · borrador =====
-  makePolla({ created: ago(1, 23, 15), members: [], data: { name: 'Polla Fondo de Emergencia', emoji: '🧯', organizerId: 'u-org', treasurerId: '', amount: 30000, frequency: 'quincenal', startDate: addDays(T, 30), cupos: 8, mode: 'remate', maxBidPct: 20, allowHalf: true, lateFee: 1500, graceDays: 2, approval: true, paymentInfo: '', rules: 'Borrador: definir con la gallada.' } });
+  makePolla({ created: ago(1, 23, 15), members: [], data: { id: 'p-fondo', name: 'Polla Fondo de Emergencia', emoji: '🧯', organizerId: 'u-org', treasurerId: '', amount: 30000, frequency: 'quincenal', startDate: addDays(T, 30), cupos: 8, mode: 'remate', maxBidPct: 20, allowHalf: true, lateFee: 1500, graceDays: 2, approval: true, paymentInfo: '', rules: 'Borrador: definir con la gallada.' } });
 
   run();
   // Abre la P9 vuelve a borrador (makePolla la abrió)

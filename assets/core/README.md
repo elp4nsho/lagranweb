@@ -98,6 +98,18 @@ Se eligen en el selector 🎨 de la barra flotante o con Alt + ↑ / ↓; se gua
 | `dividida` | mitad izquierda fija tipo afiche (marca enorme, menú numerado), contenido a la derecha | menú a la derecha (sale desde la derecha en celular) |
 | `tablero` | barra de herramientas compacta con menú segmentado; portada como tablero de tarjetas (mampostería) | cinta de mosaicos (ícono sobre texto) arriba |
 | `documento` | una columna angosta; el menú es un índice numerado siempre visible; secciones § | índice del panel en columnas arriba del contenido |
+| `carrusel` | menú en tira de fichas; portada como diapositiva con puntos; cada grilla de tarjetas es una fila que se desliza de lado (scroll-snap dentro de su sección) | fichas arriba; en escritorio el contenido son paneles-columna que se deslizan de lado |
+| `terminal` | compacta: letra mono pequeña, línea de estado + sub-barra de comandos `[ … ]` pegada arriba, portada-prompt con cursor, listas densas | árbol angosto (├─) a la izquierda, todo denso |
+| `kiosco` | táctil: marca centrada, menú en mosaicos enormes con flecha (2 por fila en celular), letra y botones grandes | lanzador de apps: íconos redondos con su nombre, arriba del contenido |
+| `riel` | sin cabecera arriba: riel angosto fijo a la DERECHA con la marca y el menú escritos en vertical (también en celular) | riel de íconos a la derecha que se expande hacia la izquierda |
+| `pestanas` | el menú son pestañas de carpeta apoyadas sobre una gran hoja enmarcada con todo el contenido | pestañas (varias filas) sobre un panel enmarcado |
+| `acordeon` | cada sección es un panel de acordeón con barra de título numerada y −, siempre desplegado; menú en barras con ▸ | menú arriba en grupos apilados (barra ▾ + fichas) |
+| `linea` | línea de tiempo: menú como línea de metro; secciones colgando de una columna central, alternadas a cada lado con hitos numerados (a la izquierda en angosto) | línea de pasos vertical (nodos unidos) a la izquierda |
+| `diapositivas` | escenario oscuro; barra de herramientas con menú numerado; cada sección es una diapositiva 16:9 numerada | clasificador de miniaturas numeradas a la izquierda (tira arriba en celular) y contenido sobre una diapositiva |
+| `ventana` | toda la web dentro de una ventana flotante centrada (barra de título con 3 botones) sobre un escritorio con trama | el panel completo como aplicación en ventana |
+| `barra` | toda la cabecera es una barra fija ABAJO, también en escritorio (dos pisos en celular); la barra del portafolio sube | barra de tareas abajo a todo el ancho (inicio, botones, bandeja) |
+| `escaparate` | la imagen primero: portada enorme a todo el ancho con el texto montado en una tarjeta; pocas piezas grandes por fila | barra superior como portada de color alta y menú en tarjeta de fichas montada sobre su borde |
+| `diagonal` | asimétrica: fichas inclinadas, portada con imagen girada sobre franja diagonal, bandas cortadas en diagonal con números gigantes calados | lomo vertical a la izquierda con las secciones escritas de abajo hacia arriba |
 
 ### Cómo está armado (registro + una hoja por disposición)
 

@@ -534,3 +534,20 @@ mark { background: color-mix(in srgb, var(--warning) 35%, transparent); color: i
   [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .admin-brand > :not(.logo) { display: none; }
   [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) > :not(.admin-brand):not(nav):not(.nav-link):not(.nav-section) { visibility: hidden; }
 }
+
+/* Disposición "barra" (barra inferior): la cabecera es display: contents; aquí se arma como barra fija abajo */
+[data-layout="barra"] .site-header { display: flex !important; flex-wrap: nowrap; align-items: center; gap: 14px; padding: 6px 16px !important; }
+[data-layout="barra"] .site-header > * { flex: none; min-width: 0; padding: 0 !important; margin: 0 !important; border: 0 !important; background: none !important; position: static !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+[data-layout="barra"] .site-header .container { width: auto !important; margin: 0 !important; padding: 0 !important; }
+[data-layout="barra"] .site-header .masthead { order: 1; }
+[data-layout="barra"] .site-header .masthead .masthead-inner { width: auto !important; min-height: 0 !important; padding: 0 !important; }
+[data-layout="barra"] .site-header .masthead .brand { font-size: 20px !important; }
+[data-layout="barra"] .site-header :is(.tagline, .top-date, .search-mini) { display: none !important; }
+[data-layout="barra"] .site-header > .sec-nav { order: 2; flex: 1 1 auto; }
+[data-layout="barra"] .site-header > .topbar { order: 3; }
+@media (max-width: 900px) {
+  [data-layout="barra"] .site-header { flex-wrap: wrap; gap: 4px 10px; padding: 0 12px 6px !important; }
+  [data-layout="barra"] .site-header > .sec-nav { order: 0; flex: 1 0 100%; }
+  [data-layout="barra"] .site-header .masthead { flex: 1 1 0; }
+  [data-layout="barra"] .site-header .masthead .brand { font-size: 17px !important; }
+}
