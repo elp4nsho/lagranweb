@@ -61,6 +61,9 @@
   [data-layout="linea"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) { width: auto !important; margin-left: 52px !important; margin-right: 12px !important; }
   [data-layout="linea"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero))::before { left: -43px; width: 30px; height: 30px; font-size: 13px; }
   [data-layout="linea"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero))::after { left: -29.5px; }
+  /* Tarjeta más angosta que la pantalla: los botones grandes se parten y nada asoma por el borde */
+  [data-layout="linea"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) > * { overflow-x: clip; }
+  [data-layout="linea"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) .btn { max-width: 100%; white-space: normal; }
 }
 @media (min-width: 1100px) {
   [data-layout="linea"]:not(:has(.site-hero)) :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) { width: min(1100px, 100% - 140px) !important; margin-inline: auto !important; }
