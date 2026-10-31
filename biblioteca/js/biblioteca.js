@@ -1,3 +1,5 @@
+var NT = (window.LGWTheme && LGWTheme.list && LGWTheme.list.length) || 60;
+var NL = (window.LGWLayout && LGWLayout.list && LGWLayout.list.length) || 20;
 // Biblioteca de vistas: lista los sistemas de projects.js, carga data/<app>.json de los que tienen
 // capturas (según data/index.json) y muestra filtros, buscador, grilla y un visor con teclado.
 // Enlaces directos: #<app> abre un sistema y #<app>/<vista> abre además el visor en esa vista.
@@ -155,9 +157,9 @@
     d.looks.items.forEach(function (it) { if (groups.indexOf(it.group) < 0) groups.push(it.group); });
     return '<section class="bib-looks" aria-labelledby="bib-looks-t"><div class="bib-looks-head"><div><span class="eyebrow">Personalización</span>' +
       '<h3 id="bib-looks-t">' + esc(d.looks.title) + '</h3><p>' + esc(d.looks.note) + '</p></div>' +
-      '<a class="btn" href="../index.html#estilos">Ver los 30 estilos</a></div>' +
+      '<a class="btn" href="../index.html#estilos">Ver los ' + NT + ' estilos</a></div>' +
       groups.map(function (g) {
-        return '<h4>' + esc(g === 'Disposición' ? '3 disposiciones de página' : 'Algunos de los 30 estilos') + '</h4><div class="bib-looks-row">' +
+        return '<h4>' + esc(g === 'Disposición' ? 'Algunas de las ' + NL + ' disposiciones de página' : 'Algunos de los ' + NT + ' estilos') + '</h4><div class="bib-looks-row">' +
           d.looks.items.filter(function (it) { return it.group === g; }).map(function (it) {
             return '<button type="button" class="card hover bib-look" data-look="' + esc(it.id) + '"><span class="bib-thumb"><img src="' + esc(it.img) + '" alt="Portada con ' + esc(g.toLowerCase()) + ' ' + esc(it.label) + '" loading="lazy" decoding="async" width="960" height="600"></span>' +
               '<span class="cap"><b>' + esc(it.label) + '</b><small>' + esc(it.desc) + '</small></span></button>';
@@ -232,7 +234,7 @@
     fig.innerHTML = '<img src="' + esc(it.img) + '" alt="Portada con ' + esc(it.label) + '" width="960" height="600">';
     $('#lb-prev').disabled = true; $('#lb-next').disabled = true;
     $('#lb-info').innerHTML = '<div class="bib-lb-badges"><span class="badge badge-primary">Elige el look</span></div><h3 id="lb-title">' + esc(it.group) + ': ' + esc(it.label) + '</h3><p>' + esc(it.desc) + '</p><p>' + esc(d.looks.note) + '</p>' +
-      '<div class="bib-lb-acts"><a class="btn btn-block" href="../index.html#estilos">Ver los 30 estilos</a><span class="hint">Esc para cerrar</span></div>';
+      '<div class="bib-lb-acts"><a class="btn btn-block" href="../index.html#estilos">Ver los ' + NT + ' estilos</a><span class="hint">Esc para cerrar</span></div>';
     openLightbox();
     lb.querySelector('.bib-lb-close').focus();
   }

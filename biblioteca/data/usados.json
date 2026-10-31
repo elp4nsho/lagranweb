@@ -1433,7 +1433,7 @@
   ],
   "looks": {
     "title": "Elige el look de tu proyecto",
-    "note": "Las capturas de arriba usan el estilo \"Flat UI\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de estas 3 disposiciones de página combinada con uno de los 30 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
+    "note": "Las capturas de arriba usan el estilo \"Flat UI\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de las 20 disposiciones de página (aquí, 3 de muestra) combinada con uno de los 60 estilos visuales del catálogo (colores, tipografías y bordes), adaptado a tu marca.",
     "items": [
       {
         "id": "clasica",

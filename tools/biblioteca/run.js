@@ -227,7 +227,7 @@ async function shoot(browser, v, { viewport, mobile = false, theme = null, layou
     }
   }
 
-  // "Elige el look de tu proyecto": la portada en 3 disposiciones y en algunos de los 30 estilos.
+  // "Elige el look de tu proyecto": la portada en 3 de las disposiciones y en algunos de los estilos.
   let looks = prev?.looks || null;
   if (M.looks && !flag('no-looks') && !only) {
     looks = { title: M.looks.title, note: M.looks.note, items: [] };
