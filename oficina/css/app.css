@@ -447,3 +447,8 @@ body.kiosk .kiosk-exit { display: inline-flex !important; }
   [data-layout="app"] .topbar .user-name { display: none; }
 }
 @media (max-width: 760px) { [data-layout="app"] .site-hero .hero-media { display: grid !important; } }
+
+/* Disposiciones nuevas: en las páginas-herramienta (mapa, organigrama) la portada queda compacta */
+[data-layout="inmersiva"] .compact-hero .page-hero { min-height: 0 !important; padding-block: 92px 12px !important; }
+[data-layout="inmersiva"] .compact-hero .page-hero::after, [data-layout="tablero"] .compact-hero .page-hero::after { display: none; }
+@media (max-width: 999px) { [data-layout="inmersiva"] .compact-hero .page-hero { padding-block: 18px 6px !important; } }

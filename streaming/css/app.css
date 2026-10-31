@@ -240,7 +240,7 @@ body { overflow-x: hidden; overflow-x: clip; } /* clip: no crea contenedor de sc
    app = app de TV con barra lateral, paneles y reproductor con lista lateral.
    ===================================================================== */
 html:not([data-layout="app"]) .st-nav .nav-ico { display: none; }
-html:not([data-layout="app"]):not([data-layout="revista"]) :is(.st-nav .nav-search, .land-nav) { display: none; }
+html:not([data-layout="app"]):not([data-layout="revista"]) .st-nav .nav-search { display: none; }
 .dash { display: flex; flex-direction: column; gap: 20px; }
 
 /* ---------- REVISTA ---------- */

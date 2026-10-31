@@ -14,6 +14,8 @@
 [data-layout="documento"] .site-header :has(> .site-brand) > * { margin: 0 !important; }
 [data-layout="documento"] .site-brand { font-size: clamp(28px, 4.6vw, 46px) !important; line-height: 1.05; justify-content: center; }
 [data-layout="documento"] .site-header :has(> .site-brand) :is(form, [class*="search"]):not(.site-nav):not(.site-actions) { display: block !important; width: min(420px, 100%); }
+/* Menú envuelto junto a las acciones (p. ej. .site-menu, que en celular es un desplegable): se disuelve */
+[data-layout="documento"] .site-header :has(> .site-brand) > :has(> .site-nav):not(.site-nav) { display: contents !important; }
 /* El índice */
 [data-layout="documento"] .site-nav { counter-reset: lgw-toc; display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px !important; width: 100% !important; max-width: none !important; height: auto !important; max-height: none !important; padding: 14px 18px !important; margin: 0 !important; position: static !important; inset: auto !important; transform: none !important; visibility: visible !important; opacity: 1 !important; overflow: visible !important; text-align: left; background: var(--surface) !important; border: var(--border-w) solid var(--line) !important; border-radius: var(--radius-sm) !important; box-shadow: none !important; }
 [data-layout="documento"] .site-nav::before { content: 'Índice'; grid-column: 1 / -1; display: block; margin-bottom: 6px; font: 700 11px/1.4 var(--font-body); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }

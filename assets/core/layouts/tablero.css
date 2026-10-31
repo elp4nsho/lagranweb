@@ -13,6 +13,8 @@
 [data-layout="tablero"] .site-brand :is(svg, img, .mark, .logo) { max-height: 26px; width: auto; }
 [data-layout="tablero"] .site-actions .btn, [data-layout="tablero"] .site-header :has(> .site-brand) > .btn { min-height: 32px; padding-block: 4px; font-size: 13px; }
 @media (min-width: 1000px) {
+  /* Menú envuelto junto a las acciones (p. ej. .site-menu): el envoltorio se disuelve en la fila */
+  [data-layout="tablero"] .site-header :has(> .site-brand) > :has(> .site-nav):not(.site-nav) { display: contents !important; }
   [data-layout="tablero"] .site-nav { display: flex !important; flex-wrap: nowrap; align-items: center; gap: 2px !important; padding: 3px !important; margin: 0 !important; overflow-x: auto; scrollbar-width: none; background: var(--surface-2) !important; border: var(--border-w) solid var(--line) !important; border-radius: var(--radius-sm) !important; box-shadow: none !important; }
   [data-layout="tablero"] .site-nav > :not(a):not(button) { display: contents; }
   [data-layout="tablero"] .site-nav a, [data-layout="tablero"] .site-nav button { padding: 5px 11px !important; margin: 0 !important; border: 0 !important; border-radius: calc(var(--radius-sm) * .8) !important; font-size: 13px !important; white-space: nowrap; text-decoration: none; background: none; }
@@ -42,9 +44,9 @@
 :is([data-layout="tablero"] .site-main:has(> .site-hero), [data-layout="tablero"] .site-main > div:only-child:has(> .site-hero), [data-layout="tablero"] .site-main:has(> div:not(:only-child) > .site-hero)) > * > * section, :is([data-layout="tablero"] .site-main:has(> .site-hero), [data-layout="tablero"] .site-main > div:only-child:has(> .site-hero), [data-layout="tablero"] .site-main:has(> div:not(:only-child) > .site-hero)) > :not(.site-hero) .section { padding-block: 0 !important; }
 /* Rótulo de widget: el primer título de cada tarjeta */
 :is([data-layout="tablero"] .site-main:has(> .site-hero), [data-layout="tablero"] .site-main > div:only-child:has(> .site-hero), [data-layout="tablero"] .site-main:has(> div:not(:only-child) > .site-hero)) > :not(.site-hero):not(:has(> .site-hero)) h2 { font-size: clamp(16px, 1.3vw, 19px) !important; line-height: 1.25; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
-@container (max-width: 520px) {
-  [data-layout="tablero"] :is(.grid-2, .grid-3, .grid-4, [class*="split"], [class*="-two"], .hero-grid) { grid-template-columns: minmax(0, 1fr) !important; }
-  [data-layout="tablero"] :is(.grid-auto) { grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)) !important; }
+@container (max-width: 560px) {
+  [data-layout="tablero"] :is(.grid-2, [class*="split"], [class*="-two"], .hero-grid) { grid-template-columns: minmax(0, 1fr) !important; }
+  [data-layout="tablero"] :is(.grid-3, .grid-4, .grid-auto, .products, .grid, [class*="-cards"], [class*="cards-"]) { grid-template-columns: repeat(auto-fill, minmax(min(130px, 100%), 1fr)) !important; gap: 10px; }
   [data-layout="tablero"] :is(.grid-2, .grid-3, .grid-4, .grid-auto) > * { grid-column: auto !important; grid-row: auto !important; }
 }
 
@@ -58,7 +60,7 @@
 [data-layout="tablero"] .admin-main { display: contents; }
 [data-layout="tablero"] .admin-topbar { grid-row: 1; position: static; min-height: 48px; padding-block: 6px; }
 [data-layout="tablero"] .admin-burger { display: none !important; }
-[data-layout="tablero"] .admin-sidebar { grid-row: 2; position: sticky; top: 0; left: auto; width: auto; height: auto; transform: none !important; display: flex; flex-direction: row; flex-wrap: nowrap; align-items: stretch; gap: 6px; padding: 8px 16px; overflow-x: auto; overflow-y: hidden; border-right: 0; border-bottom: var(--border-w) solid var(--line); box-shadow: 0 6px 16px -12px rgba(0, 0, 0, .4); scrollbar-width: thin; z-index: 45; transition: none; }
+[data-layout="tablero"] .admin-sidebar { grid-row: 2; position: sticky; top: 0; left: auto; width: auto; height: auto; transform: none !important; display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 6px; padding: 8px 16px; overflow-x: auto; overflow-y: hidden; border-right: 0; border-bottom: var(--border-w) solid var(--line); box-shadow: 0 6px 16px -12px rgba(0, 0, 0, .4); scrollbar-width: thin; z-index: 45; transition: none; }
 [data-layout="tablero"] .admin-sidebar nav { display: contents; }
 [data-layout="tablero"] .admin-sidebar .admin-brand { flex: none; flex-direction: column; justify-content: center; gap: 4px; width: 78px; padding: 4px; font-size: 10.5px; line-height: 1.1; text-align: center; white-space: normal; overflow: hidden; }
 [data-layout="tablero"] .admin-sidebar .admin-brand .logo { width: 30px; height: 30px; font-size: 14px; }
@@ -68,7 +70,7 @@
 [data-layout="tablero"] .admin-sidebar .nav-link .count { position: absolute; top: 3px; right: 4px; margin: 0; padding: 0 5px; font-size: 9.5px; }
 [data-layout="tablero"] .admin-sidebar .nav-link.active { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
 [data-layout="tablero"] .admin-sidebar .nav-link.active::before { display: none; }
-[data-layout="tablero"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { flex: none; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; gap: 4px; margin: 0 0 0 auto; padding: 0 0 0 10px; border: 0; font-size: 11px; white-space: nowrap; }
+[data-layout="tablero"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { flex: none; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-end; align-items: center; gap: 6px; margin: 0 0 0 auto; padding: 0 0 0 10px; border: 0; font-size: 11px; white-space: nowrap; }
 [data-layout="tablero"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) .btn { min-height: 28px; padding: 2px 10px; font-size: 12px; }
 [data-layout="tablero"] .admin-content { padding: 16px; gap: 14px; }
 [data-layout="tablero"] .admin-content .page-head h1 { font-size: 22px; }

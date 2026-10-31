@@ -320,3 +320,4 @@ a { text-decoration: none; }
   [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .admin-brand > :not(.logo) { display: none; }
   [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) > :not(.admin-brand):not(nav):not(.nav-link):not(.nav-section) { visibility: hidden; }
 }
+@media (max-width: 900px) { [data-layout="app"] .lp-actions { min-width: 0; flex-wrap: wrap; justify-content: flex-end; } [data-layout="app"] .lp-actions .btn { padding-inline: 10px; } }

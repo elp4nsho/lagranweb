@@ -73,7 +73,7 @@ function init({ app, theme, layout, session, css }) {
     localStorage.setItem('lgw:autofill', 'off');
     localStorage.setItem('lgw:theme:' + app, theme);
     localStorage.setItem('lgw:layout:' + app, layout);
-    if (session) localStorage.setItem(session[0], session[1]);
+    if (session) session.forEach(([k, v]) => localStorage.setItem(k, v));
   } catch (e) {}
   const add = () => { const s = document.createElement('style'); s.textContent = css; document.head.appendChild(s); };
   if (document.head) add(); else document.addEventListener('DOMContentLoaded', add);
@@ -108,7 +108,7 @@ function probe(kind) {
     const hit = document.elementFromPoint(x, y);
     return !!hit && (el === hit || el.contains(hit) || hit.contains(el));
   };
-  const sel = kind === 'admin' ? '.admin-sidebar .nav-link' : '.site-nav a, .site-nav button';
+  const sel = kind === 'admin' ? '.admin-sidebar .nav-link' : '.site-nav a, .site-nav button, .site-header .mobile-nav a';
   const links = [...document.querySelectorAll(sel)];
   const vis = links.filter(visible);
   if (vis.length) { out.nav = true; out.how = `${vis.length}/${links.length} enlaces visibles`; }
@@ -159,7 +159,7 @@ await pool(T.filter(t => t.pages.admin), CONC, async t => {
     await btn.waitFor({ state: 'visible', timeout: 10000 });
     await Promise.all([page.waitForEvent('load', { timeout: 15000 }).catch(() => {}), btn.click()]);
     await sleep(300);
-    t.session = await page.evaluate(() => { const k = Object.keys(localStorage).find(k => k.startsWith('lgw:session:')); return k ? [k, localStorage.getItem(k)] : null; });
+    t.session = await page.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('lgw:session:')).map(k => [k, localStorage.getItem(k)]));
   } catch (e) { t.loginError = e.message; }
   await ctx.close();
 });

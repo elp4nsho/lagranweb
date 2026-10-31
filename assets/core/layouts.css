@@ -17,3 +17,18 @@
 
 /* Botones de menú móvil que usan las webs (para las disposiciones que muestran el menú siempre):
    [class*="burger"], .nav-toggle, .menu-toggle, .mobile-nav-btn  ·  paneles: .site-header .mobile-nav */
+
+/* Webs sin botón de menú móvil (su menú se oculta en celular y no hay otro): en cualquier
+   disposición salvo "app" (que tiene su barra de pestañas), el menú pasa a una tira deslizable
+   bajo la marca, para que siempre se pueda navegar. Va con :where() (especificidad mínima) para que
+   una disposición que muestra el menú a su manera (p. ej. el índice de "documento") gane. */
+@media (max-width: 999px) {
+  :where(html:not([data-layout="app"]) .site-header:not(:has([class*="burger"], .nav-toggle, .menu-toggle, .mobile-nav-btn, .mobile-nav, .mob-nav))) :has(> .site-nav) { flex-wrap: wrap !important; }
+  :where(html:not([data-layout="app"]) .site-header:not(:has([class*="burger"], .nav-toggle, .menu-toggle, .mobile-nav-btn, .mobile-nav, .mob-nav))) .site-nav { order: 99; flex: 1 0 100%; display: flex !important; flex-wrap: nowrap !important; gap: 4px !important; width: 100%; margin: 0 !important; padding: 4px 0 8px !important; overflow-x: auto; scrollbar-width: none; position: static !important; transform: none !important; visibility: visible !important; opacity: 1 !important; }
+  :where(html:not([data-layout="app"]) .site-header:not(:has([class*="burger"], .nav-toggle, .menu-toggle, .mobile-nav-btn, .mobile-nav, .mob-nav))) .site-nav a { display: inline-flex !important; flex: none; padding: 6px 12px !important; border: var(--border-w) solid var(--line); border-radius: var(--radius-pill); font-size: 13px; white-space: nowrap; }
+}
+
+/* Menús laterales a la izquierda (clásica, app y el cajón móvil): el final del menú queda por encima de
+   la barra del portafolio, que vive abajo a la izquierda. */
+:is([data-layout="clasica"], [data-layout="app"]) .admin-sidebar { padding-bottom: 68px; }
+@media (max-width: 900px) { .admin-sidebar { padding-bottom: 68px; } }

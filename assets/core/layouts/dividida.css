@@ -9,6 +9,8 @@
 
 /* ---------- Mitad fija (escritorio) ---------- */
 @media (min-width: 1080px) {
+  /* Menú envuelto junto a las acciones (p. ej. .site-menu): el envoltorio se disuelve en la fila */
+  [data-layout="dividida"] .site-header :has(> .site-brand) > :has(> .site-nav):not(.site-nav) { display: contents !important; }
   [data-layout="dividida"] body:has(.site-header) { padding-left: var(--split); }
   [data-layout="dividida"] .site-header { position: fixed !important; inset: 0 auto 0 0 !important; width: var(--split); height: 100vh; z-index: 60; overflow-y: auto; display: flex !important; flex-direction: column; justify-content: center; transform: none !important; padding: 0 !important; background: color-mix(in srgb, var(--primary) 13%, var(--bg)) !important; background-image: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border: 0 !important; border-right: var(--border-w) solid var(--line) !important; box-shadow: none !important; }
   /* Franja decorativa del color primario en el borde */
