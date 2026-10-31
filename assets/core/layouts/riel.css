@@ -1,0 +1,82 @@
+/* La Gran Web · disposición "riel" (riel derecho). La carga theme-boot.js solo cuando está activa.
+   Público: no hay cabecera arriba. Toda la navegación vive en un riel angosto fijo a la DERECHA,
+   con la marca arriba y los enlaces escritos en vertical (como lomos de libro), y el contenido
+   ocupa todo el resto. En celular el riel se angosta pero sigue ahí. Panel: riel de íconos a la
+   derecha que se expande hacia la izquierda al pasar el mouse o con el teclado (en celular queda
+   fijo, sin cajón). Ver README → Disposiciones. */
+
+[data-layout="riel"] { --rail: 92px; }
+@media (max-width: 900px) { [data-layout="riel"] { --rail: 58px; } }
+
+/* ---------- Riel público ---------- */
+[data-layout="riel"] body:has(.site-header) { padding-right: var(--rail); }
+[data-layout="riel"] .site-header { position: fixed !important; inset: 0 0 0 auto !important; width: var(--rail) !important; height: 100vh !important; height: 100dvh !important; z-index: 80; display: flex !important; flex-direction: column; overflow-x: hidden; overflow-y: auto; scrollbar-width: none; padding: 0 !important; margin: 0 !important; transform: none !important; background: var(--surface) !important; background-image: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border: 0 !important; border-left: var(--border-w) solid var(--line) !important; box-shadow: -8px 0 24px -18px rgba(0, 0, 0, .45) !important; }
+[data-layout="riel"] .site-header::before { content: ''; position: fixed; top: 0; bottom: 0; right: calc(var(--rail) - 4px); width: 4px; background: var(--primary); pointer-events: none; }
+/* Solo marca, menú y acciones */
+[data-layout="riel"] .site-header > :not(:has(.site-brand, .site-nav, .site-actions)):not(.site-brand, .site-nav, .site-actions) { display: none !important; }
+[data-layout="riel"] .site-header :has(> .site-brand) > :has(> .site-nav):not(.site-nav) { display: contents !important; }
+[data-layout="riel"] .site-header :has(> .site-brand), [data-layout="riel"] .site-header > * { width: 100% !important; max-width: none !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important; display: flex !important; flex-direction: column !important; flex-wrap: nowrap !important; align-items: center !important; justify-content: flex-start !important; gap: 14px !important; background: none !important; border: 0 !important; box-shadow: none !important; }
+[data-layout="riel"] .site-header :has(> .site-brand) { flex: 1 0 auto; padding: 16px 0 18px !important; }
+[data-layout="riel"] .site-header :has(> .site-brand) :is(form, [class*="search"]):not(.site-nav):not(.site-actions) { display: none !important; }
+[data-layout="riel"] .site-brand { writing-mode: vertical-rl; transform: rotate(180deg) !important; flex-direction: row !important; align-items: center; gap: 8px !important; max-height: 34vh; overflow: hidden; font-size: 19px !important; line-height: 1.1; white-space: nowrap; padding: 0 !important; }
+[data-layout="riel"] .site-brand :is(svg, img, .mark, .logo, b, i) { transform: rotate(180deg); max-width: 36px; max-height: 36px; flex: none; }
+[data-layout="riel"] .site-nav { display: flex !important; flex-direction: column !important; flex-wrap: nowrap !important; align-items: center !important; gap: 4px !important; width: 100% !important; height: auto !important; margin: 0 !important; padding: 12px 0 !important; position: static !important; inset: auto !important; transform: none !important; visibility: visible !important; opacity: 1 !important; overflow: visible !important; background: none !important; border: 0 !important; border-block: 1px solid var(--line) !important; box-shadow: none !important; }
+[data-layout="riel"] .site-nav > :not(a):not(button) { display: contents !important; }
+[data-layout="riel"] .site-nav a, [data-layout="riel"] .site-nav button { writing-mode: vertical-rl; transform: rotate(180deg) !important; display: flex !important; align-items: center; justify-content: center; flex: none; width: auto !important; padding: 12px 8px !important; margin: 0 !important; border: 0 !important; border-radius: var(--radius-sm) !important; background: none !important; box-shadow: none !important; color: var(--text) !important; font-size: 14px !important; font-weight: 600; letter-spacing: .04em; white-space: nowrap; text-decoration: none; }
+[data-layout="riel"] .site-nav a::before, [data-layout="riel"] .site-nav a::after { display: none !important; }
+[data-layout="riel"] .site-nav a:hover, [data-layout="riel"] .site-nav a.active, [data-layout="riel"] .site-nav a[aria-current] { background: color-mix(in srgb, var(--primary) 16%, transparent) !important; color: var(--primary) !important; }
+[data-layout="riel"] .site-actions { gap: 8px !important; }
+[data-layout="riel"] .site-actions > * { max-width: calc(var(--rail) - 14px); }
+[data-layout="riel"] .site-actions :is(.btn, a, button) { writing-mode: vertical-rl; transform: rotate(180deg); min-height: 0 !important; min-width: 0 !important; width: auto !important; padding: 12px 7px !important; white-space: nowrap; font-size: 13px; }
+[data-layout="riel"] .site-actions :is(.btn, a, button) :is(svg, img) { transform: rotate(180deg); }
+[data-layout="riel"] .site-header :is([class*="burger"], .nav-toggle, .menu-toggle, .mobile-nav-btn, .mobile-nav) { display: none !important; }
+/* El contenido ocupa todo lo demás (lo que estaba pegado arriba ya no tiene cabecera encima) */
+[data-layout="riel"] .site-main { padding-top: 0 !important; margin-top: 0 !important; }
+[data-layout="riel"] body { padding-top: 0 !important; }
+@media (max-width: 900px) {
+  [data-layout="riel"] .site-header :has(> .site-brand) { padding: 10px 0 12px !important; gap: 10px !important; }
+  [data-layout="riel"] .site-brand { font-size: 15px !important; max-height: 26vh; }
+  [data-layout="riel"] .site-brand :is(svg, img, .mark, .logo) { max-width: 28px; max-height: 28px; }
+  [data-layout="riel"] .site-nav a, [data-layout="riel"] .site-nav button { padding: 9px 5px !important; font-size: 12.5px !important; }
+  [data-layout="riel"] .site-actions :is(.btn, a, button) { padding: 9px 4px !important; font-size: 12px; }
+}
+
+/* Portada alineada a la izquierda, con el título contra el riel */
+[data-layout="riel"] .site-hero { text-align: left !important; }
+[data-layout="riel"] .site-hero .hero-text > * { margin-left: 0 !important; margin-right: 0 !important; justify-content: flex-start !important; text-align: left !important; }
+[data-layout="riel"] .site-hero h1 { font-size: clamp(32px, 5vw, 72px); line-height: 1.02; }
+[data-layout="riel"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) h2:first-of-type { text-align: left; }
+[data-layout="riel"] .site-footer { padding-bottom: 80px !important; }
+
+/* ---------- Panel: riel de íconos a la derecha ---------- */
+[data-layout="riel"] .admin-shell { grid-template-columns: minmax(0, 1fr) 72px; }
+[data-layout="riel"] .admin-main { grid-column: 1; grid-row: 1; }
+[data-layout="riel"] .admin-burger { display: none !important; }
+[data-layout="riel"] .admin-sidebar { grid-column: 2; grid-row: 1; position: sticky !important; top: 0 !important; left: auto !important; right: 0; justify-self: end; width: 72px !important; height: 100vh !important; transform: none !important; padding: 12px 10px; overflow-x: hidden; border-right: 0; border-left: var(--border-w) solid var(--line); box-shadow: none; z-index: 60; transition: width .22s var(--ease), box-shadow .22s; }
+[data-layout="riel"] .admin-sidebar:hover, [data-layout="riel"] .admin-sidebar:focus-within { width: 260px !important; box-shadow: var(--shadow-lg); }
+[data-layout="riel"] .admin-sidebar .nav-link, [data-layout="riel"] .admin-sidebar .admin-brand { white-space: nowrap; }
+[data-layout="riel"] .admin-sidebar .nav-link { position: relative; }
+[data-layout="riel"] .admin-sidebar .nav-link .ico { flex: none; width: 30px; font-size: 18px; }
+[data-layout="riel"] .admin-sidebar .admin-brand { padding-inline: 4px; }
+[data-layout="riel"] .admin-sidebar .nav-link.active { box-shadow: inset 4px 0 0 var(--primary); }
+[data-layout="riel"] .admin-sidebar .nav-link.active::before { display: none; }
+[data-layout="riel"] .admin-sidebar .nav-section { height: 1px; padding: 0; margin: 8px 6px; overflow: hidden; color: transparent; background: var(--line); }
+[data-layout="riel"] .admin-sidebar:hover .nav-section, [data-layout="riel"] .admin-sidebar:focus-within .nav-section { height: auto; padding: 12px 10px 4px; margin: 0; color: var(--muted); background: none; }
+[data-layout="riel"] .admin-sidebar:not(:hover):not(:focus-within) :is(.nav-link, .admin-brand) { font-size: 0; gap: 0; }
+[data-layout="riel"] .admin-sidebar:not(:hover):not(:focus-within) .nav-link .ico { font-size: 18px; }
+[data-layout="riel"] .admin-sidebar:not(:hover):not(:focus-within) .admin-brand .logo { font-size: 16px; }
+[data-layout="riel"] .admin-sidebar:not(:hover):not(:focus-within) .nav-link .count { position: absolute; top: 2px; right: 2px; margin: 0; padding: 0 4px; font-size: 9px; }
+[data-layout="riel"] .admin-sidebar:not(:hover):not(:focus-within) > :not(.admin-brand):not(nav):not(.nav-link):not(.nav-section) { display: none; }
+/* Al expandirse, el riel crece hacia la izquierda sobre el contenido */
+@media (min-width: 901px) {
+  [data-layout="riel"] .admin-sidebar:hover, [data-layout="riel"] .admin-sidebar:focus-within { margin-left: -188px; }
+}
+@media (max-width: 900px) {
+  [data-layout="riel"] .admin-shell { grid-template-columns: minmax(0, 1fr) 56px; }
+  [data-layout="riel"] .admin-sidebar { width: 56px !important; padding: 8px 6px 70px; }
+  [data-layout="riel"] .admin-sidebar:hover, [data-layout="riel"] .admin-sidebar:focus-within { position: fixed !important; top: 0 !important; right: 0 !important; bottom: 0; width: 250px !important; }
+  [data-layout="riel"] .admin-sidebar .nav-link { padding: 9px 8px; }
+}
+/* Panel más angosto en celular: las filas de listas compactas (.mini-list) se parten */
+@media (max-width: 900px) { [data-layout="riel"] .admin-content :is(.mini-list, .act-list) li { flex-wrap: wrap; } }
+@media (max-width: 900px) { [data-layout="riel"] .admin-content .grid-2 > * { grid-area: auto; min-width: 0; } }

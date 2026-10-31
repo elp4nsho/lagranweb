@@ -1,0 +1,92 @@
+/* La Gran Web · disposición "diapositivas" (presentación). La carga theme-boot.js solo cuando está activa.
+   Público: la web se presenta como un mazo de diapositivas sobre un escenario oscuro. La cabecera
+   es la barra de herramientas del programa de presentaciones (menú numerado como diapositivas) y
+   cada sección —empezando por la portada, que es la diapositiva de título— es una tarjeta de
+   proporción 16:9 con su número en la esquina. Panel: clasificador de diapositivas a la izquierda
+   (cada enlace es una miniatura numerada; en celular, una tira deslizable arriba) y el contenido
+   sobre una diapositiva grande en el escenario. Ver README → Disposiciones. */
+
+[data-layout="diapositivas"] { --stage: color-mix(in srgb, var(--text) 16%, var(--bg)); --slide: min(1200px, 100% - 56px); --slide-h: calc(min(1200px, 100vw - 56px) * 9 / 16); }
+@media (max-width: 760px) { [data-layout="diapositivas"] { --slide: calc(100% - 20px); --slide-h: calc((100vw - 20px) * 9 / 16); } }
+[data-layout="diapositivas"] body:has(.site-main) { background: var(--stage) !important; background-image: none !important; }
+
+/* ---------- Barra de herramientas ---------- */
+[data-layout="diapositivas"] .site-header { position: sticky !important; top: 0 !important; z-index: 70; transform: none !important; background: var(--surface) !important; background-image: none !important; border-bottom: var(--border-w) solid var(--line) !important; box-shadow: 0 6px 18px -10px rgba(0, 0, 0, .5) !important; font-size: 13px; }
+[data-layout="diapositivas"] .site-header :has(> .site-brand) { min-height: 52px !important; padding-block: 6px !important; gap: 12px; }
+[data-layout="diapositivas"] .site-brand { font-size: 16px !important; white-space: nowrap; }
+[data-layout="diapositivas"] .site-brand :is(svg, img, .mark, .logo) { max-height: 26px; width: auto; }
+[data-layout="diapositivas"] .site-actions .btn { min-height: 32px; padding-block: 4px; font-size: 13px; }
+@media (min-width: 1000px) {
+  [data-layout="diapositivas"] .site-header :has(> .site-brand) > :has(> .site-nav):not(.site-nav) { display: contents !important; }
+  [data-layout="diapositivas"] .site-nav { counter-reset: lgw-sl-nav; display: flex !important; flex-direction: row !important; flex-wrap: nowrap; gap: 4px !important; padding: 0 !important; margin: 0 auto !important; position: static !important; transform: none !important; overflow-x: auto; scrollbar-width: none; background: none !important; border: 0 !important; box-shadow: none !important; }
+  [data-layout="diapositivas"] .site-nav > :not(a):not(button) { display: contents !important; }
+  [data-layout="diapositivas"] .site-nav a, [data-layout="diapositivas"] .site-nav button { counter-increment: lgw-sl-nav; flex: none; display: flex !important; align-items: center; gap: 7px; padding: 5px 11px 5px 6px !important; margin: 0 !important; border: var(--border-w) solid var(--line) !important; border-radius: var(--radius-sm) !important; background: var(--surface-2) !important; color: var(--text) !important; box-shadow: none !important; font-size: 13px !important; white-space: nowrap; text-decoration: none; }
+  [data-layout="diapositivas"] .site-nav a::before, [data-layout="diapositivas"] .site-nav button::before { content: counter(lgw-sl-nav) !important; position: static !important; display: grid !important; place-items: center; width: 26px !important; height: 18px !important; border-radius: 3px; background: var(--bg) !important; border: 1px solid var(--line); font: 600 10px/1 var(--font-mono); color: var(--muted); transform: none !important; opacity: 1 !important; }
+  [data-layout="diapositivas"] .site-nav a::after { display: none !important; }
+  [data-layout="diapositivas"] .site-nav a:hover, [data-layout="diapositivas"] .site-nav a.active, [data-layout="diapositivas"] .site-nav a[aria-current] { border-color: var(--primary) !important; box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 30%, transparent) !important; }
+  [data-layout="diapositivas"] .site-header > .site-nav { margin: 0 auto 6px !important; width: max-content; max-width: calc(100% - 32px); }
+  [data-layout="diapositivas"] .site-header [class*="burger"], [data-layout="diapositivas"] .site-header .nav-toggle, [data-layout="diapositivas"] .site-header .menu-toggle, [data-layout="diapositivas"] .site-header .mobile-nav-btn { display: none !important; }
+}
+
+/* ---------- Cada sección, una diapositiva ---------- */
+[data-layout="diapositivas"] .site-main { counter-reset: lgw-slide; padding-block: 28px 10px !important; }
+[data-layout="diapositivas"] :is(.site-hero, .site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) {
+  position: relative; counter-increment: lgw-slide; container-type: inline-size;
+  width: var(--slide) !important; max-width: none !important; min-height: var(--slide-h) !important; margin: 0 auto 32px !important;
+  display: flex !important; flex-direction: column; justify-content: center; padding-block: clamp(28px, 4.4vw, 64px) !important;
+  background-color: var(--bg); background-image: var(--bg-image); border-radius: max(var(--radius-sm), 6px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .08), 0 22px 50px -18px rgba(0, 0, 0, .55); overflow: clip;
+}
+[data-layout="diapositivas"] :is(.site-hero, .site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero))::after {
+  content: counter(lgw-slide, decimal-leading-zero); position: absolute; right: 16px; bottom: 12px;
+  padding: 2px 8px; border-radius: 3px; background: color-mix(in srgb, var(--text) 8%, transparent); color: var(--muted); font: 600 11px/1.5 var(--font-mono); letter-spacing: .1em;
+}
+[data-layout="diapositivas"] :is(.site-hero, .site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) .container { width: calc(100% - clamp(32px, 7%, 110px)) !important; max-width: none !important; margin-inline: auto !important; }
+/* Diapositiva de título */
+[data-layout="diapositivas"] .site-hero { text-align: center !important; }
+[data-layout="diapositivas"] .site-hero > .container:has(> .hero-text),
+[data-layout="diapositivas"] .site-hero.container:has(> .hero-text) { display: grid !important; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(18px, 3vw, 44px); align-items: center; text-align: left; }
+[data-layout="diapositivas"] .site-hero .hero-text > * { margin-left: 0 !important; margin-right: 0 !important; justify-content: flex-start !important; text-align: left !important; }
+[data-layout="diapositivas"] .site-hero h1 { font-size: clamp(30px, 5cqi, 66px) !important; line-height: 1.04; }
+[data-layout="diapositivas"] .site-hero .hero-media { max-height: 380px; overflow: hidden; border-radius: var(--radius-sm); }
+[data-layout="diapositivas"] .site-hero::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 10px; background: var(--primary); }
+@container (max-width: 700px) {
+  [data-layout="diapositivas"] .site-hero > .container:has(> .hero-text), [data-layout="diapositivas"] .site-hero.container:has(> .hero-text) { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="diapositivas"] .site-hero .hero-media { max-height: 200px; }
+}
+/* Título de cada diapositiva */
+[data-layout="diapositivas"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) h2:first-of-type { text-align: left; font-size: clamp(24px, 3.4cqi, 44px); padding-bottom: 10px; border-bottom: 3px solid var(--primary); display: inline-block; }
+[data-layout="diapositivas"] .site-footer { width: var(--slide); margin: 0 auto 28px; border-radius: max(var(--radius-sm), 6px); padding-bottom: 70px !important; }
+
+/* ---------- Panel: clasificador de diapositivas + escenario ---------- */
+[data-layout="diapositivas"] body:has(.admin-shell) { background: var(--stage) !important; background-image: none !important; }
+@media (min-width: 901px) { [data-layout="diapositivas"] .admin-shell { grid-template-columns: 196px minmax(0, 1fr); } }
+[data-layout="diapositivas"] .admin-sidebar { counter-reset: lgw-sorter; gap: 12px; padding: 14px 18px 72px 12px; background: color-mix(in srgb, var(--surface) 92%, var(--stage)); }
+[data-layout="diapositivas"] .admin-sidebar nav { display: contents; }
+[data-layout="diapositivas"] .admin-sidebar .nav-section { display: none; }
+[data-layout="diapositivas"] .admin-sidebar .admin-brand { padding: 2px 4px 6px 24px; font-size: 15px; }
+[data-layout="diapositivas"] .admin-sidebar .admin-brand .logo { width: 28px; height: 28px; font-size: 13px; }
+[data-layout="diapositivas"] .admin-sidebar .nav-link { counter-increment: lgw-sorter; position: relative; flex: none; flex-direction: column; justify-content: center; gap: 4px; margin-left: 22px; aspect-ratio: 16 / 9; min-height: 0; padding: 6px; border: 2px solid var(--line); border-radius: 5px; background: var(--bg); color: var(--text); box-shadow: 0 6px 14px -8px rgba(0, 0, 0, .5); font-size: 11.5px; line-height: 1.15; text-align: center; overflow: visible; }
+[data-layout="diapositivas"] .admin-sidebar .nav-link::after { content: counter(lgw-sorter); position: absolute; left: -22px; top: 2px; width: 18px; text-align: right; font: 600 11px var(--font-mono); color: var(--muted); }
+[data-layout="diapositivas"] .admin-sidebar .nav-link .ico { width: auto; font-size: 20px; line-height: 1; }
+[data-layout="diapositivas"] .admin-sidebar .nav-link .count { position: absolute; top: 4px; right: 4px; margin: 0; font-size: 9.5px; padding: 0 5px; }
+[data-layout="diapositivas"] .admin-sidebar .nav-link:hover { border-color: color-mix(in srgb, var(--primary) 60%, var(--line)); }
+[data-layout="diapositivas"] .admin-sidebar .nav-link.active { border-color: var(--primary); box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 35%, transparent); color: var(--primary); }
+[data-layout="diapositivas"] .admin-sidebar .nav-link.active::before { display: none; }
+[data-layout="diapositivas"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { margin-left: 22px; }
+[data-layout="diapositivas"] .admin-topbar { background: var(--surface); }
+[data-layout="diapositivas"] .admin-content { margin: 24px clamp(14px, 2.4vw, 36px) 32px; padding: clamp(18px, 2.4vw, 32px); background: var(--bg); background-image: var(--bg-image); border-radius: 6px; box-shadow: 0 22px 50px -18px rgba(0, 0, 0, .55); }
+@media (max-width: 900px) {
+  [data-layout="diapositivas"] .admin-shell { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr; }
+  [data-layout="diapositivas"] .admin-main { display: contents; }
+  [data-layout="diapositivas"] .admin-topbar { grid-row: 1; }
+  [data-layout="diapositivas"] .admin-burger { display: none !important; }
+  [data-layout="diapositivas"] .admin-sidebar { grid-row: 2; position: sticky !important; top: 0 !important; left: auto; width: auto !important; height: auto !important; transform: none !important; flex-direction: row; align-items: stretch; gap: 10px; padding: 10px 12px 12px; overflow-x: auto; overflow-y: hidden; box-shadow: 0 8px 16px -12px rgba(0, 0, 0, .5); z-index: 45; transition: none; }
+  [data-layout="diapositivas"] .admin-sidebar .admin-brand { display: none; }
+  [data-layout="diapositivas"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { flex: none; display: flex; align-items: center; gap: 6px; margin: 0 0 0 8px; padding: 0; border: 0; white-space: nowrap; }
+  [data-layout="diapositivas"] .admin-sidebar .nav-link { width: 104px; margin: 0 0 0 14px; font-size: 10.5px; }
+  [data-layout="diapositivas"] .admin-sidebar .nav-link::after { left: -15px; width: 12px; }
+  [data-layout="diapositivas"] .admin-content { grid-row: 3; margin: 12px 8px 90px; padding: 14px; }
+}
+/* La barra del portafolio se corre a la derecha del clasificador (escritorio) */
+@media (min-width: 901px) { [data-layout="diapositivas"] body:has(.admin-shell) .lgw-dock { left: 212px; } }

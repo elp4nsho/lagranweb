@@ -53,7 +53,8 @@ export function stateMachine({ field = 'status', history = 'history', states, tr
       return g === true || g == null ? true : (g || 'Transición no permitida');
     },
     // Aplica la transición. rowOrId puede ser la fila o su id. Devuelve la fila actualizada, o lanza Error.
-    move(db, collection, rowOrId, to, { by = null, note = '', log = collection, title = r => r.code || r.name || r.title || r.id, extra = {}, force = false } = {}) {
+    // at (opcional, ISO): fecha del cambio en vez de "ahora" (semillas que simulan el pasado, importaciones).
+    move(db, collection, rowOrId, to, { by = null, note = '', log = collection, title = r => r.code || r.name || r.title || r.id, extra = {}, force = false, at = null } = {}) {
       const id = typeof rowOrId === 'string' ? rowOrId : rowOrId.id;
       const current = db.get(collection, id);
       if (!current) throw new Error('Registro no encontrado');
@@ -61,7 +62,7 @@ export function stateMachine({ field = 'status', history = 'history', states, tr
       const ok = force ? (from === to ? 'Ya está en ese estado' : true) : m.can(current, to);
       if (ok !== true) throw new Error(ok);
       const name = title(current);
-      const entry = { at: now(), from: from ?? null, to, by, note };
+      const entry = { at: at || now(), from: from ?? null, to, by, note };
       const patch = { [field]: to, [`${field}At`]: entry.at, ...extra };
       if (history) patch[history] = [...(current[history] || []), entry];
       onEnter[to] && onEnter[to](current, patch, entry);

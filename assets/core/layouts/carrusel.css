@@ -1,0 +1,79 @@
+/* La Gran Web · disposición "carrusel". La carga theme-boot.js solo cuando está activa.
+   Público: la web se recorre de lado. El menú es una tira de fichas deslizable bajo la marca, la
+   portada es una diapositiva con puntos y cada grilla de tarjetas (productos, servicios, noticias…)
+   se vuelve una fila horizontal con imán (scroll-snap) que se desliza DENTRO de su sección, como
+   un catálogo de streaming. Panel: menú en tira de fichas arriba y, en escritorio, el contenido
+   se ordena en paneles-columna que se deslizan de lado (cada bloque con su propio scroll).
+   Ver README → Disposiciones. */
+
+/* ---------- Cabecera: marca + tira de fichas ---------- */
+[data-layout="carrusel"] .site-header :has(> .site-brand) > :has(> .site-nav):not(.site-nav) { display: contents !important; }
+[data-layout="carrusel"] .site-header :has(> .site-brand) { flex-wrap: wrap !important; row-gap: 0 !important; }
+[data-layout="carrusel"] .site-header :has(> .site-brand) > .site-actions { margin-left: auto; }
+[data-layout="carrusel"] .site-nav { order: 99; flex: 1 0 100%; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; align-items: center; gap: 8px !important; width: 100%; margin: 0 !important; padding: 6px 0 10px !important; position: static !important; inset: auto !important; height: auto !important; transform: none !important; visibility: visible !important; opacity: 1 !important; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity; scrollbar-width: none; background: none !important; border: 0 !important; box-shadow: none !important; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 36px), transparent); }
+[data-layout="carrusel"] .site-nav > :not(a):not(button) { display: contents !important; }
+[data-layout="carrusel"] .site-nav a, [data-layout="carrusel"] .site-nav button { flex: none; scroll-snap-align: start; display: inline-flex !important; align-items: center; padding: 7px 16px !important; margin: 0 !important; border: var(--border-w) solid var(--line) !important; border-radius: var(--radius-pill) !important; background: var(--surface) !important; color: var(--text) !important; box-shadow: none !important; font-size: 13.5px !important; white-space: nowrap; text-decoration: none; }
+[data-layout="carrusel"] .site-nav a:last-child { margin-right: 36px !important; }
+[data-layout="carrusel"] .site-nav a:hover, [data-layout="carrusel"] .site-nav a.active, [data-layout="carrusel"] .site-nav a[aria-current] { background: var(--primary) !important; color: var(--on-primary) !important; border-color: var(--primary) !important; }
+[data-layout="carrusel"] .site-nav a::before, [data-layout="carrusel"] .site-nav a::after { display: none !important; }
+[data-layout="carrusel"] .site-header > .site-nav { width: min(1240px, 100% - 32px); margin-inline: auto !important; }
+[data-layout="carrusel"] .site-header :is([class*="burger"], .nav-toggle, .menu-toggle, .mobile-nav-btn, .mobile-nav) { display: none !important; }
+
+/* ---------- Portada como diapositiva ---------- */
+[data-layout="carrusel"] .site-hero { min-height: 0 !important; padding-block: clamp(18px, 3vw, 36px) !important; text-align: left !important; }
+[data-layout="carrusel"] .site-hero > .container:has(> .hero-text),
+[data-layout="carrusel"] .site-hero.container:has(> .hero-text) { position: relative; display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 44px); align-items: center; padding: clamp(22px, 3.4vw, 48px) clamp(22px, 3.4vw, 48px) 54px; background: var(--surface); border: var(--border-w) solid var(--line); border-radius: calc(var(--radius) * 1.5); box-shadow: var(--shadow-lg); overflow: hidden; }
+[data-layout="carrusel"] .site-hero > .container:has(> .hero-text)::after,
+[data-layout="carrusel"] .site-hero.container:has(> .hero-text)::after { content: ''; position: absolute; left: 50%; bottom: 20px; width: 64px; height: 8px; margin-left: -32px; background: radial-gradient(circle at 4px 4px, var(--primary) 3.5px, transparent 4px) 0 0 / 16px 8px no-repeat, radial-gradient(circle at 4px 4px, var(--line) 3.5px, transparent 4px) 0 0 / 16px 8px repeat-x; }
+[data-layout="carrusel"] .site-hero .hero-text > * { margin-left: 0 !important; margin-right: 0 !important; justify-content: flex-start !important; text-align: left !important; }
+[data-layout="carrusel"] .site-hero h1 { font-size: clamp(30px, 4.4vw, 60px); line-height: 1.04; }
+[data-layout="carrusel"] .site-hero .hero-media { max-height: 420px; overflow: hidden; border-radius: var(--radius); }
+@media (max-width: 760px) {
+  [data-layout="carrusel"] .site-hero > .container:has(> .hero-text), [data-layout="carrusel"] .site-hero.container:has(> .hero-text) { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="carrusel"] .site-hero .hero-media { max-height: 240px; }
+}
+
+/* ---------- Grillas de tarjetas → filas deslizables (dentro de la sección) ---------- */
+[data-layout="carrusel"] .site-main :is(.grid-3, .grid-4, .grid-auto, .products, [class*="-cards"], [class*="cards-"]):has(> :nth-child(3)) {
+  display: flex !important; flex-wrap: nowrap !important; align-items: stretch; gap: 16px !important; grid-template-columns: none !important; contain: inline-size; min-width: 0; max-width: 100%;
+  overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: 2px;
+  padding: 4px 2px 14px !important; scrollbar-width: thin; scrollbar-color: var(--primary) transparent;
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent);
+}
+[data-layout="carrusel"] .site-main :is(.grid-3, .grid-4, .grid-auto, .products, [class*="-cards"], [class*="cards-"]):has(> :nth-child(3)) > * { flex: 0 0 clamp(230px, 27%, 340px) !important; width: auto !important; max-width: none !important; min-width: 0; grid-column: auto !important; grid-row: auto !important; scroll-snap-align: start; }
+[data-layout="carrusel"] .site-main :is(.grid-3, .grid-4, .grid-auto, .products, [class*="-cards"], [class*="cards-"]):has(> :nth-child(3)) > :last-child { margin-right: 48px !important; }
+@media (max-width: 600px) {
+  [data-layout="carrusel"] .site-main :is(.grid-3, .grid-4, .grid-auto, .products, [class*="-cards"], [class*="cards-"]):has(> :nth-child(3)) > * { flex-basis: 78% !important; }
+}
+/* Rótulo de cada fila con la pista de deslizar */
+[data-layout="carrusel"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)):has(:is(.grid-3, .grid-4, .grid-auto, .products, [class*="-cards"], [class*="cards-"]):has(> :nth-child(3))) h2:first-of-type::after { content: '  ⟶ desliza'; font: 500 12px var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: pre; vertical-align: .35em; }
+[data-layout="carrusel"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) { padding-block: clamp(22px, 3.4vw, 44px) !important; }
+[data-layout="carrusel"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) h2:first-of-type { text-align: left; }
+
+/* ---------- Panel: tira de fichas arriba ---------- */
+[data-layout="carrusel"] .admin-shell { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr; }
+[data-layout="carrusel"] .admin-main { display: contents; }
+[data-layout="carrusel"] .admin-topbar { grid-row: 1; position: static; }
+[data-layout="carrusel"] .admin-burger { display: none !important; }
+[data-layout="carrusel"] .admin-sidebar { grid-row: 2; position: sticky !important; top: 0 !important; left: auto; width: auto !important; height: auto !important; transform: none !important; display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 8px; padding: 10px 16px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity; scrollbar-width: none; border-right: 0; border-bottom: var(--border-w) solid var(--line); box-shadow: none; z-index: 45; transition: none; }
+[data-layout="carrusel"] .admin-sidebar nav { display: contents; }
+[data-layout="carrusel"] .admin-sidebar .nav-section { display: none; }
+[data-layout="carrusel"] .admin-sidebar .admin-brand { flex: none; padding: 0 12px 0 0; margin-right: 4px; border-right: 1px solid var(--line); white-space: nowrap; font-size: 15px; }
+[data-layout="carrusel"] .admin-sidebar .admin-brand .logo { width: 28px; height: 28px; font-size: 13px; }
+[data-layout="carrusel"] .admin-sidebar .nav-link { flex: none; scroll-snap-align: start; padding: 7px 14px 7px 10px; border: var(--border-w) solid var(--line); border-radius: var(--radius-pill); background-color: var(--surface); white-space: nowrap; font-size: 13.5px; }
+[data-layout="carrusel"] .admin-sidebar .nav-link .count { margin-left: 4px; }
+[data-layout="carrusel"] .admin-sidebar .nav-link.active { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+[data-layout="carrusel"] .admin-sidebar .nav-link.active::before { display: none; }
+[data-layout="carrusel"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { flex: none; display: flex; flex-direction: row; align-items: center; gap: 6px; margin: 0 0 0 auto; padding: 0 0 0 10px; border: 0; white-space: nowrap; }
+
+/* Contenido en paneles-columna que se deslizan de lado (escritorio) */
+@media (min-width: 1000px) {
+  [data-layout="carrusel"] .admin-content:has(> :nth-child(2)) { flex-direction: row; flex-wrap: nowrap; align-items: stretch; gap: 16px; height: calc(100vh - 130px); min-height: 460px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity; scroll-padding-inline: 24px; padding-bottom: 18px; scrollbar-color: var(--primary) transparent; }
+  [data-layout="carrusel"] .admin-content:has(> :nth-child(2)) > * { flex: 1 0 min(640px, 82%); max-height: 100%; min-width: 0; overflow: auto; align-content: start; scroll-snap-align: start; margin: 0 !important; padding: 16px; background-color: color-mix(in srgb, var(--surface) 60%, transparent); border: var(--border-w) solid var(--line); border-radius: var(--radius); }
+  [data-layout="carrusel"] .admin-content:has(> :nth-child(2)) > :is(.page-head, header) { flex: 0 0 260px; flex-direction: column; align-items: flex-start; justify-content: flex-start; background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+  [data-layout="carrusel"] .admin-content:has(> :nth-child(2)) > :is(.page-head, header) :is(h1, h2, p, .muted, small) { color: inherit; }
+  [data-layout="carrusel"] .admin-content:has(> :nth-child(2)) > :is(.card, section) { background-color: var(--surface); }
+  [data-layout="carrusel"] .admin-content:has(> :nth-child(2)) > :is(:empty, [hidden], script, style, template) { display: none !important; }
+}
+/* Enlaces del pie del menú que ocupan todo el ancho (botón "salir" como .nav-link): en fila, a su medida */
+[data-layout="carrusel"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) .nav-link { width: auto; flex: none; }

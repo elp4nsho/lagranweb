@@ -251,7 +251,8 @@ una app antigua dentro de su router propio.
 ### 5. Estados (`domain.stateMachine`)
 
 `m.label(s)`, `m.tone(s)`, `m.badge(s)`, `m.options()`, `m.next(row)`, `m.can(row, to)`,
-`m.move(db, col, idOFila, to, { by, note, log, title, extra })`, `m.seedHistory(['a','b'], { start, stepHours })`.
+`m.move(db, col, idOFila, to, { by, note, log, title, extra, at })`, `m.seedHistory(['a','b'], { start, stepHours })`.
 `move()` guarda `{ at, from, to, by, note }` en `row.history`, fija `statusAt`, corre `onEnter[to]` y
 escribe "CÓDIGO: Origen → Destino" en la bitácora leyendo el origen **antes** de mutar (las filas de
-`db.get()` son objetos vivos). Estados con `note: true` piden motivo desde el panel.
+`db.get()` son objetos vivos). `at` (ISO, opcional) fecha el cambio en el pasado: sirve para semillas que
+simulan la historia con las mismas funciones de la app (ver `polla/js/seed.js`). Estados con `note: true` piden motivo desde el panel.

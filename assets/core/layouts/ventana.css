@@ -1,0 +1,48 @@
+/* La Gran Web · disposición "ventana" (tarjeta central). La carga theme-boot.js solo cuando está activa.
+   Público: toda la web vive dentro de una ventana flotante centrada (con su barra de título y los
+   tres botones), apoyada sobre un escritorio con trama del color primario. La cabecera queda
+   pegada arriba dentro de la ventana. Panel: el panel completo es una ventana de aplicación de
+   escritorio con barra de título, menú lateral tipo lista de origen y contenido.
+   Ver README → Disposiciones. */
+
+[data-layout="ventana"] { --win-gap: clamp(8px, 2.6vw, 34px); --win-r: max(var(--radius), 12px);
+  background-color: color-mix(in srgb, var(--primary) 22%, var(--bg));
+  background-image: radial-gradient(color-mix(in srgb, var(--primary) 40%, transparent) 1px, transparent 1.5px), linear-gradient(160deg, color-mix(in srgb, var(--primary) 30%, var(--bg)), color-mix(in srgb, var(--accent, var(--primary)) 18%, var(--bg)));
+  background-size: 22px 22px, auto; background-attachment: fixed; }
+
+/* ---------- El body es la ventana ---------- */
+[data-layout="ventana"] body:has(.site-header, .site-main) { width: min(1240px, 100% - var(--win-gap) * 2); margin: var(--win-gap) auto !important; min-height: calc(100vh - var(--win-gap) * 2); border: var(--border-w) solid var(--line); border-radius: var(--win-r); box-shadow: 0 30px 80px -24px rgba(0, 0, 0, .55), 0 0 0 1px rgba(0, 0, 0, .06); overflow: clip; }
+/* Barra de título con los tres botones */
+[data-layout="ventana"] body:has(.site-header, .site-main)::before { content: ''; display: block; height: 34px; background: radial-gradient(circle at 18px 17px, #ff5f57 5.5px, transparent 6.2px), radial-gradient(circle at 37px 17px, #febc2e 5.5px, transparent 6.2px), radial-gradient(circle at 56px 17px, #28c840 5.5px, transparent 6.2px), linear-gradient(var(--surface-2), var(--surface)); border-bottom: var(--border-w) solid var(--line); }
+[data-layout="ventana"] .site-header { position: sticky !important; top: 0 !important; transform: none !important; }
+[data-layout="ventana"] .site-main { padding-top: 0 !important; margin-top: 0 !important; }
+[data-layout="ventana"] body:has(.site-header, .site-main) { padding-top: 0 !important; }
+[data-layout="ventana"] .container { width: min(1140px, 100% - 40px); }
+[data-layout="ventana"] .site-hero { min-height: 0 !important; }
+[data-layout="ventana"] .site-hero h1 { font-size: clamp(30px, 4.4vw, 62px); }
+[data-layout="ventana"] .site-footer { padding-bottom: 70px !important; }
+@media (max-width: 760px) {
+  [data-layout="ventana"] body:has(.site-header, .site-main)::before { height: 26px; background: radial-gradient(circle at 14px 13px, #ff5f57 4.5px, transparent 5.2px), radial-gradient(circle at 29px 13px, #febc2e 4.5px, transparent 5.2px), radial-gradient(circle at 44px 13px, #28c840 4.5px, transparent 5.2px), linear-gradient(var(--surface-2), var(--surface)); }
+  [data-layout="ventana"] .container { width: calc(100% - 28px); }
+}
+
+/* ---------- Panel: ventana de aplicación ---------- */
+[data-layout="ventana"] body:has(.admin-shell) { width: auto; margin: 0 !important; min-height: 100vh; border: 0; border-radius: 0; box-shadow: none; overflow: visible; background: transparent !important; background-image: none !important; }
+[data-layout="ventana"] body:has(.admin-shell)::before { content: none; }
+[data-layout="ventana"] .admin-shell { position: relative; width: min(1400px, 100% - var(--win-gap) * 2); min-height: calc(100vh - var(--win-gap) * 2); margin: var(--win-gap) auto; grid-template-rows: 36px minmax(0, 1fr); background: var(--bg); background-image: var(--bg-image); border: var(--border-w) solid var(--line); border-radius: var(--win-r); box-shadow: 0 30px 80px -24px rgba(0, 0, 0, .55); overflow: clip; }
+[data-layout="ventana"] .admin-shell::before { content: ''; grid-column: 1 / -1; grid-row: 1; background: radial-gradient(circle at 18px 18px, #ff5f57 5.5px, transparent 6.2px), radial-gradient(circle at 37px 18px, #febc2e 5.5px, transparent 6.2px), radial-gradient(circle at 56px 18px, #28c840 5.5px, transparent 6.2px), linear-gradient(var(--surface-2), var(--surface)); border-bottom: var(--border-w) solid var(--line); }
+[data-layout="ventana"] .admin-sidebar { grid-row: 2; top: 0; height: calc(100vh - var(--win-gap) * 2 - 36px); background: color-mix(in srgb, var(--surface-2) 70%, var(--surface)); padding-bottom: 68px; }
+[data-layout="ventana"] .admin-main { grid-row: 2; }
+[data-layout="ventana"] .admin-sidebar .nav-link { padding: 7px 10px; border-radius: 6px; font-size: 13.5px; }
+[data-layout="ventana"] .admin-sidebar .nav-link.active { background: var(--primary); color: var(--on-primary); }
+[data-layout="ventana"] .admin-sidebar .nav-link.active::before { display: none; }
+[data-layout="ventana"] .admin-sidebar .nav-section { padding: 12px 10px 4px; font-size: 10.5px; }
+[data-layout="ventana"] .admin-topbar { top: 0; min-height: 52px; }
+@media (max-width: 900px) {
+  [data-layout="ventana"] .admin-shell { grid-template-rows: 28px minmax(0, 1fr); width: calc(100% - 12px); margin: 6px auto; min-height: calc(100vh - 12px); }
+  [data-layout="ventana"] .admin-shell::before { background: radial-gradient(circle at 14px 14px, #ff5f57 4.5px, transparent 5.2px), radial-gradient(circle at 29px 14px, #febc2e 4.5px, transparent 5.2px), radial-gradient(circle at 44px 14px, #28c840 4.5px, transparent 5.2px), linear-gradient(var(--surface-2), var(--surface)); }
+  [data-layout="ventana"] .admin-sidebar { grid-row: auto; height: 100vh; }
+  [data-layout="ventana"] .admin-main { grid-column: 1; }
+}
+/* La barra del portafolio se corre a la derecha del menú de la ventana (escritorio) */
+@media (min-width: 901px) { [data-layout="ventana"] body:has(.admin-shell) .lgw-dock { left: calc(max(var(--win-gap), (100vw - 1400px) / 2) + 266px); } }

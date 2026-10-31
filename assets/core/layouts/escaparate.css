@@ -1,0 +1,65 @@
+/* La Gran Web · disposición "escaparate" (la imagen primero). La carga theme-boot.js solo cuando está activa.
+   Público: como una vitrina. La imagen de la portada va PRIMERO, enorme y a todo el ancho, y el
+   texto entra encima como una tarjeta que se monta sobre su borde inferior; las grillas muestran
+   pocas piezas grandes por fila (2 en escritorio) con las imágenes protagonistas, y los títulos
+   de sección van centrados y grandes. Cabecera mínima en una línea con el menú en versalitas.
+   Panel: la barra superior se vuelve una portada de color alta (como la de un perfil o una tienda)
+   y el menú es una tarjeta de fichas flotante montada sobre su borde. Ver README → Disposiciones. */
+
+/* ---------- Cabecera mínima en versalitas ---------- */
+[data-layout="escaparate"] .site-header :has(> .site-brand) { min-height: 58px !important; }
+@media (min-width: 1000px) {
+  [data-layout="escaparate"] .site-header :has(> .site-brand) > :has(> .site-nav):not(.site-nav) { display: contents !important; }
+  [data-layout="escaparate"] .site-nav { display: flex !important; flex-direction: row !important; flex-wrap: nowrap; gap: 2px !important; margin-left: auto !important; padding: 0 !important; position: static !important; transform: none !important; overflow-x: auto; scrollbar-width: none; background: none !important; border: 0 !important; box-shadow: none !important; }
+  [data-layout="escaparate"] .site-nav > :not(a):not(button) { display: contents !important; }
+  [data-layout="escaparate"] .site-nav a, [data-layout="escaparate"] .site-nav button { flex: none; padding: 8px 12px !important; margin: 0 !important; border: 0 !important; border-radius: 0 !important; background: none !important; box-shadow: none !important; font-size: 12px !important; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; white-space: nowrap; text-decoration: none; }
+  [data-layout="escaparate"] .site-nav a::before { display: none !important; }
+  [data-layout="escaparate"] .site-nav a:hover, [data-layout="escaparate"] .site-nav a.active, [data-layout="escaparate"] .site-nav a[aria-current] { box-shadow: inset 0 -2px 0 var(--primary) !important; color: var(--primary) !important; }
+  [data-layout="escaparate"] .site-header [class*="burger"], [data-layout="escaparate"] .site-header .nav-toggle, [data-layout="escaparate"] .site-header .menu-toggle, [data-layout="escaparate"] .site-header .mobile-nav-btn { display: none !important; }
+}
+
+/* ---------- Portada: imagen enorme primero, texto montado encima ---------- */
+[data-layout="escaparate"] .site-hero { min-height: 0 !important; padding-block: 0 clamp(24px, 4vw, 56px) !important; text-align: left !important; }
+[data-layout="escaparate"] .site-hero > .container:has(> .hero-media),
+[data-layout="escaparate"] .site-hero.container:has(> .hero-media) { display: flex !important; flex-direction: column; align-items: stretch; gap: 0 !important; width: min(1440px, 100%) !important; max-width: none !important; padding-inline: 0 !important; }
+[data-layout="escaparate"] .site-hero .hero-media:not(:has(> :nth-child(2))) { order: -1; width: 100% !important; max-width: none !important; height: clamp(300px, 64vh, 720px); max-height: none !important; margin: 0 !important; overflow: hidden; border-radius: 0 !important; display: grid; place-items: stretch; background: color-mix(in srgb, var(--primary) 20%, var(--surface-2)); }
+[data-layout="escaparate"] .site-hero .hero-media:not(:has(> :nth-child(2))) > * { width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important; margin: 0 !important; border-radius: 0 !important; }
+[data-layout="escaparate"] .site-hero .hero-media:not(:has(> :nth-child(2))) :is(img, video, picture, svg) { width: 100% !important; height: 100% !important; object-fit: cover; }
+[data-layout="escaparate"] .site-hero:has(.hero-media:not(:has(> :nth-child(2)))) .hero-text { position: relative; z-index: 2; width: min(760px, 100% - 32px); margin: clamp(-150px, -12vw, -60px) 0 0 clamp(16px, 6vw, 96px) !important; padding: clamp(22px, 3vw, 40px) !important; background: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+[data-layout="escaparate"] .site-hero .hero-text > * { margin-left: 0 !important; margin-right: 0 !important; justify-content: flex-start !important; text-align: left !important; }
+[data-layout="escaparate"] .site-hero h1 { font-size: clamp(30px, 4.6vw, 64px); line-height: 1.02; }
+[data-layout="escaparate"] .site-hero:not(:has(.hero-media:not(:has(> :nth-child(2))))) .hero-text { width: min(1140px, 100% - 40px); margin: clamp(24px, 4vw, 56px) auto 24px !important; }
+[data-layout="escaparate"] .site-hero .hero-media:has(> :nth-child(2)) { width: min(1140px, 100% - 40px); margin-inline: auto !important; }
+
+/* ---------- Pocas piezas grandes ---------- */
+[data-layout="escaparate"] .site-main :is(.grid-3, .grid-4, .grid-auto, .products) { grid-template-columns: repeat(auto-fill, minmax(min(440px, 100%), 1fr)) !important; gap: clamp(18px, 2.6vw, 34px) !important; }
+[data-layout="escaparate"] .site-main :is(.grid-2, .grid-3, .grid-4, .grid-auto, .products) > * { grid-column: auto !important; grid-row: auto !important; }
+[data-layout="escaparate"] .site-main :is(.grid-3, .grid-4, .grid-auto, .products) > * :is(img, .thumb, [class*="img"], [class*="media"], [class*="photo"]):first-child { min-height: 240px; object-fit: cover; }
+[data-layout="escaparate"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) { padding-block: clamp(36px, 6vw, 88px) !important; }
+[data-layout="escaparate"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) h2:first-of-type { text-align: center; font-size: clamp(30px, 4vw, 56px); line-height: 1.05; margin-inline: auto; }
+[data-layout="escaparate"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) h2:first-of-type::after { content: ''; display: block; width: 56px; height: 3px; margin: 14px auto 0; background: var(--primary); }
+[data-layout="escaparate"] .site-footer { padding-bottom: 80px !important; }
+
+/* ---------- Panel: portada de color + fichas montadas ---------- */
+[data-layout="escaparate"] .admin-shell { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr; }
+[data-layout="escaparate"] .admin-main { display: contents; }
+[data-layout="escaparate"] .admin-burger { display: none !important; }
+[data-layout="escaparate"] .admin-topbar { grid-row: 1; position: static; align-items: flex-start; min-height: 150px; padding: 18px clamp(16px, 3vw, 40px) 58px; color: var(--on-primary); background: linear-gradient(120deg, var(--primary), color-mix(in srgb, var(--primary) 55%, var(--accent, #000))); backdrop-filter: none; border: 0; }
+[data-layout="escaparate"] .admin-topbar :is(h1, h2, .title, strong) { color: inherit; }
+[data-layout="escaparate"] .admin-sidebar { grid-row: 2; position: sticky !important; top: 8px !important; left: auto; z-index: 45; width: min(1300px, 100% - 32px) !important; height: auto !important; margin: -44px auto 0; transform: none !important; display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 6px; padding: 10px 14px; overflow: visible; background: var(--surface); border: var(--border-w) solid var(--line); border-radius: max(var(--radius), 16px); box-shadow: var(--shadow-lg); transition: none; }
+[data-layout="escaparate"] .admin-sidebar nav { display: contents; }
+[data-layout="escaparate"] .admin-sidebar .nav-section { display: none; }
+[data-layout="escaparate"] .admin-sidebar .admin-brand { flex: none; padding: 0 12px 0 0; margin-right: 4px; border-right: 1px solid var(--line); font-size: 15px; white-space: nowrap; }
+[data-layout="escaparate"] .admin-sidebar .admin-brand .logo { width: 30px; height: 30px; font-size: 14px; }
+[data-layout="escaparate"] .admin-sidebar .nav-link { flex: none; gap: 6px; padding: 6px 13px 6px 9px; border-radius: var(--radius-pill); font-size: 13.5px; white-space: nowrap; }
+[data-layout="escaparate"] .admin-sidebar .nav-link.active { background: var(--primary); color: var(--on-primary); }
+[data-layout="escaparate"] .admin-sidebar .nav-link.active::before { display: none; }
+[data-layout="escaparate"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { flex: none; display: flex; flex-direction: row; align-items: center; gap: 6px; margin: 0 0 0 auto; padding: 0; border: 0; white-space: nowrap; }
+[data-layout="escaparate"] .admin-content { grid-row: 3; width: min(1300px, 100%); margin-inline: auto; }
+@media (max-width: 900px) {
+  [data-layout="escaparate"] .admin-topbar { min-height: 116px; padding: 12px 14px 50px; }
+  [data-layout="escaparate"] .admin-sidebar { width: auto !important; margin: -40px 10px 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding: 8px 10px; }
+  [data-layout="escaparate"] .admin-sidebar .admin-brand { display: none; }
+}
+/* Enlaces del pie del menú que ocupan todo el ancho (botón "salir" como .nav-link): en fila, a su medida */
+[data-layout="escaparate"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) .nav-link { width: auto; flex: none; }

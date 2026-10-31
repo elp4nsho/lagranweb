@@ -1,0 +1,79 @@
+/* La Gran Web · disposición "barra" (barra inferior). La carga theme-boot.js solo cuando está activa.
+   Público: no hay nada arriba: la cabecera completa (marca, menú y acciones) es una barra fija
+   ABAJO, también en escritorio, y la página empieza directo con la portada. En celular la barra
+   tiene dos pisos (menú deslizable arriba, marca y acciones abajo). Panel: barra de tareas de
+   escritorio a todo el ancho abajo (la marca como botón de inicio, cada sección como un botón
+   con ícono y texto y el pie del menú a la derecha como bandeja). La barra del portafolio sube
+   por encima. Ver README → Disposiciones. */
+
+[data-layout="barra"] { --bar-h: 64px; }
+@media (max-width: 900px) { [data-layout="barra"] { --bar-h: 104px; } }
+
+/* ---------- Barra pública abajo ---------- */
+[data-layout="barra"] body:has(.site-header) { padding-top: 0 !important; padding-bottom: var(--bar-h) !important; }
+[data-layout="barra"] .site-main { padding-top: 0 !important; margin-top: 0 !important; }
+[data-layout="barra"] .site-header { position: fixed !important; inset: auto 0 0 0 !important; top: auto !important; z-index: 80; min-height: 0 !important; height: auto !important; max-height: 50vh; padding: 0 !important; margin: 0 !important; transform: none !important; background: var(--surface) !important; background-image: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border: 0 !important; border-top: var(--border-w) solid var(--line) !important; box-shadow: 0 -10px 28px -14px rgba(0, 0, 0, .45) !important; }
+[data-layout="barra"] .site-header::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--primary); }
+/* Solo marca, menú y acciones */
+[data-layout="barra"] .site-header > :not(:has(.site-brand, .site-nav, .site-actions)):not(.site-brand, .site-nav, .site-actions) { display: none !important; }
+[data-layout="barra"] .site-header :has(> .site-brand) > :has(> .site-nav):not(.site-nav) { display: contents !important; }
+[data-layout="barra"] .site-header :has(> .site-brand) { width: min(1360px, 100% - 32px) !important; max-width: none !important; min-height: var(--bar-h) !important; margin-inline: auto !important; padding: 8px 0 !important; display: flex !important; flex-wrap: nowrap !important; align-items: center !important; gap: 18px !important; }
+[data-layout="barra"] .site-brand { flex: none; font-size: 18px !important; white-space: nowrap; }
+[data-layout="barra"] .site-brand :is(svg, img, .mark, .logo) { max-height: 32px; width: auto; }
+[data-layout="barra"] .site-header :has(> .site-brand) :is(form, [class*="search"]):not(.site-nav):not(.site-actions) { flex: 0 1 220px; min-width: 0; }
+[data-layout="barra"] .site-nav { flex: 1 1 auto; min-width: 0; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: center; align-items: center; gap: 4px !important; height: auto !important; margin: 0 !important; padding: 0 !important; position: static !important; inset: auto !important; transform: none !important; visibility: visible !important; opacity: 1 !important; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; background: none !important; border: 0 !important; box-shadow: none !important; }
+[data-layout="barra"] .site-nav > :not(a):not(button) { display: contents !important; }
+[data-layout="barra"] .site-nav a, [data-layout="barra"] .site-nav button { flex: none; display: inline-flex !important; align-items: center; padding: 9px 14px !important; margin: 0 !important; border: 0 !important; border-radius: var(--radius-pill) !important; background: none !important; color: var(--text) !important; box-shadow: none !important; font-size: 14px !important; font-weight: 600; white-space: nowrap; text-decoration: none; }
+[data-layout="barra"] .site-nav a::before, [data-layout="barra"] .site-nav a::after { display: none !important; }
+[data-layout="barra"] .site-nav a:hover, [data-layout="barra"] .site-nav a.active, [data-layout="barra"] .site-nav a[aria-current] { background: color-mix(in srgb, var(--primary) 15%, transparent) !important; color: var(--primary) !important; }
+[data-layout="barra"] .site-actions { flex: none; display: flex !important; flex-wrap: nowrap; align-items: center; gap: 8px; }
+[data-layout="barra"] .site-actions .btn { white-space: nowrap; }
+[data-layout="barra"] .site-header :is([class*="burger"], .nav-toggle, .menu-toggle, .mobile-nav-btn, .mobile-nav) { display: none !important; }
+@media (max-width: 900px) {
+  [data-layout="barra"] .site-header :has(> .site-brand) { width: 100% !important; flex-wrap: wrap !important; gap: 4px 10px !important; padding: 6px 12px 8px !important; min-height: 0 !important; }
+  [data-layout="barra"] .site-nav { order: -1; flex: 1 0 100%; justify-content: flex-start; margin: 0 !important; padding: 0 0 2px !important; width: 100%; max-width: 100%; border-bottom: 1px solid var(--line) !important; }
+  [data-layout="barra"] .site-nav a, [data-layout="barra"] .site-nav button { padding: 9px 11px !important; font-size: 13px !important; }
+  [data-layout="barra"] .site-brand { flex: 1 1 0 !important; min-width: 0; overflow: hidden; font-size: 15px !important; margin-right: auto !important; }
+  [data-layout="barra"] .site-brand > * { min-width: 0; text-overflow: ellipsis; overflow: hidden; }
+  [data-layout="barra"] .site-header :has(> .site-brand) :is(form, [class*="search"]):not(.site-nav):not(.site-actions) { display: none !important; }
+  [data-layout="barra"] .site-actions .btn { min-height: 34px; padding: 4px 12px; font-size: 13px; }
+  [data-layout="barra"] .site-actions { flex-direction: row !important; flex-wrap: nowrap !important; align-items: center !important; gap: 6px !important; margin: 0 !important; }
+  [data-layout="barra"] .site-actions > * { width: auto !important; margin: 0 !important; }
+  [data-layout="barra"] .site-header :has(> .site-brand) > :not(.site-brand, .site-nav, .site-actions, form, [class*="search"]) { flex: none; }
+}
+/* La barra del portafolio y su panel suben por encima de la barra */
+[data-layout="barra"] body:has(.site-header) .lgw-dock { bottom: calc(var(--bar-h) + 14px); }
+[data-layout="barra"] body:has(.site-header) :is(.lgw-pal, .lgw-tip) { bottom: calc(var(--bar-h) + 62px); }
+
+[data-layout="barra"] .site-hero { padding-top: clamp(40px, 7vw, 96px) !important; }
+[data-layout="barra"] .site-footer { padding-bottom: 80px !important; }
+
+/* ---------- Panel: barra de tareas abajo ---------- */
+[data-layout="barra"] .admin-shell { grid-template-columns: minmax(0, 1fr); }
+[data-layout="barra"] .admin-burger { display: none !important; }
+[data-layout="barra"] .admin-content { padding-bottom: 96px; }
+[data-layout="barra"] .admin-sidebar { position: fixed !important; inset: auto 0 0 0 !important; top: auto !important; width: auto !important; height: 56px !important; transform: none !important; display: flex; flex-direction: row; flex-wrap: nowrap; align-items: stretch; gap: 2px; padding: 5px 8px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; background: color-mix(in srgb, var(--surface) 94%, var(--text)); border: 0; border-top: var(--border-w) solid var(--line); box-shadow: 0 -8px 24px -14px rgba(0, 0, 0, .5); z-index: 90; transition: none; }
+[data-layout="barra"] .admin-sidebar nav { display: contents; }
+[data-layout="barra"] .admin-sidebar .nav-section { flex: none; width: 1px; margin: 8px 4px; padding: 0; overflow: hidden; font-size: 0; background: var(--line); }
+[data-layout="barra"] .admin-sidebar .admin-brand { flex: none; align-items: center; gap: 8px; margin-right: 6px; padding: 0 14px 0 6px; border-radius: var(--radius-sm); background: var(--primary); color: var(--on-primary); font-size: 14px; white-space: nowrap; }
+[data-layout="barra"] .admin-sidebar .admin-brand .logo { width: 28px; height: 28px; font-size: 13px; background: var(--on-primary); color: var(--primary); }
+[data-layout="barra"] .admin-sidebar .nav-link { position: relative; flex: none; align-items: center; gap: 7px; padding: 0 14px 0 10px; border: var(--border-w) solid transparent; border-radius: var(--radius-sm); font-size: 13px; white-space: nowrap; }
+[data-layout="barra"] .admin-sidebar .nav-link .count { margin-left: 2px; }
+[data-layout="barra"] .admin-sidebar .nav-link.active { background: color-mix(in srgb, var(--primary) 15%, transparent); border-color: color-mix(in srgb, var(--primary) 40%, transparent); }
+[data-layout="barra"] .admin-sidebar .nav-link.active::before { content: '' !important; position: absolute !important; left: 22% !important; right: 22% !important; bottom: 1px !important; top: auto !important; width: auto !important; height: 3px !important; border-radius: 3px; background: var(--primary) !important; display: block !important; transform: none !important; }
+[data-layout="barra"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { flex: none; display: flex; flex-direction: row; align-items: center; gap: 6px; margin: 0 0 0 auto; padding: 0 4px 0 12px; border: 0; border-left: 1px solid var(--line); font-size: 12px; white-space: nowrap; }
+/* La barra del portafolio sube */
+[data-layout="barra"] body:has(.admin-shell) .lgw-dock { bottom: 70px; }
+[data-layout="barra"] body:has(.admin-shell) :is(.lgw-pal, .lgw-tip) { bottom: 118px; }
+@media (max-width: 900px) {
+  [data-layout="barra"] .admin-sidebar { height: 62px !important; padding: 4px; }
+  [data-layout="barra"] .admin-sidebar .admin-brand { display: none; }
+  [data-layout="barra"] .admin-sidebar .nav-link { flex-direction: column; justify-content: center; gap: 2px; min-width: 64px; padding: 2px 6px; font-size: 10.5px; }
+  [data-layout="barra"] .admin-sidebar .nav-link .ico { width: auto; font-size: 19px; line-height: 1; }
+  [data-layout="barra"] .admin-sidebar .nav-link .count { position: absolute; top: 1px; right: 6px; margin: 0; font-size: 9px; padding: 0 5px; }
+  [data-layout="barra"] .admin-content { padding-bottom: 150px; }
+  [data-layout="barra"] body:has(.admin-shell) .lgw-dock { bottom: 76px; }
+  [data-layout="barra"] body:has(.admin-shell) :is(.lgw-pal, .lgw-tip) { bottom: 124px; }
+}
+/* Enlaces del pie del menú que ocupan todo el ancho (botón "salir" como .nav-link): en fila, a su medida */
+[data-layout="barra"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) .nav-link { width: auto; flex: none; }

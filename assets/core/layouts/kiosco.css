@@ -1,0 +1,75 @@
+/* La Gran Web · disposición "kiosco" (pantalla táctil). La carga theme-boot.js solo cuando está activa.
+   Público: pensado para el dedo. Letra y botones grandes, la marca centrada y el menú convertido en
+   una grilla de mosaicos táctiles enormes con flecha (siempre visibles, 2 por fila en celular);
+   tarjetas más amplias y con más aire. Panel: el menú es una pantalla de inicio tipo lanzador de
+   apps (íconos redondos con su nombre debajo) arriba del contenido. Ver README → Disposiciones. */
+
+[data-layout="kiosco"] body { font-size: 17.5px; }
+[data-layout="kiosco"] .site-main .btn, [data-layout="kiosco"] .site-actions .btn { min-height: 52px; padding-inline: 22px; font-size: 16.5px; border-radius: max(var(--radius), 12px); }
+[data-layout="kiosco"] :is(.site-main, .site-header) :is(input, select, textarea):not([type="checkbox"]):not([type="radio"]) { min-height: 50px; font-size: 16.5px; }
+
+/* ---------- Cabecera centrada + mosaicos táctiles ---------- */
+[data-layout="kiosco"] .site-header { position: relative !important; top: auto !important; transform: none !important; }
+[data-layout="kiosco"] .site-header :has(> .site-brand) > :has(> .site-nav):not(.site-nav) { display: contents !important; }
+[data-layout="kiosco"] .site-header :has(> .site-brand) { flex-wrap: wrap !important; justify-content: center !important; align-items: center !important; gap: 14px 20px !important; min-height: 0 !important; padding-block: 20px !important; text-align: center; }
+[data-layout="kiosco"] .site-brand { font-size: clamp(26px, 3.4vw, 40px) !important; justify-content: center; }
+[data-layout="kiosco"] .site-actions { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 10px; }
+[data-layout="kiosco"] .site-nav { order: 99; flex: 1 0 100%; display: grid !important; grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); gap: 12px !important; width: 100% !important; max-width: none !important; margin: 4px 0 0 !important; padding: 0 !important; position: static !important; inset: auto !important; height: auto !important; max-height: none !important; transform: none !important; visibility: visible !important; opacity: 1 !important; overflow: visible !important; background: none !important; border: 0 !important; box-shadow: none !important; }
+[data-layout="kiosco"] .site-nav > :not(a):not(button) { display: contents !important; }
+[data-layout="kiosco"] .site-nav a, [data-layout="kiosco"] .site-nav button { position: relative; display: flex !important; align-items: flex-end; justify-content: flex-start; min-height: 84px; padding: 14px 44px 14px 18px !important; margin: 0 !important; border: var(--border-w) solid var(--line) !important; border-radius: max(var(--radius), 14px) !important; background: var(--surface) !important; color: var(--text) !important; box-shadow: var(--shadow) !important; font: var(--head-weight) 18px/1.2 var(--font-head) !important; text-transform: var(--head-transform); text-align: left; text-decoration: none; white-space: normal; transition: transform .15s var(--ease), background .15s; }
+[data-layout="kiosco"] .site-nav a::before { display: none !important; }
+[data-layout="kiosco"] .site-nav a::after, [data-layout="kiosco"] .site-nav button::after { content: '→' !important; position: absolute !important; top: 12px !important; right: 14px !important; left: auto !important; bottom: auto !important; display: grid !important; place-items: center; width: 30px !important; height: 30px !important; border-radius: 50%; background: color-mix(in srgb, var(--primary) 16%, transparent) !important; color: var(--primary); font: 700 16px/1 var(--font-body); transform: none !important; opacity: 1 !important; }
+[data-layout="kiosco"] .site-nav a:hover, [data-layout="kiosco"] .site-nav a:active { transform: scale(.98); }
+[data-layout="kiosco"] .site-nav a.active, [data-layout="kiosco"] .site-nav a[aria-current] { background: var(--primary) !important; color: var(--on-primary) !important; border-color: var(--primary) !important; }
+[data-layout="kiosco"] .site-nav a.active::after, [data-layout="kiosco"] .site-nav a[aria-current]::after { background: color-mix(in srgb, var(--on-primary) 22%, transparent) !important; color: var(--on-primary); }
+[data-layout="kiosco"] .site-header > .site-nav { width: min(1240px, 100% - 32px) !important; margin: 0 auto 18px !important; }
+[data-layout="kiosco"] .site-header :is([class*="burger"], .nav-toggle, .menu-toggle, .mobile-nav-btn, .mobile-nav) { display: none !important; }
+@media (max-width: 600px) {
+  [data-layout="kiosco"] .site-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px !important; }
+  [data-layout="kiosco"] .site-nav a, [data-layout="kiosco"] .site-nav button { min-height: 68px; padding: 10px 36px 10px 12px !important; font-size: 15px !important; }
+  [data-layout="kiosco"] .site-nav a::after { width: 24px !important; height: 24px !important; top: 8px !important; right: 8px !important; font-size: 13px; }
+}
+
+/* ---------- Portada grande y centrada ---------- */
+[data-layout="kiosco"] .site-hero { text-align: center !important; }
+[data-layout="kiosco"] .site-hero > .container:has(> .hero-text),
+[data-layout="kiosco"] .site-hero.container:has(> .hero-text) { display: flex !important; flex-direction: column; align-items: center; gap: 26px; }
+[data-layout="kiosco"] .site-hero .hero-text { max-width: 900px; margin-inline: auto; }
+[data-layout="kiosco"] .site-hero .hero-text > * { margin-left: auto !important; margin-right: auto !important; justify-content: center !important; text-align: center !important; }
+[data-layout="kiosco"] .site-hero h1 { font-size: clamp(34px, 5.4vw, 72px); line-height: 1.04; }
+[data-layout="kiosco"] .site-hero .hero-media { width: min(880px, 100%); max-height: 380px; overflow: hidden; border-radius: max(var(--radius), 18px); }
+
+/* ---------- Tarjetas amplias ---------- */
+[data-layout="kiosco"] .site-main :is(.grid-3, .grid-4, .grid-auto) { grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)) !important; gap: 18px !important; }
+[data-layout="kiosco"] .site-main :is(.grid-2, .grid-3, .grid-4, .grid-auto) > * { grid-column: auto !important; grid-row: auto !important; }
+[data-layout="kiosco"] .site-main .card { border-radius: max(var(--radius), 16px); padding: calc(var(--pad) * 1.15); }
+[data-layout="kiosco"] .site-main h2 { font-size: clamp(28px, 3.4vw, 44px); text-align: center; }
+[data-layout="kiosco"] .site-footer { font-size: 16px; text-align: center; }
+
+/* ---------- Panel: lanzador de apps ---------- */
+[data-layout="kiosco"] .admin-shell { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr; }
+[data-layout="kiosco"] .admin-main { display: contents; }
+[data-layout="kiosco"] .admin-topbar { grid-row: 1; position: sticky; top: 0; }
+[data-layout="kiosco"] .admin-burger { display: none !important; }
+[data-layout="kiosco"] .admin-sidebar { grid-row: 2; position: static !important; left: auto; top: auto; width: min(1320px, 100% - 32px) !important; height: auto !important; margin: 18px auto 0; transform: none !important; display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); justify-items: center; gap: 14px 6px; padding: 18px 16px 12px; overflow: visible; background: color-mix(in srgb, var(--surface) 80%, transparent); border: var(--border-w) solid var(--line); border-radius: max(var(--radius), 22px); box-shadow: var(--shadow); transition: none; }
+[data-layout="kiosco"] .admin-sidebar nav { display: contents; }
+[data-layout="kiosco"] .admin-sidebar .nav-section { display: none; }
+[data-layout="kiosco"] .admin-sidebar .admin-brand { grid-column: 1 / -1; justify-self: stretch; justify-content: center; padding: 0 0 12px; margin-bottom: 2px; border-bottom: 1px solid var(--line); font-size: 17px; }
+[data-layout="kiosco"] .admin-sidebar .nav-link { position: relative; width: 100%; max-width: 116px; flex-direction: column; justify-content: flex-start; gap: 8px; padding: 6px 2px; border: 0; background: none !important; font-size: 12.5px; font-weight: 600; line-height: 1.2; text-align: center; color: var(--text); }
+[data-layout="kiosco"] .admin-sidebar .nav-link .ico { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 30%; background: color-mix(in srgb, var(--primary) 14%, var(--surface)); border: var(--border-w) solid var(--line); box-shadow: var(--shadow); font-size: 27px; line-height: 1; transition: transform .15s var(--ease); }
+[data-layout="kiosco"] .admin-sidebar .nav-link:hover .ico { transform: translateY(-3px); }
+[data-layout="kiosco"] .admin-sidebar .nav-link.active { color: var(--primary); }
+[data-layout="kiosco"] .admin-sidebar .nav-link.active .ico { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+[data-layout="kiosco"] .admin-sidebar .nav-link.active::before { display: none; }
+[data-layout="kiosco"] .admin-sidebar .nav-link .count { position: absolute; top: 0; right: calc(50% - 38px); margin: 0; font-size: 11px; box-shadow: 0 0 0 2px var(--surface); }
+[data-layout="kiosco"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { grid-column: 1 / -1; justify-self: stretch; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; margin: 0; padding: 12px 0 0; border-top: 1px solid var(--line); }
+[data-layout="kiosco"] .admin-content { width: min(1320px, 100%); margin-inline: auto; }
+[data-layout="kiosco"] .admin-content .btn { min-height: 44px; }
+@media (max-width: 900px) {
+  [data-layout="kiosco"] .admin-sidebar { width: auto !important; margin: 10px 10px 0; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px 2px; padding: 12px 8px 10px; }
+  [data-layout="kiosco"] .admin-sidebar .nav-link { font-size: 11px; gap: 5px; }
+  [data-layout="kiosco"] .admin-sidebar .nav-link .ico { width: 50px; height: 50px; font-size: 22px; }
+  [data-layout="kiosco"] .admin-sidebar .nav-link .count { right: calc(50% - 32px); }
+}
+/* Enlaces del pie del menú que ocupan todo el ancho (botón "salir" como .nav-link): en fila, a su medida */
+[data-layout="kiosco"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) .nav-link { width: auto; flex: none; }

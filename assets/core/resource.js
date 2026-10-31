@@ -366,7 +366,13 @@ export function resource(app, cfg) {
   };
 
   // Delegación de eventos de fila: acciones propias, editar, eliminar, estado, interruptores.
+  // El panel reutiliza el mismo contenedor (#view) entre rutas: se da de baja la delegación anterior
+  // de este recurso en ese contenedor para no duplicar acciones (dos modales al editar, etc.).
   function wireRowEvents(view, ctx, inDetail = false) {
+    const key = '__kRowEvents_' + id;
+    view[key]?.abort();
+    const ac = view[key] = new AbortController();
+    const signal = ac.signal;
     view.addEventListener('click', async e => {
       const b = e.target.closest('[data-act]');
       if (!b || !view.contains(b)) return;
@@ -379,7 +385,7 @@ export function resource(app, cfg) {
       if (a === '_del') { if (await res.remove(row, ctx) && inDetail) location.hash = `#/${id}`; return; }
       const custom = (cfg.rowActions || []).find(x => x.id === a);
       custom && custom.run(row, ctx, res);
-    });
+    }, { signal });
     view.addEventListener('change', e => {
       const t = e.target.closest('[data-toggle]');
       if (!t || !view.contains(t)) return;
@@ -389,7 +395,7 @@ export function resource(app, cfg) {
       const row = db.update(col, t.dataset.id, { [fd.name]: t.checked });
       logAction && db.log(logAction, `${title(row)}: ${fd.label} ${t.checked ? 'sí' : 'no'}`, me(ctx)?.id);
       toast(`${fd.label}: ${t.checked ? 'sí' : 'no'}`, 'success');
-    });
+    }, { signal });
   }
   return res;
 }

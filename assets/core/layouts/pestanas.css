@@ -1,0 +1,67 @@
+/* La Gran Web · disposición "pestanas" (pestañas). La carga theme-boot.js solo cuando está activa.
+   Público: la página es una hoja de archivador. El menú son pestañas de carpeta apoyadas sobre el
+   borde superior de una gran hoja enmarcada que contiene todo el contenido (la pestaña activa se
+   funde con la hoja); en celular las pestañas se deslizan de lado. Panel: barra superior y, debajo,
+   el menú como pestañas que pasan a varias filas sobre un panel enmarcado con el contenido.
+   Ver README → Disposiciones. */
+
+/* ---------- Cabecera con pestañas de carpeta ---------- */
+[data-layout="pestanas"] .site-header { position: relative !important; top: auto !important; transform: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: transparent !important; background-image: none !important; border: 0 !important; box-shadow: none !important; }
+[data-layout="pestanas"] .site-header :has(> .site-brand) > :has(> .site-nav):not(.site-nav) { display: contents !important; }
+[data-layout="pestanas"] .site-header :has(> .site-brand) { width: min(1280px, 100% - 32px) !important; max-width: none !important; margin-inline: auto !important; flex-wrap: wrap !important; row-gap: 12px !important; min-height: 0 !important; padding: 18px 0 0 !important; }
+[data-layout="pestanas"] .site-header :has(> .site-brand) > .site-actions { margin-left: auto; }
+[data-layout="pestanas"] .site-brand { font-size: clamp(20px, 2.2vw, 28px) !important; }
+[data-layout="pestanas"] .site-nav { order: 99; flex: 1 0 100%; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; align-items: flex-end; gap: 4px !important; width: 100%; height: auto !important; margin: 0 0 calc(var(--border-w) * -1) !important; padding: 0 10px !important; position: relative !important; inset: auto !important; z-index: 2; transform: none !important; visibility: visible !important; opacity: 1 !important; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; background: none !important; border: 0 !important; box-shadow: none !important; }
+[data-layout="pestanas"] .site-nav > :not(a):not(button) { display: contents !important; }
+[data-layout="pestanas"] .site-nav a, [data-layout="pestanas"] .site-nav button { flex: none; display: inline-flex !important; align-items: center; padding: 10px 18px !important; margin: 6px 0 0 !important; border: var(--border-w) solid var(--line) !important; border-bottom: 0 !important; border-radius: max(var(--radius-sm), 8px) max(var(--radius-sm), 8px) 0 0 !important; background: var(--surface-2) !important; color: var(--muted) !important; box-shadow: none !important; font-size: 14px !important; font-weight: 600; white-space: nowrap; text-decoration: none; }
+[data-layout="pestanas"] .site-nav:not(:has(a.active, a[aria-current])) a:first-of-type { background: var(--surface) !important; color: var(--text) !important; margin-top: 0 !important; padding-block: 13px !important; box-shadow: inset 0 3px 0 var(--primary) !important; }
+[data-layout="pestanas"] .site-nav a:hover { color: var(--text) !important; margin-top: 2px !important; padding-bottom: 12px !important; }
+[data-layout="pestanas"] .site-nav a.active, [data-layout="pestanas"] .site-nav a[aria-current] { background: var(--surface) !important; color: var(--text) !important; margin-top: 0 !important; padding-block: 13px !important; box-shadow: inset 0 3px 0 var(--primary) !important; }
+[data-layout="pestanas"] .site-nav a::before, [data-layout="pestanas"] .site-nav a::after { display: none !important; }
+[data-layout="pestanas"] .site-header > .site-nav { width: min(1280px, 100% - 32px); margin-inline: auto !important; }
+[data-layout="pestanas"] .site-header :is([class*="burger"], .nav-toggle, .menu-toggle, .mobile-nav-btn, .mobile-nav) { display: none !important; }
+
+/* ---------- La hoja ---------- */
+[data-layout="pestanas"] .site-main { position: relative; width: min(1280px, 100% - 32px); margin: 0 auto 24px !important; padding-top: 0 !important; background: var(--surface); border: var(--border-w) solid var(--line); border-radius: 0 0 var(--radius) var(--radius); box-shadow: var(--shadow-lg); overflow: clip; }
+[data-layout="pestanas"] .site-main .container { width: min(1180px, 100% - 40px); }
+[data-layout="pestanas"] .site-hero { min-height: 0 !important; padding-block: clamp(26px, 4vw, 52px) !important; text-align: left !important; }
+[data-layout="pestanas"] .site-hero .hero-text > * { margin-left: 0 !important; margin-right: 0 !important; justify-content: flex-start !important; text-align: left !important; }
+[data-layout="pestanas"] .site-hero > .container:has(> .hero-text + .hero-media),
+[data-layout="pestanas"] .site-hero.container:has(> .hero-text + .hero-media) { display: grid !important; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 44px); align-items: center; }
+[data-layout="pestanas"] .site-hero h1 { font-size: clamp(30px, 4.2vw, 58px); line-height: 1.05; }
+[data-layout="pestanas"] .site-hero .hero-media { max-height: 400px; overflow: hidden; border-radius: var(--radius-sm); }
+@media (max-width: 760px) {
+  [data-layout="pestanas"] .site-hero > .container:has(> .hero-text + .hero-media), [data-layout="pestanas"] .site-hero.container:has(> .hero-text + .hero-media) { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="pestanas"] .site-main, [data-layout="pestanas"] .site-header :has(> .site-brand) { width: calc(100% - 16px) !important; }
+  [data-layout="pestanas"] .site-main .container { width: calc(100% - 28px); }
+  [data-layout="pestanas"] .site-nav a, [data-layout="pestanas"] .site-nav button { padding: 9px 13px !important; font-size: 13px !important; }
+}
+/* Separadores tipo ficha entre secciones */
+[data-layout="pestanas"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) { border-top: 1px dashed var(--line); }
+[data-layout="pestanas"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) h2:first-of-type { display: inline-block; padding: 4px 14px; border-radius: var(--radius-sm) var(--radius-sm) 0 0; border-bottom: 3px solid var(--primary); }
+[data-layout="pestanas"] .site-footer { background: transparent !important; border: 0 !important; padding-bottom: 80px !important; }
+
+/* ---------- Panel: pestañas sobre un panel enmarcado ---------- */
+[data-layout="pestanas"] .admin-shell { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr; }
+[data-layout="pestanas"] .admin-main { display: contents; }
+[data-layout="pestanas"] .admin-topbar { grid-row: 1; position: static; border-bottom: 0; background: transparent; backdrop-filter: none; }
+[data-layout="pestanas"] .admin-burger { display: none !important; }
+[data-layout="pestanas"] .admin-sidebar { grid-row: 2; position: relative !important; top: auto !important; left: auto; z-index: 2; width: min(1360px, 100% - 32px) !important; height: auto !important; margin: 0 auto calc(var(--border-w) * -1); transform: none !important; display: flex; flex-direction: row; flex-wrap: wrap; align-items: flex-end; gap: 4px 3px; padding: 0 12px; overflow: visible; background: none; backdrop-filter: none; border: 0; box-shadow: none; transition: none; }
+[data-layout="pestanas"] .admin-sidebar nav { display: contents; }
+[data-layout="pestanas"] .admin-sidebar .nav-section { display: none; }
+[data-layout="pestanas"] .admin-sidebar .admin-brand { flex: none; align-self: center; padding: 0 14px 6px 0; font-size: 15px; white-space: nowrap; }
+[data-layout="pestanas"] .admin-sidebar .admin-brand .logo { width: 28px; height: 28px; font-size: 13px; }
+[data-layout="pestanas"] .admin-sidebar .nav-link { flex: none; gap: 7px; padding: 8px 14px; margin-top: 4px; border: var(--border-w) solid var(--line); border-bottom-color: transparent; border-radius: max(var(--radius-sm), 8px) max(var(--radius-sm), 8px) 0 0; background-color: var(--surface-2); color: var(--muted); font-size: 13.5px; white-space: nowrap; }
+[data-layout="pestanas"] .admin-sidebar .nav-link:hover { color: var(--text); background-color: var(--surface); }
+[data-layout="pestanas"] .admin-sidebar .nav-link.active { margin-top: 0; padding-block: 11px; background: var(--surface); color: var(--text); box-shadow: inset 0 3px 0 var(--primary); border-bottom-color: var(--surface); }
+[data-layout="pestanas"] .admin-sidebar .nav-link.active::before { display: none; }
+[data-layout="pestanas"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { flex: none; display: flex; flex-direction: row; align-items: center; gap: 6px; margin: 0 0 6px auto; padding: 0; border: 0; white-space: nowrap; }
+[data-layout="pestanas"] .admin-content { grid-row: 3; width: min(1360px, 100% - 32px); margin: 0 auto 28px; background: var(--surface); border: var(--border-w) solid var(--line); border-radius: 0 var(--radius) var(--radius) var(--radius); box-shadow: var(--shadow); }
+@media (max-width: 900px) {
+  [data-layout="pestanas"] .admin-sidebar { width: auto !important; margin-inline: 8px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding: 0 4px; }
+  [data-layout="pestanas"] .admin-sidebar .admin-brand { display: none; }
+  [data-layout="pestanas"] .admin-sidebar .nav-link { padding: 8px 11px; font-size: 13px; }
+  [data-layout="pestanas"] .admin-content { width: auto; margin: 0 8px 90px; border-radius: 0 0 var(--radius) var(--radius); }
+}
+/* Enlaces del pie del menú que ocupan todo el ancho (botón "salir" como .nav-link): en fila, a su medida */
+[data-layout="pestanas"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) .nav-link { width: auto; flex: none; }

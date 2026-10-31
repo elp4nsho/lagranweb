@@ -1,0 +1,94 @@
+/* La Gran Web · disposición "linea" (línea de tiempo). La carga theme-boot.js solo cuando está activa.
+   Público: la página es un recorrido. El menú es una línea de metro (estaciones con punto unidas
+   por un trazo); después de la portada, las secciones cuelgan de una columna vertebral central,
+   alternando a izquierda y derecha, cada una con su hito numerado sobre la línea. En pantallas
+   angostas la línea pasa al borde izquierdo y las secciones van todas a su derecha. Panel: el
+   menú es una línea de pasos vertical (nodos unidos por un trazo) a la izquierda.
+   Ver README → Disposiciones. */
+
+/* ---------- Menú como línea de metro ---------- */
+@media (min-width: 1000px) {
+  [data-layout="linea"] .site-header :has(> .site-brand) > :has(> .site-nav):not(.site-nav) { display: contents !important; }
+  [data-layout="linea"] .site-nav { display: flex !important; flex-direction: row !important; flex-wrap: nowrap; align-items: flex-start; gap: 0 !important; padding: 0 !important; margin: 0 !important; position: static !important; transform: none !important; overflow-x: auto; scrollbar-width: none; background: none !important; border: 0 !important; box-shadow: none !important; }
+  [data-layout="linea"] .site-nav > :not(a):not(button) { display: contents !important; }
+  [data-layout="linea"] .site-nav a, [data-layout="linea"] .site-nav button { position: relative; flex: none; display: flex !important; flex-direction: column; align-items: center; gap: 4px; min-width: 76px; padding: 4px 10px 6px !important; margin: 0 !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; font-size: 12.5px !important; white-space: nowrap; text-decoration: none; background: linear-gradient(var(--line), var(--line)) 0 10px / 100% 2px no-repeat !important; }
+  [data-layout="linea"] .site-nav a:first-child { background-position: 50% 10px !important; background-size: 50% 2px !important; }
+  [data-layout="linea"] .site-nav a:last-child { background-size: 50% 2px !important; }
+  [data-layout="linea"] .site-nav a::before, [data-layout="linea"] .site-nav button::before { content: '' !important; position: static !important; display: block !important; width: 12px !important; height: 12px !important; border-radius: 50%; background: var(--bg) !important; border: 2px solid var(--primary); transform: none !important; opacity: 1 !important; }
+  [data-layout="linea"] .site-nav a::after { display: none !important; }
+  [data-layout="linea"] .site-nav a:hover::before, [data-layout="linea"] .site-nav a.active::before, [data-layout="linea"] .site-nav a[aria-current]::before { background: var(--primary) !important; box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 22%, transparent); }
+  [data-layout="linea"] .site-header [class*="burger"], [data-layout="linea"] .site-header .nav-toggle, [data-layout="linea"] .site-header .menu-toggle, [data-layout="linea"] .site-header .mobile-nav-btn { display: none !important; }
+}
+
+/* ---------- Portada: punto de partida ---------- */
+[data-layout="linea"] .site-hero { text-align: center !important; }
+[data-layout="linea"] .site-hero > .container:has(> .hero-text),
+[data-layout="linea"] .site-hero.container:has(> .hero-text) { display: flex !important; flex-direction: column; align-items: center; gap: 26px; }
+[data-layout="linea"] .site-hero .hero-text { max-width: 860px; margin-inline: auto; }
+[data-layout="linea"] .site-hero .hero-text > * { margin-left: auto !important; margin-right: auto !important; justify-content: center !important; text-align: center !important; }
+[data-layout="linea"] .site-hero .hero-media { width: min(760px, 100%); max-height: 360px; overflow: hidden; border-radius: var(--radius); }
+[data-layout="linea"] .site-hero::after { content: ''; display: block; width: 18px; height: 18px; margin: 28px auto 0; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 6px color-mix(in srgb, var(--primary) 22%, transparent); }
+
+/* ---------- Secciones colgando de la línea ---------- */
+[data-layout="linea"] { --spine-gap: 56px; }
+[data-layout="linea"] .site-main { counter-reset: lgw-tl; }
+[data-layout="linea"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) {
+  position: relative; counter-increment: lgw-tl; container-type: inline-size; min-height: 0 !important;
+  margin-block: 0 !important; padding-block: 0 !important; background: none !important;
+}
+[data-layout="linea"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) > * { margin-block: 0 28px; padding: clamp(18px, 2.4vw, 30px) !important; background-color: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); width: 100% !important; max-width: none !important; }
+[data-layout="linea"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) > * + * { margin-top: -14px; }
+/* Hito numerado sobre la línea */
+[data-layout="linea"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero))::before {
+  content: counter(lgw-tl); position: absolute; top: 18px; z-index: 2; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+  background: var(--primary); color: var(--on-primary); font: 700 14px/1 var(--font-mono); box-shadow: 0 0 0 5px var(--bg);
+}
+/* Tramo de línea */
+[data-layout="linea"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero))::after { content: ''; position: absolute; top: 0; bottom: 0; width: 3px; background: color-mix(in srgb, var(--primary) 45%, var(--line)); z-index: 1; }
+[data-layout="linea"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) h2:first-of-type { text-align: left; }
+
+/* Escritorio ancho: columna central y secciones alternadas */
+@media (min-width: 1100px) {
+  [data-layout="linea"]:has(.site-hero) :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) { width: calc(50% - var(--spine-gap)) !important; max-width: 640px; margin-left: auto !important; margin-right: calc(50% + var(--spine-gap)) !important; }
+  [data-layout="linea"]:has(.site-hero) :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero))::before { right: calc(var(--spine-gap) * -1 - 17px); }
+  [data-layout="linea"]:has(.site-hero) :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero))::after { right: calc(var(--spine-gap) * -1 - 1.5px); }
+  [data-layout="linea"]:has(.site-hero) :is(.site-main > section:nth-child(even of section:not(.site-hero)), .site-main > div > section:nth-child(even of section:not(.site-hero))) { margin-left: calc(50% + var(--spine-gap)) !important; margin-right: auto !important; }
+  [data-layout="linea"]:has(.site-hero) :is(.site-main > section:nth-child(even of section:not(.site-hero)), .site-main > div > section:nth-child(even of section:not(.site-hero)))::before { right: auto; left: calc(var(--spine-gap) * -1 - 17px); }
+  [data-layout="linea"]:has(.site-hero) :is(.site-main > section:nth-child(even of section:not(.site-hero)), .site-main > div > section:nth-child(even of section:not(.site-hero)))::after { right: auto; left: calc(var(--spine-gap) * -1 - 1.5px); }
+}
+/* Angosto (o páginas sin portada): la línea va a la izquierda */
+@media (max-width: 1099px) {
+  [data-layout="linea"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) { width: auto !important; margin-left: 52px !important; margin-right: 12px !important; }
+  [data-layout="linea"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero))::before { left: -43px; width: 30px; height: 30px; font-size: 13px; }
+  [data-layout="linea"] :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero))::after { left: -29.5px; }
+}
+@media (min-width: 1100px) {
+  [data-layout="linea"]:not(:has(.site-hero)) :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero)) { width: min(1100px, 100% - 140px) !important; margin-inline: auto !important; }
+  [data-layout="linea"]:not(:has(.site-hero)) :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero))::before { left: -60px; }
+  [data-layout="linea"]:not(:has(.site-hero)) :is(.site-main > section:not(.site-hero), .site-main > div > section:not(.site-hero))::after { left: -45.5px; }
+}
+/* Columnas angostas: las grillas internas se pliegan */
+@container (max-width: 640px) {
+  [data-layout="linea"] :is(.grid-2, [class*="split"], [class*="-two"], .hero-grid):not(:has(> .card)) { grid-template-columns: minmax(0, 1fr) !important; }
+  [data-layout="linea"] :is(.grid-3, .grid-4, .grid-auto, .products, [class*="-cards"], [class*="cards-"]) { grid-template-columns: repeat(auto-fill, minmax(min(160px, 100%), 1fr)) !important; gap: 12px; }
+  [data-layout="linea"] :is(.grid-2, .grid-3, .grid-4, .grid-auto) > * { grid-column: auto !important; grid-row: auto !important; }
+}
+[data-layout="linea"] .site-footer { position: relative; text-align: center; padding-bottom: 80px !important; }
+[data-layout="linea"] .site-main:has(.site-hero) + .site-footer::before { content: '✓'; display: grid; place-items: center; width: 36px; height: 36px; margin: 0 auto 18px; border-radius: 50%; background: var(--primary); color: var(--on-primary); font-weight: 700; }
+
+/* ---------- Panel: línea de pasos vertical ---------- */
+@media (min-width: 901px) { [data-layout="linea"] .admin-shell { grid-template-columns: 250px minmax(0, 1fr); } }
+[data-layout="linea"] .admin-sidebar { gap: 0; padding: 18px 14px 68px; }
+[data-layout="linea"] .admin-sidebar .nav-link { position: relative; gap: 12px; padding: 8px 10px 8px 6px; border: 0; background: none !important; }
+[data-layout="linea"] .admin-sidebar .nav-link::after { content: ''; position: absolute; left: 21px; top: 0; bottom: 0; width: 2px; background: var(--line); z-index: 0; }
+[data-layout="linea"] .admin-sidebar .nav-link .ico { position: relative; z-index: 1; flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--surface); border: 2px solid var(--line); font-size: 15px; }
+[data-layout="linea"] .admin-sidebar .nav-link:hover .ico { border-color: var(--primary); }
+[data-layout="linea"] .admin-sidebar .nav-link.active { color: var(--primary); }
+[data-layout="linea"] .admin-sidebar .nav-link.active .ico { background: var(--primary); border-color: var(--primary); color: var(--on-primary); box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 22%, transparent); }
+[data-layout="linea"] .admin-sidebar .nav-link.active::before { display: none; }
+[data-layout="linea"] .admin-sidebar .nav-section { position: relative; padding: 14px 6px 6px 44px; }
+[data-layout="linea"] .admin-sidebar .nav-section::before { content: ''; position: absolute; left: 16px; bottom: 9px; width: 12px; height: 12px; border-radius: 3px; transform: rotate(45deg); background: var(--primary); }
+[data-layout="linea"] .admin-sidebar .nav-section::after { content: ''; position: absolute; left: 21px; top: 0; bottom: 0; width: 2px; background: var(--line); z-index: -1; }
+[data-layout="linea"] .admin-content .page-head { border-left: 4px solid var(--primary); padding-left: 14px; }
+/* La barra del portafolio se corre a la derecha de la línea de pasos (escritorio) */
+@media (min-width: 901px) { [data-layout="linea"] body:has(.admin-shell) .lgw-dock { left: 266px; } }
