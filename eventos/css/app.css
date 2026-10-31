@@ -456,6 +456,9 @@ html:not([data-layout="app"]) .main-nav :is(.nav-ico, .nav-home, .nav-tickets) {
 /* ---------- Dashboards (admin y productor) ---------- */
 [data-layout="revista"] .dash .grid-2, [data-layout="app"] .dash .grid-2 { display: contents; }
 .dash > .d-kpis { grid-area: kpis; } .dash .d-alert { grid-area: alert; } .dash .d-gmv { grid-area: gmv; } .dash .d-daily { grid-area: daily; }
+/* Las tarjetas del tablero no deben ensanchar la grilla en celular (pasaba con estilos de relleno o bordes más anchos). */
+.dash .card { min-width: 0; }
+.dash .mini-list li > a, .dash .act-list li { min-width: 0; overflow-wrap: anywhere; }
 .dash .d-city { grid-area: city; } .dash .d-cat { grid-area: cat; } .dash .d-top { grid-area: top; } .dash .d-act { grid-area: act; } .dash .d-pend { grid-area: pend; }
 @media (min-width: 1000px) {
   /* revista: KPIs en columna como sumario, gráficos a dos columnas */

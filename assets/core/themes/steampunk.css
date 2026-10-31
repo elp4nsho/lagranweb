@@ -52,3 +52,5 @@
 @keyframes lgw-steampunk-gear { to { transform: rotate(360deg); } }
 /* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
 [data-theme="steampunk"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }
+/* En celular: marca sin versales espaciadas y botones más angostos. */
+@media (max-width: 600px) { [data-theme="steampunk"] { --head-transform: none; --head-spacing: 0; --head-weight: 600; --body-size: 15px; } [data-theme="steampunk"] .btn { letter-spacing: .02em; text-transform: none; font-family: var(--font-body); font-weight: 700; } [data-theme="steampunk"] .btn-sm { padding: 0 10px; font-size: 13px; } }

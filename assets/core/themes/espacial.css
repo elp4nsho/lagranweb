@@ -59,3 +59,5 @@
 @keyframes lgw-espacial-float { to { transform: translate(-20px, 16px) rotate(8deg); } }
 /* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
 [data-theme="espacial"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }
+/* En celular: marca y botones sin mayúsculas espaciadas para que las cabeceras de las webs quepan. */
+@media (max-width: 600px) { [data-theme="espacial"] { --head-transform: none; --head-spacing: .01em; } [data-theme="espacial"] .btn { font-family: var(--font-body); font-weight: 700; letter-spacing: .04em; } }

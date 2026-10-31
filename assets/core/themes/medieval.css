@@ -46,3 +46,5 @@
 [data-theme="medieval"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }
 /* En celular el relleno vuelve al de la base: las grillas angostas de las webs no se desbordan. */
 @media (max-width: 600px) { [data-theme="medieval"] { --pad: 18px; } }
+/* En celular el texto corrido baja a 15 px: las cabeceras y filas angostas de las webs quepan. */
+@media (max-width: 600px) { [data-theme="medieval"] { --body-size: 15px; } [data-theme="medieval"] .btn { letter-spacing: 0; font-variant: normal; text-transform: none; font-size: 14px; } [data-theme="medieval"] .btn-sm { padding: 0 10px; font-size: 13px; } }

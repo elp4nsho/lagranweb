@@ -48,3 +48,5 @@
 @keyframes lgw-western-roll { from { transform: translateX(-90px) rotate(0); } to { transform: translateX(calc(100vw + 90px)) rotate(1080deg); } }
 /* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
 [data-theme="western"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }
+/* En celular: texto un poco más chico y botones en la letra del cuerpo, así las cabeceras de las webs quepan. */
+@media (max-width: 600px) { [data-theme="western"] { --body-size: 15px; } [data-theme="western"] .btn { font-family: var(--font-body); font-weight: 700; } }
