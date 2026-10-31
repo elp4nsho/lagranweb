@@ -64,7 +64,7 @@
 [data-layout="acordeon"] .admin-sidebar .admin-brand { flex: 0 0 100%; justify-content: space-between; padding: 10px 16px; margin: 0 0 4px; background: var(--primary); color: var(--on-primary); font-size: 15px; }
 [data-layout="acordeon"] .admin-sidebar .admin-brand::after { content: '−'; font: 700 18px/1 var(--font-body); margin-left: auto; }
 [data-layout="acordeon"] .admin-sidebar .admin-brand .logo { width: 26px; height: 26px; font-size: 12px; background: var(--on-primary); color: var(--primary); }
-[data-layout="acordeon"] .admin-sidebar .nav-section { flex: 0 0 100%; display: flex; justify-content: space-between; margin: 6px 0 2px; padding: 7px 16px; background: var(--surface-2); border-block: 1px solid var(--line); color: var(--text); font-size: 11.5px; }
+[data-layout="acordeon"] .admin-sidebar .nav-section { flex: 0 0 100%; display: flex; justify-content: space-between; margin: 4px 0 0; padding: 5px 16px; background: var(--surface-2); border-block: 1px solid var(--line); color: var(--text); font-size: 11.5px; }
 [data-layout="acordeon"] .admin-sidebar .nav-section::after { content: '▾'; color: var(--primary); }
 [data-layout="acordeon"] .admin-sidebar .nav-link { flex: none; gap: 7px; margin-left: 10px; padding: 6px 12px 6px 9px; border: var(--border-w) solid var(--line); border-radius: var(--radius-sm); font-size: 13.5px; white-space: nowrap; }
 [data-layout="acordeon"] .admin-sidebar .nav-link + .nav-link { margin-left: 0; }
@@ -74,7 +74,7 @@
 [data-layout="acordeon"] .admin-content { width: min(1320px, 100%); margin-inline: auto; }
 [data-layout="acordeon"] .admin-content > .card, [data-layout="acordeon"] .admin-content > section.card { border-top: 4px solid var(--primary); }
 @media (max-width: 900px) {
-  [data-layout="acordeon"] .admin-sidebar { width: auto !important; margin: 10px 10px 0; }
+  [data-layout="acordeon"] .admin-sidebar { width: auto !important; margin: 10px 10px 0; max-height: 52vh; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; }
   [data-layout="acordeon"] .admin-sidebar .nav-link { margin-left: 0; font-size: 13px; padding: 6px 10px 6px 8px; }
   [data-layout="acordeon"] .admin-sidebar .nav-link:first-of-type, [data-layout="acordeon"] .admin-sidebar .nav-section + .nav-link { margin-left: 10px; }
 }

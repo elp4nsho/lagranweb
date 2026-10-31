@@ -72,6 +72,8 @@
 @media (max-width: 900px) {
   [data-layout="diagonal"] .admin-shell { grid-template-columns: var(--spine) minmax(0, 1fr); }
   [data-layout="diagonal"] .admin-sidebar .nav-link { font-size: 12px; padding: 10px 0; }
+  /* El lomo termina sobre la barra del portafolio (abajo a la izquierda) */
+  [data-layout="diagonal"] .admin-sidebar { height: calc(100vh - 66px) !important; height: calc(100dvh - 66px) !important; padding-bottom: 12px; border-radius: 0 0 14px 0; }
 }
 /* Panel más angosto en celular: las filas de listas compactas (.mini-list) se parten */
 @media (max-width: 900px) { [data-layout="diagonal"] .admin-content :is(.mini-list, .act-list) li { flex-wrap: wrap; } }
