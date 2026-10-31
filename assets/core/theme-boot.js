@@ -106,15 +106,52 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', startWatch); else startWatch();
 
   // ---------- Disposiciones: reorganizan la página completa (independiente del estilo) ----------
+  // REGISTRO ÚNICO. Lo usan el panel 🎨, el atajo Alt + ↑ / ↓ y la validación del valor guardado.
+  // Agregar una disposición = una entrada aquí + el archivo assets/core/layouts/<id>.css
+  // (css: false si no necesita hoja, como la clásica). Solo se descarga la hoja de la disposición activa.
+  //   id     → valor de html[data-layout] y nombre del archivo CSS
+  //   name   → nombre visible · icon → emoji corto · desc → una línea (público + panel)
+  //   thumb  → miniatura SVG (viewBox 0 0 80 46, fill=currentColor; usa opacity para los planos)
   var LAYOUTS = [
-    { id: 'clasica', name: 'Clásica', desc: 'Barra superior, secciones apiladas y menú lateral en el panel' },
-    { id: 'revista', name: 'Revista', desc: 'Cabecera centrada, columnas asimétricas y menú superior en el panel' },
-    { id: 'app',     name: 'App',     desc: 'Navegación lateral fija, mosaicos bento y pestañas abajo en el celular' }
+    { id: 'clasica', name: 'Clásica', icon: '▤', css: false,
+      desc: 'Barra superior y secciones apiladas · panel con menú lateral',
+      thumb: '<rect x="4" y="4" width="72" height="6" rx="2"/><rect x="14" y="14" width="52" height="12" rx="2" opacity=".6"/><rect x="4" y="30" width="22" height="12" rx="2" opacity=".4"/><rect x="29" y="30" width="22" height="12" rx="2" opacity=".4"/><rect x="54" y="30" width="22" height="12" rx="2" opacity=".4"/>' },
+    { id: 'revista', name: 'Revista', icon: '📰',
+      desc: 'Cabecera centrada tipo diario y columnas asimétricas · panel con menú superior',
+      thumb: '<rect x="26" y="3" width="28" height="5" rx="1"/><rect x="4" y="11" width="72" height="1.5"/><rect x="4" y="16" width="38" height="14" rx="2" opacity=".6"/><rect x="45" y="16" width="31" height="14" rx="2" opacity=".35"/><rect x="4" y="33" width="46" height="10" rx="2" opacity=".4"/><rect x="53" y="33" width="23" height="10" rx="2" opacity=".4"/>' },
+    { id: 'app', name: 'App', icon: '📱',
+      desc: 'Navegación lateral fija y mosaicos bento · panel con riel de íconos',
+      thumb: '<rect x="4" y="4" width="16" height="38" rx="2"/><rect x="24" y="4" width="52" height="11" rx="2" opacity=".6"/><rect x="24" y="18" width="33" height="11" rx="2" opacity=".4"/><rect x="60" y="18" width="16" height="11" rx="2" opacity=".4"/><rect x="24" y="32" width="16" height="10" rx="2" opacity=".4"/><rect x="43" y="32" width="33" height="10" rx="2" opacity=".4"/>' },
+    { id: 'portal', name: 'Portal', icon: '🗞️',
+      desc: 'Portal de noticias: franja de secciones a color y portada densa en columnas · panel con mega-barra',
+      thumb: '<rect x="4" y="3" width="20" height="5" rx="1"/><rect x="58" y="3" width="18" height="5" rx="1" opacity=".4"/><rect x="4" y="10" width="72" height="4"/><rect x="4" y="17" width="46" height="13" rx="1" opacity=".6"/><rect x="53" y="17" width="23" height="13" rx="1" opacity=".4"/><rect x="4" y="33" width="23" height="10" rx="1" opacity=".4"/><rect x="30" y="33" width="46" height="10" rx="1" opacity=".5"/>' },
+    { id: 'inmersiva', name: 'Inmersiva', icon: '🌌',
+      desc: 'Pantallas completas con imán al desplazar y menú flotante en píldora · panel con dock inferior',
+      thumb: '<rect x="4" y="2" width="72" height="42" rx="2" opacity=".3"/><rect x="24" y="5" width="32" height="5" rx="2.5"/><rect x="14" y="17" width="52" height="7" rx="1" opacity=".8"/><rect x="26" y="27" width="28" height="3" rx="1" opacity=".6"/><rect x="28" y="37" width="24" height="5" rx="2.5"/>' },
+    { id: 'dividida', name: 'Dividida', icon: '◧',
+      desc: 'Mitad izquierda fija con marca y menú, contenido que corre a la derecha · panel con menú a la derecha',
+      thumb: '<rect x="4" y="4" width="30" height="38" rx="2" opacity=".8"/><rect x="38" y="4" width="38" height="12" rx="2" opacity=".5"/><rect x="38" y="19" width="38" height="10" rx="2" opacity=".35"/><rect x="38" y="32" width="38" height="10" rx="2" opacity=".35"/>' },
+    { id: 'tablero', name: 'Tablero', icon: '▦',
+      desc: 'Barra de herramientas compacta y todo en tarjetas tipo tablero · panel con cinta de mosaicos',
+      thumb: '<rect x="4" y="3" width="72" height="5" rx="1"/><rect x="4" y="11" width="35" height="18" rx="2" opacity=".6"/><rect x="42" y="11" width="16" height="8" rx="2" opacity=".4"/><rect x="61" y="11" width="15" height="18" rx="2" opacity=".4"/><rect x="42" y="21" width="16" height="8" rx="2" opacity=".4"/><rect x="4" y="32" width="16" height="11" rx="2" opacity=".4"/><rect x="23" y="32" width="53" height="11" rx="2" opacity=".5"/>' },
+    { id: 'documento', name: 'Documento', icon: '📄',
+      desc: 'Una sola columna angosta, como un documento, con el menú como índice · panel con índice arriba',
+      thumb: '<rect x="24" y="3" width="32" height="4" rx="1"/><rect x="24" y="10" width="32" height="9" rx="1" opacity=".35"/><rect x="24" y="22" width="32" height="2" rx="1" opacity=".6"/><rect x="24" y="26" width="28" height="2" rx="1" opacity=".5"/><rect x="24" y="30" width="32" height="2" rx="1" opacity=".5"/><rect x="24" y="34" width="22" height="2" rx="1" opacity=".5"/><rect x="24" y="38" width="30" height="2" rx="1" opacity=".5"/>' }
   ];
   var lkey = 'lgw:layout:' + app;
+  function findLayout(id) { for (var i = 0; i < LAYOUTS.length; i++) if (LAYOUTS[i].id === id) return LAYOUTS[i]; return null; }
+  // Hoja de cada disposición: se inserta justo después de layouts.css (antes del CSS de la app,
+  // para que las reglas [data-layout] propias de cada web sigan ganando). Una vez cargada se queda.
+  function loadLayoutCss(l) {
+    if (!base || l.css === false || document.querySelector('link[data-lgw-layout="' + l.id + '"]')) return;
+    var k = document.createElement('link');
+    k.rel = 'stylesheet'; k.href = base + 'layouts/' + l.id + '.css'; k.setAttribute('data-lgw-layout', l.id);
+    var anchor = document.querySelector('link[data-lgw-layouts]');
+    if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(k, anchor.nextSibling); else document.head.appendChild(k);
+  }
   function applyLayout(id, persist) {
-    var l = LAYOUTS.filter(function (x) { return x.id === id; })[0] ||
-      LAYOUTS.filter(function (x) { return x.id === root.getAttribute('data-default-layout'); })[0] || LAYOUTS[0];
+    var l = findLayout(id) || findLayout(root.getAttribute('data-default-layout')) || LAYOUTS[0];
+    loadLayoutCss(l);
     root.setAttribute('data-layout', l.id);
     if (persist) { try { localStorage.setItem(lkey, l.id); } catch (e) {} }
     try { window.dispatchEvent(new CustomEvent('lgw:layout', { detail: l })); } catch (e) {}
@@ -126,7 +163,12 @@
   window.LGWLayout = {
     list: LAYOUTS,
     get current() { return root.getAttribute('data-layout'); },
-    set: function (id) { return applyLayout(id, true); }
+    find: findLayout,
+    set: function (id) { return applyLayout(id, true); },
+    next: function (dir) {
+      var i = LAYOUTS.indexOf(findLayout(root.getAttribute('data-layout')));
+      return applyLayout(LAYOUTS[(i + (dir || 1) + LAYOUTS.length) % LAYOUTS.length].id, true);
+    }
   };
 
   apply(read());

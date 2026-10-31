@@ -733,7 +733,10 @@ hr { border: 0; border-top: var(--border-w, 1px) solid var(--line); margin: var(
   --shadow: 6px 6px 0 var(--accent); --shadow-lg: 12px 12px 0 #ffd23f; --focus: 0 0 0 3px #ffd23f;
 }
 [data-theme="memphis"] .card:nth-child(even) { box-shadow: 6px 6px 0 var(--primary); }
-[data-theme="memphis"] h1, [data-theme="memphis"] h2 { text-decoration: underline wavy var(--accent); text-underline-offset: 8px; text-decoration-thickness: 3px; }
+/* Subrayado ondulado: la onda (≈3× el grosor) necesita aire bajo cada línea y antes del bloque siguiente,
+   si no toca la línea de abajo en títulos de varias líneas. */
+[data-theme="memphis"] h1, [data-theme="memphis"] h2 { text-decoration: underline wavy var(--accent); text-underline-offset: .2em; text-decoration-thickness: 3px; text-decoration-skip-ink: none; line-height: 1.42 !important; padding-bottom: .28em; }
+[data-theme="memphis"] h1 { line-height: 1.36 !important; }
 
 [data-theme="blueprint"] {
   --font-body: 'Share Tech Mono', monospace; --font-head: 'Barlow Condensed', sans-serif; --font-mono: 'Share Tech Mono', monospace;

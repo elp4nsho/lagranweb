@@ -1,0 +1,82 @@
+/* La Gran Web · disposición "tablero" (dashboard). La carga theme-boot.js solo cuando está activa.
+   Público: cabecera reducida a una barra de herramientas compacta con el menú como control
+   segmentado; la portada se vuelve un tablero de tarjetas en mampostería (columnas CSS, sin
+   huecos): la portada ocupa todo el ancho y cada sección es un widget con su rótulo. Panel: el
+   menú es una cinta de mosaicos (ícono sobre texto) bajo una barra superior compacta y el
+   contenido se compacta. Ver README → Disposiciones. */
+
+/* ---------- Barra de herramientas compacta ---------- */
+[data-layout="tablero"] .site-header { position: sticky !important; top: 0 !important; z-index: 60; font-size: 13px; box-shadow: 0 1px 0 var(--line), 0 6px 18px -12px rgba(0, 0, 0, .35) !important; }
+[data-layout="tablero"] .site-header :has(> .site-brand) { min-height: 50px !important; padding-block: 6px !important; gap: 12px; }
+[data-layout="tablero"] .site-header > :not(:has(.site-brand, .site-nav, .site-actions)):not(.site-nav) { font-size: 12px; }
+[data-layout="tablero"] .site-brand { font-size: 16px !important; white-space: nowrap; }
+[data-layout="tablero"] .site-brand :is(svg, img, .mark, .logo) { max-height: 26px; width: auto; }
+[data-layout="tablero"] .site-actions .btn, [data-layout="tablero"] .site-header :has(> .site-brand) > .btn { min-height: 32px; padding-block: 4px; font-size: 13px; }
+@media (min-width: 1000px) {
+  [data-layout="tablero"] .site-nav { display: flex !important; flex-wrap: nowrap; align-items: center; gap: 2px !important; padding: 3px !important; margin: 0 !important; overflow-x: auto; scrollbar-width: none; background: var(--surface-2) !important; border: var(--border-w) solid var(--line) !important; border-radius: var(--radius-sm) !important; box-shadow: none !important; }
+  [data-layout="tablero"] .site-nav > :not(a):not(button) { display: contents; }
+  [data-layout="tablero"] .site-nav a, [data-layout="tablero"] .site-nav button { padding: 5px 11px !important; margin: 0 !important; border: 0 !important; border-radius: calc(var(--radius-sm) * .8) !important; font-size: 13px !important; white-space: nowrap; text-decoration: none; background: none; }
+  [data-layout="tablero"] .site-nav a:hover { background: color-mix(in srgb, var(--surface) 70%, transparent) !important; }
+  [data-layout="tablero"] .site-nav a.active, [data-layout="tablero"] .site-nav a[aria-current] { background: var(--surface) !important; color: var(--primary) !important; box-shadow: 0 1px 3px rgba(0, 0, 0, .18) !important; }
+  [data-layout="tablero"] .site-nav a::after, [data-layout="tablero"] .site-nav a::before { display: none !important; }
+  [data-layout="tablero"] .site-header > .site-nav { margin: 0 auto 6px !important; width: max-content; max-width: calc(100% - 32px); }
+}
+
+/* ---------- Portada como tablero de tarjetas ---------- */
+[data-layout="tablero"] .site-hero { min-height: 0 !important; padding-block: 0 !important; text-align: left !important; }
+[data-layout="tablero"] .site-hero .hero-text > * { margin-left: 0 !important; margin-right: 0 !important; justify-content: flex-start !important; text-align: left !important; }
+[data-layout="tablero"] .site-hero h1 { font-size: clamp(26px, 3vw, 42px); line-height: 1.08; }
+[data-layout="tablero"] .site-hero .hero-media { max-height: 340px; overflow: hidden; }
+
+[data-layout="tablero"] .site-main:has(> .site-hero),
+[data-layout="tablero"] .site-main > div:only-child:has(> .site-hero),
+[data-layout="tablero"] .site-main:has(> div:not(:only-child) > .site-hero) { display: block !important; columns: 3 340px; column-gap: 14px; width: min(1440px, 100% - 28px); margin-inline: auto; padding-block: 14px 24px; }
+:is([data-layout="tablero"] .site-main:has(> .site-hero), [data-layout="tablero"] .site-main > div:only-child:has(> .site-hero), [data-layout="tablero"] .site-main:has(> div:not(:only-child) > .site-hero)) > * {
+  display: block; break-inside: avoid; container-type: inline-size; margin: 0 0 14px !important; padding: 16px 18px !important; min-height: 0 !important;
+  background-color: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+}
+:is([data-layout="tablero"] .site-main:has(> .site-hero), [data-layout="tablero"] .site-main > div:only-child:has(> .site-hero), [data-layout="tablero"] .site-main:has(> div:not(:only-child) > .site-hero)) > :is(.site-hero, :has(> .site-hero)) { column-span: all; container-type: normal; padding: clamp(18px, 2.6vw, 34px) !important; }
+:is([data-layout="tablero"] .site-main:has(> .site-hero), [data-layout="tablero"] .site-main > div:only-child:has(> .site-hero), [data-layout="tablero"] .site-main:has(> div:not(:only-child) > .site-hero)) > :has(> .site-hero) > .site-hero { padding: 0 !important; }
+:is([data-layout="tablero"] .site-main:has(> .site-hero), [data-layout="tablero"] .site-main > div:only-child:has(> .site-hero), [data-layout="tablero"] .site-main:has(> div:not(:only-child) > .site-hero)) > :is(:empty, [hidden], script, style) { display: none !important; }
+:is([data-layout="tablero"] .site-main:has(> .site-hero), [data-layout="tablero"] .site-main > div:only-child:has(> .site-hero), [data-layout="tablero"] .site-main:has(> div:not(:only-child) > .site-hero)) .container { width: 100% !important; max-width: none !important; margin-inline: 0 !important; padding-inline: 0 !important; }
+:is([data-layout="tablero"] .site-main:has(> .site-hero), [data-layout="tablero"] .site-main > div:only-child:has(> .site-hero), [data-layout="tablero"] .site-main:has(> div:not(:only-child) > .site-hero)) > * > * section, :is([data-layout="tablero"] .site-main:has(> .site-hero), [data-layout="tablero"] .site-main > div:only-child:has(> .site-hero), [data-layout="tablero"] .site-main:has(> div:not(:only-child) > .site-hero)) > :not(.site-hero) .section { padding-block: 0 !important; }
+/* Rótulo de widget: el primer título de cada tarjeta */
+:is([data-layout="tablero"] .site-main:has(> .site-hero), [data-layout="tablero"] .site-main > div:only-child:has(> .site-hero), [data-layout="tablero"] .site-main:has(> div:not(:only-child) > .site-hero)) > :not(.site-hero):not(:has(> .site-hero)) h2 { font-size: clamp(16px, 1.3vw, 19px) !important; line-height: 1.25; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+@container (max-width: 520px) {
+  [data-layout="tablero"] :is(.grid-2, .grid-3, .grid-4, [class*="split"], [class*="-two"], .hero-grid) { grid-template-columns: minmax(0, 1fr) !important; }
+  [data-layout="tablero"] :is(.grid-auto) { grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)) !important; }
+  [data-layout="tablero"] :is(.grid-2, .grid-3, .grid-4, .grid-auto) > * { grid-column: auto !important; grid-row: auto !important; }
+}
+
+/* Páginas interiores: el contenido va sobre una tarjeta grande */
+[data-layout="tablero"] .site-main:not(:has(.site-hero)) { padding-block: 14px; }
+[data-layout="tablero"] .site-footer { font-size: 13px; padding-block: 18px 80px !important; }
+[data-layout="tablero"] .site-footer :is(h3, h4) { font-size: 13px; }
+
+/* ---------- Panel: cinta de mosaicos ---------- */
+[data-layout="tablero"] .admin-shell { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr; }
+[data-layout="tablero"] .admin-main { display: contents; }
+[data-layout="tablero"] .admin-topbar { grid-row: 1; position: static; min-height: 48px; padding-block: 6px; }
+[data-layout="tablero"] .admin-burger { display: none !important; }
+[data-layout="tablero"] .admin-sidebar { grid-row: 2; position: sticky; top: 0; left: auto; width: auto; height: auto; transform: none !important; display: flex; flex-direction: row; flex-wrap: nowrap; align-items: stretch; gap: 6px; padding: 8px 16px; overflow-x: auto; overflow-y: hidden; border-right: 0; border-bottom: var(--border-w) solid var(--line); box-shadow: 0 6px 16px -12px rgba(0, 0, 0, .4); scrollbar-width: thin; z-index: 45; transition: none; }
+[data-layout="tablero"] .admin-sidebar nav { display: contents; }
+[data-layout="tablero"] .admin-sidebar .admin-brand { flex: none; flex-direction: column; justify-content: center; gap: 4px; width: 78px; padding: 4px; font-size: 10.5px; line-height: 1.1; text-align: center; white-space: normal; overflow: hidden; }
+[data-layout="tablero"] .admin-sidebar .admin-brand .logo { width: 30px; height: 30px; font-size: 14px; }
+[data-layout="tablero"] .admin-sidebar .nav-section { flex: none; width: 1px; margin: 4px 4px; padding: 0; overflow: hidden; color: transparent; font-size: 0; background: var(--line); }
+[data-layout="tablero"] .admin-sidebar .nav-link { position: relative; flex: none; flex-direction: column; justify-content: center; gap: 4px; width: 86px; min-height: 64px; padding: 8px 4px; font-size: 11px; line-height: 1.15; text-align: center; white-space: normal; border: var(--border-w) solid var(--line); border-radius: var(--radius-sm); background-color: var(--surface); }
+[data-layout="tablero"] .admin-sidebar .nav-link .ico { width: auto; font-size: 20px; line-height: 1; }
+[data-layout="tablero"] .admin-sidebar .nav-link .count { position: absolute; top: 3px; right: 4px; margin: 0; padding: 0 5px; font-size: 9.5px; }
+[data-layout="tablero"] .admin-sidebar .nav-link.active { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+[data-layout="tablero"] .admin-sidebar .nav-link.active::before { display: none; }
+[data-layout="tablero"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { flex: none; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; gap: 4px; margin: 0 0 0 auto; padding: 0 0 0 10px; border: 0; font-size: 11px; white-space: nowrap; }
+[data-layout="tablero"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) .btn { min-height: 28px; padding: 2px 10px; font-size: 12px; }
+[data-layout="tablero"] .admin-content { padding: 16px; gap: 14px; }
+[data-layout="tablero"] .admin-content .page-head h1 { font-size: 22px; }
+[data-layout="tablero"] .admin-content .card { padding: calc(var(--pad) * .75); }
+[data-layout="tablero"] .admin-content :is(.grid-2, .grid-3, .grid-4) { gap: 12px; }
+@media (max-width: 900px) {
+  [data-layout="tablero"] .admin-sidebar { padding: 6px 8px; gap: 4px; }
+  [data-layout="tablero"] .admin-sidebar .admin-brand, [data-layout="tablero"] .admin-sidebar .nav-section { display: none; }
+  [data-layout="tablero"] .admin-sidebar .nav-link { width: 74px; min-height: 56px; font-size: 10.5px; }
+  [data-layout="tablero"] .admin-content { padding: 12px; }
+}

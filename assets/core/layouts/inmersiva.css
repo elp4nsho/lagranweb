@@ -1,0 +1,82 @@
+/* La Gran Web · disposición "inmersiva". La carga theme-boot.js solo cuando está activa.
+   Público: la cabecera flota como una píldora centrada sobre la página, la portada ocupa la
+   pantalla completa con un título enorme y cada sección es una "pantalla" con imán al desplazar
+   (scroll-snap de proximidad, nunca obligatorio). En celular la cabecera vuelve a ser normal (con
+   el menú propio de cada web) y se mantienen las pantallas. Panel: dock flotante abajo al centro
+   con íconos (estilo escritorio) y barra superior flotante. Ver README → Disposiciones. */
+
+/* ---------- Desplazamiento con imán ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  html[data-layout="inmersiva"]:has(.site-hero) { scroll-snap-type: y proximity; }
+}
+[data-layout="inmersiva"] .site-main > section, [data-layout="inmersiva"] .site-main > div > section { scroll-snap-align: start; scroll-margin-top: 84px; }
+
+/* ---------- Cabecera en píldora flotante (escritorio) ---------- */
+@media (min-width: 1000px) {
+  [data-layout="inmersiva"] .site-header { position: fixed !important; top: 14px !important; left: 50% !important; right: auto !important; bottom: auto !important; transform: translateX(-50%) !important; z-index: 80; width: max-content; max-width: calc(100vw - 32px); padding: 0 !important; margin: 0 !important; background: color-mix(in srgb, var(--surface) 82%, transparent) !important; background-image: none !important; backdrop-filter: blur(16px) saturate(1.3); -webkit-backdrop-filter: blur(16px) saturate(1.3); border: var(--border-w) solid var(--line) !important; border-radius: 999px !important; box-shadow: var(--shadow-lg) !important; display: flex !important; align-items: center; flex-wrap: nowrap; }
+  /* Solo quedan marca, menú y acciones (avisos, tickers y filas extra se ocultan) */
+  [data-layout="inmersiva"] .site-header > :not(:has(.site-brand, .site-nav, .site-actions)):not(.site-brand, .site-nav, .site-actions) { display: none !important; }
+  [data-layout="inmersiva"] .site-header :has(> .site-brand), [data-layout="inmersiva"] .site-header > * { width: auto !important; max-width: none !important; min-height: 0 !important; margin: 0 !important; padding: 6px 8px 6px 20px !important; display: flex !important; flex-wrap: nowrap; align-items: center; gap: 14px; background: none !important; border: 0 !important; box-shadow: none !important; }
+  [data-layout="inmersiva"] .site-header :has(> .site-brand) :is(form, [class*="search"]):not(.site-nav):not(.site-actions) { display: none !important; }
+  [data-layout="inmersiva"] .site-brand { font-size: 17px !important; white-space: nowrap; }
+  [data-layout="inmersiva"] .site-nav { display: flex !important; flex-wrap: nowrap; gap: 2px !important; padding: 0 !important; margin: 0 !important; overflow-x: auto; scrollbar-width: none; position: static !important; transform: none !important; background: none !important; border: 0 !important; }
+  [data-layout="inmersiva"] .site-nav > :not(a):not(button) { display: contents; }
+  [data-layout="inmersiva"] .site-nav a, [data-layout="inmersiva"] .site-nav button { padding: 8px 13px !important; border-radius: 999px !important; font-size: 13.5px; white-space: nowrap; text-decoration: none; }
+  [data-layout="inmersiva"] .site-nav a:hover, [data-layout="inmersiva"] .site-nav a.active, [data-layout="inmersiva"] .site-nav a[aria-current] { background: color-mix(in srgb, var(--primary) 16%, transparent) !important; }
+  [data-layout="inmersiva"] .site-actions { flex-wrap: nowrap; gap: 6px; }
+  [data-layout="inmersiva"] .site-actions .btn { border-radius: 999px; white-space: nowrap; }
+  [data-layout="inmersiva"] .site-header [class*="burger"], [data-layout="inmersiva"] .site-header .nav-toggle, [data-layout="inmersiva"] .site-header .menu-toggle, [data-layout="inmersiva"] .site-header .mobile-nav-btn { display: none !important; }
+  [data-layout="inmersiva"] .site-main { padding-top: 84px; }
+  [data-layout="inmersiva"] .site-main:has(> .site-hero:first-child), [data-layout="inmersiva"] .site-main:has(> div:first-child > .site-hero:first-child) { padding-top: 0; }
+}
+
+/* ---------- Portada a pantalla completa ---------- */
+[data-layout="inmersiva"] .site-hero { min-height: 100svh !important; display: flex !important; flex-direction: column; justify-content: center; align-items: stretch; padding-block: 110px 64px !important; text-align: center !important; }
+[data-layout="inmersiva"] .site-hero > .container:has(> .hero-text),
+[data-layout="inmersiva"] .site-hero.container:has(> .hero-text) { display: flex !important; flex-direction: column; align-items: center; gap: clamp(24px, 4vw, 44px); }
+[data-layout="inmersiva"] .site-hero .hero-text { max-width: 980px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+[data-layout="inmersiva"] .site-hero .hero-text > * { margin-left: auto !important; margin-right: auto !important; justify-content: center !important; text-align: center !important; }
+[data-layout="inmersiva"] .site-hero h1 { font-size: clamp(42px, 8.4vw, 124px) !important; line-height: .98; letter-spacing: -.02em; }
+[data-layout="inmersiva"] .site-hero .hero-media { width: min(760px, 100%); max-height: 46vh; overflow: hidden; margin-inline: auto; }
+[data-layout="inmersiva"] .site-hero::after { content: '↓'; display: block; margin: 28px auto 0; width: 42px; height: 42px; line-height: 40px; text-align: center; border: var(--border-w) solid currentColor; border-radius: 50%; opacity: .55; font-size: 18px; animation: lgw-inm-bob 2.4s ease-in-out infinite; }
+@keyframes lgw-inm-bob { 50% { transform: translateY(6px); } }
+@media (prefers-reduced-motion: reduce) { [data-layout="inmersiva"] .site-hero::after { animation: none; } }
+
+/* ---------- Cada sección, una pantalla ---------- */
+@media (min-width: 700px) {
+  [data-layout="inmersiva"] .site-main:has(.site-hero) > section:not(.site-hero),
+  [data-layout="inmersiva"] .site-main:has(.site-hero) > div > section:not(.site-hero) { min-height: 88svh; display: flex; flex-direction: column; justify-content: center; padding-block: clamp(56px, 8vw, 110px) !important; }
+}
+[data-layout="inmersiva"] .site-main > section:not(.site-hero) h2,
+[data-layout="inmersiva"] .site-main > div > section:not(.site-hero) h2 { font-size: clamp(30px, 4.6vw, 64px); line-height: 1.04; letter-spacing: -.01em; }
+[data-layout="inmersiva"] .site-main > section:not(.site-hero):nth-of-type(even),
+[data-layout="inmersiva"] .site-main > div > section:not(.site-hero):nth-of-type(even) { background-color: var(--surface-2); }
+[data-layout="inmersiva"] .site-footer { padding-block: 48px 90px !important; text-align: center; }
+
+/* ---------- Panel: dock flotante abajo + barra superior flotante ---------- */
+[data-layout="inmersiva"] .admin-shell { grid-template-columns: minmax(0, 1fr); }
+[data-layout="inmersiva"] .admin-topbar { position: sticky; top: 10px; margin: 10px 14px 0; border: var(--border-w) solid var(--line); border-radius: 999px; box-shadow: var(--shadow); padding-inline: 18px 10px; }
+[data-layout="inmersiva"] .admin-burger { display: none !important; }
+[data-layout="inmersiva"] .admin-content { width: min(1320px, 100%); margin-inline: auto; padding-bottom: 120px; }
+[data-layout="inmersiva"] .admin-sidebar { position: fixed !important; top: auto !important; left: 50% !important; right: auto !important; bottom: 14px !important; transform: translateX(-50%) !important; width: max-content; max-width: calc(100vw - 340px); height: auto; display: flex; flex-direction: row; align-items: flex-end; gap: 2px; padding: 8px 10px; overflow-x: auto; overflow-y: hidden; border: var(--border-w) solid var(--line); border-radius: 22px; background: color-mix(in srgb, var(--surface) 86%, transparent); backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3); box-shadow: var(--shadow-lg); scrollbar-width: none; z-index: 90; transition: none; }
+[data-layout="inmersiva"] .admin-sidebar nav { display: contents; }
+[data-layout="inmersiva"] .admin-sidebar .nav-section,
+[data-layout="inmersiva"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { display: none; }
+[data-layout="inmersiva"] .admin-sidebar .admin-brand { padding: 0 10px 0 4px; margin-right: 4px; font-size: 0; border-right: 1px solid var(--line); align-self: stretch; align-items: center; }
+[data-layout="inmersiva"] .admin-sidebar .admin-brand > :not(.logo) { display: none; }
+[data-layout="inmersiva"] .admin-sidebar .admin-brand .logo { font-size: 16px; width: 40px; height: 40px; }
+[data-layout="inmersiva"] .admin-sidebar .nav-link { position: relative; flex: none; flex-direction: column; justify-content: center; gap: 2px; width: 66px; min-height: 54px; padding: 6px 2px; font-size: 10px; line-height: 1.15; text-align: center; white-space: normal; overflow: hidden; border-radius: 14px; transition: transform .18s var(--ease), background .15s; }
+[data-layout="inmersiva"] .admin-sidebar .nav-link .ico { width: auto; font-size: 22px; line-height: 1; }
+[data-layout="inmersiva"] .admin-sidebar .nav-link:hover { transform: translateY(-4px) scale(1.06); }
+[data-layout="inmersiva"] .admin-sidebar .nav-link .count { position: absolute; top: 2px; right: 6px; margin: 0; padding: 0 5px; font-size: 9px; }
+[data-layout="inmersiva"] .admin-sidebar .nav-link.active::after { content: ''; position: absolute; bottom: 1px; left: 50%; width: 5px; height: 5px; margin-left: -2.5px; border-radius: 50%; background: currentColor; }
+[data-layout="inmersiva"] .admin-sidebar .nav-link.active::before { display: none; }
+@media (max-width: 900px) {
+  [data-layout="inmersiva"] .admin-sidebar { left: 0 !important; right: 0 !important; bottom: 0 !important; transform: none !important; width: auto; max-width: none; border-radius: 18px 18px 0 0; padding: 6px 6px calc(6px + env(safe-area-inset-bottom)); border-width: var(--border-w) 0 0; }
+  [data-layout="inmersiva"] .admin-sidebar .admin-brand { display: none; }
+  [data-layout="inmersiva"] .admin-sidebar .nav-link { width: 62px; min-height: 50px; }
+  [data-layout="inmersiva"] .admin-topbar { margin: 8px 8px 0; border-radius: var(--radius); }
+  [data-layout="inmersiva"] .admin-content { padding-bottom: 150px; }
+  [data-layout="inmersiva"] .lgw-dock:has(~ .admin-shell), [data-layout="inmersiva"] body:has(.admin-shell) .lgw-dock { bottom: 82px; }
+  [data-layout="inmersiva"] body:has(.admin-shell) :is(.lgw-pal, .lgw-tip) { bottom: 130px; }
+}

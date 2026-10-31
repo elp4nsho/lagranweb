@@ -1,0 +1,62 @@
+/* La Gran Web · disposición "dividida" (split). La carga theme-boot.js solo cuando está activa.
+   Público: la pantalla se parte en dos. A la izquierda queda fija una mitad tipo afiche, teñida
+   con el color primario, con la marca enorme, el menú como lista grande numerada y las acciones
+   abajo; a la derecha corre todo el contenido en una columna. En celular la mitad se vuelve una
+   portada alta arriba (con el menú propio de cada web). Panel: menú a la DERECHA (en celular se
+   abre desde la derecha). Ver README → Disposiciones. */
+
+[data-layout="dividida"] { --split: clamp(340px, 38vw, 580px); }
+
+/* ---------- Mitad fija (escritorio) ---------- */
+@media (min-width: 1080px) {
+  [data-layout="dividida"] body:has(.site-header) { padding-left: var(--split); }
+  [data-layout="dividida"] .site-header { position: fixed !important; inset: 0 auto 0 0 !important; width: var(--split); height: 100vh; z-index: 60; overflow-y: auto; display: flex !important; flex-direction: column; justify-content: center; transform: none !important; padding: 0 !important; background: color-mix(in srgb, var(--primary) 13%, var(--bg)) !important; background-image: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border: 0 !important; border-right: var(--border-w) solid var(--line) !important; box-shadow: none !important; }
+  /* Franja decorativa del color primario en el borde */
+  [data-layout="dividida"] .site-header::after { content: ''; position: fixed; top: 0; bottom: 0; left: calc(var(--split) - 6px); width: 6px; background: var(--primary); pointer-events: none; }
+  [data-layout="dividida"] .site-header > * { width: auto !important; max-width: none !important; margin: 0 !important; }
+  [data-layout="dividida"] .site-header :has(> .site-brand) { width: auto !important; display: flex !important; flex-direction: column; align-items: flex-start !important; justify-content: flex-start !important; flex-wrap: nowrap; gap: clamp(18px, 3vh, 34px); min-height: 0; padding: clamp(28px, 6vh, 64px) clamp(28px, 4vw, 64px) 90px !important; }
+  [data-layout="dividida"] .site-header :has(> .site-brand) > * { margin: 0 !important; }
+  [data-layout="dividida"] .site-brand { font-size: clamp(36px, 4.4vw, 74px) !important; line-height: .98; letter-spacing: -.02em; white-space: normal; }
+  [data-layout="dividida"] .site-brand :is(svg, img, .mark, .logo, b) { flex: none; }
+  [data-layout="dividida"] .site-header :has(> .site-brand) :is(form, [class*="search"]):not(.site-nav):not(.site-actions) { display: block !important; width: 100%; max-width: 380px; }
+  [data-layout="dividida"] .site-nav { counter-reset: lgw-split; display: flex !important; flex-direction: column !important; align-items: stretch; gap: 0 !important; width: 100%; max-width: 420px; padding: 0 !important; position: static !important; transform: none !important; background: none !important; border: 0 !important; border-top: 1px solid var(--line) !important; }
+  [data-layout="dividida"] .site-nav > :not(a):not(button) { display: contents; }
+  [data-layout="dividida"] .site-nav a, [data-layout="dividida"] .site-nav button { counter-increment: lgw-split; display: flex !important; align-items: baseline; gap: 14px; padding: 10px 2px !important; margin: 0 !important; border: 0 !important; border-bottom: 1px solid var(--line) !important; border-radius: 0 !important; background: none !important; box-shadow: none !important; font: var(--head-weight) clamp(17px, 1.6vw, 24px)/1.2 var(--font-head); text-transform: var(--head-transform); text-align: left; text-decoration: none; color: var(--text) !important; }
+  [data-layout="dividida"] .site-nav a::before, [data-layout="dividida"] .site-nav button::before { content: counter(lgw-split, decimal-leading-zero); position: static !important; display: inline !important; width: auto !important; height: auto !important; background: none !important; font: 600 12px var(--font-mono); color: var(--primary); opacity: 1 !important; transform: none !important; }
+  [data-layout="dividida"] .site-nav a:hover, [data-layout="dividida"] .site-nav a.active, [data-layout="dividida"] .site-nav a[aria-current] { color: var(--primary) !important; padding-left: 10px !important; }
+  [data-layout="dividida"] .site-nav a::after { display: none !important; }
+  [data-layout="dividida"] .site-actions { display: flex !important; flex-wrap: wrap; gap: 8px; }
+  [data-layout="dividida"] .site-header [class*="burger"], [data-layout="dividida"] .site-header .nav-toggle, [data-layout="dividida"] .site-header .menu-toggle, [data-layout="dividida"] .site-header .mobile-nav-btn, [data-layout="dividida"] .site-header .mobile-nav { display: none !important; }
+  [data-layout="dividida"] .site-main .container, [data-layout="dividida"] .site-footer .container { width: min(1040px, 100% - 64px); }
+  [data-layout="dividida"] .site-hero { min-height: 0 !important; }
+}
+
+/* ---------- Columna derecha: portada en una columna, alineada a la izquierda ---------- */
+[data-layout="dividida"] .site-hero { text-align: left !important; }
+[data-layout="dividida"] .site-hero > .container:has(> .hero-text + .hero-media),
+[data-layout="dividida"] .site-hero.container:has(> .hero-text + .hero-media) { display: grid !important; grid-template-columns: minmax(0, 1fr) !important; gap: 28px; }
+[data-layout="dividida"] .site-hero .hero-text > * { margin-left: 0 !important; margin-right: 0 !important; justify-content: flex-start !important; text-align: left !important; }
+[data-layout="dividida"] .site-hero .hero-text { border-top: 6px solid var(--primary); padding-top: 22px; }
+[data-layout="dividida"] .site-hero h1 { font-size: clamp(34px, 4.2vw, 64px); line-height: 1.02; }
+[data-layout="dividida"] .site-hero .hero-media { max-height: 440px; overflow: hidden; }
+[data-layout="dividida"] .site-main > section:not(.site-hero) h2:first-of-type, [data-layout="dividida"] .site-main > div > section:not(.site-hero) h2:first-of-type { border-left: 6px solid var(--primary); padding-left: 14px; }
+
+/* ---------- Celular / tableta: la mitad pasa a ser una portada alta ---------- */
+@media (max-width: 1079px) {
+  [data-layout="dividida"] .site-header { position: relative !important; top: auto !important; background: color-mix(in srgb, var(--primary) 13%, var(--bg)) !important; background-image: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border-bottom: 6px solid var(--primary) !important; }
+  [data-layout="dividida"] .site-header :has(> .site-brand) { padding-block: 26px !important; flex-wrap: wrap; }
+  [data-layout="dividida"] .site-brand { font-size: clamp(26px, 7vw, 40px) !important; line-height: 1.05; }
+}
+
+/* ---------- Panel: menú a la derecha ---------- */
+@media (min-width: 901px) {
+  [data-layout="dividida"] .admin-shell { grid-template-columns: minmax(0, 1fr) 270px; }
+  [data-layout="dividida"] .admin-main { grid-column: 1; grid-row: 1; }
+  [data-layout="dividida"] .admin-sidebar { grid-column: 2; grid-row: 1; border-right: 0; border-left: var(--border-w) solid var(--line); }
+  [data-layout="dividida"] .admin-content { padding-inline: clamp(20px, 3vw, 40px); }
+}
+[data-layout="dividida"] .admin-sidebar .nav-link.active { box-shadow: inset -4px 0 0 var(--primary); }
+@media (max-width: 900px) {
+  [data-layout="dividida"] .admin-sidebar { left: auto; right: 0; transform: translateX(105%); }
+  [data-layout="dividida"] .admin-shell.nav-open .admin-sidebar { transform: none; }
+}

@@ -70,28 +70,59 @@ export const auth = createAuth(db, { roles: { admin: 'Administrador', editor: 'E
 - `db.log(acción, detalle, userId)` alimenta la bitácora de actividad del panel.
 - Ofrece en el panel un botón "Restablecer datos demo" (`db.reset()`).
 
-## Disposiciones (3 layouts)
+## Disposiciones (layouts)
 
-Además del estilo, cada web tiene 3 **disposiciones** que reorganizan la página completa:
-`html[data-layout="clasica" | "revista" | "app"]` (por defecto `clasica`, o `data-default-layout`).
-Se eligen en el selector 🎨 de la barra flotante o con Alt + ↑ / ↓. API: `window.LGWLayout.set(id)`,
-evento `lgw:layout`.
+Además del estilo, cada web tiene varias **disposiciones** que reorganizan la página completa
+(sitio público y panel): `html[data-layout="<id>"]` (por defecto `clasica`, o `data-default-layout`).
+Se eligen en el selector 🎨 de la barra flotante o con Alt + ↑ / ↓; se guardan por web en
+`localStorage['lgw:layout:<data-app>']`. API: `window.LGWLayout` (`list`, `current`, `find(id)`,
+`set(id)`, `next(±1)`), evento `lgw:layout`.
 
-`layouts.css` (lo carga `theme-boot.js`) ya resuelve:
+| id | Público | Panel admin |
+|---|---|---|
+| `clasica` | barra superior, secciones apiladas | menú lateral izquierdo |
+| `revista` | cabecera centrada tipo diario, portada partida, secciones numeradas | menú horizontal arriba |
+| `app` | cabecera → barra lateral fija (pestañas abajo en celular), bento | riel de íconos que se expande |
+| `portal` | cabezal + franja de secciones a color; portada densa en columnas 4\|2 / 2\|4 con filetes | barra superior + mega-barra de color con todo el menú |
+| `inmersiva` | cabecera en píldora flotante, portada a pantalla completa, secciones-pantalla con imán | dock flotante abajo al centro + barra superior flotante |
+| `dividida` | mitad izquierda fija tipo afiche (marca enorme, menú numerado), contenido a la derecha | menú a la derecha (sale desde la derecha en celular) |
+| `tablero` | barra de herramientas compacta con menú segmentado; portada como tablero de tarjetas (mampostería) | cinta de mosaicos (ícono sobre texto) arriba |
+| `documento` | una columna angosta; el menú es un índice numerado siempre visible; secciones § | índice del panel en columnas arriba del contenido |
 
-- **Panel admin** (`.admin-shell`): clásica = menú lateral; revista = menú horizontal arriba;
-  app = riel de íconos que se expande al pasar el mouse. Para que el riel funcione, cada
-  `.nav-link` debe tener su ícono en `<span class="ico">`.
-- **Sitio público**, si marcas la estructura con estas clases-gancho:
-  - `header.site-header` con `.site-brand`, `nav.site-nav` (enlaces directos `a`/`button`) y `.site-actions`
-  - `main.site-main` con las secciones; la portada es `section.site-hero > .container > .hero-text + .hero-media`
+### Cómo está armado (registro + una hoja por disposición)
+
+- **Registro único**: `LAYOUTS` en `theme-boot.js` (`id`, `name`, `icon`, `desc`, `thumb` SVG, `css`).
+  De ahí salen el panel 🎨 (grilla de miniaturas), el atajo Alt + ↑ / ↓ y la validación del valor guardado.
+- **Una hoja por disposición**: `assets/core/layouts/<id>.css`. `theme-boot.js` inserta solo la de la
+  disposición activa, justo después de `layouts.css` (reglas compartidas) y **antes** del CSS de la app,
+  para que las reglas `[data-layout]` de cada web ganen. La clásica no tiene hoja (`css: false`).
+- **Agregar una disposición**: 1) entrada en `LAYOUTS` (con `thumb` en `viewBox="0 0 80 46"`);
+  2) `assets/core/layouts/<id>.css` con todas sus reglas bajo `[data-layout="<id>"]`, cubriendo sitio
+  público (clases-gancho) y panel (`.admin-shell`), escritorio y ≤ 900 px; 3) `node tools/check-layouts.mjs --layouts=<id>`
+  y mirar las hojas de contactos. No hay que tocar el panel ni el revisor.
+
+### Clases-gancho
+
+- **Panel admin** (`.admin-shell`): cada `.nav-link` debe tener su ícono en `<span class="ico">`
+  (lo usan el riel, el dock y la cinta de mosaicos). El pie del menú (salir, restablecer…) es cualquier
+  hijo directo de `.admin-sidebar` que no sea `.admin-brand`, `nav`, `.nav-section` ni `.nav-link`.
+- **Sitio público**:
+  - `header.site-header` con `.site-brand`, `nav.site-nav` (enlaces `a`/`button`, directos o dentro de un
+    envoltorio) y `.site-actions`. Botón de menú móvil: `[class*="burger"]`, `.nav-toggle`, `.menu-toggle`
+    o `.mobile-nav-btn`; panel móvil aparte: `.site-header .mobile-nav`.
+  - `main.site-main` con las secciones (directas o dentro de un único envoltorio); la portada es
+    `section.site-hero > .container > .hero-text + .hero-media`. Portal y Tablero reordenan la página que
+    tiene `.site-hero` (cada hijo del contenedor es una pieza/tarjeta y sus grillas se pliegan con
+    *container queries*).
   - `footer.site-footer`
 
-  revista = cabecera centrada tipo diario, portada partida, secciones numeradas, grillas con
-  pieza destacada; app = cabecera convertida en barra lateral fija (pestañas abajo en celular),
-  portada tipo tarjeta, secciones como paneles y grillas bento.
+Lo específico de cada web va en su CSS con `[data-layout="<id>"] …`: orden de secciones, columnas del
+detalle o del checkout, listas vs. tarjetas, etc. Todas deben funcionar con todos los estilos, a 375 px
+y en escritorio, sin desborde horizontal ni nada fijo sobre la barra del portafolio (abajo a la izquierda).
 
-Lo específico de cada web va en su CSS con `[data-layout="revista"] …` y `[data-layout="app"] …`:
-orden de secciones (`order`, `grid-template-areas`), columnas del detalle de producto o del
-checkout, listas vs. tarjetas, posición de filtros y resúmenes, etc. Las 3 disposiciones deben
-verse claramente distintas y funcionar con los 30 estilos, a 375 px y en escritorio.
+### Revisión automática
+
+`node tools/check-layouts.mjs` (con `python3 -m http.server 8872` corriendo) abre cada web × cada
+disposición del registro × 1440 y 375 px: portada, una página interior y el panel, rotando 3 estilos
+contrastados (`--styles=all` para los 3 en todo). Falla ante errores de página/consola, desborde
+horizontal o menú inalcanzable y deja hojas de contactos por web (`--out=`, por defecto en el tmp del sistema).

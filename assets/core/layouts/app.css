@@ -1,0 +1,78 @@
+/* La Gran Web · disposición "app". La carga theme-boot.js solo cuando está activa.
+   Ver assets/core/layouts.css (clases-gancho) y README → Disposiciones. */
+
+/* =====================================================================
+   APP
+   ===================================================================== */
+/* Sitio público como aplicación: la cabecera se vuelve barra lateral fija */
+@media (min-width: 901px) {
+  [data-layout="app"] body:has(.site-header) { padding-left: 248px; }
+  [data-layout="app"] .site-header { position: fixed !important; inset: 0 auto 0 0; width: 248px; height: 100vh; z-index: 60; overflow-y: auto; border-right: var(--border-w) solid var(--line); border-bottom: 0 !important; background: var(--surface) !important; backdrop-filter: blur(var(--blur)); }
+  [data-layout="app"] .site-header > .container,
+  [data-layout="app"] .site-header.container { width: auto !important; display: flex !important; flex-direction: column; align-items: stretch !important; justify-content: flex-start !important; gap: 18px; padding: 22px 16px 90px; min-height: 0; }
+  [data-layout="app"] .site-nav { display: flex !important; flex-direction: column; align-items: stretch; gap: 2px; }
+  [data-layout="app"] .site-nav a, [data-layout="app"] .site-nav button { display: block; padding: 10px 12px; border-radius: var(--radius-sm); text-align: left; }
+  [data-layout="app"] .site-nav a:hover, [data-layout="app"] .site-nav a.active, [data-layout="app"] .site-nav a[aria-current] { background: var(--surface-2); }
+  [data-layout="app"] .site-actions { display: flex !important; flex-direction: column; align-items: stretch; gap: 8px; margin-top: auto; }
+  [data-layout="app"] .site-header [class*="burger"], [data-layout="app"] .site-header .menu-toggle, [data-layout="app"] .site-header .nav-toggle { display: none !important; }
+}
+/* En celular: cabecera compacta arriba y navegación como barra de pestañas abajo */
+@media (max-width: 900px) {
+  /* backdrop-filter/transform en la cabecera crean un contenedor para position:fixed; se quitan para que las pestañas bajen al pie */
+  [data-layout="app"] .site-header { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; transform: none !important; filter: none !important; }
+  [data-layout="app"] body:has(.site-nav) { padding-bottom: 72px; }
+  [data-layout="app"] .site-nav { position: fixed !important; left: 0; right: 0; bottom: 0; top: auto !important; z-index: 70; display: flex !important; flex-direction: row !important; justify-content: space-around; gap: 0; height: 64px; padding: 6px 4px; overflow-x: auto; background: var(--surface) !important; border-top: var(--border-w) solid var(--line); box-shadow: 0 -6px 20px rgba(0, 0, 0, .12); transform: none !important; visibility: visible !important; opacity: 1 !important; }
+  [data-layout="app"] .site-nav a, [data-layout="app"] .site-nav button { flex: 1 0 auto; display: flex; align-items: center; justify-content: center; padding: 6px 10px; font-size: 12px; white-space: nowrap; }
+  [data-layout="app"] .site-header [class*="burger"], [data-layout="app"] .site-header .menu-toggle, [data-layout="app"] .site-header .nav-toggle { display: none !important; }
+  [data-layout="app"] .lgw-dock { bottom: 80px; }
+  [data-layout="app"] .lgw-pal, [data-layout="app"] .lgw-tip { bottom: 128px; }
+}
+[data-layout="app"] .container { width: min(1360px, 100% - 32px); }
+
+/* Portada compacta tipo tarjeta-banner */
+[data-layout="app"] .site-hero { padding-block: clamp(20px, 3vw, 36px) !important; min-height: 0 !important; }
+[data-layout="app"] .site-hero > .container,
+[data-layout="app"] .site-hero.container { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, .7fr); gap: 24px; align-items: center; padding: clamp(20px, 3vw, 36px); background: var(--surface); border: var(--border-w) solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); text-align: left !important; }
+[data-layout="app"] .site-hero .hero-text > * { margin-left: 0 !important; justify-content: flex-start !important; text-align: left !important; }
+[data-layout="app"] .site-hero h1 { font-size: clamp(26px, 3.4vw, 42px); }
+@media (max-width: 760px) { [data-layout="app"] .site-hero > .container, [data-layout="app"] .site-hero.container { grid-template-columns: 1fr; } [data-layout="app"] .site-hero .hero-media { display: none; } }
+
+/* Secciones como paneles y grillas bento */
+[data-layout="app"] .site-main > .section,
+[data-layout="app"] .site-main > section:not(.site-hero) { padding-block: 14px; }
+[data-layout="app"] .site-main > section:not(.site-hero) > .container { padding: clamp(16px, 2.4vw, 28px); background: color-mix(in srgb, var(--surface) 70%, transparent); border: var(--border-w) solid var(--line); border-radius: var(--radius); }
+[data-layout="app"] .site-main .grid-auto,
+[data-layout="app"] .site-main .grid-3,
+[data-layout="app"] .site-main .grid-4 { grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); grid-auto-flow: dense; gap: 12px; }
+[data-layout="app"] .site-main .grid-auto > :nth-child(6n + 1),
+[data-layout="app"] .site-main .grid-3 > :nth-child(6n + 1),
+[data-layout="app"] .site-main .grid-4 > :nth-child(6n + 1) { grid-column: span 2; }
+@media (max-width: 520px) { [data-layout="app"] .site-main .grid-auto > *, [data-layout="app"] .site-main .grid-3 > *, [data-layout="app"] .site-main .grid-4 > * { grid-column: auto !important; } }
+[data-layout="app"] .site-main .card { padding: calc(var(--pad) * .8); }
+[data-layout="app"] .site-footer { font-size: 13px; }
+
+/* Panel: riel de íconos que se expande al pasar el mouse */
+@media (min-width: 901px) {
+  [data-layout="app"] .admin-shell { grid-template-columns: 76px minmax(0, 1fr); }
+  [data-layout="app"] .admin-sidebar { width: 76px; padding: 14px 10px; overflow-x: hidden; transition: width .25s var(--ease), box-shadow .25s; z-index: 60; }
+  [data-layout="app"] .admin-sidebar:hover, [data-layout="app"] .admin-sidebar:focus-within { width: 260px; box-shadow: var(--shadow-lg); }
+  [data-layout="app"] .admin-sidebar .nav-section { height: 1px; padding: 0; margin: 8px 6px; overflow: hidden; color: transparent; background: var(--line); }
+  [data-layout="app"] .admin-sidebar:hover .nav-section, [data-layout="app"] .admin-sidebar:focus-within .nav-section { height: auto; padding: 14px 12px 6px; margin: 0; color: var(--muted); background: none; }
+  [data-layout="app"] .nav-link, [data-layout="app"] .admin-brand { white-space: nowrap; }
+  [data-layout="app"] .nav-link .ico { flex: none; width: 32px; font-size: 18px; }
+  [data-layout="app"] .admin-brand { padding-inline: 4px; }
+  /* Riel cerrado: solo íconos; los textos aparecen al expandir */
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .nav-link,
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .admin-brand { font-size: 0; gap: 0; }
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .nav-link .ico { font-size: 18px; }
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .admin-brand .logo { font-size: 16px; }
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) .nav-link .count,
+  [data-layout="app"] .admin-sidebar:not(:hover):not(:focus-within) > :not(.admin-brand):not(nav):not(.nav-link):not(.nav-section) { display: none; }
+}
+[data-layout="app"] .admin-content { padding: 18px; gap: 14px; }
+[data-layout="app"] .admin-content .grid-4, [data-layout="app"] .admin-content .grid-3 { gap: 12px; }
+[data-layout="app"] .admin-content .page-head h1 { font-size: 22px; }
+[data-layout="app"] .admin-topbar { min-height: 54px; }
+
+/* La landing del portafolio no usa la barra de pestañas */
+[data-app="portal"][data-layout="app"] body { padding-bottom: 0; }

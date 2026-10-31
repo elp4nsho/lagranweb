@@ -1,0 +1,61 @@
+/* La Gran Web · disposición "revista". La carga theme-boot.js solo cuando está activa.
+   Ver assets/core/layouts.css (clases-gancho) y README → Disposiciones. */
+
+/* =====================================================================
+   REVISTA
+   ===================================================================== */
+[data-layout="revista"] .container { width: min(1120px, 100% - 40px); }
+
+/* Cabecera tipo diario: marca centrada grande, navegación debajo entre filetes */
+[data-layout="revista"] .site-header { position: relative; }
+[data-layout="revista"] .site-header > .container,
+[data-layout="revista"] .site-header.container { display: grid !important; grid-template-columns: 1fr; justify-items: center; gap: 10px; padding-block: 18px 0; min-height: 0; }
+[data-layout="revista"] .site-brand { font-size: clamp(26px, 4vw, 44px) !important; letter-spacing: var(--head-spacing); }
+[data-layout="revista"] .site-nav { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 4px 22px; width: 100%; padding: 10px 0; border-block: 3px double var(--line); }
+[data-layout="revista"] .site-actions { position: absolute; top: 18px; right: 20px; }
+
+/* Portada partida: texto a la izquierda alineado a un filete, imagen a la derecha */
+[data-layout="revista"] .site-hero { text-align: left !important; }
+[data-layout="revista"] .site-hero > .container,
+[data-layout="revista"] .site-hero.container { display: grid !important; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+[data-layout="revista"] .site-hero .hero-text { border-left: 4px solid var(--primary); padding-left: clamp(16px, 2.5vw, 32px); }
+[data-layout="revista"] .site-hero .hero-text > * { margin-left: 0 !important; margin-right: 0 !important; justify-content: flex-start !important; text-align: left !important; }
+[data-layout="revista"] .site-hero h1 { font-size: clamp(36px, 6vw, 76px); line-height: 1.02; }
+@media (max-width: 760px) {
+  [data-layout="revista"] .site-hero > .container, [data-layout="revista"] .site-hero.container { grid-template-columns: 1fr; }
+  [data-layout="revista"] .site-actions { position: static; }
+}
+
+/* Secciones numeradas con filete superior */
+[data-layout="revista"] .site-main { counter-reset: lgw-sec; }
+[data-layout="revista"] .site-main > .section,
+[data-layout="revista"] .site-main > section:not(.site-hero) { border-top: 1px solid var(--line); }
+[data-layout="revista"] .site-main > section:not(.site-hero) h2:first-of-type::before { counter-increment: lgw-sec; content: counter(lgw-sec, decimal-leading-zero) '  '; color: var(--primary); font-size: .6em; vertical-align: .35em; }
+
+/* Grillas tipo revista: la primera pieza ocupa el doble */
+[data-layout="revista"] .site-main .grid-auto,
+[data-layout="revista"] .site-main .grid-3,
+[data-layout="revista"] .site-main .grid-4 { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-flow: dense; }
+[data-layout="revista"] .site-main .grid-auto > :first-child,
+[data-layout="revista"] .site-main .grid-3 > :first-child,
+[data-layout="revista"] .site-main .grid-4 > :first-child { grid-column: span 2; grid-row: span 2; }
+@media (max-width: 760px) {
+  [data-layout="revista"] .site-main .grid-auto, [data-layout="revista"] .site-main .grid-3, [data-layout="revista"] .site-main .grid-4 { grid-template-columns: minmax(0, 1fr); }
+  [data-layout="revista"] .site-main .grid-auto > :first-child, [data-layout="revista"] .site-main .grid-3 > :first-child, [data-layout="revista"] .site-main .grid-4 > :first-child { grid-column: auto; grid-row: auto; }
+}
+[data-layout="revista"] .site-footer { text-align: center; border-top: 3px double var(--line); }
+
+/* Panel: el menú lateral pasa a ser una barra superior horizontal */
+[data-layout="revista"] .admin-shell { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; }
+[data-layout="revista"] .admin-sidebar { position: sticky; top: 0; height: auto; width: auto; transform: none !important; flex-direction: row; align-items: center; flex-wrap: nowrap; overflow-x: auto; gap: 2px; padding: 8px 16px; border-right: 0; border-bottom: var(--border-w) solid var(--line); box-shadow: none; scrollbar-width: thin; }
+[data-layout="revista"] .admin-sidebar .nav-section { display: none; }
+/* Pie del menú (salir, restablecer demo…) queda al final de la barra, en línea */
+[data-layout="revista"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { flex: none; display: flex; align-items: center; gap: 6px; margin: 0 0 0 auto; padding: 0; border: 0; white-space: nowrap; }
+[data-layout="revista"] .admin-sidebar nav { display: contents; }
+[data-layout="revista"] .admin-brand { padding: 0 14px 0 0; margin-right: 6px; border-right: 1px solid var(--line); white-space: nowrap; flex: none; }
+[data-layout="revista"] .nav-link { flex: none; white-space: nowrap; padding: 8px 12px; }
+[data-layout="revista"] .admin-topbar { position: static; }
+[data-layout="revista"] .admin-burger { display: none !important; }
+[data-layout="revista"] .admin-content { width: min(1240px, 100%); margin-inline: auto; }
+[data-layout="revista"] .admin-content .page-head { border-bottom: 3px double var(--line); padding-bottom: 12px; }
+

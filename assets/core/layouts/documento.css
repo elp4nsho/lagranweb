@@ -1,0 +1,67 @@
+/* La Gran Web · disposición "documento" (minimal). La carga theme-boot.js solo cuando está activa.
+   Público: toda la web se lee como un documento en UNA columna angosta y centrada. La cabecera es
+   la portada del documento (marca como título) y el menú se convierte en un índice numerado en un
+   recuadro, siempre visible (también en celular, sin hamburguesa). Las secciones se numeran (§) y
+   las grillas se pliegan a 2 columnas como máximo. Panel: columna central con el menú como índice
+   en varias columnas arriba del contenido. Ver README → Disposiciones. */
+
+[data-layout="documento"] { --doc: 760px; }
+
+/* ---------- Cabecera = portada del documento + índice ---------- */
+[data-layout="documento"] .site-header { position: relative !important; top: auto !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: var(--bg) !important; background-image: var(--bg-image) !important; border: 0 !important; border-bottom: 3px double var(--line) !important; box-shadow: none !important; }
+[data-layout="documento"] .site-header .container, [data-layout="documento"] .site-header :has(> .site-brand) { width: min(var(--doc), 100% - 32px) !important; max-width: none !important; margin-inline: auto !important; }
+[data-layout="documento"] .site-header :has(> .site-brand) { display: flex !important; flex-direction: column; align-items: center !important; justify-content: flex-start !important; flex-wrap: nowrap; gap: 14px; min-height: 0 !important; padding: clamp(22px, 4vw, 44px) 0 18px !important; text-align: center; }
+[data-layout="documento"] .site-header :has(> .site-brand) > * { margin: 0 !important; }
+[data-layout="documento"] .site-brand { font-size: clamp(28px, 4.6vw, 46px) !important; line-height: 1.05; justify-content: center; }
+[data-layout="documento"] .site-header :has(> .site-brand) :is(form, [class*="search"]):not(.site-nav):not(.site-actions) { display: block !important; width: min(420px, 100%); }
+/* El índice */
+[data-layout="documento"] .site-nav { counter-reset: lgw-toc; display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px !important; width: 100% !important; max-width: none !important; height: auto !important; max-height: none !important; padding: 14px 18px !important; margin: 0 !important; position: static !important; inset: auto !important; transform: none !important; visibility: visible !important; opacity: 1 !important; overflow: visible !important; text-align: left; background: var(--surface) !important; border: var(--border-w) solid var(--line) !important; border-radius: var(--radius-sm) !important; box-shadow: none !important; }
+[data-layout="documento"] .site-nav::before { content: 'Índice'; grid-column: 1 / -1; display: block; margin-bottom: 6px; font: 700 11px/1.4 var(--font-body); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+[data-layout="documento"] .site-nav > :not(a):not(button) { display: contents !important; }
+[data-layout="documento"] .site-nav a, [data-layout="documento"] .site-nav button { counter-increment: lgw-toc; display: flex !important; align-items: baseline; gap: 10px; padding: 7px 0 !important; margin: 0 !important; border: 0 !important; border-bottom: 1px dotted var(--line) !important; border-radius: 0 !important; background: none !important; box-shadow: none !important; color: var(--text) !important; font-size: 15px !important; text-align: left; text-decoration: none; white-space: normal; }
+[data-layout="documento"] .site-nav a::before, [data-layout="documento"] .site-nav button::before { content: counter(lgw-toc) '.'; position: static !important; display: inline !important; flex: none; min-width: 1.6em; width: auto !important; height: auto !important; background: none !important; transform: none !important; opacity: 1 !important; color: var(--primary); font: 600 13px var(--font-mono); }
+[data-layout="documento"] .site-nav a::after { display: none !important; }
+[data-layout="documento"] .site-nav a:hover, [data-layout="documento"] .site-nav a.active, [data-layout="documento"] .site-nav a[aria-current] { color: var(--primary) !important; text-decoration: underline; }
+[data-layout="documento"] .site-actions { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 8px; }
+[data-layout="documento"] .site-header [class*="burger"], [data-layout="documento"] .site-header .nav-toggle, [data-layout="documento"] .site-header .menu-toggle, [data-layout="documento"] .site-header .mobile-nav-btn, [data-layout="documento"] .site-header .mobile-nav { display: none !important; }
+@media (max-width: 520px) { [data-layout="documento"] .site-nav { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Una sola columna ---------- */
+[data-layout="documento"] .site-main .container, [data-layout="documento"] .site-main > .container, [data-layout="documento"] .site-footer .container { width: min(var(--doc), 100% - 32px) !important; max-width: none !important; margin-inline: auto !important; }
+[data-layout="documento"] .site-main :is(.grid-3, .grid-4, .grid-auto) { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+[data-layout="documento"] .site-main :is(.grid-2, .grid-3, .grid-4, .grid-auto) > * { grid-column: auto !important; grid-row: auto !important; }
+@media (max-width: 600px) { [data-layout="documento"] .site-main :is(.grid-2, .grid-3, .grid-4, .grid-auto) { grid-template-columns: minmax(0, 1fr) !important; } }
+[data-layout="documento"] .site-main > section:not(.site-hero), [data-layout="documento"] .site-main > div > section:not(.site-hero) { padding-block: clamp(26px, 4vw, 44px) !important; }
+
+/* Portada sobria: texto a la izquierda, imagen debajo y contenida */
+[data-layout="documento"] .site-hero { min-height: 0 !important; padding-block: clamp(28px, 5vw, 56px) !important; text-align: left !important; }
+[data-layout="documento"] .site-hero > .container:has(> .hero-text),
+[data-layout="documento"] .site-hero.container:has(> .hero-text) { display: grid !important; grid-template-columns: minmax(0, 1fr) !important; gap: 24px; }
+[data-layout="documento"] .site-hero .hero-text > * { margin-left: 0 !important; margin-right: 0 !important; justify-content: flex-start !important; text-align: left !important; }
+[data-layout="documento"] .site-hero h1 { font-size: clamp(32px, 5vw, 52px) !important; line-height: 1.08; }
+[data-layout="documento"] .site-hero .hero-media { max-height: 340px; overflow: hidden; }
+
+/* Secciones numeradas como capítulos */
+[data-layout="documento"] .site-main { counter-reset: lgw-doc; }
+[data-layout="documento"] .site-main > section:not(.site-hero) h2:first-of-type::before,
+[data-layout="documento"] .site-main > div > section:not(.site-hero) h2:first-of-type::before { counter-increment: lgw-doc; content: '§ ' counter(lgw-doc) '  '; color: var(--primary); font-size: .62em; vertical-align: .3em; white-space: pre; }
+[data-layout="documento"] .site-footer { text-align: center; border-top: 3px double var(--line) !important; }
+
+/* ---------- Panel: índice arriba, columna central ---------- */
+[data-layout="documento"] .admin-shell { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr; }
+[data-layout="documento"] .admin-main { display: contents; }
+[data-layout="documento"] .admin-topbar { grid-row: 1; position: sticky; top: 0; }
+[data-layout="documento"] .admin-burger { display: none !important; }
+[data-layout="documento"] .admin-sidebar { grid-row: 2; position: static !important; left: auto; top: auto; width: min(1100px, 100% - 32px) !important; height: auto !important; margin: 18px auto 0; transform: none !important; box-shadow: none !important; display: block; columns: 4 190px; column-gap: 28px; padding: 16px 20px; overflow: visible; border: var(--border-w) solid var(--line); border-radius: var(--radius); transition: none; }
+[data-layout="documento"] .admin-sidebar nav { display: contents; }
+[data-layout="documento"] .admin-sidebar .admin-brand { column-span: all; padding: 0 0 12px; margin-bottom: 8px; border-bottom: 1px solid var(--line); font-size: 16px; }
+[data-layout="documento"] .admin-sidebar .admin-brand::after { content: '· Índice del panel'; margin-left: 4px; font: 500 12px var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+[data-layout="documento"] .admin-sidebar .nav-section { break-after: avoid; padding: 10px 0 4px; }
+[data-layout="documento"] .admin-sidebar .nav-link { break-inside: avoid; padding: 6px 4px; border-radius: 0; border: 0; border-bottom: 1px dotted var(--line); }
+[data-layout="documento"] .admin-sidebar .nav-link.active { text-decoration: underline; text-underline-offset: 3px; }
+[data-layout="documento"] .admin-sidebar > :not(.admin-brand):not(.nav-link):not(nav):not(.nav-section) { column-span: all; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+[data-layout="documento"] .admin-content { grid-row: 3; width: min(1100px, 100%); margin-inline: auto; }
+@media (max-width: 900px) {
+  [data-layout="documento"] .admin-sidebar { columns: 2 140px; column-gap: 16px; padding: 12px 14px; margin-top: 12px; }
+  [data-layout="documento"] .admin-sidebar .nav-link { font-size: 13px; }
+}

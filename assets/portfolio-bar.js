@@ -1,4 +1,5 @@
-// Barra flotante común: vuelve al portafolio y abre el selector de los 30 estilos.
+// Barra flotante común: vuelve al portafolio y abre el selector de estilos y disposiciones
+// (ambas listas salen de los registros de theme-boot.js: LGWTheme.list y LGWLayout.list).
 (function () {
   // Relleno de formularios con datos ficticios (misma carpeta que este script).
   var self = document.currentScript && document.currentScript.src;
@@ -22,8 +23,11 @@
     '.lgw-pal .sw{flex:none;width:34px;height:34px;border-radius:9px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;box-shadow:inset 0 0 0 1px rgba(255,255,255,.15)}' +
     '.lgw-pal .sw span:first-child{grid-row:span 2}.lgw-pal b{display:block;font-size:13px}.lgw-pal small{color:#9a9ab0;font-size:11px}' +
     '.lgw-pal .top{display:flex;justify-content:space-between;align-items:center;gap:8px}.lgw-pal .top span{color:#9a9ab0;font-size:11px}' +
-    '.lgw-pal .lay{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.lgw-pal .lay button{flex-direction:column;align-items:stretch;text-align:center;gap:6px}' +
-    '.lgw-pal .lay svg{width:100%;height:46px;display:block;border-radius:6px;background:rgba(255,255,255,.06)}' +
+    '.lgw-pal .lay{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:6px}' +
+    '.lgw-pal .lay button{flex-direction:column;align-items:stretch;text-align:center;gap:4px;padding:6px}' +
+    '.lgw-pal .lay b{font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}' +
+    '.lgw-pal .lay svg{width:100%;height:34px;display:block;border-radius:6px;background:rgba(255,255,255,.06)}' +
+    '.lgw-pal .lay-desc{margin:8px 4px 0;min-height:2.6em;color:#c9c9dc;font-size:12px}.lgw-pal .lay-desc b{display:inline;color:#fff}' +
     '@media print{.lgw-dock,.lgw-pal{display:none!important}}';
   var style = document.createElement('style');
   style.textContent = css;
@@ -58,24 +62,25 @@
       '<span class="sw"><span style="background:' + t.sw[0] + '"></span><span style="background:' + t.sw[1] + '"></span><span style="background:' + t.sw[2] + '"></span></span>' +
       '<span><b>' + (i + 1) + '. ' + t.name + '</b><small>' + t.desc + '</small></span></button>';
   }
-  // Miniaturas de cada disposición.
-  var WIRE = {
-    clasica: '<rect x="4" y="4" width="72" height="6" rx="2"/><rect x="14" y="14" width="52" height="12" rx="2" opacity=".6"/><rect x="4" y="30" width="22" height="12" rx="2" opacity=".4"/><rect x="29" y="30" width="22" height="12" rx="2" opacity=".4"/><rect x="54" y="30" width="22" height="12" rx="2" opacity=".4"/>',
-    revista: '<rect x="26" y="3" width="28" height="5" rx="1"/><rect x="4" y="11" width="72" height="1.5"/><rect x="4" y="16" width="38" height="14" rx="2" opacity=".6"/><rect x="45" y="16" width="31" height="14" rx="2" opacity=".35"/><rect x="4" y="33" width="46" height="10" rx="2" opacity=".4"/><rect x="53" y="33" width="23" height="10" rx="2" opacity=".4"/>',
-    app: '<rect x="4" y="4" width="16" height="38" rx="2"/><rect x="24" y="4" width="52" height="11" rx="2" opacity=".6"/><rect x="24" y="18" width="33" height="11" rx="2" opacity=".4"/><rect x="60" y="18" width="16" height="11" rx="2" opacity=".4"/><rect x="24" y="32" width="16" height="10" rx="2" opacity=".4"/><rect x="43" y="32" width="33" height="10" rx="2" opacity=".4"/>'
-  };
+  // Grupos de estilos (campo `group` del registro de estilos; sin grupo = Modernos).
+  var GROUPS = { '': 'Modernos', html5: 'Era HTML5 · animate.css' };
+  function layoutItem(l, cur) {
+    // Miniatura del registro (theme-boot.js); si no trae, se muestra su ícono.
+    var pic = l.thumb ? '<svg viewBox="0 0 80 46" fill="currentColor" aria-hidden="true">' + l.thumb + '</svg>'
+      : '<svg viewBox="0 0 80 46" aria-hidden="true"><text x="40" y="31" font-size="22" text-anchor="middle">' + (l.icon || '▢') + '</text></svg>';
+    return '<button type="button" data-l="' + l.id + '" aria-pressed="' + (l.id === cur) + '" title="' + l.name + ': ' + l.desc + '">' +
+      pic + '<b>' + (l.icon ? l.icon + ' ' : '') + l.name + '</b></button>';
+  }
+  function layoutDesc(l) { return l ? '<b>' + l.name + ':</b> ' + l.desc : ''; }
   function render() {
-    var L = window.LGWLayout, lay = '';
-    if (L) L.list.forEach(function (l) {
-      lay += '<button type="button" data-l="' + l.id + '" aria-pressed="' + (l.id === L.current) + '" title="' + l.desc + '">' +
-        '<svg viewBox="0 0 80 46" fill="currentColor">' + (WIRE[l.id] || '') + '</svg><b>' + l.name + '</b></button>';
-    });
-    var modern = '', html5 = '';
-    T.list.forEach(function (t, i) { if (t.group === 'html5') html5 += item(t, i); else modern += item(t, i); });
-    pal.innerHTML = (lay ? '<h4 style="margin-top:2px">Disposición · Alt + ↑ / ↓</h4><div class="lay">' + lay + '</div>' : '') +
-      '<div class="top" style="margin-top:12px"><b>30 estilos</b><span>Atajo: Alt + ← / →</span></div>' +
-      '<h4>Modernos</h4><div class="g">' + modern + '</div>' +
-      '<h4>Era HTML5 · animate.css</h4><div class="g">' + html5 + '</div>';
+    var L = window.LGWLayout, lay = '', curL = null;
+    if (L) { curL = L.find ? L.find(L.current) : null; L.list.forEach(function (l) { lay += layoutItem(l, L.current); }); }
+    var groups = {}, order = [];
+    T.list.forEach(function (t, i) { var g = t.group || ''; if (!groups[g]) { groups[g] = ''; order.push(g); } groups[g] += item(t, i); });
+    pal.innerHTML = (lay ? '<div class="top" style="margin-top:2px"><b>' + L.list.length + ' disposiciones</b><span>Alt + ↑ / ↓</span></div>' +
+        '<div class="lay" style="margin-top:8px">' + lay + '</div><p class="lay-desc" aria-live="polite">' + layoutDesc(curL) + '</p>' : '') +
+      '<div class="top" style="margin-top:12px"><b>' + T.list.length + ' estilos</b><span>Alt + ← / →</span></div>' +
+      order.map(function (g) { return '<h4>' + (GROUPS[g] || g) + '</h4><div class="g">' + groups[g] + '</div>'; }).join('');
     var cur = T.list.find(function (t) { return t.id === T.current; });
     btn.querySelector('span').textContent = cur ? cur.name : 'Estilo';
   }
@@ -84,6 +89,11 @@
     pal.hidden = !pal.hidden;
     btn.setAttribute('aria-expanded', String(!pal.hidden));
     if (!pal.hidden) { render(); var a = pal.querySelector('[aria-pressed=true]'); a && a.focus(); }
+  });
+  // Al pasar por una disposición se muestra su descripción.
+  pal.addEventListener('mouseover', function (e) {
+    var l = e.target.closest && e.target.closest('[data-l]'), d = pal.querySelector('.lay-desc');
+    if (l && d && window.LGWLayout && LGWLayout.find) d.innerHTML = layoutDesc(LGWLayout.find(l.getAttribute('data-l')));
   });
   pal.addEventListener('click', function (e) {
     var b = e.target.closest('[data-t]');
@@ -96,8 +106,7 @@
     if (e.altKey && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) { e.preventDefault(); T.next(e.key === 'ArrowRight' ? 1 : -1); }
     if (e.altKey && (e.key === 'ArrowUp' || e.key === 'ArrowDown') && window.LGWLayout) {
       e.preventDefault();
-      var ids = LGWLayout.list.map(function (x) { return x.id; }), i = ids.indexOf(LGWLayout.current);
-      LGWLayout.set(ids[(i + (e.key === 'ArrowDown' ? 1 : -1) + ids.length) % ids.length]); render();
+      LGWLayout.next(e.key === 'ArrowDown' ? 1 : -1); render();
     }
   });
   // Cerrar al hacer clic fuera. Se usa la ruta del evento (calculada al despacharlo) porque al
