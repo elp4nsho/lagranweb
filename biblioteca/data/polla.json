@@ -1,0 +1,2293 @@
+{
+  "app": "polla",
+  "dir": "polla",
+  "name": "Gallada",
+  "kind": "Plataforma de pollas (ahorro entre amigos)",
+  "description": "Plataforma para organizar pollas —grupos que aportan una cuota fija cada período y se turnan para recibir el pozo— con sitio público (simulador, unirse con código, verificación de sorteos y comprobantes), app del participante, panel de organización y tesorería, y panel de la plataforma. El libro de cada polla se cuadra solo.",
+  "demo": "../polla/index.html",
+  "theme": "forest",
+  "layout": "clasica",
+  "generatedAt": "2026-10-31T02:51:50.537Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Lo que ve cualquier visitante, sin iniciar sesión."
+    },
+    {
+      "id": "participante",
+      "label": "Participante",
+      "desc": "App de quien aporta en una o más pollas: pagar, seguir el pozo, su turno y su historial."
+    },
+    {
+      "id": "organizador",
+      "label": "Organizador/a",
+      "desc": "Panel para crear pollas, asignar turnos, confirmar pagos, entregar pozos y manejar morosos."
+    },
+    {
+      "id": "tesorero",
+      "label": "Tesorero/a",
+      "desc": "Co-organización: confirma pagos, entrega pozos y recuerda cuotas, sin cambiar las reglas."
+    },
+    {
+      "id": "admin",
+      "label": "Plataforma",
+      "desc": "Administración de Gallada: todas las pollas, personas, disputas, plantillas y configuración."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de inicio que explica qué es una polla con una ilustración de la gallada en ronda alrededor del pozo, los cuatro pasos, un ejemplo de calendario, las modalidades y cifras reales de la plataforma.",
+      "actions": [
+        "Escribir el código de una polla y ver su ficha antes de unirse",
+        "Ir al simulador con sus propios números",
+        "Conocer las seis modalidades: sorteo, orden fijo, por llegada, remate, medio cupo y frecuencias",
+        "Ver cuántas pollas están en curso y qué porcentaje de cuotas se paga a tiempo",
+        "Leer testimonios de organizadoras, tesoreros y participantes"
+      ],
+      "img": "img/polla/portada.webp",
+      "thumb": "img/polla/portada-thumb.webp",
+      "mobile": "img/polla/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "como-funciona",
+      "title": "Cómo funciona",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/como-funciona",
+      "capturedUrl": "index.html#/como-funciona",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Guía para quien nunca ha participado: qué es una polla, por qué el riesgo está en quien recibe primero, un glosario y el flujo de cada ronda, más lo que hace cada rol.",
+      "actions": [
+        "Entender cuota, cupo, turno, pozo, gracia, fondo común, cubrir y remate",
+        "Ver el flujo de una ronda: informado, confirmado, pozo completo, entregado y recibido",
+        "Conocer qué hace la organización, la tesorería, cada participante y la plataforma",
+        "Entrar con una cuenta demo de cada rol"
+      ],
+      "img": "img/polla/como-funciona.webp",
+      "thumb": "img/polla/como-funciona-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "simulador",
+      "title": "Simulador",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/simulador",
+      "capturedUrl": "index.html#/simulador",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Simulador que arma la polla con la cuota, las personas, la frecuencia y la primera fecha, y muestra al instante el pozo, la duración y el calendario completo de turnos.",
+      "actions": [
+        "Cambiar cuota y número de cupos (con deslizador)",
+        "Elegir frecuencia semanal, quincenal (día 1 y 16), mensual (respeta fin de mes) o cada N días",
+        "Ver la fecha y el monto que recibe cada turno",
+        "Saber cuánto aporta cada persona y cuándo termina",
+        "Pasar a crear la polla con esos números"
+      ],
+      "img": "img/polla/simulador.webp",
+      "thumb": "img/polla/simulador-thumb.webp",
+      "mobile": "img/polla/simulador-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "simulador-remate",
+      "title": "Simulador con remate",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/simulador",
+      "capturedUrl": "index.html#/simulador",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "El mismo simulador con remate activado: el primer turno ofrece un descuento que baja hasta cero en el último, y cada descuento se reparte entre los demás. Un gráfico muestra quién paga por recibir antes y quién gana por esperar.",
+      "actions": [
+        "Ajustar el descuento del primer turno con un deslizador",
+        "Ver cuánto recibe cada turno y cuánto le llega de los remates ajenos",
+        "Comparar el resultado neto de cada turno en el gráfico",
+        "Comprobar que la suma total siempre da cero"
+      ],
+      "img": "img/polla/simulador-remate.webp",
+      "thumb": "img/polla/simulador-remate-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "unirse",
+      "title": "Unirse con código",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/unirse?code=AROMOS-24",
+      "capturedUrl": "index.html#/unirse?code=AROMOS-24",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ficha pública de una polla a partir de su código: cuota, pozo, cupos libres, modalidad de turnos, calendario, multas y la reputación de quien organiza, antes de comprometerse.",
+      "actions": [
+        "Buscar una polla por su código",
+        "Revisar la cuota, el pozo, los cupos libres y la modalidad",
+        "Ver la reputación de la organizadora en otras pollas",
+        "Leer las reglas completas",
+        "Crear una cuenta o ingresar para unirse"
+      ],
+      "img": "img/polla/unirse.webp",
+      "thumb": "img/polla/unirse-thumb.webp",
+      "mobile": "img/polla/unirse-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "unirse-cerrada",
+      "title": "Polla sin inscripciones",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/unirse?code=PEGA-482",
+      "capturedUrl": "index.html#/unirse?code=PEGA-482",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ficha de una polla que ya partió: se muestran sus datos y un aviso de que no recibe inscripciones.",
+      "actions": [
+        "Ver los datos de una polla en curso",
+        "Saber que ya no acepta inscripciones",
+        "Buscar otro código"
+      ],
+      "img": "img/polla/unirse-cerrada.webp",
+      "thumb": "img/polla/unirse-cerrada-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "registro",
+      "title": "Crear cuenta",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/registro?code=AROMOS-24",
+      "capturedUrl": "index.html#/registro?code=AROMOS-24",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Registro en un paso. Si se llega desde una invitación, al terminar lleva directo a unirse a esa polla.",
+      "actions": [
+        "Crear la cuenta con nombre, correo, WhatsApp y contraseña",
+        "Marcar que también quiere organizar sus propias pollas",
+        "Continuar a la polla de la invitación",
+        "Ir al ingreso si ya tiene cuenta"
+      ],
+      "img": "img/polla/registro.webp",
+      "thumb": "img/polla/registro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "verificar-sorteo",
+      "title": "Verificar sorteo",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/verificar",
+      "capturedUrl": "index.html#/verificar",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Herramienta de transparencia: con la semilla publicada y la lista de cupos cualquiera repite el sorteo y obtiene el mismo orden. Avisa si coincide con el sorteo registrado.",
+      "actions": [
+        "Cargar un sorteo publicado con un clic",
+        "Pegar una semilla y una lista propia",
+        "Ver el orden resultante turno por turno",
+        "Confirmar que coincide con el sorteo de la polla"
+      ],
+      "img": "img/polla/verificar-sorteo.webp",
+      "thumb": "img/polla/verificar-sorteo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "verificar-comprobante",
+      "title": "Verificar comprobante",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/verificar?c=ENT-5001",
+      "capturedUrl": "index.html#/verificar?c=ENT-5001",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Comprobación pública de un comprobante de aporte (CMP-…) o de entrega de pozo (ENT-…): muestra el documento si está registrado en Gallada.",
+      "actions": [
+        "Ingresar el código de un comprobante",
+        "Ver si es auténtico",
+        "Revisar polla, ronda, montos, medio de pago y quién confirmó"
+      ],
+      "img": "img/polla/verificar-comprobante.webp",
+      "thumb": "img/polla/verificar-comprobante-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "ayuda",
+      "title": "Preguntas frecuentes",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/ayuda",
+      "capturedUrl": "index.html#/ayuda",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Respuestas a las dudas típicas: dónde está la plata, qué pasa si alguien no paga, el remate, el medio cupo, las multas, los cambios de fecha y el término anticipado.",
+      "actions": [
+        "Saber que Gallada no custodia dinero",
+        "Entender cómo se maneja a quien no paga o deja de pagar después de recibir",
+        "Leer cómo se reparten remates, multas y liquidaciones",
+        "Contactar a la plataforma por correo o WhatsApp"
+      ],
+      "img": "img/polla/ayuda.webp",
+      "thumb": "img/polla/ayuda-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingresar",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso con correo y contraseña, o con un clic en las cuentas demo de cada rol. Cada rol abre su propio panel.",
+      "actions": [
+        "Ingresar con correo y contraseña",
+        "Entrar como organizadora, tesorero, participante (al día o atrasado) o plataforma",
+        "Crear una cuenta nueva",
+        "Volver al sitio"
+      ],
+      "img": "img/polla/login.webp",
+      "thumb": "img/polla/login-thumb.webp",
+      "mobile": "img/polla/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-inicio",
+      "title": "Inicio del participante",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/",
+      "capturedUrl": "participante.html#/",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen personal con lo que tiene por pagar, su próximo pozo, las solicitudes de cambio de turno que le llegaron, cómo va el pozo de cada polla y sus últimas novedades.",
+      "actions": [
+        "Pagar las próximas cuotas desde la lista",
+        "Ver cuánto y cuándo recibe su próximo pozo",
+        "Responder un pedido de cambio de turno",
+        "Seguir la recaudación de la ronda actual de cada polla",
+        "Revisar sus turnos y notificaciones"
+      ],
+      "img": "img/polla/part-inicio.webp",
+      "thumb": "img/polla/part-inicio-thumb.webp",
+      "mobile": "img/polla/part-inicio-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-pagar",
+      "title": "Pagar",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/pagar",
+      "capturedUrl": "participante.html#/pagar",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todas las cuotas abiertas agrupadas en atrasadas, próximas dos semanas, en revisión y futuras (que se pueden adelantar), más las deudas por cuotas que otra persona cubrió.",
+      "actions": [
+        "Informar el pago de cualquier cuota",
+        "Adelantar cuotas de rondas futuras",
+        "Ver qué pagos están en revisión",
+        "Avisar que pagó una deuda a quien lo cubrió"
+      ],
+      "img": "img/polla/part-pagar.webp",
+      "thumb": "img/polla/part-pagar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-pagar-modal",
+      "title": "Informar un pago",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/pagar",
+      "capturedUrl": "participante.html#/pagar",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Pagar\" de una cuota",
+      "description": "Ventana para informar un pago con el total (cuota más multa si corresponde), los datos de transferencia de la polla, el número de operación y la foto del comprobante, o marcarlo como efectivo.",
+      "actions": [
+        "Ver el total exacto a pagar",
+        "Copiar los datos bancarios de la organización",
+        "Indicar transferencia con N° de operación o efectivo",
+        "Adjuntar la foto o PDF del comprobante (simulado)"
+      ],
+      "img": "img/polla/part-pagar-modal.webp",
+      "thumb": "img/polla/part-pagar-modal-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-pollas",
+      "title": "Mis pollas",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/pollas",
+      "capturedUrl": "participante.html#/pollas",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tarjetas de cada polla en la que participa, separadas en activas, en inscripción y terminadas, con cuota, pozo, avance de la ronda y su turno.",
+      "actions": [
+        "Ver el avance de la ronda actual de cada polla",
+        "Saber qué turno tiene en cada una",
+        "Abrir el detalle de una polla",
+        "Unirse a otra con un código"
+      ],
+      "img": "img/polla/part-pollas.webp",
+      "thumb": "img/polla/part-pollas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-polla",
+      "title": "Polla: resumen",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/pollas/p-familia",
+      "capturedUrl": "participante.html#/pollas/p-familia",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Detalle de una polla desde el lado del participante: el pozo de la ronda actual (esperado, recaudado, por confirmar y falta), su cuota de esta ronda, el orden de turnos y los datos de la organización.",
+      "actions": [
+        "Ver cuánto falta para completar el pozo",
+        "Pagar su cuota de la ronda",
+        "Revisar su cupo, turno y cuánto recibirá",
+        "Ver con quién comparte un medio cupo",
+        "Contactar a la organización"
+      ],
+      "img": "img/polla/part-polla.webp",
+      "thumb": "img/polla/part-polla-thumb.webp",
+      "mobile": "img/polla/part-polla-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-polla-aportes",
+      "title": "Polla: mis aportes",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/pollas/p-pega?tab=aportes",
+      "capturedUrl": "participante.html#/pollas/p-pega?tab=aportes",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todas sus cuotas en esa polla, ronda por ronda, con su vencimiento, estado, multa si la hubo y el comprobante de las que ya están pagadas.",
+      "actions": [
+        "Pagar o adelantar cualquier cuota",
+        "Abrir el comprobante de cada pago",
+        "Ver multas aplicadas o condonadas"
+      ],
+      "img": "img/polla/part-polla-aportes.webp",
+      "thumb": "img/polla/part-polla-aportes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-polla-turnos",
+      "title": "Polla: turnos y cambios",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/pollas/p-pega?tab=turnos",
+      "capturedUrl": "participante.html#/pollas/p-pega?tab=turnos",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "El orden completo de turnos con quién ya recibió, la ronda actual y su propio turno destacado, más el formulario para pedirle a otro cupo que cambie de turno.",
+      "actions": [
+        "Ver quién recibe en cada fecha",
+        "Identificar los turnos ya entregados y el actual",
+        "Pedir un cambio de turno con un mensaje",
+        "Saber si su cupo ya no puede cambiar"
+      ],
+      "img": "img/polla/part-polla-turnos.webp",
+      "thumb": "img/polla/part-polla-turnos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-polla-remate",
+      "title": "Polla: remate",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/pollas/p-feria?tab=turnos",
+      "capturedUrl": "participante.html#/pollas/p-feria?tab=turnos",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "En una polla de remate, el participante puja un descuento para recibir el pozo de la ronda abierta. Ve la mejor oferta actual y cuánto recibiría con su puja.",
+      "actions": [
+        "Pujar o cambiar su puja",
+        "Ver la mejor oferta actual",
+        "Calcular cuánto recibiría",
+        "Revisar quién se adjudicó las rondas anteriores y con qué descuento"
+      ],
+      "img": "img/polla/part-polla-remate.webp",
+      "thumb": "img/polla/part-polla-remate-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-polla-muro",
+      "title": "Polla: muro",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/pollas/p-pega?tab=muro",
+      "capturedUrl": "participante.html#/pollas/p-pega?tab=muro",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Muro de la gallada con los avisos fijados de la organización y los mensajes de los miembros.",
+      "actions": [
+        "Escribir a todo el grupo",
+        "Leer los avisos fijados",
+        "Avisar cuándo va a pagar"
+      ],
+      "img": "img/polla/part-polla-muro.webp",
+      "thumb": "img/polla/part-polla-muro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-polla-cuenta",
+      "title": "Polla: mi cuenta",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/pollas/p-pega?tab=cuenta",
+      "capturedUrl": "participante.html#/pollas/p-pega?tab=cuenta",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Su posición en esa polla: cuánto ha aportado, cuánto ha recibido, su posición neta y su deuda, con cada movimiento y el neto acumulado.",
+      "actions": [
+        "Ver aportado vs recibido",
+        "Entender si le toca recibir o le queda por aportar",
+        "Revisar cada movimiento con su comprobante"
+      ],
+      "img": "img/polla/part-polla-cuenta.webp",
+      "thumb": "img/polla/part-polla-cuenta-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-polla-reglas",
+      "title": "Polla: reglas",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/pollas/p-pega?tab=reglas",
+      "capturedUrl": "participante.html#/pollas/p-pega?tab=reglas",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Las reglas escritas por la organización y los datos para pagar, con un acceso para reportar un problema a la plataforma.",
+      "actions": [
+        "Leer plazos, multas y qué pasa si alguien no paga",
+        "Copiar los datos para transferir",
+        "Reportar un problema"
+      ],
+      "img": "img/polla/part-polla-reglas.webp",
+      "thumb": "img/polla/part-polla-reglas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-reportar",
+      "title": "Reportar un problema",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/pollas/p-pega?tab=reglas",
+      "capturedUrl": "participante.html#/pollas/p-pega?tab=reglas",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Reportar un problema\" en Reglas",
+      "description": "Formulario para levantar un reporte a la plataforma sobre una polla o una persona: no paga, no entregó el pozo, sospecha de fraude u otro.",
+      "actions": [
+        "Elegir el motivo",
+        "Indicar sobre quién es el reporte",
+        "Contar qué pasó",
+        "Enviarlo a la plataforma, que lo revisa en Disputas"
+      ],
+      "img": "img/polla/part-reportar.webp",
+      "thumb": "img/polla/part-reportar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-calendario",
+      "title": "Calendario",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/calendario",
+      "capturedUrl": "participante.html#/calendario",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Calendario mensual con sus cuotas de todas las pollas (pagadas, pendientes o atrasadas) y los días en que recibe un pozo.",
+      "actions": [
+        "Navegar mes a mes",
+        "Distinguir cuotas pagadas, pendientes y atrasadas",
+        "Ver el día en que recibe cada pozo",
+        "Abrir la polla de cada evento"
+      ],
+      "img": "img/polla/part-calendario.webp",
+      "thumb": "img/polla/part-calendario-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-cambios",
+      "title": "Cambios de turno",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/cambios",
+      "capturedUrl": "participante.html#/cambios",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Solicitudes de cambio de turno que le llegan y las que ha pedido, con su estado: esperando al otro cupo, esperando a la organización, aprobado o rechazado.",
+      "actions": [
+        "Aceptar o rechazar un pedido de cambio",
+        "Cancelar una solicitud propia",
+        "Ver el mensaje de quien pide el cambio"
+      ],
+      "img": "img/polla/part-cambios.webp",
+      "thumb": "img/polla/part-cambios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-estado",
+      "title": "Estado de cuenta",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/estado",
+      "capturedUrl": "participante.html#/estado",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Estado de cuenta personal de todas sus pollas con lo aportado, lo recibido y el neto acumulado, listo para imprimir o exportar.",
+      "actions": [
+        "Ver totales aportados y recibidos",
+        "Revisar cada movimiento con su comprobante",
+        "Exportar a CSV",
+        "Imprimir el estado de cuenta"
+      ],
+      "img": "img/polla/part-estado.webp",
+      "thumb": "img/polla/part-estado-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-comprobante",
+      "title": "Comprobante imprimible",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/comprobante/CMP-10255",
+      "capturedUrl": "participante.html#/comprobante/CMP-10255",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Comprobante de un aporte o de una entrega de pozo con su número, polla, ronda, montos, medio de pago y quién lo confirmó, listo para imprimir o guardar en PDF.",
+      "actions": [
+        "Ver el detalle del pago o entrega",
+        "Imprimir o guardar como PDF",
+        "Verificarlo luego en el sitio con su código"
+      ],
+      "img": "img/polla/part-comprobante.webp",
+      "thumb": "img/polla/part-comprobante-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-reputacion",
+      "title": "Reputación",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/reputacion",
+      "capturedUrl": "participante.html#/reputacion",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Puntaje de 0 a 100 construido con su historial en todas las pollas. Las organizaciones lo ven cuando pide unirse a una.",
+      "actions": [
+        "Ver su puntaje, estrellas y etiqueta",
+        "Entender cómo se calcula (pagos a tiempo, atrasos, cuotas cubiertas, pollas terminadas)",
+        "Revisar su historial polla por polla",
+        "Leer consejos para subirlo"
+      ],
+      "img": "img/polla/part-reputacion.webp",
+      "thumb": "img/polla/part-reputacion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-notificaciones",
+      "title": "Notificaciones",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/notificaciones",
+      "capturedUrl": "participante.html#/notificaciones",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Centro de notificaciones: pagos confirmados o rechazados, recordatorios, sorteos, pozos entregados, cambios de fecha y de turno.",
+      "actions": [
+        "Leer cada aviso con su polla",
+        "Ir directo a la acción (pagar, ver comprobante, responder)",
+        "Marcar todas como leídas"
+      ],
+      "img": "img/polla/part-notificaciones.webp",
+      "thumb": "img/polla/part-notificaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-unirse",
+      "title": "Unirme con código",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/unirse?code=AROMOS-24",
+      "capturedUrl": "participante.html#/unirse?code=AROMOS-24",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Desde su app, el participante busca una polla por código y se une: elige cupo completo o medio cupo y, si es por orden de llegada, toma uno de los turnos libres en el calendario.",
+      "actions": [
+        "Elegir cupo completo o medio cupo",
+        "Tomar un turno libre (por llegada)",
+        "Aceptar las reglas",
+        "Enviar la solicitud cuando la polla pide aprobación"
+      ],
+      "img": "img/polla/part-unirse.webp",
+      "thumb": "img/polla/part-unirse-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-pozo-recibido",
+      "title": "Pozo recibido",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/",
+      "capturedUrl": "participante.html#/",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuando la organización entrega el pozo aparece una tarjeta de celebración con el monto, la fecha y el número de operación, para confirmar que lo recibió y cerrar la ronda.",
+      "actions": [
+        "Ver el monto y la operación de la entrega",
+        "Confirmar con un clic que lo recibió",
+        "Abrir el comprobante de entrega"
+      ],
+      "img": "img/polla/part-pozo-recibido.webp",
+      "thumb": "img/polla/part-pozo-recibido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "luis-inicio",
+      "title": "Participante atrasado",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/",
+      "capturedUrl": "participante.html#/",
+      "login": {
+        "id": "u-luis",
+        "name": "Luis Henríquez Toro",
+        "role": "Participante (atrasado)",
+        "email": "luis@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "La misma app vista por alguien que ya recibió su pozo y dejó de pagar: deuda por una cuota que le cubrieron, reputación \"en observación\" y el recordatorio de la organización.",
+      "actions": [
+        "Ver la deuda con quien lo cubrió",
+        "Pagar las cuotas pendientes",
+        "Leer los recordatorios recibidos",
+        "Ver cómo baja su reputación"
+      ],
+      "img": "img/polla/luis-inicio.webp",
+      "thumb": "img/polla/luis-inicio-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "part-cuenta",
+      "title": "Mi cuenta",
+      "section": "participante",
+      "roles": null,
+      "url": "participante.html#/cuenta",
+      "capturedUrl": "participante.html#/cuenta",
+      "login": {
+        "id": "u-par",
+        "name": "Javiera Soto Henríquez",
+        "role": "Participante",
+        "email": "participante@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos personales del participante, incluida la cuenta bancaria donde quiere recibir sus pozos.",
+      "actions": [
+        "Editar nombre, correo y teléfono",
+        "Registrar RUT y cuenta para recibir pozos",
+        "Cambiar la contraseña"
+      ],
+      "img": "img/polla/part-cuenta.webp",
+      "thumb": "img/polla/part-cuenta-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-resumen",
+      "title": "Resumen de la organización",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/",
+      "capturedUrl": "organizador.html#/",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Panel de inicio con lo recaudado en el mes, pagos por confirmar, cuotas atrasadas y la plata en caja, una alerta de riesgo cuando alguien que ya recibió deja de pagar, el avance de cada ronda y las próximas entregas.",
+      "actions": [
+        "Ver la recaudación de cada ronda en curso",
+        "Ir a entregar un pozo completo",
+        "Revisar las alertas de riesgo",
+        "Seguir las pollas en preparación y su siguiente paso",
+        "Crear una polla nueva"
+      ],
+      "img": "img/polla/org-resumen.webp",
+      "thumb": "img/polla/org-resumen-thumb.webp",
+      "mobile": "img/polla/org-resumen-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-pollas",
+      "title": "Pollas",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas",
+      "capturedUrl": "organizador.html#/pollas",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Listado de las pollas que organiza o en las que es tesorera, con código, cuota, frecuencia, cupos ocupados y estado.",
+      "actions": [
+        "Buscar y filtrar por estado o modalidad",
+        "Abrir el detalle de una polla",
+        "Crear una polla nueva",
+        "Exportar a CSV con la caja de cada una"
+      ],
+      "img": "img/polla/org-pollas.webp",
+      "thumb": "img/polla/org-pollas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-nueva-polla",
+      "title": "Nueva polla",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas",
+      "capturedUrl": "organizador.html#/pollas",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva polla\"",
+      "description": "Formulario de creación con nombre, ícono, cuota, frecuencia (incluida cada N días), primera fecha, cupos, modalidad de turnos, puja máxima, multa, días de gracia, medios cupos, aprobación, tesorería, datos de pago y reglas. Valida los topes de la plataforma.",
+      "actions": [
+        "Definir cuota, frecuencia y cupos",
+        "Elegir sorteo, orden fijo, por llegada o remate",
+        "Fijar multa y días de gracia",
+        "Permitir medios cupos o exigir aprobación",
+        "Nombrar un tesorero/a"
+      ],
+      "img": "img/polla/org-nueva-polla.webp",
+      "thumb": "img/polla/org-nueva-polla-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-polla",
+      "title": "Polla: ronda actual",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-pega",
+      "capturedUrl": "organizador.html#/pollas/p-pega",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resumen de una polla en curso: la ronda actual con esperado, recaudado, por confirmar y falta, quién pagó y quién no, las alertas de riesgo, la cuadratura del libro y los datos de la polla.",
+      "actions": [
+        "Confirmar o rechazar pagos informados",
+        "Registrar un pago en efectivo",
+        "Recordar a quien no ha pagado",
+        "Ver el riesgo de quien ya recibió y no paga",
+        "Comprobar que el libro cuadra"
+      ],
+      "img": "img/polla/org-polla.webp",
+      "thumb": "img/polla/org-polla-thumb.webp",
+      "mobile": "img/polla/org-polla-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-polla-rondas",
+      "title": "Polla: rondas",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-pega?tab=rondas",
+      "capturedUrl": "organizador.html#/pollas/p-pega?tab=rondas",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todas las rondas con su fecha (marcando las movidas), quién recibe, la recaudación y el estado.",
+      "actions": [
+        "Ver el avance de cada ronda",
+        "Detectar fechas cambiadas",
+        "Abrir el detalle de una ronda"
+      ],
+      "img": "img/polla/org-polla-rondas.webp",
+      "thumb": "img/polla/org-polla-rondas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-ronda",
+      "title": "Detalle de ronda",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-pega/ronda/rouio",
+      "capturedUrl": "organizador.html#/pollas/p-pega/ronda/rouio",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Una ronda en detalle: el pozo, cada cuota con su estado, comprobante, medio de pago y acciones, el historial de estados y los cambios de fecha.",
+      "actions": [
+        "Confirmar, rechazar o registrar pagos",
+        "Cubrir la cuota de alguien que no pagó",
+        "Condonar una multa",
+        "Cambiar la fecha de la ronda",
+        "Recordar a los pendientes"
+      ],
+      "img": "img/polla/org-ronda.webp",
+      "thumb": "img/polla/org-ronda-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-cubrir",
+      "title": "Cubrir una cuota",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-familia/ronda/rou1r9",
+      "capturedUrl": "organizador.html#/pollas/p-familia/ronda/rou1r9",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Cubrir\" de una cuota atrasada",
+      "description": "Para no atrasar el pozo, alguien (la organización u otro miembro) adelanta la cuota de quien no pagó. Queda registrada como deuda y se reembolsa al regularizar.",
+      "actions": [
+        "Elegir quién adelanta la plata",
+        "Dejar una nota",
+        "Completar el pozo sin esperar al moroso"
+      ],
+      "img": "img/polla/org-cubrir.webp",
+      "thumb": "img/polla/org-cubrir-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-entregar",
+      "title": "Entregar el pozo",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-familia/ronda/rou1r9",
+      "capturedUrl": "organizador.html#/pollas/p-familia/ronda/rou1r9",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Entregar pozo\" de una ronda completa",
+      "description": "Entrega del pozo de una ronda completa: muestra lo recaudado, el descuento de remate si lo hay, cuánto recibe cada titular (medio cupo incluido) y sus datos bancarios. Genera el comprobante y abre la siguiente ronda.",
+      "actions": [
+        "Ver el desglose de lo que se entrega",
+        "Registrar el medio y el N° de operación",
+        "Generar el comprobante de entrega",
+        "Abrir automáticamente la siguiente ronda"
+      ],
+      "img": "img/polla/org-entregar.webp",
+      "thumb": "img/polla/org-entregar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-cambiar-fecha",
+      "title": "Cambiar fecha de ronda",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-pega/ronda/rouio",
+      "capturedUrl": "organizador.html#/pollas/p-pega/ronda/rouio",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Cambiar fecha\" de una ronda",
+      "description": "Mueve la fecha de una ronda (por ejemplo por un feriado) con un motivo obligatorio, y opcionalmente corre todas las siguientes. Todos los miembros reciben el aviso.",
+      "actions": [
+        "Elegir la nueva fecha",
+        "Correr las rondas siguientes",
+        "Explicar el motivo a la gallada"
+      ],
+      "img": "img/polla/org-cambiar-fecha.webp",
+      "thumb": "img/polla/org-cambiar-fecha-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-polla-miembros",
+      "title": "Polla: miembros",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-pega?tab=miembros",
+      "capturedUrl": "organizador.html#/pollas/p-pega?tab=miembros",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Miembros con su reputación, cupo, turno, cuota, pagos al día y deuda viva, más el historial de reemplazos.",
+      "actions": [
+        "Ver quién ya recibió y quién debe",
+        "Reemplazar a alguien que aún no recibe",
+        "Abrir el detalle de un miembro",
+        "Exportar a CSV con aportado, recibido y neto"
+      ],
+      "img": "img/polla/org-polla-miembros.webp",
+      "thumb": "img/polla/org-polla-miembros-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-miembro",
+      "title": "Detalle de miembro",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-pega/miembro/memfh",
+      "capturedUrl": "organizador.html#/pollas/p-pega/miembro/memfh",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha de un miembro dentro de la polla: aportado, recibido, posición neta y deuda, cada cuota con su estado, sus movimientos y su reputación en Gallada. Muestra el aviso de riesgo si corresponde.",
+      "actions": [
+        "Enviarle un recordatorio",
+        "Ver su historial de pagos y comprobantes",
+        "Revisar su reputación en otras pollas",
+        "Reportarlo a la plataforma"
+      ],
+      "img": "img/polla/org-miembro.webp",
+      "thumb": "img/polla/org-miembro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-reemplazar",
+      "title": "Reemplazar miembro",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-pega?tab=miembros",
+      "capturedUrl": "organizador.html#/pollas/p-pega?tab=miembros",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Reemplazar\" de un miembro",
+      "description": "La persona nueva hereda el cupo, el turno y las cuotas que faltan, y le devuelve a la anterior lo que ya aportó (traspaso registrado en el libro). No se permite si el cupo ya recibió el pozo.",
+      "actions": [
+        "Elegir una cuenta existente o invitar a alguien nuevo",
+        "Ver el monto del traspaso",
+        "Dejar el motivo registrado"
+      ],
+      "img": "img/polla/org-reemplazar.webp",
+      "thumb": "img/polla/org-reemplazar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-polla-libro",
+      "title": "Polla: libro y cuadratura",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-pega?tab=libro",
+      "capturedUrl": "organizador.html#/pollas/p-pega?tab=libro",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "El libro de la polla: revisión automática de seis cuadraturas, la posición neta de cada persona (aportado vs recibido) y cada movimiento con su saldo de caja acumulado.",
+      "actions": [
+        "Comprobar que cada ronda entregada quedó en cero",
+        "Ver la caja y el fondo común de multas",
+        "Revisar la posición neta y la deuda de cada persona",
+        "Exportar el libro a CSV"
+      ],
+      "img": "img/polla/org-polla-libro.webp",
+      "thumb": "img/polla/org-polla-libro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-polla-turnos-remate",
+      "title": "Polla: remate",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-feria?tab=turnos",
+      "capturedUrl": "organizador.html#/pollas/p-feria?tab=turnos",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Turnos de una polla de remate: cada ronda adjudicada con su descuento y acceso a las pujas de la ronda abierta.",
+      "actions": [
+        "Ver quién se adjudicó cada ronda y con qué descuento",
+        "Abrir las pujas de la ronda actual",
+        "Revisar las solicitudes de cambio"
+      ],
+      "img": "img/polla/org-polla-turnos-remate.webp",
+      "thumb": "img/polla/org-polla-turnos-remate-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-ronda-remate",
+      "title": "Pujas de una ronda",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-feria/ronda/rouxj",
+      "capturedUrl": "organizador.html#/pollas/p-feria/ronda/rouxj",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ronda de remate abierta con todas las pujas ordenadas por descuento y cuánto recibiría cada cupo. Al adjudicar gana la mejor puja; si no hay, se sortea con semilla.",
+      "actions": [
+        "Comparar las pujas",
+        "Adjudicar la ronda",
+        "Ver la puja máxima permitida"
+      ],
+      "img": "img/polla/org-ronda-remate.webp",
+      "thumb": "img/polla/org-ronda-remate-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-sorteo",
+      "title": "Sorteo verificable",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-vacaciones?tab=turnos",
+      "capturedUrl": "organizador.html#/pollas/p-vacaciones?tab=turnos",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Con los cupos completos, la organización hace el sorteo en vivo: la lista ordenada por código se baraja con una semilla pública que cualquiera puede repetir.",
+      "actions": [
+        "Ver la lista de cupos que entra al sorteo",
+        "Realizar el sorteo en vivo con animación",
+        "Entender cómo se verifica"
+      ],
+      "img": "img/polla/org-sorteo.webp",
+      "thumb": "img/polla/org-sorteo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-sorteo-hecho",
+      "title": "Sorteo realizado",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-vacaciones?tab=turnos",
+      "capturedUrl": "organizador.html#/pollas/p-vacaciones?tab=turnos",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Resultado del sorteo con el orden de turnos y la semilla publicada. Cada miembro recibe una notificación con su turno y el enlace para verificarlo.",
+      "actions": [
+        "Ver el orden final de turnos",
+        "Copiar la semilla",
+        "Verificar el sorteo en el sitio público",
+        "Iniciar la polla"
+      ],
+      "img": "img/polla/org-sorteo-hecho.webp",
+      "thumb": "img/polla/org-sorteo-hecho-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-orden-fijo",
+      "title": "Orden fijo de turnos",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-cumple?tab=turnos",
+      "capturedUrl": "organizador.html#/pollas/p-cumple?tab=turnos",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "En las pollas de orden fijo los cupos se ordenan arrastrando o con flechas (también en celular) y se guarda el orden acordado.",
+      "actions": [
+        "Arrastrar cupos para ordenarlos",
+        "Subir o bajar con flechas",
+        "Guardar el orden"
+      ],
+      "img": "img/polla/org-orden-fijo.webp",
+      "thumb": "img/polla/org-orden-fijo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-inscripcion",
+      "title": "Polla en inscripción",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-aromos",
+      "capturedUrl": "organizador.html#/pollas/p-aromos",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lista de verificación antes de partir (inscripciones, cupos completos, solicitudes, turnos y datos de pago), los cupos tomados con sus turnos y el código para invitar.",
+      "actions": [
+        "Ver qué falta para iniciar",
+        "Compartir la invitación",
+        "Revisar los turnos elegidos por llegada",
+        "Iniciar la polla cuando todo está listo"
+      ],
+      "img": "img/polla/org-inscripcion.webp",
+      "thumb": "img/polla/org-inscripcion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-invitar",
+      "title": "Invitar a la polla",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-aromos",
+      "capturedUrl": "organizador.html#/pollas/p-aromos",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Invitar\"",
+      "description": "Código y enlace de invitación con un mensaje listo para WhatsApp que resume cuota, frecuencia y pozo.",
+      "actions": [
+        "Copiar el código",
+        "Copiar el enlace",
+        "Copiar el mensaje para WhatsApp"
+      ],
+      "img": "img/polla/org-invitar.webp",
+      "thumb": "img/polla/org-invitar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-solicitudes-miembros",
+      "title": "Solicitudes para unirse",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-aromos?tab=miembros",
+      "capturedUrl": "organizador.html#/pollas/p-aromos?tab=miembros",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuando la polla exige aprobación, cada solicitud muestra la reputación de la persona y su historial antes de aceptarla o rechazarla. Incluye el medio cupo que espera pareja.",
+      "actions": [
+        "Aceptar o rechazar con un mensaje",
+        "Ver reputación y pagos a tiempo de quien pide",
+        "Sumar a alguien manualmente",
+        "Retirar a alguien antes de partir"
+      ],
+      "img": "img/polla/org-solicitudes-miembros.webp",
+      "thumb": "img/polla/org-solicitudes-miembros-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-polla-ajustes",
+      "title": "Polla: ajustes y cierre",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-pega?tab=ajustes",
+      "capturedUrl": "organizador.html#/pollas/p-pega?tab=ajustes",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos y reglas de la polla, historial de estados y las acciones de ciclo de vida: volver a borrador, finalizar repartiendo el fondo, terminar antes con liquidación o eliminar.",
+      "actions": [
+        "Editar reglas, datos de pago, multa y tesorería",
+        "Finalizar y repartir el fondo común",
+        "Terminar antes y liquidar",
+        "Reportar un problema"
+      ],
+      "img": "img/polla/org-polla-ajustes.webp",
+      "thumb": "img/polla/org-polla-ajustes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-terminar",
+      "title": "Terminar antes (liquidación)",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-pega?tab=ajustes",
+      "capturedUrl": "organizador.html#/pollas/p-pega?tab=ajustes",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Terminar antes\"",
+      "description": "Vista previa de la liquidación: la caja disponible se devuelve a quienes aportaron más de lo que recibieron, en proporción a lo que se les debe, y queda registrada la deuda de quienes ya recibieron.",
+      "actions": [
+        "Ver cuánto se devuelve a cada persona",
+        "Ver quién queda debiendo",
+        "Indicar el motivo del término"
+      ],
+      "img": "img/polla/org-terminar.webp",
+      "thumb": "img/polla/org-terminar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-polla-calendario",
+      "title": "Polla: calendario",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-pega?tab=calendario",
+      "capturedUrl": "organizador.html#/pollas/p-pega?tab=calendario",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Calendario mensual de la polla con cada ronda, quién recibe y su estado.",
+      "actions": [
+        "Navegar mes a mes",
+        "Ver quién recibe cada fecha",
+        "Abrir la ronda de cada día"
+      ],
+      "img": "img/polla/org-polla-calendario.webp",
+      "thumb": "img/polla/org-polla-calendario-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-polla-muro",
+      "title": "Polla: muro",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-pega?tab=muro",
+      "capturedUrl": "organizador.html#/pollas/p-pega?tab=muro",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Muro del grupo con la opción de publicar avisos fijados.",
+      "actions": [
+        "Publicar un aviso fijado",
+        "Fijar o desfijar mensajes",
+        "Conversar con la gallada"
+      ],
+      "img": "img/polla/org-polla-muro.webp",
+      "thumb": "img/polla/org-polla-muro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-pagos",
+      "title": "Pagos por confirmar",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/pagos",
+      "capturedUrl": "organizador.html#/pagos",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bandeja de pagos informados de todas sus pollas con monto, número de operación y comprobante adjunto, más las deudas por cuotas cubiertas por regularizar.",
+      "actions": [
+        "Confirmar uno a uno o varios a la vez",
+        "Rechazar con un motivo",
+        "Regularizar una deuda cuando la persona avisa que pagó"
+      ],
+      "img": "img/polla/org-pagos.webp",
+      "thumb": "img/polla/org-pagos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-riesgo",
+      "title": "Morosos y riesgo",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/riesgo",
+      "capturedUrl": "organizador.html#/riesgo",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Alertas de riesgo (alto: ya recibió y no paga; medio: cuotas impagas; bajo: reputación baja con turno cercano) y todas las cuotas atrasadas con su deuda.",
+      "actions": [
+        "Priorizar a quien ya recibió",
+        "Recordar por WhatsApp",
+        "Cubrir una cuota",
+        "Abrir la ficha del miembro"
+      ],
+      "img": "img/polla/org-riesgo.webp",
+      "thumb": "img/polla/org-riesgo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-recordar",
+      "title": "Recordar a un miembro",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/riesgo",
+      "capturedUrl": "organizador.html#/riesgo",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "modal",
+      "from": "Botón 📣 de una cuota atrasada",
+      "description": "Vista previa del mensaje con los datos de la persona (monto, fecha, deuda) y la plantilla elegida, como burbuja de WhatsApp o correo.",
+      "actions": [
+        "Elegir la plantilla",
+        "Ver el mensaje personalizado",
+        "Enviarlo (simulado)"
+      ],
+      "img": "img/polla/org-recordar.webp",
+      "thumb": "img/polla/org-recordar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-solicitudes",
+      "title": "Solicitudes",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/cambios",
+      "capturedUrl": "organizador.html#/cambios",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cambios de turno que ya aceptó el otro cupo y esperan aprobación, más las inscripciones por aprobar de todas sus pollas.",
+      "actions": [
+        "Aprobar un cambio de turno (se intercambian las rondas)",
+        "Rechazarlo con un motivo",
+        "Aceptar inscripciones pendientes"
+      ],
+      "img": "img/polla/org-solicitudes.webp",
+      "thumb": "img/polla/org-solicitudes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-recordatorios",
+      "title": "Recordatorios",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/recordatorios",
+      "capturedUrl": "organizador.html#/recordatorios",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Envío masivo de recordatorios: elige la polla y la plantilla, marca a quién (por defecto quienes están atrasados o vencen en 7 días) y ve la vista previa personalizada. Abajo, el historial de envíos.",
+      "actions": [
+        "Elegir polla y plantilla",
+        "Marcar o desmarcar destinatarios",
+        "Ver la vista previa por persona",
+        "Revisar y exportar el historial"
+      ],
+      "img": "img/polla/org-recordatorios.webp",
+      "thumb": "img/polla/org-recordatorios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-calendario",
+      "title": "Calendario",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/calendario",
+      "capturedUrl": "organizador.html#/calendario",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Calendario con todas las rondas de sus pollas, coloreadas por estado: pozo completo, con atrasos o entregadas.",
+      "actions": [
+        "Navegar mes a mes",
+        "Ver qué pozos vienen",
+        "Abrir la ronda de cada evento"
+      ],
+      "img": "img/polla/org-calendario.webp",
+      "thumb": "img/polla/org-calendario-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "org-notificaciones",
+      "title": "Notificaciones",
+      "section": "organizador",
+      "roles": null,
+      "url": "organizador.html#/notificaciones",
+      "capturedUrl": "organizador.html#/notificaciones",
+      "login": {
+        "id": "u-org",
+        "name": "Marisol Cárcamo Vidal",
+        "role": "Organizador/a",
+        "email": "organiza@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Avisos para la organización: pagos por confirmar, pozos completos, solicitudes, pujas y cambios de turno.",
+      "actions": [
+        "Ir directo a confirmar o entregar",
+        "Ver de qué polla es cada aviso",
+        "Marcar todas como leídas"
+      ],
+      "img": "img/polla/org-notificaciones.webp",
+      "thumb": "img/polla/org-notificaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "tes-resumen",
+      "title": "Resumen del tesorero",
+      "section": "tesorero",
+      "roles": null,
+      "url": "organizador.html#/",
+      "capturedUrl": "organizador.html#/",
+      "login": {
+        "id": "u-tes",
+        "name": "Patricio Vergara Rojas",
+        "role": "Tesorero/a",
+        "email": "tesorero@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "El mismo panel acotado a las pollas donde es tesorero: rondas en curso, pagos por confirmar y alertas.",
+      "actions": [
+        "Ver la recaudación de sus pollas",
+        "Ir a confirmar pagos",
+        "Revisar alertas de riesgo"
+      ],
+      "img": "img/polla/tes-resumen.webp",
+      "thumb": "img/polla/tes-resumen-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "tes-polla",
+      "title": "Polla vista por tesorería",
+      "section": "tesorero",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-feria",
+      "capturedUrl": "organizador.html#/pollas/p-feria",
+      "login": {
+        "id": "u-tes",
+        "name": "Patricio Vergara Rojas",
+        "role": "Tesorero/a",
+        "email": "tesorero@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Detalle de una polla con los permisos de tesorería: confirma pagos, entrega pozos y recuerda, pero no edita reglas ni cierra la polla.",
+      "actions": [
+        "Confirmar pagos y registrar efectivo",
+        "Entregar el pozo",
+        "Enviar recordatorios",
+        "Consultar el libro"
+      ],
+      "img": "img/polla/tes-polla.webp",
+      "thumb": "img/polla/tes-polla-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "tes-pagos",
+      "title": "Pagos por confirmar",
+      "section": "tesorero",
+      "roles": null,
+      "url": "organizador.html#/pagos",
+      "capturedUrl": "organizador.html#/pagos",
+      "login": {
+        "id": "u-tes",
+        "name": "Patricio Vergara Rojas",
+        "role": "Tesorero/a",
+        "email": "tesorero@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bandeja de pagos informados de las pollas en las que lleva la tesorería.",
+      "actions": [
+        "Confirmar varios pagos a la vez",
+        "Rechazar con motivo",
+        "Regularizar deudas"
+      ],
+      "img": "img/polla/tes-pagos.webp",
+      "thumb": "img/polla/tes-pagos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-resumen",
+      "title": "Resumen de la plataforma",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Lagos Prieto",
+        "role": "Administrador/a de plataforma",
+        "email": "admin@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Salud de Gallada: pollas en curso, personas, plata en circulación, aportes del mes, morosidad y disputas abiertas, la revisión de que todos los libros cuadran, gráficos y quienes están en riesgo alto.",
+      "actions": [
+        "Ver la morosidad de la plataforma",
+        "Confirmar que los libros de todas las pollas cuadran",
+        "Revisar aportes por mes y pollas por modalidad",
+        "Detectar riesgo alto en cualquier polla"
+      ],
+      "img": "img/polla/admin-resumen.webp",
+      "thumb": "img/polla/admin-resumen-thumb.webp",
+      "mobile": "img/polla/admin-resumen-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-pollas",
+      "title": "Todas las pollas",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/pollas",
+      "capturedUrl": "admin.html#/pollas",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Lagos Prieto",
+        "role": "Administrador/a de plataforma",
+        "email": "admin@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Supervisión de todas las pollas con organizadora, cuota, modalidad, estado, caja y si su libro cuadra.",
+      "actions": [
+        "Buscar y filtrar por modalidad y estado",
+        "Ver la caja de cada polla",
+        "Abrir una polla en detalle",
+        "Exportar a CSV"
+      ],
+      "img": "img/polla/admin-pollas.webp",
+      "thumb": "img/polla/admin-pollas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-polla",
+      "title": "Polla en detalle",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/pollas/p-pega",
+      "capturedUrl": "admin.html#/pollas/p-pega",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Lagos Prieto",
+        "role": "Administrador/a de plataforma",
+        "email": "admin@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha de supervisión con la ronda actual, la cuadratura del libro, las posiciones de cada persona, los turnos y el historial.",
+      "actions": [
+        "Revisar la cuadratura",
+        "Ver posiciones y deudas",
+        "Abrir la polla en el panel de organización"
+      ],
+      "img": "img/polla/admin-polla.webp",
+      "thumb": "img/polla/admin-polla-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-cancelada",
+      "title": "Polla terminada antes",
+      "section": "admin",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-colectivo",
+      "capturedUrl": "organizador.html#/pollas/p-colectivo",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Lagos Prieto",
+        "role": "Administrador/a de plataforma",
+        "email": "admin@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Una polla que terminó antes de tiempo, con la liquidación registrada: cuánto aportó y recibió cada socio, cuánto se le devolvió y quién quedó debiendo.",
+      "actions": [
+        "Ver la liquidación por persona",
+        "Leer el motivo del término",
+        "Consultar el libro de la polla"
+      ],
+      "img": "img/polla/admin-cancelada.webp",
+      "thumb": "img/polla/admin-cancelada-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-finalizada",
+      "title": "Polla finalizada",
+      "section": "admin",
+      "roles": null,
+      "url": "organizador.html#/pollas/p-club?tab=libro",
+      "capturedUrl": "organizador.html#/pollas/p-club?tab=libro",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Lagos Prieto",
+        "role": "Administrador/a de plataforma",
+        "email": "admin@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Libro de una polla terminada: todas las rondas entregadas, el fondo de multas repartido y la caja en cero.",
+      "actions": [
+        "Comprobar que la caja quedó en cero",
+        "Ver el reparto del fondo común",
+        "Revisar posiciones finales"
+      ],
+      "img": "img/polla/admin-finalizada.webp",
+      "thumb": "img/polla/admin-finalizada-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Lagos Prieto",
+        "role": "Administrador/a de plataforma",
+        "email": "admin@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas de la plataforma con su rol, comuna y reputación.",
+      "actions": [
+        "Crear, editar o desactivar cuentas",
+        "Cambiar el rol",
+        "Ver la reputación de cada persona",
+        "Exportar a CSV"
+      ],
+      "img": "img/polla/admin-usuarios.webp",
+      "thumb": "img/polla/admin-usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-disputas",
+      "title": "Disputas y reportes",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/disputas",
+      "capturedUrl": "admin.html#/disputas",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Lagos Prieto",
+        "role": "Administrador/a de plataforma",
+        "email": "admin@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Reportes levantados por participantes u organizaciones, con su motivo, polla, quién reporta y estado.",
+      "actions": [
+        "Filtrar por motivo y estado",
+        "Abrir el detalle de un reporte",
+        "Cambiar su estado con la resolución"
+      ],
+      "img": "img/polla/admin-disputas.webp",
+      "thumb": "img/polla/admin-disputas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-disputa",
+      "title": "Detalle de disputa",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/disputas/rep2cy",
+      "capturedUrl": "admin.html#/disputas/rep2cy",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Lagos Prieto",
+        "role": "Administrador/a de plataforma",
+        "email": "admin@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha del reporte con su historial y el contexto de la polla (caja, si el libro cuadra y la reputación de la persona reportada).",
+      "actions": [
+        "Pasar a revisión, resolver o descartar con nota",
+        "Ver la reputación del reportado",
+        "Abrir el libro de la polla"
+      ],
+      "img": "img/polla/admin-disputa.webp",
+      "thumb": "img/polla/admin-disputa-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-plantillas",
+      "title": "Plantillas de mensajes",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/plantillas",
+      "capturedUrl": "admin.html#/plantillas",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Lagos Prieto",
+        "role": "Administrador/a de plataforma",
+        "email": "admin@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Plantillas de WhatsApp y correo que usan los recordatorios, con variables como {nombre}, {monto} o {deuda} y su vista previa.",
+      "actions": [
+        "Crear o editar plantillas",
+        "Activar o desactivar cada una",
+        "Ver la vista previa con datos de ejemplo"
+      ],
+      "img": "img/polla/admin-plantillas.webp",
+      "thumb": "img/polla/admin-plantillas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-config",
+      "title": "Configuración",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/config",
+      "capturedUrl": "admin.html#/config",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Lagos Prieto",
+        "role": "Administrador/a de plataforma",
+        "email": "admin@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Eslogan y contacto del sitio, y reglas de la plataforma que se validan en cada polla: máximo de cupos, cuota mínima, puja máxima, gracia y multa sugeridas.",
+      "actions": [
+        "Editar eslogan y contacto",
+        "Fijar topes de cupos, cuota y puja",
+        "Exportar todos los datos",
+        "Restablecer los datos demo"
+      ],
+      "img": "img/polla/admin-config.webp",
+      "thumb": "img/polla/admin-config-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-bitacora",
+      "title": "Bitácora",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/bitacora",
+      "capturedUrl": "admin.html#/bitacora",
+      "login": {
+        "id": "u-admin",
+        "name": "Andrea Lagos Prieto",
+        "role": "Administrador/a de plataforma",
+        "email": "admin@gallada.cl",
+        "password": "demo123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de las últimas 300 acciones: pagos, entregas, sorteos, cambios de fecha y turno, recordatorios, inscripciones y configuración.",
+      "actions": [
+        "Buscar y filtrar por acción",
+        "Ver quién hizo qué y cuándo",
+        "Exportar a CSV"
+      ],
+      "img": "img/polla/admin-bitacora.webp",
+      "thumb": "img/polla/admin-bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Bosque\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una de las disposiciones de página combinada con uno de los estilos visuales del catálogo, adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/polla/look-clasica.webp"
+      },
+      {
+        "id": "portal",
+        "group": "Disposición",
+        "label": "Portal",
+        "desc": "Portada densa en columnas con franja de secciones.",
+        "img": "img/polla/look-portal.webp"
+      },
+      {
+        "id": "dividida",
+        "group": "Disposición",
+        "label": "Dividida",
+        "desc": "Mitad fija tipo afiche y contenido a la derecha.",
+        "img": "img/polla/look-dividida.webp"
+      },
+      {
+        "id": "noir",
+        "group": "Estilo",
+        "label": "Noir Neón",
+        "desc": "Oscuro con acentos brillantes.",
+        "img": "img/polla/look-noir.webp"
+      },
+      {
+        "id": "candy",
+        "group": "Estilo",
+        "label": "Caramelo",
+        "desc": "Pastel juguetón.",
+        "img": "img/polla/look-candy.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/polla/look-editorial.webp"
+      }
+    ]
+  }
+}

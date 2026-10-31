@@ -34,6 +34,7 @@ function inicio(view, ctx) {
   const u = ctx.user, open = myOpen(u.id), turns = myTurns(u.id), rep = L.reputation(db, u.id), list = joined(u).filter(p => p.status === 'en_curso');
   const nextMine = turns.filter(o => o.r && !['entregada', 'confirmada'].includes(o.r.status)).sort((a, b) => a.r.dueDate.localeCompare(b.r.dueDate))[0];
   const late = open.filter(o => o.x.status === 'atrasado');
+  const soon30 = open.filter(o => o.x.status !== 'informado' && (o.x.status === 'atrasado' || L.diffDays(o.r.dueDate, L.today(db)) <= 30));
   const swapsIn = db.query('swaps', s => s.status === 'solicitado' && V.holders(db.get('slots', s.toSlotId)).some(m => m.userId === u.id));
   view.innerHTML = html`${pageHead(`Hola, ${u.name.split(' ')[0]} 🐣`, raw(`Tu reputación: <span class="badge badge-${rep.tone}">★ ${rep.score} · ${escape(rep.label)}</span>`), '<a class="btn" href="#/unirse">＋ Unirme con código</a>')}
     ${receiveCards(u)}
@@ -41,7 +42,7 @@ function inicio(view, ctx) {
     ${L.debtOf(db, null, u.id) && db.count('payments', x => x.userId === u.id && x.status === 'cubierto') ? html`<div class="g-alert is-warning"><b>Tienes una deuda de ${money(db.query('payments', x => x.userId === u.id && x.status === 'cubierto').reduce((s, x) => s + x.amount + fee(x), 0))}</b> por cuotas que otra persona cubrió por ti. <a href="#/pagar">Ver cómo pagarla</a></div>` : ''}
     ${swapsIn.length ? html`<div class="g-alert is-info"><b>🔁 ${L.userName(db, swapsIn[0].fromUserId)}</b> te pide cambiar de turno (${swapsIn[0].fromTurn} ↔ ${swapsIn[0].toTurn}). <a href="#/cambios">Responder</a></div>` : ''}
     ${raw(kpis([
-      { label: 'Por pagar', value: money(open.filter(o => o.x.status !== 'informado').reduce((s, o) => s + o.x.amount + fee(o.x), 0)), icon: '💸', href: '#/pagar', hint: `${open.filter(o => o.x.status !== 'informado').length} cuota(s) · ${open.filter(o => o.x.status === 'informado').length} en revisión` },
+      { label: 'Por pagar (30 días)', value: money(soon30.reduce((s, o) => s + o.x.amount + fee(o.x), 0)), icon: '💸', href: '#/pagar', hint: `${soon30.length} cuota(s) · ${open.filter(o => o.x.status === 'informado').length} en revisión` },
       { label: 'Tu próximo pozo', value: nextMine ? money(L.potOf(nextMine.p) - (nextMine.r.discount || 0)) : '—', icon: '🎁', hint: nextMine ? `${nextMine.p.name} · ${L.fdate(nextMine.r.dueDate)}` : 'sin turno pendiente' },
       { label: 'Pollas activas', value: list.length, icon: '🐣', href: '#/pollas' },
       { label: 'Reputación', value: rep.score, icon: '⭐', href: '#/reputacion', hint: rep.label }
@@ -206,7 +207,7 @@ function notificaciones(view, ctx) {
 function unirse(view, ctx) {
   const u = ctx.user, code = ctx.query.code || '', p = code && findByCode(code);
   view.innerHTML = html`${pageHead('Unirme a una polla', 'Pídele el código a quien organiza (por ejemplo AROMOS-24).')}
-    <section class="card" style="max-width:640px"><form class="row" data-code novalidate><input class="input" name="code" value="${code}" placeholder="Código de la polla" aria-label="Código" style="flex:1;min-width:160px;text-transform:uppercase"><button class="btn btn-primary" type="submit">Buscar</button></form></section>
+    <section class="card" style="max-width:640px"><form class="row" data-code novalidate><input class="input" name="code" value="${code}" placeholder="Código de la polla" aria-label="Buscar polla por código" style="flex:1;min-width:160px;text-transform:uppercase"><button class="btn btn-primary" type="submit">Buscar</button></form></section>
     <div data-res style="max-width:760px">${p ? '' : code ? raw(notFound(code)) : ''}</div>`;
   view.querySelector('[data-code]').addEventListener('submit', e => { e.preventDefault(); location.hash = '#/unirse?code=' + encodeURIComponent(e.target.code.value.trim().toUpperCase()); });
   if (p) { const res = view.querySelector('[data-res]'); res.innerHTML = joinHTML(p, u, {}); mountJoin(res, p, u, m => { location.hash = m.status === 'solicitud' ? '#/pollas' : `#/pollas/${p.id}`; }); }

@@ -35,7 +35,7 @@ function home(view) {
         <h1>${s.tagline}</h1>
         <p class="lead muted">Organiza la polla de la pega, la familia o la feria sin cuadernos ni planillas: cada cuota, cada turno y cada pozo quedan anotados, con recordatorios por WhatsApp y un libro que siempre cuadra.</p>
         <div class="row"><a class="btn btn-primary btn-lg" href="#/simulador">Simular mi polla</a><a class="btn btn-lg" href="#/unirse">Tengo un código</a></div>
-        <form class="g-hero-join" data-join novalidate><input class="input" name="code" placeholder="Código, ej: AROMOS-24" aria-label="Código de la polla"><button class="btn btn-accent" type="submit">Unirme</button></form>
+        <form class="g-hero-join" data-join novalidate><input class="input" name="code" placeholder="Código, ej: AROMOS-24" aria-label="Buscar polla por código"><button class="btn btn-accent" type="submit">Unirme</button></form>
         <p class="small muted">Gratis para organizar · Gallada no toca tu plata: se transfiere directo a quien organiza.</p>
       </div>
       <div class="hero-media">${raw(heroArt())}</div>
@@ -51,7 +51,7 @@ function home(view) {
     ${raw(sec(html`<div class="grid-4 g-stats" data-anim>${[[ps.filter(p => p.status === 'en_curso').length, 'pollas en curso'], [money(moved), 'aportados y anotados'], [db.count('users', u => u.role !== 'admin'), 'personas en la gallada'], [`${done.length ? Math.round(onTime / done.length * 100) : 100}%`, 'de las cuotas se pagan a tiempo']].map(([v, l]) => html`<div class="card"><div class="stat"><span class="value">${v}</span><span class="label">${l}</span></div></div>`)}</div>`))}
     ${raw(sec(html`${head('La gallada opina', 'Pollas que sí terminan')}
       <div class="grid-3">${[['Marisol, Ñuñoa', 'Llevo años organizando la polla de la oficina en un cuaderno. Ahora cada uno ve su turno y yo ya no persigo a nadie: los recordatorios salen solos.'], ['Patricio, La Florida', 'Como tesorero, lo mejor es que el libro cuadra solo. Si falta un peso, la app te dice en qué ronda.'], ['Javiera, Maipú', 'Con mi pozo pinté la casa. Me encantó poder confirmar que lo recibí y tener el comprobante.']].map(([n, t]) => html`<blockquote class="card g-quote"><p>“${t}”</p><footer class="muted small">— ${n}</footer></blockquote>`)}</div>`))}
-    ${raw(sec(html`<div class="card g-cta" data-anim><div><h2 style="margin:0">¿Te invitaron a una polla?</h2><p class="muted" style="margin:6px 0 0">Ingresa el código que te mandó quien organiza. Para probar, usa <b>AROMOS-24</b>.</p></div><form class="row" data-join novalidate><input class="input" name="code" placeholder="Código" aria-label="Código de la polla" style="flex:1;min-width:150px"><button class="btn btn-primary" type="submit">Ver la polla</button></form></div>`))}`;
+    ${raw(sec(html`<div class="card g-cta" data-anim><div><h2 style="margin:0">¿Te invitaron a una polla?</h2><p class="muted" style="margin:6px 0 0">Ingresa el código que te mandó quien organiza. Para probar, usa <b>AROMOS-24</b>.</p></div><form class="row" data-join novalidate><input class="input" name="code" placeholder="Código" aria-label="Buscar polla por código" style="flex:1;min-width:150px"><button class="btn btn-primary" type="submit">Ver la polla</button></form></div>`))}`;
   view.querySelectorAll('[data-join]').forEach(f => f.addEventListener('submit', e => { e.preventDefault(); const c = f.code.value.trim(); if (!c) return toast('Escribe el código', 'warning'); location.hash = '#/unirse?code=' + encodeURIComponent(c.toUpperCase()); }));
 }
 const orgArt = () => `<svg viewBox="0 0 320 220" class="g-org-art" role="img" aria-label="Panel con la ronda actual: quién pagó y cuánto falta">
@@ -113,7 +113,7 @@ function unirse(view, { query }) {
   const code = (query.code || '').toUpperCase(), p = code && findByCode(code), u = auth.current();
   const next = encodeURIComponent(`participante.html#/unirse?code=${code}`);
   view.innerHTML = html`${raw(sec(html`<div class="g-narrow stack">${head('Unirme', 'Únete a una polla con su código', 'Te lo envía quien organiza. Verás las reglas, la cuota y los cupos libres antes de comprometerte.')}
-    <form class="card row" data-code novalidate><input class="input" name="code" value="${code}" placeholder="Ej: AROMOS-24" aria-label="Código" style="flex:1;min-width:160px;text-transform:uppercase"><button class="btn btn-primary" type="submit">Buscar</button></form>
+    <form class="card row" data-code novalidate><input class="input" name="code" value="${code}" placeholder="Ej: AROMOS-24" aria-label="Buscar polla por código" style="flex:1;min-width:160px;text-transform:uppercase"><button class="btn btn-primary" type="submit">Buscar</button></form>
     <div data-res>${p ? '' : code ? raw(notFound(code)) : raw(`<p class="small muted">¿Solo quieres mirar? Prueba con <a href="#/unirse?code=AROMOS-24">AROMOS-24</a> (inscripción abierta) o <a href="#/unirse?code=PEGA-482">PEGA-482</a> (en curso).</p>`)}</div></div>`))}`;
   view.querySelector('[data-code]').addEventListener('submit', e => { e.preventDefault(); const c = e.target.code.value.trim(); location.hash = '#/unirse?code=' + encodeURIComponent(c.toUpperCase()); });
   if (p) {
@@ -159,15 +159,15 @@ function verificar(view, { query }) {
     <div class="grid-2 g-verify">
       <section class="card stack"><h3 style="margin:0">🎲 Verificar sorteo</h3>
         <form class="stack" data-draw novalidate>
-          <div class="field"><label for="v-s">Semilla</label><input class="input" id="v-s" name="seed" value="${query.seed || ''}" placeholder="Ej: ALERCE-4821-BOLDO"></div>
-          <div class="field"><label for="v-l">Lista de cupos (uno por línea, en orden de código)</label><textarea class="textarea" id="v-l" name="list" rows="6" placeholder="C01 Marisol Cárcamo&#10;C02 Patricio Vergara">${query.list || ''}</textarea></div>
+          <div class="field"><label for="v-s">Semilla</label><input class="input" id="v-s" name="seed" aria-label="Buscar: semilla del sorteo" value="${query.seed || ''}" placeholder="Ej: ALERCE-4821-BOLDO"></div>
+          <div class="field"><label for="v-l">Lista de cupos (uno por línea, en orden de código)</label><textarea class="textarea" id="v-l" name="list" aria-label="Buscar: lista de cupos" rows="6" placeholder="C01 Marisol Cárcamo&#10;C02 Patricio Vergara">${query.list || ''}</textarea></div>
           <button class="btn btn-primary" type="submit">Repetir sorteo</button>
         </form>
         <div data-draw-out></div>
         ${draws.length ? html`<div><small class="muted">Sorteos publicados:</small><ul class="g-list">${draws.map(p => html`<li><span style="flex:1;min-width:0"><b>${p.emoji} ${p.name}</b><small class="muted" style="display:block">${p.draw.seed}</small></span><button type="button" class="btn btn-sm" data-load="${p.id}">Cargar</button></li>`)}</ul></div>` : ''}
       </section>
       <section class="card stack"><h3 style="margin:0">🧾 Verificar comprobante</h3>
-        <form class="row" data-rc novalidate><input class="input" name="code" value="${query.c || ''}" placeholder="Ej: CMP-10001 o ENT-5001" aria-label="Código del comprobante" style="flex:1;min-width:150px;text-transform:uppercase"><button class="btn btn-primary" type="submit">Verificar</button></form>
+        <form class="row" data-rc novalidate><input class="input" name="code" value="${query.c || ''}" placeholder="Ej: CMP-10001 o ENT-5001" aria-label="Buscar comprobante por código" style="flex:1;min-width:150px;text-transform:uppercase"><button class="btn btn-primary" type="submit">Verificar</button></form>
         <div data-rc-out></div>
       </section>
     </div>`))}`;
