@@ -26,6 +26,11 @@ Los estilos (registro, una hoja por estilo, validador y generador) se documentan
 | `kernel.css` | CSS | Clases `k-*` del kernel. La inyectan sus módulos (antes de `themes.css`); no la enlaces. |
 | `ARCHITECTURE.md` | doc | Diagnóstico, patrones, cómo crear una app en 5 pasos y cómo migrar las antiguas. |
 | `examples/bicicleteria/` | demo | App completa hecha con el kernel (≈ 180 líneas de JS). |
+| `modules.js` | módulo ES puro · **producción** | Módulos (feature toggles): `resolveModules`, `mergeModules`, `blockedPages`. Ver `PRODUCTION.md`. |
+| `client.js` | módulo ES · **producción** | Ficha de cliente: `defineClient` (valida), `brandCss`, `applyClient`, `devClient` (`?cliente=`/`?modulos=`), `adapterFor`. |
+| `legal.js` | módulo ES puro | `privacyHtml(cliente)`: política de privacidad base (Ley 21.719). |
+| `store/local.js` · `store/supabase.js` | módulos ES | Adaptadores de datos de `createDB` (interfaz en `PRODUCTION.md` §4). `vendor/supabase.js` = supabase-js empaquetado. |
+| `PRODUCTION.md` | doc | De plantilla a producción: módulos, `client.config.js`, adaptadores, SQL/RLS, pruebas, checklist. |
 | `../portfolio-bar.js` | script clásico (defer) | Pastilla "← La Gran Web" + selector de disposiciones y estilos (agrupados por categoría, con búsqueda y filtro claro/oscuro), abajo a la izquierda. |
 
 ## Esqueleto de cada página
@@ -150,6 +155,9 @@ contrastados (`--styles=all` para los 3 en todo). Falla ante errores de página/
 horizontal o menú inalcanzable y deja hojas de contactos por web (`--out=`, por defecto en el tmp del sistema).
 
 ## Kernel de apps (opt-in)
+
+> Para vender una plantilla a un cliente (solo algunos módulos, su marca, backend Supabase, build estático) ver
+> [`PRODUCTION.md`](PRODUCTION.md). `createDB` acepta ahora `{ adapter }` (por defecto `local`, idéntico al de siempre).
 
 Para apps **nuevas** (y para migrar secciones de las antiguas, ver `ARCHITECTURE.md`). Las 30 apps
 existentes siguen usando `createDB`/`createAuth`/`createRouter` y no cambian.

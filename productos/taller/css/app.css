@@ -1,0 +1,50 @@
+/* Producto Taller sobre el kernel. Reutiliza el aspecto de la demo histórica (taller/css/app.css):
+   patente, tarjetas de servicio, línea de etapas, kanban. Solo tokens del kit (ver assets/core/README.md). */
+.d-block { display: block; }
+.lead { font-size: 1.12em; color: var(--muted); max-width: 62ch; }
+.big-num { font: var(--head-weight) clamp(28px, 4vw, 40px)/1 var(--font-head); }
+.plate { display: inline-block; padding: 1px 8px; font: 700 .95em/1.5 var(--font-mono); letter-spacing: .08em; color: var(--text); background: var(--surface); border: 2px solid var(--text); border-radius: 5px; white-space: nowrap; }
+.plate-input { font: 700 26px/1 var(--font-mono) !important; letter-spacing: .12em; text-transform: uppercase; text-align: center; border-width: 3px !important; border-color: var(--text) !important; min-height: 56px; }
+.plate-form { display: flex; gap: 10px; flex-wrap: wrap; }
+.plate-form .input { flex: 1 1 200px; min-width: 0; }
+.plate-form .btn { flex: 0 0 auto; min-height: 56px; }
+.announce { background: var(--primary); color: var(--on-primary); font-size: 13px; text-align: center; padding: 6px 0; }
+.foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--gap); }
+.foot-grid a { color: var(--text); }
+@media (max-width: 860px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .foot-grid { grid-template-columns: 1fr; } }
+.band { background: var(--surface-2); border-block: var(--border-w) solid var(--line); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(20px, 4vw, 48px); align-items: center; }
+@media (max-width: 860px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } }
+.svc-card { display: flex; flex-direction: column; gap: 8px; }
+.svc-ico { font-size: 30px; line-height: 1; }
+.live-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 0 var(--success); animation: pr-pulse 1.8s infinite; }
+.ot-timeline { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+.ot-timeline li { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; position: relative; padding-bottom: 14px; color: var(--muted); }
+.ot-timeline li::before { content: ''; position: absolute; left: 17px; top: 34px; bottom: 0; width: 2px; background: var(--line); }
+.ot-timeline li:last-child::before { display: none; }
+.ot-timeline .dot { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; border: var(--border-w) solid var(--line); background: var(--surface); font-size: 15px; position: relative; z-index: 1; }
+.ot-timeline li.done { color: var(--text); } .ot-timeline li.done .dot { background: var(--success); color: var(--on-primary); border-color: var(--success); }
+.ot-timeline li.done::before { background: var(--success); }
+.ot-timeline li.now { color: var(--text); } .ot-timeline li.now .dot { background: var(--primary); color: var(--on-primary); border-color: var(--primary); box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 25%, transparent); }
+.ot-timeline.h { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+.ot-timeline.h li { grid-template-columns: 1fr; justify-items: center; text-align: center; font-size: 12px; padding: 0; }
+.ot-timeline.h li::before { left: 50%; right: -50%; top: 17px; bottom: auto; width: auto; height: 2px; }
+@media (max-width: 760px) { .ot-timeline.h { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 12px; } .ot-timeline.h li::before { display: none; } }
+.kanban { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(230px, 1fr); gap: 10px; overflow-x: auto; padding-bottom: 8px; align-items: start; }
+@keyframes pr-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--success) 60%, transparent); } 100% { box-shadow: 0 0 0 10px transparent; } }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.plate-input-sm { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .08em; }
+.kanban-col { display: grid; gap: 8px; align-content: start; min-width: 0; }
+.kanban-col h3 { font-size: 14px; margin: 0; display: flex; gap: 6px; align-items: center; }
+.kanban-card { padding: 10px; display: grid; gap: 4px; }
+.kanban-card.late { border-color: var(--danger); }
+.kanban-card .btn { justify-self: start; margin-top: 4px; }
+.tl-widgets { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap); margin-top: var(--gap); }
+.tl-widgets > * { min-width: 0; }
+.tl-widgets > .k-wide { grid-column: 1 / -1; }
+@media (max-width: 860px) { .tl-widgets { grid-template-columns: minmax(0, 1fr); } }
+.legal h2 { font-size: 1.15em; margin: 1em 0 .2em; }
+.site-footer .foot-grid { margin-bottom: 12px; }
+[data-layout="revista"] .kanban { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: minmax(0, 1fr); overflow: visible; }
+@media (min-width: 861px) { .site-footer .foot-grid { grid-template-columns: 1.4fr 1fr 1fr; } }

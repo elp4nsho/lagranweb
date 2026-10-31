@@ -66,6 +66,14 @@
 .k-auth { min-height: 100vh; display: grid; place-items: center; padding: 32px 16px 96px; }
 .k-auth-grid { width: min(960px, 100%); display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
 @media (max-width: 820px) { .k-auth-grid { grid-template-columns: 1fr; } }
+.k-auth-grid.k-auth-single { width: min(460px, 100%); grid-template-columns: 1fr; }
+.k-auth .tabs { margin-top: 4px; }
+/* Campo de líneas (presupuestos, documentos): tabla editable dentro de formularios */
+.k-lines { display: grid; gap: 8px; }
+.k-lines table { width: 100%; border-collapse: collapse; }
+.k-lines td, .k-lines th { padding: 4px; text-align: left; font-size: 13px; }
+.k-lines .input, .k-lines .select { padding: 6px 8px; min-width: 0; }
+.k-lines-total { text-align: right; font-weight: 700; }
 .k-auth .brand-line { display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font: var(--head-weight) 20px var(--font-head); text-transform: var(--head-transform); letter-spacing: var(--head-spacing); }
 .k-auth .brand-line .logo { width: 38px; height: 38px; display: grid; place-items: center; border-radius: var(--radius-sm); background: var(--primary); color: var(--on-primary); }
 

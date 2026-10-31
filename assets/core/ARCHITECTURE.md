@@ -101,3 +101,14 @@ taller, atelier, lubricentro, usados, producto, ong): su forma ya es casi la de 
 - Las delegaciones de eventos que `resource()` pone sobre el contenedor de la vista se dan de baja al
   volver a pintar el mismo recurso en ese contenedor (el panel reutiliza `#view` entre rutas), para no
   duplicar acciones (dos modales al editar).
+
+## 6. Producción: módulos y adaptadores (noviembre 2026)
+
+Dos patrones nuevos, ambos opt‑in y sin cambiar firmas existentes:
+
+| Patrón | Pieza | Qué resuelve |
+|---|---|---|
+| **Feature toggles / plugin con huecos** | `modules.js` + `defineApp({ modules, client })` + `app.contribute(clave, ítems, { slot })` | Un producto se arma con módulos; el cliente elige cuáles. Lo inactivo no instala nada (menú, rutas, guardas, KPIs, portada, semilla, código en el build). |
+| **Ports & adapters** | `createDB(…, { adapter })` + `store/local.js` / `store/supabase.js` | El kernel sigue leyendo síncrono de una foto en memoria; el adaptador persiste (localStorage o Supabase con RLS, realtime y storage). |
+
+Detalle, API y pruebas: [`PRODUCTION.md`](PRODUCTION.md). Primer producto: `productos/taller/`.

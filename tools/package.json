@@ -1,0 +1,14 @@
+{
+  "name": "lgw-tools",
+  "private": true,
+  "description": "Herramientas de producción de La Gran Web: build-client, esquema Supabase, pruebas del adaptador",
+  "scripts": {
+    "vendor:supabase": "node vendor-supabase.mjs",
+    "test:adapter": "node test-adapter.mjs",
+    "test:schema": "node test-schema.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.24.0",
+    "@supabase/supabase-js": "2.117.3"
+  }
+}

@@ -95,10 +95,13 @@
   var root = document.documentElement;
   var app = root.getAttribute('data-app') || 'global';
   var key = 'lgw:theme:' + app;
-  function read() { try { return localStorage.getItem(key); } catch (e) { return null; } }
-  function save(id) { try { localStorage.setItem(key, id); } catch (e) {} }
+  // html[data-lock]: estilo y disposición FIJOS (builds de producción de un cliente): se ignoran el valor
+  // guardado y ?theme=, y nada se guarda. Los builds además traen el registro recortado a un solo estilo.
+  var locked = root.hasAttribute('data-lock');
+  function read() { if (locked) return null; try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function save(id) { if (locked) return; try { localStorage.setItem(key, id); } catch (e) {} }
   function find(id) { for (var i = 0; i < THEMES.length; i++) if (THEMES[i].id === id) return THEMES[i]; return null; }
-  function urlTheme() { try { return new URLSearchParams(location.search).get('theme'); } catch (e) { return null; } }
+  function urlTheme() { if (locked) return null; try { return new URLSearchParams(location.search).get('theme'); } catch (e) { return null; } }
 
   // Hojas base (misma carpeta que este script): themes.css = tokens + kit de componentes;
   // layouts.css = reglas compartidas de las disposiciones.
@@ -277,18 +280,20 @@
     var l = findLayout(id) || findLayout(root.getAttribute('data-default-layout')) || LAYOUTS[0];
     loadLayoutCss(l);
     root.setAttribute('data-layout', l.id);
-    if (persist) { try { localStorage.setItem(lkey, l.id); } catch (e) {} }
+    if (persist && !locked) { try { localStorage.setItem(lkey, l.id); } catch (e) {} }
     try { window.dispatchEvent(new CustomEvent('lgw:layout', { detail: l })); } catch (e) {}
     return l;
   }
   var savedLayout = null;
-  try { savedLayout = localStorage.getItem(lkey); } catch (e) {}
+  if (!locked) { try { savedLayout = localStorage.getItem(lkey); } catch (e) {} }
   applyLayout(savedLayout);
   window.LGWLayout = {
     list: LAYOUTS,
     get current() { return root.getAttribute('data-layout'); },
     find: findLayout,
     set: function (id) { return applyLayout(id, true); },
+    use: function (id) { return applyLayout(id, false); }, // aplica sin guardar (vista previa de un cliente)
+    locked: locked,
     next: function (dir) {
       var i = LAYOUTS.indexOf(findLayout(root.getAttribute('data-layout')));
       return applyLayout(LAYOUTS[(i + (dir || 1) + LAYOUTS.length) % LAYOUTS.length].id, true);
@@ -302,6 +307,8 @@
     find: find,
     get current() { return pending || root.getAttribute('data-theme'); },
     set: function (id) { return apply(id, true); },
+    use: function (id) { return apply(id, false); }, // aplica sin guardar (vista previa de un cliente)
+    locked: locked,
     next: function (dir) {
       var i = THEMES.indexOf(find(this.current));
       return apply(THEMES[(i + (dir || 1) + THEMES.length) % THEMES.length].id, true);

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es" data-app="producto-taller-config" data-default-theme="aurora">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Configurador · Taller</title>
+  <meta name="robots" content="noindex">
+  <script src="../../assets/core/theme-boot.js"></script>
+  <link rel="stylesheet" href="css/app.css">
+  <style>
+    .cfg { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--gap); align-items: start; }
+    @media (max-width: 960px) { .cfg { grid-template-columns: minmax(0, 1fr); } }
+    .cfg pre { white-space: pre-wrap; word-break: break-word; font: 12.5px/1.5 var(--font-mono); background: var(--surface-2); padding: 14px; border-radius: var(--radius-sm); max-height: 70vh; overflow: auto; margin: 0; }
+    .mod { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; padding: 10px; border: var(--border-w) solid var(--line); border-radius: var(--radius-sm); }
+    .mod small { grid-column: 2; color: var(--muted); }
+    .mod.dep { border-style: dashed; }
+  </style>
+</head>
+<body>
+  <main class="container section stack" id="app">
+    <div><span class="eyebrow">Producto Taller · llevar a producción</span><h1 style="margin:4px 0">Configurador de cliente</h1>
+    <p class="muted" style="margin:0">Elige módulos, marca, estilo y backend. Copia el resultado en <code>clients/&lt;slug&gt;/client.config.js</code> y construye con <code>node tools/build-client.mjs &lt;slug&gt;</code>. Guía completa: <code>assets/core/PRODUCTION.md</code>.</p></div>
+    <div class="cfg">
+      <form class="stack" id="f" novalidate></form>
+      <section class="card stack" style="position:sticky;top:12px">
+        <div class="row between"><b>client.config.js</b><span class="row" style="gap:6px"><button type="button" class="btn btn-sm" id="copy">Copiar</button><button type="button" class="btn btn-sm" id="dl">Descargar</button><a class="btn btn-sm btn-primary" id="prev" target="_blank" rel="noopener">Vista previa ↗</a></span></div>
+        <pre id="out"></pre>
+        <pre id="cmd"></pre>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="js/configurar.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# Ruta autohospedada en un VPS (Ubuntu/Debian con Docker): Caddy sirve dist/<slug>/ con HTTPS automático
+# (Let's Encrypt) y aplica los mismos encabezados que _headers. Ver docs/OPERACION.md §6.
+#   1) Copia este directorio al VPS y la carpeta construida a ./sitio  (rsync -a dist/<slug>/ vps:/srv/lgw/sitio/)
+#   2) Edita DOMINIO en .env (y apunta el DNS A/AAAA al VPS)
+#   3) docker compose up -d
+# Base de datos: Supabase Cloud, o Supabase autohospedado (repo oficial supabase/docker) en otra pila.
+services:
+  caddy:
+    image: caddy:2.8-alpine
+    restart: unless-stopped
+    ports: ["80:80", "443:443", "443:443/udp"]
+    environment:
+      DOMINIO: ${DOMINIO:?define DOMINIO en .env}
+      CORREO_ACME: ${CORREO_ACME:-}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./sitio:/srv/sitio:ro
+      - caddy_data:/data
+      - caddy_config:/config
+volumes:
+  caddy_data:
+  caddy_config:

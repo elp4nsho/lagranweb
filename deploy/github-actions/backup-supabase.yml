@@ -1,0 +1,21 @@
+# Plantilla: respaldo diario de la base Supabase del cliente (pg_dump) como artefacto de GitHub (90 días).
+# Secreto: SUPABASE_DB_URL = cadena "Session pooler" de Project Settings → Database (con la contraseña).
+# Para guardar fuera de GitHub, reemplaza el último paso por rclone/aws s3 cp a tu bucket.
+name: Respaldo Supabase
+on:
+  schedule: [{ cron: '17 7 * * *' }]   # 04:17 en Chile (UTC-3)
+  workflow_dispatch:
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Instalar cliente PostgreSQL 16
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client-16 || sudo apt-get install -y -qq postgresql-client
+      - name: pg_dump (esquema public + auth.users)
+        run: |
+          f="respaldo-$(date -u +%F).dump"
+          pg_dump "$SUPABASE_DB_URL" -Fc --no-owner --no-privileges -n public -t auth.users -f "$f"
+          ls -lh "$f"
+        env: { SUPABASE_DB_URL: '${{ secrets.SUPABASE_DB_URL }}' }
+      - uses: actions/upload-artifact@v4
+        with: { name: respaldo-supabase, path: 'respaldo-*.dump', retention-days: 90 }

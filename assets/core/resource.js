@@ -79,6 +79,19 @@ export const fieldTypes = {
     input: (fd, v, id, res) => fieldTypes.select.input({ ...fd, required: true, options: fd.machine.options() }, v ?? fd.machine.initial, id, res),
     text: (v, row, fd) => fd.machine.label(v), cell: (v, row, fd) => fd.machine.badge(v) }
 };
+// Archivo (foto, PDF): { type: 'file', accept: 'image/*', maxKB: 400 }. Al guardar, resource lo sube con
+// db.files (local: data: URL en este navegador; supabase: Storage) y guarda { path, name, size, type }.
+fieldTypes.file = { ...base, table: false, filter: false,
+  input: (fd, v, id, res) => `${v?.path ? `<small class="muted d-block">Actual: ${fileLink(v, res)}</small>` : ''}<input class="input" id="${id}" name="${fd.name}" type="file" ${fd.accept ? `accept="${escape(fd.accept)}"` : ''}>`,
+  read: el => (el.files && el.files[0]) || undefined,
+  text: v => v?.name || '',
+  cell: (v, row, fd, res) => (v?.path ? fileLink(v, res) : '<span class="muted">—</span>'),
+  check: (v, fd) => (v instanceof Blob && fd.maxKB && v.size > fd.maxKB * 1024 ? `máximo ${fd.maxKB} KB` : '') };
+function fileLink(v, res) {
+  const url = res?.db?.files?.url ? res.db.files.url(v.path) : '';
+  if (!url) return escape(v.name || v.path);
+  return /^image\//.test(v.type || '') ? `<a href="${escape(url)}" target="_blank" rel="noopener"><img src="${escape(url)}" alt="${escape(v.name || '')}" style="max-width:160px;max-height:110px;border-radius:var(--radius-sm);display:block"></a>` : `<a href="${escape(url)}" target="_blank" rel="noopener">📎 ${escape(v.name || 'archivo')}</a>`;
+}
 const refLabel = fd => fd.refLabel || (r => r.name || r.title || r.code || r.id);
 const refOptions = (fd, res) => res.db.query(fd.ref, fd.refFilter || (() => true)).map(r => [r.id, refLabel(fd)(r)]).sort((a, b) => String(a[1]).localeCompare(String(b[1])));
 // Registrar o extender un tipo: fieldType('patente', { ...fieldTypes.text, read: el => el.value.toUpperCase() })
@@ -209,6 +222,15 @@ export function resource(app, cfg) {
       let v = { ...values };
       if (cfg.validate) { const err = await cfg.validate(v, row, ctx); if (err) { toast(err, 'warning'); return null; } }
       if (cfg.beforeSave) { const r = await cfg.beforeSave(v, row, ctx); if (r === false) return null; if (r && typeof r === 'object') v = r; }
+      // Archivos: sin archivo nuevo se conserva el actual; uno nuevo se sube antes de guardar.
+      for (const fd of fields.filter(f => f.type === 'file')) {
+        if (v[fd.name] === undefined) { delete v[fd.name]; continue; }
+        if (typeof Blob !== 'undefined' && v[fd.name] instanceof Blob) {
+          if (!db.files) { toast('Este almacenamiento no admite archivos', 'warning'); return null; }
+          try { v[fd.name] = await db.files.upload(v[fd.name], { folder: col }); }
+          catch (e) { toast(`No se pudo subir ${fd.label}: ${e.message}`, 'error'); return null; }
+        }
+      }
       let out;
       const before = row ? JSON.parse(JSON.stringify(db.get(col, row.id) || row)) : null; // copia: db.update muta el objeto vivo
       if (row) {
