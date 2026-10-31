@@ -98,3 +98,6 @@ taller, atelier, lubricentro, usados, producto, ong): su forma ya es casi la de 
 - Todo lo que se escribe al usuario pasa por `html```/`escape`; `raw()` solo para HTML propio.
 - Cada operación que cambia datos deja una línea en la bitácora (`db.log`).
 - Los estados se cambian con `machine.move()` (nunca `db.update(... { status })` + log a mano).
+- Las delegaciones de eventos que `resource()` pone sobre el contenedor de la vista se dan de baja al
+  volver a pintar el mismo recurso en ese contenedor (el panel reutiliza `#view` entre rutas), para no
+  duplicar acciones (dos modales al editar).

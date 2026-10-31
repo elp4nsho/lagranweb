@@ -1,0 +1,1953 @@
+{
+  "app": "reparto",
+  "dir": "reparto",
+  "name": "Pudú Envíos",
+  "kind": "Reparto de última milla",
+  "description": "Empresa de paquetería con rutas multiparada: app del conductor para planificar y ejecutar su ruta (optimización, prueba de entrega, cobros, cierre), consola de despacho en vivo, portal para empresas remitentes, seguimiento y autogestión para quien recibe, y administración de flota, zonas y tarifas.",
+  "demo": "../reparto/index.html",
+  "theme": "institucional",
+  "layout": "clasica",
+  "generatedAt": "2026-10-31T02:41:27.200Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sections": [
+    {
+      "id": "publico",
+      "label": "Sitio público",
+      "desc": "Lo que ve cualquier persona, sin iniciar sesión."
+    },
+    {
+      "id": "destinatario",
+      "label": "Destinatario",
+      "desc": "Quien recibe: sus paquetes en camino, indicaciones, cambios y evaluación."
+    },
+    {
+      "id": "conductor",
+      "label": "Conductor",
+      "desc": "App móvil del conductor: su ruta del día de principio a fin."
+    },
+    {
+      "id": "despacho",
+      "label": "Coordinador de despacho",
+      "desc": "Consola de operación: tablero en vivo, rutas, planificación y excepciones."
+    },
+    {
+      "id": "empresa",
+      "label": "Cliente empresa",
+      "desc": "Portal del remitente: crear envíos, etiquetas, retiros, pruebas y facturas."
+    },
+    {
+      "id": "admin",
+      "label": "Administrador",
+      "desc": "Flota, conductores, zonas, puntos, tarifas, usuarios, configuración y bitácora."
+    }
+  ],
+  "views": [
+    {
+      "id": "portada",
+      "title": "Portada",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/",
+      "capturedUrl": "index.html#/",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página de inicio con el buscador de seguimiento y una ruta real del día dibujada en vivo sobre el mapa propio de la ciudad. Explica qué puede hacer quien recibe y cómo funciona el reparto.",
+      "actions": [
+        "Buscar un envío por su código",
+        "Ver una ruta del día con su avance en vivo",
+        "Revisar los indicadores de los últimos 30 días",
+        "Conocer las opciones para quien recibe",
+        "Ir a tarifas para empresas"
+      ],
+      "img": "img/reparto/portada.webp",
+      "thumb": "img/reparto/portada-thumb.webp",
+      "mobile": "img/reparto/portada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "seguimiento",
+      "title": "Seguimiento de un envío",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/seguimiento?code=PE-482106",
+      "capturedUrl": "index.html#/seguimiento?code=PE-482106",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Estado del paquete en lenguaje simple con la ventana de llegada estimada, el mapa del destino (y del conductor cuando va en camino) y la línea de tiempo pública. Los datos personales se ocultan hasta verificar.",
+      "actions": [
+        "Buscar por código PE- o por número de pedido de la tienda",
+        "Ver la ventana de llegada y cuántas paradas faltan",
+        "Revisar el historial público del envío",
+        "Verificarse con los 4 últimos dígitos del teléfono para gestionar la entrega"
+      ],
+      "img": "img/reparto/seguimiento.webp",
+      "thumb": "img/reparto/seguimiento-thumb.webp",
+      "mobile": "img/reparto/seguimiento-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empresas",
+      "title": "Empresas y tarifas",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/empresas",
+      "capturedUrl": "index.html#/empresas",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Página para tiendas: los planes del tarifario (salen de la tabla de tarifas del panel) y un cotizador que calcula el precio con zona, peso, bultos, servicio y cobro contra entrega.",
+      "actions": [
+        "Comparar los planes Pyme, Empresa y Marketplace",
+        "Cotizar un envío según comuna, peso y servicio",
+        "Ver recargos de zona y hora de corte",
+        "Conocer la carga masiva, las pruebas de entrega y la facturación"
+      ],
+      "img": "img/reparto/empresas.webp",
+      "thumb": "img/reparto/empresas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "puntos",
+      "title": "Puntos de retiro",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/puntos",
+      "capturedUrl": "index.html#/puntos",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Lockers y tiendas aliadas en el mapa, con dirección, horario y casilleros disponibles en tiempo real.",
+      "actions": [
+        "Filtrar los puntos por comuna",
+        "Ver cada punto numerado en el mapa",
+        "Revisar horario y disponibilidad de casilleros"
+      ],
+      "img": "img/reparto/puntos.webp",
+      "thumb": "img/reparto/puntos-thumb.webp",
+      "mobile": "img/reparto/puntos-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cobertura",
+      "title": "Cobertura",
+      "section": "publico",
+      "roles": null,
+      "url": "index.html#/cobertura",
+      "capturedUrl": "index.html#/cobertura",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Mapa de las 6 zonas de reparto y sus 31 comunas, con la hora de corte y el recargo de cada zona.",
+      "actions": [
+        "Consultar si una comuna tiene cobertura",
+        "Saber si un envío llega hoy o mañana según la hora de corte",
+        "Ver las comunas de cada zona y sus recargos"
+      ],
+      "img": "img/reparto/cobertura.webp",
+      "thumb": "img/reparto/cobertura-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "login",
+      "title": "Ingreso",
+      "section": "publico",
+      "roles": null,
+      "url": "login.html",
+      "capturedUrl": "login.html",
+      "login": null,
+      "kind": "page",
+      "from": null,
+      "description": "Ingreso con correo y contraseña o con una de las cuentas demo; cada rol entra a su propia app.",
+      "actions": [
+        "Entrar con correo y contraseña",
+        "Entrar con un clic como conductor, despacho, empresa, destinatario o administrador",
+        "Volver al sitio público"
+      ],
+      "img": "img/reparto/login.webp",
+      "thumb": "img/reparto/login-thumb.webp",
+      "mobile": "img/reparto/login-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "mis-envios",
+      "title": "Mis envíos",
+      "section": "destinatario",
+      "roles": null,
+      "url": "index.html#/mis-envios",
+      "capturedUrl": "index.html#/mis-envios",
+      "login": {
+        "id": "u-dest",
+        "name": "Catalina Rojas Medina",
+        "role": "Destinatario",
+        "email": "catalina@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todos los paquetes que vienen hacia la persona, con su estado, ventana de llegada y PIN de entrega; abajo, los ya entregados con su prueba de entrega.",
+      "actions": [
+        "Ver cuándo llega cada paquete y quién lo trae",
+        "Dejar indicaciones al conductor",
+        "Elegir ventana horaria y lugar seguro",
+        "Reprogramar o enviar a un punto de retiro",
+        "Evaluar las entregas recibidas"
+      ],
+      "img": "img/reparto/mis-envios.webp",
+      "thumb": "img/reparto/mis-envios-thumb.webp",
+      "mobile": "img/reparto/mis-envios-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dest-indicaciones",
+      "title": "Indicaciones para el conductor",
+      "section": "destinatario",
+      "roles": null,
+      "url": "index.html#/mis-envios",
+      "capturedUrl": "index.html#/mis-envios",
+      "login": {
+        "id": "u-dest",
+        "name": "Catalina Rojas Medina",
+        "role": "Destinatario",
+        "email": "catalina@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Indicaciones\" de un envío",
+      "description": "Etiquetas rápidas (\"dejar con conserje\", \"timbre malo\", \"perro bravo\"…) y un detalle libre que el conductor ve al llegar. Si el paquete ya va en el vehículo, despacho recibe una excepción.",
+      "actions": [
+        "Marcar una o varias etiquetas",
+        "Escribir un detalle de hasta 280 caracteres",
+        "Enviar las indicaciones al conductor"
+      ],
+      "img": "img/reparto/dest-indicaciones.webp",
+      "thumb": "img/reparto/dest-indicaciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dest-preferencias",
+      "title": "Horario preferido y lugar seguro",
+      "section": "destinatario",
+      "roles": null,
+      "url": "index.html#/mis-envios",
+      "capturedUrl": "index.html#/mis-envios",
+      "login": {
+        "id": "u-dest",
+        "name": "Catalina Rojas Medina",
+        "role": "Destinatario",
+        "email": "catalina@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Horario y lugar seguro\"",
+      "description": "La ventana preferida pasa a ser una restricción del optimizador de la ruta; el lugar seguro autoriza dejar el paquete sin firma, con foto.",
+      "actions": [
+        "Elegir una ventana de 3 horas",
+        "Autorizar un lugar seguro",
+        "Guardar las preferencias para esta entrega"
+      ],
+      "img": "img/reparto/dest-preferencias.webp",
+      "thumb": "img/reparto/dest-preferencias-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dest-reprogramar",
+      "title": "Reprogramar entrega",
+      "section": "destinatario",
+      "roles": null,
+      "url": "index.html#/mis-envios",
+      "capturedUrl": "index.html#/mis-envios",
+      "login": {
+        "id": "u-dest",
+        "name": "Catalina Rojas Medina",
+        "role": "Destinatario",
+        "email": "catalina@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Reprogramar\"",
+      "description": "Cambio de fecha desde mañana y hasta 14 días. Si la ruta no ha salido, el paquete vuelve a bodega; si ya va en el vehículo, se avisa al conductor y a despacho.",
+      "actions": [
+        "Elegir una nueva fecha",
+        "Sacar el paquete de la ruta de hoy",
+        "Avisar al conductor si el paquete ya está en camino"
+      ],
+      "img": "img/reparto/dest-reprogramar.webp",
+      "thumb": "img/reparto/dest-reprogramar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dest-punto",
+      "title": "Enviar a un punto de retiro",
+      "section": "destinatario",
+      "roles": null,
+      "url": "index.html#/mis-envios",
+      "capturedUrl": "index.html#/mis-envios",
+      "login": {
+        "id": "u-dest",
+        "name": "Catalina Rojas Medina",
+        "role": "Destinatario",
+        "email": "catalina@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Punto de retiro\"",
+      "description": "Puntos de retiro ordenados por distancia a la dirección, en el mapa y con los casilleros disponibles. No deja elegir puntos llenos.",
+      "actions": [
+        "Comparar puntos cercanos por distancia y horario",
+        "Ver la ocupación de cada punto",
+        "Redirigir el paquete y recibir el PIN para retirarlo"
+      ],
+      "img": "img/reparto/dest-punto.webp",
+      "thumb": "img/reparto/dest-punto-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dest-chat",
+      "title": "Chat con el conductor",
+      "section": "destinatario",
+      "roles": null,
+      "url": "index.html#/mis-envios",
+      "capturedUrl": "index.html#/mis-envios",
+      "login": {
+        "id": "u-dest",
+        "name": "Catalina Rojas Medina",
+        "role": "Destinatario",
+        "email": "catalina@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Chat con el conductor\" (paquete en camino)",
+      "description": "Conversación con el conductor del paquete en ruta, con respuestas rápidas y números protegidos. Se actualiza en vivo (también entre pestañas).",
+      "actions": [
+        "Enviar respuestas rápidas o un mensaje libre",
+        "Ver las respuestas del conductor en vivo",
+        "Coordinar la entrega sin compartir el teléfono"
+      ],
+      "img": "img/reparto/dest-chat.webp",
+      "thumb": "img/reparto/dest-chat-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "dest-evaluar",
+      "title": "Evaluar la entrega",
+      "section": "destinatario",
+      "roles": null,
+      "url": "index.html#/mis-envios",
+      "capturedUrl": "index.html#/mis-envios",
+      "login": {
+        "id": "u-dest",
+        "name": "Catalina Rojas Medina",
+        "role": "Destinatario",
+        "email": "catalina@correo.cl",
+        "password": "cliente123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Evaluar entrega\" en un envío entregado",
+      "description": "Evaluación de 1 a 5 estrellas con etiquetas y comentario. Las de 1 o 2 estrellas abren un reclamo en la bandeja de excepciones de despacho.",
+      "actions": [
+        "Poner de 1 a 5 estrellas",
+        "Marcar etiquetas como \"Puntual\" o \"Cuidó el paquete\"",
+        "Dejar un comentario para el conductor"
+      ],
+      "img": "img/reparto/dest-evaluar.webp",
+      "thumb": "img/reparto/dest-evaluar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-ruta-planificada",
+      "title": "Mi ruta (por iniciar)",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/",
+      "capturedUrl": "conductor.html#/",
+      "login": {
+        "id": "u-c1",
+        "name": "Jorge Fuentes",
+        "role": "Conductor (ruta por iniciar)",
+        "email": "conductor@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ruta del día antes de salir: mapa propio con las paradas numeradas en orden, cola de \"próximos envíos\" con ETA, ventanas, cobros y retiros mezclados, y la carga del vehículo contra su capacidad.",
+      "actions": [
+        "Ver las paradas en el mapa y en la lista con su ETA",
+        "Reordenar arrastrando o con ↑ ↓ (las ETA se recalculan)",
+        "Optimizar la ruta",
+        "Revisar peso y volumen contra la capacidad del vehículo",
+        "Ir al checklist de inicio de jornada"
+      ],
+      "img": "img/reparto/cond-ruta-planificada.webp",
+      "thumb": "img/reparto/cond-ruta-planificada-thumb.webp",
+      "mobile": "img/reparto/cond-ruta-planificada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-optimizar",
+      "title": "Optimizar ruta",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/",
+      "capturedUrl": "conductor.html#/",
+      "login": {
+        "id": "u-c1",
+        "name": "Jorge Fuentes",
+        "role": "Conductor (ruta por iniciar)",
+        "email": "conductor@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Optimizar ruta\"",
+      "description": "Heurística real de vecino más cercano + 2-opt + reubicación sobre las coordenadas de las paradas, que respeta ventanas horarias y prioridad express. Muestra km, hora de término y atrasos antes y después, con la vista previa en el mapa.",
+      "actions": [
+        "Comparar km y hora de término antes y después",
+        "Ver cuántas paradas quedarían fuera de ventana",
+        "Previsualizar el nuevo orden en el mapa",
+        "Aplicar el orden optimizado"
+      ],
+      "img": "img/reparto/cond-optimizar.webp",
+      "thumb": "img/reparto/cond-optimizar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-inicio",
+      "title": "Inicio de jornada",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/inicio",
+      "capturedUrl": "conductor.html#/inicio",
+      "login": {
+        "id": "u-c1",
+        "name": "Jorge Fuentes",
+        "role": "Conductor (ruta por iniciar)",
+        "email": "conductor@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Checklist del vehículo (con ítems críticos que bloquean la salida), odómetro y combustible, y escaneo de la carga en orden inverso de entrega. Al iniciar, cada destinatario recibe un SMS con su ventana de llegada.",
+      "actions": [
+        "Responder el checklist (OK, observación o falla)",
+        "Registrar odómetro y nivel de combustible",
+        "Escanear los paquetes uno a uno o todos",
+        "Marcar paquetes que no están en el andén",
+        "Iniciar la ruta"
+      ],
+      "img": "img/reparto/cond-inicio.webp",
+      "thumb": "img/reparto/cond-inicio-thumb.webp",
+      "mobile": "img/reparto/cond-inicio-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-parada-planificada",
+      "title": "Ficha de parada",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/parada/s482106",
+      "capturedUrl": "conductor.html#/parada/s482106",
+      "login": {
+        "id": "u-c1",
+        "name": "Jorge Fuentes",
+        "role": "Conductor (ruta por iniciar)",
+        "email": "conductor@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha de una parada con las indicaciones del destinatario, su ventana preferida y lugar seguro, y el historial de la dirección: notas de conductores anteriores y entregas previas en ese mismo lugar.",
+      "actions": [
+        "Leer las indicaciones del destinatario",
+        "Ver notas y entregas anteriores en la dirección",
+        "Navegar, llamar o chatear (simulado)",
+        "Agregar una nota para próximas entregas",
+        "Revisar paquete, cobro, PIN y seguimiento"
+      ],
+      "img": "img/reparto/cond-parada-planificada.webp",
+      "thumb": "img/reparto/cond-parada-planificada-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-nota",
+      "title": "Nota para próximas entregas",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/parada/s482106",
+      "capturedUrl": "conductor.html#/parada/s482106",
+      "login": {
+        "id": "u-c1",
+        "name": "Jorge Fuentes",
+        "role": "Conductor (ruta por iniciar)",
+        "email": "conductor@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "modal",
+      "from": "Botón \"＋ Nota\" del historial de la dirección",
+      "description": "Nota asociada a la dirección (no al envío): la verán todos los conductores que entreguen ahí en el futuro.",
+      "actions": [
+        "Elegir el tipo de nota (conserjería, acceso, perro…)",
+        "Escribir la indicación",
+        "Guardarla en el historial de la dirección"
+      ],
+      "img": "img/reparto/cond-nota.webp",
+      "thumb": "img/reparto/cond-nota-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-ruta-curso",
+      "title": "Mi ruta (en curso)",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/",
+      "capturedUrl": "conductor.html#/",
+      "login": {
+        "id": "u-c2",
+        "name": "Daniela Contreras",
+        "role": "Conductor (ruta en curso)",
+        "email": "daniela@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ruta a mitad de jornada: tarjeta de la siguiente parada con ETA, distancia e indicaciones, accesos a navegar, llamar, chatear y entregar, avance, km, término estimado y efectivo cobrado.",
+      "actions": [
+        "Ir a la siguiente parada",
+        "Tomar y terminar la colación (las ETA la consideran)",
+        "Ver las paradas hechas y fallidas",
+        "Reordenar u optimizar lo que queda",
+        "Pasar al cierre al terminar"
+      ],
+      "img": "img/reparto/cond-ruta-curso.webp",
+      "thumb": "img/reparto/cond-ruta-curso-thumb.webp",
+      "mobile": "img/reparto/cond-ruta-curso-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-navegar",
+      "title": "Navegación (simulada)",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/",
+      "capturedUrl": "conductor.html#/",
+      "login": {
+        "id": "u-c2",
+        "name": "Daniela Contreras",
+        "role": "Conductor (ruta en curso)",
+        "email": "daniela@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Navegar\" de la siguiente parada",
+      "description": "Trayecto desde la posición del vehículo hasta la parada con instrucciones paso a paso, minutos, km y hora de llegada.",
+      "actions": [
+        "Seguir las instrucciones de giro",
+        "Ver el trayecto en el mapa",
+        "Marcar \"Llegué\" y abrir la ficha de la parada"
+      ],
+      "img": "img/reparto/cond-navegar.webp",
+      "thumb": "img/reparto/cond-navegar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-llamar",
+      "title": "Llamada enmascarada",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/",
+      "capturedUrl": "conductor.html#/",
+      "login": {
+        "id": "u-c2",
+        "name": "Daniela Contreras",
+        "role": "Conductor (ruta en curso)",
+        "email": "daniela@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Llamar\"",
+      "description": "Llamada simulada con número protegido y cronómetro; queda registrada en la bitácora.",
+      "actions": [
+        "Llamar al destinatario sin ver su número",
+        "Ver la duración de la llamada",
+        "Colgar"
+      ],
+      "img": "img/reparto/cond-llamar.webp",
+      "thumb": "img/reparto/cond-llamar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-chat",
+      "title": "Chat con el destinatario",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/",
+      "capturedUrl": "conductor.html#/",
+      "login": {
+        "id": "u-c2",
+        "name": "Daniela Contreras",
+        "role": "Conductor (ruta en curso)",
+        "email": "daniela@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Chat\"",
+      "description": "Chat con respuestas rápidas para el camino (\"voy en camino\", \"estoy afuera\"…). El destinatario simulado responde solo; la cuenta demo de destinatario puede contestar desde el sitio.",
+      "actions": [
+        "Enviar respuestas rápidas",
+        "Escribir un mensaje libre",
+        "Ver la conversación en vivo"
+      ],
+      "img": "img/reparto/cond-chat.webp",
+      "thumb": "img/reparto/cond-chat-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-parada",
+      "title": "Parada en curso",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/parada/s482122",
+      "capturedUrl": "conductor.html#/parada/s482122",
+      "login": {
+        "id": "u-c2",
+        "name": "Daniela Contreras",
+        "role": "Conductor (ruta en curso)",
+        "email": "daniela@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha de la parada actual con los botones de entrega y de intento fallido, indicaciones, historial de la dirección, mapa con la parada destacada y seguimiento.",
+      "actions": [
+        "Registrar la entrega con prueba",
+        "Registrar un intento fallido",
+        "Reintentar más tarde una parada fallida",
+        "Revisar indicaciones y entregas anteriores"
+      ],
+      "img": "img/reparto/cond-parada.webp",
+      "thumb": "img/reparto/cond-parada-thumb.webp",
+      "mobile": "img/reparto/cond-parada-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-entregar",
+      "title": "Prueba de entrega",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/parada/s482122",
+      "capturedUrl": "conductor.html#/parada/s482122",
+      "login": {
+        "id": "u-c2",
+        "name": "Daniela Contreras",
+        "role": "Conductor (ruta en curso)",
+        "email": "daniela@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Entregar\" de una parada",
+      "description": "Registro de la entrega: quién recibe y su RUT, PIN si el envío lo exige, bultos (entrega parcial con motivo), cobro contra entrega con vuelto, firma en el recuadro o lugar seguro con foto, y una nota para la dirección. Valida todo antes de confirmar.",
+      "actions": [
+        "Elegir quién recibe y validar su RUT",
+        "Pedir el PIN del destinatario",
+        "Cobrar en efectivo, tarjeta o transferencia con vuelto",
+        "Firmar en pantalla o dejar en lugar seguro con foto",
+        "Registrar una entrega parcial"
+      ],
+      "img": "img/reparto/cond-entregar.webp",
+      "thumb": "img/reparto/cond-entregar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-fallido",
+      "title": "Intento fallido",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/parada/s482122",
+      "capturedUrl": "conductor.html#/parada/s482122",
+      "login": {
+        "id": "u-c2",
+        "name": "Daniela Contreras",
+        "role": "Conductor (ruta en curso)",
+        "email": "daniela@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "modal",
+      "from": "Botón \"No entregado\"",
+      "description": "Motivo del intento fallido, detalle, aviso de visita y qué hacer con el paquete: reintentar hoy al final de la ruta, volver al CD o enviarlo al punto de retiro más cercano. Notifica al destinatario y abre una excepción.",
+      "actions": [
+        "Elegir el motivo",
+        "Indicar si dejó aviso de visita",
+        "Reintentar hoy, devolver al CD o enviar a punto de retiro",
+        "Avisar automáticamente a despacho y al destinatario"
+      ],
+      "img": "img/reparto/cond-fallido.webp",
+      "thumb": "img/reparto/cond-fallido-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-cierre",
+      "title": "Cierre del día",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/cierre",
+      "capturedUrl": "conductor.html#/cierre",
+      "login": {
+        "id": "u-c2",
+        "name": "Daniela Contreras",
+        "role": "Conductor (ruta en curso)",
+        "email": "daniela@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cierre de jornada al volver al CD: devolución de paquetes no entregados (escaneo uno a uno), cuadratura del efectivo cobrado, odómetro y combustible final. Las diferencias de caja generan una excepción.",
+      "actions": [
+        "Confirmar la devolución de cada paquete",
+        "Declarar el efectivo y ver la diferencia",
+        "Registrar odómetro y combustible final",
+        "Cerrar la jornada"
+      ],
+      "img": "img/reparto/cond-cierre.webp",
+      "thumb": "img/reparto/cond-cierre-thumb.webp",
+      "mobile": "img/reparto/cond-cierre-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-combustible",
+      "title": "Combustible",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/combustible",
+      "capturedUrl": "conductor.html#/combustible",
+      "login": {
+        "id": "u-c2",
+        "name": "Daniela Contreras",
+        "role": "Conductor (ruta en curso)",
+        "email": "daniela@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Registro de cargas de combustible durante la ruta (litros, monto, odómetro y estación) y el historial del conductor.",
+      "actions": [
+        "Registrar una carga",
+        "Ver las cargas anteriores",
+        "Validar el odómetro contra el de salida"
+      ],
+      "img": "img/reparto/cond-combustible.webp",
+      "thumb": "img/reparto/cond-combustible-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-mensajes",
+      "title": "Mensajes",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/mensajes",
+      "capturedUrl": "conductor.html#/mensajes",
+      "login": {
+        "id": "u-c2",
+        "name": "Daniela Contreras",
+        "role": "Conductor (ruta en curso)",
+        "email": "daniela@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Conversaciones con los destinatarios y despacho de la ruta del día, ordenadas por la más reciente.",
+      "actions": [
+        "Abrir una conversación",
+        "Responder al destinatario",
+        "Ver mensajes de despacho"
+      ],
+      "img": "img/reparto/cond-mensajes.webp",
+      "thumb": "img/reparto/cond-mensajes-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "cond-historial",
+      "title": "Mi historial",
+      "section": "conductor",
+      "roles": null,
+      "url": "conductor.html#/historial",
+      "capturedUrl": "conductor.html#/historial",
+      "login": {
+        "id": "u-c2",
+        "name": "Daniela Contreras",
+        "role": "Conductor (ruta en curso)",
+        "email": "daniela@puduenvios.cl",
+        "password": "conductor123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Rutas del conductor con paradas, entregas, km y cuadratura de caja, más las evaluaciones que dejaron los destinatarios.",
+      "actions": [
+        "Revisar rutas anteriores",
+        "Ver diferencias de caja de cada cierre",
+        "Leer las evaluaciones recibidas"
+      ],
+      "img": "img/reparto/cond-historial.webp",
+      "thumb": "img/reparto/cond-historial-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-tablero",
+      "title": "Tablero de operación",
+      "section": "despacho",
+      "roles": null,
+      "url": "admin.html#/",
+      "capturedUrl": "admin.html#/",
+      "login": {
+        "id": "u-coord",
+        "name": "Rodrigo Álvarez",
+        "role": "Coordinador de despacho",
+        "email": "despacho@puduenvios.cl",
+        "password": "despacho123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Operación en vivo: KPIs del día (a tiempo, éxito al primer intento, paradas por hora, km), mapa con todas las rutas y los vehículos moviéndose, excepciones recientes y una tarjeta por ruta con avance y barras de capacidad.",
+      "actions": [
+        "Seguir los vehículos en el mapa (se mueven solos)",
+        "Destacar una ruta en el mapa",
+        "Ver avance, atrasos, fallidos y carga de cada ruta",
+        "Ir a las excepciones o a planificar",
+        "Revisar la actividad reciente"
+      ],
+      "img": "img/reparto/despacho-tablero.webp",
+      "thumb": "img/reparto/despacho-tablero-thumb.webp",
+      "mobile": "img/reparto/despacho-tablero-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-rutas",
+      "title": "Rutas",
+      "section": "despacho",
+      "roles": null,
+      "url": "admin.html#/rutas",
+      "capturedUrl": "admin.html#/rutas",
+      "login": {
+        "id": "u-coord",
+        "name": "Rodrigo Álvarez",
+        "role": "Coordinador de despacho",
+        "email": "despacho@puduenvios.cl",
+        "password": "despacho123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Listado de rutas de hoy, anteriores o todas, con conductor, vehículo, zona, avance y km.",
+      "actions": [
+        "Filtrar por período",
+        "Crear una ruta nueva",
+        "Abrir el detalle de una ruta",
+        "Exportar a CSV"
+      ],
+      "img": "img/reparto/despacho-rutas.webp",
+      "thumb": "img/reparto/despacho-rutas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-ruta",
+      "title": "Detalle de ruta",
+      "section": "despacho",
+      "roles": null,
+      "url": "admin.html#/rutas/r-dani",
+      "capturedUrl": "admin.html#/rutas/r-dani",
+      "login": {
+        "id": "u-coord",
+        "name": "Rodrigo Álvarez",
+        "role": "Coordinador de despacho",
+        "email": "despacho@puduenvios.cl",
+        "password": "despacho123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Una ruta con su mapa, carga, paradas con ETA y atrasos, y los datos de jornada (checklist, colación, combustible, optimización y cierre).",
+      "actions": [
+        "Seleccionar paradas pendientes y moverlas a otro conductor (con transbordo)",
+        "Devolver paradas a la bodega",
+        "Optimizar la ruta",
+        "Revisar checklist, colación y cierre de caja"
+      ],
+      "img": "img/reparto/despacho-ruta.webp",
+      "thumb": "img/reparto/despacho-ruta-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-nueva-ruta",
+      "title": "Nueva ruta",
+      "section": "despacho",
+      "roles": null,
+      "url": "admin.html#/rutas",
+      "capturedUrl": "admin.html#/rutas",
+      "login": {
+        "id": "u-coord",
+        "name": "Rodrigo Álvarez",
+        "role": "Coordinador de despacho",
+        "email": "despacho@puduenvios.cl",
+        "password": "despacho123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nueva ruta\"",
+      "description": "Creación de una ruta con conductor, vehículo y zona; solo ofrece conductores y vehículos operativos sin ruta activa hoy.",
+      "actions": [
+        "Elegir conductor libre",
+        "Elegir vehículo operativo",
+        "Asignar la zona"
+      ],
+      "img": "img/reparto/despacho-nueva-ruta.webp",
+      "thumb": "img/reparto/despacho-nueva-ruta-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-planificar",
+      "title": "Planificación",
+      "section": "despacho",
+      "roles": null,
+      "url": "admin.html#/planificar",
+      "capturedUrl": "admin.html#/planificar",
+      "login": {
+        "id": "u-coord",
+        "name": "Rodrigo Álvarez",
+        "role": "Coordinador de despacho",
+        "email": "despacho@puduenvios.cl",
+        "password": "despacho123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Envíos y retiros en bodega por zona (cantidad, kilos y m³) sobre el mapa, recursos libres, rutas por iniciar con su capacidad y la recepción de paquetes en el CD.",
+      "actions": [
+        "Filtrar por zona",
+        "Asignar envíos a una ruta validando capacidad",
+        "Armar rutas automáticamente",
+        "Recibir en el CD los paquetes etiquetados",
+        "Crear rutas nuevas"
+      ],
+      "img": "img/reparto/despacho-planificar.webp",
+      "thumb": "img/reparto/despacho-planificar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-auto",
+      "title": "Resultado de la planificación",
+      "section": "despacho",
+      "roles": null,
+      "url": "admin.html#/planificar",
+      "capturedUrl": "admin.html#/planificar",
+      "login": {
+        "id": "u-coord",
+        "name": "Rodrigo Álvarez",
+        "role": "Coordinador de despacho",
+        "email": "despacho@puduenvios.cl",
+        "password": "despacho123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Armar rutas automáticamente\"",
+      "description": "Agrupa por zona y capacidad de peso y volumen: llena las rutas por iniciar, crea rutas con conductores y vehículos libres y optimiza cada una. Informa lo que quedó sin cupo.",
+      "actions": [
+        "Ver cuántos envíos se asignaron",
+        "Abrir las rutas creadas o modificadas",
+        "Revisar los envíos que quedaron sin cupo"
+      ],
+      "img": "img/reparto/despacho-auto.webp",
+      "thumb": "img/reparto/despacho-auto-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-excepciones",
+      "title": "Excepciones",
+      "section": "despacho",
+      "roles": null,
+      "url": "admin.html#/excepciones",
+      "capturedUrl": "admin.html#/excepciones",
+      "login": {
+        "id": "u-coord",
+        "name": "Rodrigo Álvarez",
+        "role": "Coordinador de despacho",
+        "email": "despacho@puduenvios.cl",
+        "password": "despacho123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Bandeja de casos: intentos fallidos, notas y cambios pedidos con el paquete en ruta, diferencias de caja, observaciones de checklist y reclamos, ordenados por prioridad.",
+      "actions": [
+        "Filtrar por estado y tipo",
+        "Gestionar un caso",
+        "Exportar a CSV"
+      ],
+      "img": "img/reparto/despacho-excepciones.webp",
+      "thumb": "img/reparto/despacho-excepciones-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-gestionar",
+      "title": "Gestionar excepción",
+      "section": "despacho",
+      "roles": null,
+      "url": "admin.html#/excepciones",
+      "capturedUrl": "admin.html#/excepciones",
+      "login": {
+        "id": "u-coord",
+        "name": "Rodrigo Álvarez",
+        "role": "Coordinador de despacho",
+        "email": "despacho@puduenvios.cl",
+        "password": "despacho123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Gestionar\" de una excepción",
+      "description": "Acciones según el caso: reintentar hoy, reprogramar, enviar a punto de retiro, devolver al remitente, avisar al conductor por chat o mandar el vehículo a mantención; luego se registra la resolución.",
+      "actions": [
+        "Reintentar la entrega hoy",
+        "Reprogramar o enviar a punto de retiro",
+        "Avisar al conductor",
+        "Marcar en gestión o resolver con nota"
+      ],
+      "img": "img/reparto/despacho-gestionar.webp",
+      "thumb": "img/reparto/despacho-gestionar-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-envios",
+      "title": "Envíos",
+      "section": "despacho",
+      "roles": null,
+      "url": "admin.html#/envios",
+      "capturedUrl": "admin.html#/envios",
+      "login": {
+        "id": "u-coord",
+        "name": "Rodrigo Álvarez",
+        "role": "Coordinador de despacho",
+        "email": "despacho@puduenvios.cl",
+        "password": "despacho123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Todos los envíos con búsqueda, filtros por remitente, comuna, servicio, estado y fecha, y exportación.",
+      "actions": [
+        "Buscar por código, destinatario o referencia",
+        "Filtrar por estado, fecha o remitente",
+        "Imprimir la etiqueta",
+        "Recibir en el CD",
+        "Exportar a CSV"
+      ],
+      "img": "img/reparto/despacho-envios.webp",
+      "thumb": "img/reparto/despacho-envios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-envio",
+      "title": "Detalle de envío",
+      "section": "despacho",
+      "roles": null,
+      "url": "admin.html#/envios/s482106",
+      "capturedUrl": "admin.html#/envios/s482106",
+      "login": {
+        "id": "u-coord",
+        "name": "Rodrigo Álvarez",
+        "role": "Coordinador de despacho",
+        "email": "despacho@puduenvios.cl",
+        "password": "despacho123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha completa del envío: datos, mapa, prueba de entrega, intentos, indicaciones, chat, ruta y la línea de tiempo con estados y SMS enviados.",
+      "actions": [
+        "Cambiar el estado con su historial",
+        "Editar datos del envío",
+        "Ver intentos, indicaciones y chat",
+        "Imprimir la etiqueta"
+      ],
+      "img": "img/reparto/despacho-envio.webp",
+      "thumb": "img/reparto/despacho-envio-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-etiqueta",
+      "title": "Etiqueta",
+      "section": "despacho",
+      "roles": null,
+      "url": "admin.html#/envios/s482106",
+      "capturedUrl": "admin.html#/envios/s482106",
+      "login": {
+        "id": "u-coord",
+        "name": "Rodrigo Álvarez",
+        "role": "Coordinador de despacho",
+        "email": "despacho@puduenvios.cl",
+        "password": "despacho123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Etiqueta\" del detalle de envío",
+      "description": "Etiqueta 10×15 con zona, comuna destacada, destinatario, remitente, peso, bultos, cobro y código de barras.",
+      "actions": [
+        "Revisar destinatario, remitente y zona",
+        "Confirmar peso, bultos y cobro",
+        "Imprimirla en A4 o rollo térmico"
+      ],
+      "img": "img/reparto/despacho-etiqueta.webp",
+      "thumb": "img/reparto/despacho-etiqueta-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-retiros",
+      "title": "Retiros",
+      "section": "despacho",
+      "roles": null,
+      "url": "admin.html#/retiros",
+      "capturedUrl": "admin.html#/retiros",
+      "login": {
+        "id": "u-coord",
+        "name": "Rodrigo Álvarez",
+        "role": "Coordinador de despacho",
+        "email": "despacho@puduenvios.cl",
+        "password": "despacho123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Retiros en bodegas de clientes que se suman a las rutas del día.",
+      "actions": [
+        "Crear un retiro",
+        "Filtrar por cliente o comuna",
+        "Abrir su detalle y comprobante"
+      ],
+      "img": "img/reparto/despacho-retiros.webp",
+      "thumb": "img/reparto/despacho-retiros-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-retiro",
+      "title": "Detalle de retiro",
+      "section": "despacho",
+      "roles": null,
+      "url": "admin.html#/retiros/p7051",
+      "capturedUrl": "admin.html#/retiros/p7051",
+      "login": {
+        "id": "u-coord",
+        "name": "Rodrigo Álvarez",
+        "role": "Coordinador de despacho",
+        "email": "despacho@puduenvios.cl",
+        "password": "despacho123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha del retiro con el cliente, bultos estimados, ruta asignada y su historial.",
+      "actions": [
+        "Cambiar el estado",
+        "Editar bultos y ventana",
+        "Ver la ruta asignada"
+      ],
+      "img": "img/reparto/despacho-retiro.webp",
+      "thumb": "img/reparto/despacho-retiro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "despacho-indicadores",
+      "title": "Indicadores",
+      "section": "despacho",
+      "roles": null,
+      "url": "admin.html#/indicadores",
+      "capturedUrl": "admin.html#/indicadores",
+      "login": {
+        "id": "u-coord",
+        "name": "Rodrigo Álvarez",
+        "role": "Coordinador de despacho",
+        "email": "despacho@puduenvios.cl",
+        "password": "despacho123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "KPIs de hoy y de los últimos 30 días: envíos por día, % a tiempo, % al primer intento, motivos de fallo y una tabla por conductor.",
+      "actions": [
+        "Comparar días",
+        "Ver los motivos de fallo",
+        "Comparar conductores",
+        "Exportar 30 días a CSV"
+      ],
+      "img": "img/reparto/despacho-indicadores.webp",
+      "thumb": "img/reparto/despacho-indicadores-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empresa-resumen",
+      "title": "Resumen",
+      "section": "empresa",
+      "roles": null,
+      "url": "empresa.html#/",
+      "capturedUrl": "empresa.html#/",
+      "login": {
+        "id": "u-rem",
+        "name": "Francisca Ibarra",
+        "role": "Cliente empresa",
+        "email": "empresa@lanaaustral.cl",
+        "password": "empresa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Panel del remitente: envíos del mes, en tránsito, éxito al primer intento, recaudado contra entrega, satisfacción, gráficos y los envíos que requieren atención.",
+      "actions": [
+        "Ver el estado de todos sus envíos",
+        "Atender envíos con problemas",
+        "Crear un envío o hacer una carga masiva"
+      ],
+      "img": "img/reparto/empresa-resumen.webp",
+      "thumb": "img/reparto/empresa-resumen-thumb.webp",
+      "mobile": "img/reparto/empresa-resumen-m.webp",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empresa-envios",
+      "title": "Mis envíos",
+      "section": "empresa",
+      "roles": null,
+      "url": "empresa.html#/envios",
+      "capturedUrl": "empresa.html#/envios",
+      "login": {
+        "id": "u-rem",
+        "name": "Francisca Ibarra",
+        "role": "Cliente empresa",
+        "email": "empresa@lanaaustral.cl",
+        "password": "empresa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Solo los envíos de la empresa, con búsqueda, filtros y exportación.",
+      "actions": [
+        "Buscar por código o referencia",
+        "Filtrar por estado o fecha",
+        "Imprimir etiquetas",
+        "Exportar a CSV"
+      ],
+      "img": "img/reparto/empresa-envios.webp",
+      "thumb": "img/reparto/empresa-envios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empresa-envio",
+      "title": "Detalle de envío",
+      "section": "empresa",
+      "roles": null,
+      "url": "empresa.html#/envios/s482106",
+      "capturedUrl": "empresa.html#/envios/s482106",
+      "login": {
+        "id": "u-rem",
+        "name": "Francisca Ibarra",
+        "role": "Cliente empresa",
+        "email": "empresa@lanaaustral.cl",
+        "password": "empresa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Seguimiento del envío con mapa, intentos, prueba de entrega descargable y evaluación del destinatario.",
+      "actions": [
+        "Ver el seguimiento",
+        "Descargar el comprobante de entrega",
+        "Imprimir la etiqueta"
+      ],
+      "img": "img/reparto/empresa-envio.webp",
+      "thumb": "img/reparto/empresa-envio-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empresa-nuevo",
+      "title": "Nuevo envío",
+      "section": "empresa",
+      "roles": null,
+      "url": "empresa.html#/nuevo",
+      "capturedUrl": "empresa.html#/nuevo",
+      "login": {
+        "id": "u-rem",
+        "name": "Francisca Ibarra",
+        "role": "Cliente empresa",
+        "email": "empresa@lanaaustral.cl",
+        "password": "empresa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Formulario con validación y cotización en vivo (plan, zona, peso, bultos, servicio, cobro) y mapa del destino. Decide solo si sale hoy o mañana según la hora de corte.",
+      "actions": [
+        "Completar destinatario y dirección",
+        "Elegir servicio, ventana y cobro contra entrega",
+        "Exigir PIN para envíos de alto valor",
+        "Ver el precio antes de crear",
+        "Imprimir la etiqueta al terminar"
+      ],
+      "img": "img/reparto/empresa-nuevo.webp",
+      "thumb": "img/reparto/empresa-nuevo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empresa-masiva",
+      "title": "Carga masiva CSV",
+      "section": "empresa",
+      "roles": null,
+      "url": "empresa.html#/masiva",
+      "capturedUrl": "empresa.html#/masiva",
+      "login": {
+        "id": "u-rem",
+        "name": "Francisca Ibarra",
+        "role": "Cliente empresa",
+        "email": "empresa@lanaaustral.cl",
+        "password": "empresa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Pegado de una planilla CSV con validación fila a fila (comuna con cobertura, teléfono, peso, ventana) y precio de cada envío antes de importar.",
+      "actions": [
+        "Pegar el CSV o cargar el ejemplo",
+        "Ver errores por fila",
+        "Importar solo las filas válidas",
+        "Descargar la plantilla",
+        "Imprimir todas las etiquetas creadas"
+      ],
+      "img": "img/reparto/empresa-masiva.webp",
+      "thumb": "img/reparto/empresa-masiva-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empresa-etiquetas",
+      "title": "Etiquetas",
+      "section": "empresa",
+      "roles": null,
+      "url": "empresa.html#/etiquetas",
+      "capturedUrl": "empresa.html#/etiquetas",
+      "login": {
+        "id": "u-rem",
+        "name": "Francisca Ibarra",
+        "role": "Cliente empresa",
+        "email": "empresa@lanaaustral.cl",
+        "password": "empresa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Envíos pendientes de etiquetar con selección múltiple y vista previa.",
+      "actions": [
+        "Seleccionar envíos",
+        "Imprimir varias etiquetas a la vez",
+        "Revisar la vista previa"
+      ],
+      "img": "img/reparto/empresa-etiquetas.webp",
+      "thumb": "img/reparto/empresa-etiquetas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empresa-retiros",
+      "title": "Retiros",
+      "section": "empresa",
+      "roles": null,
+      "url": "empresa.html#/retiros",
+      "capturedUrl": "empresa.html#/retiros",
+      "login": {
+        "id": "u-rem",
+        "name": "Francisca Ibarra",
+        "role": "Cliente empresa",
+        "email": "empresa@lanaaustral.cl",
+        "password": "empresa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Solicitudes de retiro en la bodega de la empresa y su estado.",
+      "actions": [
+        "Pedir un retiro",
+        "Ver si ya fue asignado a una ruta",
+        "Revisar el comprobante"
+      ],
+      "img": "img/reparto/empresa-retiros.webp",
+      "thumb": "img/reparto/empresa-retiros-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empresa-nuevo-retiro",
+      "title": "Solicitar retiro",
+      "section": "empresa",
+      "roles": null,
+      "url": "empresa.html#/retiros",
+      "capturedUrl": "empresa.html#/retiros",
+      "login": {
+        "id": "u-rem",
+        "name": "Francisca Ibarra",
+        "role": "Cliente empresa",
+        "email": "empresa@lanaaustral.cl",
+        "password": "empresa123"
+      },
+      "kind": "modal",
+      "from": "Botón \"Nuevo retiro\"",
+      "description": "Formulario prellenado con la dirección y el contacto de la empresa para pedir que un conductor pase a buscar los paquetes.",
+      "actions": [
+        "Confirmar dirección y contacto",
+        "Indicar bultos, peso y volumen",
+        "Elegir una ventana horaria"
+      ],
+      "img": "img/reparto/empresa-nuevo-retiro.webp",
+      "thumb": "img/reparto/empresa-nuevo-retiro-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empresa-pruebas",
+      "title": "Pruebas de entrega",
+      "section": "empresa",
+      "roles": null,
+      "url": "empresa.html#/pruebas",
+      "capturedUrl": "empresa.html#/pruebas",
+      "login": {
+        "id": "u-rem",
+        "name": "Francisca Ibarra",
+        "role": "Cliente empresa",
+        "email": "empresa@lanaaustral.cl",
+        "password": "empresa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Galería con foto, firma y datos de quién recibió cada paquete, más la evaluación del destinatario.",
+      "actions": [
+        "Buscar por código, destinatario o referencia",
+        "Ver foto y firma",
+        "Exportar a CSV"
+      ],
+      "img": "img/reparto/empresa-pruebas.webp",
+      "thumb": "img/reparto/empresa-pruebas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empresa-facturas",
+      "title": "Facturas",
+      "section": "empresa",
+      "roles": null,
+      "url": "empresa.html#/facturas",
+      "capturedUrl": "empresa.html#/facturas",
+      "login": {
+        "id": "u-rem",
+        "name": "Francisca Ibarra",
+        "role": "Cliente empresa",
+        "email": "empresa@lanaaustral.cl",
+        "password": "empresa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Facturas mensuales de la empresa con envíos del período, total y estado de pago.",
+      "actions": [
+        "Ver facturas pendientes y vencidas",
+        "Filtrar por estado",
+        "Exportar a CSV"
+      ],
+      "img": "img/reparto/empresa-facturas.webp",
+      "thumb": "img/reparto/empresa-facturas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "empresa-cuenta",
+      "title": "Mi cuenta",
+      "section": "empresa",
+      "roles": null,
+      "url": "empresa.html#/cuenta",
+      "capturedUrl": "empresa.html#/cuenta",
+      "login": {
+        "id": "u-rem",
+        "name": "Francisca Ibarra",
+        "role": "Cliente empresa",
+        "email": "empresa@lanaaustral.cl",
+        "password": "empresa123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos personales del usuario de la empresa.",
+      "actions": [
+        "Editar nombre, correo y teléfono",
+        "Cambiar la contraseña",
+        "Guardar"
+      ],
+      "img": "img/reparto/empresa-cuenta.webp",
+      "thumb": "img/reparto/empresa-cuenta-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-conductores",
+      "title": "Conductores",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/conductores",
+      "capturedUrl": "admin.html#/conductores",
+      "login": {
+        "id": "u-admin",
+        "name": "Paula Sepúlveda",
+        "role": "Administrador",
+        "email": "admin@puduenvios.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Conductores propios con RUT, licencia, vehículo y zona habituales.",
+      "actions": [
+        "Crear o editar conductores",
+        "Activar o desactivar",
+        "Abrir sus últimas rutas",
+        "Exportar a CSV"
+      ],
+      "img": "img/reparto/admin-conductores.webp",
+      "thumb": "img/reparto/admin-conductores-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-conductor",
+      "title": "Detalle de conductor",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/conductores/u-c1",
+      "capturedUrl": "admin.html#/conductores/u-c1",
+      "login": {
+        "id": "u-admin",
+        "name": "Paula Sepúlveda",
+        "role": "Administrador",
+        "email": "admin@puduenvios.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha del conductor con sus datos y últimas rutas.",
+      "actions": [
+        "Editar licencia y vehículo",
+        "Ver sus rutas",
+        "Desactivarlo"
+      ],
+      "img": "img/reparto/admin-conductor.webp",
+      "thumb": "img/reparto/admin-conductor-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-vehiculos",
+      "title": "Vehículos",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/vehiculos",
+      "capturedUrl": "admin.html#/vehiculos",
+      "login": {
+        "id": "u-admin",
+        "name": "Paula Sepúlveda",
+        "role": "Administrador",
+        "email": "admin@puduenvios.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Flota con capacidad en kg y litros, kilometraje, próxima mantención, revisión técnica y estado.",
+      "actions": [
+        "Crear o editar vehículos",
+        "Marcar en mantención",
+        "Filtrar por tipo o estado",
+        "Exportar a CSV"
+      ],
+      "img": "img/reparto/admin-vehiculos.webp",
+      "thumb": "img/reparto/admin-vehiculos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-vehiculo",
+      "title": "Detalle de vehículo",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/vehiculos/v1",
+      "capturedUrl": "admin.html#/vehiculos/v1",
+      "login": {
+        "id": "u-admin",
+        "name": "Paula Sepúlveda",
+        "role": "Administrador",
+        "email": "admin@puduenvios.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Ficha del vehículo con sus cargas de combustible.",
+      "actions": [
+        "Editar capacidad y documentos",
+        "Ver cargas de combustible",
+        "Cambiar su estado"
+      ],
+      "img": "img/reparto/admin-vehiculo.webp",
+      "thumb": "img/reparto/admin-vehiculo-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-zonas",
+      "title": "Zonas",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/zonas",
+      "capturedUrl": "admin.html#/zonas",
+      "login": {
+        "id": "u-admin",
+        "name": "Paula Sepúlveda",
+        "role": "Administrador",
+        "email": "admin@puduenvios.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Zonas de reparto con sus comunas, color, hora de corte y recargo.",
+      "actions": [
+        "Editar las comunas de una zona",
+        "Fijar hora de corte y recargo",
+        "Cambiar el color del mapa"
+      ],
+      "img": "img/reparto/admin-zonas.webp",
+      "thumb": "img/reparto/admin-zonas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-puntos",
+      "title": "Puntos de retiro",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/puntos",
+      "capturedUrl": "admin.html#/puntos",
+      "login": {
+        "id": "u-admin",
+        "name": "Paula Sepúlveda",
+        "role": "Administrador",
+        "email": "admin@puduenvios.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Lockers y tiendas aliadas con horario, capacidad y ocupación actual.",
+      "actions": [
+        "Crear o editar puntos",
+        "Ajustar capacidad",
+        "Activar o desactivar"
+      ],
+      "img": "img/reparto/admin-puntos.webp",
+      "thumb": "img/reparto/admin-puntos-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-empresas",
+      "title": "Clientes empresa",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/empresas",
+      "capturedUrl": "admin.html#/empresas",
+      "login": {
+        "id": "u-admin",
+        "name": "Paula Sepúlveda",
+        "role": "Administrador",
+        "email": "admin@puduenvios.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Remitentes con contrato, su tarifa y volumen de envíos.",
+      "actions": [
+        "Crear o editar clientes",
+        "Asignar tarifa",
+        "Desactivar un cliente"
+      ],
+      "img": "img/reparto/admin-empresas.webp",
+      "thumb": "img/reparto/admin-empresas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-tarifas",
+      "title": "Tarifas",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/tarifas",
+      "capturedUrl": "admin.html#/tarifas",
+      "login": {
+        "id": "u-admin",
+        "name": "Paula Sepúlveda",
+        "role": "Administrador",
+        "email": "admin@puduenvios.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Tarifario por plan: base, kilo y bulto adicional, recargos express y mismo día, comisión de cobro contra entrega.",
+      "actions": [
+        "Editar precios por plan",
+        "Crear un plan",
+        "Ver qué usa el cotizador del sitio"
+      ],
+      "img": "img/reparto/admin-tarifas.webp",
+      "thumb": "img/reparto/admin-tarifas-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-facturacion",
+      "title": "Facturación",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/facturas",
+      "capturedUrl": "admin.html#/facturas",
+      "login": {
+        "id": "u-admin",
+        "name": "Paula Sepúlveda",
+        "role": "Administrador",
+        "email": "admin@puduenvios.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Facturas mensuales por cliente con su estado de pago.",
+      "actions": [
+        "Registrar pagos",
+        "Filtrar vencidas",
+        "Emitir una factura",
+        "Exportar a CSV"
+      ],
+      "img": "img/reparto/admin-facturacion.webp",
+      "thumb": "img/reparto/admin-facturacion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-usuarios",
+      "title": "Usuarios y roles",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/usuarios",
+      "capturedUrl": "admin.html#/usuarios",
+      "login": {
+        "id": "u-admin",
+        "name": "Paula Sepúlveda",
+        "role": "Administrador",
+        "email": "admin@puduenvios.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Cuentas de todos los roles y cuáles aparecen como demo en el login.",
+      "actions": [
+        "Crear, editar o desactivar usuarios",
+        "Cambiar el rol",
+        "Marcar cuentas demo"
+      ],
+      "img": "img/reparto/admin-usuarios.webp",
+      "thumb": "img/reparto/admin-usuarios-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-configuracion",
+      "title": "Configuración",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/config",
+      "capturedUrl": "admin.html#/config",
+      "login": {
+        "id": "u-admin",
+        "name": "Paula Sepúlveda",
+        "role": "Administrador",
+        "email": "admin@puduenvios.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Datos del sitio y parámetros de operación que usan las ETA y el optimizador: velocidad media, minutos por parada, colación, hora de corte, intentos máximos y SMS.",
+      "actions": [
+        "Editar eslogan y contacto",
+        "Ajustar velocidad y minutos por parada",
+        "Configurar colación y hora de corte",
+        "Exportar datos o restablecer la demo"
+      ],
+      "img": "img/reparto/admin-configuracion.webp",
+      "thumb": "img/reparto/admin-configuracion-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "id": "admin-bitacora",
+      "title": "Bitácora",
+      "section": "admin",
+      "roles": null,
+      "url": "admin.html#/bitacora",
+      "capturedUrl": "admin.html#/bitacora",
+      "login": {
+        "id": "u-admin",
+        "name": "Paula Sepúlveda",
+        "role": "Administrador",
+        "email": "admin@puduenvios.cl",
+        "password": "admin123"
+      },
+      "kind": "page",
+      "from": null,
+      "description": "Últimos 300 eventos: rutas, entregas, excepciones, planificación, simulación y configuración.",
+      "actions": [
+        "Buscar y filtrar por acción",
+        "Ver quién hizo qué",
+        "Exportar a CSV"
+      ],
+      "img": "img/reparto/admin-bitacora.webp",
+      "thumb": "img/reparto/admin-bitacora-thumb.webp",
+      "mobile": null,
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "looks": {
+    "title": "Elige el look de tu proyecto",
+    "note": "Las capturas de arriba usan el estilo \"Institucional\" y la disposición clásica. Tu proyecto se entrega con el look que elijas: una disposición de página combinada con uno de los estilos visuales del catálogo, adaptado a tu marca.",
+    "items": [
+      {
+        "id": "clasica",
+        "group": "Disposición",
+        "label": "Clásica",
+        "desc": "Barra superior y secciones apiladas.",
+        "img": "img/reparto/look-clasica.webp"
+      },
+      {
+        "id": "portal",
+        "group": "Disposición",
+        "label": "Portal",
+        "desc": "Cabezal con franja de secciones y portada densa.",
+        "img": "img/reparto/look-portal.webp"
+      },
+      {
+        "id": "dividida",
+        "group": "Disposición",
+        "label": "Dividida",
+        "desc": "Mitad izquierda tipo afiche, contenido a la derecha.",
+        "img": "img/reparto/look-dividida.webp"
+      },
+      {
+        "id": "noir",
+        "group": "Estilo",
+        "label": "Noir Neón",
+        "desc": "Oscuro con acentos brillantes.",
+        "img": "img/reparto/look-noir.webp"
+      },
+      {
+        "id": "editorial",
+        "group": "Estilo",
+        "label": "Editorial",
+        "desc": "Serif de revista impresa.",
+        "img": "img/reparto/look-editorial.webp"
+      },
+      {
+        "id": "nordic",
+        "group": "Estilo",
+        "label": "Nórdico",
+        "desc": "Minimalista, blanco y aire.",
+        "img": "img/reparto/look-nordic.webp"
+      }
+    ]
+  }
+}
