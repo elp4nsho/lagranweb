@@ -3,7 +3,8 @@
 // de la app y disposición "clásica") y escribe biblioteca/img/<app>/*.webp + biblioteca/data/<app>.json.
 //
 //   node tools/biblioteca/run.js automotora                 → todas las vistas del manifiesto
-//   node tools/biblioteca/run.js automotora --only=home,login  → solo esas (se mezclan en el JSON existente)
+//   node tools/biblioteca/run.js automotora --only=home,login  → solo esas (se mezclan en el JSON existente;
+//                                                              sin JSON previo se niega: haz antes una corrida completa)
 //   opciones: --port=8850  --no-mobile  --no-looks  --headed
 //
 // Falla (código 1) ante errores de página, errores de consola, peticiones locales fallidas o
@@ -143,7 +144,13 @@ async function shoot(browser, v, { viewport, mobile = false, theme = null, layou
     await settle(page);
     if (v.waitFor) await helpers(page).wait(v.waitFor);
     let openUrl = null;
-    if (v.setup) { const r = await v.setup(helpers(page), { mobile }); if (r && r.url) openUrl = r.url; }
+    if (v.setup) {
+      const before = rel(page.url());
+      const r = await v.setup(helpers(page), { mobile });
+      if (r && r.url) openUrl = r.url;
+      // Si el setup navegó (clic en un enlace, cambio de hash…), la URL "para abrir" es la final.
+      else if (rel(page.url()) !== before) openUrl = rel(page.url());
+    }
     if (v.checkFor) await helpers(page).wait(v.checkFor);
     await settle(page);
     if (!v.keepScroll && !v.setup) await page.evaluate(() => window.scrollTo(0, 0));
@@ -169,6 +176,8 @@ async function shoot(browser, v, { viewport, mobile = false, theme = null, layou
   const t0 = Date.now();
   const views = M.views.filter(v => !only || only.includes(v.id));
   if (only && views.length !== only.length) { console.error('Ids desconocidos: ' + only.filter(id => !M.views.some(v => v.id === id)).join(', ')); process.exit(1); }
+  // --only mezcla en el JSON existente: sin él quedaría una biblioteca parcial (solo esas vistas).
+  if (only && !fs.existsSync(dataFile)) { console.error(`--only necesita ${path.relative(ROOT, dataFile)} de una corrida completa previa. Ejecuta primero: node tools/biblioteca/run.js ${name}`); process.exit(1); }
   const ids = new Set();
   for (const v of M.views) {
     if (ids.has(v.id)) throw new Error('id repetido: ' + v.id);

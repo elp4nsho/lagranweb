@@ -200,7 +200,9 @@ export function seed() {
   // Trabajo en curso (últimos días) con distintos estados
   const ACTIVE = ['recepcion', 'inspeccion', 'aprobacion', 'aprobacion', 'en-proceso', 'en-proceso', 'en-proceso', 'control', 'lista', 'lista', 'inspeccion', 'en-proceso'];
   const pool = vehicles.slice(4);
-  ACTIVE.forEach((st, i) => { const v = pool[(i * 7 + 3) % pool.length]; makeWO(v, at(r.int(0, 4)), { status: st }); });
+  const activeWOs = ACTIVE.map((st, i) => { const v = pool[(i * 7 + 3) % pool.length]; return makeWO(v, at(r.int(0, 4)), { status: st }); });
+  // El técnico demo (u-tec1) siempre tiene trabajo abierto en "Mis trabajos": una OT en proceso y otra en inspección.
+  [activeWOs.find(w => w.status === 'en-proceso'), activeWOs.find(w => w.status === 'inspeccion')].forEach(w => { if (w) w.techId = 'u-tec1'; });
   // Casos guiados de las cuentas demo
   const woTay = makeWO(vTay, at(1, 9), { status: 'aprobacion', line: 'mantencion', km: 29800 });
   const woMY = makeWO(vMY, at(2, 10), { status: 'en-proceso', line: 'ev', svcIds: ['sv-soh', 'sv-termico'] });

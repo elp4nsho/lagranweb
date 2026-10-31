@@ -92,7 +92,13 @@ export function modal({ title = '', body = '', foot = '', size = '', onClose } =
   const onKey = e => { if (e.key === 'Escape' && [...document.querySelectorAll('.modal-backdrop')].pop() === bd) close(); };
   document.addEventListener('keydown', onKey);
   bd.addEventListener('click', e => { if (e.target === bd || e.target.closest('[data-close]')) close(); });
-  setTimeout(() => (bd.querySelector('[autofocus], input, select, textarea, .modal-foot .btn-primary') || bd.querySelector('[data-close]')).focus(), 30);
+  // Foco inicial dentro del diálogo (accesibilidad) pero sin desplazar: un modal alto debe abrirse
+  // arriba, no saltar al botón del pie. preventScroll + scrollTop = 0 por si el navegador ya se movió.
+  setTimeout(() => {
+    const target = bd.querySelector('[autofocus], input:not([type=hidden]), select, textarea, .modal-foot .btn-primary') || bd.querySelector('[data-close]');
+    try { target.focus({ preventScroll: true }); } catch (e) { target.focus(); }
+    [bd, bd.querySelector('.modal'), bodyEl].forEach(n => { if (n) n.scrollTop = 0; });
+  }, 30);
   return { el: bd.querySelector('.modal'), close };
 }
 

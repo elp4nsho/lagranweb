@@ -1,0 +1,82 @@
+/* Estilos del kernel de apps (app.js, resource.js, blocks.js, pages.js).
+   Solo tokens y clases del kit: se ve bien en los 30 estilos y en las 3 disposiciones.
+   Lo carga solo cualquier módulo del kernel, ANTES de themes.css: a igual especificidad ganan
+   el estilo activo, las disposiciones y el CSS de la app. Prefijo k- para no chocar con el CSS de las apps. */
+
+/* ---------- Shell del panel ---------- */
+.k-nav { display: flex; flex-direction: column; gap: 2px; }
+/* Pie del menú: una sola fila (usuario + botones de ícono) que cabe en el menú lateral y también
+   cuando una disposición lo pone en línea (revista, portal…). */
+.k-side-foot { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); display: flex; flex-wrap: nowrap; align-items: center; gap: 8px; }
+.k-side-foot .k-user { flex: 1 1 auto; }
+.k-user { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.k-user b { display: block; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.k-user small { display: block; color: var(--muted); font-size: 12px; }
+.k-user > span:last-child { min-width: 0; }
+.k-foot-btns { display: flex; gap: 4px; flex: none; }
+.k-crumb { font-weight: 700; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.k-top-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.admin-brand { color: inherit; text-decoration: none; }
+.admin-brand small { display: block; font-family: var(--font-body); font-weight: 600; font-size: .6em; color: var(--muted); text-transform: none; letter-spacing: 0; }
+@media (max-width: 600px) { .k-hide-sm { display: none !important; } }
+
+/* ---------- Bloques ---------- */
+.k-page-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.k-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: var(--gap, 16px); }
+.k-kpi { position: relative; }
+.k-kpi .k-kpi-ico { position: absolute; top: 14px; right: 14px; font-size: 20px; opacity: .55; }
+.k-kpi .hint { font-size: 12px; color: var(--muted); }
+.k-card-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.k-card-head h3 { margin: 0; font-size: 17px; }
+.k-card-head p { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+.k-empty .k-empty-ico { display: block; font-size: 38px; margin-bottom: 8px; }
+.k-empty h3 { margin: 0 0 6px; color: var(--text); }
+.k-empty p { margin: 0 auto 14px; max-width: 46ch; }
+.k-kv { display: grid; grid-template-columns: minmax(110px, max-content) 1fr; gap: 8px 16px; margin: 0; font-size: 14px; }
+.k-kv dt { color: var(--muted); font-weight: 600; }
+.k-kv dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.k-timeline { list-style: none; margin: 0; padding: 0 0 0 18px; border-left: 2px solid var(--line); display: grid; gap: 14px; }
+.k-timeline li { position: relative; font-size: 14px; }
+.k-timeline li::before { content: ''; position: absolute; left: -25px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 2px solid var(--primary); }
+.k-timeline li.tone-success::before { border-color: var(--success); } .k-timeline li.tone-warning::before { border-color: var(--warning); }
+.k-timeline li.tone-danger::before { border-color: var(--danger); } .k-timeline li.tone-info::before { border-color: var(--info); }
+.k-timeline small { display: block; color: var(--muted); font-size: 12px; }
+.k-grid-main { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: var(--gap, 16px); align-items: start; }
+@media (max-width: 900px) { .k-grid-main { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Listados (resource) ---------- */
+.k-toolbar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.k-toolbar .k-search { flex: 1 1 200px; max-width: 320px; }
+.k-toolbar .select { width: auto; max-width: 100%; flex: 0 1 auto; }
+.k-toolbar .k-grow { flex: 1; }
+.k-acts { display: flex; gap: 4px; justify-content: flex-end; flex-wrap: nowrap; }
+.k-cell-main b { display: block; }
+.k-cell-main small { color: var(--muted); }
+.k-nowrap { white-space: nowrap; }
+.k-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ---------- Formularios ---------- */
+.k-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px 16px; }
+.k-form .k-wide { grid-column: 1 / -1; }
+.k-form .field { margin: 0; }
+.k-form .check { align-self: end; padding-bottom: 8px; }
+.k-form .invalid { border-color: var(--danger) !important; }
+
+/* ---------- Login ---------- */
+.k-auth { min-height: 100vh; display: grid; place-items: center; padding: 32px 16px 96px; }
+.k-auth-grid { width: min(960px, 100%); display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+@media (max-width: 820px) { .k-auth-grid { grid-template-columns: 1fr; } }
+.k-auth .brand-line { display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font: var(--head-weight) 20px var(--font-head); text-transform: var(--head-transform); letter-spacing: var(--head-spacing); }
+.k-auth .brand-line .logo { width: 38px; height: 38px; display: grid; place-items: center; border-radius: var(--radius-sm); background: var(--primary); color: var(--on-primary); }
+
+/* ---------- Sitio público (app.site) ---------- */
+.k-site-header { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: blur(12px); border-bottom: var(--border-w) solid var(--line); }
+.k-site-header > .container { display: flex; align-items: center; gap: 16px; min-height: 64px; flex-wrap: wrap; }
+.k-site-header .site-brand { display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font: var(--head-weight) 19px var(--font-head); text-transform: var(--head-transform); letter-spacing: var(--head-spacing); }
+.k-site-header .site-brand .logo { width: 34px; height: 34px; display: grid; place-items: center; border-radius: var(--radius-sm); background: var(--primary); color: var(--on-primary); font-size: 16px; }
+.k-site-header .site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+.k-site-header .site-nav a { padding: 8px 12px; border-radius: var(--radius-sm); color: var(--text); text-decoration: none; font-weight: 500; }
+.k-site-header .site-nav a.active { color: var(--primary); font-weight: 700; }
+.k-site-header .site-actions { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+@media (max-width: 700px) { .k-site-header .site-nav { order: 3; width: 100%; overflow-x: auto; flex-wrap: nowrap; } }
+.k-site-footer { padding: 32px 0 96px; border-top: var(--border-w) solid var(--line); color: var(--muted); font-size: 14px; margin-top: 48px; }

@@ -16,6 +16,14 @@ Ver `kit.html` para ver todos los componentes en los 30 estilos.
 | `auth.js` | módulo ES | `createAuth(db, { roles })`: login/logout/register, `require(roles)`, `mountDemoLogin(el)`, `initials()`. |
 | `router.js` | módulo ES | `createRouter({ '/ruta/:id': fn })` por hash, `highlight()` de enlaces activos. |
 | `ui.js` | módulo ES | `html```/`raw()`, `escape`, `money` (CLP), `date`, `ago`, `toast`, `modal`, `confirm`, `formModal`, `dataTable`, `barChart`, `lineChart`, `donutChart`, `downloadCSV`, `wireAdminShell`, `$`, `$$`, `norm`, `debounce`. |
+| `app.js` | módulo ES · **kernel** | `defineApp()` (raíz de composición: db + auth + roles + páginas) → `app.panel()`, `app.site()`, `app.login()`. |
+| `resource.js` | módulo ES · **kernel** | `resource(app, { fields, hooks })`: CRUD guiado por esquema. `fieldTypes`/`fieldType()`, `renderFields`, `readFields`, `fieldsModal`. |
+| `blocks.js` | módulo ES · **kernel** | Bloques de página: `pageHead`, `kpis`, `card`/`chartCard`, `emptyState`, `kv`, `timeline`, `historyTimeline`, `activityFeed`, `badge`, `userChip`, `tabs`. |
+| `pages.js` | módulo ES · **kernel** | `loginPage`, `usersSection`, `settingsSection` (con "Restablecer datos demo"), `logSection`, `accountSection`, `resetDemo`. |
+| `domain.js` | módulo ES · **kernel** | `stateMachine()` (estados + historial + bitácora), `rut`, `nextCode`, `byMonth`, `byDay`, `countBy`, `sumBy`. |
+| `kernel.css` | CSS | Clases `k-*` del kernel. La inyectan sus módulos (antes de `themes.css`); no la enlaces. |
+| `ARCHITECTURE.md` | doc | Diagnóstico, patrones, cómo crear una app en 5 pasos y cómo migrar las antiguas. |
+| `examples/bicicleteria/` | demo | App completa hecha con el kernel (≈ 180 líneas de JS). |
 | `../portfolio-bar.js` | script clásico (defer) | Pastilla "← La Gran Web" + selector de estilos (abajo a la izquierda). |
 
 ## Esqueleto de cada página
@@ -126,3 +134,122 @@ y en escritorio, sin desborde horizontal ni nada fijo sobre la barra del portafo
 disposición del registro × 1440 y 375 px: portada, una página interior y el panel, rotando 3 estilos
 contrastados (`--styles=all` para los 3 en todo). Falla ante errores de página/consola, desborde
 horizontal o menú inalcanzable y deja hojas de contactos por web (`--out=`, por defecto en el tmp del sistema).
+
+## Kernel de apps (opt-in)
+
+Para apps **nuevas** (y para migrar secciones de las antiguas, ver `ARCHITECTURE.md`). Las 30 apps
+existentes siguen usando `createDB`/`createAuth`/`createRouter` y no cambian.
+
+```bash
+node tools/new-app.mjs reparto --name="Ruta Corta" --title="Planificador de reparto" --icon=🚚 --theme=nordic
+```
+
+crea `reparto/` (index/login/admin.html, `css/app.css`, `js/app.js|admin.js|site.js|login.js`) lista para abrir.
+
+### 1. Definir la app (`js/app.js`)
+
+```js
+import { defineApp } from '../../assets/core/app.js';
+import { resource } from '../../assets/core/resource.js';
+import { stateMachine, nextCode } from '../../assets/core/domain.js';
+
+export const app = defineApp({
+  name: 'reparto', version: 1, seed,                       // seed() → { users: [...], stops: [...] }
+  brand: { name: 'Ruta Corta', logo: '🚚' },
+  roles: { admin: 'Administrador', despacho: 'Despacho', chofer: 'Chofer' },
+  pages: { 'admin.html': ['admin', 'despacho'], 'chofer.html': ['chofer', 'admin'] },  // guardas por página
+  home: { admin: 'admin.html', despacho: 'admin.html#/paradas', chofer: 'chofer.html' },
+  settings: { tagline: 'Entregas a tiempo' }               // app.settings() = defaults + lo guardado
+});
+
+export const STOP = stateMachine({
+  states: { pendiente: { label: 'Pendiente', tone: 'info' }, en_ruta: { label: 'En ruta', tone: 'primary' },
+            entregada: { label: 'Entregada', tone: 'success', final: true }, fallida: { label: 'Fallida', tone: 'danger', note: true } },
+  transitions: { pendiente: ['en_ruta'], en_ruta: ['entregada', 'fallida'], fallida: ['en_ruta'] },
+  onEnter: { entregada: (row, patch) => { patch.deliveredAt = new Date().toISOString(); } },
+  guard: (row, to) => to !== 'en_ruta' || row.driverId ? true : 'Asigna un chofer'
+});
+
+export const stops = resource(app, {
+  collection: 'stops', id: 'paradas', singular: 'parada', plural: 'Paradas', feminine: true, icon: '📍',
+  title: s => s.code, subtitle: s => s.address,
+  fields: [
+    { name: 'code', label: 'Código', form: false, search: true },
+    { name: 'address', label: 'Dirección', required: true, search: true, wide: true },
+    { name: 'driverId', label: 'Chofer', type: 'ref', ref: 'users', refFilter: u => u.role === 'chofer', filter: true },
+    { name: 'cod', label: 'Cobro contra entrega', type: 'money' },
+    { name: 'window', label: 'Ventana', type: 'select', options: ['09–12', '12–15', '15–18'] },
+    { name: 'status', label: 'Estado', type: 'status', machine: STOP }
+  ],
+  rows: ctx => app.db.query('stops', s => ctx.user?.role !== 'chofer' || s.driverId === ctx.user.id),
+  permissions: { create: ['admin', 'despacho'], delete: ['admin'] },
+  beforeSave: (v, row) => (row ? v : { ...v, code: nextCode(app.db, 'stop', 'P-', 1001) }),
+  detail: { render: s => `<section class="card">…mapa…</section>` },
+  count: () => app.db.count('stops', s => s.status === 'fallida')
+});
+```
+
+### 2. Panel por rol (`js/admin.js`)
+
+```js
+import { app, stops } from './app.js';
+import { usersSection, settingsSection, logSection } from '../../assets/core/pages.js';
+import { pageHead, kpis, chartCard } from '../../assets/core/blocks.js';
+
+app.panel({
+  page: 'admin.html', sub: 'Despacho', topbar: '<a class="btn btn-sm" href="chofer.html">App chofer</a>',
+  nav: [
+    { section: 'Operación' },
+    { id: '', label: 'Resumen', icon: '📊', render: view => { view.innerHTML = pageHead('Hoy') + kpis([{ label: 'Paradas', value: 42 }]); } },
+    stops.section(),                                       // #/paradas y #/paradas/:id
+    { id: 'rutas', label: 'Rutas', icon: '🗺️', roles: ['admin'], render: (view, ctx) => {/* vista libre */},
+      routes: { ':id': { label: 'Ruta', render: (view, { params }) => {/* detalle */} } }, watch: ['routes'] },
+    { section: 'Sistema' },
+    usersSection(app, { roles: ['admin'] }),
+    settingsSection(app, { roles: ['admin'], groups: [{ title: 'Sitio', fields: [{ name: 'tagline', label: 'Eslogan' }] }] }),
+    logSection(app, { roles: ['admin'] })
+  ]
+});
+```
+
+- Sin sesión → `login.html?next=…`; rol sin permiso para la página → `app.homeFor(usuario)`.
+- Ítems con `roles` se ocultan del menú y su ruta muestra "Acceso restringido"; las secciones vacías desaparecen.
+- `render(view, ctx)` recibe `ctx = { app, db, auth, user, params, query, item, panel, refresh }`. Si devuelve
+  `{ refresh }`, el panel la actualiza en vivo sin perder filtros; si no, la vuelve a pintar (nunca bajo
+  un modal ni mientras se escribe). `watch: ['col']` limita qué colecciones la refrescan.
+- `count: () => n` pinta el contador del menú. `{ href: 'otra.html', label, icon }` = enlace externo.
+- Incluye pie con usuario, "Datos demo" (restablecer) y "Salir", y se adapta solo a las disposiciones.
+
+### 3. Login y sitio
+
+```js
+app.login({ demoText: 'Cada rol ve un sistema distinto.' });              // js/login.js (login.html = <div id="app">)
+app.site({ nav: [['Inicio', '#/'], ['Seguimiento', '#/seguimiento']],    // js/site.js
+           routes: { '/': (view, ctx) => { view.innerHTML = '…'; } } });
+```
+
+`app.site()` usa las clases-gancho de las disposiciones (`site-header`, `site-nav`, `site-main`…),
+muestra "Ingresar" o "Mi panel/Salir" según la sesión y se refresca cuando cambian los datos.
+
+### 4. `resource()` en detalle
+
+| Opción | Para qué |
+|---|---|
+| `fields[]` | `{ name, label, type, required, options, help, placeholder, wide, default, min, max, step, search, filter, table: false, form: false, detail: false, csv: false, createOnly, render(v,row), check(v,values) }` |
+| tipos | `text email tel url password color number money textarea select date datetime bool (toggle: true → interruptor en la tabla) tags rut ref (ref, refLabel, refFilter) status (machine)` · nuevos con `fieldType('nombre', {...fieldTypes.text, read, cell, text, check})` |
+| datos | `rows(ctx)`, `defaults(ctx)`, `sort(a,b)`, `filters: [{ key, label, options, test }]`, `search(row)` |
+| hooks | `validate → texto`, `beforeSave → valores \| false`, `afterSave(row, { isNew, before })`, `canDelete → true \| texto`, `afterDelete`, `afterStatus` |
+| UI | `title(row)`, `subtitle(row)`, `columns(cols) → cols`, `rowActions: [{ id, label, icon, when, run }]`, `pageActions: [{ label, icon, primary, run }]`, `detail: true \| { render, aside, mount }`, `intro`, `empty`, `below(ctx)`, `pageSize`, `csv(row) \| false`, `log: 'acción' \| false`, `feminine` |
+| permisos | `permissions: { create, edit, delete }` (listas de roles) · `readonly: true` |
+| API | `.section(extra)`, `.renderList(view, ctx, { embedded, title, where, preset, onRow })` (maestro‑detalle: p. ej. pagos dentro del detalle de una polla, desde `detail.mount`), `.renderDetail(view, ctx)`, `.form(row?, ctx, preset)`, `.save(values, row?)`, `.remove(row)`, `.changeStatus(row, to?)`, `.columns()`, `.can(acción)` |
+
+`renderList`/`renderDetail` funcionan en cualquier contenedor: sirven para migrar una sección de
+una app antigua dentro de su router propio.
+
+### 5. Estados (`domain.stateMachine`)
+
+`m.label(s)`, `m.tone(s)`, `m.badge(s)`, `m.options()`, `m.next(row)`, `m.can(row, to)`,
+`m.move(db, col, idOFila, to, { by, note, log, title, extra })`, `m.seedHistory(['a','b'], { start, stepHours })`.
+`move()` guarda `{ at, from, to, by, note }` en `row.history`, fija `statusAt`, corre `onEnter[to]` y
+escribe "CÓDIGO: Origen → Destino" en la bitácora leyendo el origen **antes** de mutar (las filas de
+`db.get()` son objetos vivos). Estados con `note: true` piden motivo desde el panel.

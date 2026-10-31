@@ -10,8 +10,9 @@ import { mountWizard, saveEvent } from '../shared/event-wizard.js';
 const STATUSES = ['pendiente', 'publicado', 'borrador', 'rechazado', 'cancelado', 'finalizado'];
 
 export function setStatus(ev, status, user, extra = {}) {
+  const from = ev.status; // ev suele ser el objeto vivo de db.get(): db.update lo muta, hay que leer antes
   db.update('events', ev.id, { status, ...extra });
-  db.log('estado evento', `${ev.title}: ${ev.status} → ${status}${extra.rejectReason ? ' (' + extra.rejectReason + ')' : ''}`, user.id);
+  db.log('estado evento', `${ev.title}: ${from} → ${status}${extra.rejectReason ? ' (' + extra.rejectReason + ')' : ''}`, user.id);
   const prod = db.find('users', u => u.organizerId === ev.organizerId && u.role === 'productor');
   const msg = { publicado: `Tu evento "${ev.title}" fue aprobado y ya está a la venta.`, rechazado: `Tu evento "${ev.title}" fue rechazado: ${extra.rejectReason || ''}`, cancelado: `El evento "${ev.title}" fue cancelado.` }[status];
   if (prod && msg) notify(prod.id, msg);
