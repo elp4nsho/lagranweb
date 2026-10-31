@@ -70,3 +70,5 @@
   animation: lgw-geocities-twinkle 2.4s steps(2) infinite;
 }
 @keyframes lgw-geocities-twinkle { 50% { opacity: .2; } }
+/* En celular: marca y botones más angostos para que las cabeceras de las webs no se desborden. */
+@media (max-width: 600px) { [data-theme="geocities"] { --font-head: 'Tinos', 'Times New Roman', serif; --head-weight: 700; --head-transform: none; --body-size: 15px; } [data-theme="geocities"] .btn { font-size: 14px; border-width: 2px; padding-inline: 12px; } }

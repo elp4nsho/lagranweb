@@ -55,3 +55,8 @@
 @keyframes lgw-vaporwave-sun { to { transform: translateY(-14px); } }
 /* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
 [data-theme="vaporwave"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }
+/* En celular los botones pierden el espaciado ancho: las cabeceras de las webs no se desbordan. */
+@media (max-width: 600px) {
+  [data-theme="vaporwave"] { --head-spacing: .02em; --head-transform: none; }
+  [data-theme="vaporwave"] .btn { letter-spacing: .02em; text-transform: none; box-shadow: 2px 2px 0 #2b1747; }
+}

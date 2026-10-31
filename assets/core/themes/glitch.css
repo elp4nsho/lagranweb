@@ -1,6 +1,6 @@
 /* Glitch · Locos · oscuro — señal corrupta: negro, separación RGB, letras que se rompen y bloques que parpadean. */
 [data-theme="glitch"] {
-  --font-body: 'Red Hat Mono', ui-monospace, monospace; --font-head: 'Rubik', system-ui, sans-serif;
+  --font-body: 'Rubik', system-ui, sans-serif; --font-head: 'Rubik', system-ui, sans-serif;
   --font-mono: 'Red Hat Mono', monospace;
   --head-weight: 800; --head-transform: uppercase; --head-spacing: .01em; --body-size: 15px;
   --bg: #050505;
@@ -25,7 +25,7 @@
   93% { transform: translate(-3px, 1px); text-shadow: 4px 0 #ff2a6d, -4px 0 #2ad4ff; }
   96% { transform: translate(1px, 0) skewX(6deg); }
 }
-[data-theme="glitch"] .eyebrow { color: var(--primary); letter-spacing: .3em; }
+[data-theme="glitch"] .eyebrow { color: var(--primary); letter-spacing: .3em; font-family: var(--font-mono); }
 [data-theme="glitch"] .eyebrow::before { content: '▚▞ '; color: var(--accent); }
 :where([data-theme="glitch"]) .card { background: linear-gradient(90deg, transparent calc(100% - 4px), rgba(0, 255, 156, .5) calc(100% - 4px)) 0 18px / 100% 2px no-repeat, var(--surface); }
 [data-theme="glitch"] .card.hover:hover { box-shadow: var(--shadow-lg); transform: translateX(-2px); }
@@ -34,7 +34,7 @@
 [data-theme="glitch"] .btn-ghost { border-color: var(--primary); --c: var(--primary); }
 [data-theme="glitch"] .badge { border-radius: 0; text-transform: uppercase; letter-spacing: .1em; font-size: 11px; }
 [data-theme="glitch"] .badge::before { border-radius: 0; width: 7px; height: 3px; }
-[data-theme="glitch"] .table th { background: #000000; color: var(--primary); letter-spacing: .2em; }
+[data-theme="glitch"] .table th { background: #000000; color: var(--primary); letter-spacing: .2em; font-family: var(--font-mono); }
 [data-theme="glitch"] .table tbody tr:hover { background: var(--surface-2); box-shadow: inset 3px 0 0 #ff2a6d; }
 [data-theme="glitch"] .input, [data-theme="glitch"] .select, [data-theme="glitch"] .textarea { background-color: #000000; caret-color: var(--accent); }
 [data-theme="glitch"] .nav-link.active { background: var(--text); color: #050505; box-shadow: -3px 0 0 #ff2a6d, 3px 0 0 #2ad4ff; }
@@ -52,3 +52,5 @@
 @keyframes lgw-glitch-blocks { 0%, 70%, 100% { opacity: 0; transform: none; } 72% { opacity: .45; } 75% { opacity: .2; transform: translateX(30px); } 78% { opacity: .5; transform: translateX(-20px) scaleY(2); } 80% { opacity: 0; } }
 /* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
 [data-theme="glitch"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }
+/* En celular los botones pierden el espaciado ancho: las cabeceras de las webs no se desbordan. */
+@media (max-width: 600px) { [data-theme="glitch"] { --head-transform: none; } [data-theme="glitch"] .btn { letter-spacing: .04em; } }

@@ -64,7 +64,7 @@
     // Terror
     { id: 'halloween',     name: 'Halloween',       group: 'terror', dark: true,  anim: 'fadeInUp', desc: 'Calabazas, telarañas y murciélagos', sw: ['#140b1f', '#ff7a1a', '#9be564'], fonts: 'Creepster&family=Lexend:wght@400;500;600;700' },
     { id: 'dracula',       name: 'Drácula',         group: 'terror', dark: true,  desc: 'Gótico carmesí, arcos y velas',      sw: ['#0c0607', '#e8394b', '#d9c7a3'], fonts: 'Pirata+One&family=EB+Garamond:ital,wght@0,400;0,600;1,400' },
-    { id: 'slasher',       name: 'Slasher VHS',     group: 'terror', dark: true,  desc: 'Cinta gastada, sangre y REC',        sw: ['#070707', '#ff3030', '#3cf2ff'], fonts: 'Anton&family=Courier+Prime:wght@400;700' },
+    { id: 'slasher',       name: 'Slasher VHS',     group: 'terror', dark: true,  desc: 'Cinta gastada, sangre y REC',        sw: ['#070707', '#ff3030', '#3cf2ff'], fonts: 'Anton&family=Roboto+Condensed:wght@400;500;700&family=Courier+Prime:wght@400;700' },
     { id: 'lovecraft',     name: 'Cósmico',         group: 'terror', dark: true,  desc: 'Abismo lovecraftiano que te mira',   sw: ['#031110', '#5fe0b0', '#b48cff'], fonts: 'IM+Fell+English:ital@0;1&family=Crimson+Text:ital,wght@0,400;0,600;1,400' },
     { id: 'embrujada',     name: 'Casa embrujada',  group: 'terror', dark: false, desc: 'Papel tapiz, niebla y un fantasma',  sw: ['#e7e0d2', '#5b3a6b', '#3e5d59'], fonts: 'Henny+Penny&family=Lora:ital,wght@0,400;0,600;1,400;1,600' },
     // Fiestas y fechas
@@ -78,7 +78,7 @@
     { id: 'chino',         name: 'Año Nuevo Chino', group: 'fiestas', dark: true,  desc: 'Laca roja, oro y faroles',          sw: ['#6d0a12', '#ffd166', '#46d39a'], fonts: 'Noto+Serif+TC:wght@600;900&family=Mukta:wght@400;500;700' },
     // Locos
     { id: 'vaporwave',     name: 'Vaporwave',       group: 'locos', dark: false, desc: 'Sol a rayas y ventanas 90s',         sw: ['#f6d6f0', '#a8128a', '#00c2c7'], fonts: 'Righteous&family=Work+Sans:wght@400;500;600' },
-    { id: 'glitch',        name: 'Glitch',          group: 'locos', dark: true,  anim: 'lightSpeedIn', desc: 'Señal rota y separación RGB', sw: ['#050505', '#00ff9c', '#ff2a6d'], fonts: 'Rubik+Glitch&family=Rubik:wght@500;800&family=Red+Hat+Mono:wght@400;600' },
+    { id: 'glitch',        name: 'Glitch',          group: 'locos', dark: true,  anim: 'lightSpeedIn', desc: 'Señal rota y separación RGB', sw: ['#050505', '#00ff9c', '#ff2a6d'], fonts: 'Rubik+Glitch&family=Rubik:wght@400;500;800&family=Red+Hat+Mono:wght@400;600' },
     { id: 'comic',         name: 'Cómic',           group: 'locos', dark: false, anim: 'bounceIn', desc: 'Pop-art, tinta y globos',       sw: ['#fff6cf', '#d4001a', '#ffe100'], fonts: 'Bangers&family=Comic+Neue:wght@400;700' },
     { id: 'psicodelico',   name: 'Psicodélico 70s', group: 'locos', dark: false, desc: 'Ondas groovy y sombras apiladas',    sw: ['#fff1d6', '#b53a0b', '#7b2d8e'], fonts: 'Shrikhand&family=Kumbh+Sans:wght@400;600;700' },
     { id: 'geocities',     name: 'GeoCities 98',    group: 'locos', dark: true,  anim: 'flipInX', desc: 'Estrellas, biseles y arcoíris',  sw: ['#000018', '#00ffff', '#ff66ff'], fonts: 'Bungee&family=Bungee+Shade&family=Tinos:ital,wght@0,400;0,700;1,400' },

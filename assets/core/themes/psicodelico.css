@@ -47,3 +47,5 @@
 @keyframes lgw-psicodelico-spin { to { transform: rotate(360deg); } }
 /* Insignias opacas: el tinte de estado va sobre la superficie, así se leen igual sobre fondos con textura. */
 [data-theme="psicodelico"] .badge { background-color: var(--surface); background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent)); }
+/* En celular los bordes son más finos: las cabeceras de las webs no se desbordan. */
+@media (max-width: 600px) { [data-theme="psicodelico"] { --border-w: 2px; } }

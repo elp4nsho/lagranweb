@@ -1,6 +1,6 @@
 /* Slasher VHS · Terror · oscuro — cinta de video gastada: rojo sangre, aberración cromática, líneas de barrido y "REC". */
 [data-theme="slasher"] {
-  --font-body: 'Courier Prime', 'Courier New', monospace; --font-head: 'Anton', 'Impact', sans-serif;
+  --font-body: 'Roboto Condensed', 'Arial Narrow', sans-serif; --font-head: 'Anton', 'Impact', sans-serif;
   --font-mono: 'Courier Prime', monospace;
   --head-weight: 400; --head-transform: uppercase; --head-spacing: .02em; --body-size: 15px;
   --bg: #070707;
@@ -34,7 +34,7 @@
 [data-theme="slasher"] .badge::before { border-radius: 0; }
 [data-theme="slasher"] .table th { font-family: var(--font-head); font-weight: 400; letter-spacing: .1em; font-size: 13px; color: var(--text); background: #1f0a0a; border-bottom: 2px solid var(--primary); }
 [data-theme="slasher"] .table tbody tr:hover { background: rgba(255, 48, 48, .07); }
-[data-theme="slasher"] .input, [data-theme="slasher"] .select, [data-theme="slasher"] .textarea { background-color: #0b0b0b; caret-color: var(--primary); }
+[data-theme="slasher"] .input, [data-theme="slasher"] .select, [data-theme="slasher"] .textarea { background-color: #0b0b0b; caret-color: var(--primary); font-family: var(--font-mono); }
 [data-theme="slasher"] .nav-link.active { background: var(--primary); color: var(--on-primary); }
 [data-theme="slasher"] .nav-link.active .count { background: var(--on-primary); color: var(--primary); }
 [data-theme="slasher"] .progress > i { background: var(--primary); }
